@@ -1,0 +1,136 @@
+{
+  "missiontimer": {
+    "on_deactivation": "计时器停用时",
+    "on_timeup": "计时结束时",
+    "unknown_trigger": "未知触发条件"
+  },
+  "conversationpanel": {
+    "first_name": "名字：",
+    "last_name": "姓氏："
+  },
+  "mapdetailpanel": {
+    "dominated": "被控制",
+    "friendly": "友好",
+    "hostile": "敌对",
+    "none": "无",
+    "restricted": "受限",
+    "unexplored": "未探索",
+    "uninhabited": "无人居住"
+  },
+  "test_test": {
+    "no_options_supported": "不支持任何选项"
+  },
+  "tradingpanel": {
+    "buy": "[购买]",
+    "commodity": "货物",
+    "free": "空余：",
+    "in_hold": "货舱中",
+    "not_for_sale": "(不销售)",
+    "price": "价格",
+    "profit": "利润",
+    "sell": "[出售]"
+  },
+  "text_format": {
+    "": "???",
+    "1_credit": "1 积分",
+    "1_ton": "1 吨",
+    "1e15": "1e+15",
+    "ims_p_on_b_d_y": "%#I:%M:%S %p，%b %#d, %Y",
+    "ims_p_on_d_b_y": "%#I:%M:%S %p，%#d %b %Y"
+  },
+  "windows_winversion": {
+    "windows_nt_": "Windows NT "
+  },
+  "planet": {
+    "our_defense_fleet_will_make_sh": "我们的防御舰队将迅速击溃您。",
+    "please_dont_joke_about_that_s": "请勿拿这种事情开玩笑。",
+    "somehow_this_planet_does_not_": "不知为何，这颗行星没有政府。",
+    "we_are_already_paying_you_as_m": "我们已支付给您所能负担的最高报酬。",
+    "were_not_ready_to_surrender_y": "我们尚未准备好投降。",
+    "youre_not_worthy_of_our_time": "您不配占用我们的时间。"
+  },
+  "mapplanetcard": {
+    "outfitter": "装备店",
+    "shipyard": "船坞"
+  },
+  "mission": {
+    "on_abort": "中止时",
+    "on_accept": "接受时",
+    "on_complete": "完成时",
+    "on_daily": "每日触发时",
+    "on_decline": "拒绝时",
+    "on_defer": "推迟时",
+    "on_disabled": "禁用时",
+    "on_fail": "任务失败时",
+    "on_offer": "任务接取时",
+    "on_stopover": "中途停留时",
+    "on_visit": "访问行星时",
+    "on_waypoint": "抵达航点时",
+    "unknown_trigger": "未知触发条件"
+  },
+  "npc": {
+    "location_filter": "位置筛选器",
+    "on_assist": "协助时",
+    "on_board": "登船时",
+    "on_capture": "俘获时",
+    "on_destroy": "摧毁时",
+    "on_disable": "瘫痪时",
+    "on_encounter": "遭遇时",
+    "on_kill": "击杀时",
+    "on_provoke": "被激怒时",
+    "on_scan_cargo": "执行‘扫描货物’时",
+    "on_scan_outfits": "执行‘扫描装备’时",
+    "stock_conversation": "标准对话",
+    "stock_phrase_in_dialog": "对话中的固定短语",
+    "unknown_trigger": "未知触发条件"
+  },
+  "playerinfo": {
+    "hyperdrive": "跃迁引擎",
+    "jump_drive": "跳跃引擎",
+    "takeoff": "起飞",
+    "the_": "“",
+    "wormhole": "虫洞"
+  },
+  "gamewindow": {
+    "compiled_against_sdl_v": "编译时使用的 SDL 版本："
+  },
+  "missionaction": {
+    "planet_location_filter": "行星位置筛选器",
+    "stock_conversation": "标准对话",
+    "stock_phrase_in_dialog": "对话中的标准用语",
+    "system_location_filter": "星系位置筛选器"
+  },
+  "outfitterpanel": {
+    "cannot_afford_to_buy_this_item": "无法负担购买此物品并装入货舱的费用。",
+    "cargo": "货物",
+    "cargo_free": "剩余货舱：",
+    "no_outfit_selected": "未选择任何装备。",
+    "no_ship_selected": "未选择任何飞船。",
+    "ship": "飞船",
+    "shop": "商店",
+    "show_outfits_for_sale": "显示待售装备",
+    "show_outfits_in_cargo": "显示货舱中的装备",
+    "show_outfits_in_storage": "显示仓库中的装备",
+    "show_outfits_installed": "显示已安装装备",
+    "storage": "仓库",
+    "you_already_have_one_of_these_": "您已拥有此类许可证，无需重复购买。",
+    "you_cannot_": "您无法 ",
+    "you_cannot_buy_this_outfit_be": "您无法购买此装备，因为您缺少所需的许可证。",
+    "you_cannot_buy_this_outfit_her": "您无法在此处购买此装备。它仅出现在列表中，是因为您已拥有一个，",
+    "you_cannot_load_this_outfit_in": "您无法将此装备装入货舱，因为它占用 ",
+    "you_cannot_place_licenses_into": "您无法将许可证放入 ",
+    "you_cannot_place_maps_into_": "您无法将星图放入 ",
+    "you_dont_have_any_": "您没有任何 ",
+    "you_dont_have_enough_money_to": "您的资金不足以购买此装备，还需 ",
+    "you_have": "您拥有：",
+    "you_have_already_mapped_all_th": "您已通过该星图测绘了所有相关星系，因此无需再购买一份。"
+  },
+  "shipyardpanel": {
+    "buying_this_ship_requires_a_sp": "购买此飞船需要特殊许可证。",
+    "you_do_not_have_enough_credits": "您的积分不足以购买此飞船。",
+    "you_have": "您拥有："
+  },
+  "conversation": {
+    "conversation_action_": "对话动作 "
+  }
+}
