@@ -1,3 +1,161 @@
-pub async fn translate(_: &str, _: &str) -> anyhow::Result<()> {
+use crate::types::{PendingTranslations, QwenRequest, QwenResponse, TranslatedItem, TranslatedItems, TranslateItem, Message};
+use anyhow::{Context, Result};
+use reqwest::Client;
+use serde_json;
+use std::fs;
+use std::env;
+
+const SYSTEM_PROMPT: &str = r#"你是 Endless Sky 游戏的专业翻译。
+
+## 游戏背景
+Endless Sky 是一款开源太空探索游戏。玩家是飞船船长，在银河系中贸易、战斗、探索。
+人类分裂为多个派系：Republic（共和国）、Syndicate（辛迪加）、Free Worlds（自由世界）等。
+还有外星种族：Hai（海伊）、Korath（科拉斯）、Quarg（夸格）等。
+
+## 术语表
+| 英文 | 中文 | 说明 |
+|------|------|------|
+| ship | 飞船 | |
+| outfit | 装备 | 武器、引擎等可安装物品 |
+| planet | 行星 | |
+| system | 星系 | 包含行星的空间 |
+| hyperdrive | 跃迁引擎 | 星际航行设备 |
+| jump drive | 跳跃引擎 | 更高级的星际引擎 |
+| credits | 积分 | 货币单位 |
+| cargo | 货物 | |
+| mission | 任务 | |
+| hail | 呼叫 | 与其他飞船通讯 |
+| outfitting | 装备店 | |
+| shipyard | 船坞 | |
+| spaceport | 太空港 | |
+| crew | 船员 | |
+
+## 翻译规则
+1. 保持科幻游戏的语感和风格
+2. 专有名词使用术语表中的翻译
+3. 保留 {0}, {1}, <player> 等占位符不变
+4. 对话保持角色性格和语气
+5. UI 文本简洁明了
+6. 不要翻译 JSON 的 key，只翻译 text 字段的值"#;
+
+const BATCH_SIZE: usize = 20;
+
+/// Translate extracted text using Qwen API
+pub async fn translate(input: &str, output: &str) -> Result<()> {
+    let api_key = env::var("DASHSCOPE_API_KEY")
+        .context("DASHSCOPE_API_KEY not found in environment")?;
+
+    let base_url = env::var("DASHSCOPE_BASE_URL")
+        .unwrap_or_else(|_| "https://dashscope.aliyuncs.com/compatible-mode/v1".to_string());
+
+    let client = Client::new();
+
+    // Load pending translations
+    let content = fs::read_to_string(input)?;
+    let pending: PendingTranslations = serde_json::from_str(&content)?;
+
+    println!("Translating {} items...", pending.items.len());
+
+    let mut translated_items = Vec::new();
+
+    // Process in batches
+    for (batch_num, chunk) in pending.items.chunks(BATCH_SIZE).enumerate() {
+        println!("Processing batch {} of {}...",
+            batch_num + 1,
+            (pending.items.len() + BATCH_SIZE - 1) / BATCH_SIZE);
+
+        let batch_result = translate_batch(&client, &api_key, &base_url, chunk).await?;
+        translated_items.extend(batch_result);
+
+        // Small delay to avoid rate limiting
+        tokio::time::sleep(tokio::time::Duration::from_millis(500)).await;
+    }
+
+    let translated = TranslatedItems {
+        source: pending.source,
+        items: translated_items,
+    };
+
+    let json = serde_json::to_string_pretty(&translated)?;
+    fs::write(output, json)?;
+
+    println!("Translation complete. Saved to {}", output);
     Ok(())
+}
+
+async fn translate_batch(
+    client: &Client,
+    api_key: &str,
+    base_url: &str,
+    items: &[TranslateItem],
+) -> Result<Vec<TranslatedItem>> {
+    // Build the prompt with items to translate
+    let items_json = serde_json::to_string_pretty(
+        &items.iter().map(|i| serde_json::json!({
+            "id": i.id,
+            "text": i.text,
+            "context": i.context
+        })).collect::<Vec<_>>()
+    )?;
+
+    let user_prompt = format!(
+        "请将以下游戏文本翻译为简体中文。保持 JSON 数组格式，返回格式为：\n\
+         [{{\"id\": \"原id\", \"translated\": \"中文翻译\"}}]\n\n{}\n\n\
+         只返回 JSON 数组，不要有其他说明文字。",
+        items_json
+    );
+
+    let request = QwenRequest {
+        model: "qwen-plus".to_string(),
+        messages: vec![
+            Message {
+                role: "system".to_string(),
+                content: SYSTEM_PROMPT.to_string(),
+            },
+            Message {
+                role: "user".to_string(),
+                content: user_prompt,
+            },
+        ],
+    };
+
+    let response = client
+        .post(format!("{}/chat/completions", base_url))
+        .header("Authorization", format!("Bearer {}", api_key))
+        .header("Content-Type", "application/json")
+        .json(&request)
+        .send()
+        .await?
+        .error_for_status()?;
+
+    let qwen_response: QwenResponse = response.json().await?;
+
+    let content = qwen_response
+        .choices
+        .first()
+        .map(|c| c.message.content.as_str())
+        .context("No response from API")?;
+
+    // Parse the response
+    let parsed: Vec<serde_json::Value> = serde_json::from_str(
+        &content.trim_matches(|c| c == '`').replace("json\n", "")
+    )?;
+
+    let mut results = Vec::new();
+    for item in items {
+        let translated_text = parsed
+            .iter()
+            .find(|p| p["id"].as_str() == Some(&item.id))
+            .and_then(|p| p["translated"].as_str())
+            .unwrap_or(&item.text)
+            .to_string();
+
+        results.push(TranslatedItem {
+            id: item.id.clone(),
+            original: item.text.clone(),
+            translated: translated_text,
+        });
+    }
+
+    Ok(results)
 }
