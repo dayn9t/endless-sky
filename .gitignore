@@ -75,3 +75,5 @@ CMakeUserPresets.json
 
 # static code analysis
 /.scannerwork
+shell_name.tmp
+build-test/
