@@ -76,9 +76,104 @@ fn extract_ui(output: &str) -> Result<()> {
     Ok(())
 }
 
-/// Extract text from data files (placeholder - see Task 1.4)
-fn extract_data(_output: &str) -> Result<()> {
-    anyhow::bail!("Data extraction not yet implemented")
+/// Extract text from game data files
+fn extract_data(output: &str) -> Result<()> {
+    let data_dir = "data";
+    let mut items = Vec::new();
+
+    // Pattern for backtick-quoted text in data files
+    // `This is mission text`
+    let backtick_pattern = Regex::new(r#"`([^`]+)`"#)?;
+
+    // Pattern for display name
+    let display_name_pattern = Regex::new(r#"display name\s+"([^"]+)""#)?;
+
+    // Pattern for description
+    let description_pattern = Regex::new(r#"description\s+"([^"]+)""#)?;
+
+    for entry in WalkDir::new(data_dir)
+        .into_iter()
+        .filter_map(|e| e.ok())
+        .filter(|e| e.path().extension().map_or(false, |ext| ext == "txt"))
+    {
+        let path = entry.path();
+        let content = fs::read_to_string(path)?;
+        let relative_path = path.strip_prefix(data_dir)?.to_string_lossy();
+
+        // Extract backtick-quoted text (dialog, descriptions)
+        for cap in backtick_pattern.captures_iter(&content) {
+            let text = cap[1].to_string();
+            if should_translate_data(&text) {
+                items.push(TranslateItem {
+                    id: format!("data.{}.{}", relative_path.replace('/', "."), items.len()),
+                    text,
+                    context: Some(format!("Data file: {}", relative_path)),
+                    source: Some(format!("data/{}", relative_path)),
+                });
+            }
+        }
+
+        // Extract display names
+        for cap in display_name_pattern.captures_iter(&content) {
+            let text = cap[1].to_string();
+            if should_translate_data(&text) {
+                items.push(TranslateItem {
+                    id: format!("data.{}.display.{}", relative_path.replace('/', "."), items.len()),
+                    text,
+                    context: Some(format!("Display name in {}", relative_path)),
+                    source: Some(format!("data/{}", relative_path)),
+                });
+            }
+        }
+
+        // Extract descriptions
+        for cap in description_pattern.captures_iter(&content) {
+            let text = cap[1].to_string();
+            if should_translate_data(&text) {
+                items.push(TranslateItem {
+                    id: format!("data.{}.desc.{}", relative_path.replace('/', "."), items.len()),
+                    text,
+                    context: Some(format!("Description in {}", relative_path)),
+                    source: Some(format!("data/{}", relative_path)),
+                });
+            }
+        }
+    }
+
+    // Deduplicate
+    items.sort_by(|a, b| a.text.cmp(&b.text));
+    items.dedup_by(|a, b| a.text == b.text);
+
+    let pending = PendingTranslations {
+        source: "data".to_string(),
+        items,
+    };
+
+    let json = serde_json::to_string_pretty(&pending)?;
+    fs::write(output, json)?;
+
+    println!("Extracted {} data strings to {}", pending.items.len(), output);
+    Ok(())
+}
+
+/// Check if data text should be translated
+fn should_translate_data(text: &str) -> bool {
+    if text.is_empty() {
+        return false;
+    }
+    // Skip very short strings
+    if text.len() < 3 {
+        return false;
+    }
+    // Skip pure numbers or code
+    if text.chars().all(|c| c.is_numeric() || c == '.' || c == '-') {
+        return false;
+    }
+    // Skip condition syntax
+    if text.starts_with('<') && text.ends_with('>') {
+        return false;
+    }
+    true
 }
 
 /// Check if text should be translated
