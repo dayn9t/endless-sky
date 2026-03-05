@@ -22,30 +22,187 @@ target_sources(EndlessSkyTests PRIVATE
 	unit/src/helpers/datanode-factory.cpp
 	unit/src/helpers/logger-output.cpp
 	unit/src/test_account.cpp
+	unit/src/test_ai.cpp
+	unit/src/test_alertLabel.cpp
+	unit/src/test_ammoDisplay.cpp
 	unit/src/test_angle.cpp
+	unit/src/test_animate.cpp
+	unit/src/test_armament.cpp
+	unit/src/test_asteroidField.cpp
+	unit/src/test_BankPanel.cpp
 	unit/src/test_bitset.cpp
+	unit/src/test_body.cpp
+	unit/src/test_BoardingPanel.cpp
+	unit/src/test_bookEntry.cpp
+	unit/src/test_camera.cpp
+	unit/src/test_captureOdds.cpp
+	unit/src/test_cargoHold.cpp
 	unit/src/test_categoryList.cpp
+	unit/src/test_CategoryType.cpp
+	unit/src/test_ClickZone.cpp
+	unit/src/test_collision.cpp
+	unit/src/test_collisionSet.cpp
+	unit/src/test_CollisionType.cpp
+	unit/src/test_color.cpp
+	unit/src/test_command.cpp
 	unit/src/test_conditionAssignments.cpp
+	unit/src/test_conditionEntry.cpp
 	unit/src/test_conditionSet.cpp
 	unit/src/test_conditionsStore.cpp
+	unit/src/test_conversation.cpp
+	unit/src/test_ConversationPanel.cpp
+	unit/src/test_coreStartData.cpp
+	unit/src/test_customEvents.cpp
+	unit/src/test_damageProfile.cpp
 	unit/src/test_datafile.cpp
 	unit/src/test_datanode.cpp
 	unit/src/test_datawriter.cpp
+	unit/src/test_date.cpp
+	unit/src/test_depreciation.cpp
+	unit/src/test_dialogSettings.cpp
+	unit/src/test_DialogPanel.cpp
 	unit/src/test_dictionary.cpp
 	unit/src/test_distance_calculation_settings.cpp
+	unit/src/test_distanceMap.cpp
+	unit/src/test_distribution.cpp
+	unit/src/test_drawable.cpp
+	unit/src/test_effect.cpp
+	unit/src/test_endpoint.cpp
+	unit/src/test_engine.cpp
+	unit/src/test_entity.cpp
+	unit/src/test_escortDisplay.cpp
 	unit/src/test_esuuid.cpp
 	unit/src/test_exclusiveItem.cpp
+	unit/src/test_files.cpp
 	unit/src/test_firecommand.cpp
+	unit/src/test_fighterHitHelper.cpp
+	unit/src/test_fleet.cpp
+	unit/src/test_fleetCargo.cpp
+	unit/src/test_flotsam.cpp
 	unit/src/test_formationPattern.cpp
+	unit/src/test_formationPositioner.cpp
+	unit/src/test_frameTimer.cpp
+	unit/src/test_galaxy.cpp
+	unit/src/test_gameAction.cpp
+	unit/src/test_gameData.cpp
+	unit/src/test_gameEvent.cpp
+	unit/src/test_GameLoadingPanel.cpp
+	unit/src/test_gamerules.cpp
+	unit/src/test_GamerulesPanel.cpp
+	unit/src/test_gameVersion.cpp
+	unit/src/test_gameWindow.cpp
+	unit/src/test_government.cpp
+	unit/src/test_hailPanel.cpp
+	unit/src/test_hardpoint.cpp
+	unit/src/test_hasher.cpp
+	unit/src/test_hazard.cpp
+	unit/src/test_HiringPanel.cpp
+	unit/src/test_infoPanelState.cpp
+	unit/src/test_information.cpp
+	unit/src/test_interface.cpp
+	unit/src/test_itemInfoDisplay.cpp
+	unit/src/test_JumpType.cpp
+	unit/src/test_loadingCircle.cpp
+	unit/src/test_LoadPanel.cpp
+	unit/src/test_locationFilter.cpp
+	unit/src/test_LogbookPanel.cpp
+	unit/src/test_logger.cpp
 	unit/src/test_main.cpp
+	unit/src/test_MainPanel.cpp
+	unit/src/test_MapDetailPanel.cpp
+	unit/src/test_MapOutfitterPanel.cpp
+	unit/src/test_mapPanel.cpp
+	unit/src/test_mapPlanetCard.cpp
+	unit/src/test_mapSalesPanel.cpp
+	unit/src/test_mapShipyardPanel.cpp
+	unit/src/test_menuAnimationPanel.cpp
+	unit/src/test_menuPanel.cpp
+	unit/src/test_message.cpp
+	unit/src/test_messageLogPanel.cpp
+	unit/src/test_messages.cpp
+	unit/src/test_minable.cpp
+	unit/src/test_minableDamageDealt.cpp
+	unit/src/test_miniMap.cpp
+	unit/src/test_mission.cpp
+	unit/src/test_missionAction.cpp
+	unit/src/test_missionPanel.cpp
+	unit/src/test_missionTimer.cpp
+	unit/src/test_mortgage.cpp
+	unit/src/test_MouseButton.cpp
+	unit/src/test_news.cpp
+	unit/src/test_npc.cpp
+	unit/src/test_npcAction.cpp
+	unit/src/test_optionalInputDialogPanel.cpp
+	unit/src/test_outfit.cpp
+	unit/src/test_outfitInfoDisplay.cpp
+	unit/src/test_outfitterPanel.cpp
+	unit/src/test_panel.cpp
+	unit/src/test_Paragraphs.cpp
+	unit/src/test_person.cpp
+	unit/src/test_personality.cpp
+	unit/src/test_phrase.cpp
+	unit/src/test_planet.cpp
+	unit/src/test_planetLabel.cpp
+	unit/src/test_planetPanel.cpp
+	unit/src/test_playerInfo.cpp
+	unit/src/test_playerInfoPanel.cpp
+	unit/src/test_plugins.cpp
 	unit/src/test_point.cpp
+	unit/src/test_politics.cpp
+	unit/src/test_port.cpp
+	unit/src/test_preferences.cpp
+	unit/src/test_preferencesPanel.cpp
+	unit/src/test_printData.cpp
+	unit/src/test_projectile.cpp
+	unit/src/test_radar.cpp
+	unit/src/test_raidFleet.cpp
 	unit/src/test_random.cpp
+	unit/src/test_randomEvent.cpp
+	unit/src/test_rectangle.cpp
+	unit/src/test_renderBuffer.cpp
+	unit/src/test_routeEdge.cpp
+	unit/src/test_routePlan.cpp
+	unit/src/test_sale.cpp
+	unit/src/test_savedGame.cpp
+	unit/src/test_screen.cpp
+	unit/src/test_scrollBar.cpp
 	unit/src/test_scrollVar.cpp
 	unit/src/test_set.cpp
 	unit/src/test_ship.cpp
+	unit/src/test_shipEvent.cpp
+	unit/src/test_shipInfoDisplay.cpp
+	unit/src/test_shipInfoPanel.cpp
+	unit/src/test_shipJumpNavigation.cpp
+	unit/src/test_shipManager.cpp
+	unit/src/test_shipNameDialogPanel.cpp
+	unit/src/test_shipyardPanel.cpp
+	unit/src/test_shop.cpp
+	unit/src/test_shopPanel.cpp
+	unit/src/test_spaceportPanel.cpp
+	unit/src/test_startConditions.cpp
+	unit/src/test_startConditionsPanel.cpp
+	unit/src/test_stellarObject.cpp
 	unit/src/test_stringInterner.cpp
+	unit/src/test_swizzle.cpp
+	unit/src/test_system.cpp
+	unit/src/test_SystemEntry.cpp
+	unit/src/test_taskQueue.cpp
 	unit/src/test_template.txt
+	unit/src/test_textArea.cpp
+	unit/src/test_textReplacements.cpp
+	unit/src/test_tooltip.cpp
+	unit/src/test_trade.cpp
+	unit/src/test_tradingPanel.cpp
+	unit/src/test_ui.cpp
+	unit/src/test_universeObjects.cpp
+	unit/src/test_variant.cpp
+	unit/src/test_visual.cpp
+	unit/src/test_weapon.cpp
+	unit/src/test_weather.cpp
 	unit/src/test_weightedList.cpp
+	unit/src/test_wormhole.cpp
+	unit/src/test_WormholeStrategy.cpp
+	unit/src/test_zipFile.cpp
 	unit/src/text/test_alignment.cpp
 	unit/src/text/test_displaytext.cpp
 	unit/src/text/test_format.cpp

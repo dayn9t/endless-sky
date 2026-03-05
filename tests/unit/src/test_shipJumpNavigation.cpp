@@ -1,5 +1,5 @@
-/* test_ship.cpp
-Copyright (c) 2021 by Benjamin Hauch
+/* test_shipJumpNavigation.cpp
+Copyright (c) 2025 by jiang
 
 Endless Sky is free software: you can redistribute it and/or modify it under the
 terms of the GNU General Public License as published by the Free Software
@@ -16,7 +16,7 @@ this program. If not, see <https://www.gnu.org/licenses/>.
 #include "es-test.hpp"
 
 // Include only the tested class's header.
-#include "../../../source/Ship.h"
+#include "../../../source/ShipJumpNavigation.h"
 
 // ... and any system includes needed for the test file.
 #include <type_traits>
@@ -25,10 +25,9 @@ namespace { // test namespace
 
 // #region mock data
 
-// Ship has very heavy dependencies:
-// - Requires GameData for models
-// - Requires many subsystems (weapons, outfits, etc.)
-// Full testing requires GameData initialization.
+// ShipJumpNavigation depends on Ship, Outfit, and System classes which require
+// GameData initialization. Full integration tests would be needed to test
+// the Calibrate and Recalibrate methods with real ship data.
 
 // #endregion mock data
 
@@ -36,29 +35,29 @@ namespace { // test namespace
 
 // #region unit tests
 
-SCENARIO( "Ship type traits", "[Ship][TypeTraits]" ) {
-	GIVEN( "the Ship class" ) {
+SCENARIO( "ShipJumpNavigation type traits", "[ShipJumpNavigation][TypeTraits]" ) {
+	GIVEN( "the ShipJumpNavigation class" ) {
 		THEN( "it is default constructible" ) {
-			CHECK( std::is_default_constructible_v<Ship> );
+			CHECK( std::is_default_constructible_v<ShipJumpNavigation> );
 		}
 		AND_THEN( "it is copy constructible" ) {
-			CHECK( std::is_copy_constructible_v<Ship> );
+			CHECK( std::is_copy_constructible_v<ShipJumpNavigation> );
 		}
 		AND_THEN( "it is move constructible" ) {
-			CHECK( std::is_move_constructible_v<Ship> );
+			CHECK( std::is_move_constructible_v<ShipJumpNavigation> );
 		}
 		AND_THEN( "it is destructible" ) {
-			CHECK( std::is_destructible_v<Ship> );
+			CHECK( std::is_destructible_v<ShipJumpNavigation> );
 		}
 	}
 }
 
-// Note: Full testing of Ship requires:
-// 1. GameData initialized with ship models
-// 2. Testing with outfits and weapons
-// 3. Testing combat, movement, and AI behavior
+// Note: Full testing of ShipJumpNavigation requires:
+// 1. GameData initialized with systems and outfits
+// 2. Ship with jump drives
+// 3. Testing Calibrate and Recalibrate methods
 //
-// The Ship class is the core game object representing a spaceship.
+// The ShipJumpNavigation class manages jump capabilities for ships.
 
 // #endregion unit tests
 

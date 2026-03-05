@@ -1,5 +1,5 @@
-/* test_ship.cpp
-Copyright (c) 2021 by Benjamin Hauch
+/* test_weather.cpp
+Copyright (c) 2025 by the Endless Sky community
 
 Endless Sky is free software: you can redistribute it and/or modify it under the
 terms of the GNU General Public License as published by the Free Software
@@ -16,7 +16,7 @@ this program. If not, see <https://www.gnu.org/licenses/>.
 #include "es-test.hpp"
 
 // Include only the tested class's header.
-#include "../../../source/Ship.h"
+#include "../../../source/Weather.h"
 
 // ... and any system includes needed for the test file.
 #include <type_traits>
@@ -25,10 +25,8 @@ namespace { // test namespace
 
 // #region mock data
 
-// Ship has very heavy dependencies:
-// - Requires GameData for models
-// - Requires many subsystems (weapons, outfits, etc.)
-// Full testing requires GameData initialization.
+// Weather depends on Hazard, Visual, and other game systems.
+// Full testing requires GameData initialization with hazards.
 
 // #endregion mock data
 
@@ -36,29 +34,29 @@ namespace { // test namespace
 
 // #region unit tests
 
-SCENARIO( "Ship type traits", "[Ship][TypeTraits]" ) {
-	GIVEN( "the Ship class" ) {
+SCENARIO( "Weather type traits", "[Weather][TypeTraits]" ) {
+	GIVEN( "the Weather class" ) {
 		THEN( "it is default constructible" ) {
-			CHECK( std::is_default_constructible_v<Ship> );
+			CHECK( std::is_default_constructible_v<Weather> );
 		}
 		AND_THEN( "it is copy constructible" ) {
-			CHECK( std::is_copy_constructible_v<Ship> );
+			CHECK( std::is_copy_constructible_v<Weather> );
 		}
 		AND_THEN( "it is move constructible" ) {
-			CHECK( std::is_move_constructible_v<Ship> );
+			CHECK( std::is_move_constructible_v<Weather> );
 		}
 		AND_THEN( "it is destructible" ) {
-			CHECK( std::is_destructible_v<Ship> );
+			CHECK( std::is_destructible_v<Weather> );
 		}
 	}
 }
 
-// Note: Full testing of Ship requires:
-// 1. GameData initialized with ship models
-// 2. Testing with outfits and weapons
-// 3. Testing combat, movement, and AI behavior
+// Note: Full testing of Weather requires:
+// 1. GameData initialized with hazards
+// 2. Testing hazard application
+// 3. Testing visual effects
 //
-// The Ship class is the core game object representing a spaceship.
+// The Weather class manages environmental hazards in the game.
 
 // #endregion unit tests
 

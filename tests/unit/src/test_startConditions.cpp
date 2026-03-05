@@ -1,5 +1,5 @@
-/* test_ship.cpp
-Copyright (c) 2021 by Benjamin Hauch
+/* test_startConditions.cpp
+Copyright (c) 2026 by Endless Sky contributors
 
 Endless Sky is free software: you can redistribute it and/or modify it under the
 terms of the GNU General Public License as published by the Free Software
@@ -16,7 +16,7 @@ this program. If not, see <https://www.gnu.org/licenses/>.
 #include "es-test.hpp"
 
 // Include only the tested class's header.
-#include "../../../source/Ship.h"
+#include "../../../source/StartConditions.h"
 
 // ... and any system includes needed for the test file.
 #include <type_traits>
@@ -25,9 +25,10 @@ namespace { // test namespace
 
 // #region mock data
 
-// Ship has very heavy dependencies:
-// - Requires GameData for models
-// - Requires many subsystems (weapons, outfits, etc.)
+// StartConditions has heavy dependencies:
+// - Ship (requires GameData for models)
+// - Conversation (requires GameData)
+// - ConditionsStore
 // Full testing requires GameData initialization.
 
 // #endregion mock data
@@ -36,29 +37,23 @@ namespace { // test namespace
 
 // #region unit tests
 
-SCENARIO( "Ship type traits", "[Ship][TypeTraits]" ) {
-	GIVEN( "the Ship class" ) {
+SCENARIO( "StartConditions type traits", "[StartConditions][TypeTraits]" ) {
+	GIVEN( "the StartConditions class" ) {
 		THEN( "it is default constructible" ) {
-			CHECK( std::is_default_constructible_v<Ship> );
-		}
-		AND_THEN( "it is copy constructible" ) {
-			CHECK( std::is_copy_constructible_v<Ship> );
-		}
-		AND_THEN( "it is move constructible" ) {
-			CHECK( std::is_move_constructible_v<Ship> );
+			CHECK( std::is_default_constructible_v<StartConditions> );
 		}
 		AND_THEN( "it is destructible" ) {
-			CHECK( std::is_destructible_v<Ship> );
+			CHECK( std::is_destructible_v<StartConditions> );
 		}
 	}
 }
 
-// Note: Full testing of Ship requires:
-// 1. GameData initialized with ship models
-// 2. Testing with outfits and weapons
-// 3. Testing combat, movement, and AI behavior
+// Note: Full testing of StartConditions requires:
+// 1. GameData initialized with ships, outfits, conditions
+// 2. Conversation data
+// 3. Testing the load and save functionality
 //
-// The Ship class is the core game object representing a spaceship.
+// The StartConditions class defines starting conditions for new games.
 
 // #endregion unit tests
 
