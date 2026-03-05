@@ -167,6 +167,8 @@ target_sources(EndlessSkyLib PRIVATE
 	ItemInfoDisplay.cpp
 	ItemInfoDisplay.h
 	JumpType.h
+	Locale.cpp
+	Locale.h
 	Logger.cpp
 	Logger.h
 	LoadingCircle.cpp
