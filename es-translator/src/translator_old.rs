@@ -4,7 +4,6 @@ use reqwest::Client;
 use serde_json;
 use std::fs;
 use std::env;
-use std::time::Duration;
 
 const SYSTEM_PROMPT: &str = r#"你是 Endless Sky 游戏的专业翻译。
 
@@ -40,10 +39,8 @@ Endless Sky 是一款开源太空探索游戏。玩家是飞船船长，在银�
 6. 不要翻译 JSON 的 key，只翻译 text 字段的值"#;
 
 const BATCH_SIZE: usize = 20;
-const MAX_RETRIES: u32 = 3;
-const CHECKPOINT_INTERVAL: usize = 50; // Save checkpoint every 50 batches
 
-/// Translate extracted text using Qwen API with retry and checkpoint support
+/// Translate extracted text using Qwen API
 pub async fn translate(input: &str, output: &str) -> Result<()> {
     let api_key = env::var("DASHSCOPE_API_KEY")
         .context("DASHSCOPE_API_KEY not found in environment")?;
@@ -51,9 +48,7 @@ pub async fn translate(input: &str, output: &str) -> Result<()> {
     let base_url = env::var("DASHSCOPE_BASE_URL")
         .unwrap_or_else(|_| "https://dashscope.aliyuncs.com/compatible-mode/v1".to_string());
 
-    let client = Client::builder()
-        .timeout(Duration::from_secs(60))
-        .build()?;
+    let client = Client::new();
 
     // Load pending translations
     let content = fs::read_to_string(input)?;
@@ -61,32 +56,19 @@ pub async fn translate(input: &str, output: &str) -> Result<()> {
 
     println!("Translating {} items...", pending.items.len());
 
-    // Try to load checkpoint
-    let checkpoint_file = format!("{}.checkpoint", output);
-    let mut translated_items = load_checkpoint(&checkpoint_file).unwrap_or_default();
-
-    let start_batch = translated_items.len() / BATCH_SIZE;
-    if start_batch > 0 {
-        println!("Resuming from checkpoint: {} items already translated", translated_items.len());
-    }
+    let mut translated_items = Vec::new();
 
     // Process in batches
-    let total_batches = (pending.items.len() + BATCH_SIZE - 1) / BATCH_SIZE;
-    for (batch_num, chunk) in pending.items.chunks(BATCH_SIZE).enumerate().skip(start_batch) {
-        println!("Processing batch {} of {}...", batch_num + 1, total_batches);
+    for (batch_num, chunk) in pending.items.chunks(BATCH_SIZE).enumerate() {
+        println!("Processing batch {} of {}...",
+            batch_num + 1,
+            (pending.items.len() + BATCH_SIZE - 1) / BATCH_SIZE);
 
-        // Retry logic
-        let batch_result = translate_batch_with_retry(&client, &api_key, &base_url, chunk).await?;
+        let batch_result = translate_batch(&client, &api_key, &base_url, chunk).await?;
         translated_items.extend(batch_result);
 
-        // Save checkpoint periodically
-        if (batch_num + 1) % CHECKPOINT_INTERVAL == 0 {
-            save_checkpoint(&checkpoint_file, &pending.source, &translated_items)?;
-            println!("Checkpoint saved: {} items", translated_items.len());
-        }
-
         // Small delay to avoid rate limiting
-        tokio::time::sleep(Duration::from_millis(500)).await;
+        tokio::time::sleep(tokio::time::Duration::from_millis(500)).await;
     }
 
     let translated = TranslatedItems {
@@ -97,37 +79,8 @@ pub async fn translate(input: &str, output: &str) -> Result<()> {
     let json = serde_json::to_string_pretty(&translated)?;
     fs::write(output, json)?;
 
-    // Remove checkpoint file on success
-    let _ = fs::remove_file(&checkpoint_file);
-
     println!("Translation complete. Saved to {}", output);
     Ok(())
-}
-
-/// Translate a batch with retry logic
-async fn translate_batch_with_retry(
-    client: &Client,
-    api_key: &str,
-    base_url: &str,
-    items: &[TranslateItem],
-) -> Result<Vec<TranslatedItem>> {
-    let mut last_error = None;
-
-    for attempt in 0..MAX_RETRIES {
-        match translate_batch(client, api_key, base_url, items).await {
-            Ok(result) => return Ok(result),
-            Err(e) => {
-                last_error = Some(e);
-                if attempt < MAX_RETRIES - 1 {
-                    let delay = Duration::from_secs(2u64.pow(attempt));
-                    println!("Retry attempt {} after {:?}...", attempt + 1, delay);
-                    tokio::time::sleep(delay).await;
-                }
-            }
-        }
-    }
-
-    Err(last_error.unwrap())
 }
 
 async fn translate_batch(
@@ -205,28 +158,4 @@ async fn translate_batch(
     }
 
     Ok(results)
-}
-
-/// Load checkpoint file
-fn load_checkpoint(checkpoint_file: &str) -> Result<Vec<TranslatedItem>> {
-    let content = fs::read_to_string(checkpoint_file)?;
-    let checkpoint: TranslatedItems = serde_json::from_str(&content)?;
-    Ok(checkpoint.items)
-}
-
-/// Save checkpoint file
-fn save_checkpoint(
-    checkpoint_file: &str,
-    source: &str,
-    items: &[TranslatedItem],
-) -> Result<()> {
-    let checkpoint = TranslatedItems {
-        source: source.to_string(),
-        items: items.to_vec(),
-    };
-
-    let json = serde_json::to_string_pretty(&checkpoint)?;
-    fs::write(checkpoint_file, json)?;
-
-    Ok(())
 }
