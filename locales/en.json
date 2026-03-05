@@ -1,0 +1,15 @@
+{
+  "note": "English is the default language. This file serves as a placeholder and reference structure.",
+  "outfitter_panel": {
+    "show_for_sale": "Show for sale",
+    "show_installed": "Show installed"
+  },
+  "shipyard_panel": {
+    "buy_ship": "Buy Ship",
+    "sell_ship": "Sell Ship"
+  },
+  "bank_panel": {
+    "apply_for_loan": "Apply for Loan",
+    "pay_off_loan": "Pay Off Loan"
+  }
+}
