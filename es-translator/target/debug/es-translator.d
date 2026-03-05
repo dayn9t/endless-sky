@@ -1,0 +1,1 @@
+/home/jiang/cc/games/endless-sky/es-translator/target/debug/es-translator: /home/jiang/cc/games/endless-sky/es-translator/src/extractor.rs /home/jiang/cc/games/endless-sky/es-translator/src/generator.rs /home/jiang/cc/games/endless-sky/es-translator/src/main.rs /home/jiang/cc/games/endless-sky/es-translator/src/translator.rs
