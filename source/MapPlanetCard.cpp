@@ -16,6 +16,7 @@ this program. If not, see <https://www.gnu.org/licenses/>.
 #include "MapPlanetCard.h"
 
 #include "Color.h"
+#include "Locale.h"
 #include "text/DisplayText.h"
 #include "shader/FillShader.h"
 #include "text/Font.h"
@@ -212,10 +213,10 @@ bool MapPlanetCard::DrawIfFits(const Point &uiPoint)
 			font.Draw(reputationLabel, uiPoint + Point(margin, textStart + categorySize * (1. + hasGovernments)),
 				hasSpaceport ? medium : faint);
 		if(FitsCategory(3.))
-			font.Draw("Shipyard", uiPoint + Point(margin, textStart + categorySize * (2. + hasGovernments)),
+			font.Draw(Locale::Get("mapplanetcard.shipyard"), uiPoint + Point(margin, textStart + categorySize * (2. + hasGovernments)),
 				hasShipyard ? medium : faint);
 		if(FitsCategory(2.))
-			font.Draw("Outfitter", uiPoint + Point(margin, textStart + categorySize * (3. + hasGovernments)),
+			font.Draw(Locale::Get("mapplanetcard.outfitter"), uiPoint + Point(margin, textStart + categorySize * (3. + hasGovernments)),
 				hasOutfitter ? medium : faint);
 		if(FitsCategory(1.))
 			font.Draw(hasVisited ? "(has been visited)" : "(not yet visited)",
