@@ -32,6 +32,7 @@ this program. If not, see <https://www.gnu.org/licenses/>.
 #include "GameVersion.h"
 #include "GameWindow.h"
 #include "Interface.h"
+#include "Locale.h"
 #include "Logger.h"
 #include "MainPanel.h"
 #include "MenuPanel.h"
@@ -149,6 +150,9 @@ int main(int argc, char *argv[])
 	}
 	printData = PrintData::IsPrintDataArgument(argv);
 	Files::Init(argv);
+
+	// Initialize localization system (Chinese support).
+	Locale::Init("zh_CN");
 
 	// Whether we are running an integration test.
 	const bool isTesting = !testToRunName.empty();

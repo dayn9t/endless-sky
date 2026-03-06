@@ -17,6 +17,7 @@ this program. If not, see <https://www.gnu.org/licenses/>.
 
 #include "Color.h"
 #include "Command.h"
+#include "Locale.h"
 #include "shader/FillShader.h"
 #include "text/Font.h"
 #include "text/FontSet.h"
@@ -110,14 +111,14 @@ void TradingPanel::Draw()
 	const Color &selected = *GameData::Colors().Get("bright");
 
 	int y = FIRST_Y;
-	font.Draw("Commodity", Point(MIN_X + NAME_X, y), selected);
-	font.Draw("Price", Point(MIN_X + PRICE_X, y), selected);
+	font.Draw(Locale::Get("tradingpanel.commodity"), Point(MIN_X + NAME_X, y), selected);
+	font.Draw(Locale::Get("tradingpanel.price"), Point(MIN_X + PRICE_X, y), selected);
 
 	string mod = "x " + to_string(Modifier());
 	font.Draw(mod, Point(MIN_X + BUY_X, y), unselected);
 	font.Draw(mod, Point(MIN_X + SELL_X, y), unselected);
 
-	font.Draw("In Hold", Point(MIN_X + HOLD_X, y), selected);
+	font.Draw(Locale::Get("tradingpanel.in_hold"), Point(MIN_X + HOLD_X, y), selected);
 
 	y += 5;
 	int lastY = y + 20 * COMMODITY_COUNT + 25;
@@ -208,7 +209,7 @@ void TradingPanel::Draw()
 	}
 
 	if(showProfit)
-		font.Draw("Profit", Point(MIN_X + PROFIT_X, FIRST_Y), selected);
+		font.Draw(Locale::Get("tradingpanel.profit"), Point(MIN_X + PROFIT_X, FIRST_Y), selected);
 
 	Information info;
 	if(sellOutfits)

@@ -2,6 +2,7 @@ mod types;
 mod extractor;
 mod translator;
 mod generator;
+mod batch_splitter;
 
 use clap::{Parser, Subcommand};
 
@@ -48,6 +49,36 @@ enum Commands {
         #[arg(long)]
         all: bool,
     },
+    /// Split large file into chunks
+    Split {
+        /// Input file path
+        #[arg(short, long)]
+        input: String,
+        /// Output directory for chunks
+        #[arg(short, long, default_value = "chunks")]
+        output_dir: String,
+    },
+    /// Process all chunks in a directory
+    ProcessChunks {
+        /// Input directory with chunk files
+        #[arg(short, long)]
+        input_dir: String,
+        /// Output directory for translated chunks
+        #[arg(short, long, default_value = "translated_chunks")]
+        output_dir: String,
+    },
+    /// Merge translated chunks
+    Merge {
+        /// Directory with translated chunks
+        #[arg(short, long)]
+        input_dir: String,
+        /// Final output file
+        #[arg(short, long)]
+        output: String,
+        /// Source identifier
+        #[arg(short, long)]
+        source: String,
+    },
 }
 
 #[tokio::main]
@@ -72,7 +103,69 @@ async fn main() -> anyhow::Result<()> {
                 // TODO: Full pipeline
             }
         }
+        Commands::Split { input, output_dir } => {
+            batch_splitter::split_pending_file(&input, &output_dir)?;
+        }
+        Commands::ProcessChunks { input_dir, output_dir } => {
+            process_all_chunks(&input_dir, &output_dir).await?;
+        }
+        Commands::Merge { input_dir, output, source } => {
+            let chunk_files: Vec<String> = std::fs::read_dir(&input_dir)?
+                .filter_map(|e| e.ok())
+                .filter(|e| e.path().extension().and_then(|s| s.to_str()) == Some("json"))
+                .filter_map(|e| e.path().to_str().map(String::from))
+                .collect();
+            batch_splitter::merge_translated_chunks(&chunk_files, &output, &source)?;
+        }
     }
+
+    Ok(())
+}
+
+async fn process_all_chunks(input_dir: &str, output_dir: &str) -> anyhow::Result<()> {
+    use std::path::Path;
+
+    std::fs::create_dir_all(output_dir)?;
+
+    let mut chunk_files: Vec<String> = std::fs::read_dir(input_dir)?
+        .filter_map(|e| e.ok())
+        .filter(|e| e.path().extension().and_then(|s| s.to_str()) == Some("json"))
+        .filter_map(|e| e.path().to_str().map(String::from))
+        .collect();
+
+    chunk_files.sort();
+
+    let total = chunk_files.len();
+    let completed = batch_splitter::count_completed(output_dir)?;
+
+    println!("Found {} chunks to process", total);
+    println!("Already completed: {} items", completed);
+
+    for (idx, chunk_file) in chunk_files.iter().enumerate() {
+        let filename = Path::new(chunk_file).file_name().unwrap().to_str().unwrap();
+        let output_file = format!("{}/{}", output_dir, filename);
+
+        if Path::new(&output_file).exists() {
+            println!("[{}/{}] {} already translated, skipping", idx + 1, total, filename);
+            continue;
+        }
+
+        println!("[{}/{}] Translating {}...", idx + 1, total, filename);
+
+        match translator::translate(chunk_file, &output_file).await {
+            Ok(_) => println!("  ✓ Completed: {}", output_file),
+            Err(e) => {
+                eprintln!("  ✗ Failed: {}", e);
+                eprintln!("  Continuing with next chunk...");
+            }
+        }
+
+        // Longer delay between chunks to avoid rate limiting
+        tokio::time::sleep(tokio::time::Duration::from_secs(2)).await;
+    }
+
+    let final_count = batch_splitter::count_completed(output_dir)?;
+    println!("\nBatch processing complete: {}/{} chunks, {} total items", total, total, final_count);
 
     Ok(())
 }
