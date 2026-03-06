@@ -20,6 +20,7 @@ this program. If not, see <https://www.gnu.org/licenses/>.
 #include "audio/Audio.h"
 #include "Color.h"
 #include "Command.h"
+#include "Locale.h"
 #include "CoreStartData.h"
 #include "DialogPanel.h"
 #include "text/DisplayText.h"
@@ -674,27 +675,27 @@ void MapDetailPanel::DrawKey()
 		RingShader::Draw(pos, OUTER, INNER, ReputationColor(1e-1, true, false));
 		RingShader::Draw(pos + Point(12., 0.), OUTER, INNER, ReputationColor(1e2, true, false));
 		RingShader::Draw(pos + Point(24., 0.), OUTER, INNER, ReputationColor(1e4, true, false));
-		font.Draw("Friendly", pos + textOff + Point(24., 0.), dim);
+		font.Draw(Locale::Get("mapdetailpanel.friendly"), pos + textOff + Point(24., 0.), dim);
 		pos.Y() += 20.;
 
 		RingShader::Draw(pos, OUTER, INNER, ReputationColor(-1e-1, false, false));
 		RingShader::Draw(pos + Point(12., 0.), OUTER, INNER, ReputationColor(-1e2, false, false));
 		RingShader::Draw(pos + Point(24., 0.), OUTER, INNER, ReputationColor(-1e4, false, false));
-		font.Draw("Hostile", pos + textOff + Point(24., 0.), dim);
+		font.Draw("Locale::Get("mapdetailpanel.hostile")", pos + textOff + Point(24., 0.), dim);
 		pos.Y() += 20.;
 
 		RingShader::Draw(pos, OUTER, INNER, ReputationColor(0., false, false));
-		font.Draw("Restricted", pos + textOff, dim);
+		font.Draw(Locale::Get("mapdetailpanel.restricted"), pos + textOff, dim);
 		pos.Y() += 20.;
 
 		RingShader::Draw(pos, OUTER, INNER, ReputationColor(0., false, true));
-		font.Draw("Dominated", pos + textOff, dim);
+		font.Draw("Locale::Get("mapdetailpanel.dominated")", pos + textOff, dim);
 		pos.Y() += 20.;
 	}
 	else if(commodity == SHOW_DANGER)
 	{
 		RingShader::Draw(pos, OUTER, INNER, DangerColor(numeric_limits<double>::quiet_NaN()));
-		font.Draw("None", pos + textOff, dim);
+		font.Draw(Locale::Get("mapdetailpanel.none"), pos + textOff, dim);
 		pos.Y() += 20.;
 		// Each system is colored in accordance with its danger to the player,
 		// including threats from any "raid fleet" presence.
@@ -713,13 +714,13 @@ void MapDetailPanel::DrawKey()
 	if(commodity != SHOW_DANGER && commodity != SHOW_STARS)
 	{
 		RingShader::Draw(pos, OUTER, INNER, UninhabitedColor());
-		font.Draw("Uninhabited", pos + textOff, dim);
+		font.Draw(Locale::Get("mapdetailpanel.uninhabited"), pos + textOff, dim);
 		pos.Y() += 20.;
 	}
 	if(commodity != SHOW_STARS)
 	{
 		RingShader::Draw(pos, OUTER, INNER, UnexploredColor());
-		font.Draw("Unexplored", pos + textOff, dim);
+		font.Draw(Locale::Get("mapdetailpanel.unexplored"), pos + textOff, dim);
 	}
 }
 
