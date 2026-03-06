@@ -681,7 +681,7 @@ void MapDetailPanel::DrawKey()
 		RingShader::Draw(pos, OUTER, INNER, ReputationColor(-1e-1, false, false));
 		RingShader::Draw(pos + Point(12., 0.), OUTER, INNER, ReputationColor(-1e2, false, false));
 		RingShader::Draw(pos + Point(24., 0.), OUTER, INNER, ReputationColor(-1e4, false, false));
-		font.Draw("Locale::Get("mapdetailpanel.hostile")", pos + textOff + Point(24., 0.), dim);
+		font.Draw(Locale::Get("mapdetailpanel.hostile"), pos + textOff + Point(24., 0.), dim);
 		pos.Y() += 20.;
 
 		RingShader::Draw(pos, OUTER, INNER, ReputationColor(0., false, false));
@@ -689,7 +689,7 @@ void MapDetailPanel::DrawKey()
 		pos.Y() += 20.;
 
 		RingShader::Draw(pos, OUTER, INNER, ReputationColor(0., false, true));
-		font.Draw("Locale::Get("mapdetailpanel.dominated")", pos + textOff, dim);
+		font.Draw(Locale::Get("mapdetailpanel.dominated"), pos + textOff, dim);
 		pos.Y() += 20.;
 	}
 	else if(commodity == SHOW_DANGER)
