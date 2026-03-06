@@ -18,6 +18,7 @@ this program. If not, see <https://www.gnu.org/licenses/>.
 #include "text/Alignment.h"
 #include "comparators/BySeriesAndIndex.h"
 #include "Color.h"
+#include "Locale.h"
 #include "DialogPanel.h"
 #include "text/DisplayText.h"
 #include "shader/FillShader.h"
@@ -963,24 +964,24 @@ void OutfitterPanel::DrawKey()
 	const Point checkboxOffset{.5 * activeAreaSize.X() - .5 * checkboxSize.X(), 0.};
 
 	SpriteShader::Draw(box[showForSale], pos);
-	font.Draw("Show outfits for sale", pos + labelOffset, color[showForSale]);
+	font.Draw(Locale::Get("outfitterpanel.show_outfits_for_sale"), pos + labelOffset, color[showForSale]);
 	AddZone(Rectangle(pos + checkboxOffset, activeAreaSize), [this](){ ToggleForSale(); });
 
 	pos.Y() += checkboxSize.Y();
 	SpriteShader::Draw(box[showInstalled], pos);
 	// The text color will be "medium" when no ships are selected, regardless of checkmark state,
 	// indicating that the selection is invalid (invalid context).
-	font.Draw("Show outfits installed", pos + labelOffset, color[showInstalled && playerShip]);
+	font.Draw(Locale::Get("outfitterpanel.show_outfits_installed"), pos + labelOffset, color[showInstalled && playerShip]);
 	AddZone(Rectangle(pos + checkboxOffset, activeAreaSize), [this]() { ToggleInstalled(); });
 
 	pos.Y() += checkboxSize.Y();
 	SpriteShader::Draw(box[showCargo], pos);
-	font.Draw("Show outfits in cargo", pos + labelOffset, color[showCargo]);
+	font.Draw(Locale::Get("outfitterpanel.show_outfits_in_cargo"), pos + labelOffset, color[showCargo]);
 	AddZone(Rectangle(pos + checkboxOffset, activeAreaSize), [this](){ ToggleCargo(); });
 
 	pos.Y() += checkboxSize.Y();
 	SpriteShader::Draw(box[showStorage], pos);
-	font.Draw("Show outfits in storage", pos + labelOffset, color[showStorage]);
+	font.Draw(Locale::Get("outfitterpanel.show_outfits_in_storage"), pos + labelOffset, color[showStorage]);
 	AddZone(Rectangle(pos + checkboxOffset, activeAreaSize), [this](){ ToggleStorage(); });
 }
 
@@ -1260,7 +1261,7 @@ void OutfitterPanel::DrawButtons()
 	const Point creditsPoint(
 		Screen::Right() - SIDEBAR_WIDTH + 10,
 		Screen::Bottom() - ButtonPanelHeight() + 10);
-	font.Draw("You have:", creditsPoint, dim);
+	font.Draw(Locale::Get("outfitterpanel.you_have"), creditsPoint, dim);
 	const string credits = Format::CreditString(player.Accounts().Credits());
 	font.Draw({credits, {SIDEBAR_WIDTH - 20, Alignment::RIGHT}}, creditsPoint, bright);
 
@@ -1268,7 +1269,7 @@ void OutfitterPanel::DrawButtons()
 	const Point cargoPoint(
 		Screen::Right() - SIDEBAR_WIDTH + 10,
 		Screen::Bottom() - ButtonPanelHeight() + 30);
-	font.Draw("Cargo Free:", cargoPoint, dim);
+	font.Draw(Locale::Get("outfitterpanel.cargo_free"), cargoPoint, dim);
 	string space = Format::Number(player.Cargo().Free()) + " / " + Format::Number(player.Cargo().Size());
 	font.Draw({space, {SIDEBAR_WIDTH - 20, Alignment::RIGHT}}, cargoPoint, bright);
 
