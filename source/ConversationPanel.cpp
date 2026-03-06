@@ -17,6 +17,7 @@ this program. If not, see <https://www.gnu.org/licenses/>.
 
 #include "text/Alignment.h"
 #include "audio/Audio.h"
+#include "Locale.h"
 #include "BoardingPanel.h"
 #include "text/Clipboard.h"
 #include "Color.h"
@@ -209,10 +210,10 @@ void ConversationPanel::Draw()
 			FillShader::Fill(center, Point(1., 16.), dim);
 		}
 
-		font.Draw("First name:", point + Point(40, 0), dim);
+		font.Draw(Locale::Get("conversationpanel.first_name"), point + Point(40, 0), dim);
 		font.Draw({firstName, layout}, point + Point(120, 0), choice ? gray : bright);
 
-		font.Draw("Last name:", point + Point(270, 0), dim);
+		font.Draw(Locale::Get("conversationpanel.last_name"), point + Point(270, 0), dim);
 		font.Draw({lastName, layout}, point + Point(350, 0), choice ? bright : gray);
 
 		// Draw the OK button, and remember its location.
