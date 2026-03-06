@@ -17,6 +17,7 @@ this program. If not, see <https://www.gnu.org/licenses/>.
 
 #include "text/Alignment.h"
 #include "comparators/BySeriesAndIndex.h"
+#include "Locale.h"
 #include "ClickZone.h"
 #include "DialogPanel.h"
 #include "text/DisplayText.h"
@@ -211,7 +212,7 @@ void ShipyardPanel::DrawButtons()
 	const Point creditsPoint(
 		Screen::Right() - SIDEBAR_WIDTH + 10,
 		Screen::Bottom() - ButtonPanelHeight() + 10);
-	font.Draw("You have:", creditsPoint, dim);
+	font.Draw(Locale::Get("shipyardpanel.you_have"), creditsPoint, dim);
 
 	const string credits = Format::CreditString(player.Accounts().Credits());
 	font.Draw({credits, {SIDEBAR_WIDTH - 20, Alignment::RIGHT}}, creditsPoint, bright);
