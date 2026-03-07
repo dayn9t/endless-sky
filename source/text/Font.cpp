@@ -84,8 +84,8 @@ void Font::Load(const filesystem::path &)
 		throw runtime_error(string("Cannot load font: ") + FONT_PATH);
 	ftFace = face;
 
-	FT_Set_Pixel_Sizes(face, 0, 14);
-	height = static_cast<int>(face->size->metrics.height >> 6);
+	FT_Set_Pixel_Sizes(face, 0, 28);  // 14 * 2 for HiDPI
+	height = static_cast<int>(face->size->metrics.height >> 6) / 2;
 	space = height / 2;
 
 	// Create atlas texture (single-channel GL_R8).
@@ -108,8 +108,8 @@ void Font::Load(const filesystem::path &)
 void Font::SetPixelSize(int px)
 {
 	FT_Face face = static_cast<FT_Face>(ftFace);
-	FT_Set_Pixel_Sizes(face, 0, px);
-	height = static_cast<int>(face->size->metrics.height >> 6);
+	FT_Set_Pixel_Sizes(face, 0, px * 2);  // 2x for HiDPI
+	height = static_cast<int>(face->size->metrics.height >> 6) / 2;
 	space = height / 2;
 	glyphCache.clear();
 	atlasX = atlasY = atlasRowH = 0;
@@ -157,7 +157,10 @@ void Font::Draw(const string &str, const Point &point, const Color &color) const
 void Font::DrawAliased(const string &str, double x, double y, const Color &color) const
 {
 	glUseProgram(shader->Object());
+	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, texture);
+	glUniform1i(shader->Uniform("tex"), 0);
+
 	if(OpenGL::HasVaoSupport())
 		glBindVertexArray(vao);
 	else
@@ -206,10 +209,11 @@ void Font::DrawAliased(const string &str, double x, double y, const Color &color
 
 		GLfloat gx = penX + static_cast<GLfloat>(g.bearingX);
 		GLfloat gy = penY - static_cast<GLfloat>(g.bearingY);
-		GLfloat gw = static_cast<GLfloat>(g.bitmapW);
-		GLfloat gh = static_cast<GLfloat>(g.bitmapH);
+		// glyphSize is in half-pixels for the shader (matches original bitmap font behavior).
+		GLfloat gw = static_cast<GLfloat>(g.bitmapW) * .5f;
+		GLfloat gh = static_cast<GLfloat>(g.bitmapH) * .5f;
 
-		glUniform2f(glyphSizeI, gw * .5f, gh * .5f);
+		glUniform2f(glyphSizeI, gw, gh);
 		GLfloat pos[2] = {gx, gy};
 		glUniform2fv(positionI, 1, pos);
 
@@ -315,7 +319,7 @@ void Font::RenderGlyphToAtlas(uint32_t cp, GlyphInfo &info) const
 	if(bw == 0 || bh == 0)
 	{
 		// Whitespace or invisible glyph — store advance only.
-		info.advance = slot->advance.x >> 6;
+		info.advance = (slot->advance.x >> 6) / 2;
 		info.loaded = true;
 		return;
 	}
@@ -332,18 +336,34 @@ void Font::RenderGlyphToAtlas(uint32_t cp, GlyphInfo &info) const
 
 	glBindTexture(GL_TEXTURE_2D, texture);
 	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-	glTexSubImage2D(GL_TEXTURE_2D, 0,
-		atlasX, atlasY, bw, bh,
-		GL_RED, GL_UNSIGNED_BYTE, slot->bitmap.buffer);
+	// FreeType bitmap may have padding; handle pitch if different from width.
+	if(slot->bitmap.pitch == bw)
+	{
+		glTexSubImage2D(GL_TEXTURE_2D, 0,
+			atlasX, atlasY, bw, bh,
+			GL_RED, GL_UNSIGNED_BYTE, slot->bitmap.buffer);
+	}
+	else
+	{
+		// Upload row by row to handle pitch.
+		for(int row = 0; row < bh; ++row)
+		{
+			const uint8_t *rowPtr = slot->bitmap.buffer + row * slot->bitmap.pitch;
+			glTexSubImage2D(GL_TEXTURE_2D, 0,
+				atlasX, atlasY + row, bw, 1,
+				GL_RED, GL_UNSIGNED_BYTE, rowPtr);
+		}
+	}
 	glBindTexture(GL_TEXTURE_2D, 0);
 
 	info.atlasX   = atlasX;
 	info.atlasY   = atlasY;
-	info.bitmapW  = bw;
-	info.bitmapH  = bh;
-	info.bearingX = slot->bitmap_left;
-	info.bearingY = slot->bitmap_top;
-	info.advance  = slot->advance.x >> 6;
+	// Convert from physical pixels to logical pixels (HiDPI: /2).
+	info.bitmapW  = (bw + 1) / 2;
+	info.bitmapH  = (bh + 1) / 2;
+	info.bearingX = slot->bitmap_left / 2;
+	info.bearingY = slot->bitmap_top / 2;
+	info.advance  = (slot->advance.x >> 6) / 2;
 	info.loaded   = true;
 
 	atlasX += bw + 1;
