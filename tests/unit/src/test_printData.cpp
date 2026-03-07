@@ -237,8 +237,8 @@ SCENARIO( "PrintData::Help output format", "[PrintData][Help][Format]" ) {
 			PrintData::Help();
 			std::string output = sink.Flush();
 
-			THEN( "output contains proper formatting with tabs for indentation" ) {
-				CHECK( output.find('\t') != std::string::npos );
+			THEN( "output contains proper formatting with spaces for indentation" ) {
+				CHECK( output.find("    ") != std::string::npos );
 			}
 
 			THEN( "output describes ship options with their modifiers" ) {
