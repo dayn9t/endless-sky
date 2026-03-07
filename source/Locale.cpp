@@ -20,6 +20,15 @@ this program. If not, see <https://www.gnu.org/licenses/>.
 #include <fstream>
 #include <sstream>
 
+// Platform-specific headers for language detection.
+#ifdef _WIN32
+#include <windows.h>
+#elif defined(__APPLE__)
+#include <CoreFoundation/CoreFoundation.h>
+#else
+#include <clocale>
+#endif
+
 using namespace std;
 
 
@@ -227,4 +236,105 @@ void Locale::LoadTranslations(const string &path)
 
 		++pos;
 	}
+}
+
+
+
+// Detect system language and return the best matching language code.
+string Locale::DetectSystemLanguage()
+{
+	string detectedLang = "en";
+
+#ifdef _WIN32
+	// Windows: Use GetUserDefaultUILanguage
+	LANGID langId = GetUserDefaultUILanguage();
+	char localeName[LOCALE_NAME_MAX_LENGTH];
+	if(LCIDToLocaleName(MAKELCID(langId, SORT_DEFAULT), localeName, LOCALE_NAME_MAX_LENGTH, 0))
+	{
+		detectedLang = string(localeName);
+		// Convert to lowercase
+		for(char &c : detectedLang)
+			c = static_cast<char>(tolower(static_cast<unsigned char>(c)));
+		// Replace hyphen with underscore for consistency
+		size_t hyphenPos = detectedLang.find('-');
+		if(hyphenPos != string::npos)
+			detectedLang.replace(hyphenPos, 1, "_");
+	}
+#elif defined(__APPLE__)
+	// macOS: Use CFLocaleCopyCurrent
+	CFLocaleRef locale = CFLocaleCopyCurrent();
+	CFStringRef langCode = (CFStringRef)CFLocaleGetValue(locale, kCFLocaleLanguageCode);
+	CFStringRef countryCode = (CFStringRef)CFLocaleGetValue(locale, kCFLocaleCountryCode);
+
+	char langBuf[16] = {0};
+	char countryBuf[16] = {0};
+
+	CFStringGetCString(langCode, langBuf, sizeof(langBuf), kCFStringEncodingUTF8);
+	if(countryCode)
+		CFStringGetCString(countryCode, countryBuf, sizeof(countryBuf), kCFStringEncodingUTF8);
+
+	if(countryBuf[0])
+		detectedLang = string(langBuf) + "_" + string(countryBuf);
+	else
+		detectedLang = string(langBuf);
+
+	CFRelease(locale);
+#else
+	// Linux/Unix: Use setlocale
+	const char *locale = setlocale(LC_ALL, "");
+	if(locale && locale[0] != '\0')
+	{
+		string localeStr(locale);
+		// Extract language and country from locale string (e.g., "zh_CN.UTF-8" -> "zh_CN")
+		size_t dotPos = localeStr.find('.');
+		if(dotPos != string::npos)
+			localeStr = localeStr.substr(0, dotPos);
+
+		size_t atPos = localeStr.find('@');
+		if(atPos != string::npos)
+			localeStr = localeStr.substr(0, atPos);
+
+		// Check for underscore separator
+		size_t underscorePos = localeStr.find('_');
+		if(underscorePos != string::npos)
+		{
+			string lang = localeStr.substr(0, underscorePos);
+			string country = localeStr.substr(underscorePos + 1);
+			// Convert to lowercase for consistency
+			for(char &c : lang)
+				c = static_cast<char>(tolower(static_cast<unsigned char>(c)));
+			for(char &c : country)
+				c = static_cast<char>(toupper(static_cast<unsigned char>(c)));
+			detectedLang = lang + "_" + country;
+		}
+		else
+		{
+			// No country code, just language
+			for(char &c : localeStr)
+				c = static_cast<char>(tolower(static_cast<unsigned char>(c)));
+			detectedLang = localeStr;
+		}
+	}
+#endif
+
+	// Map common language codes to supported formats
+	// Chinese variants
+	if(detectedLang == "zh_cn" || detectedLang == "zh_hans" || detectedLang == "zh_sg")
+		return "zh_CN";
+	if(detectedLang == "zh_tw" || detectedLang == "zh_hant" || detectedLang == "zh_hk" || detectedLang == "zh_mo")
+		return "zh_TW";
+
+	// Normalize to lowercase for single-language codes
+	for(char &c : detectedLang)
+		c = static_cast<char>(tolower(static_cast<unsigned char>(c)));
+
+	// Check for supported languages
+	if(detectedLang == "en" || detectedLang == "de" || detectedLang == "fr" ||
+	   detectedLang == "es" || detectedLang == "it" || detectedLang == "ja" ||
+	   detectedLang == "ko" || detectedLang == "pt" || detectedLang == "ru" ||
+	   detectedLang == "zh_cn" || detectedLang == "zh_tw")
+		return detectedLang;
+
+	// Default to English if language not supported
+	return "en";
 }

@@ -151,8 +151,8 @@ int main(int argc, char *argv[])
 	printData = PrintData::IsPrintDataArgument(argv);
 	Files::Init(argv);
 
-	// Initialize localization system (Chinese support).
-	Locale::Init("zh_CN");
+	// Initialize localization system with automatic language detection.
+	Locale::Init(Locale::DetectSystemLanguage());
 
 	// Whether we are running an integration test.
 	const bool isTesting = !testToRunName.empty();

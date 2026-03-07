@@ -47,6 +47,10 @@ public:
 	// Clear all loaded translations (useful for testing).
 	static void Clear();
 
+	// Detect system language and return the best matching language code.
+	// Returns "zh_CN" for Chinese, "en" for English, etc.
+	static std::string DetectSystemLanguage();
+
 
 private:
 	// Current language code (e.g., "zh_CN", "en").
