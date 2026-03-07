@@ -57,7 +57,7 @@ pub async fn translate(input: &str, output: &str) -> Result<()> {
         .unwrap_or_else(|_| "https://dashscope.aliyuncs.com/compatible-mode/v1".to_string());
 
     let client = Client::builder()
-        .timeout(Duration::from_secs(60))
+        .timeout(Duration::from_secs(120))
         .build()?;
 
     // Load pending translations
