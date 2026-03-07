@@ -107,6 +107,9 @@ endif()
 # Find the zip-reading component of zlib.
 find_package(ZLIB REQUIRED)
 
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(FREETYPE REQUIRED freetype2)
+
 if(APPLE AND ES_USE_SYSTEM_LIBRARIES)
 	# Use pkg-config for minizip from Homebrew on macOS because it doesn't provide CMake configuration files.
 	find_package(PkgConfig REQUIRED)
@@ -172,6 +175,8 @@ endif()
 # Link with the general libraries.
 target_link_libraries(ExternalLibraries INTERFACE SDL2::SDL2 PNG::PNG JPEG::JPEG avif
 	OpenAL::OpenAL ${MINIZIP_LIBRARIES} FLAC::FLAC++ "$<IF:$<CONFIG:Debug>,${LIBMAD_LIB_DEBUG},${LIBMAD_LIB_RELEASE}>")
+target_link_libraries(ExternalLibraries INTERFACE ${FREETYPE_LIBRARIES})
+target_include_directories(ExternalLibraries INTERFACE ${FREETYPE_INCLUDE_DIRS})
 
 # Link the needed OS-specific dependencies, if any.
 if(WIN32)
