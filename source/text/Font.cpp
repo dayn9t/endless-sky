@@ -209,9 +209,9 @@ void Font::DrawAliased(const string &str, double x, double y, const Color &color
 
 		GLfloat gx = penX + static_cast<GLfloat>(g.bearingX);
 		GLfloat gy = penY - static_cast<GLfloat>(g.bearingY);
-		// glyphSize is in half-pixels for the shader (matches original bitmap font behavior).
-		GLfloat gw = static_cast<GLfloat>(g.bitmapW) * .5f;
-		GLfloat gh = static_cast<GLfloat>(g.bitmapH) * .5f;
+		// Convert physical pixels to logical pixels for shader (HiDPI: /2).
+		GLfloat gw = static_cast<GLfloat>(g.bitmapW) / 2.f;
+		GLfloat gh = static_cast<GLfloat>(g.bitmapH) / 2.f;
 
 		glUniform2f(glyphSizeI, gw, gh);
 		GLfloat pos[2] = {gx, gy};
@@ -358,9 +358,10 @@ void Font::RenderGlyphToAtlas(uint32_t cp, GlyphInfo &info) const
 
 	info.atlasX   = atlasX;
 	info.atlasY   = atlasY;
-	// Convert from physical pixels to logical pixels (HiDPI: /2).
-	info.bitmapW  = (bw + 1) / 2;
-	info.bitmapH  = (bh + 1) / 2;
+	// Store physical pixel dimensions for UV calculation.
+	info.bitmapW  = bw;
+	info.bitmapH  = bh;
+	// Convert bearings and advance from physical to logical pixels (HiDPI: /2).
 	info.bearingX = slot->bitmap_left / 2;
 	info.bearingY = slot->bitmap_top / 2;
 	info.advance  = (slot->advance.x >> 6) / 2;
