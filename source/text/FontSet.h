@@ -15,16 +15,13 @@ this program. If not, see <https://www.gnu.org/licenses/>.
 
 #pragma once
 
-#include <filesystem>
-
 class Font;
 
 
 
-// Class for getting the Font object for a given point size. Each font must be
-// based on a glyph image; right now only point sizes 14 and 18 exist.
+// Class for getting the Font object for a given point size.
 class FontSet {
 public:
-	static void Add(const std::filesystem::path &path, int size);
+	static void Add(int size);
 	static const Font &Get(int size);
 };

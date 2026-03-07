@@ -17,10 +17,8 @@ this program. If not, see <https://www.gnu.org/licenses/>.
 uniform vec2 scale;
 // The (x, y) coordinates of the top left corner of the glyph.
 uniform vec2 position;
-// The glyph to draw. (ASCII value - 32).
-uniform int glyph;
-// Aspect ratio of rendered glyph (unity by default).
-uniform float aspect;
+// UV rectangle in atlas: (u0, v0, u1, v1)
+uniform vec4 uvRect;
 // Glyph size (in pixels).
 uniform vec2 glyphSize;
 
@@ -31,9 +29,15 @@ in vec2 corner;
 // Output to the fragment shader.
 out vec2 texCoord;
 
-// Pick the proper glyph out of the texture.
 void main() {
-	texCoord = vec2((float(glyph) + corner.x) / 98.f, corner.y);
+	texCoord = vec2(
+		uvRect.x + corner.x * (uvRect.z - uvRect.x),
+		uvRect.y + corner.y * (uvRect.w - uvRect.y)
+	);
 	vec2 pos = vert * glyphSize;
-	gl_Position = vec4((aspect * pos.x + position.x) * scale.x, (pos.y + position.y) * scale.y, 0.f, 1.f);
+	gl_Position = vec4(
+		(pos.x + position.x) * scale.x,
+		(pos.y + position.y) * scale.y,
+		0.f, 1.f
+	);
 }

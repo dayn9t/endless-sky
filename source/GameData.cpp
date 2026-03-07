@@ -254,8 +254,8 @@ void GameData::LoadShaders()
 	BatchShader::Init();
 	RenderBuffer::Init();
 
-	FontSet::Add(Files::Images() / "font/ubuntu14r.png", 14);
-	FontSet::Add(Files::Images() / "font/ubuntu18r.png", 18);
+	FontSet::Add(14);
+	FontSet::Add(18);
 
 	background.Init(16384, 4096);
 }

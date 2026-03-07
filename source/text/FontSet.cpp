@@ -27,10 +27,13 @@ namespace {
 
 
 
-void FontSet::Add(const filesystem::path &path, int size)
+void FontSet::Add(int size)
 {
 	if(!fonts.contains(size))
-		fonts[size].Load(path);
+	{
+		fonts[size].Load({});
+		fonts[size].SetPixelSize(size);
+	}
 }
 
 
