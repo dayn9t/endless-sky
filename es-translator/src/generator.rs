@@ -162,7 +162,7 @@ fn generate_data(input: &str) -> Result<()> {
                         "ammo", "stock", "installed", "add", "remove", "outfit", "ship",
                         "flagship", "escort", "carry", "require", "provides", "thumbnail",
                         "sprite", "hardpoint", "gun", "turret", "fighter", "drone",
-                        "phrase", "conversation", "event", "fleet", "government",
+                        "phrase", "event", "fleet", "government", "scene",
                     ];
                     let idx = file_content.find(&old).unwrap_or(0);
                     let before = &file_content[..idx];

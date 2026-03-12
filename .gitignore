@@ -77,3 +77,14 @@ CMakeUserPresets.json
 /.scannerwork
 shell_name.tmp
 build-test/
+.env
+
+# es-translator intermediate files
+es-translator/plugins/
+es-translator/translated_untranslated.json.checkpoint
+es-translator/pending_missing.json
+es-translator/pending_final.json
+es-translator/pending_last5.json
+es-translator/translated_missing.json
+es-translator/translated_final.json
+es-translator/translated_last5.json
