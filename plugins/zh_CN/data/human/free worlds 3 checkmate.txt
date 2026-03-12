@@ -1,0 +1,2503 @@
+# Copyright (c) 2015 by Michael Zahniser
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+overwrite
+mission "FWC Scouting 1"
+	landing
+	name "Scout Kaus Borealis"
+	description "穿越<waypoints>星系，探明当地海军兵力部署强度，同时JJ将集结一支舰队准备发动进攻。"
+	autosave
+	source "New Portland"
+	waypoint "Kaus Borealis"
+	to offer
+		has "FW Liberate Delta Sagittarii: done"
+	on fail
+		dialog phrase "free worlds failed"
+	
+	on offer
+		log `在民兵组织“狼群”的协助下，将海军驱逐出人马座δ星系。“狼群”主张采取更激进手段，并在自由世界主力部队抵达前发动了先发制人的打击。如今，自由世界已决心与共和国死战到底，而非自证清白；那名叛逃者已被辛迪加重新捕获，他所掌握的一切情报也随之彻底丢失。`
+		conversation
+			`这是一场险象环生的激战——若非你们抵达前‘狼群’突袭已瘫痪或摧毁了海军舰队的大部分舰船，战局本可能截然不同。你不禁疑惑：‘狼群’究竟是如何集结起如此庞大的舰队，造成这般重创的？`
+			`	“好吧，”JJ说道，“木已成舟。现在再去揣测辛迪加那档子事的用意已经太晚了；如今我们已与共和国陷入不死不休的决战。这意味着我们必须尽快发动进攻——赶在他们调来更多增援之前。<last>船长，我需要你在集结新舰队期间执行一次侦察任务。我们的下一个目标必须是新冰岛上的海军基地。如果我们能将他们逐出该星系，我们的战略态势将大为改观。因此，我希望你经由开阳B星系航行，随后返回此处，向我汇报敌方舰队的实力。明白了吗？”`
+			choice
+				`	"没问题。"`
+					goto freya
+				`	"可以，但首先，您能告诉我‘狼群’是如何对海军造成如此巨大损失的吗？"`
+			`	“正如我之前所说，”JJ说道，“他们已集结了数量惊人的赏金猎人及其他游走在社会边缘、且同情我们事业的人士。”`
+			label freya
+			`	"还有一件事，"弗蕾亚说道，"你在北上途中，能否顺路护送一支来自天鹰座ζ星系的运输队？时间并非十万火急，但他们运载着‘无畏舰’新型反应堆核心所需的物资——你越早与他们会合，新反应堆就能越快投入使用。"`
+				accept
+	
+	npc
+		personality staying heroic
+		system "Kaus Borealis"
+		government "Republic"
+		fleet 2
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Carrier (Mark II)"
+				"Lance" 8
+				"Combat Drone" 6
+		fleet 3
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Cruiser (Mark II)"
+				"Combat Drone" 4
+
+
+overwrite
+mission "FWC Attack Kaus Borealis"
+	landing
+	name "Attack Kaus Borealis"
+	description "摧毁守卫考斯·博雷亚利斯的共和国海军舰队。狼群舰队将率先发起攻击，削弱其防御力量。"
+	autosave
+	source "New Portland"
+	destination "New Iceland"
+	clearance
+	to offer
+		has "FWC Scouting 1: done"
+	on fail
+		dialog phrase "free worlds failed"
+	
+	on offer
+		event "fwc attack kaus borealis"
+		conversation
+			`当你返回新波特兰时，一支规模可观的自由世界舰队已停泊在太空港周围的起降平台上。JJ 向你解释道：“海军突袭并拦腰切断我方领土后，许多舰船与指挥链失联，只得就近寻找庇护所。因此，我们费了一番功夫才将它们全部集结起来。而如今，我们急需另一场振奋人心的胜利——否则，舰队又将四散而去。”`
+			choice
+				`	“你是说，我们有民兵成员叛逃的风险？”`
+					goto desert
+				`	“嗯，他们全员返航参战，这本身就是一个好兆头。”`
+					goto fight
+			label desert
+			`	“是的，”JJ说道，“其中一部分人已经这么做了。不妨从民兵成员的角度想想：你参军是为了保卫一颗行星、抵御偶尔出没的海盗，而不是耗费数年时间辗转各个星系，与海军持续作战。有些人已经受够了。这场战争必须结束，而且必须尽快结束。”`
+				goto battle
+			label fight
+			`	“嗯，”JJ说道，“至少其中一部分人返回参战了。但许多人并没有。不妨换位思考一下民兵成员的立场：他们当初入伍，是为了守卫一颗行星、抵御偶尔出没的海盗，而不是耗费数年时间辗转于各个星系，与共和国海军持续鏖战。有些人真的已经受够了。这场战争必须结束——而且必须尽快结束。”`
+				goto battle
+			label battle
+			choice
+				`	“嗯，我们显然无法真正征服共和国。难道不该尝试外交手段吗？”`
+					goto diplomacy
+				`	“在我看来，我们需要展现出足够有力的威慑力，才能促使议会同意停火。”`
+					goto strength
+			label diplomacy
+			`	“是的，”JJ说道，“最终必须通过外交途径解决。但我们必须立足于强势地位展开谈判，而非弱势地位。这就意味着必须将海军驱逐出我们的领土。”`
+				goto plan
+			label strength
+			`	"完全正确，"JJ说道，"而要做到这一点，唯一的办法就是将海军驱逐出我们的领地。倘若这还不够……我们亦已为此类突发情况准备了相应预案。"`
+				goto plan
+			label plan
+			`	“那么，我们现在就进攻考斯·博雷亚利斯（Kaus Borealis）？”你问道。`
+			`	“没错，”他说道，“狼群舰队将再次率先出击、削弱敌方战力，随后你和你的飞船负责收尾清剿。我已向狼群舰队下达了进攻命令，请立即前往牵牛星B（Kaus Borealis），赶在敌人恢复之前加入战斗。”`
+				accept
+	
+	on visit
+		dialog `你已降落在<planet>，但仍有海军飞船在上空盘旋。你应该立即起飞，协助将其彻底歼灭。`
+	on complete
+		event "fwc capture kaus borealis"
+	
+	npc
+		government "Free Worlds"
+		personality heroic escort
+		fleet
+			names "free worlds capital"
+			fighters
+				names "free worlds fighters"
+			variant
+				"Dreadnought"
+				"Skein"
+				"Finch" 6
+		fleet
+			names "free worlds capital"
+			variant
+				"Dreadnought"
+				"Falcon (Heavy)"
+		fleet
+			names "free worlds capital"
+			variant
+				"Dreadnought"
+				"Falcon (Plasma)"
+		fleet
+			names "free worlds capital"
+			variant
+				"Dreadnought"
+				"Osprey"
+	
+	npc evade
+		personality staying heroic
+		system "Kaus Borealis"
+		government "Republic"
+		fleet 2
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Carrier (Mark II)"
+				"Lance" 8
+				"Combat Drone" 6
+		fleet 3
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Cruiser (Mark II)"
+				"Combat Drone" 4
+	
+	npc
+		personality staying derelict
+		system "Kaus Borealis"
+		government "Republic"
+		fleet
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Carrier (Mark II)"
+				"Frigate" 2
+		fleet
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Cruiser (Mark II)"
+				"Frigate" 2
+
+
+
+overwrite
+mission "FWC Cebalrai 1"
+	landing
+	name "Scout out Cebalrai"
+	description "侦察<waypoints>星系中海军的驻防情况，然后向<planet>上的托梅克汇报。"
+	autosave
+	source "New Iceland"
+	waypoint "Cebalrai"
+	to offer
+		has "FWC Attack Kaus Borealis: done"
+	on fail
+		dialog phrase "free worlds failed"
+	
+	on offer
+		log "Captured the Kaus Borealis system from the Navy, even though the locals are still loyal to the Republic. Also, learned that the Wolf Pack ships have been using nuclear missiles, and that is why they were so effective in decimating the Navy fleet."
+		conversation
+			`当你驾驶飞船降落时，突然意识到：这还是你第一次为一个并未自愿加入自由世界的共和国星系而战。你一时不知下一步该如何行动。幸运的是，很快又有更多自由世界飞船陆续抵达，其中一艘搭载着阿隆多，托梅克也随行在侧。“嗨，<first>，”托梅克说道，“没想到会再见到我吧？”`
+			`	阿隆多说道：“<first>，我先让你和托梅克叙叙旧。我得立刻去见总督——头顶上刚发生过太空核爆，当地人绝不可能毫无察觉。”`
+			choice
+				`	“什么？我们根本没用核武器，只用了常规武器！”`
+					goto conventional
+				`	"等等，狼群部队用的就是这个？"`
+					goto wolf
+			label conventional
+			`	“是的，”托梅克说道，“但‘狼群’动用了核武器。”见你脸上露出难以置信的表情，他又说：“呃，你以为他们是怎么造成那么大破坏的？难不成你以为他们暗中藏有一支规模庞大的主力舰队，而所有人都对此一无所知？”`
+				goto next
+			label wolf
+			`	“没错。”托梅克说道。他看起来对此并不怎么高兴。“否则他们怎么可能对海军造成如此巨大的损失？总不至于他们还偷偷藏了一支庞大的主力舰队吧。”`
+				goto next
+			label next
+			`	阿隆多匆匆赶往市政厅，试图面见总督；托梅克解释道：“狼群”所拥有的，只是一小批速度极快、搭载核弹头的飞船。他们跃迁进入星系后，向所能找到的任意目标倾泻导弹，然后在海军做出反应前迅速撤离。顺便说一句，我离开期间，你们可真是惹上大麻烦了。”`
+			choice
+				`	"你不是正处在软禁中吗？"`
+				`	“那么，你出现在这里，是否意味着参议院已经赦免了你？”`
+			`	“是的，”他说，“自从毒木星上阿尔法舰队那起事件之后，参议院中一些人开始认同我的观点——海盗确实构成严重威胁。而当海军转入攻势后，他们更认定我在战争中不可或缺。因此，我已官复原职。听说你也已进入议会，真是令人欣慰。”`
+			choice
+				`	“那么，我们下一步该怎么做？”`
+					goto end
+				`	"我还是很困惑，我们为什么要使用核武器，还有这些核武器究竟是从哪儿弄来的。"`
+			`	托梅克皱起眉头。“我自己也不太满意这个情况。‘狼群’正从格林罗克星球的一名军阀手中购买这些武器，而他们支付的方式是铀——也就是说，每交给我们一枚核弹，那名军阀就能用剩下的原料再自行制造一到两枚。依我看，这可不是什么好局面；但‘狼群’大概觉得，这是扭转战局的唯一办法。”`
+			`	"So, what do we do now?" you ask.`
+			label end
+			`	“嗯，”他说，“如果我们能夺取塞巴莱赖，那么我们的全部领土就只需扼守两处咽喉要道，如此一来，我们便能集中舰队力量抵御海军，而不至于兵力分散。因此，下一步我希望你前去侦察塞巴莱赖星系，并向我汇报海军在那里的部署情况。”`
+				accept
+	on visit
+		dialog phrase "generic waypoint on visit"
+	
+	on enter "Cebalrai"
+		dialog
+			`此处有几艘海军舰船，但数量远少于你上次袭击前凯斯·波拉里斯星系中的驻军。或许海军已决定将兵力撤回。`
+	
+	npc
+		personality staying heroic
+		system "Cebalrai"
+		government "Republic"
+		fleet
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Cruiser (Mark II)"
+				"Combat Drone" 4
+				"Gunboat (Mark II)" 2
+
+
+
+overwrite
+mission "FWC Cebalrai 1B"
+	landing
+	name "Capture Cebalrai"
+	description "率军进攻塞巴莱系统，驱逐或摧毁该系统内所有海军舰船。"
+	autosave
+	source "New Iceland"
+	destination "Tundra"
+	clearance
+	passengers 1
+	to offer
+		has "FWC Cebalrai 1: done"
+	on fail
+		dialog phrase "free worlds failed"
+	
+	on offer
+		event "fwc attack cebalrai"
+		event "fw tarazed republic"
+		conversation
+			`你与托梅克和阿隆多会合，并告知他们：塞巴莱系统内的防御力量似乎并不特别强大。“他们想必早已察觉大势已去，于是撤回了其余舰队。”阿隆多说道。`
+			`	“要么如此，”托梅克说道，“要么就是他们已得知我们不惜动用核武器，因而对再次与我们交战心存忌惮。顺便说一句，我至今仍对此事深感不安——他们迟早会以同样的方式还击。但无论如何，我们下一步行动已十分明确：集结一支舰队前往塞巴莱，夺取该星系控制权。<first>，这支舰队将由你全权指挥。阿隆多可随你同行，负责处理后续外交事务。”`
+			`	"在我们继续之前，"阿隆多说道，"你们两位应当知晓，我刚收到消息：塔拉泽德已正式决定与我们断绝关系。"`
+			`	托梅克神情颇为凝重，随后说道："对一个已被我们彻底包围的星系而言，这步棋确实大胆。不过眼下他们与我们毫不相干。我们出发前往塞巴莱瑞吧。"`
+				accept
+	
+	on visit
+		dialog `You've landed on <planet>, but there are still Navy ships circling overhead. You should take off and help finish them off.`
+	on complete
+		event "fwc capture cebalrai"
+	
+	npc
+		government "Free Worlds"
+		personality heroic escort
+		fleet
+			names "free worlds capital"
+			variant
+				"Dreadnought"
+				"Bastion"
+				"Fury (Flamethrower)" 4
+		fleet
+			names "free worlds capital"
+			variant
+				"Dreadnought"
+				"Falcon (Heavy)"
+				"Hawk" 2
+		fleet
+			names "free worlds capital"
+			variant
+				"Osprey"
+				"Argosy (Blaster)" 2
+	
+	npc evade
+		personality staying heroic
+		system "Cebalrai"
+		government "Republic"
+		fleet
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Carrier (Mark II)"
+				"Lance" 8
+				"Combat Drone" 6
+				"Frigate (Mark II)" 2
+		fleet
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Frigate (Mark II)"
+				"Gunboat (Mark II)" 2
+		fleet
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Frigate"
+				"Gunboat" 2
+		fleet
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Cruiser"
+				"Combat Drone" 4
+				"Frigate"
+
+
+
+overwrite
+mission "FWC Nuke Supply 1"
+	landing
+	name "Uranium Convoy"
+	description "前往遗忘星系，护送一艘向绿岩星军阀运送铀矿的货船。"
+	autosave
+	source Tundra
+	destination Oblivion
+	to offer
+		has "FWC Cebalrai 1B: done"
+	on fail
+		dialog phrase "free worlds failed"
+	
+	on offer
+		conversation
+			`当你驾船准备着陆时，船体传来一阵奇异的叮当声，类似穿越微陨石群时的声响。几秒钟后你意识到：这是下方城镇中射来的轻武器火力击中船体的声音。你的船体坚固得足以抵御子弹伤害，但这一信号再明确不过——你在此地并不受欢迎。”`
+			`	太空港显然空无一人，似乎也没有人急于出来迎接你。附近建筑中的狙击手仍不断朝你的船体射来几发毫无威胁的子弹。“我觉得我最好还是通过无线电联系总督。”阿隆多说道。`
+			choice
+				`	“他们难道不知道，只要我们愿意，我们的舰队轻而易举就能摧毁他们？”`
+					goto destroy
+				`	"你觉得我们还有可能达成和平协议吗？"`
+					goto peace
+			label destroy
+			`	“这将树立一个极其恶劣的先例，”阿隆多说道，“甚至可能比我们动用核武器的事实更加严重。一旦平民人口成为合法打击目标，我们的任何世界都可能随时遭到攻击。况且，轨道轰炸根本无从防御。从此以后，再也不会有人能在自己家中感到安全了。”`
+				goto next
+			label peace
+			`	“但愿如此。”阿隆多说道，“我们会先让他们朝我们开火一阵子，好让他们发泄怒火、表明立场。等他们发现共和国海军不会来营救他们时，我们再展开谈判——这确实是目前唯一的出路。我可不想成为自共和国建国以来、首个批准攻击民用目标的人。”`
+				goto next
+			label next
+			`	你等待了约一个小时。与此同时，更多自由世界飞船陆续进入该星系，其中一艘搭载着托梅克。他向你发来无线电通讯，说道：“我认为此处局势已尽在掌控——这意味着你将接到一项新任务。你恐怕不会喜欢这个任务，但我们需要你护送一艘来自奥布利维恩的货船。这是与‘魔鬼’持续合作的一部分：一批运往格林罗克的铀矿货物。”`
+			`	一艘自由世界飞船降落在离你飞船极近的位置，使阿隆多得以在狙击手视线之外转移登船。“祝你好运，”他临行时说道，“希望你归来之时，我们已与议会就某项会晤达成初步协商。”`
+				accept
+
+
+
+overwrite
+mission "FWC Nuke Supply: Enemies"
+	landing
+	invisible
+	non-blocking
+	to offer
+		has "FWC Nuke Supply 1: done"
+	
+	to fail
+		has "FWC Nuke Supply 1C: done"
+	
+	npc kill
+		government Republic
+		personality nemesis heroic
+		system Cebalrai
+		fleet
+			names "republic capital"
+			variant
+				"Gunboat (Mark II)" 3
+	npc kill
+		government Republic
+		personality nemesis heroic
+		system Castor
+		fleet
+			names "republic capital"
+			variant
+				"Gunboat (Mark II)" 3
+	npc kill
+		government Republic
+		personality nemesis heroic
+		system Betelgeuse
+		fleet
+			names "republic capital"
+			variant
+				"Gunboat (Mark II)" 3
+
+
+
+overwrite
+mission "FWC Nuke Supply 1B"
+	landing
+	name "Uranium Convoy"
+	description "护送一艘向格林罗克军阀运送铀的货船。"
+	autosave
+	source Oblivion
+	destination Greenrock
+	clearance
+	to offer
+		has "FWC Nuke Supply 1: done"
+	on fail
+		dialog phrase "free worlds failed"
+	
+	on offer
+		conversation
+			`你降落在<origin>，与一艘名为“蓝色远方号”的集装箱运输船的船长会面。他面色严峻，说道：“货物已全部装舱，我随时可以出发。这批货越早离开我的货舱，我就越能尽快恢复食品和药品的运输工作——这样才好。但愿你们议会诸位清楚自己在做什么。”`
+				accept
+	
+	npc accompany save
+		personality escort timid
+		government Merchant
+		ship "Container Transport" "F.S. Blue Yonder"
+	
+	on visit
+		dialog "You have reached <planet>, but the Blue Yonder is not here yet! Better depart and wait for them to arrive in this star system."
+
+
+
+overwrite
+mission "FWC Nuke Supply 1C"
+	landing
+	name "Warhead Convoy"
+	description "护送一艘载有核弹头的货船前往索拉斯。"
+	source Greenrock
+	destination Solace
+	to offer
+		has "FWC Nuke Supply 1B: done"
+	on fail
+		dialog phrase "free worlds failed"
+	
+	on offer
+		log "Delivered a load of enriched uranium to a warlord's fortress on Greenrock, in exchange for warheads for the Free Worlds to use against the Navy. Hopefully forming such a friendly relationship with dangerous criminals will not cause trouble for the Free Worlds in the future."
+		conversation
+			`你降落在绿岩星上众多私人堡垒之一——这些堡垒由彼此敌对的军阀分别掌控。几名工人将‘蓝色远方号’上的货物卸下，又装入若干铅衬、厚垫的特制货箱，里面装载的显然是核弹头。你不太确定自己是否愿意参与此事，但或许事实的确如此：唯有如此，你才有可能在对抗海军时拥有一线胜机。`
+				accept
+	on visit
+		dialog phrase "generic arrived-without-npc dialog"
+	
+	npc accompany save
+		personality escort timid
+		government Merchant
+		ship "Container Transport" "F.S. Blue Yonder"
+
+
+
+overwrite
+mission "FWC Diplomacy 1"
+	landing
+	name "Let's Try Diplomacy"
+	description "返回冻原星，与阿隆多会合，并陪他再度前往议会。也许这次他们愿意就停火展开谈判。"
+	autosave
+	source Solace
+	destination Tundra
+	to offer
+		has "FWC Nuke Supply 1C: done"
+	on fail
+		dialog phrase "free worlds failed"
+	
+	on offer
+		conversation
+			`狼群组织的一名成员自称“奥迪”，负责监督将核弹头从你的飞船上卸载。“干得漂亮，”他说，“将这些弹头安装到导弹上还需些时间。但一旦完成，为表彰你对我们的鼎力相助，菲菲已授权我们——若你有意购买，可优先向你出售。”`
+			choice
+				`	“太好了！我想我要一打。”`
+					goto yes
+				`	"抱歉，我奉命护送这支船队抵达此处，但我绝不愿参与核武器的使用——哪怕是为了赢得这场战争。"`
+					goto no
+				`	“等等，‘菲菲’？那是你们的领袖？”`
+					goto fifi
+			label yes
+			`	他笑道：“恐怕这办不到。与大多数导弹系统不同，我们尚未开发出任何供弹系统，使你能够从同一发射口连续发射多枚导弹。因此，这是一种每个发射口仅能使用一次的武器。不过好处是，两枚就足以击破哪怕最大型海军舰船的护盾。”`
+				goto next
+			label no
+			`	“这倒是可以理解，”他说，“但同时也愚昧而短视。不过，我明白为何有些人宁愿固守‘战争是一种高尚事业’的信念，也不愿承认它实则是一场毫无保留、只为生存而战的殊死搏斗。”`
+				goto next
+			label fifi
+			`	"是的，"他说道，"菲菲是‘狼群’的首领，而且是个极其凶悍的人物。我向你保证，你绝不想招惹她。当然，你也不会有这种机会，因为我们此刻立场一致。"他咧嘴一笑。`
+				goto next
+			label next
+			`	他刚卸完货物不久，你就收到了阿隆多发来的消息：“好消息，<first>！共和国已同意让我们赴议会进行外交访问。请尽快返回<planet>，以免他们改变主意。”`
+				accept
+
+
+
+overwrite
+mission "FWC Diplomacy 1B"
+	landing
+	name "Let's Try Diplomacy"
+	description "携阿隆多一同前往地球，与议会会面，尝试就停火协议条款展开谈判。"
+	autosave
+	source Tundra
+	destination Earth
+	clearance
+	to offer
+		has "FWC Diplomacy 1: done"
+	passengers 2
+	blocked "You have reached <origin>, but you don't have a bunk free for Alondo! You should return to <origin> once you have freed one up."
+	on fail
+		dialog phrase "free worlds failed"
+	
+	on offer
+		event "fw safe passage starts"
+		event "fw safe passage ends" 7
+		conversation
+			`当你与阿隆多会面时，他显得兴奋而乐观。“共和国已同意提供为期一周的安全通行权，”他说，“刚好够我们往返地球。更妙的是，我向他们提出：其中一项条件是双方同时释放全部战俘，包括卡佳娅——他们也答应了。”`
+			choice
+				`	“这是个大好消息！我们马上出发！”`
+					goto escort
+				`	"Wait, isn't this the third time they've promised to give Katya back to us? I'm starting to think she isn't even alive anymore."`
+			`	“嗯，我真心希望你是错的，”阿隆多说道，“我很想念她。要是当时由她来领导我们，我们或许根本不会陷入如此危急的境地。”`
+				goto escort
+			label escort
+			`	As you are returning to your ship, Alondo points out an Argosy parked next to you and says, "By the way, this ship will be escorting us on this mission. Providing a bit of extra defense."`
+			choice
+				`	“呃，我觉得‘大篷车号’恐怕还不够强，无法在对抗海军的战斗中扭转战局。”`
+				`	"求您告诉我，那玩意儿没装核弹吧？否则会引发严重的外交事件。"`
+					goto nukes
+			`	阿隆多叹了口气。“没错，但参议院认为，如果我们调派更大型的舰艇，看起来就更像是进攻舰队，而非护航编队。而且当然，这艘船并未搭载核武器——因为若海军在传感器上侦测到核载荷，还没等我们降落地球，就会先将我们击落于太空之中。总之，出发吧，愿一切顺利。”`
+				accept
+			label nukes
+			`	“不，不，当然不是，”阿隆多说道，“如果海军在他们的传感器上发现了那些东西，我们还没来得及登陆地球，就会被他们从天上轰下来。总之，我们出发吧，但愿一切顺利。”`
+				accept
+	
+	npc accompany save
+		government "Escort"
+		personality timid escort
+		ship "Argosy" "F.S. Big Brother"
+
+	on visit
+		dialog "You have reached <planet>, but the Big Brother is not here yet! Better depart and wait for them to arrive in this star system."
+
+
+
+overwrite
+mission "FWC Diplomacy 1C"
+	landing
+	name "Return to <planet>"
+	description "与议会的和平谈判已告失败。请在被海军击毁前返回<planet>。"
+	source Earth
+	destination Tundra
+	to offer
+		has "FWC Diplomacy 1B: done"
+	passengers 2
+	on fail
+		dialog phrase "free worlds failed"
+	
+	on offer
+		log "Visited Earth with Alondo to try to pressure Parliament into agreeing to a peace deal. The negotiations failed. Only escaped the planet safely because a Free Worlds ship in orbit threatened to bombard the Parliament building."
+		log "Rescued Katya from the Republic's custody. She is not happy about the extreme measures the Free Worlds are taking to win this war."
+		event "fw safe passage ends" 1
+		conversation
+			`当你降落在地球时，“老大哥”号飞船随你一同降落至太空港，确保你安全抵达，随后立即起飞离开。你与阿隆多被护送至议会大厦。在等待被召见向议会发言期间，阿隆多显得十分紧张，来回踱步，每隔几分钟便摆弄一下自己的手表。`
+			`	终于，你获邀进入议会大厅，议长道格拉斯·肖说道：“自由世界诸代表，我们已准备好听取你们的要求。”`
+			`	阿隆多说道：“我们此来并非为了提出要求，而是为了携手合作，共同协商达成和平协议。自由世界愿遣返所有战俘，并将塞巴莱瑞与北贯索星系的控制权交还共和国；同时承诺不再向北扩张领土、进入所谓‘粮仓’诸世界——即便这些世界主动请求加入我们。我们唯一所求，仅是自治权、和平，以及贵方归还所俘人员，包括凯蒂亚·雷诺兹。”`
+			`	小敖向卫兵做了个手势，他们便押送第三人进来，站在你们两人身旁。你愣了一下才认出那是卡佳，看起来疲惫不堪、衣衫凌乱。她低声对你耳语道：“所以，你们现在连核弹都用上了？这到底是谁的愚蠢主意？”`
+			choice
+				`	“这是我们唯一能抵抗海军的方式。”`
+				`	“我是在事后才得知他们干了什么。我对这事的反感绝不亚于你。”`
+			`	“有道理。”她说道，“但我希望这不会毁掉我们谈判的机会。”`
+			`	萧向你们三人发话：“我们已获悉你们的要求，现在，这是我们的回应。凯特琳娜·雷诺兹、阿隆多·格鲁耶尔，以及<first> <last>，现正式以叛国罪与武装叛乱罪对你们提起指控，审判即刻开始。”`
+			choice
+				`	“什么？我们可是被保证享有安全通行权的！”`
+				`	“你们会为此后悔的！要是敢逮捕我们，自由世界必将向你们展开报复！”`
+			`	当你试图抗议时，阿隆多开口了。他并未高声喊叫，但声音清晰压过了周围此起彼伏的低语：“我们的飞船正在轨道上待命。倘若我们未能返回——”`
+			`	萧打断了他的话：“你们的飞船对我们构不成任何威胁。我们早已确认其未搭载核武器；而本建筑的护盾系统与反导系统，也足以抵御常规武器攻击。此外，其货舱内仅装载普通非放射性金属。”`
+			`	阿隆多说道：“没错，确切地说，是钨。空气动力学设计的钨合金长杆，每根粗如树干，一端装有简易制导系统。我们的飞船目前正位于近地轨道，以约每秒八公里的速度运行。”他说话之际，议会大厅内渐渐陷入一片死寂。“因此，我们将返回飞船，”阿隆多继续道，“并带走雷诺兹小姐。若轨道上的飞船未能每隔两分钟收到来自我的讯号，它便会抛投全部载荷——届时，这座建筑将只剩下一个巨大的陨石坑。”他指了指腕上佩戴的手表，你顿时意识到，那必然是某种通讯装置。`
+			`	萧与议会其他几名成员低声简短商议片刻后说道：“你们将输掉这场战争，并为此付出惨重代价。卫兵，让他们返回自己的飞船。”你急忙赶回飞船并立即起飞，心中清楚：一旦脱离地球射程范围，海军极有可能毫不犹豫地向你发动攻击。`
+				launch
+	on visit
+		dialog `你降落在<planet>，却意识到阿隆多（Alondo）和卡佳（Katya）正乘坐你的一艘护航舰，而该舰尚未进入本星系。最好先离港，等待它抵达。`
+	
+	npc
+		government "Escort"
+		personality timid escort
+		ship "Argosy" "F.S. Big Brother"
+
+	npc
+		personality staying heroic
+		system "Vega"
+		government "Republic"
+		fleet 2
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Carrier (Mark II)"
+				"Lance" 8
+				"Combat Drone" 6
+		fleet 2
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Cruiser (Mark II)"
+				"Combat Drone" 4
+	
+	npc
+		personality staying heroic
+		system "Denebola"
+		government "Republic"
+		fleet 2
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Carrier (Mark II)"
+				"Lance" 8
+				"Combat Drone" 6
+		fleet 2
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Cruiser (Mark II)"
+				"Combat Drone" 4
+
+
+
+overwrite
+mission "FWC Checkmate 1"
+	landing
+	name "Defend Cebalrai"
+	description "摧毁正在攻击本星系的共和国飞船，随后着陆并决定下一步行动。自由世界援军应已在赶来的途中。"
+	autosave
+	source Tundra
+	to offer
+		has "FWC Diplomacy 1C: done"
+	on fail
+		dialog phrase "free worlds failed"
+	
+	on offer
+		event "fwc defend cebalrai"
+		conversation
+			`当你降落在冻原星（Tundra）时，托梅克见到卡佳归来似乎十分高兴，但你也察觉到他对卡佳将如何评价自由世界近期所作的种种抉择略显忧虑。“使用核武器、威胁轨道轰炸，”卡佳说道，“还将辛迪加视为盟友——我离开期间，还有什么是我没听说过的？”`
+			choice
+				`	“我们只希望这场战争尽快结束。”`
+				`	“我们一直只是竭力避免被海军歼灭，结果局势却渐渐失控了。”`
+			`	“我明白了。”她说道，“你对接下来该怎么做有计划吗？还是我们现在纯粹靠临场发挥？”`
+			`	阿隆多说道：“遗憾的是，我们确实有一项计划——这是我们最后的应急方案，代号‘将死’。我们的舰队将向北推进——”`
+			`	托梅克的一名手下冲进房间，打断了他：“长官，一支大型海军舰队正高速逼近！我们必须立刻升空所有飞船以击退他们。增援正在赶来，但可能要过一阵子才能抵达。”`
+			`	托梅克说道：“那么，行动开始了。<last>船长，请立刻返回您的飞船，协助防御。”`
+				launch
+	
+	npc
+		government "Free Worlds"
+		personality heroic escort
+		fleet
+			names "free worlds capital"
+			fighters
+				names "free worlds fighters"
+			variant
+				"Dreadnought"
+				"Skein"
+				"Finch" 6
+				"Fury (Flamethrower)" 4
+		fleet
+			names "free worlds capital"
+			variant
+				"Dreadnought"
+				"Falcon (Heavy)"
+				"Hawk" 2
+		fleet
+			names "free worlds capital"
+			variant
+				"Osprey"
+				"Argosy (Blaster)" 2
+	
+	npc
+		personality heroic waiting
+		government "Free Worlds"
+		fleet
+			names "free worlds capital"
+			variant
+				"Dreadnought"
+				"Bastion (Laser)"
+		fleet
+			names "free worlds capital"
+			variant
+				"Dreadnought"
+				"Falcon (Laser)"
+	
+	npc evade
+		personality staying heroic
+		government "Republic"
+		fleet 3
+			names "republic small"
+			fighters
+				names "republic fighter"
+			variant
+				"Frigate (Mark II)"
+				"Gunboat (Mark II)" 2
+				"Rainmaker (Mark II)" 2
+	
+	npc evade
+		personality heroic
+		government "Republic"
+		system Menkent
+		fleet
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Carrier (Mark II)"
+				"Lance" 8
+				"Combat Drone" 6
+		fleet 2
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Cruiser (Mark II)"
+				"Combat Drone" 4
+	
+	npc evade
+		personality heroic
+		government "Republic"
+		system Sol
+		fleet
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Carrier (Mark II)"
+				"Lance" 8
+				"Combat Drone" 6
+		fleet 3
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Cruiser (Mark II)"
+				"Combat Drone" 4
+	
+	npc evade
+		personality heroic
+		government "Republic"
+		system Pollux
+		fleet 2
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Carrier (Mark II)"
+				"Lance" 8
+				"Combat Drone" 6
+		fleet
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Cruiser (Mark II)"
+				"Combat Drone" 4
+	
+	npc
+		personality heroic
+		system Rastaban
+		government "Free Worlds"
+		fleet
+			names "free worlds capital"
+			variant
+				"Dreadnought"
+				"Bastion"
+		fleet
+			names "free worlds capital"
+			variant
+				"Dreadnought"
+				"Falcon"
+		fleet
+			names "free worlds capital"
+			variant
+				"Dreadnought"
+				"Falcon (Plasma)"
+	
+	npc
+		personality heroic
+		system Alniyat
+		government "Free Worlds"
+		fleet
+			names "free worlds capital"
+			fighters
+				names "free worlds fighters"
+			variant
+				"Dreadnought"
+				"Skein"
+				"Finch" 6
+		fleet
+			names "free worlds capital"
+			variant
+				"Dreadnought"
+				"Falcon (Heavy)"
+		fleet
+			names "free worlds capital"
+			variant
+				"Dreadnought"
+				"Falcon (Plasma)"
+		fleet
+			names "free worlds capital"
+			variant
+				"Dreadnought"
+				"Osprey (Missile)"
+	
+	on visit
+		dialog `You've landed on <planet>, but there are still Navy ships circling overhead. You should take off and help finish them off.`
+	on complete
+		log "Defended Tundra against a major Navy counter-offensive. From here, the only recourse available to the Free Worlds seems to be to push deep into Republic territory and capture the Sol system, forcing the Navy to surrender. Nuclear weapons are now for sale on Solace to aid in the final assault."
+		event "fwc defended cebalrai"
+		event "fwc solace has nukes"
+		"salary: Free Worlds" = 17000
+		conversation
+			`你降落时，托梅克和阿隆多前来迎接。托梅克说道：“你在防御行动中表现出色。现在我们必须在海军完成重整之前迅速行动。参议院已决定由你统帅发起反攻的舰队。”`
+			`	阿隆多说道：“他们还批准为你加薪，日薪提升至一万七千积分。我知道这可能仍显不足，但我们目前资金确实有些紧张。”`
+			`	“还有一件事，”托梅克说道，“我不知道你对此会作何感想，但我刚收到索拉斯发来的消息，称他们有核武器出售，如果你需要的话。我建议你别买，但最终决定权在你。另外，由于你将担任本次突击行动的旗舰，你应根据需要对飞船进行任何必要的升级。之后回到这里——太空港与我们会合。当然，如果你已准备就绪、立刻出发也完全没问题。”`
+
+
+
+overwrite
+mission "FWC Checkmate 1: Equipment"
+	landing
+	name "Upgrade Your Ship"
+	description "如果你愿意，可前往<destination>为你的飞船安装核导弹。你或许还想投资升级其他装备。随后，请前往冻原星（Tundra）的太空港与托梅克（Tomek）及其他成员会合。"
+	source Tundra
+	destination Solace
+	to offer
+		has "FWC Checkmate 1: done"
+	
+	to fail
+		has "FWC Checkmate 1B: offered"
+
+
+
+overwrite
+mission "FWC Checkmate 1: Equipment 2"
+	landing
+	name "Upgrade Your Ship"
+	description "为你飞船进行任何你认为必要的进一步升级。然后前往冻原星的太空港与托梅克及其他人员会合。"
+	source Solace
+	destination Tundra
+	to offer
+		has "FWC Checkmate 1: Equipment: done"
+	
+	to fail
+		has "FWC Checkmate 1B: offered"
+
+
+
+overwrite
+mission "FWC Checkmate 1B"
+	name "Attack Menkent"
+	description "狼群”舰队已对门肯特星系发动首轮攻击。请率领你的舰队跟进，彻底击溃该星系的海军防御力量。卡佳将随你一同出征。"
+	autosave
+	source Tundra
+	destination "New Austria"
+	clearance
+	to offer
+		has "FWC Checkmate 1: done"
+	passengers 1
+	blocked "You have returned to <origin>, but you do not have a bunk free for Katya. You should return here once you have a bunk free."
+	on fail
+		dialog phrase "free worlds failed"
+	
+	on offer
+		event "fwc attack menkent"
+		conversation
+			`你在太空港与托梅克会合。他正与四艘并排停靠在自由世界舰队其余舰船较远处的剪刀级飞船中的一艘舰长交谈。这些剪刀级飞船的引擎与推进器异常庞大，且未装备常规武器，取而代之的是每艘均搭载四枚导弹。托梅克见你走近，说道：“啊，船长<last>来了。船长，您已准备好率队发起进攻了吗？”`
+			choice
+				`	"是的，我已准备就绪。"`
+					goto ready
+				`	"这些是狼群舰队的飞船吗？"`
+			`	“的确如此，”托梅克说道，“我知道，你对此恐怕心情复杂，但它们确实是赢得这场战争最快的方式。”`
+			label ready
+			`	托梅克对狼群舰队的舰长说道：“好了，我们已准备就绪。请立即起飞，<last>舰长将紧随你们之后出发。<first>，卡佳请求与你们同行；她渴望重返前线，而我认为在应对<planet>地表人员一事上，她或许是所有人中把握最大的。再次提醒，你们着陆前必须驱离所有海军舰船。祝你好运。”`
+				accept
+	
+	on visit
+		dialog `You've landed on <planet>, but there are still Navy ships circling overhead. You should take off and help finish them off.`
+	on complete
+		event "fwc capture menkent"
+
+	npc
+		government "Free Worlds"
+		personality heroic escort
+		fleet
+			names "free worlds capital"
+			fighters
+				names "free worlds fighters"
+			variant
+				"Dreadnought"
+				"Skein"
+				"Finch" 6
+		fleet
+			names "free worlds capital"
+			variant
+				"Dreadnought"
+				"Falcon (Plasma)"
+		fleet
+			names "free worlds capital"
+			variant
+				"Dreadnought"
+				"Osprey (Missile)"
+	
+	npc
+		personality staying heroic uninterested disables
+		government "Free Worlds"
+		system Menkent
+		ship "Clipper (Nuclear)" "F.S. Warmaker"
+		ship "Clipper (Nuclear)" "F.S. Pestilence"
+		ship "Clipper (Nuclear)" "F.S. Disease"
+		ship "Clipper (Nuclear)" "F.S. Famine"
+	
+	npc evade
+		personality heroic staying
+		government "Republic"
+		system Menkent
+		fleet 2
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Carrier (Mark II)"
+				"Lance" 8
+				"Combat Drone" 6
+		fleet 2
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Cruiser (Mark II)"
+				"Combat Drone" 4
+	
+	npc
+		personality derelict
+		government "Republic"
+		system Menkent
+		fleet
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Carrier (Mark II)"
+				"Frigate (Mark II)" 2
+				"Gunboat (Mark II)" 1
+		fleet
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Cruiser (Mark II)"
+				"Frigate (Mark II)" 1
+				"Gunboat (Mark II)" 2
+
+
+
+overwrite
+mission "FWC Checkmate 1C"
+	landing
+	name "Capture <planet>"
+	description "率领一支舰队前往<destination>，驱逐该星系内所有共和国飞船。"
+	autosave
+	source "New Austria"
+	destination "Silver"
+	clearance
+	to offer
+		has "FWC Checkmate 1B: done"
+	passengers 1
+	on fail
+		dialog phrase "free worlds failed"
+	
+	on offer
+		event "fwc attack vega"
+		conversation
+			`你一着陆，便与卡佳一同联系托梅克，告知他该星系已归你方掌控。“干得漂亮，”他说道，“立即率舰队继续推进，趁敌军尚未重新集结，夺取天琴座（织女星）系统。另一支‘狼群’舰队将在那里与你会合，共同发起对太阳系的最终攻势。”`
+			choice
+				`	"明白。我们即刻启程。"`
+					accept
+				`	“我们真的确定要进攻地球吗？”`
+			`	“他们还给我们留了别的选择吗？”托梅克问道，“我们已尝试过外交手段，而我们更不可能击败整支海军。因此，除非我们甘愿投降，并作为战犯接受审判，否则我们必须继续推进，以唯一可行的方式夺取优势。参议院与议会对此已达成一致。”你别无选择，只能遵从他的命令，立即开始为下一次进攻整备舰队。`
+			``
+			`[请妥善指挥这支舰队——它将陪伴你完成本战役全程：若敌舰被瘫痪，战后可登舰进行“维修”；此外，跃迁进入战场时请记住：按住跃迁键可令所有飞船同步准备跃迁，避免单艘飞船率先入域、独自承受敌方火力打击。]`
+				accept
+	
+	on visit
+		dialog `你降落在<planet>，却突然意识到卡佳仍在尚未进入星系的一艘护航舰上。你最好立即起飞，等待该舰抵达。`
+	on complete
+		log "The Free Worlds have captured the Vega system, only one hyperjump away from Earth. Nuclear-armed Wolf Pack ships will be arriving shortly to spearhead the assault, but the Navy fleet defending Earth will be massive. Casualties on both sides are likely to be extremely high."
+		conversation
+			`天琴座星系出奇地空无一人。你推测，海军很可能已将所有可用舰船撤回地球防卫，而非在此与你交战。你努力不去想——地球轨道上集结的舰队规模必然何其庞大，而你摧毁它的胜算又何其渺茫。`
+			`	卡佳说道：“好了，就是现在，最后的总攻。准备就绪后，到太空港与我会合，我们一同进攻地球。”`
+
+
+
+overwrite
+mission "FWC Checkmate Escorts"
+	landing
+	invisible
+	non-blocking
+	to offer
+		has "FWC Checkmate 1B: done"
+	to fail
+		has "FWC Pug 4: done"
+	
+	npc kill
+		government "Free Worlds"
+		personality heroic escort disables
+		fleet
+			names "free worlds capital"
+			variant
+				"Dreadnought"
+				"Bastion (Laser)"
+				"Argosy (Blaster)"
+				"Argosy (Laser)"
+		fleet
+			names "free worlds capital"
+			fighters
+				names "free worlds fighters"
+			variant
+				"Skein"
+				"Finch" 6
+				"Dreadnought"
+				"Falcon (Plasma)"
+		fleet
+			names "free worlds capital"
+			variant
+				"Dreadnought"
+				"Falcon (Laser)"
+				"Osprey (Laser)"
+		fleet
+			names "free worlds capital"
+			variant
+				"Falcon (Heavy)"
+				"Osprey (Laser)"
+				"Argosy (Turret)"
+
+
+
+overwrite
+mission "FWC Pug 1"
+	name "Defend <planet>"
+	description "<planet>正遭到一批未知型号飞船的攻击。击退它们，然后返回该行星，再决定下一步行动。"
+	source "Silver"
+	to offer
+		has "FWC Checkmate 1C: done"
+	on fail
+		dialog phrase "free worlds failed"
+	
+	on offer
+		event "fwc pug invasion"
+		conversation
+			`当你在太空港集结完毕，与舰队各舰舰长汇合后，卡佳联络托梅克并请求指示。他答道：“一支‘狼群’舰队即将抵达此处。他们携带了我们仅存的所有核弹。他们将率先突入——”`
+			`	话音突然被一阵刺耳的静电噪音中断。“见鬼？！”卡佳惊道。她试图重新接通托梅克的通讯，却始终失败。困惑之下，她喃喃道：“究竟发生了什么？海军已经开始摧毁超空间通讯中继站了？还是以某种方式实施了干扰？”`
+			`	一名通讯技术员说道：“他们肯定已经摧毁了中继站。我无法收到来自地球、冻原星、伯恩星，或者——事实上，除紧邻本星系的参宿四星系外——任何其他地方的信号。”`
+			choice
+				`	“超空间中继站是如何运作的？有没有办法绕过它们？”`
+					goto around
+				`	“你确定信号是被切断了，而不是仅仅遭到干扰？”`
+					goto jam
+			
+			label around
+			`	“除非你想以光速通信，”技师说道，“那样的话，你得等上几年才能把消息发到托梅克。所以不，没有任何办法绕过中继站。它们是银河通信网络的基石，正因如此，即便在这场战争最惨烈的阶段，我们也从未认真考虑过摧毁它们。”`
+				goto attack
+			
+			label jam
+			`	“我所知没有任何技术能干扰它们，”技师说道，“理论上可行，但我认为更可能的解释是它们已被摧毁。这简直疯狂——因为整个银河通信网络都依赖于它们。即便在这场战争最惨烈的阶段，我们也从未认真考虑过摧毁它们。”`
+				goto attack
+			
+			label attack
+			`	就在此时，另一名民兵军官冲进房间：“我们正遭到攻击！我们需要舰队所有飞船立刻升空进入轨道！”`
+			choice
+				`	“谁在攻击我们？是海军吗？”`
+				`	“狼群舰队的增援到了吗？”`
+					goto reinforcements
+			
+			`	“没有，”他说，“我这辈子从没见过这样的飞船。狼群舰队的增援刚抵达轨道，一秒钟后，这些飞船就突然出现，把他们打得粉碎。如果你不立刻派舰队上去，他们就全完了。”`
+				goto end
+			
+			label reinforcements
+			`	“是的，”他说，“他们抵达后仅一秒钟，另一支舰队就出现了——那些飞船我前所未见。它们正将狼群舰队撕成碎片。如果你不马上赶过去，他们一个也活不下来。”`
+			label end
+			`	你急忙冲向自己的飞船，匆忙启动升空……`
+				launch
+	on visit
+		dialog `你已降落在<planet>，但仍有外星飞船在上空盘旋。你应立即起飞，协助将其全部击毁。`
+	
+	npc
+		personality waiting heroic
+		government "Free Worlds"
+		fleet
+			names "free worlds small"
+			fighters
+				names "free worlds fighters"
+			variant
+				"Skein"
+				"Finch" 6
+				"Clipper"
+				"Clipper (Heavy)"
+				"Clipper (Speedy)"
+		fleet 4
+			names "free worlds small"
+			variant
+				"Clipper (Nuclear)"
+		fleet
+			names "free worlds small"
+			variant
+				"Bastion (Laser)"
+				"Argosy"
+				"Argosy (Blaster)"
+				"Argosy (Laser)"
+				"Argosy (Missile)"
+				"Argosy (Turret)"
+	
+	npc evade
+		personality staying disables heroic
+		government Pug
+		fleet 2
+			names "pug"
+			variant
+				"Pug Maboro"
+				"Pug Enfolta"
+				"Pug Zibruka" 2
+		fleet
+			names "pug"
+			variant
+				"Pug Enfolta"
+				"Pug Zibruka" 2
+	
+	npc evade
+		personality entering disables heroic
+		government Pug
+		fleet
+			names "pug"
+			variant
+				"Pug Maboro"
+				"Pug Enfolta"
+				"Pug Zibruka" 2
+		fleet 2
+			names "pug"
+			variant
+				"Pug Enfolta"
+				"Pug Zibruka" 2
+	
+	npc evade
+		personality disables heroic
+		government Pug
+		system "Delta Capricorni"
+		fleet 2
+			names "pug"
+			variant
+				"Pug Maboro"
+				"Pug Enfolta"
+				"Pug Zibruka" 2
+		fleet
+			names "pug"
+			variant
+				"Pug Enfolta"
+				"Pug Zibruka" 2
+
+
+
+overwrite
+mission "FWC Pug 1B"
+	landing
+	name "Investigate <system>"
+	description "这片空域不知为何与银河系其余区域隔绝了。前往<planet>一探究竟，看看那里是否也遭到了外星势力的入侵。"
+	source "Silver"
+	destination "Shiver"
+	to offer
+		has "FWC Pug 1: done"
+	on fail
+		dialog phrase "free worlds failed"
+	
+	on offer
+		log "The moment the nuclear-armed Wolf Pack ships arrived in-system to prepare for the assault on Earth, a fleet of alien ships appeared and attacked them. In addition, the aliens somehow cut off the Vega system from the rest of human space."
+		event "fwc pug peaceful"
+		conversation
+			`太空港一片混乱。你最终找到了卡佳，并向她报告：外星入侵舰队已被摧毁，但代价极为惨重。“我确信，我们将深深懊悔这些损失，”她说，“‘狼群’核弹已全部耗尽，才勉强击退了这次进攻。而根据我们在此地的调查结果，短期内我们根本无法获得任何增援——不知为何，我们已被彻底隔绝于人类疆域之外。”`
+			choice
+				`	"How is that possible?"`
+					goto possible
+				`	“我们可知道这些外星人究竟是谁？”`
+					goto aliens
+			
+			label possible
+			`	“我毫无头绪，”她说，“但这些外星人显然具备坍缩超空间链路的能力——这正是我们通讯中断的原因。被摧毁的并非中继站，而是超空间通路本身。与此同时，一些全新的链路却凭空出现，直指此处。”她指向你星图上一颗恒星——此前，它完全无法通过超空间抵达。“参宿七（Deneb）。它们必定来自那里。”`
+				goto next
+			
+			label aliens
+			`	“我们一无所知，”她说，“但它们似乎拥有摧毁超空间链路的能力——这正是我们通讯彻底中断的原因：并非中继站失联，而是超空间通路本身被切断了。而且，它们显然还能主动构建新的链路。”她指向你进门时她正在研究的银河星图：若干原有链路被划去，几条新链路则被手绘标注。“这是我们所称的‘参宿七（Deneb）’，”她指着一颗此前完全无法经由超空间抵达的恒星，“它们必是从那里而来。”`
+				goto next
+			
+			label next
+			`	“接下来我们该怎么办？”你问道。`
+			`	“嗯，”她说，“首先，我们需要更多情报。我希望你能设法避开那些外星人，降落在<planet>上，查探那里是否也遭到了攻击；如果确实被攻击了，再确认是否还有幸存者。我将和‘狼群’其余成员留守此处，以防敌人再次来袭。”`
+				accept
+
+
+
+overwrite
+mission "FWC Pug 2"
+	landing
+	name "Report to Katya"
+	description "你在希弗尔星上遇到了一人，他为你提供了更多关于外星种族及其意图的情报。请将所获情报向卡佳汇报。"
+	source "Shiver"
+	destination "Silver"
+	to offer
+		has "FWC Pug 1B: done"
+	on fail
+		dialog phrase "free worlds failed"
+	
+	on offer
+		log "Found out that the aliens who attacked the Wolf Pack fleet call themselves the Pug. After destroying that fleet, the aliens have not attacked anyone else except a few merchants who tried to resist them. They came from a nearby star system that did not previously have any hyperspace connections to human space, and seem intent on controlling and perhaps enslaving the local human population."
+		conversation
+			`当你在<origin>的太空港降落时，未发现任何暴力冲突的痕迹：商船船长们正自由地四处走动，讨价还价、彼此交谈——与你造访过的其他任何太空港毫无二致。然而，太空港内也正由数支身材修长、双足直立、皮肤苍白的外星人小队巡逻。每名外星人都手持一根金属长杖，看起来像是某种武器，但无人对你发起攻击。`
+			`	你刚一降落，便看见一名男子正朝你的飞船快步走来；每当有外星人小队朝这边张望，他便迅速躲到其他飞船或货箱后。倘若他是这些外星人的逃犯，贸然与他联手恐怕并不明智；但另一方面，他或许掌握着对你至关重要的情报。`
+			choice
+				`	(Stay around and talk to him.)`
+					goto board
+				`	（趁我还没引起外星人注意，赶紧起飞。）`
+			
+			`	你开始准备起飞，但他急切地向你打手势。你虽不情愿，还是决定稍作等待，听听他要说些什么。`
+			label board
+			`	你打开飞船舱门，让他登船。「这里到底发生了什么？」你问道，「这些外星人是谁？」`
+			`	"I'm a planet-dweller," he says, "so the first I heard of it was when these ships unlike anything I'd ever seen before came down out of the sky, and hovered over the spaceport. Then they began transmitting radio messages on all frequencies, saying that this world is now a part of the Pug Protectorate, and that we must refrain from violence and give them a portion of the goods our world produces."`
+			choice
+				`	"Did anyone try to resist them?"`
+					goto resist
+				`	"What do you think their intentions are?"`
+					goto intentions
+				`	"Did they explain why they cut you off from the rest of the galaxy?"`
+					goto cut
+			
+			label resist
+			`	"A few. Their ships aren't invulnerable; a merchant in an Argosy managed to take out one of their smaller ships when it was landed with its shields down, before they blew his ship out of the air in retaliation. And those staffs they're carrying shoot some kind of stun ray, but if you cut them, they bleed, same as any other creature." He pauses, then taps the knife that is holstered at his belt and says, "Except, they bleed blue. Pale milky blue."`
+			choice
+				`	"What do you think their intentions are?"`
+					goto intentions2
+				`	"Did they explain why they cut you off from the rest of the galaxy?"`
+					goto cut2
+			
+			label intentions
+			`	"Well, they want our resources, of course. And, they say they have come to bring a new era of peace and an end to all violence and conflict. I don't buy it, though; they saw that humanity was too divided to resist them, and they seized the opportunity to invade and plunder us. It's that simple."`
+			choice
+				`	"Did anyone try to resist them?"`
+					goto resist2
+				`	"Did they explain why they cut you off from the rest of the galaxy?"`
+					goto cut2
+			
+			label cut
+			`	"I'd think that would be obvious. With the hyperspace links cut, there's no way for anyone from outside to assist us. And they struck at a part of human space without much in the way of militias or bounty hunters or Navy protection. And the few half-decent warships that happened to be in system when they attacked have already been destroyed trying to fight them."`
+			choice
+				`	"Did anyone try to resist them?"`
+					goto resist2
+				`	"What do you think their intentions are?"`
+					goto intentions2
+			
+			label resist2
+			`	"A few. Their ships aren't invulnerable; a merchant in an Argosy managed to take out one of their smaller ships when it was landed with its shields down, before they blew his ship out of the air in retaliation. And those staffs they're carrying shoot some kind of stun ray, but if you cut them, they bleed, same as any other creature." He pauses, then taps the knife that is holstered at his belt and says, "Except, they bleed blue. Pale milky blue."`
+				goto end
+			
+			label intentions2
+			`	"Well, they want our resources, of course. And, they say they have come to bring a new era of peace and an end to all violence and conflict. I don't buy it, though; they saw that humanity was too divided to resist them, and they seized the opportunity to invade and plunder us. It's that simple."`
+				goto end
+			
+			label cut2
+			`	"I'd think that would be obvious. With the hyperspace links cut, there's no way for anyone from outside to assist us. And they struck at a part of human space without much in the way of militias or bounty hunters or Navy protection. And the few half-decent warships that happened to be in system when they attacked have already been destroyed trying to fight them."`
+				goto end
+			
+			label end
+			`	你感谢他提供的情报，并准备返回<system>星系与卡佳交谈。或许这些外星人不再攻击你，意味着你们可以协商达成某种停火协议。`
+				accept
+
+
+
+overwrite
+mission "FWC Pug 2B"
+	landing
+	name "Visit the Pug"
+	description "定位普格人的母星——它很可能位于<system>星系，并尝试与他们展开谈判。"
+	source "Silver"
+	destination "Pugglemug"
+	clearance
+	to offer
+		has "FWC Pug 2: done"
+	passengers 1
+	blocked "You need to have a bunk free for Katya to continue with the next mission. Complete or abort whatever mission is using up all your passenger space, then return here to <origin>."
+	on fail
+		dialog phrase "free worlds failed"
+	
+	on offer
+		conversation
+			`你向卡佳报告：在前往希弗尔星并返航途中，外星飞船并未对你发动攻击；而当地居民似乎已同意在外星人的统治下换取和平。「我们这儿至今再未遭遇进一步的袭击，」她说，「你觉得尝试访问外星人的母星是否安全？」`
+			choice
+				`	「我认为，只要我们不主动攻击他们，他们就不会攻击我们。」`
+					goto yes
+				`	“不，但我确实想从他们那里得到答案，而那或许是我们唯一的办法。”`
+					goto no
+			
+			label yes
+			`	“我可不太确定。”她说道，“毕竟，他们之前就曾袭击过我们。而且据狼群舰队的舰长们所说，是那些外星人先开的火。但另一方面，除非我们甘愿定居下来，余生都做外星人的附庸，与银河系中所有朋友彻底隔绝，否则我们恐怕别无选择。”`
+				goto end
+			
+			label no
+			`	“同意。”她说，“他们或许会选择摧毁我们，但反正我们已无路可退。我可不想就此定居下来，余生都当外星人的附庸，与银河系中所有朋友彻底隔绝。”`
+				goto end
+			
+			label end
+			`	卡佳登上你的飞船，你随即为前往外星母星的外交访问做好准备。`
+				accept
+	on visit
+		dialog `你在<planet>着陆，却意识到载着卡佳的护航舰队尚未进入该星系。你最好立即离港，等待其抵达。`
+
+
+
+overwrite
+mission "FWC Pug 2B: Pugglequat"
+	landing
+	source Pugglequat
+	to offer
+		has "FWC Pug 2B: active"
+		not "FWC Pug 2C: done"
+	
+	on offer
+		conversation
+			`This planet is clearly one of the native Pug worlds, and not a human world that has been occupied. The architecture is entirely alien, and you see no human ships or people here, only the aliens. But, it appears to be mostly a world for mining and factories; all the aliens are busy with their work, and none seem to speak your language or have any interest in talking with you; instead they gesture towards the sky, perhaps as a way of indicating that you should visit the other Pug planet in this system.`
+				decline
+
+
+
+overwrite
+mission "FWC Pug 2C"
+	name "Visit <planet>"
+	description "前往<destination>——该地在异星入侵前曾属自由世界领土，查看当地是否仍有可用的军事装备。"
+	landing
+	source Pugglemug
+	destination Oblivion
+	to offer
+		has "FWC Pug 2B: done"
+	passengers 1
+	on fail
+		dialog phrase "free worlds failed"
+	
+	on offer
+		log `造访了普格族的母星——这个已接管本片空域的外星种族。他们声称，当自由世界舰队威胁入侵地球时，他们别无选择，只能介入，以阻止人类自我毁灭。他们表示，其计划是逐步将越来越多的人类世界纳入他们的“保护”之下，但听上去这所谓的‘保护’更像是一种奴役。`
+		log "Factions" "Pug" `The Pug are aliens with barrel-shaped bodies, spindly legs, and milky blue blood. They claim to have intervened in the human civil war purely for the sake of preventing more bloodshed and helping humans to live together in peace.`
+		conversation
+			`This is an entirely alien world. The buildings have strangely flowing, tapered shapes not unlike the Pug starships, and from orbit you count dozens of large cities covering a large portion of the land mass. If this were a human world, you would estimate its population at over a billion. You follow one of the Pug ships that is landing, and discover a large spaceport where a surprising number of human merchant ships are parked, in addition to the aliens.`
+			`	在其他地方，他们大多对你置之不理；但在此处，一群肤色苍白、体态纤细的外星人迅速靠近你的飞船。普格族身形奇特：四肢修长，躯干却短粗如桶，头颅硕大；虽仅有两条腿，步态却隐约透着昆虫般的诡异。“你们就是那些反抗过我们的个体，”其中一名普格族说道，“你们尚未宣誓效忠保护国。此刻，是否愿立下忠诚与和平的誓言？”`
+			choice
+				`	"No, we are here to find out why you attacked us, and to demand that you leave us alone."`
+				`	"We are willing to make peace, but only if you give us back control of our star systems."`
+			`	"We have no wish to harm you," says the alien. "In time you will come to recognize that. We intervened in your war only to bring peace and to keep your species from doing great harm to itself. And we must maintain control of these systems until we are certain that you will not continue fighting if the links are restored."`
+			choice
+				`	“倘若你们无意加害于我们，又为何屠杀我们的舰队？”`
+				`	"You have no business invading our space and interfering in our affairs, regardless of your intentions."`
+					goto interfere
+		
+			`	“那支携带着核武器——灭绝性武器的舰队？他们选择了暴力，便注定死于暴力。此即正义。”`
+			`	卡佳说道：“我仍不明白，你们凭什么认定自己有权干涉人类事务。”`
+		
+			label interfere
+			`	"'Interfere'?" says the alien. "We have 'interfered' many times before, and always you have benefited. If you do not believe us, ask those who live in the place you call the Deep. We helped them defeat the twisted half-human beings that you created in your foolish attempts to improve your race's genetic code. We have helped keep those creatures in check in the centuries since then. And we have helped in many other ways."`
+			choice
+				`	"I'm from the Deep, and I've never heard of you before."`
+					to display
+						has "start: deep"
+				`	"What do you want from us in return?"`
+					goto goals
+				`	"What are you planning to do with these systems you have occupied?"`
+					goto goals
+			`	"Then perhaps you know of the myths of 'elves,' and of the tradition of tributation," says the alien. "We had been content with protecting your species from afar, letting your kind take our accomplishments as your own, but it is clear further intervention is necessary."`
+			`	卡佳说道：“所以你厌倦了照看我们？真不明白这怎么就非得改成征服我们，而不是干脆放我们一马。”`
+			label goals
+			`	"We have brought peace to this region," says the alien, "and we will continue to spread peace until violence has come to an end throughout human space. That is our only desire. All that we ask in return is a portion of the goods your worlds produce, to help offset the cost of watching over and protecting so many human worlds. And after some time, we will again allow human beings autonomous control of certain parts of your territory, when you show yourselves capable of living peacefully."`
+			`	“所谓‘传播和平’，就是占领更多星系吗？”卡佳问道。`
+			`	“我们的意思是终结你们的战争与分裂，”外星人说道，“你们那些世界与人民中，凡证明自己无法和平共处者，我们必须加以统治，以教导他们何为和平；凡攻击我方者，我们必须予以摧毁——因为我们是和平的缔造者，而任何攻击我们者，皆站在和平的对立面。那么，你们是否已准备好宣誓效忠？”`
+			choice
+				`	“很抱歉，但你们无权统治我们。”`
+					goto no
+				`	“好吧，我们宣誓效忠。”`
+					goto yes
+			
+			label no
+			`	“很好，倘若你们尚不愿接受我方统治，我们愿再给你们一些时间，”外星人说道，“在此期间，请勿攻击我方飞船；否则我们将被迫将你们彻底摧毁——而这，将令我们深感遗憾。”它做出一个类似鞠躬的奇特手势，随后转身离去。`
+				goto end
+			
+			label yes
+			`	“听闻此事，我甚感欣慰，”它说道，“假以时日，你们终将感激自己有幸亲历这一新时代的开端——一个属于你们物种的和平与繁荣的新纪元。至于人类疆域其他区域中那些暂时与你们失联的朋友们，也请不必担忧；你们很快将在我们的庇护下重聚。”它做出一个类似鞠躬的奇特手势，随后转身离去。`
+				goto end
+			
+			label end
+			`	“我对此极不放心，”卡佳说道，“我们前往<planet>看看吧——那里曾是抗击共和国战争的前线，或许还遗留着我们当初部署的部分装备。说不定能找到些有用的东西。”`
+				accept
+	on visit
+		dialog `You land on <planet>, but realize that your escort carrying Katya hasn't entered the system yet. Better depart and wait for it to arrive.`
+
+
+
+overwrite
+mission "FWC Pug 2D"
+	landing
+	name "Escape Pug Space"
+	description "瘫痪一艘普格飞船，窃取其跳跃引擎，并利用它逃离其领空，向自由世界报告：外星入侵迫在眉睫。"
+	source "Oblivion"
+	destination "New Iceland"
+	clearance "The locals are terrified by the fact that you have decided to fight the Pug, but eventually they agree to let you land."
+		planet Oblivion
+	to offer
+		has "FWC Pug 2C: done"
+	passengers 1
+	on fail
+		dialog phrase "free worlds failed"
+	
+	on offer
+		event "fwc navy retakes cebalrai"
+		conversation
+			`与希弗尔一样，奥布利维恩太空港正由普格舰队巡逻，当地居民似乎已默默接受了命运。不出所料，你发现此处所剩物资寥寥无几——此前自由世界主力舰队曾在此驻扎数日，但早已将补给搜刮殆尽。不过，至少太空港内仍有一家正常运转的维修店和装备店。`
+			`	你在太空港内探索时，一家本地酒馆里的几名男子见你路过，朝你招手示意。“嘿，快进来！”其中一人压低声音招呼道。他们认出你是议会成员，随即告诉你：他们是本地抵抗运动的领袖，正隐忍蛰伏，静待反击普格舰队的良机。“你们已有计划了吗？”他们问道。`
+			choice
+				`	"抱歉，还没准备好。"`
+				`	"等时机到了，我们会通知你。"`
+			`	他们似乎对你未能立即前来解放他们而感到失望，但你告诉他们先耐心等待，目前切勿轻举妄动；他们则告诉你，待你准备就绪时该如何与他们联系。回到飞船内，你和卡佳展开交谈。"听上去外星人正计划入侵更多星系，"她说，"我们必须设法发出警告——而唯一可行的方式，就是使用跳跃引擎。我们需要击毁一艘外星飞船，拆下它的跳跃引擎，安装到你的飞船上。之后，你就能驾驶飞船前往<planet>，向参议院及议会其余成员发出警报。"`
+			choice
+				`	"听起来风险不小，但姑且一试！"`
+					accept
+				`	"呃……我们真要冒激怒外星人的风险吗？"`
+			
+			`	“我想我们别无选择，”她说，“外面的朋友们必须知道这里正在发生什么。也许这一次，终于能让海军停止与我们交战，转而携手为和平而努力。”你虽不情愿，却还是同意了。`
+				accept
+	on visit
+		dialog `你降落在<planet>，却发现载着卡佳的护航舰尚未进入该星系。最好先行离港，等待其抵达。（若你的护航舰未配备跳跃引擎，可尝试将其停泊，确保卡佳位于你的旗舰上。）`
+
+
+
+overwrite
+mission "FWC Pug 3"
+	landing
+	name "Talk to the Navy"
+	description "弗蕾亚目前位于{0}行星，推测正被海军拘押。请前往该行星，视当前局势判断海军是否愿意与你进行交涉。"
+	source "New Iceland"
+	destination "New Austria"
+	clearance
+	to offer
+		has "FWC Pug 2D: done"
+	passengers 1
+	on fail
+		dialog phrase "free worlds failed"
+	
+	on offer
+		log "Escaped from the territory captured by the Pug by using a jump drive. Found out that Freya has been captured by the Navy while she was trying to figure out the reason for the hyperspace links disappearing. The Navy thinks that the Free Worlds are behind the hyperspace disruptions. But, making peace with the Navy may be the only way to defeat the Pug."
+		event "fwc peace with the navy"
+		set "event: fw armistice"
+		conversation
+			`你的飞船借助跳跃引擎驶入该星系时，立刻引起了巨大轰动；你刚一着陆，阿隆多便已守候在舱门外等候与你交谈。“到底出什么事了？”他问道，“你的舰队怎么了？还有，你们究竟是怎么搞到跳跃引擎的？我们曾向夸格族提出购买请求，但他们只含糊其辞地回应说‘不干涉其他物种的事务’。”`
+			`	卡佳说道：“我们遭到了外星种族的袭击，他们切断了所有超空间通讯链路。而且他们极有可能继续入侵更多星系。我们必须向所有人发出警告——包括共和国和海军。”她进一步向他说明了当前局势，并将你所记录的外星飞船传感器扫描数据副本交给了他。`
+			`	阿隆多问道：“接下来，你认为我们该怎么做？”`
+			choice
+				`	“我们应当与海军谈判停火。”`
+					goto navy
+				`	“我们应当设法恢复那些超空间连接。”`
+					goto links
+			
+			label navy
+			`	阿隆多说道：“如果他们相信你关于外星入侵的说法，这或许可行。毕竟，若人类正面临外星威胁，那显然应优先于与我们交战。唯一的麻烦在于，共和国大多数人认为那些星系的消失，是自由世界新研发出的某种武器所致——他们正把这事怪罪到我们头上。他们刚刚从我们手中夺回了塞巴莱赖和门肯特，过程中还俘获了弗蕾娅。”`
+			`	“弗蕾娅？”卡佳问道，“他们是怎么抓住她的？”`
+			`	“她当时在<planet>上，”他答道，“正在部署一种她称之为‘引力子探测器’的设备，用于分析坍塌的超空间连接。海军抵达时，我们让她立刻撤离，但她刚在研究中取得突破，只回了一句：‘去他的战争，这事才更重要。’如果她仍在那儿，或许就是我们解开此事谜团的最大希望。”`
+				goto next
+			
+			label links
+			`	阿隆多说道：“这正是弗蕾娅当时在研究的项目。你们的舰队刚一消失，她便立刻展开调查，并前往<planet>建立了一台她称之为‘引力子探测器’的设备，将其对准了天琴座织女星方向。就在该星系被占领前一刻，她发来一条消息，称已探测到某种链接残留痕迹，或许能找到重新开启它的方法。”`
+			`	“等等，”卡佳说，“你刚才说‘就在该星系被占领前一刻’——是被谁占领？”`
+			`	“是海军，”阿隆多答道，“他们认定自由世界应对那些星系的消失负责。而你们的舰队已然消失，我们剩余舰船数量不足，无力抵抗。弗蕾娅本可撤离，但她选择留下完成研究。我记得她原话是：‘见鬼去吧，你们的战争——这件事才更重要。’如果她仍在那儿，她或许就是我们解开谜团的最大希望。”`
+				goto next
+			
+			label next
+			choice
+				`	“你认为海军会允许她继续开展这项研究吗？”`
+					goto research
+				`	“你能联系海军，请求他们暂时停火吗？”`
+					goto ceasefire
+			
+			label research
+			`	“或者，他们正在审讯她。”阿隆多说道，“那样的话，他们至少已发现：我们和他们一样，对超空间通道被切断一事同样困惑不解。我认为，无论下一步我们采取什么行动，都必须有弗蕾娅协助，也必须有海军支援。我会联系他们，请求他们不要向你的飞船开火。但我无法保证，一旦你落入他们掌控，他们真会放你离开。”`
+				goto end
+			
+			label ceasefire
+			`	“我会联系海军，告诉他们你是前来谈判的，并请他们切勿向你的飞船开火。这是我目前所能做的最大努力了。”阿隆多说道。`
+				goto end
+			
+			label end
+			`	你与卡佳返回自己的飞船，准备前往<planet>。希望弗蕾娅仍在那儿，而海军也会允许你们与她交谈。`
+				accept
+
+	on visit
+		dialog `You land on <planet>, but realize that your escort carrying Katya hasn't entered the system yet. Better depart and wait for it to arrive.`
+
+
+overwrite
+mission "FWC Pug 3A"
+	landing
+	name "Bring Freya to <planet>"
+	description "弗蕾亚认为，只要能找到‘拳师’（Pug）用于干扰超空间通讯链路的设备，就有可能恢复通讯。请护送她前往<planet>行星，而卡佳则继续留在海军监管之下。"
+	source "New Austria"
+	destination "Oblivion"
+	clearance
+	to offer
+		has "FWC Pug 3: done"
+	passengers 1
+	on fail
+		dialog phrase "free worlds failed"
+	
+	on offer
+		log "Convinced the Navy that the disappearing hyperspace links really are an alien attack and not some sort of Free Worlds super-weapon. Freya thinks that she might be able to undo the hyperspace disruption and allow the Navy to enter the captured territory and begin to drive the Pug back."
+		conversation
+			branch know
+				has "FW Alphas 1.1: done"
+			`出人意料的是，海军并未向你开火，便准许你降落；你通过跳跃引擎进入该星系这一事实，很可能给他们留下了深刻印象。但当你的飞船着陆后，立刻被海军部队团团包围。你与卡佳迟疑地走下飞船。迎接你们的是一位海军上将——你认出他正是威廉·丹佛斯，海军“誓约守护者”部队的指挥官。即便在自由世界内部，丹佛斯也因作战时的非凡勇气与冷静沉着，以及曾领导过无数次人道主义任务而备受尊敬。`
+				goto introductions
+			label know
+			`出人意料的是，海军并未向你开火，便准许你降落；你通过跳跃引擎进入该星系这一事实，很可能给他们留下了深刻印象。但当你的飞船着陆后，立刻被海军部队团团包围。你与卡佳迟疑地走下飞船。迎接你们的是丹佛斯上将——这位“誓约守护者”部队的指挥官，此前曾协助你们将阿尔法势力及其雇佣兵舰队驱离毒木星。`
+				goto introductions
+			label introductions
+			`	丹佛斯身旁站着一人，你猜测或许是他的保镖：一位肤色黝黑、通身黑衣的女子。就连她眼白的部分也是黑色的——待她走近，你才看清那其实是结膜纹身，一种繁复精巧的凯尔特绳结图案，被纹在了她的眼白之上。出人意料的是，卡佳竟认得她。“渡鸦！”卡佳脱口而出。你一时分辨不出，卡佳的声音里究竟是重逢的喜悦，还是惊惧。`
+			`	“您好，议长阁下。”女子说道。`
+			`	丹佛斯说道：“我们听说你来自失联领地，并带来了外星入侵的潜在消息。请随我们来。”他引你登上停靠在附近的海军巡洋舰之一，进入一间你推测为其私人办公室的舱室；卫兵对你和卡佳进行了武器搜查，随后便退下，只留下你、卡佳、丹佛斯与渡鸦四人。“那么，”丹佛斯说，“你将回答我们的问题。”`
+			`	他朝渡鸦示意，渡鸦走上前来，向你伸出双手。“请握住我的手，船长。”她说。`
+			choice
+				`	（握住她的手。）`
+					goto hands
+				`	“呃，为什么？你打算对我做什么？”`
+			`	“她是位质询者，<first>，”卡佳轻声说道，“就是当年我被他们俘虏时审问我的人之一。你只需抓住她的双手，并且只说真话。”`
+			label hands
+			`	你不情愿地握住她的双手，她随即开始向你询问有关外星种族的问题。你尽可能诚实地作答。而此时，你正与一个素昧平生的陌生人手牵手，她一眨不眨地直视着你的眼睛发问——这种体验令人极度不适，既侵入隐私又异常亲密；更令你不安的是，你怀疑只要撒谎，她便能立刻察觉。等她问完，你已浑身大汗、双手颤抖。雷文转向丹佛斯，说道：“他们说的是实话。”`
+			`	你和卡佳同时松了一口气，丹佛斯则说：“很好。我们带他们去见温特斯小姐吧。”`
+			`	他领着你们离开他的飞船，来到一座仓库。身穿工装裤与实验服的人们正忙碌地调试一台你见过的最奇异的机器。弗蕾亚也在其中。“卡佳！”她说，“<first>！很高兴你们能来加入我们。”`
+			choice
+				`	“你现在为海军效力了吗？”`
+				`	“我们听说你可能有办法重新打通超空间通道。”`
+					goto reopen
+			
+			`	“嗯，”她说，“严格来说，我现在是名囚犯。但他们正在协助我开展研究。”`
+			`	卡佳问道：“你已经找到恢复超空间通道的方法了吗？”`
+			
+			label reopen
+			`	“还没有，”弗蕾亚说，“但我至少发现这或许是可行的。你看，那些通道并未被彻底切断，而是受到某种畸变信号的主动干扰。如果我们能消除这种干扰，通道就有可能自行恢复。但问题在于——干扰源来自通道的另一端。”`
+			`	丹佛斯说道：“<last>船长，我们同意让温特斯小姐与您同行，但前提是雷诺兹议员须留在这里作为人质。若您成功重建通往失联星系的超空间连接，我们将同时释放二人。这个条件可以接受吗？”`
+			choice
+				`	“好，我们同意这个条件。”`
+					goto end
+				`	“倘若弗蕾娅无法恢复连接呢？”`
+			
+			`	“那么雷诺兹议员将作为我们的囚犯继续留在此地。”他答道。`
+			`	“去吧，<first>，”卡佳说道，“这是我们最好的机会。”`
+			label end
+			`	你与弗蕾亚一同返回飞船，她随身携带着大量传感器和设备。“我们先去<planet>试试，”她说，“看看那里是否有可供我们使用的外星科技。希望你的战斗舰队还剩下几艘飞船，能帮我们防御。”`
+				accept
+	on visit
+		dialog `You land on <planet>, but realize that your escort carrying Freya hasn't entered the system yet. Better depart and wait for it to arrive.`
+
+
+
+overwrite
+mission "FWC Pug 3B"
+	landing
+	name "Defend <planet>"
+	description "弗蕾亚发现了一件外星科技装置，她认为该装置可用于恢复超空间链接。请尽可能长时间地拖住普格舰队，以便她研究清楚其工作原理。"
+	source Oblivion
+	destination Oblivion
+	clearance
+	to offer
+		has "FWC Pug 3A: done"
+	on fail
+		dialog phrase "free worlds failed"
+	
+	on offer
+		event "fwc defend oblivion"
+		conversation
+			`你低空飞越<planet>，同时祈祷普格人没有追踪到你，随后联系了此前结识的抵抗组织。此时弗蕾亚说道：“我探测到了能量信号——看起来正是干扰超空间链接的引力子脉冲。”她将坐标发给你，你随即转发给抵抗组织。在你飞船武器的协助下，他们成功清除了附近的普格守卫。`
+			`	你降落飞船，与抵抗战士会合，然后谨慎地靠近设施。“这未免太轻松了，”弗蕾亚说道，“也许他们压根没料到会有人反抗？”这座建筑隐约形似一座无线电发射塔；而当你逐渐靠近时，脚下地面竟如船甲板般起伏摇晃。“是引力子波，”弗蕾亚说，“没错，就是这里。舰长，您能替我挡住普格人足够长的时间，好让我弄清楚这装置的运作原理吗？”`
+			choice
+				`	"I'll do my best."`
+					goto end
+				`	“你不怕他们的地面部队进攻你们吗？”`
+		
+			`	“我们应付得了，”其中一名男子说道，“据我们所知，他们唯一的武器只有那些电击棍——根本没法跟真子弹抗衡。真正构成威胁的是他们的飞船。”`
+			label end
+			branch alone
+				has "FWC Checkmate Escorts: done"
+			`	抵抗军战士告诉你，他们的舰队即将升空。你返回自己的飞船并启动引擎。但愿你攻击舰队中幸存下来的飞船足以拖住‘拳师号’，直到弗蕾亚在此地完成她的工作……`
+				launch
+			label alone
+			`	抵抗军战士告诉你，他们的舰队即将升空。你返回自己的飞船并启动引擎，懊恼没能保住攻击舰队中的更多飞船，同时祈祷自己能成功拖住‘拳师号’，直到弗蕾亚在此地完成她的工作……`
+				launch
+	on visit
+		dialog `你已降落在<planet>，但仍有‘拳师号’的飞船在上空盘旋。你应立即起飞，协助将其彻底击溃。`
+	
+	npc
+		government "Free Worlds"
+		personality heroic escort
+		fleet
+			names "free worlds capital"
+			fighters
+				names "free worlds fighters"
+			variant
+				"Skein"
+				"Finch" 6
+				"Argosy (Blaster)"
+				"Argosy (Laser)"
+				"Argosy (Turret)"
+	
+	npc disable
+		personality entering disables heroic
+		government Pug
+		fleet
+			names "pug"
+			variant
+				"Pug Maboro"
+				"Pug Enfolta"
+				"Pug Zibruka" 2
+		fleet
+			names "pug"
+			variant
+				"Pug Enfolta"
+				"Pug Zibruka" 2
+		dialog `你收到弗蕾亚发来的一条消息：“船长，我们需要你立刻返回此处。我想我已找到恢复超空间链接的方法，但必须马上赶回新奥地利才能实施——必须赶在‘拳师号’向本星系增派更多舰船之前！另外，希望你的货舱还有足够空间装载一批设备。”`
+
+
+
+overwrite
+mission "FWC Pug 3C"
+	landing
+	name "Return to <planet>"
+	description `携弗蕾亚返回<planet>，船上载有弗蕾亚认为可用于恢复超空间链接的“引力子反射器”。`
+	source Oblivion
+	destination Tundra
+	on enter Cebalrai
+		dialog
+			"As soon as you re-enter human space, you contact the Navy and tell them to send an attack fleet to the Cebalrai system. Then, just for good measure, you contact the Free Worlds and ask them to do the same."
+	to offer
+		has "FWC Pug 3B: done"
+	passengers 1
+	cargo "graviton reflector" 10
+	blocked `你正准备着陆时，芙蕾雅联系了你，说道：“接下来这次任务，你需要腾出十吨货物空间，还要为我准备一个铺位。”这意味着你必须腾出 <capacity> 的空间。`
+	on fail
+		dialog phrase "free worlds failed"
+	
+	on offer
+		conversation
+			`你降落在外星设施附近，芙蕾雅已在外面等候，一辆平板卡车上装载着一台庞大的外星机械装置。“希望你的货舱还有地方装下这玩意儿。”她说道。你注意到地面已不再像之前那样不规则地晃动，但你仍感到轻微眩晕，仿佛地平线始终无法保持水平。`
+			choice
+				`	“你弄明白什么了？”`
+				`	“链接恢复了吗？”`
+			
+			`	她说：“我没能完全搞清这项技术的运作原理，但它似乎是一种引力子发射器。我已将其信号模式从混乱状态切换为相干状态。理论上，这会逐步增强链接强度。但要让链接彻底重新开启，可能需要数年时间；而我们很可能只有几天时间——一旦普格人察觉此地发生的事，便会迅速攻占整个星系。因此，我们必须返回链接另一端的 <planet>，在那里部署这台设备。我认为它是一种引力子反射器。”她指向卡车上那台外星装备，“只要将其就位，我们就能在这片星系与 <system> 之间建立谐振共鸣，理论上可大幅加快链接的再生速度。”`
+			choice
+				`	"好，那就试试看！"`
+					accept
+				`	"你真的知道自己在干什么吗？"`
+			`	"完全没概念，"她说道，"我完全是边做边想，只靠自己对超空间物理的粗浅理解。而且天知道那些普格飞船是否也具备和这座设施相同的超空间干扰能力——要是那样的话，我们这番努力就全白费了。但姑且一试，好吗？"`
+				accept
+	on visit
+		dialog `你降落在<planet>，却意识到载着弗蕾雅与引力子反射器的护航舰尚未进入该星系。最好立即离港，等待其抵达。`
+
+
+
+overwrite
+mission "FWC Pug 3D"
+	landing
+	name "Liberate <system>"
+	description "率领由海军与自由世界舰船组成的联合舰队前往<system>星系，击退普格势力并占领该星系，防止其卷土重来、再次切断跃迁链接。"
+	source Tundra
+	destination Oblivion
+	clearance
+	to offer
+		has "FWC Pug 3C: done"
+	passengers 1
+	on fail
+		dialog phrase "free worlds failed"
+	
+	on offer
+		log "Succeeded in restoring the hyperspace link to the Rasalhague system. With the Navy's help, it might now be possible to turn the tide against the Pug."
+		event "fwc battle for rasalhague"
+		conversation
+			`尽管<origin>现已重归海军控制，但他们仍欣然允许你的飞船降落。你协助弗蕾雅架设外星设备并为其通电。你再次感到一阵眩晕，随着弗蕾雅不断调整控制器，这种感觉逐渐加剧。"成功了，"她说，"已建立起正反馈回路。试试联络‘遗忘号’。"`
+			`	你尝试与抵抗军战士建立通讯链路，断断续续的对话声夹杂着静电噪音传来。几分钟后，静电逐渐减弱，他们的声音变得清晰起来。“成功了！”弗蕾娅说道。`
+			`	与此同时，海军与自由世界舰队已开始源源不断涌入该星系。你预感即将展开的战斗将异常激烈，但有海军主力舰队与你并肩作战，这场战役已不再显得毫无胜算。“通讯链路已足够稳定，我们很快就能通过它跃迁过去了，”弗蕾娅说道，“是时候返回<system>了。”`
+				accept
+	on visit
+		dialog `You've landed on <planet>, but there are still Pug ships circling overhead. You should take off and help finish them off.`
+	
+	npc evade
+		personality disables heroic staying
+		government Pug
+		system Rasalhague
+		fleet
+			names "pug"
+			variant
+				"Pug Maboro"
+				"Pug Enfolta"
+				"Pug Zibruka" 2
+		fleet 2
+			names "pug"
+			variant
+				"Pug Enfolta"
+				"Pug Zibruka" 2
+
+
+
+overwrite
+mission "FWC Pug 3D: Reinforcements"
+	landing
+	invisible
+	non-blocking
+	to offer
+		has "FWC Pug 3C: done"
+	to fail
+		has "FWC Pug 4: done"
+	
+	npc kill
+		government "Navy (Oathkeeper)"
+		personality heroic waiting
+		fleet
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Cruiser (Mark II)"
+				"Combat Drone" 4
+				"Frigate (Mark II)" 2
+		fleet
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Carrier (Mark II)"
+				"Lance" 8
+				"Combat Drone" 6
+				"Gunboat (Mark II)" 3
+	npc kill
+		government Republic
+		personality heroic waiting
+		fleet
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Cruiser"
+				"Combat Drone" 4
+				"Frigate" 2
+		fleet
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Carrier"
+				"Lance" 8
+				"Combat Drone" 6
+				"Gunboat" 2
+	npc kill
+		government "Free Worlds"
+		personality heroic escort waiting
+		fleet
+			names "free worlds capital"
+			variant
+				"Dreadnought"
+				"Bastion (Laser)"
+				"Argosy (Laser)"
+		fleet
+			names "free worlds capital"
+			fighters
+				names "free worlds fighters"
+			variant
+				"Dreadnought"
+				"Falcon (Plasma)"
+				"Skein"
+				"Finch" 6
+		fleet
+			names "free worlds capital"
+			variant
+				"Falcon (Heavy)"
+				"Osprey (Laser)"
+				"Argosy (Turret)"
+
+
+
+overwrite
+mission "FWC Pug 4"
+	landing
+	name "Defend <system>"
+	description "驱逐入侵<{system}>的普格舰队。"
+	source Oblivion
+	destination Oblivion
+	clearance
+	to offer
+		has "FWC Pug 3D: done"
+	passengers 1
+	on fail
+		dialog phrase "free worlds failed"
+	
+	on offer
+		conversation
+			`你的舰队降落在<planet>上，令你惊讶的是，当地居民表示：就在你的舰队抵达前不久，所有驻留在该行星上的普格人已全部撤离——显然他们早已预料到你的到来，并不愿成为你的俘虏。你仅有数小时时间评估局势，随后海军便通知你：他们已探测到另一支普格舰队正朝此地逼近……`
+				launch
+	
+	on visit
+		dialog `You've landed on <planet>, but there are still Pug ships circling overhead. You should take off and help finish them off.`
+	on complete
+		event "fwc liberation of rasalhague"
+	
+	npc disable
+		personality disables heroic entering
+		government Pug
+		system Rasalhague
+		fleet
+			names "pug"
+			variant
+				"Pug Maboro"
+				"Pug Enfolta"
+				"Pug Zibruka" 2
+		fleet 2
+			names "pug"
+			variant
+				"Pug Enfolta"
+				"Pug Zibruka" 2
+	
+	npc disable
+		personality disables heroic
+		government Pug
+		system Alderamin
+		fleet 2
+			names "pug"
+			variant
+				"Pug Maboro"
+				"Pug Enfolta"
+				"Pug Zibruka" 2
+		fleet 2
+			names "pug"
+			variant
+				"Pug Enfolta"
+				"Pug Zibruka" 2
+	
+	npc disable
+		personality disables heroic
+		government Pug
+		system Markab
+		fleet 4
+			names "pug"
+			variant
+				"Pug Maboro"
+				"Pug Enfolta"
+				"Pug Zibruka" 2
+	
+	npc disable
+		personality disables heroic
+		government Pug
+		system Alpheratz
+		fleet 2
+			names "pug"
+			variant
+				"Pug Maboro"
+				"Pug Enfolta"
+				"Pug Zibruka" 2
+		fleet 3
+			names "pug"
+			variant
+				"Pug Enfolta"
+				"Pug Zibruka" 2
+
+
+
+overwrite
+mission "FWC Pug 4A"
+	landing
+	name "Equipment from <planet>"
+	description "与弗蕾亚一同前往<planet>，取回你先前安装在那里的外星设备，并将其运送至阿拉伯，以重启另一条超空间通道。"
+	autosave
+	source Oblivion
+	destination Tundra
+	to offer
+		has "FWC Pug 4: done"
+	passengers 1
+	on fail
+		dialog phrase "free worlds failed"
+	
+	on offer
+		log "Drove off another Pug attack. Fighting side by side together is beginning to build some camaraderie between the Free Worlds and the Navy, even though they were enemies so recently."
+		conversation
+			`当你降落在<origin>时，海军与自由世界船员正彼此祝贺，庆祝成功抵御了外星人的进攻。弗蕾娅说道：“我想，再没有什么比并肩对抗共同敌人更能迅速催生战友情谊了。”`
+			choice
+				`	“是啊，但愿我们的人民不会过于习惯性地把海军当作盟友。”`
+					goto negative
+				`	“如果没有海军的支援，我想我们根本赢不了那场战斗。或许我们一直以来都认为完全不需要共和国，这种想法本身就是错的。”`
+					goto positive
+			
+			label negative
+			`	“确实如此，”她说道，“不过，等这一切结束之后，再回头与他们交战，恐怕会很难。”`
+				goto plan
+			
+			label positive
+			`	“你也许是对的，”她说，“我甚至在想——与其一味追求彻底脱离共和国独立，我们从一开始就该尝试争取类似辛迪加那样的地位：在共和国框架内享有相对自治权。”`
+				goto plan
+			
+			label plan
+			`	你与丹佛斯会合，他说道：“好了，我们现在已建立起一个滩头阵地，但非常脆弱。温特斯小姐，你能否设法打通更多超空间航道？”`
+			`	弗蕾亚说：“当然可以，只要我们能从霜原星取回那些设备。但那座发射站可并不便携——所以，若想连通其他未与本星系直接链接的星系，我们还得在当地找到已安装好的发射器才行。”`
+			`	丹福斯说道：“我们先尝试重建此处通往阿塞拉星系的连接。若成功，我将派出部分舰队攻占天鹰座ζ，并设法夺取另一座中继站。如此一来，我们将拥有两条进入普格人领空的通道，而非如今唯一的瓶颈通道。<last>船长，您是否愿意与弗蕾亚一同返回<planet>？”`
+			choice
+				`	“当然，我们可以即刻出发。”`
+					accept
+				`	“如果普格人趁此期间袭击此处怎么办？”`
+					goto defend
+				`	“既然我们此刻在此集结了如此庞大的舰队，为何不直接进攻普格人的母星？”`
+					goto attack
+			
+			label defend
+			`	“别担心，”他说道，“海军增援正持续抵达。很快，我们在此地的舰队规模将达昨日进攻所投入舰队的两倍之多。”你虽心有疑虑，仍勉强同意将防御任务托付于他，而你则护送弗蕾亚重返自由世界领空，协助开通更多超空间链接。`
+				accept
+			label attack
+			`	“‘如此庞大的舰队’？”他说道，“这甚至不到海军当前作战力量的二十分之一。而且我认为，在我们准备好进攻外星人母星之前，还需要更多飞船。但别担心，增援正源源不断地抵达此处。你去完成你的任务，我们的部分交给我们来处理。”`
+				accept
+	on visit
+		dialog `你降落在<planet>，却意识到弗蕾亚仍在尚未进入该星系的一艘护航舰上。最好先行离开，等待她抵达。`
+
+
+
+overwrite
+mission "FWC Pug 4B"
+	landing
+	name "Equipment to <planet>"
+	description "与芙蕾雅一同前往<planet>部署外星设备，尝试重新打通另一条中断的超空间链接。"
+	source Tundra
+	destination Arabia
+	to offer
+		has "FWC Pug 4A: done"
+	cargo "graviton reflector" 10
+	passengers 1
+	blocked `当你降落在<origin>时，弗蕾亚说道：“船长，看来您需要额外<{capacity}>的空间才能继续执行本次任务。”您应腾出更多货舱空间，然后返回此处。`
+	on fail
+		dialog phrase "free worlds failed"
+	
+	on offer
+		conversation
+			`你降落在<origin>，迅速开始收拾此前存放在此处的外星设备。不少当地居民正远远地注视着你，但他们态度友善——尽管他们的世界不久前才在违背其意愿的情况下被自由世界占领。显然，你成功为海军开辟通往这片孤立空域的路径一事，早已广为人知。`
+			`	当你正在架设外星设备时，弗蕾亚说道：“这一切……难道不觉得有点太‘顺理成章’了吗？我的意思是，外星人切断了所有超空间链接，却又偏偏留下恰好能让我们逐步重新开启这些链接的设备？而且所需技术竟如此简单——仅需一台发射器与一面反射器？一切都未免太过严丝合缝了。”`
+			choice
+				`	“你是在暗示，这些外星人本就希望我们做现在正在做的事？”`
+				`	“这一切确实很奇怪——我们居然能对一个显然如此先进的种族取得任何战果。”`
+			`	她点点头。“我有种不安的感觉：我们正被卷入一场自己完全无法理解的博弈。”她说，“在我们下一步行动之前，必须先获取更多情报。”`
+			`	“向谁获取？”你问道。`
+			`	“向夸格人。”她说，“我们距离他们的势力范围仅需数次跃迁。他们声称自己知晓整个银河系的动向。而且，这场危机刚爆发时，我们曾向他们索要跳跃引擎，他们却表示不愿干涉其他种族的事务——这或许意味着，他们早已知道另有其他种族牵涉其中。”`
+			choice
+				`	“我们的任务刻不容缓，还是直接前往阿拉伯星系吧。”`
+				`	“好吧，我们绕道去和夸格人谈谈。”`
+					goto detour
+			
+			`	“嗯，”她说，“你是船长，这个决定权交给你。”`
+				accept
+			label detour
+			`	“谢谢，”她说，“只希望我们能获得一些真正有用的线索。”`
+				accept
+	on visit
+		dialog `你降落在<planet>，但随即意识到弗蕾亚和引力子反射器仍在你的某艘护航舰上——而那艘飞船尚未进入该星系。你最好立即起飞，等待它抵达。`
+
+
+
+overwrite
+mission "FWC Pug 4B: Quarg"
+	landing
+	name "Visit the Quarg"
+	description "如果你愿意，可在继续与普格人交战前，先去拜访夸格人，看看他们能否向你透露有关普格人的更多信息。"
+	source Tundra
+	destination Lagrange
+	to offer
+		has "FWC Pug 4: done"
+	to fail
+		has "FWC Pug 5: done"
+	
+	on complete
+		log "Learned from the Quarg that they have long been aware of the presence of the Pug in the Deneb system. Apparently the Pug are from another galaxy and possess such advanced technology that even the Quarg do not dare to interfere with them."
+		log "However, the Pug are known to treat warfare like a game, intentionally using weaker technology when fighting less advanced species in order to give them a fair chance at winning the battle. So, fighting them will not be a lost cause, but the Quarg are unwilling to provide any assistance."
+		log "Factions" "Pug" `The Quarg claim that the Pug treat warfare like a game. When battling another species, the Pug will limit themselves to ships and weapons that are weak enough that the other species has a chance of defeating them.`
+		conversation
+			`你降落在夸格空间站，但你和弗蕾娅都不知下一步该做什么。你该如何找到一名夸格外交官？他们甚至有这种职位吗？当你和弗蕾娅站在机库中、略显茫然时，一名夸格向你们走来，说道：“这些个体有问题？”`
+			`	弗蕾娅说：“我们遭到了一群自称‘噗格’（Pug）的外星人的袭击。我们想了解你们是否知道他们的相关情况。”`
+			`	夸格的皮肤通常通体呈灰色，其服饰亦然；但当听到“噗格”一词时，眼前这名夸格面部数处皮肤却泛起了红色。你曾听说过一种理论：这或许是夸格表达情绪的方式，但无人确切知晓这代表何种情绪——是愤怒？还是尴尬？与你交谈的这名夸格只简短说道：“跟我来。”随后便领你们前往主通道一侧的僻静角落，那里另有一名夸格正坐在桌后。你猛然意识到自己对这个种族知之甚少：眼前这位是导游，还是外交官？是这座空间站的总督，抑或仅仅是一名精通人类语言的专家？坐在桌后的夸格开口道：“你们有什么问题要问我吗？”`
+			choice
+				`	"Can you help us to fight the Pug?"`
+				`	"Can you give us information about the Pug?"`
+					goto info
+			
+			`	“不。”它答道，“很久以前，我们曾试图抵抗噗格。作为报复，他们摧毁了我们的一个环形世界。”它指向空间站窗外那座尚未完工的环形世界，“这座环形世界仅完成一半，而建造它已耗费了你们一千年的光阴。环形世界是我们最珍贵的造物，几乎无法被摧毁；但噗格却懂得如何扭曲并切割空间本身的结构。”`
+			`	“这么说，你们此前就遭遇过噗格？”弗蕾娅问道，“你们了解他们？”`
+			
+			label info
+			`	“普格人曾干涉本星系中多个种族的事务，”它说道，“但他们并非本地原生种族。他们通过人工虫洞抵达此处——这项技术，连德拉克人都尚未掌握。他们的行为难以预测：要么完全不合逻辑，要么其逻辑层次远超我们理解范畴，以至于在我们看来形同胡言乱语。他们坚称属于后者：声称自己掌握着关于时间与未来的某种特殊知识。”`
+			choice
+				`	"If they're so advanced, do we have any chance of defeating them?"`
+					goto defeat
+				`	"Do you think the Drak would join us in fighting them?"`
+					goto drak
+			
+			label defeat
+			`	"Yes," it says. "In battle the Pug always respond with just enough force that their opponent has a fair chance at victory."`
+			`	弗蕾娅一脸困惑。“你这话是什么意思？”她说。`
+				goto balance
+			
+			label drak
+			`	"No," it says. "The Drak do not interfere in a war unless their rules are broken. And, it would not help you anyway; the Pug always adjust the strength of their fleet to give their opponent what they consider to be fair odds."`
+			`	“等等，”弗蕾娅说，“你的意思是，他们会故意以较弱兵力进攻我们，而非倾尽全力确保胜利？”`
+				goto balance
+			
+			label balance
+			`	"War is a game to the Pug," the Quarg says. "They are a strange species. Even if they start a war, their goal may not be to win it, but to lose in a certain way. We have seen them lose battles against species far less advanced than your own, even though they had weapons that would have guaranteed them victory. If they want war, you must play their game, and if you play their game, they may allow you to win."`
+			`	“这毫无道理，”弗蕾娅说，“他们竟会为了一场游戏而赴死？”`
+			`	The Quarg pauses for a moment as if struggling for words. "I am myself, and also I am Quarg. You are yourselves, and also you are human. But we think perhaps a Pug is Pug first, and then also itself."`
+			`	“他们的身份认同是集体性的，而非个体性的？”弗蕾娅问道。`
+			`	"Indeed. And because they are so deeply connected, they perceive all things as being connected to them. At least, that is the best understanding we have been able to gain of their species."`
+			`	你又与对方交谈了一阵，但再未获得任何有价值的信息。`
+
+
+
+overwrite
+mission "FWC Pug 4C"
+	landing
+	name "Liberate <planet>"
+	description "前往<system>星系，协助海军驱逐普格势力，重建通往阿塞拉星系的直接跃迁链接。"
+	autosave
+	source Arabia
+	destination Rand
+	clearance
+	to offer
+		has "FWC Pug 4B: done"
+	passengers 1
+	on fail
+		dialog phrase "free worlds failed"
+	
+	on offer
+		event "fwc reconnect ascella" 0
+		conversation
+			`你协助弗蕾亚卸载并架设反射器设备，随后联络遗忘星（Oblivion）上的海军，指示他们将发射器对准你的方向。几分钟后，丹佛斯上将联系了你。“这条链路似乎也已恢复，”他说，“那么，我们继续下一步。我们现在将对<system>星系发动进攻，非常欢迎你参与此次战斗。”你将设备留在<origin>，随后与弗蕾亚一同返回飞船。`
+				accept
+	
+	on visit
+		dialog `You've landed on <planet>, but there are still Pug ships circling overhead. You should take off and help finish them off.`
+	on complete
+		log "Succeeded in restoring a few more hyperspace connections, and in driving back the Pug (with the help of the Navy). But, Freya thinks it is way too coincidental that the aliens have left behind the exact technology needed to fix the hyperspace disruptions; it feels like the Pug are playing a game rather than fighting a serious war."
+		event "fwc reconnect zeta aquilae" 0
+		dialog `在对<planet>地表扫描数分钟后，弗蕾亚发现了另一座信号发射站——其结构与你在遗忘星上找到的那座完全一致。你立即联络丹佛斯上将通报其位置，他随即派出一支小队前去接管该站点。他还向你报告称：战斗期间，那些普格人（Pug）似乎再次全员撤离了该行星。“真可惜，”他说，“如果我们能俘获一些战俘，或许就能从他们口中问出些线索。总之，等你准备好协助我们执行下一任务时，随时来太空港与我汇合。”`
+	
+	npc evade
+		personality disables heroic staying
+		government Pug
+		system "Zeta Aquilae"
+		fleet 6
+			names "pug"
+			variant
+				"Pug Maboro"
+				"Pug Enfolta" 2
+
+	npc
+		government "Navy (Oathkeeper)"
+		system "Zeta Aquilae"
+		personality heroic staying
+		fleet
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Cruiser (Mark II)"
+				"Combat Drone" 4
+				"Frigate (Mark II)" 2
+		fleet
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Cruiser (Mark II)"
+				"Combat Drone" 4
+				"Gunboat (Mark II)" 2
+	npc
+		government Republic
+		system "Zeta Aquilae"
+		personality heroic staying uninterested
+		fleet 2
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Cruiser (Mark II)"
+				"Combat Drone" 4
+				"Frigate (Mark II)" 2
+		fleet
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Cruiser (Mark II)"
+				"Combat Drone" 4
+				"Gunboat (Mark II)" 2
+
+
+
+overwrite
+mission "FWC Pug 5"
+	name "Liberate <system>"
+	description "部分海军飞船已加装跳跃引擎。随它们一同前往<system>星系，避开其母星系中的主力普格舰队，并夺回该行星的控制权。"
+	autosave
+	source Rand
+	destination Silver
+	clearance
+	to offer
+		has "FWC Pug 4C: done"
+	passengers 1
+	on fail
+		dialog phrase "free worlds failed"
+	
+	on offer
+		conversation
+			`你发现丹佛斯上正监督着受损海军舰船的维修工作。“很高兴你平安挺过了那场战斗！”他说，“这些外星飞船的技术远超我方，但我们的数量占优；如今既已建立起稳固的桥头堡，我认为我们确实有机会击败他们。唯一的难题是：我方主力舰队目前仍驻扎在北方。由于天琴座（Vega）星系已被切断，补给线不得不绕行整个尘带（Dirt Belt）。因此，我提议下一步解放天琴座星系。”`
+			choice
+				`	“这的确是个不错的战略选择。”`
+				`	“你们的舰队不经过普格人的母星系，又怎能抵达天琴座？那个星系里到处都是他们的飞船。”`
+			`	丹佛斯说道：“战斗期间，我们成功从几艘普格飞船中回收了跳跃引擎，并已将其安装在三艘我方航母上。只要得到您的协助，这些应该足以突破天琴座系统的任何抵抗。随后，温特斯小姐将再次施展她在超链接方面的专长，我们便能从太阳系调来一支庞大的增援舰队。”`
+			`	“听起来不错，”弗蕾亚说，“真希望我们自己也有更多装有跳跃引擎的飞船，这样就能更好地支援你们了。”`
+			`	“的确如此，”丹佛斯说道，“这正是船长<last>的飞船必须参与此次战役的关键原因。待一切尘埃落定，我要向议会报告：这场战争是由自由世界与海军并肩作战、步步协同而赢得的胜利。同时，我也希望您能向贵方参议院传达同样的信息，以促使双方更愿意达成妥协。”`
+			choice
+				`	“听您这么说我很高兴。贵方舰队实力远超我方，您本可轻易独占全部功劳。”`
+					goto navy
+				`	“发现外星种族、并找到恢复超空间连接方法的，正是我们。真正的功劳理应归于自由世界。”`
+					goto free
+			label navy
+			`	“我并不想要这份功劳，”他说，“我只想要和平。”他祝你在进攻织女星（Vega）的行动中一切顺利，并叮嘱你一旦超空间连接恢复、增援部队准备就绪，便立即与他联系。`
+				accept
+			label free
+			`	“船长，”他说，“关键不在于谁更该居功。真正重要的是：我们该如何讲述这个故事，才能让我的阵营和你的阵营中的人们，都更愿意彼此和解？这才是我唯一关心的事。”他祝你在进攻织女星（Vega）的行动中一切顺利，并叮嘱你一旦超空间连接恢复、增援部队准备就绪，便立即与他联系。`
+				accept
+	
+	on visit
+		dialog `You've landed on <planet>, but there are still Pug ships circling overhead. You should take off and help finish them off.`
+	on complete
+		event "fwc liberation of vega" 0
+	
+	npc
+		government "Navy (Oathkeeper)"
+		personality heroic escort
+		fleet 3
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Carrier (Jump)"
+				"Combat Drone" 6
+				"Dagger" 8
+	
+	npc evade
+		personality disables heroic staying
+		government Pug
+		system Vega
+		fleet 2
+			names "pug"
+			variant
+				"Pug Enfolta"
+				"Pug Zibruka" 4
+		fleet 2
+			names "pug"
+			variant
+				"Pug Enfolta"
+				"Pug Zibruka" 3
+
+
+
+overwrite
+mission "FWC Pug 5B"
+	landing
+	name "Travel to <planet>"
+	description `与弗蕾亚一同前往<planet>，在那里部署“引力子反射器”，以恢复太阳系（Sol）与普格（Pug）领地之间的超空间连接。（她认为火星比地球这类人口稠密的行星更适合作为部署地点。）`
+	autosave
+	source Silver
+	destination Mars
+	to offer
+		has "FWC Pug 5: done"
+	passengers 1
+	cargo "graviton reflector" 10
+	blocked `When you land on <origin>, Freya says, "Captain, it looks like you're going to need <capacity> to continue with this mission." You should free up more space, then return here.`
+	on fail
+		dialog phrase "free worlds failed"
+	
+	on offer
+		log "Drove the Pug out of the Vega system with the help of some Navy ships equipped with jump drives. Once again, the Pug somehow managed to evacuate all their people from the planet before the Navy arrived, as if they were already expecting to lose this system."
+		conversation
+			`普格人似乎再次预判了你的进攻，在你抵达前便已将该行星上的所有人员全部撤离。他们仿佛早已料到事态会如此发展，这令你略感不安。你又一次在<origin>发现了一座被遗弃却仍正常运转的信号发射站；弗蕾亚在站内找到了另一台她完成连接所必需的“反射器”。“我搞不明白，”她说，“他们撤离前本该把这一切全都摧毁才对。”`
+			choice
+				`	“是的，我希望我们没落入什么圈套。”`
+					goto trap
+				`	“好吧，我们至少该庆幸他们没这么做。”`
+			`	“我想也是，”她说，“我只是不喜欢事情无法理解——而我对这些外星人完全摸不着头脑。”`
+				goto next
+			label trap
+			`	“确实如此，”她说，“很难想象一个如此先进的物种竟会犯下如此多战术错误。”`
+			label next
+			`	你将设备装载上飞船，弗蕾亚说道：“我们把设备部署在<planet>，而非地球。我认为引力子辐射对人类并无危害，但也没必要把它安置在人口如此稠密的行星上。”`
+				accept
+	on visit
+		dialog `You land on <planet>, but realize that your escort carrying Freya and the graviton reflector hasn't entered the system yet. Better depart and wait for it to arrive.`
+	
+	npc
+		government Republic
+		system Sol
+		personality heroic staying uninterested
+		fleet 3
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Carrier (Mark II)"
+				"Lance" 8
+				"Combat Drone" 6
+				"Cruiser (Mark II)"
+				"Combat Drone" 4
+				"Frigate (Mark II)" 2
+				"Gunboat (Mark II)" 2
+				"Rainmaker (Mark II)" 2
+
+
+
+overwrite
+mission "FWC Pug 5C"
+	landing
+	name "Return to <planet>"
+	description "返回<planet>，加入海军舰队，为进攻普格人母星系做战前准备。一支自由世界舰队将同时从南方发起进攻。"
+	autosave
+	source Mars
+	destination Silver
+	to offer
+		has "FWC Pug 5B: done"
+	passengers 1
+	on fail
+		dialog phrase "free worlds failed"
+	
+	on offer
+		event "fwc reconnect vega"
+		conversation
+			`弗蕾亚一完成设备架设并确认运转正常，你便立即联系丹佛斯上将。“我们已抵达火星，”你告诉他，“超空间链路预计很快就能恢复至织女星系。”`
+			`“干得好，”他说道，“请立即联络你们的议会，协调舰队自南方发起进攻，与织女星系舰队自北方跃迁突入的时间同步。”`
+			`你联络托梅克，告知他海军已准备就绪，即将发动最终总攻；他欣然同意，将尽其所能调派舰船前来与你会合。现在，是时候返回<planet>，静候进攻信号了。`
+				accept
+	on visit
+		dialog `You land on <planet>, but realize that your escort carrying Freya hasn't entered the system yet. Better depart and wait for it to arrive.`
+	
+	npc
+		government Republic
+		system Sol
+		personality heroic waiting
+		fleet 3
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Carrier (Mark II)"
+				"Lance" 8
+				"Combat Drone" 6
+				"Cruiser (Mark II)"
+				"Combat Drone" 4
+				"Frigate (Mark II)" 2
+				"Gunboat (Mark II)" 2
+				"Rainmaker (Mark II)" 2
+
+
+
+overwrite
+mission "FWC Pug 6"
+	landing
+	name "Defeat the Pug"
+	description "加入海军舰队，进攻普格人的母星系。待其舰队被歼灭后，降落在他们的母星<planet>，尝试与之谈判达成和平。"
+	autosave
+	source Silver
+	destination Pugglemug
+	clearance
+	to offer
+		has "FWC Pug 5C: done"
+	passengers 1
+	blocked "You need at least one bunk free for Freya in order to continue this mission."
+	on enter Deneb
+		dialog
+			`你驶入天津四星系，本以为会遭遇庞大规模的普格战斗舰队严阵以待，却只见一片空寂。此外，你的传感器还在最外侧行星轨道之外探测到某种异常现象。`
+	on fail
+		dialog phrase "free worlds failed"
+	
+	on offer
+		log "Preparing for the final assault on the Pug homeworld. There seems to be no other option but to force them to surrender, but with the help of the Navy that no longer seems like an impossible task."
+		event "pug flee"
+		conversation
+			`银星（Silver）上那座小小的太空港此刻人潮汹涌——越来越多的海军舰船陆续降落。海军将领们一致决定：战机不容延误——明晨即对普格母星发起进攻。尽管此前对抗普格的战斗中你屡战屡胜，但你深知，若其全部舰队倾巢而出迎战，纵使海军也未必足以将其击溃。这或许是你今生最后一次见到其中许多军官与船员活着的模样。`
+			`	每个人面对死亡的方式各不相同。太空港的酒馆人满为患，人群甚至涌到了走廊里，震耳欲聋的音乐轰然作响。教堂同样座无虚席，低语的祷告与吟诵声，和酒馆传来的舞曲激烈交杂。透过教堂门扉，你看见一些人盘腿坐在地板上，另一些人则跪在祈祷毯上——共和国所包容的种种文化，正竭力共享着这片空间。`
+			`	你在太空港建筑上层一处僻静角落找到了弗蕾亚，她正倚窗凝望星空与窗外飘散的沙尘。“准备好了吗，船长？迎接最后一战？”她问道。`
+			choice
+				`	“当然，有海军在我们身后撑腰，我想胜算不小。”`
+				`	“大概……我已经尽可能做好准备了。”`
+			`	她轻笑一声：“我想，这恐怕已是最好的状态了。明天，我能否搭乘你的飞船，而非其他舰船？倘若真是末日降临，我宁愿与熟识之人并肩直面。”你答应了。她转过身，再次望向窗外。`
+			`	由于弗蕾雅似乎想独处，你返回楼下，却发现一支规模可观的誓约者舰队已抵达。在太空港主门厅内，一名誓约者军官正带领众人进行气功冥想。令人惊讶的是，你还发现丹佛斯上将正坐在穆斯林祷告团体中，用流利的阿拉伯语诵经。与此同时，酒馆外的聚会仍在继续。`
+			`	最终，清晨到来，你开始为突袭噗格人母星的行动整备飞船……`
+				accept
+	
+	npc
+		government Republic
+		personality heroic
+		fleet 3
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Carrier (Mark II)"
+				"Lance" 8
+				"Combat Drone" 6
+				"Cruiser (Mark II)"
+				"Combat Drone" 4
+				"Frigate (Mark II)" 2
+				"Gunboat (Mark II)" 2
+				"Rainmaker (Mark II)" 2
+	npc
+		government "Navy (Oathkeeper)"
+		personality heroic
+		system Cebalrai
+		fleet 2
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Cruiser (Mark II)"
+				"Combat Drone" 4
+				"Frigate (Mark II)" 2
+		fleet 2
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Carrier (Mark II)"
+				"Lance" 8
+				"Combat Drone" 6
+				"Gunboat (Mark II)" 3
+	npc
+		personality heroic
+		system Cebalrai
+		government "Free Worlds"
+		fleet
+			names "free worlds capital"
+			variant
+				"Dreadnought"
+				"Bastion (Laser)"
+				"Argosy (Blaster)"
+				"Argosy (Laser)"
+		fleet
+			names "free worlds capital"
+			fighters
+				names "free worlds fighters"
+			variant
+				"Dreadnought"
+				"Falcon (Plasma)"
+				"Skein"
+				"Finch" 6
+		fleet
+			names "free worlds capital"
+			variant
+				"Dreadnought"
+				"Falcon (Laser)"
+				"Osprey (Laser)"
+		fleet
+			names "free worlds capital"
+			variant
+				"Falcon (Heavy)"
+				"Osprey (Laser)"
+				"Argosy (Turret)"
+	
+	on visit
+		dialog `You land on <planet>, but realize that your escort carrying Freya hasn't entered the system yet. Better depart and wait for it to arrive.`
+	on complete
+		log `噗格人已然逃离，显然是通过一座人工虫洞返回了他们原本所在的星系。而事实上，他们在‘噗格勒姆格’星球上的许多城市仅是幌子：建筑内空无一人，仅靠全息影像营造出人口稠密的假象。他们未留下任何先进科技，也未透露其真实意图；但调查发现，这些虚假城市实为人类居住而设计——他们必为此撤离计划筹谋已久。`
+		log `如今噗格人已撤离人类疆域，海军便可利用‘引力子反射器’修复断裂的超空间航道，重新连接整个人类殖民空间。`
+		log "Factions" "Pug" `噗格人从人类疆域彻底消失，留下的疑问远多于答案。他们的真正目的，或许正是借此次进攻为人类树立一个共同敌人，迫使各派系团结一致，从而忘却彼此间的内部纷争。`
+		event "fwc pug defeated"
+		event "fwc link restoration 1" 10
+		event "fwc link restoration 2" 18
+		event "fwc link restoration 3" 29
+		conversation
+			`当你率领舰队准备降落时，发现主普格太空港出奇地空无一人。然而，一群普格儿童正松散地围成一圈，站在其中一座降落平台上。他们似乎正在玩某种游戏；对你从头顶飞过的舰队毫不理会。`
+			choice
+				`	(Attack them.)`
+				`	（避免伤害他们，降落。）`
+					goto avoid
+			
+			`	你朝圆圈中心发射了一发炮弹，在降落平台上留下一道焦黑伤痕，并激起一股尘烟。孩子们却继续着游戏，仿佛什么也没发生过。`
+			label avoid
+			`	你将飞船降落在普格儿童围成的圆圈附近。他们正来回抛接一个球，刻意无视你的存在。除了球撞击地面的声响，整座城市寂静得诡异。“这实在太奇怪了。”弗蕾亚说道。`
+			choice
+				`	（探索这座城市。）`
+					goto city
+				`	（加入游戏。）`
+					goto join
+			
+			label join
+			`	你踏入圆圈，伸手去抓球，但球却直接穿过了你的手指。弗蕾亚伸出手去触碰一名孩童，她的手也同样穿过了他们。“某种全息投影，”她说道。`
+			`	海军舰船正陆续着陆，并派出船员外出探索。你与弗蕾亚步入城市，路过一对成年普格人——他们坐在一家看似咖啡馆的店外桌旁，正于六边形棋盘上下着一种黑白棋子的棋类游戏。你稍作查验，发现他们同样只是全息幻象。`
+				goto house
+			
+			label city
+			`	海军舰船正陆续着陆，并派出船员外出探索。你与弗蕾亚步入城市。街道大多空无一人，但在其中一条街上，你们路过一对成年普格人——他们坐在一家看似咖啡馆的店外桌旁，正于六边形棋盘上下着一种黑白棋子的棋类游戏。`
+			choice
+				`	(Attack them.)`
+					goto attack
+				`	（尝试与他们交谈。）`
+					goto talk
+			
+			label attack
+			`	你朝桌边一只巴哥犬挥拳猛击，但拳头却径直穿过了它的头颅，仿佛那里空无一物。弗蕾亚惊讶地伸手去触碰另一只巴哥犬，结果她的手同样毫无阻碍地穿了过去。“某种全息投影，”她说道。你们继续探索。`
+				goto house
+			
+			label talk
+			`	你试图与那些巴哥犬交谈，但它们和那些孩子一样，完全无视你的存在；甚至似乎根本意识不到你就在那里。最后，弗蕾亚伸手想拍其中一只的肩膀，可她的手却直接穿了过去。她惊讶地来回挥动双手，让手掌反复穿过两只巴哥犬。“某种全息投影，”她说。`
+				goto house
+			
+			label house
+			`	你们又继续探索了一阵子。除了这些幻象，整座城市看起来空无一人。“我们进一栋房子里看看吧，”弗蕾亚最终提议道。你们走上台阶，来到一栋看似公寓楼的建筑前，发现所有房门都未上锁。进入其中一套居住单元后，你们逐一查看各个房间：供水与供电系统仍在运行，但每样东西表面都覆盖着厚厚一层灰尘。此时，弗蕾亚正凝视着一个电源插座。“<first>，”她说，“你有没有觉得这个插座有什么异常？”`
+			choice
+				`	“没有，它只是个普通的电源插座。”`
+				`	“这里的一切都很异常——这座城市、那些全息影像，全都透着古怪。”`
+			`	她说：“这是一个普通的人类风格电源插座。人类的。出现在一座外星城市里。还有我们一路走来登上这里的台阶：普格人的腿长足足比我们长一半，但台阶间距却是标准的人类高度。这座建筑根本不是为普格人建造的，而是为我们人类建造的。”`
+			`	随着海军继续探索这颗行星其余区域，报告陆续传来，结果全都一致：所有城市均已被遗弃，其中许多城市甚至明显从未有人居住过。你第一次造访这颗行星时，曾以为它拥有十亿人口；而如今看来，其真实人口可能还不到一百万——且所有人显然都已通过虫洞前往了某个遥远之地。`
+			`	弗蕾亚说：“我们回太空港去，和各位上将汇合吧。”`
+
+
+
+overwrite
+mission "FWC End"
+	name "Talk to Parliament"
+	description "前往地球，与议会举行另一次会议。阿隆多和卡佳娅将在那里与你会合。（希望这次会面比你上次访问顺利些。）"
+	autosave
+	source Pugglemug
+	destination Earth
+	to offer
+		has "FWC Pug 6: done"
+	passengers 1
+	blocked "You need at least one bunk free for Freya in order to continue this mission."
+	on fail
+		dialog phrase "free worlds failed"
+	
+	on offer
+		"reputation: Republic" += 20
+		conversation
+			`你发现丹佛斯上将在检查普格人的太空港。“这一切实在非常古怪，”他说，“我很庆幸这些外星人似乎已经离开了，但我更希望能弄清他们来自何方，以及是否可能再度归来。”`
+			`	弗蕾亚说：“接下来我们该怎么办？”`
+			`	“我已联络新奥地利，并告知他们，雷诺兹议员可自由离开。”他说道，“她告诉我，贵方参议院已同意将自由世界列为共和国的半自治辖区，地位类似于辛迪加星系。她还邀请你与<last>船长一同前往地球，与她及阿隆多·格鲁耶尔会面，他们将在那里与议会举行会谈。我已向地球提交了一份报告，其中着重强调了自由世界在此役胜利中所发挥的关键作用，因此议会应当非常愿意与你们展开谈判。”`
+			choice
+				`	“感谢您。能与您并肩作战，是我的荣幸。”`
+					goto honor
+				`	“上一次我们访问议会时，他们公然违反安全通行协议，将我们送上法庭受审。”`
+					goto trial
+			label honor
+			`	“不，荣幸的是我才对。”他说道，“若您途经法尔波因特，随时欢迎来拜访我。”`
+				accept
+			label trial
+			`	“请相信我，”他说道，“这次您完全无需担心此类问题。外星势力竟敢在地球近域发动袭击，却因自由世界的协助而被成功挫败——此事已令议会处于一种极为……乐于接纳的态度。祝您好运，<last>船长，愿我们后会有期。”`
+				accept
+	
+	on complete
+		log "Parliament has agreed to a peace treaty, because the threat of alien invasion now seems much more pressing than the civil war with the Free Worlds. Whatever the true intention of the Pug was, the result of their interference is that humanity is at peace once more. There has been great loss of life, but nothing compared to what would have happened if the Free Worlds had tried to conquer Earth."
+		log "It may be a while before members of the Free Worlds manage to re-earn the trust of the rest of humanity, however."
+		log "Factions" "Free Worlds" `当更多星系决定脱离共和国、加入自由世界后，自由世界与共和国之间的紧张关系不断升级，最终演变为一系列军事冲突；而这一切在普格人入侵人类疆域时戛然而止。人类团结一致击退普格入侵者后，共和国正式授予自由世界自治权。`
+		event "deep sky tech available"
+		event "syndicate tech available"
+		"salary: Free Worlds" = 8900
+		set "main plot completed"
+		set "free worlds plot completed"
+		set "free worlds checkmate"
+		event "stack core for sale"
+		event "fwc kaus borealis ceded back"
+		conversation
+			`你抵达议会大厦时，阿隆多与卡佳刚与议会成员结束会谈。“好消息，”卡佳说道，“我们所有人已获得正式赦免。而你，<last>船长，已然成为了一位英雄。”`
+			`	“更妙的是，”阿隆多说道，“我们与共和国的战争已经终结。双方达成协议：自由世界的疆域将永久维持当前范围，并仅征收极低额度的税款，用于支付海军防护开支——以防外星势力再度来袭，或发生其他重大灾难。作为交换，共和国正式承认自由世界的自治地位。”`
+			`	“此外，”卡佳补充道，“作为他们表达感激之情的方式，议会中的辛迪加代表已主动提出：愿以合理价格，向我们提供部分他们在战争期间研发的新技术。”`
+			choice
+				`	“这真是非常慷慨。”`
+				`	“我怀疑这是他们收买我们支持、并让我们对所谓‘叛逃者’事件保持沉默的方式。”`
+			`	“或许如此，”阿隆多说道，“辛迪加首席执行官阿拉斯泰尔·科尔班也已辞职。这两件事或许有关联。另据最新消息，随着战争结束、普格人已被击败，参议院已投票决定解散议会，使我们得以重返平民生活。不过，参议院也同意以表彰你的功绩为由，向你<first>发放一份减额薪资。那么，你接下来打算做什么呢？”`
+			choice
+				`	“组建一支商船舰队，过上安稳宁静的生活。”`
+				`	“去看看边疆星系的居民是否需要帮助，共同对抗海盗。”`
+				`	“利用我的跳跃引擎，探索人类疆域之外的宇宙。”`
+			`	“祝你好运！”弗蕾娅说道，“没有你，我们绝不可能赢得这场战争。务必保持联系。”你与他们一一拥抱告别，随后返回自己的飞船。接下来该怎么做，就由你决定了……`

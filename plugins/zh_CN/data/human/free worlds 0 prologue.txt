@@ -1,0 +1,2560 @@
+# Copyright (c) 2014 by Michael Zahniser
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+overwrite
+mission "Pact Recon 0"
+	minor
+	name "Pirate Reconnaissance"
+	description "穿越{waypoints}星系，随后前往{destination}报到，以便南方共同防御条约组织分析你所记录的海盗活动日志（如有）。"
+	source
+		attributes "rim" "south"
+		not government "Pirate"
+		not system "Alniyat" "Atria" "Lesath" "Han"
+		not planet "Glaze"
+	destination "Glaze"
+	waypoint "Alniyat"
+	waypoint "Atria"
+	waypoint "Han"
+	waypoint "Lesath"
+	to offer
+		random < 60
+		not "event: war begins"
+	
+	on offer
+		conversation
+			`你不禁注意到，停靠在<ship>旁边的货船状况极差，船体布满激光炮击留下的疤痕，还有些更大的凹痕，似乎是导弹造成的。船员和几名身穿民兵制服的男子正忙着为它焊接新的装甲板；船长正与一名年轻的女性民兵军官激烈地交谈着。`
+			choice
+				`	（靠近他们，查明发生了什么。）`
+				`	(Ignore them.)`
+					decline
+			`	你断断续续听到了部分对话，得知这艘货船遭到了海盗袭击，民兵正在协助将其修复至正常运转状态。一名军官说道："稍加打磨抛光，它就会焕然一新。"但货船船长却不以为然，径直走向自己的飞船，与船员一同投入抢修工作。`
+			`	民兵军官瞥了一眼肩后，发现你正在旁听，便朝你招了招手。‘不用害羞，’她说，‘我猜你不是本地人吧。’`
+			choice
+				`	"你怎么知道的？"`
+				`	“这一带的海盗凶不凶？”`
+					goto pirates
+			`	“因为本地的船长们不会对日常发生的状况指指点点。当你见过十几艘受损飞船之后，也就习以为常，直接继续赶路了。”`
+			`	“这一带的海盗凶不凶？”你问道。`
+			label pirates
+			`	“比起你若来自更北边地区所习惯的环境，这儿可要艰险得多。海军极少在此巡逻，除非有某位声名显赫的军阀正被他们重点关注。正因如此，海盗才得以在我们这片区域肆意横行、为非作歹。”她顿了顿，目光转向那艘货船，“而且，海盗舰队每年都愈发壮大。”她忧心忡忡地说道。`
+			choice
+				`	"有什么我能帮上忙的吗？"`
+				`	"我很想帮忙，但我的飞船并非战舰。"`
+					goto warship
+			`	"确实如此，"她说道，"你听说过南方共同防御条约吗？"`
+				goto pact
+			label warship
+			`	"你还有其他方式可以帮我们，"她说道，"你听说过南方共同防御条约吗？"`
+			label pact
+			choice
+				`	"不了，是什么事？"`
+				`	"Yes."`
+					goto eyes
+			`	她说：“我们是一群共同结盟的行星，因海军已不再巡逻银河系这一区域，故决定由我们自行遏制海盗活动。其核心理念是：一旦海盗企图发动大规模行动——例如占领整颗行星——该行星便可向整个《协约》求援；而正如你所见，我们亦时常尽力协助本地商人。”`
+			`	“这主意听起来不错。”你说。`
+			label eyes
+			`	“《协约》正发起一项新计划，由我亲自领导，”她说道，“我们将其命名为‘千眼计划’。我们正邀请商船船长们授权我们访问其扫描日志，本质上是将商人舰队用作监视网络。你们无需亲自与海盗作战，只需在发现海盗时向我们报告即可。有兴趣加入吗？”`
+			choice
+				`	"当然，我很乐意帮忙。"`
+				`	"抱歉，听起来风险太大了。"`
+					decline
+			`	“太好了！”她说，“目前，我们需要在南部空间边缘几个星系中加派更多人手进行监视。你只需飞越这些星系，随后向我们在<destination>的基地汇报即可。我会将目标星系标记在你的飞船星图上。顺便说一句，我叫弗蕾娅·温特斯。”`
+			`	“<first> <last>，”你回应道，同时与她握手。`
+			`	“很高兴认识你，<last>船长。很欢迎又多一位帮手。我在<origin>办完事之后，就会前往<planet>，到时见。”`
+				accept
+	
+	on accept
+		log "Volunteered to help the Southern Mutual Defense Pact keep tabs on pirate activity in their region of space. Pirate attacks seem to be getting worse because the Navy doesn't bother to patrol down here anymore."
+	
+	on visit
+		dialog phrase "generic waypoint on visit"
+	on complete
+		payment 25000
+		event "pact recon 0" 1
+		dialog `当你在<planet>着陆时，弗蕾娅·温特斯前来与你接触。她支付给你<payment>，以换取你对南方星系的扫描日志。“谢谢您，船长。愿海盗没给您添太多麻烦。”她说道，“等我们有了新任务，会再与您联系——前提是您仍对此感兴趣。”`
+
+
+event "pact recon 0"
+
+
+overwrite
+mission "Pact Recon 1"
+	landing
+	name "Pirate Reconnaissance"
+	description "Fly through the <waypoints> systems, then report to <destination> so the Southern Mutual Defense Pact can analyze your logs of pirate activity (if any)."
+	source
+		attributes "dirt belt" "near earth" "rim" "south"
+		not government "Pirate"
+	destination "Glaze"
+	waypoint "Alnasl"
+	waypoint "Alpha Arae"
+	waypoint "Eber"
+	waypoint "Wei"
+	to offer
+		random < 40
+		has "event: pact recon 0"
+		not "event: war begins"
+	
+	on offer
+		dialog `你收到负责追踪海盗活动的民兵军官弗蕾亚发来的一条消息：“你好，<last>船长。愿你仍有兴趣加入我们的‘千眼计划’。我们需要更多有关尘带中央那些空置星系的情报，”她说，“报酬会比上次略高一些，毕竟这些星系位置更偏僻。和之前一样，任务完成后请返回<destination>。”`
+	
+	on visit
+		dialog phrase "generic waypoint on visit"
+	on complete
+		payment 35000
+		event "pact recon 1" 1
+		dialog `你将传感器日志传输给弗蕾亚。她感谢你的工作，并支付给你 <payment>。她说道：“等我们再次需要你的服务时，会通知你的。”`
+
+
+event "pact recon 1"
+
+
+overwrite
+mission "Pact Recon 2"
+	landing
+	name "Pirate Reconnaissance"
+	description "Fly through the <waypoints> systems, then report to <destination> so the Southern Mutual Defense Pact can analyze your logs of pirate activity (if any)."
+	source
+		attributes "dirt belt" "near earth" "rim" "south"
+		not government "Pirate"
+	destination "Glaze"
+	waypoint "Antares"
+	waypoint "Men"
+	waypoint "Nunki"
+	waypoint "Shaula"
+	to offer
+		random < 40
+		has "event: pact recon 1"
+		not "event: war begins"
+	
+	on offer
+		dialog `你再次收到弗蕾亚发来的消息：“你好，船长！这次我们有一项更具挑战性、报酬也更丰厚的任务交给你。我们需要一名飞行员对南部边境的四个海盗星系进行快速掠过侦察，以评估其军事实力。同样无需交战，只需以最快速度进出这些星系即可。鉴于任务危险性更高，我们愿意支付远超上次任务的酬金。你意下如何？”`
+	
+	on visit
+		dialog phrase "generic waypoint on visit"
+	on complete
+		payment 70000
+		event "pact recon 2" 1
+		dialog `弗蕾亚·温特斯在你着陆后不久便亲自与你会面。“很高兴看到你还安然无恙。希望你没遇到太多麻烦。”她一边说着，一边递给你一枚面值为<payment>的积分芯片。“你对我们帮助巨大。下次我们需要侦察员时，我一定再联系你。”`
+
+
+event "pact recon 2"
+
+
+overwrite
+mission "Pact Recon 3"
+	landing
+	name "Pirate Reconnaissance"
+	description "穿越<marks>星系，搜寻集结中的海盗舰队。定位后，立即前往<destination>向契约联盟汇报。"
+	source
+		attributes "dirt belt" "near earth" "rim" "south"
+		not government "Pirate"
+	destination "Glaze"
+	mark "Boral"
+	mark "Hintar"
+	mark "Naper"
+	mark "Orvala"
+	to offer
+		random < 40
+		has "event: pact recon 2"
+		not "event: war begins"
+	on offer
+		dialog `你再次收到弗蕾娅·温特斯发来的消息：“我们又有任务委托给您——这次稍显危险。据传闻，一支海盗舰队正在尘带中某个人迹罕至的星系集结，我们需要查明其确切位置。您是否有兴趣协助追踪？与之前一样，您无需参战，只需进行观察即可。”`
+	
+	npc
+		government "Pirate"
+		personality staying plunders disables
+		system "Naper"
+		fleet "Small Southern Pirates" 3
+		fleet "Large Northern Pirates"
+
+	on enter "Boral"
+		unmark "Boral"
+	on enter "Hintar"
+		unmark "Hintar"
+	on enter "Orvala"
+		unmark "Orvala"
+	on enter "Naper"
+		unmark "Boral"
+		unmark "Hintar"
+		unmark "Orvala"
+		unmark "Naper"
+		set "fw located pirate fleet"
+		dialog `你已定位海盗舰队。是时候返回<planet>向弗蕾亚汇报你的发现。`
+	on visit
+		dialog `你已抵达<planet>，但尚未定位海盗舰队！最好立即离开，并确认你已检查过<marks>。`
+	to complete
+		has "fw located pirate fleet"
+	on complete
+		clear "fw located pirate fleet"
+		payment 80000
+		dialog `你向弗蕾雅报告，称已在纳珀星系发现一支规模可观的海盗舰队，并在其他区域也目击到海盗活动。她向你表示感谢，并支付你 <payment> 积分。“感谢你的协助，”她说，“如有需要，我会再与你联系。”`
+
+
+
+overwrite
+mission "Pact Questioning"
+	landing
+	source
+		attributes "near earth" "paradise"
+		government "Republic"
+	to offer
+		not "chosen sides"
+		not "FW Katya 1B: active"
+		random < 7 * ( "Pact Recon 1: done" + "Pact Recon 2: done" + "Pact Recon 3: done" )
+	
+	on offer
+		log "Apparently the Navy is suspicious of anyone who worked with the Southern Mutual Defense Pact; got questioned about it by an officer. It was unclear what his rank or position in the Navy was."
+		conversation
+			`当你正与舰外的海军检查官例行完成着陆手续时，另一名军官——一位穿着相同制服的中年男子——从他身后走来。经过检查官身旁时，他简短地点了下头；检查官随即一言不发、迅速离开，甚至未向你或这位新军官道一声“日安”。此人显然比检查官职位更高。`
+			`	待检查员离开后，那位新任军官转向你，说道：“抱歉打扰，<last>船长。我想与您简短交谈几分钟。”`
+			choice
+				`	"好的。"`
+					goto branch
+				`	"抱歉，我现在真的很忙。"`
+			`	“很遗憾，此事刻不容缓。”他回应道。`
+			label branch
+			branch free
+				has "event: war begins"
+			`	“我是否可以理解为你一直在协助南方共同防御条约组织？”`
+				goto start
+			label free
+			`	“我是否可以理解为你曾在‘自由世界’成立之前，为南方共同防御条约组织执行过若干任务？”`
+			label start
+			`他的声音非常友善，且未携带武器，你也没看到有其他执法人员陪同，因此你似乎并未陷入麻烦，也无被捕危险——尤其是你为协约组织所做的一切工作完全合法。`
+			choice
+				`	"我不明白你在说什么。"`
+				`	"是的，我确实接过几单活儿，帮当地民兵组织干了些事。"`
+					goto pact
+				`	"是的，我曾为协约组织执行过若干任务。"`
+					goto pact
+				`	"很抱歉，但我不想就此事与你交谈。"`
+					goto quit
+			`	他一直专注地凝视着你的眼睛；当你对他撒谎时，他皱起了眉头。“其实完全没有必要对我撒谎。”他说道。你一时不知如何作答，只得保持沉默。`
+			label pact
+			`	“告诉我，”他问道，“你当时是向某位特定的民兵军官汇报，还是每次面对的都是不同的人？”他说话时，你一边观察他、试图判断他的身份及盘问你的原因，一边注意到一件极为异常的事：先前那位海军检查官，以及你过去遇到过的所有海军人员，其翻领上都佩戴着姓名牌，衣领上则有军衔徽章；而这位军官的制服却空空如也，没有任何标识。`
+			choice
+				`	"我不太记得谁的名字了。"`
+				`	"我宁愿不提及任何姓名。"`
+				`	"我通常向一位名叫弗蕾娅·温特斯的军官汇报。"`
+					goto freya
+				`“我不想谈论这件事，我要走了。”`
+					goto quit
+			`	“哦，算了，”他说道，“问一问总归值得。至少您愿意告诉我，您此前执行的任务性质吗？”`
+				goto missions
+			label freya
+			`	"啊，是的，温特斯小姐，"他说道，"一位非常能干的女性，尽管她作为工程师的才能远胜于领导才能。您能告诉我，您当时为她承担的是哪一类工作吗？"`
+			label missions
+			choice
+				`	"I'd rather not say."`
+					goto quit
+				`	"你是谁？你为什么要问我这些问题？"`
+					goto questions
+				`	“执行侦察任务，追踪海盗动向。”`
+					goto recon
+				`	"抱歉，我不想再跟你聊下去了。"`
+					goto quit
+			label recon
+			`	“你确定你们的侦察行动仅针对海盗吗？”他问道，“他们获取的，仅仅是你们关于海盗飞船的日志，还是所有你们见过的飞船的日志？”`
+			choice
+				`	“我老实说，我真不知道。”`
+				`	“我觉得只有那些海盗飞船。”`
+				`	"我刚把所有日志都交给了他们。我不确定他们最终用了其中哪些部分。"`
+			`	“我明白了。”他说道，“我很好奇，他们为何没有向你透露更多关于他们工作的细节。”`
+			`	“你为什么一直问我这么多问题？”你说。`
+			label questions
+			`	"我只是在收集信息，"他说道，"你告诉我的任何事情都让我很感兴趣。"接着，他带着一丝顽皮的笑容补充道："你拒绝告诉我的事情也同样有趣。总之，我不会再耽误你的时间了，感谢你抽出时间。"他微笑着走开，留下你对眼前发生的一切毫无头绪。`
+				decline
+			label quit
+			`	“明白。”他说道，“感谢您拨冗相告。”他并未试图挽留你，而是径直朝海军驻地的方向离去。`
+				decline
+
+
+
+overwrite
+mission "FW Recon 0"
+	minor
+	repeat
+	name "Transport Militia Officer"
+	description "将一名自由世界民兵军官护送至<destination>。"
+	source
+		government "Free Worlds"
+		near "Aldhibain" 1 10
+	destination "Glaze"
+	passengers 1
+	to offer
+		has "event: initial deployment 4"
+		or
+			random < 35 + 5 * "assisted free worlds" * "assisted free worlds"
+			has "flagship planet: Deep"
+		or
+			not "FW Recon 0: offered"
+			and
+				has "FW Katya 7C: done"
+				not "FW Recon 0: active"
+				not "FW Recon 0: done"
+	to fail
+		has "chosen sides"
+	
+	on offer
+		conversation
+			`一名男子在太空港向你走来。“你好。你能否载我一程前往<destination>？我可以付你<payment>。”你注意到他身穿民兵制服。`
+			choice
+				`	"当然，我很乐意帮忙！"`
+					accept
+				`	"抱歉，我眼下正忙别的事。"`
+					defer
+				`	“你与自由世界有联系吗？”`
+			`	"是的，我是他们民兵部队的一名军官。"那人往后退了半步，问道："这有问题吗？"`
+			choice
+				`	“完全没问题！我很乐意为你们的事业出一份力！”`
+					accept
+				`	“没问题，不过恐怕我眼下没地方安排你。”`
+					defer
+				`	"我不帮叛军，去找别人吧。"`
+					decline
+	
+	on visit
+		dialog `你降落在<planet>，但意识到民兵军官仍在你的某艘护航舰上，而该舰尚未进入本星系。最好立即离港，等待它抵达。`
+	on complete
+		payment
+		dialog `民兵军官感谢你搭载他，并支付你 <payment>。临别时，他说：“如果你有兴趣继续为我们效力，就去太空港的酒吧找我的指挥官。我会通知他留意你的到来。”`
+
+
+
+overwrite
+mission "FW Recon 1"
+	name "Free Worlds Reconnaissance"
+	description "对正在<system>星系巡逻的巡洋舰<npc>执行装备扫描，随后前往<planet>行星向自由世界军官汇报。"
+	source "Glaze"
+	to offer
+		has "FW Recon 0: done"
+	to fail
+		has "chosen sides"
+	on abort
+		log "Bailed on some reconnaissance work from the Free Worlds."
+		dialog phrase "free worlds failed"
+	on decline
+		log "Turned down reconnaissance work from the Free Worlds."
+		dialog phrase "free worlds declined"
+	
+	on offer
+		conversation
+			`当你走进太空港酒吧时，一名身穿民兵制服的男子向你招手，说道：“<last>船长，我的一名军官让我留意您的到来。您是否愿意再为自由世界效一次小劳？”`
+			choice
+				`	“或许吧。你想让我做什么？”`
+				`	“我只答应了运输任务。你们的叛乱，我可不想掺和。”`
+					decline
+			`	“这事相当简单，”他说，“最近穿过本星系的共和国飞船大多配备的是侦察设备，而非战斗装备。但此刻正有一艘名为< npc >的飞船在轨道上，看起来是一艘战舰。你是否愿意扫描它的装备，并将结果报告给我们？装备店有扫描器出售，如果你还没有的话；不过你可能想多装几台以提升扫描性能。我们将支付<payment>积分。”`
+			choice
+				`	"好啊，听起来挺简单的。"`
+					accept
+				`	"你为什么不能自己扫描这艘飞船？"`
+			`	“我相信你理解……当前自由世界与共和国之间的紧张关系。我们只是想保护自身利益，但并不想招惹海军。若能请到一位立场友善的商人帮我们扫描那艘飞船，事情就会简单得多。”`
+			choice
+				`	“听起来挺合理的。我答应了。”`
+					accept
+				`	“如果像这种见不得光的活儿就是所谓的‘帮助自由世界’，那恕不奉陪。”`
+					decline
+	
+	npc "scan outfits"
+		government "Republic"
+		personality staying uninterested target
+		fleet
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Cruiser (Heavy)"
+		conversation
+			`你刚扫描完<npc>，其舰长便向你发出呼叫：“打扰一下，船长，有什么我能帮您的吗？”`
+			choice
+				`	"我刚才还在琢磨，你装的是什么引擎，竟能让你移动得这么快。"`
+					goto engines
+				`	“不必在意，长官，我只是在欣赏您……令人印象深刻的装备罢了。”`
+					goto equipment
+			label engines
+			`	"很厉害吧？"他说道，"原子引擎，来自深空科技（Deep Sky）的最新推进技术。运行起来如此平稳、响应如此灵敏，让我感觉自己又回到了驾驶穿梭机的时代。"`
+			`	他略作停顿，又补充道：“每次我说这句话，他们都会付我一千积分。”`
+				goto close
+			label equipment
+			`	他显得得意洋洋。“嗯，我想像这样的一艘飞船，肯定能吸引不少目光。下次我们同在一颗行星上时，来我的泊位找我吧——我很乐意为你……单独导览一番。”他朝你眨了眨眼。`
+
+			label close
+			`	你切断通讯链路，长舒一口气——总算结束了这场对话。`
+	
+	on visit
+		dialog `你降落在<planet>，但尚未扫描正在该星系巡逻的海军巡洋舰。请先离港，扫描该巡洋舰的装备，再返回。`
+	on complete
+		log "Scanned a Republic Cruiser as part of some reconnaissance work for the Free Worlds."
+		payment 10000
+		dialog `你刚一着陆，民兵队长便来到你的飞船，用<payment>向你购买关于<npc>的传感器日志。他说：“如果你有意继续为我们效力，请一小时后在太空港酒吧与我见面。”`
+
+
+
+overwrite
+mission "FW Recon 2"
+	name "Free Worlds Reconnaissance"
+	description "扫描<waypoints>星系中所有装备配置与此前扫描过的战斗型巡洋舰相同的飞船，然后返回<destination>。"
+	source "Glaze"
+	waypoint "Menkent"
+	to offer
+		has "FW Recon 1: done"
+	to fail
+		has "chosen sides"
+	on abort
+		log "Turned down any further reconnaissance work from the Free Worlds."
+		dialog phrase "free worlds failed"
+	on decline
+		log "Turned down any further reconnaissance work from the Free Worlds."
+		dialog phrase "free worlds declined"
+	
+	on offer
+		conversation
+			`你在太空港酒吧与民兵队长会面。“很高兴你来了，”他说，“我叫让-雅克，不过你可以叫我JJ。”`
+			`	你也向他做了自我介绍，他接着说道：“事情是这样的。我是格莱兹星民兵部队的指挥官。目前，我们与海军尚未交火，因为谁都不愿率先开第一枪。但如果他们准备改变这一现状，就会开始将巡洋舰上的监视设备更换为重型武器。因此，我需要知道——还有多少艘他们的飞船，配备了与你刚刚扫描过的那艘相同的装备。”`
+			`	他继续说道：“我希望您前往<waypoints>，据我们的情报显示，那里正集结着大量海军舰船。请扫描任何疑似刚刚所见巡洋舰的飞船，并将扫描日志带回此处供我查阅。”`
+			choice
+				`	"当然，我很乐意这么做。"`
+					accept
+				`	"抱歉。上次那位船长在我扫描他时的反应实在让我心有余悸，我可不想再为自由世界冒丢掉脑袋的风险了。"`
+					decline
+	
+	npc "scan outfits"
+		government "Republic"
+		personality staying uninterested target
+		system "Menkent"
+		fleet
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Cruiser (Heavy)" 4
+		dialog `你已扫描了此处所有看似为战斗而升级的飞船。是时候返回<planet>领取报酬了。`
+	
+	on visit
+		dialog `你降落在<planet>，但尚未扫描正在门肯特（Menkent）巡逻的海军巡洋舰。请先离港，扫描这些巡洋舰的装备，再返回。`
+	on complete
+		payment 50000
+		dialog `JJ 在你一降落便迎上前来，你将扫描数据交给他，换得 <payment>。“再次感谢，”他说，“若您愿意再接一项侦察任务，请到酒吧找我。”`
+
+
+
+overwrite
+mission "FW Recon 3"
+	name "Free Worlds Reconnaissance"
+	description "在<destination>着陆，秘密搜集当地正在建设的海军基地的情报。"
+	source "Glaze"
+	destination "New Wales"
+	to offer
+		has "FW Recon 2: done"
+	to fail
+		has "chosen sides"
+	on abort
+		log "Turned down any further reconnaissance work from the Free Worlds."
+		dialog phrase "free worlds failed"
+	on decline
+		log "Turned down any further reconnaissance work from the Free Worlds."
+		dialog phrase "free worlds declined"
+	
+	on offer
+		conversation
+			`你在酒吧里再次遇见JJ。“我还有一项侦察任务交给你，”他说，“海军正在新威尔士星建造一座基地，紧邻现有太空港。据我所知，他们雇用了数千名当地工人参与建设，因此再多一名工人在基地内走动，也不会引人怀疑。我需要你绕基地巡视一圈，记录起降坪与机库的数量和尺寸；若条件允许，尽量拍摄照片；然后向我汇报。你觉得如何？”`
+			choice
+				`	"当然，我可以这么做。"`
+					accept
+				`	“如果他们逮捕我怎么办？”`
+			`	“据我所知，”JJ说道，“这座基地实际上并未对平民关闭。因此，只要你避开所有标有‘禁止入内’的区域，就不会构成任何犯罪行为。”`
+			choice
+				`	"好，我这就去做。"`
+					accept
+				`	“这太远了。我才不会为你擅自闯入海军领地。”`
+			`	“听到这个消息我真的很遗憾，”JJ说道，“我们曾对你寄予厚望。”他离开了酒吧。`
+				decline
+
+
+
+overwrite
+mission "FW Recon 3B"
+	name "Free Worlds Reconnaissance"
+	description "携带有关<origin>上海军基地的情报，返回<destination>。"
+	landing
+	source "New Wales"
+	destination "Glaze"
+	to offer
+		has "FW Recon 3: done"
+	to fail
+		has "chosen sides"
+	on abort
+		log "Turned down any further reconnaissance work from the Free Worlds."
+		dialog phrase "free worlds failed"
+	
+	on offer
+		conversation
+			`你穿过海军正在新建的太空港区域，努力让自己不引人注目。当确认无人监视时，你迅速拍下几张照片：共七座足以容纳航母的机库；更多机库的地基正在被工人爆破、平整；附近还凭空冒出一座由统一规格预制房屋组成的新村落；每隔几分钟，便有一艘战舰轰鸣着掠过头顶，震得整座山峰都在颤抖——这景象令人心生敬畏。`
+			`	当你记下所有你认为JJ会感兴趣的内容、准备返回飞船时，两名军官从你身旁走过，你无意中听到其中一人对另一人说：“舰队指挥部发来的密信。”`
+			`	你停下来系鞋带，试图偷听他们的对话。“消息是什么？”另一人问道。`
+			`	“我不能在这里告诉你。”第一个人说道，随即迅速躲到一座储物棚后。`
+			choice
+				`	（无视他们，返回我的飞船。）`
+					accept
+				`	（尾随他们并偷听。）`
+			
+			action
+				set "fw recon: caught"
+			`	你跟着那些军官进入一处补给场，躲到一堆高大的货箱后面。“中尉，”其中一人说道，“我们刚刚接到消息，自由世界已雇人来监视这座设施。”`
+			`	"一位专业人士，先生？"`
+			`	"哪能啊！我奶奶都比我更适合当间谍。这分明是个商人船长，一看就是个外行。"两人说话声音很大，你听得一清二楚。`
+			`	“长官，我们接下来该怎么办？”中尉问道。`
+			`	“什么也没有。要是围观我们的飞船也算犯罪，现在本地一半人口都该蹲监狱了。但倘若这位船长再接任何任务，我们恐怕就不得不采取行动了。”`
+			`	"我们至少该告诉这家伙，那些货箱根本挡不住子弹吧？"中尉咧嘴笑道。`
+			`	“哎呀，哎呀，”另一位军官说道，“不必如此赌气。”他们转身离去，只留下你尴尬万分。`
+				accept
+	
+	npc evade
+		government "Republic"
+		personality timid
+		fleet
+			names "republic capital"
+			variant
+				"Gunboat"
+	
+	on visit
+		set "fw recon: obvious gunboat"
+		dialog `你着陆一分钟后，一艘共和国炮艇“<npc>”直接降落在你身旁。JJ并未靠近你。你从飞船日志中注意到，这艘炮艇自你离开<origin>起便一直在跟踪你；在你交出情报之前，必须先摆脱它的追击。`
+	on complete
+		payment 80000
+		"assisted free worlds" ++
+		log "Gave the Free Worlds some photos and information on the Navy base on New Wales. Jean-Jacques, the militia contact, was very grateful for the help."
+		conversation
+			`JJ 在你一降落便迎上前来。“成功摆脱那艘海军炮艇，干得漂亮！”他说。`
+			branch caught
+				has "fw recon: caught"
+			branch obvious
+				has "fw recon: obvious gunboat"
+			
+			choice
+				`	"炮艇？什么炮艇？"`
+				`	"我就知道有种被跟踪的感觉。"`
+					goto followed
+			`	“你没注意到？我派出了侦察舰，它们报告称：你自离开<origin>起，便一直被一艘名为<npc>的炮艇跟踪。毫无疑问，对方正密切监视你的行踪。”`
+				goto followed
+			
+			label caught
+			choice
+				`	“他们知道我正在搜集基地的情报。难怪会派人跟踪我。”`
+					goto followed
+				`	"他们是怎么知道我与你有牵连的？"`
+					goto followed
+			
+			label obvious
+			choice
+				`	"I knew I had a feeling that I was being followed."`
+				`	"How did they know I was involved with you?"`
+			
+			label followed
+			`	“共和国的情报搜集能力极为庞大，远超我们所能企及。我只能猜测他们是如何得知你牵涉其中，并一直暗中监视你的。”`
+			choice
+				`	“现在共和国正在监视我，我该怎么办？”`
+				`	"既然如此，你又怎能指望与共和国抗衡？"`
+					goto odds
+			`	"低调行事。你已暴露，因此我们无法再委派你执行任何侦察任务。只要你不再招惹他们，他们大概率最终会放你一马。目前有大量商人在协助我们；纵使共和国能力卓绝，其监控之力亦终究有限，无法同时盯紧太多人。"`
+				goto info
+			
+			label odds
+			`	“但愿我们不必走到那一步，”JJ回应道，“目前我们正竭力自证清白，以洗脱在杰米纳斯与马蒂尼发生的爆炸事件嫌疑。但若真爆发战争，只要能继续获得像您这样的商人支援，那么，承蒙神佑，我们或许尚有一线胜机。共和国虽强，却并非无所不能。”`
+			
+			label info
+			`	JJ 收下你搜集到的情报和照片，作为回报付给你 <payment>。"我一定会将你提供的帮助告知自由世界议会的其他成员。"`
+			choice
+				`	"谢谢。"`
+					goto end
+				`	“你打算拿这些信息做什么？”`
+				`	"自由世界议会？那是什么？"`
+					goto council
+			
+			`	“问题真不少啊，是吧？”JJ轻笑道，“我们不会攻击这座海军基地，所以你今天不必担心自己的行动会伤及任何人。但倘若自由世界与共和国爆发战争，情报将成为至关重要的资源——包括你刚刚提供给我的这些信息。因此，多谢了。”`
+				goto end
+			
+			label council
+			`	“问题真多啊，是吧？”JJ轻笑道，“议会是由昔日‘南方共同防御条约’演变而来的领导层联合体，成员包括我自己以及几位其他人。目前，我们负责指挥自由世界的民兵部队；倘若与共和国爆发战争，我们也将担任前线指挥官。”`
+				goto end
+			
+			label end
+			`	“恕我失陪，船长，我还有其他工作要处理。”JJ说道，“若您仍愿继续协助我们，我相信只要您主动去寻找，定会有其他人向您发出请求。”`
+				decline
+
+
+
+overwrite
+mission "FW Escort 0"
+	autosave
+	minor
+	name "Free Worlds Escort"
+	description "前往<destination>与一支自由世界货船护航队会合。"
+	source
+		government "Free Worlds"
+		near "Sabik" 1 100
+	destination "Longjump"
+	to offer
+		has "assisted free worlds"
+		not "FW Escort 1: offered"
+		or
+			random < 20 * "assisted free worlds"
+			has "flagship planet: Glaze"
+	to fail
+		has "chosen sides"
+	on decline
+		log "Declined an offer for escort work from Tomek Voigt, commanding officer of the Free Worlds militia."
+	
+	on offer
+		conversation
+			`当你正穿过太空港时，一名身穿民兵制服的男子向你走来。从他制服上的徽记判断，你推测他在民兵组织中地位极高。`
+			`	"<last>船长？"他问道。你点点头。"终于见到您，非常荣幸。我是自由民兵指挥官托梅克·沃伊特。我的军官和朋友们都对您赞誉有加。他们告诉我，您曾不遗余力地支援我们。在此向您致以诚挚谢意。"`
+			choice
+				`	"哦，没什么大不了的，只是尽我所能帮帮别人而已。"`
+					goto humble
+				`	“我为此付出了巨大努力，因为我相信你们所从事的是一项伟大的事业。”`
+					goto cause
+				`	"我只想拿钱办事，而自由世界给的报酬相当丰厚。"`
+			`	托梅克挑了挑眉。“一位干脆利落的船长，我明白了。那么，如果你是在找报酬，我这里倒有一项代表自由世界委托给你的新任务。”`
+				goto mission
+			label humble
+			`	托梅克微笑着说：“我见到了一位谦逊的船长。嗯，若您只是想助人为乐，那我代表自由世界，还有另一项任务要交托给您。”`
+				goto mission
+			label cause
+			`	托梅克咧嘴一笑。“啊，又一位志同道合的自由斗士！看到越来越多的船长诚心加入我们的事业，总令人倍感欣慰。我这里还有一项任务，代表自由世界委托给你。”`
+			label mission
+			`	“我们正在招募飞船，协助护送一支前往塔拉泽德星补给物资的货运船队。最近几支船队都遭到了海盗袭击，我们怀疑这支船队也会遇袭。目前已有几位船长接下了这项任务，但我们始终欢迎更多帮手。你有兴趣加入吗？”`
+			choice
+				`	"当然，我很乐意协助护航。"`
+					goto accept
+				`	“需要什么类型的补给？”`
+				`	"抱歉，这不是我想要接的工作。"`
+					decline
+			
+			`	“用于制造新飞船的装备、武器及其他各类材料。自由世界正着力扩充自身军力，而本地工业产能早已满负荷运转，因此我们已开始向那些并不介意与共和国所称的‘恐怖组织’开展贸易的公司进口物资。”托梅克带着一丝讥笑说道。`
+			choice
+				`	“那我很乐意帮忙。”`
+				`	"Sorry, but that's not the type of work I'm looking for."`
+					decline
+			
+			label accept
+			`	"太好了！"他说，"护航舰队将在所有护卫舰抵达<destination>后立即启程。我建议你马上前往那里。"`
+				accept
+
+
+
+# Deprecated in v0.10.11. This event is preserved in case an older version of the mission "FW Escort 1B" is already active upon updating.
+event "fw escorts abandon timer"
+
+
+
+overwrite
+mission "FW Escort: Escorts"
+	landing
+	invisible
+	non-blocking
+	to offer
+		has "FW Escort 0: done"
+	to fail
+		has "chosen sides"
+	to complete
+		never
+	npc
+		government "Free Worlds"
+		personality heroic escort
+		system "Sabik"
+		fleet
+			cargo 0
+			names "free worlds small"
+			variant
+				"Hawk"
+				"Sparrow" 3
+	npc
+		government "Free Worlds"
+		personality heroic escort
+		system "Sabik"
+		to despawn
+			has "FW Escort 1B: done"
+		fleet
+			cargo 0
+			names "free worlds small"
+			variant
+				"Hawk"
+				"Sparrow" 2
+	npc
+		government "Free Worlds"
+		personality heroic escort
+		system "Tarazed"
+		to spawn
+			has "FW Escort 1: done"
+		to despawn
+			has "FW Escort 1B: done"
+		fleet
+			cargo 0
+			names "free worlds capital"
+			variant
+				"Falcon"
+	npc
+		government "Free Worlds"
+		personality heroic escort
+		system "Sabik"
+		to spawn
+			has "FW Escort 1B: done"
+		fleet
+			cargo 0
+			names "free worlds small"
+			variant
+				"Fury" 3
+
+
+
+overwrite
+mission "FW Escort 1"
+	autosave
+	landing
+	name "Free Worlds Escort"
+	description "护送一支自由世界补给船队安全抵达<destination>。"
+	source "Longjump"
+	destination "Wayfarer"
+	to offer
+		has "FW Escort 0: done"
+	to fail
+		has "chosen sides"
+	on offer
+		conversation
+			`你在<origin>的太空港与护航船队会合：六艘货船，由七架拦截机护航。鉴于该区域海盗活动猖獗，且部分海盗舰队实力强劲，本以为护航力量会更雄厚；但目前看来，这已是自由世界所能集结的全部兵力。也难怪他们会请求像您这样的商船船长出手相助。`
+			`	你刚一抵达，护航队便已整装待发，并规划出驶向<destination>的航线。`
+				accept
+	
+	on accept
+		log "Serving as an escort for a Free Worlds supply convoy to Tarazed. It sounds like pirates have been specifically targeting their convoys recently, and the Free Worlds don't have many ships to spare defending them."
+	
+	npc accompany save
+		government "Merchant"
+		personality escort timid
+		ship "Freighter" "F.S. Raleigh"
+		ship "Freighter" "F.S. Scott"
+		ship "Freighter" "F.S. Hudson"
+		ship "Freighter" "F.S. Drake"
+		ship "Freighter" "F.S. Magellan"
+		ship "Freighter" "F.S. Franklin"
+	npc
+		government "Pirate"
+		personality plunders entering
+		fleet "Large Southern Pirates"
+	npc
+		government "Pirate"
+		personality plunders staying
+		system "Alpha Arae"
+		fleet "Large Southern Pirates"
+	npc
+		personality plunders staying
+		government "Pirate"
+		system "Lesath"
+		fleet "Large Southern Pirates"
+	npc
+		government "Pirate"
+		personality plunders waiting
+		system "Tarazed"
+		fleet "Large Southern Pirates" 2
+	
+	on abort
+		log "Aborted some escort work from the Free Worlds."
+		fail "FW Escort: Escorts"
+	on fail
+		log "Failed to protect a convoy of Free Worlds freighters. Their commanding officer won't be happy about this."
+		set "fw intro escort failed"
+		fail "FW Escort: Escorts"
+	on visit
+		dialog `You have reached <planet>, but you left part of the convoy behind! Better depart and wait for them to arrive in this star system.`
+
+
+
+overwrite
+mission "FW Escort 1B"
+	autosave
+	landing
+	name "Free Worlds Escort"
+	description "将补给护航队安全护送至<destination>——自由世界境内。"
+	source "Wayfarer"
+	destination "Longjump"
+	to offer
+		has "FW Escort 1: done"
+	to fail
+		has "chosen sides"
+	
+	on offer
+		conversation
+			`你的货运船队成功抵达<origin>，途中虽屡遭海盗袭击，但所配备的拦截机护航编队恰好足以将其击退。商船船长们出售了所载货物，并采购了武器与飞船装备，这些物资将用于为自由世界建造新飞船。`
+			`	临行前，一位并非与你同来的自由世界民兵军官走近你，表示他已与塔拉泽德公司完成业务交涉，将随护航队一同返回<planet>。这名军官驾驶着一艘‘猎鹰号’战舰——其战斗力远超你们这支由拦截机组成的编队。这倒是个好消息，毕竟如今货船所运载的货物价值更高，海盗袭击恐怕会愈发猖獗……`
+				accept
+	
+	npc accompany save
+		government "Merchant"
+		personality escort timid
+		"cargo settings"
+			outfitters "Common Outfits" "Kraz Advanced" "Delta V Advanced"
+		ship Freighter "F.S. Raleigh"
+		ship Freighter "F.S. Scott"
+		ship Freighter "F.S. Hudson"
+		ship Freighter "F.S. Drake"
+		ship Freighter "F.S. Magellan"
+		ship Freighter "F.S. Franklin"
+	npc
+		government "Pirate"
+		personality plunders entering
+		fleet "Large Southern Pirates"
+	npc
+		government "Pirate"
+		personality plunders staying
+		system "Alpha Arae"
+		fleet "Large Southern Pirates"
+	npc
+		government "Pirate"
+		personality plunders staying
+		system "Lesath"
+		fleet "Large Southern Pirates"
+	npc
+		government "Pirate"
+		personality plunders waiting
+		system "Sabik"
+		fleet "Large Southern Pirates" 2
+	
+	on abort
+		log "Aborted some escort work from the Free Worlds."
+		fail "FW Escort: Escorts"
+	on fail
+		log "Failed to protect a convoy of Free Worlds freighters. Their commanding officer won't be happy about this."
+		set "fw intro escort failed"
+		fail "FW Escort: Escorts"
+	on visit
+		dialog `You have reached <planet>, but you left part of the convoy behind! Better depart and wait for them to arrive in this star system.`
+	on complete
+		payment 400000
+
+
+
+overwrite
+mission "FW Escort 2"
+	autosave
+	landing
+	name "Free Worlds Escort"
+	description "Escort a Free Worlds supply convoy safely to <destination>."
+	source "Longjump"
+	destination "Wayfarer"
+	to offer
+		has "FW Escort 1B: done"
+	to fail
+		has "chosen sides"
+	
+	on offer
+		conversation
+			`托梅克正在<origin>太空港等候接收货船。在反复确认货物完好无损后，他转向你及其他护航舰队的舰长们说道：“你们所有人都为自由世界立下了卓越功勋。”随后他亲自走上前，向每位舰长颁发一枚积分芯片。`
+			`	在你交付酬金后，托梅克宣布：“护航船队即刻返回<planet>。报酬条件不变：确保所有货船、船员及货物安全返航，即可获得 400,000 积分。我向你保证，你的勇气将永被议会与自由世界铭记。若你愿意再次志愿参与，请留在此处。”`
+			`	托梅克离开，大概是去为那些早已逃之夭夭的舰长们寻找替补人选。`
+			choice
+				`	（自愿参与。）`
+				`	（抛弃护航编队。）`
+					decline
+			
+			`	你和其他几名护航飞行员一起留了下来，看着其余人陆续散去。不久，托梅克回来了，幸运的是还带了几张新面孔。“规矩你们都懂，”他说，“我们绝不能让任何一艘货船失联。祝各位好运，愿两周后能平安在此见到你们所有人。”`
+				accept
+	
+	on decline
+		log "Declined an offer for more escort work from Tomek Voigt, commanding officer of the Free Worlds militia."
+		fail "FW Escort: Escorts"
+	
+	npc accompany save
+		government "Merchant"
+		personality escort timid
+		ship Freighter "F.S. Raleigh"
+		ship Freighter "F.S. Scott"
+		ship Freighter "F.S. Hudson"
+		ship Freighter "F.S. Drake"
+		ship Freighter "F.S. Magellan"
+		ship Freighter "F.S. Franklin"
+	npc
+		government "Pirate"
+		personality plunders staying
+		system "Alpha Arae"
+		fleet "Large Southern Pirates"
+	npc
+		government "Pirate"
+		personality plunders staying
+		system "Lesath"
+		fleet "Large Southern Pirates"
+	npc
+		government "Pirate"
+		personality plunders waiting
+		system "Tarazed"
+		fleet "Large Southern Pirates" 3
+	
+	on abort
+		log "Aborted some escort work from the Free Worlds."
+		fail "FW Escort: Escorts"
+	on fail
+		log "Failed to protect a convoy of Free Worlds freighters. Their commanding officer won't be happy about this."
+		set "fw intro escort failed"
+		fail "FW Escort: Escorts"
+	on visit
+		dialog `You have reached <planet>, but you left part of the convoy behind! Better depart and wait for them to arrive in this star system.`
+
+
+
+overwrite
+mission "FW Escort 2B"
+	autosave
+	landing
+	name "Free Worlds Escort"
+	description "Escort a Free Worlds supply convoy safely to <destination>."
+	source "Wayfarer"
+	destination "Longjump"
+	to offer
+		has "FW Escort 2: done"
+	to fail
+		has "chosen sides"
+	
+	on offer
+		conversation
+			`商队再次补给了武器与装备，开始为返程做准备。但遗憾的是，这次没有配备战舰的民兵军官前来支援你。你不禁担忧：这些商队往返的次数越多，海盗就越有可能摸清其航线，并开始设伏拦截。`
+				accept
+	
+	npc accompany save
+		government "Merchant"
+		personality escort timid
+		"cargo settings"
+			outfitters "Common Outfits" "Kraz Advanced" "Delta V Advanced"
+		ship Freighter "F.S. Raleigh"
+		ship Freighter "F.S. Scott"
+		ship Freighter "F.S. Hudson"
+		ship Freighter "F.S. Drake"
+		ship Freighter "F.S. Magellan"
+		ship Freighter "F.S. Franklin"
+	npc
+		government "Pirate"
+		personality plunders staying
+		system "Alpha Arae"
+		fleet "Large Southern Pirates" 2
+		fleet "Small Southern Pirates" 2
+	npc
+		government "Pirate"
+		personality plunders staying
+		system "Lesath"
+		fleet "Large Southern Pirates" 2
+		fleet "Small Southern Pirates" 2
+	npc
+		government "Pirate"
+		personality plunders waiting
+		system "Sabik"
+		fleet "Large Southern Pirates"
+		fleet "Small Southern Pirates" 2
+	
+	on abort
+		log "Aborted some escort work from the Free Worlds."
+		fail "FW Escort: Escorts"
+	on fail
+		log "Failed to protect a convoy of Free Worlds freighters. Their commanding officer won't be happy about this."
+		set "fw intro escort failed"
+		fail "FW Escort: Escorts"
+	on visit
+		dialog `You have reached <planet>, but you left part of the convoy behind! Better depart and wait for them to arrive in this star system.`
+	on complete
+		fail "FW Escort: Escorts"
+		payment 400000
+
+
+
+overwrite
+mission "FW Escort 3"
+	autosave
+	landing
+	name "Stranded Freighter"
+	description "修复被困在<waypoints>星系的<npc>，并护送其安全返回<destination>。"
+	source "Longjump"
+	waypoint "Lesath"
+	to offer
+		has "FW Escort 2B: done"
+	to fail
+		has "chosen sides"
+	
+	on offer
+		conversation
+			`托梅克·沃伊特再次在太空港迎接你及护航队其余成员，感谢大家的勇气与奉献，并向每人支付400,000积分。随后，他将你拉到一旁说道：“<last>船长，请跟我来。”`
+			`	托梅克带你来到太空港内的一家酒吧，在向酒客们寒暄致意后，两人坐在吧台前。他说：“事情是这样的：我们一艘货船‘<npc>号’刚刚在<waypoints>星系遭到瘫痪。我们需要你立刻飞往该地，修复飞船，并在海盗俘获它之前将其安全驶回此处。你觉得自己能胜任这项任务吗？”`
+			choice
+				`	"Sure!"`
+				`	“抱歉，不行。我只是一名要养家糊口的商船船长，可不会跑到荒无人烟的地方去搜寻你们失踪的飞船。”`
+					decline
+		
+			`	"很高兴听到这个消息，"他说道，"那艘货船上的全体船员正指望你呢。我想不用我多说，你也清楚——倘若海盗在你抵达前登船，他们会面临怎样的后果。所以，请立刻出发！"`
+				accept
+	
+	npc accompany save
+		government "Merchant"
+		personality escort derelict timid
+		"cargo settings"
+			outfitters "Common Outfits" "Kraz Advanced" "Delta V Advanced"
+		system "Lesath"
+		ship "Freighter" "F.S. Shackleton"
+	
+	on decline
+		log "Declined an offer for more escort work from Tomek Voigt, commanding officer of the Free Worlds militia."
+	on abort
+		log "Aborted some escort work from the Free Worlds."
+	on fail
+		log "Failed a mission to save a Free Worlds freighter. Tomek won't be happy about this."
+		set "fw intro escort failed"
+	on visit
+		dialog `你已返回<planet>，但<npc>并未与你同行。若尚未修复它，请前往<waypoints>进行维修；若已完成修复，则可起飞并等待其抵达本星系。`
+	on complete
+		payment 200000
+		"assisted free worlds" ++
+		log "Helped rescue a Free Worlds freighter that had been disabled by pirates. Earned the gratitude of Tomek Voigt, the Council member in charge of the supply convoys."
+		conversation
+			`见到<npc>平安归来，托梅克如释重负。“船长，您今日为我们立下了莫大功劳。”他一边说着，一边将面值<payment>的积分芯片交予你。“我定会向议会其他成员如实汇报您的鼎力相助，也衷心希望未来还能有幸再次向您求助。”`
+			choice
+				`	“无论何时召唤，我都已准备就绪，随时响应。”`
+					decline
+				`	"议会究竟是什么？"`
+			
+			`	托梅克略作沉思。“在自由世界成立之前，曾有过‘南方共同防御条约’——那不过是如今构成自由世界的各行星之间签订的一份防御协定而已。任何组织都需要领导，而议会，正是当年条约的领导机构。”`
+			`	“我们保留了《公约》时期所拥有的全部权力——即作为自由世界各民兵组织的统筹者与指挥官。然而，随着自由世界正式宣告成立为一个政府实体，且与共和国之间的紧张关系日益加剧，各民兵组织如今依据紧急权力条款，必须服从议会指挥；而此前的《公约》则允许各行星世界基于任何理由，自行决定是否响应《公约》号召。”`
+			`	“但议会仅是一个过渡性组织；随着自由世界参议院的成立——此事已在筹备之中——议会将被解散，其全部职责将移交参议院。”`
+			`	"这回答了你的问题吗？" 托梅克问道。`
+			`	“确实如此，”你说，“谢谢。”`
+
+
+
+overwrite
+mission "FW Escort Second Chance"
+	minor
+	name "Second Chance"
+	description "返回<destination>，与托梅克·沃伊特会合，并确认他是否会因你未能完成他委派的护航任务而原谅你。"
+	source
+		near "Sabik" 1 100
+		government "Free Worlds"
+	destination "Longjump"
+	to offer
+		has "fw intro escort failed"
+		not "chosen sides"
+		"assisted free worlds" == 2
+		has "FW Katya 7C: done"
+	to fail
+		has "chosen sides"
+	
+	on offer
+		conversation
+			`你刚下飞船，一名男子便迎面走来。“<last>船长？”他问道。你点点头。“我叫阿隆多，”他说，“我是自由世界议会成员。卡佳对你赞不绝口，因此我希望你能正式加入自由世界民兵——尽管你搞砸了先前交付给你的护航任务。”`
+			choice
+				`	"是的，对此我深感抱歉。"`
+				`	"抱歉，我决定无论如何都不愿协助自由世界。"`
+					decline
+			
+			`	“我相信是这样，”他说道，“但你真正该向其说明此事的人并不是我。眼下托梅克坚决反对为我们向你提供职位，不过如果你当面与他谈谈，他或许会改变主意——当然，也可能不会。但如果你真想为我们效力，就该前往<planet>拜访他，主动承担事件全部责任并郑重道歉。仅作建议。”说完他便转身离开。`
+				accept
+
+	on decline
+		log "Refused an offer to talk with Tomek Voigt about my failed escort mission."
+	on abort
+		log "Refused an offer to talk with Tomek Voigt about my failed escort mission."
+	
+	on complete
+		conversation
+			`你紧张地联络托梅克，询问他是否愿意见你一面。经过漫长沉默后，他答道：“好。十五分钟后，酒馆见。”你等了约二十分钟，他才终于现身，开门见山便说：“那么，你有什么话要为自己辩解？”`
+			choice
+				`	“那艘货船的损失，我负全部责任。非常抱歉。”`
+					goto responsible
+				`	“面对如此众多的海盗，我实在无能为力。”`
+				`	"对于发生的事，我深感抱歉。这种事情绝不会再发生了。"`
+			`	他对这个答复显然并不完全满意。“我不得不分别给五个家庭写信，向他们解释为何他们的儿子、女儿或丈夫死于一次常规货运任务。你承诺过会保障他们的安全，结果却失败了。你明白这一点，对吧？”`
+			choice
+				`	“嗯，太空本就是个危险的地方，坏事总会发生。我阻止不了这一切。”`
+				`	"是的，我知道自己失败了，对他们所遭受的损失，我深感抱歉。"`
+					goto responsible
+			action
+				log "Met with Tomek about my failure to protect a Free Worlds freighter. Tried to point out that there wasn't anything I could have done, but he was not happy about it."
+				set "fw escort: mistrusted"
+			`	"这并非恰当的回应，"他说道，"倘若我们向你委派任务，就必须确信你能不找任何借口地完成它。很抱歉，我无意在未来与你继续合作。再见了，船长。"他转身离去。`
+				decline
+			
+			label responsible
+			`	“如果我们将来委托你一项任务，”他说道，“我们必须确信你会圆满完成——没有借口，没有第二次机会。你明白吗？” 你点点头。“好吧，”他长叹一声，“卡佳说她信任你，所以我这次破例再给你一次机会。但请以后务必更负责任些，好吗？”`
+			choice
+				`	"我会的。感谢您给予我这次重获新生的机会，长官。"`
+				`	"我会尽我所能。"`
+			`	他与你握手后便离去，什么饮料也没点。你感觉他对你依然评价不高。`
+			action
+				log "Apologized to Tomek about my failed escort mission. He appears to have forgiven me."
+				"assisted free worlds" ++
+
+
+
+overwrite
+mission "FW Bounty 1"
+	minor
+	name "Free Worlds Bounty Hunting"
+	description `追捕并摧毁名为“鼠帮”的海盗舰队，该团伙由旗舰“克鲁尼号”率领，近期一直在自由世界疆域内袭扰商船。他们最后出现的位置位于科涅波洛斯星东北方向。击溃该团伙后，请返回<destination>。`
+	source
+		government "Free Worlds"
+	to offer
+		"combat rating" > 148
+		not "chosen sides"
+		random < 20 + 5 * "assisted free worlds" * "assisted free worlds"
+	on decline
+		log "Told a militia officer that I wouldn't do any bounty hunting for the Free Worlds."
+		dialog phrase "free worlds declined"
+	on fail
+		clear "FW Bounty 1: offered"
+	
+	on offer
+		conversation
+			`当你穿过太空港时，一名身着民兵制服的女子向你走来。“您是<last>船长吗？”她问道。你点点头。“我是本地民兵部队的一名指挥官，”她说，“过去几个月中，一支海盗舰队已多次袭击本星区的货船；但如今他们似乎已转移到自由世界疆域之外。我想趁他们尚未返回、造成更大破坏之前主动出击，可目前自由世界议会禁止民兵舰艇执行先发制人的攻击任务。因此，我们正寻求一位商船船长的协助——而有人告诉我，您是一位实力非凡的飞行员。”`
+			choice
+				`	"嗯，我很乐意替你消灭他们。"`
+					goto accept
+				`	“这些海盗的舰队实力如何？”`
+				`	“干掉这支舰队，你打算付我多少报酬？”`
+					goto payment
+				`“我不想和自由世界有任何瓜葛。”`
+					decline
+			
+			`	"嗯，他们倒也算不上一支强大的舰队——不过是些拦截机罢了。但数量众多、速度极快，我们此前屡次难以在它们逃逸或围攻我方大型飞船前将其击落。只要你能将它们清除，我们愿支付你<payment>。"`
+			choice
+				`	“只是一群拦截机？摧毁它们对我来说根本不是问题。”`
+					goto accept
+				`	“如果你都解决不了他们，那我也不知道该怎么办了。你只能靠自己了。”`
+					defer
+			
+			label payment
+			`	“鉴于这些海盗近期尤为猖獗，我们已对他们的首级悬赏<payment>积分。只要替我们铲除他们，这笔积分就全归你所有。”`
+			choice
+				`	“这听起来还算合理。好吧，我替你摧毁它们。”`
+				`	“只有{0}？那您得另找别人来干这活儿了。”`
+					defer
+			
+			label accept
+			`	“太好了，”她说，“他们自称‘鼠帮’，你很容易辨认——他们的飞船大多以各类害虫命名；不过出于某种未知原因，旗舰却只叫‘克鲁尼号’。据我方情报，他们目前位于科尔内波罗斯星系东北方向。提前感谢你的协助。”`
+				accept
+	
+	npc kill
+		government "Bounty"
+		personality heroic staying marked target tracked
+		system
+			near "Seginus" 1 1
+		ship "Hawk (Rocket)" "Cluny"
+		ship "Hawk (Speedy)" "Ferret"
+		ship "Berserker (Afterburner)" "Weasel"
+		ship "Wasp (Proton)" "Vixen"
+		ship "Fury (Laser)" "Stoat"
+		ship "Sparrow" "Rat"
+		dialog `“鼠帮”已被剿灭。你可返回<destination>领取赏金。`
+	
+	on visit
+		dialog phrase "generic fleet bounty hunting on visit"
+	on complete
+		log "Hunted down a fleet of pirates called the Rat Pack who had been giving the Free Worlds trouble."
+		payment 200000
+		dialog `此前委托你追捕“鼠帮”的民兵军官在你着陆后不久便抵达你的飞船，并向你再三致谢。“现在我们再也不用担心他们骚扰本星区的船只了。”她向你支付了 <payment> 的赏金，并表示会将你的出色协助告知其他民兵指挥官。`
+
+
+
+ship "Mammoth" "Mammoth (Moonless)"
+	outfits
+		"Modified Blaster Turret" 2
+		"Heavy Laser Turret" 6
+		
+		"Fission Reactor"
+		"LP144a Battery Pack"
+		"D41-HY Shield Generator"
+		"Large Radar Jammer"
+		"Cooling Ducts"
+		"Laser Rifle" 18
+		
+		"A250 Atomic Thruster"
+		"A375 Atomic Steering"
+		"Scram Drive"
+
+	turret "Heavy Laser Turret"
+	turret "Heavy Laser Turret"
+	turret "Heavy Laser Turret"
+	turret "Heavy Laser Turret"
+	turret "Heavy Laser Turret"
+	turret "Heavy Laser Turret"
+	turret "Modified Blaster Turret"
+	turret "Modified Blaster Turret"
+
+
+
+overwrite
+mission "FW Bounty 2"
+	minor
+	name "Free Worlds Bounty Hunting"
+	description `一名来自<destination>的自由世界民兵军官委托你追捕海盗舰船<npc>，该船正劫掠驶往塔拉泽德的商船。这名军官建议你尝试远距离发动攻击。`
+	source
+		government "Free Worlds"
+	to offer
+		has "FW Bounty 1: done"
+		not "chosen sides"
+		random < 25 + 5 * "assisted free worlds" * "assisted free worlds"
+	on fail
+		clear "FW Bounty 2: offered"
+	
+	on offer
+		conversation
+			`当你穿过太空港时，一名自由世界军官向你招手：“你好，<last>船长！”他说道，“我听说你过去曾协助我们应对海盗威胁。有兴趣再接一单赏金猎人任务吗？”`
+			choice
+				`	"这次又会是什么情况？"`
+				`	"当然，我可最喜欢打击海盗了！"`
+					goto accept
+				`	"抱歉，我眼下实在太忙了。"`
+					defer
+			
+			`	“有一艘名为<npc>的改装重型货船，一直在劫掠我们运往塔拉泽德的补给船队，窃取大量货物。请注意，这艘飞船十分难缠，装备的重型激光炮数量之多，我前所未见；但它的速度却慢如树懒，因此你或许能从远距离击中它。对它的悬赏金额为<payment>。”`
+			choice
+				`	“听起来这任务应该不会太难。我接了。”`
+				`	"我能应付一群拦截机，但这次任务听起来超出了我的能力范围。你们得另找他人了。"`
+					defer
+			
+			`	他咧嘴一笑。“很高兴听闻您已加入我们。祝您好运，船长。”`
+				accept
+			
+			label accept
+			`	他咧嘴一笑：“你的目标是一艘名为<npc>的改装重型货船，它已多次从我方补给船队中劫走大量货物。最后一次目击地点为人马座δ星系。须提醒你，这艘飞船极为强悍，装备的重型激光炮数量之多，是我平生仅见；但它行动迟缓如树懒，因此你或许能从远距离发起攻击。祝你好运，船长。”`
+				accept
+	
+	npc kill
+		government "Bounty"
+		personality heroic staying marked target tracked
+		system
+			near "Delta Sagittarii" 1 1
+		ship "Mammoth (Moonless)" "Moonless Night"
+		dialog phrase "generic hunted bounty eliminated dialog"
+	
+	on visit
+		dialog phrase "generic bounty hunting on visit"
+	on complete
+		log `追击并击毁了“无月之夜号”——一艘经过改装的重型货船，它曾长期肆虐自由世界补给航线。`
+		payment 300000
+		dialog `那位委托你追捕<npc>的民兵军官在太空港迎接你，并支付你<payment>积分。“再次感谢你协助我们，”他说。`
+
+
+
+overwrite
+mission "FW Bounty 3"
+	name "Free Worlds Bounty Hunting"
+	description `一名来自<destination>的自由世界民兵军官委托你追捕海盗舰船<npc>，这艘实力强大的海盗船最后一次被目击是在绍拉星系。`
+	source
+		government "Free Worlds"
+	to offer
+		has "FW Bounty 2: done"
+		not "chosen sides"
+		random < 30 + 5 * "assisted free worlds" * "assisted free worlds"
+	on decline
+		log "Told a militia officer that I wouldn't do any more bounty hunting for the Free Worlds."
+		dialog phrase "free worlds declined"
+	on fail
+		clear "FW Bounty 3: offered"
+	
+	on offer
+		conversation
+			`你再次穿过太空港时，一名自由世界军官拦下了你。“我们又有赏金猎人任务交给你，”他说，“这次任务危险性更高——这艘海盗飞船装备了我们从未见过的武器，其来源甚至可能是外星科技。你有兴趣协助我们摧毁它吗？”`
+			choice
+				`	"是的，我确信我的飞船足以应对这一挑战。"`
+					goto accept
+				`	"来自外星？它装备了什么类型的武器？"`
+				`	"抱歉，我对进一步援助自由世界不感兴趣。"`
+					decline
+			
+			`	“它配备了两门奇特的炮，似乎会干扰飞船的电子系统，耗尽其能量并导致武器失灵。这种武器与夸格人的激光武器类似，因此我们认为这些武器属于外星科技。”`
+			choice
+				`	“那你可找对人了。我来帮你把它取出来。”`
+				`	"抱歉，但这活儿得找别人干。"`
+					defer
+			
+			label accept
+			`	“太好了，”他说，“你的目标名为<npc>。此前我们几乎将它摧毁，它便逃往沙乌拉星系躲藏起来——这意味着你很可能要同时应对其他海盗。祝你好运，船长。”`
+				accept
+	
+	npc kill
+		government "Bounty"
+		personality heroic staying marked target tracked
+		system "Shaula"
+		ship "Osprey (Alien Weapons)" "Silverhawk"
+		dialog phrase "generic hunted bounty eliminated dialog"
+	
+	on visit
+		dialog phrase "generic bounty hunting on visit"
+	on complete
+		payment 500000
+		"assisted free worlds" ++
+		log "Defeated the Silverhawk, an Osprey armed with alien technology, and earned a good reputation with the Free Worlds militia by hunting down other dangerous pirates."
+		dialog `此前委托你追捕 <npc> 的民兵军官在你着陆后不久便联系了你。“你为我们立下了大功，”他说，“我会向议会汇报你的鼎力相助。”他随即向你支付了 <payment>。`
+
+
+
+# Because these missions can also be failed by having "chosen sides", this mission handles the failure messages for FW Katya.
+overwrite
+mission "FW Katya Failed"
+	non-blocking
+	landing
+	invisible
+	to offer
+		not "chosen sides"
+		or
+			"FW Katya 1: failed"
+			"FW Katya 1B: failed"
+			"FW Katya Alt 2: failed"
+			"FW Katya 2: failed"
+			"FW Katya 2B: failed"
+			"FW Katya 2C: failed"
+			"FW Katya 3: failed"
+			"FW Katya 4: failed"
+			"FW Katya 5: failed"
+			"FW Katya 5B: failed"
+			"FW Katya 5C: failed"
+			"FW Katya 6: failed"
+			"FW Katya 6B: failed"
+			"FW Katya 6C: failed"
+			"FW Katya 7: failed"
+			"FW Katya 7B: failed"
+			"FW Katya 7C: failed"
+	on accept
+		log "Failed to complete a mission given to me by Katya, a Free Worlds officer."
+		dialog phrase "free worlds failed"
+		fail
+
+
+
+overwrite
+mission "FW Katya 1"
+	minor
+	name "Assist the Free Worlds"
+	description "途经<destination>，接载两名乘客及部分货物，以此分散共和国对另一场同步进行的重要货物交换行动的注意力。"
+	source
+		government "Free Worlds"
+	destination "Glory"
+	to offer
+		or
+			random < 10 + 7 * "assisted free worlds" * "assisted free worlds"
+			has "flagship planet: Zug"
+	to fail
+		has "chosen sides"
+	
+	on offer
+		conversation
+			`你在太空港中闲逛，正驻足片刻阅读一家餐厅门前张贴的菜单，突然脑后传来枪械上膛的“咔嗒”声，一名女子的声音响起：“快想，船长！”`
+			choice
+				`	（做个我曾在视频里看到过的空手道动作。）`
+					goto karate
+				`	（缓缓举起双手，弄清她想要什么。）`
+			
+			`	“不错的选择，”她说，“现在，慢慢转过身去，别耍什么花招。我正用一把半自动手枪指着你的脑袋。”`
+			choice
+				`	（现在，试试那个空手道动作。）`
+					goto karate
+				`	(Turn around slowly.)`
+			
+			`	你转过身，发现一名身穿自由世界制服的女子正站在你面前。她衣领上的V形徽章表明她是一名军官。她正对你咧嘴而笑：「干得漂亮，船长！如此克制，如此沉着冷静——这种素质，在这儿可不多见。要是这把枪装了弹，过去几个月里，不少偏远地区的乡巴佬恐怕早就在我来得及招募他们之前，就被打得脑浆四溅了。」她放下了枪。`
+			choice
+				`	“你的意思是，这其实是一场测试？你们并不是想抢劫我？”`
+					goto explanation
+				`	（就当玩玩，试试那个空手道动作。）`
+			
+			`	你伸手去抓那把枪。一秒钟后，她已将你的手臂反拧到背后，力道恰到好处——足以让你明白：若继续反抗，后果将极其痛苦。“聪明，还爱玩闹，”她说，“我喜欢这样。不过嘛，除非地狱结冰，否则像你这样的毛头小子休想在我面前占得先机。那么，现在可以谈谈了吗？”她松开了你，你小心翼翼地甩了甩胳膊。`
+			
+			label explanation
+			`	“我需要一名平民帮我跑一趟信使任务，”她说，“不涉及任何违法勾当——至少共和国抓不到你的把柄。但这件事必须由一艘未悬挂我们旗帜的飞船来执行，而且船长也不能一见到货物被扫描就高喊‘打倒一切暴君！’，然后端着枪莽撞冲进去。你意下如何？”`
+			choice
+				`	"我还不确定自己是否已准备好在这场战争中选边站队。"`
+				`	"我为什么要帮一群恐怖分子？"`
+					goto terrorists
+				`	"好，再多告诉我一些。"`
+					goto more
+			
+			`	"听着，孩子，"她说，"当我请你选边站队、当我给你一项注定会令你与某些势力决裂的任务时，我绝不会遮遮掩掩。我会把你要承担的一切清清楚楚告诉你。而我现在给你的，仅仅是一个相互了解的机会——既让你认识我们，也让我们认识你，且不附加任何条件。说真的，你甚至可以同时接共和国的任务。"`
+			choice
+				`	“听起来挺公平的。我愿意听听你的说法。”`
+					goto more
+				`	“我可不喜欢一开口就用枪指着我脑袋的人——哪怕枪里没装弹药。找别人替你干这活儿吧。”`
+					decline
+			
+			label terrorists
+			`	"听着，孩子，"她说，"我知道眼下形势看起来很糟，但我向你保证：投放核弹的不是自由世界，我们也不知道是谁干的。因此，我为脱离共和国而被冠以‘叛国者’之名，也坦然接受；但我绝不能容忍被人污蔑为恐怖分子。"`
+			choice
+				`	"我凭什么相信你？"`
+				`	“我可不信。你得另找一个傻瓜来替你干这些见不得人的勾当。”`
+					decline
+			
+			`	她顿了片刻。“你并没有理由，”她叹了口气说道，“有时候，你只需凭信念行事。”`
+			choice
+				`	"好吧，我愿意听听你的说法。"`
+				`	“嗯，我对那些一开口就拿枪指着我脑袋的人可没什么信心——哪怕枪里没装弹。找别人替你们干这活儿吧。”`
+					decline
+			
+			label more
+			`	"好吧，这是交易内容：我们需要你将一批货物从<planet>运送到天集港。这只是些医疗物资——没有炸弹，也没有违禁品。但我们会趁深夜将货物装上你的飞船，尽量避免引起注意。然而共和国的警觉性是银河系中最高的，所以你终究会被发现。而任何在深夜进行的行动都极易引发他们的怀疑，因此你肯定会遭到登船检查。与此同时，真正的货物将在光天化日之下装上我们的某艘飞船，并将完全不被察觉地穿越共和国领空。"`
+			choice
+				`	“我喜欢你的思维方式。算我一个。”`
+					goto details
+				`	"抱歉，这听起来有点太 shady 了，不太合我胃口。请以后别再给我介绍这类工作了。"`
+			
+			`	“哎呀，”她说，“我还挺喜欢你的。我本来还盼着你能加入我的团队呢。”她看起来真的十分沮丧。“但规矩就是规矩。你自由了，我也会告诉同事们，你对我们这份工作没兴趣。”`
+				decline
+			
+			label details
+			`	“太好了，”她咧嘴一笑，笑容更加灿烂，“对了，我叫凯西娅·雷诺兹。很高兴能与你合作。”她转身欲走，却又似想起什么，“最后还有一件事——我在<planet>上有几位朋友，是游客，需要搭船离开那颗星球；我欠他们一个人情。你方便为他们预留两个铺位吗？”`
+			choice
+				`	"好的，没问题。"`
+			
+			`	"太好了。我很期待与您开展合作，船长。"`
+				accept
+			
+			label karate
+			`	你向侧方闪避并快速转身。就在这一瞬间，你听到一声响亮的“咔嗒”声，但枪并未击发。你一手拨开枪口，另一手劈出一记空手道手刀——倘若你真的练过空手道，这一击本该震碎她的锁骨，令她痛不欲生、踉跄倒地；但因你从未习武，这一击只是徒劳地弹开，撞在她出乎意料地健硕的肩头上，未造成丝毫伤害。`
+			`	袭击者身穿自由世界制服，脸上写满失望。“呵，你这莽撞又愚蠢的混蛋！”她说道，“我还指望你能表现得更好些呢。首先，要是这把枪上了膛，你的脑浆早就溅满人行道了；其次，你打架的样子简直像个姑娘！像你这种冲动易怒的家伙，我可派不上用场。”说完她愤然离去，只留下一头雾水的你。看来，你刚刚搞砸了一场某种测试。`
+			choice
+				`	（让她走吧。）`
+					decline
+				`	“哦？是吗？那你可确实是个女孩！”`
+			
+			`	她重新转过身来，眼中闪烁着令人胆寒的光芒，径直朝你走来，直到你们的脸相距仅数英寸。“没错，但我可不像它那样打架。”她说道，“我……像一只母獾那样战斗。”`
+			choice
+				`	“一只……獾？”`
+			
+			`	“可怕的生物。”她转身离开，让你更加困惑。`
+				decline
+	
+	on decline
+		event "FW Katya Alt 2: ready" 21
+		log "Was held up at gunpoint by a militia woman in some sort of ill-conceived Free Worlds recruitment test."
+	
+	on accept
+		log "Agreed to run interference for the Free Worlds by pretending to be a smuggler while actually carrying harmless medical supplies. It seems like this might be a ploy to make the Navy look bad."
+
+
+
+overwrite
+mission "FW Katya 1B"
+	landing
+	name "Assist the Free Worlds"
+	description "运送一批货物（无害但刻意伪装得可疑）及两名游客前往<destination>。"
+	source "Glory"
+	destination "Skymoot"
+	passengers 2
+	cargo "surgical gear" 10
+	blocked `你已抵达<origin>，但要接取凯西娅为自由世界发布的任务，你还需要<cargo>单位的货舱空间。待腾出所需空间后请返回此处。`
+	to offer
+		has "FW Katya 1: done"
+	to fail
+		has "chosen sides"
+	
+	on offer
+		conversation
+			`你刚一着陆，一对中年游客夫妇便向你走来，询问你是否愿意载他们前往斯凯穆特——“去看龙。卡特琳娜向我们推荐了你。”你欣然答应。`
+			`	那人穿着印花短裤，扛着一台大得离谱的相机，自称马蒂。"这位是我太太萨拉，"他补充道，"能麻烦你帮我们拍张合影吗？"两人站在你的飞船前摆好姿势。"最好拍两张，以防她眨眼，"马蒂说道。当你帮他们把那几个超大号行李箱搬上飞船时，不禁暗自纳闷：凯西娅怎么会和这样一对典型又富有、却毫无教养的蠢货成了朋友？`
+			`	当天深夜，按计划，三名身影模糊的人物将几只无标识的货箱装入你的货舱。卡佳向你保证箱内物品无害，仅用于分散共和国安全部队的注意力；但你仍忍不住觉得，自己正卷入一场见不得光的勾当。`
+				accept
+	
+	on visit
+		dialog `你降落在<planet>，但发现护送马蒂、莎拉及医疗物资的护卫舰尚未进入该星系。最好立即起飞，等待其抵达。`
+	on complete
+		payment 100000
+		conversation
+			`当你在<planet>着陆后，引擎甚至尚未完全冷却，卡佳便已登上你的飞船。当她看到你的乘客时，脸上立刻绽开灿烂笑容。“琳恩！”她喊道，快步上前拥抱那位自称“莎拉”的女士。接着她转向“马蒂”，说道：“还有亨利！见到你们俩真是太好了。船长<last>，容我向您介绍：这位是琳恩·安德森教授，银河系首屈一指的行星科学家；而这位是她的丈夫亨利，曾是一名海军情报军官。”`
+			choice
+				`	“很高兴认识你们两位。为何要欺骗我们？”`
+				`	“等等……那些就是秘密货物？”`
+			
+			`	卡佳解释道：“安德森家族正投奔自由世界。他们的理想是将地球化改造变为一项由政府资金支持的公共服务，而非仅限于最富裕行星才能享有的奢侈服务。多年来，我们一直努力说服议会接受这一理念，却始终未能成功。而由于亨利的背景及其对情报机构的了解，一旦共和国得知他们打算叛逃，势必会加以阻挠。”`
+			`	她补充道：“真正的秘密货物——几天前已由一艘更快的飞船运抵——是他们的私人用品，以及琳恩的实验室设备和仪器，这些货物被装上了一艘名义上驶往赫斯提亚的飞船。”`
+			`	“我们刚在那里租了一栋小屋，”亨利说道，“还谎称是在缩减生活规模。当然，押金肯定拿不回来了，但这给了我们一个打包搬家的正当理由。”`
+			`	卡佳说道：“你可能从他这身打扮上看不出来，但亨利绝对是隐匿与误导方面的绝对高手，整个计划都是他一手策划的。”她递给你一枚面值为<payment>的积分芯片，“万分感谢你的帮助！如果你愿意继续协助自由世界，请半小时后到太空港酒吧来找我。”`
+
+
+
+overwrite
+mission "FW Katya 1C"
+	invisible
+	landing
+	source
+		government "Republic"
+		attributes spaceport
+	to offer
+		has "FW Katya 1B: active"
+	to fail
+		has "chosen sides"
+	
+	on offer
+		conversation
+			`当你在<origin>着陆并开启飞船主舱门时，发现一名海军军官正带着数名持械卫兵站在面前。他说道：“抱歉，舰长，你已被随机选中接受货物检查。”`
+			choice
+				`	（让他们进来。）`
+					goto enter
+				`	（攻击他们。）`
+				`	（关闭舱门，逃入太空。）`
+					goto flee
+			
+			`	你拔出枪大喊：“一切暴君都该死！”军官惊慌失措地高声示警并扑向一旁。他的同伴们——原来都穿着防弹装甲——立刻朝你开火。你很快便倒下了。卡佳会非常失望。`
+				die
+			
+			label flee
+			`	你猛地在他们面前关紧舱盖，迅速启动引擎，冲天而起。甚至尚未脱离大气层，你的通讯器便已接收到一则广播通缉令，宣布你已被列为通缉要犯。与此同时，雷达显示数艘海军舰艇正紧追不舍。`
+				launch
+			
+			label enter
+			`	你让那名军官及其同伴进入你的货舱。他们立刻将注意力集中到昨夜装载的那些货箱上。一名守卫迅速扫描后说道：“没有爆炸物，也没有辐射。”`
+			`	海军军官说道：“您介意告诉我们这些货箱里装的是什么吗？”`
+			choice
+				`	“只是些医疗物资，主要是外科手术器械。”`
+				`	“只是一些秘密的非法勾当。”`
+					goto illegal
+				`	“我这辈子从来没见过那些箱子，也不知道它们是从哪儿来的。”`
+					goto denial
+			
+			`	“有没有任何生物材料或受管制药物？”他问道。`
+			`	"不，长官。"你答道。`
+				goto search
+			
+			label illegal
+			`	他笑着说道：“抱歉，”他说，“你大概觉得我们只是疑神疑鬼，但规矩就是规矩。”显然，他把你刚才的话当成了玩笑。`
+				goto search
+			
+			label denial
+			`	他皱起眉头。“我们必须对你进行搜身。”他说。一名卫兵拍遍你的全身，收走了你的手枪和小刀。“请坐下。”军官说道。他们强迫你坐在地上，其中一名卫兵用一支巨大的枪指着你。`
+				goto search
+			
+			label search
+			`	他说：“恐怕我们得检查一下这些货箱。”卫兵们拿起几把撬棍，开始撬开箱盖。箱内物品总体而言并无恶意，不过其中一个装满手术刀及其他外科器械的箱子让他们略一迟疑。随着他们一箱接一箱地打开却始终未发现任何可疑之物，你明显感到那名军官越来越沮丧、越来越不安。当最后一箱打开后，里面只有绷带和纱布垫时，他的沮丧便转为了尴尬。他们将货箱重新装好，并钉牢了箱盖。`
+			`	“抱歉，”军官说道，“我们一定是接到了错误的情报。对于此次侵犯您隐私的行为，我深表歉意，船长。”`
+			choice
+				`	"算了，我知道你只是在尽自己的职责。"`
+				`	“共和国什么时候起对民用飞船的搜查变得如此蛮横了？”`
+					goto angry
+			
+			`	“您非常宽厚，船长。我们不再耽误您的时间了。”他们离开了。`
+				decline
+			
+			label angry
+			`	“很抱歉，船长。自从恐怖袭击以来，大家一直都很紧张。希望您不会因此对我们产生不好的印象。”他们离开了。`
+				decline
+	
+	on accept
+		"reputation: Republic" <?= -10
+	
+	npc kill
+		government "Republic"
+		personality nemesis
+		fleet "Small Republic" 2
+
+
+
+event "FW Katya Alt 2: ready"
+
+overwrite
+mission "FW Katya Alt 2"
+	minor
+	name "Transport Mr. Eyes"
+	description "卡佳·雷诺兹委托你前往<destination>，她的朋友“眼睛先生”正在那里等候你。"
+	source
+		government "Free Worlds"
+	destination "Foundry"
+	passengers 1
+	to offer
+		has "event: FW Katya Alt 2: ready"
+		has "assisted free worlds"
+		or
+			random < 25 * "assisted free worlds"
+			has "flagship planet: Zug"
+	to fail
+		has "chosen sides"
+	on decline
+		log "Turned down a mission from the Free Worlds officer who threatened me. If they want someone to help them, they can look somewhere else."
+		dialog phrase "free worlds declined"
+	
+	on offer
+		conversation
+			`当你穿过太空港时，有人喊道：“<last>船长！”一名自由世界军官正朝你走来——你认出了她，正是之前曾用枪指着你、以“测试”为名考验你的那位女性。“之前那样捉弄您，我向您道歉，”她说，“我叫凯茜娅·雷诺兹。自由世界议会其他几位成员都对您赞誉有加，我希望您能重新考虑与我合作。”`
+			choice
+				`	"好吧，只要你别再拿枪指着我就行。"`
+				`	"不。我只是不喜欢你，也不喜欢自由世界。"`
+					decline
+			`	“太好了，”她说，“事情是这样的：我有个朋友叫‘眼睛先生’，需要从<destination>搭乘飞船离开。为确保他的安全，我不便向你透露他工作的任何细节，但我向你保证，他是一位品行端正的公民——只是不太受大型企业和某些腐败地方政府的欢迎罢了。你能载他一程吗？”`
+			choice
+				`	"Sure, I would be glad to."`
+					accept
+				`	“这事太可疑了。去找别人帮你吧。”`
+					decline
+	
+	on visit
+		dialog `你降落在<planet>，但载着‘眼睛先生’（Mr. Eyes）的护航舰队尚未进入该星系。你最好立即离港，等待其抵达。`
+	on complete
+		set "FW Katya 2: done"
+
+
+
+overwrite
+mission "FW Katya 2"
+	name "Transport Mr. Eyes"
+	description "Katya Reynolds asked you to travel to <destination>, where her friend Mr. Eyes is waiting for you."
+	source "Skymoot"
+	destination "Foundry"
+	passengers 1
+	to offer
+		has "FW Katya 1B: done"
+	to fail
+		has "chosen sides"
+	
+	on offer
+		conversation
+			`当你走进酒吧时，卡佳朝你挥手，示意你到她的桌边坐下。“我又接到一位朋友的运输委托，”她说，“这次的乘客目前正身处靠近核心区域的一颗偏远行星上。”`
+			choice
+				`	"当然，我很乐意运送他。"`
+				`	"抱歉，但我已经决定为自由世界效力风险实在太高，不值得。"`
+					decline
+			
+			`	“太好了！”她说，“他叫‘眼睛先生’，会在<destination>与你接头。为保障他的安全，我暂不便向你透露其工作详情，但我向你保证，他是一位正直守法的公民——只不过不太受大型企业和某些腐败行星政府的待见罢了。”`
+				accept
+	
+	on visit
+		dialog `You land on <planet>, but your escort with room for Mr. Eyes hasn't entered the system yet. Better depart and wait for it to arrive.`
+
+
+
+overwrite
+mission "FW Katya 2B"
+	landing
+	name "Transport Mr. Eyes"
+	description "将“眼睛先生”运送至<destination>，该地不久前发生了恐怖袭击事件。"
+	source "Foundry"
+	destination "Geminus"
+	clearance
+	passengers 1
+	to offer
+		has "FW Katya 2: done"
+	to fail
+		has "chosen sides"
+	
+	on offer
+		log "People" "Katya Reynolds" `卡佳曾是代表贫困的尘带世界（Dirt Belt）的议会成员，如今已成为自由世界运动的领袖。她以敢于在政府或企业忽视乃至欺压“普通民众”时挺身而出而广为人知。`
+		log "People" "Ijs Springborn" `他也被称为“眼睛先生”。艾斯多年来自封为“义警式核电站检查员”，致力于揭露并举报那些政府官员故意无视的环境违法行为。如今，他已同意加入自由世界运动。`
+		conversation
+			`你刚着陆并打开飞船舱门，一名戴着墨镜、头戴滑稽帽子、手提巨大金属手提箱的男子便从你身旁飞奔而过，冲进你的飞船，同时迅速回头警惕地扫视身后，生怕有人跟踪。`
+			choice
+				`	（拔出武器，自卫防身。）`
+				`	（迅速关闭舱门，确认他是否安好。）`
+					goto okay
+			
+			`	你关闭舱门，以防他人未经许可登上你的飞船，随后转身直面他。“你是什么人？为何擅自登上我的飞船？”你质问道。`
+				goto name
+			
+			label okay
+			`	你关闭舱门以防他人擅自登船，然后转过身去查看来访者是谁。“我叫<first>，”你说，“有什么可以帮您的？”`
+			
+			label name
+			`	“我是伊杰·斯普林伯恩（Ijs Springborn）。”他将名字读作‘艾斯（Eyes）’。他摘下眼镜和帽子，“雷诺兹议员让我在此与你会面。”`
+			choice
+				`	“等等，‘议员’雷诺兹？你是说卡佳已经进入议会了？”`
+			
+			`	他看上去 genuinely 震惊。「你不知道？那位女士可是传奇人物。曾两度代表尘带（Dirt Belt）出任议员，是小世界与平民百姓的捍卫者。在某些圈子里，她的所作所为甚至让她变得和我一样不受欢迎。但她厌倦了为改革奔走，转而决定亲手创建属于自己的政府。」`
+			`	“那你靠什么谋生？”你问道。`
+			`	“民间核电厂监察员，”他漫不经心地说道。`
+			choice
+				`	“呃……什么？”`
+				`	"这到底是怎么运作的？"`
+				`	"这甚至合法吗？"`
+			
+			`	“我四处奔波，逐一检查各星球工厂的排放物，看它们是否正将同位素泄漏到空气、海洋或地下水中。一旦发现泄漏，我就立刻通知原子安全部门前去查处。辛迪加现在简直恨透了我。”`
+			`	“那么，卡佳让你为自由世界做些什么？”你问道。`
+			`	“这还不明显吗？”他说道，“我们要追捕一批正在研发核武器的危险分子，自由世界将他们移交共和国。这样一来，共和国就会明白袭击事件并非自由世界所为，我们也能在事态恶化成内战之前彻底平息这场混乱。”`
+			choice
+				`	“那么，你确信自由世界是清白的？”`
+				`	“好，那我们的具体计划是什么？”`
+					goto plan
+			
+			`	“完全正确，”他说道，“这毫无道理。首先，那次袭击对他们的事业造成的损害远大于助益；其次，我和凯特琳娜以及自由世界的其他朋友们相识已久，她们绝不可能同意这种事。因此，真凶一定藏在某处，而自由世界必将将其绳之以法。”`
+			choice
+				`	“那么，我们的计划是什么？”`
+			
+			label plan
+			`	“首先，”他说道，“我们必须前往双子星——袭击发生的地点。等抵达后再向你详细说明。另外，我得提醒你，我似乎总在哪儿都能撞上海盗，运气糟透了。简直就像有人在我脑袋上挂了悬赏令一样。”他咧嘴一笑。`
+				accept
+	
+	on accept
+		log `与卡佳的一位朋友——自称“义警式核电站检查员”的“眼睛先生”——会合。他认为自己能协助追查轰炸杰米纳斯与马尔蒂尼事件的真凶，以证明此事与自由世界毫无关联。`
+	
+	npc
+		government "Bounty Hunter"
+		personality nemesis plunders staying waiting
+		fleet "Small Core Pirates" 2
+	
+	on visit
+		dialog `你降落在<planet>，但意识到“眼镜先生”仍在你的某艘护航舰上，而该舰尚未进入本星系。最好立即离港，等待它抵达。`
+
+
+
+overwrite
+mission "FW Katya 2C"
+	landing
+	name "Transport Mr. Eyes"
+	description "将“眼睛先生”送往<destination>，你将在那里与卡佳会合（并有望获得报酬）。"
+	source "Geminus"
+	destination "Rand"
+	passengers 1
+	to offer
+		has "FW Katya 2B: done"
+	to fail
+		has "chosen sides"
+	
+	on offer
+		conversation
+			`原来埃耶斯先生提着的那只手提箱里装满了便携式传感器。他一边向你解释自己的行动，一边启动了这些设备。“每个世界、甚至每座矿场，其可裂变元素中的同位素配比都略有不同，”他解释道，“所以我现在做的，几乎相当于采集一枚‘指纹’。一旦获取了该特征数据，我们就能尝试在其他行星上寻找匹配项。我敢打赌，这批材料刚从民用反应堆堆芯取出，因此追踪至矿场未必会牵连任何人；但研制核武器十分复杂，他们很可能已进行过试验。如果我们能找到试验场，或许就能顺藤摸瓜揪出幕后黑手。”`
+			`	几分钟后，他的测量工作完成。“完成了，”他说，“开始狩猎吧。卡佳让我们在<planet>与她汇合。这不是我们最理想的线索，但它确实在嫌疑目标列表之中。”`
+				accept
+	
+	on visit
+		dialog `You land on <planet>, but you realize that Mr. Eyes is on one of your escorts that hasn't entered the system yet. Better depart and wait for it to arrive.`
+	on complete
+		payment 100000
+		conversation
+			`你刚一降落，‘眼睛先生’便启动传感器开始采集数据。几分钟后，卡佳现身了。“眼睛！”她说道，“真高兴再次见到你。”`
+			`	“您也是，议员先生。”他说道。`
+			`	卡佳递给你一枚面值为<payment>的积分芯片。“再次感谢，船长。‘眼睛’已经向你说明计划了吗？”你点点头。“那好，”她说，“如果你的飞船还有空间容纳我们两人，并且你也愿意参与见证正义得以伸张的过程，那就等‘眼睛’完成数据分析后，在太空港会合吧。”`
+
+
+
+overwrite
+mission "FW Katya 3"
+	name "Drone Hunting"
+	description `关闭一架监视无人机（理想情况下需避开巡洋舰的视线），登船后“回收”其监视设备，然后返回<destination>。（在你离开禁用该无人机的星系前，其他共和国飞船可能会攻击你。）`
+	source "Rand"
+	to offer
+		has "FW Katya 2C: done"
+	to fail
+		has "chosen sides"
+	on decline
+		log "Rejected an ill-conceived mission from Katya and Eyes to plunder Republic property."
+		dialog phrase "free worlds declined"
+	
+	on offer
+		conversation
+			`你发现“眼睛”和卡佳正坐在港口为数不多的几棵树荫下，喝着某种冰冻奶昔，同时低声交谈，目光望向远处的沙漠。当你加入他们时，卡佳说道：“我刚给‘眼睛’讲完海军最近的舰队动员情况。如今半条‘尘带’都布满了巡洋舰和侦察无人机。真难相信我们能在海军之前找到袭击者——除非他们藏在海军根本没想到的地方。”`
+			`	“同意了，”艾斯说道，“更糟的是，他们的传感器性能恐怕远超我的。”`
+			`	卡佳似乎突然想到了什么：“他们无人机上的传感器，那些无人无人机……”`
+			`	艾斯瞥了她一眼，见她神情便说道：“不，议长，您连想都别想——这主意糟透了。”`
+			`	“不，”她说，“这太妙了！<last>船长，您可熟悉《2976年废弃舰船与打捞法案》？”`
+			choice
+				`	"不，我从未听说过此事。"`
+					goto no
+				`	"当然。我每晚入睡前都会阅读议会会议纪要。"`
+			
+			`	"那么，"她说道，"你大概也会同意，从法律角度而言，海军监视无人机一旦其所有者离开该星系，即视为废弃物品。"`
+				goto response
+			
+			label no
+			`	“好吧，”她说道，“事情始于辛迪加开始在不宜居行星上试验全自动采矿设施。海盗随即袭击这些矿场以窃取设备，而辛迪加则宣称这些设施属于‘殖民地’，理应由海军负责防卫。《反殖民滥用法案》正是议会对此的回应：该法案规定，从人类个体手中夺取财物即属海盗行为；但若财物所有者或其任何活体代表均未出现在该星系内，则夺取此类财物即为合法的打捞作业。立法本意，是避免海军被迫为银河系中每一处设备储藏点或废弃空间站承担防卫义务。但依据同一法律，一旦母舰离开星系，那些海军监视无人机便立刻被视为废弃物资。”`
+			
+			label response
+			choice
+				`	“没错，这对我而言完全说得通。”`
+					goto agree
+				`	“所以，先是让我在整个银河系走私人员，现在又要我去攻击海军舰船？接下来你该让我开始抓俘虏了吧。”`
+				`	"这听起来是个糟糕透顶的主意。"`
+					goto terrible
+			
+			`	艾斯大笑起来，顺带把奶昔喷了出来。“我们可没打算让您干那种事。”卡佳略带攻击性地回应道，“听着，若想揪出那些炸弹的投放者，我们就得搞到更先进的扫描设备——也就是海军无人监视无人机上搭载的那种。而您恰好拥有一艘与自由世界毫无关联的飞船。您只需找到一架落单的监视无人机，将其劫掠即可。从法律上讲，海军对此无权干涉，整个过程也不会伤及任何人。倘若我们成功查出爆炸案真凶，便有望阻止共和国与自由世界之间爆发战争，从而挽救成千上万、甚至可能数以百万计的生命。那么——您究竟站在我们这边，还是不站？”`
+				goto decision
+			
+			label terrible
+			`	“你的意思是，我们得另找一位船长合作？”卡佳说道，“若想揪出投下那些炸弹的真凶，我们必须搞到更先进的扫描设备——也就是海军无人监视无人机上搭载的那种。你只需找到一架落单的监视无人机，将其劫掠即可。从法律上讲，海军对此无权干涉，整个过程也不会伤及任何人。倘若我们成功查明爆炸事件的幕后黑手，便有望阻止共和国与自由世界之间爆发战争，从而挽救成千上万、甚至可能数以百万计的生命。那么，你究竟愿不愿意和我们一起行动？”`
+			label decision
+			choice
+				`	"好吧，我干。但我还是觉得这是个不明智的主意。"`
+				`	“即便如此，这也不足以成为摧毁海军财产的理由。算我一个。”`
+					decline
+				`	“如果自由世界就是靠这种逻辑运转的，那咱们以后就别想再合作了。”`
+					decline
+			
+			label agree
+			`	"太好了！"卡佳说道，"我们只需瘫痪一架无人机，登船后拔出监控设备，再把它带回来测试。"`
+			`	伊杰斯说道：“船长，我们得提醒你：当你攻击无人机时，该星系内的所有共和国人员都会对你产生敌意。但只要你跃迁离开该星系，他们的敌意就会平息下来。”`
+				accept
+	
+	on accept
+		log "Katya's plan for hunting down the nuclear terrorists involves stealing the sensor equipment from a Navy surveillance drone. Supposedly taking equipment from a drone counts as a salvage operation as long as none of its owners are present, due to a legal loophole in an old act of Parliament."
+	
+	on visit
+		dialog `你降落在<planet>，但你并未配备监视舱。你必须先击毁一艘海军监视无人机，并从其残骸中掠夺该装备，之后方可返回。`
+	on complete
+		outfit "Surveillance Pod" -1
+		conversation
+			`你将“打捞来”的设备交给了“眼睛先生”和卡佳。眼睛先生立刻摆弄起来，很快便掌握了大气扫描仪的使用方法。“这东西真不错！”他兴奋地说道。`
+			`	卡佳说道：“我们在太空港村庄里找到了一家还算不错的餐厅。如果你想继续和我们合作，今晚就来那里找我们吧。”`
+
+
+
+overwrite
+mission "FW Katya 4"
+	name "Katya and Mr. Eyes"
+	description "在<destination>着陆，调查该行星是否存在核试验迹象。"
+	source "Rand"
+	destination "Oblivion"
+	passengers 2
+	blocked `你需要为卡佳和“眼睛”都配备卧铺，才能继续此任务。`
+	substitutions
+		"<dirt belt origin>" ""
+		"<dirt belt origin>" " like yourself,"
+			has "start: default"
+	to offer
+		has "FW Katya 3: done"
+	to fail
+		has "chosen sides"
+	
+	on offer
+		log "People" "Katya Reynolds" `卡佳在希望星（Hope）长大——那是一颗位于尘带的星球，后因超级火山爆发引发新一轮冰期而被彻底遗弃。尽管她对共和国心存不信任，却十分敬重海军，因为正是海军在未经议会授权的情况下，协助希望星的殖民者安全撤离。`
+		conversation
+			`你与卡佳和“眼睛先生”在餐厅会合，并点好了餐。两人都兴致高昂。等待上菜时，“眼睛先生”举起手中的葡萄酒杯说道：“为<last>船长以及我们这台绝妙的新玩具——干杯！愿它为我们带来宝贵的情报与迅捷的正义！”`
+			`	“我们正考虑趁这次在附近，下一站先停靠<planet>，然后再逐步向边缘星域进发。”卡佳说道。`
+			`	你的餐食送到了。食物非常美味，你们轻松惬意地共度夜晚，分享各自童年往事。卡佳原来来自尘带（Dirt Belt）<dirt belt origin>，故乡是一颗名为“希望”的行星。“如今已无人定居了，”她解释道，“超级火山喷发。这颗星球原本就很寒冷，而火山爆发更令其陷入一场可能持续数千年的冰河期。我的家乡如今已被三十米厚的冰川所覆盖。”`
+			choice
+				`	"有人死亡吗？"`
+				`	"你是如何逃脱的？"`
+			
+			`	“火山喷发发生在另一片大陆上，”她解释道，“因此爆炸本身并未造成人员死亡。这是一场缓慢发展的灾难——我们有大约六个月的时间，将两百万殖民者撤离该星球，否则气温将持续下降至无法居住的程度。海军超过半数兵力都被动员起来，负责将我们的民众运送至其他行星。”`
+			`	“最精彩的部分来了，”艾斯说道，“海军拥有一定程度的自主权。结果他们一得知这场灾难，便立刻展开行动，甚至未等议会批准。从法理上讲，这确实在其职权范围之内——毕竟这是一场自然灾害。但海军经费来源于税收，而天堂星系缴纳的税款，是尘带地区的整整十倍。”`
+			`	“天堂星系将海军视作他们私人的安保力量，”卡佳说道，“因此当半数海军突然撤离去援助一群‘肮脏的’难民时，他们勃然大怒。正因那些海军上将下达了援助我们的命令，才挽救了数百万人的生命。而议会随后却解除了他们的职务。”`
+			choice
+				`	“你把海军说得像英雄一样。我原以为他们是你的敌人呢。”`
+				`	“你快说服我加入海军了。”`
+			
+			`	"我们的对手并非海军，" 卡佳娅说道，"他们中的大多数人都是好人。我确信，他们对战争的厌恶绝不亚于我们。他们就像警察——突然间却被要求去对抗自己曾宣誓保护与服务的人民。"`
+			`	"这件事发生时，我还是文西星上一个孩子，" 眼睛说道，"那是一颗天堂世界。我常听新闻，却始终无法理解——为什么我身边所有大人都如此、如此愤怒：海军竟派舰队去营救两百万濒临冻死的人？但他们告诉我，我们只是危险银河系中一座小小的安全部落；若没有海军保护，海盗甚至外星人便会席卷而来，摧毁我们的家园、掠走我们的财富。这是一场我们对抗整个银河的战争。"`
+			branch paradise
+				not "start: paradise"
+			
+			`	你向“眼睛”谈起自己在主帆星的成长经历，讲述你如何一直梦想着遨游星空，而非继承家族生意；还提到父亲在你十八岁生日时送了你一张飞行员执照。`
+			`	“听起来你也是从天堂世界远道而来的，”艾斯说道，“如果你不介意我冒昧一问——你觉得你父亲会如何看待你帮助自由世界这件事？”`
+			choice
+				`	“我相信，他定会为我选择的道路而欣慰。”`
+					goto quiet
+				`	"我觉得他不会喜欢的。"`
+				`	"说实话，我自己也不太确定。"`
+				`	"I'd rather not say."`
+					goto quiet
+			`	艾斯挑了挑眉，却紧闭双唇，只是默默点头。`
+				goto paradise
+
+			label quiet
+			`	艾斯望向你，点了点头。`
+				goto paradise
+			
+			label paradise
+			`	"我可不愿变得富有，"卡佳说道，"那样要担心的事情就太多了。"`
+			`	你吃完饭（卡佳付了账），并同意明早一早就启程前往<planet>。`
+				accept
+	on visit
+		dialog `你降落在<planet>，但意识到卡佳和“眼镜先生”仍在你的某艘护航舰上，而该舰尚未进入本星系。最好立即离港，等待它抵达。`
+
+
+
+overwrite
+mission "FW Katya 5"
+	landing
+	name "Information Gathering"
+	description "将卡佳和“眼睛先生”送往<destination>，那里的一些僧侣或许能协助你与海盗谈判，以获取情报。"
+	source "Oblivion"
+	destination "Harmony"
+	passengers 2
+	to offer
+		has "FW Katya 4: done"
+	to fail
+		has "chosen sides"
+	on decline
+		log "Gave up on searching for evidence of nuclear testing to clear the Free Worlds' name."
+		dialog phrase "free worlds declined"
+	
+	on offer
+		conversation
+			`你降落在<origin>，‘眼睛先生’随即启动全新的海军监视设备，开展大气层测量。“这里什么异常都没有。”几分钟后他说道，“看来我们该继续前进了。”`
+			choice
+				`	"我们真要逐一搜查这片扇区内的每一颗行星吗？那岂不是要耗上数月之久？"`
+				`	“还有其他飞船协助我们搜寻，还是只有我们自己？”`
+					goto search
+			
+			`	“你这话有道理。”眼睛说道，“而且我们甚至无法确定那些恐怖分子就来自这一带。在缺乏任何额外信息的情况下，我们无异于在银河系大小的干草堆里找一根针。”`
+				goto pirates
+			
+			label search
+			`	“不，”埃耶斯说道，“我们一直努力将此次搜寻行动保密，以免恐怖分子察觉我们在追捕他们。任何具备研发核武器资源的组织，很可能也拥有掩盖自身行踪的能力；而一旦他们得知我们正在追查，只会让本就艰难的任务变得更加棘手。”`
+			
+			label pirates
+			`	卡佳说道：“我们现在最需要的是几条可供追查的线索。我敢打赌，我们能在绿岩星买到情报。在这个星区，只要有人干非法勾当，海盗十有八九都在帮他们打掩护。”`
+			`	‘眼睛先生’说道：“除非你手头有大把金钱可以送给海盗，否则我们就需要一位与他们关系熟络的人，能说服他们免费开口交谈。我们该去和谐星（Harmony）找‘兄弟会’帮忙。”`
+			`	"这主意倒不算差，"卡佳说道，"只要别让我去听他们的教堂礼拜就行。我向来乐于服务他人，但他们的礼拜总让我昏昏欲睡。"`
+			`	“您怎么说，船长？”艾斯问道，“想去参观一座修道院吗？”`
+			choice
+				`	"好的，听起来很有趣。"`
+					accept
+				`	“你们的朋友挺有意思的。你们是怎么认识这些僧侣的？”`
+				`	"听起来真无聊。我们不能再去击落几架侦察无人机吗？"`
+					goto shoot
+			
+			`	“当我长大成人、离开天堂星区时，还是个满怀理想的年轻人，”艾耶斯说道，“我决定发下安贫誓愿，于是来到兄弟会与他们同住。但结果发现，他们还想让我同时发下服从誓愿和贞洁誓愿——这可真不是我的菜。”他朝卡佳眨了眨眼。`
+			`	"那些僧侣真像卡佳说的那么无聊吗？" 你问道。`
+			
+			label shoot
+			`	“抱歉，孩子，”埃耶斯说道，“听我的，为正义而战并不总是那么刺激。”`
+			choice
+				`	"好吧，我加入。"`
+					accept
+				`	"抱歉，我觉得自己已经帮够自由世界了。我更愿意独自闯荡。"`
+					decline
+	
+	on visit
+		dialog `You land on <planet>, but you realize that Katya and Mr. Eyes are on one of your escorts that hasn't entered the system yet. Better depart and wait for it to arrive.`
+
+
+
+overwrite
+mission "FW Katya 5B"
+	landing
+	name "Information Gathering"
+	description "与格雷格兄弟一同前往<planet>，探查当地海盗是否掌握任何情报。（向该行星发送呼叫，由他协商着陆许可。）"
+	source "Harmony"
+	destination "Greenrock"
+	clearance `格雷格兄弟简短地与太空港交通管制员交谈了一番。当对方认出他的身份后，便同意让你“免收常规起降费用”着陆。`
+	passengers 2
+	to offer
+		has "FW Katya 5: done"
+	to fail
+		has "chosen sides"
+	
+	on offer
+		log "Factions" "Pirates" `海盗飞船常由儿童驾驶，其性质类似于街头帮派或童子军。许多无法无天的星球极度贫困，加入海盗团伙成了谋生为数不多的诱人选择之一。`
+		conversation
+			`卡佳和眼睛带你前往修道院。你们接近时，遇见一名身着长黑袍的僧人，正跪在一小片菜园里拔草。他抬头看见你们，立刻跃起身奔了过来：「卡佳！还有艾杰斯！欢迎回来！」接着他转向你说道：「我是大卫。」`
+			choice
+				`	"我是<first>，很高兴认识你。"`
+			
+			`	卡佳问道：“格雷格兄弟在这里吗？”`
+			`	“他就是，”戴维说道，“请进吧。”这座修道院建筑由石料与砖块砌成，看上去就像你曾在古代地球影像资料中见过的模样。他领着你穿过一条长长的走廊，进入一间陈设同样古意盎然的会客室，随后便离开了。”`
+			`	等待期间，“眼睛”向你解释道：“格雷格兄弟负责修道院对外联络及对海盗船员的布道工作。”`
+			choice
+				`	“那听起来比当一名义警核检查员还要离谱。”`
+				`	"谁会想去联络海盗？"`
+					goto outreach
+			
+			`	艾斯笑道：“没错，那些僧侣对我思考自身职业道路的方式产生了很大影响。”`
+			
+			label outreach
+			`	“请想想这个，”卡佳说道，“在银河系南部，海盗船员的平均年龄仅为十七岁。其中许多人甚至更为年轻。他们更像街头流浪的孩子，而非老练冷酷的罪犯。”`
+			`	就在此时，格雷格兄弟走了进来。眼睛先生向他介绍了你，并说明了你的处境。格雷格皱起眉头，若有所思地问道：“我们能拿什么来交换这条情报？”`
+			`	卡佳说道：“自从爆炸事件发生以来，南方空域不仅民兵力量大幅增加，整个共和国海军也已全面进驻。这对海盗而言，想必是难上加难。看来海盗们巴不得海军尽快找到他们想要的东西，然后撤回北方去呢。”`
+			`	格雷格兄弟点点头：“值得一试。不如你和我们一起共进晚餐，明早再出发前往格林罗克。抵达后，你只需呼叫行星通讯，其余交给我来交涉——我大概能帮你们免费获得着陆许可。”`
+			`	你与兄弟们共进一顿简单却美味的晚餐——汤和沙拉全部取材于他们自家的菜园。餐后，格雷格问你：“你愿意和我们一起参加晚祷吗？”`
+			choice
+				`	"Sure, I'd be glad to."`
+					goto prayer
+				`	"抱歉，我今晚还有些别的事要办。"`
+			
+			`	“没问题。”他说道，“明天早上见。”`
+				goto morning
+			
+			label prayer
+			`	“晚祷”原来是一场冗长的教堂礼拜，显然以修士们逐一列举所能想到的一切灾祸并祈求上帝免于降临为开端：“求主救我们脱离雷电与风暴；脱离地震、火灾与洪水；脱离瘟疫、疫病与饥荒……求主救我们脱离一切压迫、阴谋与叛乱；脱离暴力、战事、凶杀与战争；并脱离猝然离世、毫无准备之死……”整个过程极为单调乏味。`
+			`	随后，他们的祈祷对象逐渐转向不同人群：为共和国议会及所有掌权者；为<origin>星球的总督——即他们自己的世界；为夸格族及一切智慧物种；为囚犯、无家可归者与贫民、孤儿、孕妇及幼童、旅行者、星际飞船船员与船长、矿工与石油作业人员、工厂与磨坊工人；为受虐待者；为精神疾病患者；为海盗与街头帮派；为所有易遭剥削或生态破坏威胁的生灵与行星。（坐在你身旁的艾斯听到这最后一项祷词时，热切地回应道：“阿门！”）这段祷文如此详尽而具体，令你既感到疲惫，又深感着迷。`
+			`	仪式结束后，僧侣们默然离开，各自返回房间；‘眼’则向你略一点头，随后也离去。`
+			
+			label morning
+			`	在修道院用早餐时，‘眼睛先生’对你说：‘我会留在这里等你回来。绿岩镇可不适合一个被悬赏通缉的人。不过卡佳会和你一同前往。’你带着卡佳和格雷格返回自己的飞船，准备起飞。`
+				accept
+	
+	on visit
+		dialog `你降落在<planet>，但意识到卡佳和格雷格兄弟仍在你的某艘护航舰上，而该舰尚未进入本星系。最好立即离港，等待它抵达。`
+
+
+
+overwrite
+mission "FW Katya 5C"
+	landing
+	name "Information Gathering"
+	description "携卡佳与格雷格兄弟返回 <planet>。"
+	source "Greenrock"
+	destination "Harmony"
+	passengers 2
+	to offer
+		has "FW Katya 5B: done"
+	to fail
+		has "chosen sides"
+	
+	on offer
+		conversation
+			`格雷格兄弟离开数小时，分别与他的各路联络人交谈，随后返回并向你和卡佳汇报：“目前没人听到任何确切消息，”他说，“而且他们表示，若想秘密维持一个核计划，要么需要难以置信的庞大资源，要么就得选址于极为偏远、安保极其严密的地点。”`
+			`	“我们该往哪儿找，有什么线索吗？”卡佳问道。`
+			`	"有几个。我曾与一位朋友聊过，他出于‘纯粹学术目的’研究过核能开发。他说，只有傻瓜才会在大气层内进行核试验——无论你在哪颗行星上，情报部门都会立刻察觉。他还说，最理想的开发地点应是一颗人口稀少、且拥有废弃深层地下矿井的行星。"`
+			`	“还有别的事吗？”你问道。`
+			`	“还有一件事，”格雷格说道，“好几个人提到，他们怀疑海军自己可能拥有核武库，而一名叛逃者或许已从海军手中窃取了这些武器——这可比自己研发容易多了。”`
+			`	"嗯，我们先回<planet>，看看艾斯有什么想法，"卡佳说道，"但我实在难以想象海军会拥有如此庞大的军备。目前，搜寻采矿行星似乎是我们最好的选择。"`
+				accept
+	
+	on visit
+		dialog `You land on <planet>, but you realize that Katya and Brother Greg are on one of your escorts that hasn't entered the system yet. Better depart and wait for it to arrive.`
+	on complete
+		payment 100000
+		conversation
+			`当你在<planet>着陆后，正当兄弟格雷格收拾行李之际，卡佳递给你另一枚面值为<payment>的积分芯片。“感谢你冒着生命危险与海盗周旋，”她说，“你真有胆量。”`
+			`	你回到修道院，将新获得的情报告诉“眼睛先生”。他的反应与卡佳的一样。“海军绝不可能拥有核武器，”他说，“也许是政府某个其他秘密部门干的，但绝不是海军——那会冒犯他们的荣誉感。”`
+			`	"不过，"卡佳说道，"如果真有这样一个项目，且武器正是从该项目中失窃的，那就解释了为何情报部门至今尚未公布嫌疑人——因为那样一来，他们就不得不暴露该项目的存在。"`
+			`	艾耶斯摇摇头，说道：“这条调查方向并无成效。如果是本地恐怖分子干的，我们还有希望追查到他们；但若背后是某个隐秘的政府组织，我们就绝无可能找到他们。因此，唯有‘本地恐怖分子’这一条线索值得继续追查。”`
+			`	“好吧，”卡佳说道，“<last>船长，若您愿意继续与我们合作，请到太空港与我们会合。”`
+
+
+
+overwrite
+mission "FW Katya 6"
+	name "The Hunt Continues"
+	description "带卡佳和艾斯前往<destination>。"
+	source "Harmony"
+	destination "Sinter"
+	passengers 2
+	to offer
+		has "FW Katya 5C: done"
+	to fail
+		has "chosen sides"
+	on decline
+		log "Gave up on searching for evidence of nuclear testing to clear the Free Worlds' name."
+		dialog phrase "free worlds declined"
+	
+	on offer
+		conversation
+			`你发现卡佳和“眼睛”先生正坐在一家小咖啡馆角落的桌旁，压低声音交谈，并研究着铺在桌面上的一张银河星图，图上已有几个邻近星系被圈出。卡佳说道：“又见面了，船长。我们已筛选出三颗最有可能的行星：{0}、霍珀和新冰岛。全部探访一遍只需几周时间。您意下如何？”`
+			choice
+				`	"当然，我非常想帮忙侦破这起案件！"`
+					goto sure
+				`	"为何偏偏是这些世界？既然共和国认定是你干的，为何不去自由空域的世界调查？"`
+				`	“我受够了帮助自由世界。我觉得我们根本没机会抢在海军之前行动。”`
+					decline
+			
+			`	“我想，若能证明自由世界诸行星上并未进行过核试验，虽属间接证据，却也能为我们所用，” Eyes 说道，“但我们此行明确旨在揪出真凶，因此就邻近的采矿行星而言，这三颗星球是我们最有可能的搜查目标。而且，排查这三颗行星，总比搜遍整个自由世界疆域要快得多。”`
+			`	"另一件我们必须牢记的是，我们或许无法永远在自由世界疆域之外自由行动，"卡佳回应道，"我祈祷在事态恶化之前能找到答案，但倘若自由世界与共和国开战，我们将被隔绝于银河系大部分区域的自由探索之外。"`
+			choice
+				`	"好的，我来帮你们搜寻这些世界。"`
+				`	"我觉得这并非最佳行动方案。你得另找他人来协助你完成此事。"`
+					decline
+			
+			label sure
+			`	“太好了！”卡佳说道，“我们先在<destination>停靠，然后顺路前往霍珀，再前往新冰岛。如果到那时仍未发现任何线索，我们就沿边缘地带逐步向上探索。”`
+				accept
+	
+	on visit
+		dialog `You land on <planet>, but you realize that Katya and Mr. Eyes are on one of your escorts that hasn't entered the system yet. Better depart and wait for it to arrive.`
+
+
+
+overwrite
+mission "FW Katya 6B"
+	landing
+	name "The Hunt Continues"
+	description "Take Katya and Eyes to <destination>."
+	source "Sinter"
+	destination "Hopper"
+	passengers 2
+	to offer
+		has "FW Katya 6: done"
+	to fail
+		has "chosen sides"
+	
+	on offer
+		conversation
+			`艾耶斯先生启动仪器，凝视着检测结果几分钟。“什么都没有，”他说，“即便是地下核试验，也会扬起足够巨大的尘埃云，让我们测出哪怕极其微弱的痕迹。但我现在什么都探测不到。”`
+			`	“没问题，”卡佳说道，“我们继续前往<planet>。”`
+				accept
+	
+	on visit
+		dialog `You land on <planet>, but you realize that Katya and Mr. Eyes are on one of your escorts that hasn't entered the system yet. Better depart and wait for it to arrive.`
+
+
+
+overwrite
+mission "FW Katya 6C"
+	landing
+	name "The Hunt Continues"
+	description "Take Katya and Eyes to <destination>."
+	source "Hopper"
+	destination "New Iceland"
+	passengers 2
+	to offer
+		has "FW Katya 6B: done"
+	to fail
+		has "chosen sides"
+	
+	on offer
+		conversation
+			`艾YES再次运行他的扫描测试，结果依然一无所获。“还剩一颗行星没查，”他说，“该试试<planet>了。”你能看出他们俩都开始有些泄气，而你则被一种沉重的预感压得喘不过气——除非很快走运，否则你们可能得在这片星区里搜索数不清的行星。`
+				accept
+	
+	on visit
+		dialog `You land on <planet>, but you realize that Katya and Mr. Eyes are on one of your escorts that hasn't entered the system yet. Better depart and wait for it to arrive.`
+
+
+
+overwrite
+mission "FW Katya 7"
+	landing
+	name "The Hunt Continues"
+	description "带卡佳和艾斯前往<destination>，调查水下试验的迹象。"
+	source "New Iceland"
+	destination "Deep"
+	passengers 2
+	to offer
+		has "FW Katya 6C: done"
+	to fail
+		has "chosen sides"
+	on decline
+		log "Gave up on searching for evidence of nuclear testing to clear the Free Worlds' name."
+		dialog phrase "free worlds declined"
+	
+	on offer
+		conversation
+			`<origin> 的情况与前两处并无不同。“我们需要调整战略，”卡佳说道，“我们在航行途中一直在讨论这件事。”`
+			`	艾耶斯说道：“我突然想到，水下试验或许比地下试验更简便：既不用挖掘，也不用寻找矿井竖井。而且，海军的传感器专为大气环境设计，对海洋并不敏感。不过，我随身还带着以前用于海水检测的老式测试套件。”`
+			`	卡佳说道：“于是我们琢磨：倘若你想让海底的异常震动不被察觉，会选什么样的星球？要么是无人居住的荒星，要么就是陨石活动频繁的星球。而这便引向了……<planet>。”她指着星图上的星系，“由于系统内大量小行星持续撞击，几乎每周都会引发轻微潮汐涌动——正是掩盖海底爆炸的绝佳地点。”`
+			choice
+				`	"听起来是个不错的可能性。我们试试看吧！"`
+					goto agree
+				`	“但<planet>属于自由世界。如果我们真在那里发现了证据，又该怎么办？”`
+				`	“我另有任务需要执行，不想再继续这场毫无头绪的追逐了。”`
+					decline
+			
+			`	"计划没有改变，" 眼睛回应道，"我们先找到试验发生的地点，这将带我们揪出元凶。即便最终发现与自由世界有关联的人牵涉其中，他们也必将移交共和国处置。"`
+			`	“但我真心祈祷，自由世界内部没人牵涉其中，”卡佳轻声说道，“我甚至宁愿我们一无所获。”`
+			choice
+				`	“有道理。那我们试试看吧。”`
+				`	“我们查得越深，自由世界就越显得可疑。我这就离开这里。”`
+					decline
+			
+			label agree
+			`	“感谢您的帮助，<last>船长。”卡佳说道，“我们出发吧。”`
+				accept
+	
+	on visit
+		dialog `You land on <planet>, but you realize that Katya and Mr. Eyes are on one of your escorts that hasn't entered the system yet. Better depart and wait for it to arrive.`
+
+
+
+overwrite
+mission "FW Katya 7B"
+	landing
+	name "The Hunt Continues"
+	description "带卡佳和艾斯前往采矿卫星 <planet>。"
+	source "Deep"
+	destination "Clink"
+	passengers 2
+	to offer
+		has "FW Katya 7: done"
+	to fail
+		has "chosen sides"
+	on decline
+		log "Gave up on searching for evidence of nuclear testing to clear the Free Worlds' name."
+		dialog phrase "free worlds declined"
+	
+	on offer
+		conversation
+			`着陆后，你与卡佳和艾斯一同沿着海滩散步。二人都赤着脚，在浪花中漫步。艾斯从浅水里捡拾鹅卵石和贝壳；其间，他没有去抓一颗鹅卵石，而是悄悄俯身，用一只小瓶装满了海水。`
+			`	回到你的飞船上，他开始进行检测，你和卡佳满怀期待地在一旁观察。他查看结果后皱起眉头，随即又用第二套检测工具重复了一遍整个流程。最终，他叹了口气：“什么都没发现。”`
+			`	卡佳恼怒地大喊，用拳头猛砸舱壁。“我们永远都找不到任何东西！”她说，“算了，我去散散步。”她离开了你的飞船。`
+			`	‘眼睛先生’收拾好他的仪器，随后你们一同走出室外，发现她正坐在你飞船旁的起降平台上，凝望着月亮缓缓升起于海面之上。她看上去平静了许多`
+			choice
+				`	（坐在她身旁，试着安慰她。）`
+				`	“我们现在该怎么办？”`
+					goto last
+			
+			`	你坐在她一侧，而“眼睛”坐在另一侧。你说：‘你所做的一切实在令人钦佩——你正为和平与正义而努力，这份工作意义非凡，请别灰心丧气。’`
+				goto last
+			
+			label last
+			`	"再试一次，"她说，"只剩最后一个世界了，之后我们就放弃。我想让你带我……去那里。"她指向悬于地平线之上的那颗卫星。`
+			`	艾耶斯说道：“一颗采矿行星。尘埃弥漫的大气层。频繁遭受陨石撞击。你就算在那颗星球的背面引爆一枚核弹，矿工们大概也会照睡不误。”`
+			choice
+				`	“好吧，我带你去这最后一个世界，之后我们就两清了。”`
+				`	“抱歉，‘再征服一个世界’这话你早在两颗行星前就说过。我受够了。”`
+					decline
+			`	"我保证，这将是最后一次，"卡佳说道。`
+				accept
+	
+	on visit
+		dialog `You land on <planet>, but you realize that Katya and Mr. Eyes are on one of your escorts that hasn't entered the system yet. Better depart and wait for it to arrive.`
+
+
+
+overwrite
+mission "FW Katya 7C"
+	landing
+	name "Bring Eyes to <planet>"
+	description "在卡佳于<origin>执行卧底任务期间，请将‘眼睛先生’送往<destination>，向自由世界汇报。"
+	source "Clink"
+	destination "Zug"
+	passengers 1
+	to offer
+		has "FW Katya 7B: done"
+	to fail
+		has "chosen sides"
+	
+	on offer
+		log "Found evidence of nuclear testing on Clink, a mining moon on the edge of Free Worlds territory. It's strange that the perpetrators left such clear evidence behind; the Navy's drones will certainly have discovered it before we did. Katya stayed behind to try to infiltrate the mining compound and collect more information."
+		conversation
+			`你在采矿定居点远处降落，‘眼睛先生’（Mr. Eyes）身穿加压宇航服进入气闸舱，循环通气以引入月球稀薄的大气供他检测。“现在启动我的仪器。”他通过通讯链路说道。一阵漫长的沉默后，他突然爆出一连串极具创意的咒骂。卡佳（Katya）立刻冲到气闸舱窗口前查看发生了什么。`
+			`	终于，艾斯冷静下来，足以开口说道：“完全匹配！不仅此处近期刚做过检测，其信号特征更与我们在双子星（Geminus）采集的样本完全一致。就是它了。”`
+			`	他循环开启气闸舱，重新回到舱内。“我们飞一圈，看看能不能找到那个地点。”他说。数小时低空掠过地表并持续扫描辐射信号后，你们发现了一处看似普通陨石坑、却充满辐射的区域。卡佳和“眼睛”几乎难以置信地盯着地表影像。`
+			`	“根据同位素衰变速率判断，这场爆炸发生于六月中旬，”伊兹说道，“就在袭击事件爆发前夕。”`
+			`	"这毫无道理，"卡佳说道，"这显然是公然进行的大气层试验。海军不可能没发现此事。海军随时都可能采取行动。"`
+			choice
+				`	"既然已经找到了试验场，我们现在该怎么办？"`
+					goto now
+				`	"原来如此，自由世界在背后主使这一切！这颗行星是你们的！"`
+			
+			`	"没错，这确实是一颗自由世界行星，但这份证据未免太过明显了，" 眼睛回应道，"仅仅因为我们在本地发现了匹配痕迹，并不意味着所有试验都发生在这里。我目前仅探测到足以对应一次爆炸的同位素含量——而你们绝不会只做一次试验。事实上，这反而表明自由世界正被人栽赃陷害：有人先在此处引爆了一枚核弹，再轰炸吉米纳斯（Geminus）和马蒂尼（Martini），企图嫁祸给自由世界。"`
+			`	“我以神之名起誓：自由世界与此事毫无关联，船长，”卡佳说道，“但我们必将揪出真凶，并将其绳之以法。”`
+			
+			label now
+			`	卡佳思索片刻。“船长，前哨站那边有发布什么职位空缺吗？”`
+			`	你查看了一下自己的电脑：“招聘启事一则：食堂勤杂工。”`
+			`	她皱了皱眉。“好吧，总比什么都没有强。我接下这个卧底任务，看看能查出些什么。你带‘眼睛’去<planet>，让他联系自由世界议会。等我找到幕后黑手后，会设法给你发消息。”`
+			`	“凯特琳娜，”眼睛说道，“这实在太危险了。我之前就说过，既然我们都能探测到，海军肯定也能，而且他们很可能已经掌握了情报。他们随时可能占领克林克，而你将被困在这里，无路可逃。”`
+			`	“别无他法了，”她说，“我们已没有时间可浪费。我愿意冒这个险。”`
+			`	你怀着深深的顾虑，将她送至前哨站。卡佳揉乱她的头发，并抹了些月尘在脸上以便伪装，同时询问工作事宜——她很快便获聘上岗。“没多少人愿意来这种地方干活，”工头说道，“所以你的帮助将非常宝贵。”你和“鹰眼”返回飞船，整装待发，准备携证据前往<planet>。`
+				accept
+	
+	on visit
+		dialog `You land on <planet>, but you realize that Mr. Eyes is on one of your escorts that hasn't entered the system yet. Better depart and wait for it to arrive.`
+	on complete
+		payment 250000
+		"assisted free worlds" ++
+		conversation
+			`艾耶斯在整个航程中一直异常沉默；你确信他正为卡佳忧心忡忡。着陆后，他将<payment>交给你，并说道：“感谢您一路相助，船长。愿此事终得正义。”`
+			`	他刚要转身离开，又折返回来。“对了，卡佳本想对此保密，但我认为你有权知道。”他指了指刚刚交给你的信用芯片，“这笔钱是卡佳自掏腰包资助的——这已是她全部积蓄的最后一点，刚刚全付给你了。”`
+			choice
+				`	“我完全不知道。”`
+				`	“哇，她对这份工作还真是全心投入啊，是吧？”`
+			`	“她是个独一无二的女人。”眼睛说道，“希望我们很快能再见到她。暂时告别了，<first>。”`
+
+
+
+overwrite
+mission "FW Commitment"
+	minor
+	landing
+	name "Join the Free Worlds"
+	description "如果你想加入自由世界，请前往<destination>上的其总部报到。"
+	source
+		government "Free Worlds"
+	destination "Bourne"
+	to offer
+		"assisted free worlds" >= 3
+		has "FW Katya 7C: done"
+	to fail
+		has "chosen sides"
+	to complete
+		never
+	on fail
+		# Do nothing.
+	on abort
+		log "Declined an offer to join the Free Worlds."
+		dialog phrase "free worlds failed"
+	
+	on offer
+		log "Got invited to join the Free Worlds. It's a valuable opportunity, but it would also be a fast way to become an enemy of the Republic."
+		conversation
+			`你刚着陆，一名信使便来到你的飞船前，递给你一封外观正式的信函。信中写道：`
+			``
+			`尊敬的<last>船长：`
+			`	自由世界议会谨向您致以诚挚谢意，感谢您近期为我们提供的宝贵援助。我们诚邀您加入自由世界民兵部队，担任军官一职，并继续指挥您自己的飞船。您的起薪为每日1100积分。若您有意加入，请尽快前往伯恩行星上的我方总部报到。`
+			`	Sincerely,`
+			`				托梅克·沃伊特`
+			`				让-雅克·索洛`
+			`				弗蕾娅·温特斯`
+			`				阿隆多·格鲁耶尔`
+			`				凯特琳娜·雷诺兹`
+			``
+			`	你注意到卡佳的名字是打印出来的，而非像其他人那样手写签名；她显然仍在克林克执行卧底任务。`
+				accept
+
+
+
+overwrite
+mission "Rescue Katya 1"
+	landing
+	name "Rescue Katya"
+	description "在海军发现凯茜娅之前，从<planet>营救她，并将她安全护送至长跃点（Longjump）。"
+	source "Bourne"
+	destination "Clink"
+	to offer
+		has "FW Commitment: offered"
+		not "chosen sides"
+	on fail
+		dialog phrase "free worlds failed"
+	
+	on offer
+		conversation
+			`你正身处自由世界的首都——伯恩。你是否接受他们的工作邀请，正式加入自由世界？鉴于自由世界与共和国之间关系高度紧张，双方爆发战争并非不可能。因此，在选择支持自由世界之前，拥有一艘战舰和一笔备用资金会是明智之举。`
+			choice
+				`	(Yes.)`
+				`	(Not yet.)`
+					defer
+			
+			branch mistrust
+				has "fw escort: mistrusted"
+			
+			`	你找到自由世界的办公处，并向前台人员报上自己的姓名。几分钟后，负责议会物资补给与舰队调度的托梅克·沃伊特从楼梯走下迎接你。“<last>船长，非常高兴您决定加入我们！”他说道。`
+				goto next
+			
+			label mistrust
+			`	你找到了自由世界办事处，向前台人员报上自己的姓名。几分钟后，负责理事会物资补给与舰队调度的托梅克·沃伊特走下楼梯来迎接你。“<last>船长，”他目光严厉地说道，“若单凭我个人决定，你今日根本不会站在我面前——但看来，你持续提供的援助已为你赢得了足够多的信任，足以压倒我对你的疑虑。”`
+			`	“不过，我终究是个讲道理的人，”他语气一转，脸上浮现出微笑，“既然我的朋友们信任你，那我便愿意给你第二次机会——哪怕这有违我的理智判断。现在，请加入我们吧。”`
+			
+			label next
+			`	当晚，你被引荐给理事会其余成员：首席外交官阿隆多·格鲁耶尔、精通工程学的后勤主管弗蕾娅·温特斯，以及前海军军官让-雅克·‘JJ’·索洛——如今他负责自由世界民兵的训练工作。理事会最后一名成员凯西娅·雷诺兹并未出席。`
+			`	他们带你前往一家极为高档的餐厅共进晚餐。当吃到第三道菜中途时，托梅克的通讯器突然响起。他伸手想关掉它，却在瞥见消息内容后脸色骤然惨白。餐桌顿时陷入一片寂静。“{0}星系已被海军占领，”他沉声宣布。`
+			`	长久的沉默之后，JJ问道：“伤亡人数多少？”`
+			`	“没有。”托梅克说道，“海军声称<system>是此次恐怖袭击的源头，随后他们向迪普星的民兵指挥官出示了证据，后者便立即投降，未作抵抗便将该星系的控制权移交给了海军。”`
+			choice
+				`	“卡佳还在那儿吗？我们必须救出她！”`
+				`	“我们绝不能任由他们这么做。我们应当集结舰队，发起进攻。”`
+					goto attack
+			
+			`	“确实如此。”弗蕾娅说道，“这应成为我们的首要任务。”`
+				goto help
+			
+			label attack
+			`	JJ说道：“冷静点，船长。战斗是我们最后的选择，而非首选。而且，倘若他们的指控属实，那么夺取该星系便是正当之举。”`
+			`	弗蕾娅说道：“整合各民兵部队可能需要数周时间。眼下更紧迫的问题是，卡佳仍滞留在克林克星——除非有人已从她那里得到其他消息。”`
+			
+			label help
+			`	“嗯，”阿隆多说道，“幸好我们尚未公开宣布<last>船长正为我们效力。船长，作为一位独立商船船长，我们还有一项最终任务交予您：请您在克林克星短暂停靠，找到卡佳，并在不被海军拦截的情况下，将她安全护送至朗杰姆普星。”`
+				accept
+	
+	on accept
+		set "chosen sides"
+		event "capture of Kornephoros"
+		log "People" "Alondo Gruyere" `阿隆多成长于伯恩星——这颗位于边缘带、相对繁荣的行星，如今已成为自由世界的首都。他早年曾长期担任共和国的外交官，但后来确信议会只是利用他，以空洞的承诺去‘安抚’南方欠发达世界。他在南方共同防御条约成立初期便加入其中（该条约后来发展为自由世界），如今已是自由世界议会成员。`
+		log "People" "Tomek Voigt" `托梅克是一位年轻而富有抱负的民兵指挥官。早在自由世界诞生之前，他凭借卓越的战术指挥才能与极具感染力的人格魅力，已在尘带地区赢得大量追随者。他之所以受邀加入议会，部分原因正是他在该地区各地民兵中广受欢迎。`
+		log "People" "Freya Winters" `弗蕾娅是一名工程师，专精于监视设备，同时亦具备广泛的技术才能。她曾主导南方共同防御条约下属的‘千眼计划’，旨在通过追踪海盗舰队动向，削弱其在该地区的势力。尽管她本人对政治兴趣寥寥，却因其在资源调配与管理优化方面的深厚专长，被邀请加入自由世界议会。`
+		log "People" "Jean-Jacques Soleau" `大多数人只称他为“JJ”。让-雅克成长于尘带，在海军服役多年，后因愤懑而退役——原因在于海军已不再保卫他家乡所在的空域。如今，他任职于自由世界议会，负责协调各地民兵组织的行动，并将其整合为一支能协同作战的统一战斗力量。`
+
+
+
+overwrite
+mission "Rescue Katya 2"
+	autosave
+	landing
+	name "Rescue Katya"
+	description "返回<planet>，向自由世界议会报告：你未能找到卡佳。"
+	source "Clink"
+	destination "Longjump"
+	to offer
+		has "Rescue Katya 1: done"
+	on fail
+		dialog phrase "free worlds failed"
+	
+	on offer
+		conversation
+			`克林克采矿前哨站里挤满了海军军官；你估计他们的数量甚至超过了矿工。你不确定该如何潜入前哨站并联系卡佳，同时不被海军发现。`
+			choice
+				`	（留在我的飞船上，等她主动靠近。）`
+				`	（去试飞场外围看看她是否正在那里等我。）`
+					goto site
+				`	（编个借口进入前哨站。）`
+					goto enter
+			
+			label wait
+			`	你在着陆平台上等待了数小时，卡佳始终没有出现。身着压力服的海军军官每隔约十五分钟便从你的飞船旁经过，无疑在疑惑你在此地究竟意欲何为。`
+			choice
+				`	(Check if she is waiting for me out by the test site.)`
+				`	(Make some excuse to enter the outpost.)`
+					goto enter
+				`	（放弃任务，向议会汇报我的失败。）`
+					goto fail
+			
+			label site
+			`	你驾驶飞船飞越测试场，扫描生命迹象或能量信号，却一无所获。此外，卡佳长期独自存活于此的可能性极低——她需要氧气来源。`
+			choice
+				`	（继续留在着陆平台上，静观她是否会主动现身。）`
+					goto wait
+				`	(Make some excuse to enter the outpost.)`
+				`	(Give up and report my failure to the Council.)`
+					goto fail
+			
+			label enter
+			`	你穿上压力服，离开飞船，朝前哨站走去。刚一穿过气闸门，一名海军军官便将你拦下："你来此有何贵干？"他问道。`
+			`	“我哥哥是这里的矿工，”你说，“母亲派我来看看他。”`
+			`	那名军官说道：“别担心，这里没人受伤，他们很快就能恢复工作。但眼下，我必须请你离开这颗行星。”他招呼来几名身穿加压服的卫兵；他们将你护送至飞船，并命令你立即起飞。`
+			
+			label fail
+			`	你别无选择，只能在没有卡佳的情况下返回<planet>。议会将会非常失望。`
+				launch
+	
+	on accept
+		log "The Navy has invaded Kornephoros, while Katya was still undercover on Clink. No sign of where she is. She may have been taken as a prisoner."
+
+
+
+overwrite
+mission "Defend Sabik"
+	landing
+	name "Defend Sabik"
+	description "协助击退海军对萨比克的进攻，随后在长跃太空港降落进行战后简报。"
+	source "Longjump"
+	to offer
+		has "Rescue Katya 2: done"
+	on fail
+		dialog phrase "free worlds failed"
+	
+	on offer
+		set "license: Militia"
+		"salary: Free Worlds" = 1100
+		"reputation: Republic" <?= -10
+		event "start of hostilities"
+		event "joined the free worlds"
+		conversation
+			`当你降落在<planet>时，发现托梅克早已在此安排好了交通工具；你的飞船刚一着陆，他便几乎立刻迎了上来。当你独自一人走出舱门、身边不见卡佳的身影时，他悲痛地转过身去。“很抱歉，”你说，“我没找到她。整座设施都已被严加看守。”`
+			`	“好吧，”他说，“我们只能祈祷她仍藏身于某处。与此同时，我们必须正式确认你的效忠立场，以便万一事态升级，你能与我们并肩作战。”`
+			`	他手持一支画笔和一大罐绿色油漆。“要不，这光荣的任务交给你？”他问道。`
+			choice
+				`	"Sure."`
+					goto paint
+				`	“我不能继续用商船涂装飞行吗？”`
+			
+			`	“不行，”他说，“那样有失诚信；而且，倘若你与我们并肩作战，就会被定性为‘民兵武装分子’——是罪犯，而非合法交战人员。信不信由你：万一你被俘，身为正式的战俘，远比当一名民兵武装分子处境更好。所以，现在就开始涂装吧。”`
+			
+			label paint
+			`	你接过画笔，爬上自己的飞船顶部，开始用自由世界的绿金双色为其重新涂装。突然，附近停泊的一艘飞船上传来一声欢呼；有人目睹了你的举动，正高喊着：“为了自由！又一艘投身自由的飞船！”很快，更多人注意到了你，转眼之间，整个太空港仿佛都响起了此起彼伏的欢呼声。`
+			`	托梅克默默伫立一旁，等你完工后才走上前来，伸出手臂递出一份许可证。“拿着。你马上就需要它了。我相信，你的援助将对我们事业大有裨益。”你接过民兵许可证时，他如此说道。“现在恕我失陪，我得去集结民兵，准备即将到来的战斗。”`
+			choice
+				`	（放他走。）`
+					goto end
+				`	“我从未在实战中与其他舰队协同作战，您有什么建议吗？”`
+			`	他停下转身欲走的动作。“当然，你大概也没怎么在民兵舰队里执行过保卫行星或星系的任务。”思索片刻后，他继续说道：“与大型舰队并肩作战时，通常最好以编队形式行动，集中火力攻击同一目标。你会看到周围的舰船协同配合，逐个瘫痪敌方舰船，而非各自为战、一对一缠斗。我们并不指望你独自击溃每一艘海军舰船；另外，也尽量别靠他们的舰船太近——否则很可能引来一群敌舰同时将你锁定为目标。”他略作停顿，“不过，若你胆子够大，倒可以尝试集结一支庞大舰队随你行动，引诱他们进行一场徒劳的追击，从而为其他人留下一支规模更小的敌军来应对；待时机成熟，再回头解决你所引开的那支舰队。但这场追击注定短暂——除非你能始终规避敌方武器射程，并成功闪避所有导弹。此外，若此次防御行动真演变为对该星系的全面守卫，海军很可能会在首批舰队之后增派援军。这些增援极有可能从科涅弗洛斯（Kornephoros）方向抵达，因此，在他们抵达前，切勿提前占据星系该侧、落入其火力路径之中。”`
+			`	“现在，我确实得去把其他人也都召集起来了。”`
+			label end
+			`	你发现民兵们正陆续聚集在太空港的酒吧里。一些人向你加入自由世界表示祝贺，但大多数人只是安静地站在一旁，静候事态发展。随着时间推移，越来越多的人赶来，酒吧很快人满为患，不少民兵只得站在建筑外的街道上等候。”`
+			`	一小时后，你站在酒吧外抬头望去，只见行星上空远处闪烁着飞船武器开火的光芒。部分民兵开始奔向自己的飞船，但大多数人却呆立原地，如同被车灯照住的鹿。就在此时，托梅克拿着扩音器返回，高声下达命令：“海军已进入本星系！我们绝不能让他们得手，否则我们将彻底被封锁在边缘地带！决战就在此刻！快登上你们的飞船，迅速行动！更多增援正从边疆深处赶来！”`
+			`	“另外，若有可能，请优先瘫痪敌舰而非摧毁它们——毕竟这些是海军舰船，其中大多数官兵并不比我们更渴望战争！现在出发！你们的世界需要你们！”你急忙加入其他纷纷升空、奔赴前线保卫星系的飞船行列。`
+				launch
+	
+	on accept
+		log "Officially joined the Free Worlds. Helping to defend Sabik, which is now under attack by the Navy. This Free Worlds work may mean getting involved in a lot more battles like this one."
+	
+	npc evade
+		government "Republic"
+		personality waiting heroic
+		fleet
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Cruiser"
+				"Combat Drone" 4
+				"Frigate"
+				"Gunboat" 2
+				"Rainmaker"
+	npc evade
+		government "Republic"
+		personality heroic
+		system "Kornephoros"
+		fleet
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Carrier"
+				"Lance" 8
+				"Combat Drone" 6
+				"Frigate" 2
+				"Gunboat" 3
+				"Rainmaker" 3
+	
+	npc
+		government "Free Worlds"
+		personality heroic disables
+		fleet
+			names "free worlds capital"
+			variant
+				"Falcon"
+				"Hawk" 2
+		fleet
+			names "free worlds small"
+			variant
+				"Hawk"
+				"Sparrow" 2
+		fleet
+			names "free worlds small"
+			variant
+				"Hawk"
+				"Fury" 2
+	npc
+		government "Free Worlds"
+		personality heroic disables
+		system "Zubenelgenubi"
+		fleet
+			names "free worlds capital"
+			variant
+				"Falcon"
+				"Osprey" 2
+				"Hawk" 3
+				"Sparrow" 4
+	npc
+		government "Free Worlds"
+		personality heroic disables
+		system "Zubeneschamali"
+		fleet
+			names "free worlds capital"
+			variant
+				"Bastion" 2
+				"Argosy" 3
+				"Fury" 2
+	npc
+		government "Free Worlds"
+		personality heroic disables
+		system "Unukalhai"
+		fleet
+			names "free worlds capital"
+			variant
+				"Falcon"
+	npc
+		government "Free Worlds"
+		personality heroic waiting disables
+		fleet
+			names "free worlds small"
+			variant
+				"Hawk" 2
+				"Sparrow"
+	
+	on visit
+		dialog `You've landed on <planet>, but there are still Navy ships circling overhead. You should take off and help finish them off.`
+	on complete
+		dialog `海军已被击退，但代价惨重。你最好前往太空港，看看托梅克是否在那里，或是否有其他人能告诉你下一步该怎么做。`
+
+
+
+overwrite
+mission "FW License Fix"
+	invisible
+	non-blocking
+	landing
+	to offer
+		has "license: Militia Carrier"
+	on offer
+		set "license: Militia"
+		clear "license: Militia Carrier"
+		fail

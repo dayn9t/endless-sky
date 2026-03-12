@@ -1,0 +1,364 @@
+# Copyright (c) 2024 by Daeridanii
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+overwrite
+mission "Successors: First Contact Exploration: Kua-Oa-Aava"
+	landing
+	minor
+	source "Kua-Oa-Aava"
+	to offer
+		has "Successors: First Contact 1: done"
+		not "Successors: First Contact 2: done"
+	on offer
+		conversation
+			`你注视着此处太空港的船员花了好几分钟，试图为你的飞船找到一个匹配的燃料适配器。过了一阵子，一群军官被叫了过来；他们仔细扫描了<ship>的侧面，并将结果输入数据板。最终，为首的军官取出一颗继任者族的变形金属球体；他短暂地将球体与数据板连接，球体随即迅速变形，生成了一个可同时与你的飞船及燃料软管对接的接口。`
+				decline
+
+overwrite
+mission "Successors: First Contact Exploration: Raaqa-Kvelq-Ryuit"
+	minor
+	source "Raaqa-Kvelq-Ryuit"
+	to offer
+		has "Successors: First Contact 1: done"
+		not "Successors: First Contact 2: done"
+	on offer
+		conversation
+			`此处太空港中的一名继承者似乎正向其他同伴分发小块食物：几截短小的、煮熟的深绿色植物条，外形略似多肉植物，穿在一根木签上。尽管在场多数人都与你保持距离，但此人却注意到你，并递来一根木签。`
+			choice
+				`	（收下它。）`
+				`	（拒绝。）`
+					goto refused
+			`	你从他们手中接过木棍，一道彩色波纹随即沿着他们的身体向上涌动，随后他们滑向太空港的另一处。`
+			choice
+				`	（尝一口。）`
+				`	（把它藏起来。）`
+					goto hidden
+			`	你只浅尝一口，食物便已恶心得令你作呕：口感坚韧、腥味浓重，且咸得完全超出你的味觉承受范围。你悄悄吐掉口中那点残渣，暗自庆幸自己竟无需为此付出分文。`
+				decline
+			label refused
+			`	几秒钟后，继承者收回手臂，悄然滑向太空港的另一处区域。`
+				decline
+			label hidden
+			`	你将木棍藏在背后，直到返回<ship>内，再将其丢进废料回收箱。`
+				decline
+
+overwrite
+mission "Successors: First Contact Exploration: Iyra-Ijasa-Iret"
+	minor
+	source "Iyra-Ijasa-Iret"
+	to offer
+		has "Successors: First Contact 1: done"
+		not "Successors: First Contact 2: done"
+	on offer
+		conversation
+			`你以前从未见过完全建在水下的太空港。在你的着陆平台上，有一扇巨大的观景窗，窗外看起来像是一个水族馆，但实际上是继承者们使用的休息室——他们在此游弋，并围绕着几张多层结构的桌子组织活动。`
+				decline
+
+overwrite
+mission "Successors: First Contact Exploration: Mavra-Sol-Kvel"
+	minor
+	source "Mavra-Sol-Kvel"
+	to offer
+		has "Successors: First Contact 1: done"
+		not "Successors: First Contact 2: done"
+	on offer
+		conversation
+			`你在此降落时，飞船引来了一小群围观者；不过大多数人被预先布置在着陆平台周围的隔离屏障拦在外围，偶尔还有巡逻守卫维持秩序。当你沿屏障步行经过时，一名继承者向你递来一枚他们的数据球。`
+			choice
+				`	(Take it.)`
+					goto taken
+				`	（拒绝。）`
+					goto refused
+			label taken
+			action
+				outfit "Local Map" 1
+			`	当你接过那颗球体时，继承者发出一声温暖的颤音，但随即被一名守卫轻轻推回。和之前一样，球体一触即展，化作一幅小型星图；不过这一次，图中除恒星坐标外，似乎还包含部分文化数据。`
+				decline
+			label refused
+			`	你举起双手，后退几步，远离那个正向你递来数据球的个体；一名守卫立刻上前，迅速将对方推了回去。`
+				decline
+
+overwrite
+mission "Successors: First Contact Exploration: Mosaa-Oa-Vyret"
+	minor
+	source "Mosaa-Oa-Vyret"
+	to offer
+		or
+			and
+				has "Successors: First Contact 1: done"
+				not "Successors: First Contact 2: done"
+			and
+				has "Successors: First Contact 2: done"
+				random < 5
+	on offer
+		conversation
+			`在太空港你的着陆平台附近，你看到一个巨大的圆形水池，数名继承者正在其中徘徊。有些靠在池边放松，有些则似乎正深入交谈；还有一组三人小队，身后跟着一只小型蝾螈状动物，它在他们手臂间穿梭嬉戏，时而跃入水中、时而跳出水面，发出轻柔的哗啦声。`
+				decline
+
+overwrite
+mission "Successors: Buskers"
+	minor
+	source
+		attributes "successor"
+		not attributes "crime" "quiet" "uninhabited"
+	to offer
+		has "known to the successors"
+		random < 5
+	on offer
+		conversation
+			`你在太空港等待<ship>补给燃料时，注意到一群继承者正聚集在星舰机库周围的某处水池旁。许多人兴奋地朝骚动处游去，或已抵达现场，在水中诡异地起伏摆动。`
+			choice
+				`	（调查集会。）`
+				`	（无视它。）`
+					decline
+			`	你踏过积水的地面，朝人群走去；随着距离拉近，你开始听见池中传来的音乐：一段奇异而婉转的旋律，音符高亢得不可思议，低沉得难以想象，又似同时兼具二者之特质。当你挤过人群时，看见池中浸没着三名继承者，每人双臂都环绕着一至数件形态迥异的金属装置——这些装置穿透水面伸展而出，那神秘的乐声正是从中流淌而出。`
+			`	池中的一名继承者开始吟唱——至少，这是你所能想到最贴切的描述；它将一支更长、更圆柱形的乐器抵在头部，随即奏出一段伴奏，与其余乐器的旋律相和，而你的翻译装置偶尔能识别出其中某些音节为实际词汇：`
+			`	“……最亲爱的孩子……永不匮乏……莫要如此……阴郁的暗流……终将忍耐……”`
+			`	目前尚不清楚这段文字是否完整呈现了整场演出的歌词内容，抑或仅仅是翻译设备无法解析那些更具音调变化的语句。那位潜入水中的歌手皮肤上呈现出多种色彩与质感，并随每一句歌词而变换：在极高音处呈分裂般的绿色且质地粗糙；在一段奇特的、类似低吼的低音段落中则变为粉红色且表面光滑。人群中数人纷纷效仿，在自己皮肤上显现出相似的图案；整个群体的色彩与纹样随着音乐旋律同步脉动。`
+			choice
+				`	（继续聆听。）`
+				`	（返回我的飞船。）`
+					goto unappreciative
+			`	音乐最终渐强至高潮：一段绵长而低沉的器乐哀鸣，伴以迅疾高亢的人声吟唱；池中之水随之左右激荡，池内三人如痴如醉地彼此环绕，旋转速度越来越快，继而骤然静止。整场表演以一段更为轻柔诙谐的乐章收尾——表演者向池面吹出串串气泡，并用那些奇异乐器奏出短促、略带即兴感的音符。`
+			`	围在你身边的继承者们在乐曲结束之后，发出一阵低沉而沉闷的嗡鸣。`
+			choice
+				`	（鼓掌。）`
+					goto applaud
+				`	（试着自己哼唱一下。）`
+					goto hum
+				`	(Return to my ship.)`
+					decline
+			label applaud
+			`	围在你身边的继承者们似乎对你刚才的展示略感惊讶，甚至有些困惑，但据你所知，并未表现出任何冒犯之意。三位演奏者最终从水池中起身，轻柔地将自己的乐器收进形状同样奇特的琴盒中，随后与现场为数不多的几位观众闲聊几句，便告辞离去。`
+				decline
+			label hum
+			`	你周围的继承者似乎对你模仿蜂鸣声的尝试感到有趣；其中一些人皮肤上短暂泛起蓝绿色波纹，随即迅速恢复为原本的肤色。不过，此处无人对此举表现出明显不满。表演者最终从水池中走出，轻柔地将乐器收进同样造型奇特的琴盒，随后与尚在场的少数观众闲聊几句，便告辞离去。`
+				decline
+			label unappreciative
+			`	你返回自己的飞船，轻巧地从那群如痴如醉的继承者人群中脱身而出；他们仍在远处 shimmer（闪烁）摇曳，直至演出终了，才各自散去，踏上不同的归途。`
+				decline
+
+overwrite
+mission "Successors: Graffiti"
+	minor
+	source
+		attributes "successor"
+		not attributes "uninhabited"
+	to offer
+		has "known to the successors"
+		random < 5
+	on offer
+		conversation
+			`你刚从<ship>下船、步入<origin>的太空港，便听见身后靠近飞船正在补给燃料处传来一阵轻微却清晰可辨的咔嗒声。`
+			choice
+				`	（调查声音来源。）`
+				`	(Ignore it.)`
+					goto ignored
+			`	当你靠近那阵叮当声的源头时，发现三名继承者正在给<ship>的船体涂抹一种色彩斑斓、气味刺鼻的黏稠溶液。那恶臭浓烈得令你几乎无法靠近而不作呕，可继承者们却似乎毫无察觉，抑或毫不在意。`
+			choice
+				`	"你想对我的飞船做什么？"`
+					goto what
+				`	"打扰一下，请问你们都是维修 crew 吗？"`
+			`	三位继承者被你的声音吓了一跳，手臂猛然挥动，迅速转身面向你。其中一人作势欲逃，但另一人立刻抓住其手臂，将他拽回队列。三人皮肤逐渐泛起暗紫色，表皮似乎紧贴着下方的肌肉收缩起来。最终，其中一人开口答道：“没错！我们奉命使用这种……船体修复液，来修补此处的一处损伤。”`
+			`	其他人的身体上泛起阵阵色彩波纹，手臂尖端轻轻起伏摆动。`
+			choice
+				`	“我以前从没见过这样的解决方案，它是怎么运作的？”`
+					goto how
+				`	"既然如此，很抱歉打扰了。请继续。"`
+					goto fooled
+			label what
+			`	三位继承者被你的声音吓了一跳，手臂猛然挥动，迅速转身面向你。其中一人作势欲逃，但另一人立刻抓住其手臂，将他拽回队列。三人皮肤逐渐泛起暗紫色，表皮似乎紧贴着下方的肌肉收缩起来。最终，其中一人支吾着答道：“我……呃……我们是维修组成员！我们奉命使用这种……船体修复液，来修补此处的一处损伤。”`
+			`	Waves of color run up the bodies of the others, and the tips of their arms undulate gently.`
+			choice
+				`	"I've never seen a solution like that before. How does it work?"`
+					goto how
+				`	"I'm sorry to interrupt in that case. Carry on."`
+					goto fooled
+			label how
+			`	这群人互相环顾一圈后，同一个人再次开口：“这……呃……修补剂会渗入船体的裂缝与应力薄弱处，干燥后即可将其封堵。除此之外，我们一无所知；我们只是遵照港口管理局的指示进行操作。”`
+			`	另一人突然插话，欢快地补充道：‘我们什么都不知道！’——话音未落，其余人便朝他投去阴沉的一瞥。`
+			choice
+				`	“而且它还如此色彩斑斓！你确定这真不是某种颜料？”`
+				`	“妙极了。请继续。”`
+					goto fooled
+			`	“哦，那是……呃……为了安全。没错，‘这东西’若未经训练就触碰，确实非常危险，所以才用鲜艳的颜色作为警示。”你环顾四周，却没见到三人中任何一人佩戴防护装备；此时，大多数成员的肤色已悄然转为一种你或许会称之为“欢快粉红”的色调。其中一两人正明显努力压抑这种变化，皮肤在明暗渐变间挣扎，试图维持原先沉闷的紫罗兰色；另一人则试图用双臂遮掩一只鼓鼓囊囊的袋子——里面装满了更多罐“船体溶液”。`
+			choice
+				`	"嗯，既然你代表太空港执行任务，那我自然也能请你一并把它清除掉。"`
+				`	"这招不错，但你我心知肚明这里究竟在发生什么。"`
+				`	“我觉得我的飞船船体已修复得相当完好。你最好先去处理清单上其他需要维修的飞船。”`
+					goto complicit
+				`	"感谢您回答我的问题。请继续吧。"`
+					goto fooled
+			`	听到这个消息后，三人组显得颇为沮丧，但在彼此间反复商议许久后，终于让步，同意清除该溶液——前提是您不得向港口当局举报他们的所作所为。他们虽竭力清除（或至少装出竭力清除的样子），却始终无法彻底洗掉那些干涸最久的部分；最终，您见部分油漆已永久附着于船体，便放他们离开了。`
+				decline
+			label complicit
+			`	听到这话，三人顿时神采飞扬；稍作商议后，便拖着装有溶液的罐子滑向太空港，临行前还留了一罐给你，说是用于‘紧急维修’——不过鉴于这溶液气味实在刺鼻，你实在不确定自己能否鼓起勇气去使用它。`
+				decline
+			label ignored
+			`	稍后从太空港返回时，你发现<ship>侧舷某处被涂上了一层浓稠、色彩斑斓且气味极其刺鼻的溶液，其恶臭之强烈令你几乎无法靠近。该图案用继承者文字写就，尽管翻译装置难以解析其中非标准的字符，最终仍勉强译出类似“瑞娅在此！还有朋友们！”的内容。太空港维修人员耗费数小时才彻底清除这处涂鸦，但可预见的未来里，船体装甲上仍将永久残留一小片变色痕迹。`
+				decline
+			label fooled
+			`	稍后从太空港返回时，你发现那支‘维修队’已在<ship>侧舷某处涂满了他们那色彩斑斓又气味刺鼻的溶液。图案中除了继承者文字外，还粗略地画着你的脸。翻译装置虽费力辨析这些非标准字符，最终仍成功译出文字内容：“厄尔金——蠢货！没羽毛，也没脑子！”太空港维修人员耗费数小时才彻底清除这处涂鸦，但可预见的未来里，船体装甲上仍将永久残留一小片变色痕迹。`
+				decline
+
+overwrite
+mission "Successors: Stage Play"
+	minor
+	source
+		attributes "successor"
+		not attributes "crime" "quiet" "uninhabited" "station"
+	to offer
+		has "trusted by the successors"
+		random < 5
+	on offer
+		conversation
+			branch "myiara system"
+				has "flagship system: Myiara-Nnesa"
+			`你在太空港中穿行时，注意到几幅海报被张贴出来，宣传某场演出。每幅海报上都画着一名伸展双臂的继承者，立于一颗璀璨的蓝色球体之上，球体表面盘旋着章鱼状的纹样。海报标题写着：“不朽的米亚拉”。`
+				goto decide
+			label "myiara system"
+			`你在太空港中穿行时，注意到多张海报被张贴出来，宣传某场演出：每张海报上都绘有一位伸展双臂的继承者，立于一颗璀璨湛蓝的球体之巅，球体表面盘旋着章鱼状的奇异纹样。“永生的米亚拉”，海报标题如此写道，末尾的单词呼应着本恒星系统的名称。`
+			label decide
+			`	当你注视着海报时，一名路过的继承者注意到了你，以传统方式张开双臂向你致意：‘尊贵的异星来客！’他们说道，‘今夜这出戏可勾起您的兴致？演出此剧的可是支极佳的剧团。’`
+			choice
+				`	“为什么不呢？你能告诉我它在哪儿吗？”`
+				`	"我对戏剧没什么兴趣。"`
+					decline
+			`	“汝必受优礼相待。”继承者说道，“请随我来，我们不会迟到。”`
+			`	他们带你来到太空港中一处较小的运输传送门旁，一列紧凑的列车正蜿蜒驶离城市，驶入一片异常 pristine 的乡野。最终，向导领你下车；车站俯瞰着一处广阔的滨海洼地，数千名继承者已在海边环形排列的弧形长椅上聚集，中央则是一座坐落于海岸边缘的巨大水槽。其中几排长椅已被加建为小巧却装饰华美的包厢，想必是供观众中最富有的成员私密观演之用。`
+			`	你坐了下来。几分钟后，一名继承者做了简短的开场介绍：先是感谢当地家族为本次活动提供资金支持，接着逐一介绍并点名各位主演，最后进行了一项奇特的仪式——演出组织者向每位演员颁发一枚小巧的装饰性信物。演员们将这些信物串在长长的绳线上随身携带；其中几人身上已缠绕着饰满纹样的长绳，反复绕过全身。`
+			`	“米亚拉！我们已许久未见你那温柔的面容出现在我们之中了！快归来吧，以你的芳容赐福于我们！” 水箱内一名演员高声呼喊，声音经扩音传遍全场。另几人围绕其旋转起舞，人人戴着精致而色彩斑斓的面具，齐声应和：“米亚拉！”——与此同时，更多演员自水箱底部的开口处游升而上，跃出水面，以优雅的杂技动作腾空翻转，最终轻盈落于水箱晶莹剔透的顶盖之上。`
+			`	“米亚兰一族将永不再见其同族，”其中一人说道，其装备与皮肤同时泛起深邃的蓝色，“因我们既不尊贵，亦永不会尊贵……”`
+			choice
+				`	（注意观察。）`
+					goto attentive
+				`	（任思绪漫游。）`
+					goto bored
+				`	（提前离开。）`
+			`	你一直观看到第一幕中场休息——这等待时间依然令人不适地漫长，而且据你判断，此时剧情远未结束。整场演出风格明显异域化：演员佩戴面具、表演杂技，更在第一幕中途上演了震撼一幕：一名角色召唤风暴袭击另一名角色。舞台后方，数个透明球体中悬浮着巨大的水团，由某种斥力装置托起。`
+			`	列车在短短几分钟等待后悄然抵达，毫无波澜地将你送回太空港。`
+				decline
+			label attentive
+			`	"伊尔雅，张开你的双臂！倾听我们内心深切的呼唤，倾听他们的声音——只要你尚存一丝听觉，便能捕捉到凡人生命那微弱的振颤……"`
+			`	这出戏剧出奇地冗长，且极度复杂。剧情同时展现干燥舞台上的凡人继承者，以及舞台下方水域中的诸神。米亚拉·拉阿贾是某位神祇的养子，在神祇不朽的领域中永葆青春，却在众神沉睡之际逃离至凡人世界。在那里，她度过了漫长而充实的一生，最终离世，并留下独女米亚拉·塞拉。苏醒后的诸神为失去爱子而悲恸，遂派遣信使伊尔贾前往上界寻回年长的米亚拉·拉阿贾；然而欣喜若狂的伊尔贾却误将年轻的米亚拉·塞拉当作了米亚拉·拉阿贾。危急关头，米亚拉·塞拉急中生智，将一剂永恒沉睡药剂涂于一件华美披风之上——那披风对神祇而言极具诱惑力，使其误以为是久别重逢的爱子所赠之礼，从而饮下毒药。`
+			`	为守护自由，米亚拉·塞拉毅然踏入永生之界，含泪逐一毒杀诸神，手法如出一辙；最终，众神重归初始状态——沉入长眠，在幽深海流缓慢的回旋中永恒安睡。尾声时，米亚拉·塞拉育有二子：其一永伴诸神身侧，不断引导他们沉入更深的梦境；另一子则留驻凡世，开创英雄家族，代代相传，各自谱写出属于自己的戏剧及其他文化作品。`
+			`	“此者将长存于幽邃陵寝之中，未遭诋毁，亦无感知。而上方、下方所有哀恸的众生，将在记忆中铭记，并献上祭品……”`
+			`	这场表演的制作风格极具异星特色——每位演员均佩戴一副结构复杂的角色面具，面具紧贴面部并能随之活动。凡人角色的面具虽简洁，却富有表现力；而神祇角色的面具则庞大而富戏剧性，许多面具还配有细长飘逸的带状部件，在水箱内气流中永不停歇地盘旋飞舞，环绕于演员头顶。`
+			`	演员们通过在注满水的水槽与其近乎干燥的顶部表面之间进行高难度飞跃，穿梭于凡俗与不朽两个位面之间。当需要突出特定瞬间时，舞台后方会猛然爆发出巨大的水花；而在其他时刻，无数条蜿蜒扭动的继承者金属长链则自舞台四周升起，以其熠熠生辉的躯体幻化出森林、海浪乃至可怖的风暴。`
+			`	"米亚拉更年少，长老更年长，而更年少者又再度将我们从安眠中唤醒，令那苦涩之感，再次在我们血脉的海洋中翻涌……"`
+			`	待这一切结束时，你已因这场经历而精疲力竭。列车仅几分钟后便抵达，你与其他众多继承者一同挤上车厢，启程返回太空港，最终于深夜才抵达。`
+				decline
+			label bored
+			`	这出戏剧出奇地冗长，且晦涩难解。剧情似乎同时呈现干燥舞台上的凡人继承者，以及舞台下方水域中的诸神。其中一位名为米亚拉的角色深受诸神宠爱；而另一位看似被误认的角色，则以缜密手段逐一毒杀诸神，以掩盖某个不可告人的秘密。最终，此人育有子女二人：一个留在神之领域，另一个则重返生者世界。`
+			`	演出本身令人过目难忘——演员佩戴着精妙绝伦的面具，面具随面部动作灵活开合，极大强化了他们所要呈现的情感。在剧情的关键时刻，舞台后方会猛然喷涌出巨大的水花；而在其他段落中，长长的金属丝则被巧妙牵引升空，悬浮成形，于演员头顶之上勾勒出风暴与森林的景象。`
+			`	By the time it's over, you are thoroughly exhausted from the experience. The train arrives after only a few minutes of waiting and you, packed in along with many other Successors, make your way back to the spaceport, finally arriving late in the night.`
+				decline
+
+overwrite
+mission "Successors: Sosrue"
+	minor
+	source
+		attributes "successor"
+		not attributes "crime" "quiet" "uninhabited"
+	to offer
+		has "trusted by the successors"
+		random < 5
+	on offer
+		conversation
+			`你刚下飞船，便发现两名继承者正从太空港对面注视着你；较年轻的一位数次拉扯年长者的手臂，最终两人一起朝你走来。年长者展开双臂以示问候：“我的孩子让我向你这位异星来客打听一事——在你的旅途中，可曾遇见过索斯鲁人？”`
+			choice
+				`	“啥？”`
+					goto what
+				`	“也许吧，但就算真有，我也不认识这个名字。”`
+					goto name
+				`	"我没空应付这个。"`
+			`	成年个体显露出一抹略带失望的红色，但还是抱起孩子，留你独自处理自己的事务。`
+				decline
+			label what
+			`	幼崽突然大声喊道：“当心索斯鲁——它身披黑袍，利齿尖爪！”话未说完便被其家长打断。`
+			label name
+			`	“抱歉，”那名成年个体说道，“那是儿童诗里写的怪物。这孩子最爱这首诗。所以，请也告诉我——在浩瀚星海的广阔疆域之中，你可曾遇见过某种长臂、耳聪、利齿繁多的生灵？它栖居于群星深处的每一处角落？”他们说话时，皮肤上浮现出细密的金色纹路，每吐出一个音节，身体便随之微微颤抖。`
+			choice
+				`	"不，但我遇到过一些有趣的外星人。"`
+					goto truth
+				`	“我曾在一片深空星云中与它搏斗过。”`
+					goto play
+				`	"对孩子来说，这故事未免太阴暗了。"`
+			`	幼崽轻轻起伏着身体，发出古怪的咯咯笑声。“这并非真实之物，”其家长说道，“我的孩子又怎会因此而惧怕？”`
+			`	说完这话，两名继承者便一边交谈一边滑行着返回太空港。`
+				decline
+			label truth
+			`	那孩子轻轻扭动身体，仿佛在笑，皮肤泛起柔和的粉红色。“你可真严肃啊。”其父母说道，“或许你的外星同伴们在你到来之前，就已经把所有索斯鲁景象都看遍了！能活着逃出来，他们一定机智过人！”`
+			`	说完，两人便转身离开，返回太空港，显然已从你这里获得了他们原本寻求的那点娱乐消遣。`
+				decline
+			label play
+			`	"Thy wounds!" the child cries, "and by this, half thy arms have been divorced from thee!" They wiggle happily, and their parent continues, the golden lines from before bursting into splashes of color all over their body. "Thou must have been a witty one to have escaped this. No doubt thy foe remains in wait, now knowing of thy might. Thou must be twice as clever should you ever meet again!"`
+			`	说完这最后一句，这位长辈再次向你张开双臂，随后两名继承者滑行着返回太空港，那名孩童边走边继续低声吟诵着那首诗。`
+				decline
+
+overwrite
+mission "Successors: Derelict Station Toy"
+	minor
+	landing
+	source
+		attributes "successor"
+		attributes "station"
+		government "Uninhabited"
+	to offer
+		has "known to the successors"
+		random < 5
+	on offer
+		conversation
+			`尽管此处太空港一如既往地寂静而死气沉沉，但当你短暂下船时，却瞥见昏暗中不远处躺着一个奇异而色彩斑斓的物体。初看难以辨认其确切形态，但靠近细察后，发现它竟是一架克维尔德穿梭机的小型金属模型，通体涂着鲜亮而油光发亮的颜料，尾部还伸出一枚小巧且明显被长期使用过的螺旋桨。`
+			choice
+				`	（顺其自然。）`
+					goto leave
+				`	(Take it.)`
+					goto take
+				`	（踩扁它。）`
+			`	这玩具出奇地坚固——你对它的猛烈攻击仅在表面留下几道刮痕，而你自己却因脚部挫伤，只得一瘸一拐地返回<ship>。`
+				decline
+			label leave
+			`	你返回自己的飞船，最后回望了一眼那抹不可思议的亮色——它如同针尖般微小，却在幽暗而令人不安的站体墙壁上熠熠生辉。`
+				decline
+			label take
+			`	你刚拿起玩具不久，螺旋桨上的锋利边缘便划破了你的手掌。你捂着刺痛的伤口，匆匆赶回自己的飞船。`
+				decline
+
+overwrite
+mission "Successors: Pet Commemoration"
+	minor
+	source
+		attributes "successor"
+		not attributes "uninhabited" "quiet"
+	to offer
+		has "known to the successors"
+		random < 5
+	on offer
+		conversation
+			`一面墙上的屏幕显示着一条纪念信息——画面中是一只形似蝾螈的小型生物，被一位继承者温柔地抱在怀中，下方附有一段文字：`
+			`	“米尔贾—米尔贾，最忠诚的朋友，最温顺的生灵。梦之所依，莫过如此。”`
+				decline
+
+overwrite
+mission "Successors: Armor Reconfiguration"
+	minor
+	source
+		government "House Aqrabe" "House Chydiyi"
+	to offer
+		has "known to the successors"
+		random < 5
+	on offer
+		conversation
+			`当你环顾这座太空港时，一艘高庭战舰正缓缓降落，随后驶入侧旁一座仅供民用观众部分可见的小型装备舱。舱顶垂下数条巨大的机械臂，先根据战舰的外形与位置完成自校准，再紧贴其装甲表面进行细致扫描——近得仿佛即将触碰到舰体。金属外壳在机械臂掠过时如活物般蠕动：黏稠液态般的凸起不断生成又坍缩，如同雨滴坠入水面般飞溅、融合，泛着露珠般的湿润柔光。待涟漪平息，舰体表面纹理似乎已悄然改变——或许略显粗糙，又或许只是灰调微微不同。不久后，这艘战舰便再次升空离去。`
+				decline

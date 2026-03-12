@@ -1,0 +1,4382 @@
+# Copyright (c) 2017 by Michael Zahniser
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+overwrite
+mission "Deep: Syndicate Convoy"
+	minor
+	name `赫菲斯托斯取货`
+	description `护送一支货运飞船编队前往<stopovers>，装载科学实验所需物资。须于<date>前将编队护送返回<destination>，方可获得报酬（<payment>）。`
+	source
+		attributes "deep"
+		near "Gomeisa" 2
+	stopover "Hephaestus"
+	deadline
+	to offer
+		"combat rating" > 65
+		not "Deep: Mystery Cubes 4: done"
+		random < 30 + "deep convoy" * 15
+		or
+			not "chosen sides"
+			has "main plot completed"
+		not "Deep: Tarazed Convoy: active"
+		not "Deep: Kraz Convoy: active"
+		
+	on offer
+		conversation
+			`一名身着深空安全部队制服的男子向你走来，询问你是否愿意于<day>之前护送几艘货船前往<stopovers>并安全返航。“我们本应派出自己的舰队执行此任务，”他说道，“但鉴于某些特殊情况，目前可用舰船严重不足。”`
+			choice
+				`	"Sure, I can do that."`
+				`	"抱歉，我近期内不打算往那个方向航行。"`
+					decline
+			
+			`	"很好。出发前请注意：阿尔法德、天狼星和河鼓三星系可能有海盗部队在埋伏你。你可以尝试规避他们，但务必准时将货船护送回来。"`
+			`	深空安全部军官祝你好运，随即转身离开，只留下你暗自思忖：他究竟如何知晓海盗舰队可能埋伏在何处？`
+				accept
+	
+	npc accompany save
+		government "Merchant"
+		personality timid escort
+		fleet
+			names "civilian"
+			variant
+				"Container Transport" 2
+				"Mule"
+	npc
+		government "Merchant"
+		personality timid
+		fleet
+			fighters
+				names "civilian"
+			variant
+				"Dagger"
+			variant
+				"Boxwing"
+	npc
+		government "Pirate"
+		personality nemesis staying
+		system "Alphard"
+		fleet "Large Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis staying
+		system "Sirius"
+		fleet "Large Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis staying
+		system "Altair"
+		fleet "Small Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis
+		system "Castor"
+		fleet "Small Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis
+		system "Porrima"
+		fleet "Large Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis staying
+		system "Markab"
+		fleet "Large Northern Pirates"
+	
+	on stopover
+		dialog `你抵达赫菲斯托斯行星夜侧的取货地点。负责装载货船的辛迪加雇员禁止你查看货物内部，并提醒你在货物装毕后尽快离开。`
+	on visit
+		dialog `你已抵达<planet>，但似乎遗漏了某些东西！要么你尚未访问<stopovers>，要么你将护航编队的一部分遗留在后方。`
+	on complete
+		"deep convoy" ++
+		payment 500000
+		conversation
+			`当你驾驶货船返回<planet>时，一名深空安全部队军官迎接了你。他交付给你<payment>作为酬金，并感谢你在如此短的时间内接下这项任务。“今后若再有需要，我们定会第一时间与您联系。若您此刻仍愿继续协助我们，建议您前往深空组织辖区内的任务公告板，查看神秘运输与取回类任务。”`
+
+
+
+overwrite
+mission "Deep: Tarazed Convoy"
+	minor
+	name `塔拉泽德取货`
+	description `Escort a convoy of freighters to <stopovers> where they will pick up materials needed for scientific experiments. Return the convoy to <destination> by <date> for payment (<payment>).`
+	source
+		attributes "deep"
+		near "Gomeisa" 2
+	stopover "Wayfarer"
+	deadline
+	to offer
+		"combat rating" > 65
+		not "Deep: Mystery Cubes 4: done"
+		random < 30 + "deep convoy" * 15
+		or
+			not "chosen sides"
+			has "main plot completed"
+		not "Deep: Syndicate Convoy: active"
+		not "Deep: Kraz Convoy: active"
+	
+	on offer
+		conversation
+			`当你穿过太空港时，一名身穿深空安全部队制服的女子拦住了你。“您是<last>船长，对吗？”你点点头。“您是否愿意护送几艘货船前往<stopovers>取货？我们要求它们在<day>前返回此处。这类任务通常由深空安全部队执行，但目前我们没有可调配的飞船。”`
+			choice
+				`	"Sure, I can do that."`
+				`	"Sorry, but I won't be traveling in that direction any time soon."`
+					decline
+			
+			`	"谢谢您，船长。在您出发前，我需要提醒您：您可能会在塔尼亚·奥斯特拉利斯、穆弗里德和阿塞拉附近遭遇海盗舰队，恐怕您没有时间绕开这些星系。"`
+			`	深空安全部军官祝你好运，随即转身离开，只留下你暗自思忖：她究竟如何知晓海盗舰队可能埋伏在何处？`
+				accept
+	
+	npc accompany save
+		government "Merchant"
+		personality timid escort
+		fleet
+			names "civilian"
+			variant
+				"Freighter" 3
+				"Mule" 2
+	npc
+		government "Merchant"
+		personality timid
+		fleet
+			fighters
+				names "civilian"
+			variant
+				"Dagger" 2
+			variant
+				"Boxwing" 2
+			variant
+				"Dagger"
+				"Boxwing"
+	npc
+		government "Pirate"
+		personality nemesis staying
+		system "Tania Australis"
+		fleet "Large Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis staying
+		system "Muphrid"
+		fleet "Large Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis staying
+		system "Ascella"
+		fleet "Small Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis
+		system "Sirius"
+		fleet "Large Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis
+		system "Seginus"
+		fleet "Small Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis staying
+		system "Tarazed"
+		fleet "Large Northern Pirates"
+	
+	on stopover
+		dialog `你与货船被指示停靠在塔拉泽德公司拥有的私人机库中。在目睹货物集装箱装上货船时，你注意到这些箱子上贴有标签，用醒目的红色大字写着“仅限收件人开启”。`
+	on visit
+		dialog `You have reached <planet>, but you're missing something! Either you haven't visited <stopovers>, or you left part of the convoy behind.`
+	on complete
+		"deep convoy" ++
+		payment 650000
+		conversation
+			`A Deep Security officer greets you when you return to <planet> with the freighters. The officer hands you <payment> and thanks you for accepting the job on such short notice. "We'll make sure to contact you in the future should we need your help. If you want to help us further at the moment, I suggest you check the job boards in the Deep for mystery delivery and retrieval jobs."`
+
+
+
+overwrite
+mission "Deep: Kraz Convoy"
+	minor
+	name `克拉兹取货`
+	description `Escort a convoy of freighters to <stopovers> where they will pick up materials needed for scientific experiments. Return the convoy to <destination> by <date> for payment (<payment>).`
+	source
+		attributes "deep"
+		near "Gomeisa" 2
+	stopover "Rust"
+	deadline
+	to offer
+		"combat rating" > 80
+		not "Deep: Mystery Cubes 4: done"
+		random < 30 + "deep convoy" * 15
+		or
+			not "chosen sides"
+			has "main plot completed"
+		not "Deep: Syndicate Convoy: active"
+		not "Deep: Tarazed Convoy: active"
+	
+	on offer
+		conversation
+			`一名深空安全部队军官在你进入太空港时向你走来，询问你是否愿意为深空组织执行一项任务。“目前我们深空安全部队的飞船严重不足，但急需三艘‘巨兽级’飞船护送至<stopovers>。待它们装载货物后，请于<day>前将它们安全护送回本港。”`
+			choice
+				`	"Sure, I can do that."`
+				`	"Sorry, but I won't be traveling in that direction any time soon."`
+					decline
+			
+			`	“非常感谢，船长。为了您本人及货物的安全，您必须知道：阿尔吉耶巴、科·卡罗利和威伊星系中可能有海盗埋伏。‘巨兽级’飞船十分坚固，因此您大可穿越这些星系，无需绕道而行，以免耽误行程。”`
+			`	The Deep Security officer wishes you good luck and walks off, leaving you to wonder how she knows where pirate fleets might be waiting for you.`
+				accept
+	
+	npc accompany save
+		government "Merchant"
+		personality timid escort
+		fleet
+			names "civilian"
+			variant
+				"Behemoth" 3
+	npc
+		government "Pirate"
+		personality nemesis staying
+		system "Algieba"
+		fleet "Large Northern Pirates"
+		fleet "Small Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis staying
+		system "Cor Caroli"
+		fleet "Large Northern Pirates"
+		fleet "Small Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis staying
+		system "Wei"
+		fleet "Large Northern Pirates"
+		fleet "Small Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis
+		system "Rutilicus"
+		fleet "Large Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis
+		system destination
+		fleet "Large Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis staying
+		system "Kraz"
+		fleet "Large Northern Pirates"
+		fleet "Small Northern Pirates"
+	
+	on stopover
+		dialog `你抵达时，克拉兹赛博尼克斯公司已将货物提前运至太空港旁待命。在花费数小时完成巨型货船的装载后，太空港工作人员向你发出‘一切就绪’信号，巨兽级飞船的船长们随即准备启航。`
+	on visit
+		dialog `You have reached <planet>, but you're missing something! Either you haven't visited <stopovers>, or you left part of the convoy behind.`
+	on complete
+		"deep convoy" ++
+		payment 800000
+		conversation
+			`A Deep Security officer greets you when you return to <planet> with the freighters. The officer hands you <payment> and thanks you for accepting the job on such short notice. "We'll make sure to contact you in the future should we need your help. If you want to help us further at the moment, I suggest you check the job boards in the Deep for mystery delivery and retrieval jobs."`
+
+
+
+overwrite
+mission "Deep: Mystery Cubes 0"
+	minor
+	name `抢占先机`
+	description `在指定星系中着陆，放置中尉巴黎交给你的神秘立方体，然后返回 <destination>。`
+	source
+		attributes "deep"
+		not system "Zosma"
+		not attributes "station"
+	destination "Memory"
+	stopover "New Sahara"
+	stopover "Bounty"
+	stopover "Heartland"
+	stopover "New Tibet"
+	stopover "New Greenland"
+	stopover "New Switzerland"
+	stopover "Tundra"
+	stopover "Arabia"
+	to offer
+		"mystery cube" >= 3
+		"combat rating" > 100
+		random < "deep convoy" * 30
+		or
+			not "chosen sides"
+			has "main plot completed"
+	
+	on offer
+		conversation
+			`你步入太空港中央市场时，一名深空安全部队军官叫出你的名字并向你走来。“欢迎光临，<last>船长，我是帕里斯中尉。您是否有兴趣继续为深空组织承揽更多任务？我们当前正急需几艘额外飞船，协助处理一起持续中的紧急事态。”`
+			choice
+				`	"我很乐意帮忙。目前情况如何？"`
+					goto situation
+				`	"抱歉，我现在无法帮忙。"`
+			
+			`	“不管你有何打算，我建议你立刻调整——眼下情况十万火急。”`
+			choice
+				`	"好的，我来帮忙。当前情况如何？"`
+				`	"那我帮不了你了，抱歉。"`
+					decline
+			
+			label situation
+			`	"太好了。我相信您已知晓，目前深空安全部队正忙于诸多事务，因此我们一直在招募商人护送深空舰队的多支运输船队。之所以如此，是因为我们正全力追捕一名格外棘手的海盗军阀——人称‘别西卜’。据我们掌握的情报，别西卜对深空安全部队的内部运作了如指掌，这使得追踪他变得异常困难，因为他似乎总能预判我们的每一步行动。而您与其他几位商人，正是我们此次行动的关键所在。"`
+			`	巴黎伸手探入衣袋，掏出一只袋子。袋中装着至少二十多个你此前运送过的神秘立方体，唯一的明显区别在于：每个立方体中央都有一道粗厚的红色条纹。`
+			`	“深空组织要求你将这些装置部署在尘带（Dirt Belt）的若干行星上——我会在你的星图中标出具体位置。请在每颗标定行星的太空港周围至少部署四台此类装置，随后前往<destination>，我将在那里回收你手中剩余的所有立方体。若由深空安全部队执行此任务，极可能引起系统内海盗的注意，而该情报最终会传到别西卜耳中；但随机出现的商船则足够低调，足以让别西卜摸不清我们的行踪。明白了吗？”`
+			choice
+				`	“明白，长官。我将立即准备启程。”`
+					accept
+				`	“这些立方体有什么作用？”`
+			
+			`	"我不认为我有权向您透露此事。您只需知道，他们会协助我们抓捕别西卜。"`
+			choice
+				`	“明白，我这就为您放置立方体。”`
+					accept
+				`	“这事感觉太过隐秘，我可不想再帮忙了。”`
+					decline
+	
+	npc
+		government "Pirate"
+		personality disables plunders harvests
+		system
+			distance 5 10
+		fleet "Large Northern Pirates"
+	npc
+		government "Pirate"
+		personality disables plunders harvests
+		system
+			distance 10 15
+		fleet "Large Northern Pirates"
+	npc
+		government "Pirate"
+		personality disables plunders harvests
+		system
+			distance 15 20
+		fleet "Large Northern Pirates"
+	on stopover
+		dialog `你已将方块放置在巴黎要求你覆盖的最后一颗行星上。当你查看袋子时，发现还剩下三枚方块。前往<destination>将剩余方块交给巴黎。`
+	on complete
+		event "deep: warlord detected" 21
+		payment 500000
+		log `应‘深空’组织要求，在尘带（Dirt Belt）各行星上部署了多个神秘立方体。深空安全部正利用这些立方体，以某种方式协助追捕一名名为“别西卜”的海盗军阀。`
+		conversation
+			`你在太空港发现帕里斯中尉正在等你。你将装有剩余方块的袋子交给他，他则付给你<payment>作为协助酬劳。`
+			choice
+				`	"您还有其他需要我做的事吗？"`
+					goto next
+				`	“你能告诉我那些立方体的用途吗？”`
+			
+			`	巴黎略作停顿才回应道：“它们是传感器装置，用于追踪海盗舰队的动向，但单个使用几乎毫无用处；单个星系内往往需部署数十台，方能监控整支舰队。我交给你的那些则经过精密调校，专为探测贝勒泽布所乘飞船而设计。目前我能告诉你的，仅此而已。”`
+			
+			choice
+				`	"Is there anything else that you need me to do?"`
+			
+			label next
+			`	“目前还没有，船长，但若再发生任何情况，我会立刻联系您。”`
+
+event "deep: warlord detected"
+
+
+
+overwrite
+mission "Deep: Mystery Cubes 1"
+	landing
+	name `前往<planet>`
+	description `前往<destination>，进一步了解军阀别西卜当前局势的相关情报。`
+	source
+		government "Republic" "Free Worlds" "Neutral" "Syndicate" "Independent"
+		not system "Sol"
+	destination "Luna"
+	to offer
+		has "event: deep: warlord detected"
+		or
+			not "chosen sides"
+			has "main plot completed"
+	
+	on offer
+		dialog `你收到帕里斯中尉发来的一条消息：“您好，船长。关于别西卜的局势已略有恶化，海军现已介入。我受命召集此前曾协助‘深空’部署方块的各位商人。若您有意参与，请前往<destination>。”`
+
+
+
+overwrite
+mission "Deep: Mystery Cubes 2"
+	landing
+	name `封锁‘魔鬼’`
+	description `前往<destination>，设立封锁线，以期俘获军阀别西卜。`
+	source "Luna"
+	destination "Maelstrom"
+	deadline
+	to offer
+		has "Deep: Mystery Cubes 1: done"
+	
+	on offer
+		log `已抵达月球上的禁入海军基地。别西卜一直在给深空安全部与海军制造麻烦，因此双方已开始招募商人协助搜捕这位军阀。`
+		conversation
+			`两名身着海军制服的男子护送你进入月球基地的一处管制区域。其中一人用门禁卡打开一部电梯，并示意你进入。电梯下行数十层，抵达基地深处一处区域——这里的设施远比地表部分崭新得多。`
+			`	你和另外五人一起被关在一个看似等候室的地方。稍作交谈后，你得知他们正是协助将立方体部署至银河系不同区域的其他商船船长。`
+			`	等待一小时后，帕里斯中尉走进房间，身后跟着一名海军上将。“希望各位在此逗留愉快。”上将开口道，“那么——为何你们部署的大多数立方体，在海盗进入各星系后不久便神秘失效了？”`
+			`	将军目光扫过屋内每一位舰长，似乎正等待他们的回应。`
+			choice
+				`	(Say nothing.)`
+					goto next
+				`	“或许他们知道如何探测那些立方体。”`
+			
+			`	将军注视着你。“不太可能。”巴黎点头，仿佛是在佐证这一说法。`
+			label next
+			`	他清了清嗓子，继续说道：“容我为你说明当前局势。在你上次执行的几批‘交付任务’全部启动约两周后，传感器在尘带（Dirt Belt）北部区域侦测到了别西卜（Beelzebub）的飞船。我们立即派遣邻近海军驻防部队一半的兵力前去拦截该舰——结果抵达后却发现，那里只有一支星运驳船（Star Barge）护航队。”`
+			`	“更糟的是，当我们的飞船追击诱饵时，一支海盗舰队趁机突袭了他们的主基地，俘获了数艘停泊在港内的巡洋舰。而且，在一片混乱中，你部署在尘带与核心区域的大部分立方体装置都被摧毁了！”`
+			`	不等舰队司令进一步激动起来，巴黎便接过话头，继续讲述后续：“深域安全部署在多个世界上的那些立方体，实为监控装置——我们称之为传感立方体，旨在追踪贝尔泽布的飞船，并在其被定位时立即通知我们。可以推定，贝尔泽布如今已掌控这些立方体，并无疑已将其改造为己所用。我们可能需耗时数周才能逐一收回，但目前可断定：贝尔泽布已知晓我方动向。”`
+			choice
+				`	"为什么要让我们卷入此事？"`
+				`	"我们是否正参与一项扳倒别西卜的计划？"`
+			
+			`	"别西卜或许是自28世纪以来最臭名昭著的海盗军阀。如今，他同时掌握了海军与深空科技，要将其剿灭，我们需动用一切可用舰船。鉴于此，我们现诚挚希望你能协助我们设下陷阱，围捕别西卜。你麾下六支舰队合力出击，定能弥补海军在此次袭击中所遭受的损失。"`
+			`	"我们将获得多少报酬？"另一位商船船长问道。“至少一百万积分。”舰队司令答道。发问的船长立刻表示愿意协助，另外两位船长也随即同意。`
+			choice
+				`	"我也来帮忙。"`
+					goto accept
+				`	"抱歉，我对提供帮助不感兴趣。"`
+			
+			`	另一位商人船长也拒绝了，你们两人随即被护送出房间，进入等候的电梯。返回地表的途中一片寂静，护送者仅以一句简单的“再见”便将你们打发走了。`
+				decline
+			
+			label accept
+			`	最终，只有一名商船船长拒绝接受任命。她被护送离开房间，随后舰队司令向每位商船船长逐一说明其新职责。`
+			`	“我们推测别尔泽布已知晓我们的行踪，但我们同样清楚他的位置——那些被窃取的巡洋舰及袭击我方基地的海盗舰队正驶向核心区域。鉴于别尔泽布刚刚犯下的罪行性质极其严重，他无疑会竭力逃往远离法律制裁之地。由此，我们仅剩两个可能的目的地：海盗湾，或远北地区的无政府主义殖民地。我们最合理的猜测是，对一位军阀而言，殖民地更具吸引力。”`
+			`	“我们将设立多道封锁线，试图将别西卜困于其中，同时多支舰队将对银河系展开扫荡行动。<last>舰长，你将率巴黎中尉及一支小型海军舰队驻守于<destination>。请立即收拾行装，即刻启程前往该地。”`
+				accept
+			
+	on visit
+		dialog `你已抵达<planet>，但部分护航飞船尚未进入该星系。请等待所有护航飞船均进入星系后再着陆。`
+	
+	npc accompany save
+		government "Deep Security"
+		personality heroic escort
+		fleet
+			names "deep"
+			variant
+				"Mule"
+				"Raven" 2
+	npc accompany save
+		government "Republic"
+		personality heroic opportunistic escort
+		fleet
+			names "republic capital"
+			variant
+				"Cruiser"
+				"Gunboat" 2
+
+
+
+overwrite
+mission "Deep: Mystery Cubes 3: Escorts"
+	landing
+	invisible
+	non-blocking
+	to offer
+		has "Deep: Mystery Cubes 2: done"
+	to fail
+		has "Deep: Mystery Cubes 4: done"
+	npc kill
+		government "Deep Security"
+		personality heroic escort vindictive
+		fleet
+			names "deep"
+			fighters
+				names "deep fighter"
+			variant
+				"Mule"
+				"Raven" 2
+				"Dagger"
+	npc kill
+		government "Republic"
+		personality heroic opportunistic escort vindictive
+		fleet
+			names "republic capital"
+			variant
+				"Cruiser"
+				"Gunboat" 2
+	npc kill
+		government "Republic"
+		personality timid
+		fleet
+			fighters
+				names "republic fighter"
+			variant
+				"Combat Drone" 4
+
+
+
+overwrite
+mission "Deep: Mystery Cubes 3"
+	landing
+	name `保卫<planet>`
+	description `摧毁正在袭击<planet>行星的海盗。`
+	source "Maelstrom"
+	to offer
+		has "Deep: Mystery Cubes 2: done"
+	
+	on offer
+		conversation
+			`帕里斯向你解释道：<planet>太空港的多个着陆平台甚至足以容纳海军最大的主力舰。此地曾是海军的重要基地，但后来已被更靠近远北无政府主义星域的法尔波因特基地所取代。`
+			`	待所有飞船停泊完毕，全体舰长在一处空置着陆平台上召开简报会。“别指望这次任务有多轻松，”帕里斯中尉说道，“我们可能要在此干等数日才会有行动，且全程必须滞留于本星系内。”`
+			choice
+				`	“我们等待期间该做些什么？”`
+			`	"目前，你可以在太空港内四处走动，看看有什么可做的事，但别走得太远，否则可能来不及及时返回你的飞船。"巴黎递给你一台通讯装置，"这样无论你身处何地，都能随时收到突发事件的通知。我将留在自己的飞船上，持续监控 incoming 的通讯信号。"`
+			choice
+				`	（在太空港中闲逛。）`
+				`	（靠近我的飞船。）`
+					goto ship
+			`	Other than the occasional blaring of a train whistle, the spaceport of <planet> is rather tranquil. You pass the time by talking to a few tourists, most of whom are getting ready to go rock climbing. While walking through the restaurant district, the ground begins to shake slightly. Many of the locals don't even react to the earthquake, and eventually it subsides. Once you have walked through the entire spaceport and seen all that it has to offer, you begin to make your way back to your ship.`
+				goto mirfak
+				
+			label ship
+			`	One of the Navy crewmen produces a football from their cabin, and a small game begins inside of an open landing pad. Others try to pass the time by reading or writing. Everyone comes to a standstill though once the ground begins to rumble; an earthquake. A Navy member calls out to everyone, "Don't worry, this is a small one. We get earthquakes like this a lot on Gemstone." The shaking eventually subsides, and you decide to go into your ship to rest.`
+			
+			label mirfak
+			`	突然间，你的通讯设备发出哔哔声，随即传来巴黎中尉的声音：“天船座（Mirfak）封锁线刚刚遭到袭击！重复一遍，天船座封锁线刚刚遭到袭击！据报告，封锁线已遭受重大损失，海盗舰队中包含一艘被盗的巡洋舰。”`
+			`	一名相当年轻的士兵问道：“我们该去帮他们吗？”一位高级军官答道：“我们已接到命令，除非另有指示，否则必须坚决执行。”通讯频道陷入沉默，众人继续等待。`
+			``
+			`	几小时焦虑的等待中毫无新消息。突然，毫无征兆地，一架渡鸦级战机腾空而起，你的通讯设备随即尖啸起来：“一支海盗舰队刚刚跃迁进入本星系，同时还有两艘涂装成海盗风格的海军巡洋舰！”所有船长及其船员立刻四散奔向各自的飞船，准备迎战。`
+				launch
+	
+	npc kill
+		government "Pirate"
+		personality staying heroic unconstrained target harvests plunders
+		fleet
+			names "pirate"
+			variant
+				"Cruiser" 2
+				"Fury (Laser)" 3
+
+
+
+overwrite
+mission "Deep: Mystery Cubes 4"
+	landing
+	name `在<planet>会合`
+	description `携带增援部队前往<destination>，支援其封锁行动。`
+	source "Maelstrom"
+	destination "Farpoint"
+	to offer
+		has "Deep: Mystery Cubes 3: done"
+	
+	on offer
+		conversation
+			`尽管海盗劫持了多艘海军巡洋舰，却仍未能突破封锁线。待你方全体人员着陆后，巴黎邀请各位舰长登上他的飞船，并与任务指挥中心取得联系。他转达了战斗报告，你得知马塔尔的封锁线也遭到了攻击，但并未发现被劫持的巡洋舰踪影。`
+			`	“将军，您的命令是什么？”巴黎通过通讯频道问道。`
+			`	“中尉，根据你的报告，目前已确认三艘巡洋舰下落，但贝勒泽布依旧杳无音信。我方侦察舰队已逼近各封锁线，很快就能将其擒获。待向你所在驻地进发的海军舰队进入尼哈尔星系后，你需立即率领全体人员前往<destination>。贝勒泽布很可能正计划动用剩余的三艘巡洋舰，对那里的封锁线发动突袭。”`
+			`	“明白，长官。”巴黎在联络正驶向<origin>的海军舰队指挥官后，随即召开了一场简短的全员简报会，通知船员们几小时后便需启程前往<destination>。`
+				accept
+	
+	npc
+		government "Republic"
+		personality heroic opportunistic escort entering
+		fleet
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Carrier"
+				"Combat Drone" 6
+				"Dagger" 8
+	npc
+		government "Merchant"
+		personality staying vindictive
+		system destination
+		fleet
+			names civilian
+			variant
+				"Bastion"
+				"Manta" 2
+	npc
+		government "Republic"
+		personality staying heroic opportunistic vindictive
+		system destination
+		fleet
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Cruiser"
+				"Combat Drone" 4
+				"Frigate"
+	npc
+		government "Deep Security"
+		personality staying heroic opportunistic vindictive
+		system destination
+		fleet
+			names "deep"
+			fighters
+				names "deep fighter"
+			variant
+				"Aerie" 2
+				"Dagger" 8
+				"Corvette (Speedy)"
+	npc
+		government "Republic"
+		personality heroic opportunistic vindictive
+		system Sol
+		fleet
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Carrier"
+				"Cruiser" 2
+				"Combat Drone" 14
+				"Lance" 8
+				"Frigate" 2
+	npc evade
+		government "Pirate"
+		personality staying heroic unconstrained target plunders harvests
+		system destination
+		fleet
+			names pirate
+			variant
+				"Cruiser" 3
+				"Marauder Leviathan"
+				"Leviathan (Hai Engines)"
+				"Headhunter (Particle)" 3
+				"Firebird (Plasma)" 2
+				"Marauder Firebird (Weapons)" 2
+	
+	on enter "Alnitak"
+		dialog `你进入参宿三星系时，发现当地已陷入一片混乱：一支寡不敌众的防御舰队正与一群海盗飞船激战，而你的传感器在海盗阵中识别出了那三艘被盗的巡洋舰。`
+	on visit
+		dialog `你已降落在<planet>，但仍有海盗在持续袭击该星系。击败所有海盗，方可完成此任务。`
+	on enter "Hassaleh"
+		set "deep: passed through north"
+	on complete
+		event "assisted the deep" 7
+		payment 1000000
+		log `协助摧毁了贝勒泽布盗走的最后一艘海军巡洋舰，但他本人已成功逃脱。海军仍在全力搜捕，但已不再向商船寻求协助。`
+		log "People" "Beelzebub" `贝勒泽布——这是许多人对他们的称呼——乃人类疆域中最臭名昭著的海盗之一。他们犯下无数针对人类及共和国政府的罪行，尽管近期遭受重创，至今仍逍遥法外，踪迹遍布银河。`
+		conversation
+			`当你准备着陆时，发现上方海盗舰队的炮火已击中多栋建筑。白色帐篷已被搭起，用于救治伤员；多艘飞船正在维修中。你被引导至一座完好无损的建筑，里面已聚集了数名海军军官——包括你在月球上见过的那位上将、巴黎中尉，以及你的同行商船船长们。你进入房间并落座后，上将开始讲话。`
+			`	“这是当前态势简报：别尔泽布的飞船被目击进入本星系，随后整个海盗舰队也抵达此处。但在混乱中，他的飞船似乎凭空消失了，我们目前完全不清楚他去了哪里。别尔泽布要么正藏身于无政府主义世界，要么已全力驶向核心星域——若真如此，追击行动将继续。”`
+			branch core
+				not "deep: passed through north"
+			
+			`	“别尔泽布绝不可能去了核心星域，”巴黎插话道，“我们正是经由无人居住的星系抵达此地的。如果他走的是同一条路线，我们不可能没发现他。”`
+			`	“那倒是好消息。我们只需静待别尔泽布，等他按捺不住，再度探出他那颗小脑袋。”`
+			
+			label core
+			`	“幸运的是，六艘被盗的巡洋舰均已确认下落——尽管全部损毁。深空安全部队已开始回收被盗的传感器立方体。我们可确认别尔泽布一直在监视我方一举一动，因为这些立方体已在天堂星域与核心星域各地陆续被发现。预计所有立方体将在下周内悉数收回。”上将随即转向各位商船船长：“如今别尔泽布已不再占据优势，诸位已无需继续协助。如约，<payment> 将汇入各位的账户，作为此次服务的酬金。”`
+			`	“感谢您，上将。”其中一位舰长答道。`
+			`	“不，该说谢谢的是我。谢谢各位。你们本不必承担这一风险，却依然接受了——在此，我谨代表整个海军，向你们致以由衷的谢意。”`
+
+event "assisted the deep"
+
+
+
+overwrite
+mission "Deep: TMBR 0"
+	minor
+	name `寻找乐队「或许将爆发骚乱」`
+	description `找到并说服乐队「或许将爆发骚乱」在<destination>举办一场演唱会。`
+	source
+		not system "Aludra"
+		attributes "deep"
+	destination "Midgard"
+	deadline 120
+	to offer
+		random < 60
+		has "There Might Be Riots part 3B: done"
+		not "Deep: Remnant 0: offered"
+		not "Deep: Project Hawking: offered"
+		or
+			not "chosen sides"
+			has "main plot completed"
+	
+	on offer
+		conversation
+			`当你进入<origin>太空港时，耳边响起了 unmistakably 是「或许将爆发骚乱」乐队的歌曲，音量之大，令整个太空港内所有人都清晰可闻。你环顾四周，发现声源来自附近一艘“邦德号”飞船外置扬声器，还有数名听众正随音乐起舞。`
+			choice
+				`	（和他们一起跳舞。）`
+					goto dance
+				`	(See what's going on.)`
+				`	(Ignore them.)`
+					defer
+			
+			`	你走近“跃界者号”，发现共有五人在跳舞：三位女性与两位男性。其中一位正在跳舞的女性注意到你走过来，高声喊道：“看来又有位新朋友要加入派对啦！”其余舞者随即爆发出一阵喧闹的欢呼，但他们试图拉你入舞时，你拒绝了。`
+			`	随着音乐渐渐平息，其中一名舞者向你自我介绍，自称加里森。接着他一一报出其他舞伴的名字：皮埃尔、雷娜、汉娜和劳拉。在你们互相介绍时，你得知在场所有人同属一支科研团队，受雇于“深空”下属的众多科学局之一；此刻他们正以聆听最爱的乐队演出作为短暂假期的收官，随后便将启程前往米德加德执行任务。`
+				goto choice
+			
+			label dance
+			`	你走近“跃界者号”，发现共有五人在跳舞：三位女性与两位男性。其中一位正在跳舞的女性注意到你走过来，高声喊道：“看来又有位新朋友要加入派对啦！”其余舞者随即爆发出一阵喧闹的欢呼，并把你拉进了舞蹈的人群中。`
+			`	跳了几分钟后，音乐渐渐平息。其中一名舞者向你自我介绍，自称加里森，并一一报出其他舞伴的名字：皮埃尔、雷娜、汉娜和劳拉。在你们互相介绍时，你得知在场所有人同属一支科研团队，受雇于“深空”下属的众多科学局之一；此刻他们正以聆听最爱的乐队演出作为短暂假期的收官，随后便将启程前往米德加德执行任务。`
+			
+			label choice
+			`	“你怎么知道‘可能爆发骚乱’这支乐队？”汉娜问你。`
+			choice
+				`	“我见过他们。”`
+					goto met
+				`	“我只是喜欢听他们的音乐。”`
+			
+			`	另一位科学家——一位名叫皮埃尔、看起来年长些的男子——直直地盯着你。片刻之后，他说道：“我认得你！你就是‘文明终焉之歌’那次从飞行员星发出的广播里的人！”其余科学家们纷纷凑近打量你，随即也附和起来。`
+			
+			label met
+			`	“你居然知道‘可能爆发骚乱’？你太幸运了！”雷娜说道。`
+			`	“我在‘停机坪风波’巡演期间连他们的影子都没见着，你居然见过他们？太疯狂了！”劳拉尖叫道。`
+			`	汉娜插话道：“你知道那支乐队现在在哪儿吗？自从那次广播之后，他们就一直销声匿迹。我听说共和国以非法闯入为由拘押了他们——但既然你来了……”`
+			choice
+				`	“我知道他们在哪儿，放心吧，他们很安全。”`
+				`	“抱歉，我不知道他们在哪儿。”`
+					goto decline
+			
+			`	众人一时沉默，直到雷娜问道：“你觉得能把他们请来，为我们办一场现场演唱会吗？”`
+			choice
+				`	"我很乐意！"`
+				`	"不了，谢谢。我还有更重要的事要做。"`
+					goto decline
+			
+			`	五名科学家齐声欢呼，显然为能亲临他们最喜爱的乐队现场演出而兴奋不已。欢呼声渐渐平息后，劳拉说道："我们得马上出发了，<first>。接下来几个月我们将驻扎在米德加德，所以如果你找到了‘可能爆发骚乱’乐队，请务必把他们带到那里。"这群人一一与你道别后便离开了。`
+				accept
+			
+			label decline
+			`	众人脸上明显流露出失望之色。几分钟交谈过后，他们告诉你，他们必须启程前往米德加德，并向你告别。`
+				decline
+	to complete
+		never
+	to fail
+		has "Deep: TMBR 1: offered"
+
+
+
+overwrite
+mission "Deep: TMBR: Hint"
+	name `与乐队重聚`
+	description `一名人类在<origin>表示，她上周曾在<destination>目睹乐队“可能爆发骚乱”（There Might Be Riots）的演出。希望他们现在仍在那儿。`
+	source
+		not system "Fah Soom"
+		government "Hai"
+		attributes "human tourism"
+	destination "Greenwater"
+	to offer
+		has "Deep: TMBR 0: active"
+		not "Deep: TMBR 1: offered"
+		random < 30
+	
+	on offer
+		conversation
+			`你花了一段时间，但在太空港四处打听数小时后，终于找到了一位知道乐队下落的人。“我上周在<destination>见过他们，”她说，“他们刚在那里办了一场相当狂野的演唱会。我还没听说他们在别处演出过，所以他们很可能还留在那儿。”`
+				accept
+
+
+
+overwrite
+mission "Deep: TMBR 1"
+	landing
+	name `将乐队运送至<planet>`
+	description `搭载乐队“可能爆发骚乱”（There Might Be Riots）前往<destination>，以便他们为深空科学家们献上演出。`
+	source "Greenwater"
+	destination "Midgard"
+	blocked "You have reached <origin>, but you'll need <capacity> to continue this mission. Return here when you have the required space free."
+	cargo "musical equipment" 4
+	passengers 8
+	to offer
+		has "Deep: TMBR 0: active"
+	on offer
+		conversation
+			`你在<origin>的太空港内找到了正在演出的乐队“可能爆发骚乱”（There Might Be Riots）。从观众中大量海伊族人的存在来看，即便在海伊势力范围内，他们也已拥有了相当可观的粉丝群。`
+			`	乐队在演奏观众喜爱的经典曲目之余，也穿插了几首明显受海伊空间经历启发的新歌。你则悄悄绕到临时搭建的舞台一侧。待音乐会结束，乌尔里希注意到了你，随即走上前来。`
+			`	“<last>船长，好久不见！自从您把我们送到这儿，我们便一直与这些和平的松鼠们相处得十分愉快。这可是我们有生以来最疯狂的一次体验！”他兴致勃勃地向你讲述乐队抵达海伊空间后经历的种种冒险，并感慨道，就连如此世外桃源般的地方，战争竟也仍是无法回避的现实。“对了，您这次来是有什么事吗？”`
+			`	他专注地听完你讲述<planet>上那些科学家的故事，但当你提到有关共和国将他们监禁的传闻时，眉头却不禁紧锁起来。`
+			`	“或许我们离开得太久了。我本以为会有些流言或影像记录从这里传回共和国，但此地堪称一处守口如瓶的秘密之地，看来终究未能如愿。也许……是时候重返人类疆域了。”`
+			`	乌尔里希召集起其余乐队成员，众人迅速收拾好随身物资。你们随即规划航线驶向<destination>——与此同时，他们将全套乐器设备搬上你的飞船，为重返人类空间的漫长航程做好准备。`
+				accept
+	on visit
+		dialog `You arrive on <planet>, but realize that your escort carrying the band and their supplies has not arrived yet. Better depart and wait for your escorts to enter the system.`
+	on complete
+		payment 250000
+		log `将乐队“可能引发骚乱”从海伊空间的度假地接回人类疆域，前往深空为一支科学家团队举办一场演唱会。`
+		conversation
+			`“可能引发骚乱”刚一下船，人群便迅速聚集起来。当人们意识到这支乐队并非单纯抵达，而是准备现场演出时，喧闹声之大令你庆幸自己并未提前向当地居民发出任何通告。乐队开始准备时，你联系了太空港当局，请他们通知加里森及其他科学家：你们已顺利返航。当局对这场毫无预兆的演唱会似乎兴致缺缺，但还是答应帮你传达消息。`
+			`	人群随着时间推移越聚越多；而越来越多飞船陆续降落，显然，“可能引发骚乱”归来的消息已迅速传开。`
+			`	乌尔里希与乐队登台之际，你一眼便在前排发现了那些科学家——他们咧嘴笑着，疯狂欢呼。第一首曲目正是你在海伊空间听过的那首；尽管观众中无人知晓歌词，无法跟唱，但他们显然深深喜爱其中传递的信息，欢呼与尖叫也愈发狂热。`
+			`	中场休息时，你邀请科学家们登上你的飞船，与乐队成员面对面交流。每位科学家眼中闪烁的激动光芒令人惊叹，他们终于见到了“可能引发骚乱”乐队的成员。`
+			`	中场休息结束前，每位科学家都亲自向你致谢，感谢你将乐队带至米德加德，皮埃尔甚至交给你<payment>。“这点心意，是我们力所能及的最小回报。”他补充道。随后，科学家们陆续离开你的飞船，前去聆听音乐会余下的曲目；而汉娜则跑回来紧紧拥抱了你一下，才重新回到人群中的朋友们身边。`
+
+
+
+overwrite
+mission "Deep: Interrogation"
+	landing
+	invisible
+	source
+		attributes "deep"
+		attributes "spaceport"
+	to offer
+		has "Deep Archaeology 5: done"
+		or
+			not "chosen sides"
+			has "main plot completed"
+	
+	on offer
+		log `因协助阿尔伯特·福斯特而遭到深空局审讯。深空局现已得知：阿尔伯特·福斯特认为米德加德上存在一颗人工奇点。`
+		conversation "deep: questioning"
+
+
+
+overwrite
+mission "Deep: Questions"
+	landing
+	name `神秘信息`
+	description `前往<destination>，与一封加密信息的发送者会面。`
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		not system "Zosma"
+	destination
+		attributes "deep"
+		attributes "urban"
+	to offer
+		has "event: assisted the deep"
+		has "Deep: Interrogation: offered"
+		not "deep: helped before archaeology"
+	
+	on offer
+		dialog `着陆后，你收到一条来自未知发件人的加密信息：“你好，<last>船长。你近期对深空局的援助令我们深表感激。如你有意，希望能于<destination>与你面谈。”该信息未署名。`
+	on complete
+		conversation "deep: questioning"
+
+
+
+conversation "deep: questioning"
+	branch question1
+		has "Deep: Interrogation: offered"
+	
+	`当你在<origin>降落并打开飞船主舱门时，发现面前站着两名深空安全部队的警官，两人都未携带武器。“您好，<last>船长。我们有些问题需要向您了解。如果您能走下飞船并跟我们走一趟，我们将不胜感激。”`
+	choice
+		`	（服从他们的命令。）`
+			goto orders
+		`	“你们为什么要盘问我？”`
+		`	（关闭舱门并逃离。）`
+			goto flee
+	
+	`	“因为我们希望就您为阿尔伯特·福斯特所从事的工作性质向您进行问询。现在请立刻走下飞船，跟我们走。”`
+	choice
+		`	(Follow their orders.)`
+		`	(Close the hatch and flee.)`
+			goto flee
+	
+	label orders
+	`	你跟随那些军官来到太空港东侧的一栋建筑。他们带你上了二楼，进入一间狭小昏暗的房间——房间里只有一张桌子和两把椅子。你被要求坐在其中一把椅子上，等待下一步指示。`
+		goto questioning
+	
+	label flee
+	`	你试图关闭舱门，却突然感到腹部传来一阵强烈的刺痛感。你随即抽搐着瘫倒在地，双眼勉强撑开，瞥见一名军官手中正握着一支电击枪。`
+	``
+	`	你苏醒过来，瘫坐在一张椅子上，身处一间光线昏暗的房间。桌对面另有一把空着的椅子。你扭动身体环顾四周时，腹部残留的酸痛感提醒你：尽管此刻只有你一人，但贸然离开恐怕并不明智。`
+	
+	label questioning
+	choice
+		`	(Wait.)`
+	
+	`	十分钟后，寂静被打破——一个身影走进了房间。在昏暗的光线下，你辨认出那是一名高挑、肤色较深的女性，身着疑似深空安全部队的制服；其徽章、胸针与肩章条纹中，有些样式你从未见过。`
+	`	“希望我的手下没费太大劲就把你请过来了。”`
+	choice
+		`	“别担心，一切都很顺利。”`
+		`	“这可不是我收到过的最热情的欢迎。”`
+	
+	`	那名女子轻笑一声。“别对我冷嘲热讽了。现在，你该明白自己为何被带到这里了吧。”`
+	choice
+		`	“我知道？”`
+			goto clueless
+		`	“我并未犯下任何罪行，因此你们无权扣押我。”`
+	
+	`	"的确，你在为阿尔伯特·福斯特工作期间并未犯下任何罪行，但我们仍有权拘留你，以确保深空区的安全。请勿在本次简短会面中制造麻烦，如实回答我的问题，几分钟后你便可离开。"`
+		goto foster
+	
+	label clueless
+	`	"倘若你已忘记，那我来帮你回忆一下：你曾从米德加德一座历史悠久的教堂取走一小片木屑——这本身并不构成犯罪，须知——随后你将它带回文奇，并交给了那位自称‘考古学家’的阿尔伯特·福斯特。" 她在说出‘考古学家’一词时语带讥讽，毫不掩饰对其头衔的蔑视。"之后，你又带着阿尔伯特·福斯特重返米德加德，迫使我们立即将你们驱逐出深空区。"`
+	
+	label foster
+	`	"我第一个问题：你究竟在和阿尔伯特·福斯特一起做些什么？"`
+	label first
+	choice
+		`	"你们无权审问我。我是深空区的公民。"`
+			to display
+				has "start: deep"
+				not "questioning: citizen"
+		`	"我们当时正使用引力场测绘设备对米德加德进行扫描，撤离前发现了一个人造奇点。"`
+			goto honest
+		`	“他告诉我，他正在研究‘深域’，并需要我协助开展这项研究。”`
+			goto work
+	
+	action
+		set "questioning: citizen"
+	`	她皱起眉头。“这并不能使你免于接受我们的调查。”`
+	`	“现在再问一次：你和阿尔伯特·福斯特究竟在做什么？”`
+		goto first
+	
+	label work
+	`	“那你为什么觉得他需要别人替他完成这项工作？”`
+	choice
+		`	“因为他想做些违法的事情。”`
+		`	"因为他不被允许进入深空区。"`
+			goto allowed
+	
+	`	"我早已告诉过你，你并未触犯任何法律。真正的原因是福斯特过去曾给深空区带来诸多麻烦，所以我们并不特别欢迎他的出现。那么，阿尔伯特是否在你的协助下取得了什么发现？"`
+		goto choice
+	
+	label allowed
+	`	"正是如此。那么，阿尔伯特是否在你的协助下取得了什么发现？"`
+	
+	label choice
+	choice
+		`	"他发现米德加德上的那座教堂远比理论上可能的年代更为古老，其历史至少可追溯至18世纪初。"`
+		`	"我们在米德加德上发现了某种他称之为‘人工奇点’的东西。"`
+			goto honest
+		
+	`	“有趣的发现，船长。他还有其他什么发现吗？”`
+	choice
+		`	"No."`
+		`	“有。我们在米德加德星使用了引力测绘设备，发现了一个疑似人工制造的奇点。”`
+			goto honest
+	
+	`	那名女子沉默了几秒钟，未作回应。当她终于开口时，你不得不凑近才能听清：“别对我撒谎。我可以让你的处境变得非常难堪。”`
+	choice
+		`	“好吧。我们在米德加德星发现了一个人工奇点。”`
+	
+	`	“看吧？承认这件事并没有那么难，对吧？”`
+	
+	label honest
+	action
+		clear "questioning: citizen"
+	branch helped
+		has "Deep: Mystery Cubes 4: done"
+	
+	`	那女人向后靠在椅子上，嘴角浮现出一抹狡黠的微笑。“感谢你提供的情报。我们已无需你再做更多。稍后将有专人护送你离开。祝你今天余下的时光愉快，<first> <last>。”`
+		goto next
+	
+	label helped
+	action
+		set "deep: helped before archaeology"
+	`	那女人向后靠在椅子上，嘴角浮现出一抹狡黠的微笑。“感谢你提供的情报，船长。在我放你离开之前，我想先感谢你为‘深空安全部’所做的一切工作。听说协助我们追捕别西卜的正是同一位船长，而你也曾协助过阿尔伯特·福斯特——这倒让我颇感兴趣。别担心，谁都会犯愚蠢的错误。这次的事，我们就从你的记录中一笔勾销。”`
+	`	“你显然对‘深空安全部’并无恶意，因此我破例允许你在此次会面结束后，向我提出任何你想问的问题。”`
+		goto questions
+	
+	label question1
+	`两名<planet>安全部队警卫护送你来到太空港‘深空安全部’复合体附近的起降坪，那里停着一艘护卫舰。站在护卫舰下方的，正是那位曾就你为阿尔伯特·福斯特工作的经历盘问过你的高挑、肤色黝黑的女性。`
+	`	“晚上好，船长，”她抬头望了一眼阴云密布的天空，“或者说，此刻无论是一天中的什么时刻。我已得知，你在追踪并……几乎围捕别西卜的过程中，为海军与‘深空安全部’立下了卓越功绩。请进我的飞船里稍坐片刻。”`
+	choice
+		`	（跟随她。）`
+			goto ask
+		`	“为什么？”`
+	
+	`	“你随时可以离开，不过我只留你片刻而已。”`
+	choice
+		`	（登上她的飞船。）`
+		`	(Leave.)`
+			decline
+	
+	label ask
+	`	那名女子关上了护卫舰的舱门，舱内仅余几盏昏暗的荧光灯发出微光。这艘船一定相当老旧了，居然还在使用荧光灯，而大多数现代飞船的内部照明早已换成了LED灯。”`
+	`	“我邀你登上我的飞船，是为了让我们能有个私密的谈话环境。显然，你对‘深空’并无恶意。首先，我很高兴地告诉你：我们已将你与阿尔伯特·福斯特之间的冲突事件从你的档案中彻底抹去。此外，我还特别准许你向我提出任何有关我们上次遭遇的问题。”`
+		goto questions
+	
+	label questions
+	choice
+		`	“‘深空’究竟是何时真正完成殖民的？”`
+		`	“米德加德上真的存在一颗人工奇点吗？”`
+			goto singularity?
+		`	“我没有什么问题。”`
+			goto none
+		
+	`	“确切日期早已湮没于历史长河之中，但民间传说称，最早一批人类于14世纪中叶抵达此地——那是在远古地球‘黑死病’瘟疫爆发之前。不过，对于这些充满传奇色彩的故事，还是不宜全信为好。”`
+	choice
+		`	“深空人类的祖先真的是被外星人带到这里的吗？”`
+		`	“我没有其他问题了。”`
+			goto none
+		
+	`	“这个问题，得去问那些最初被带到这里来的人。”那名女子又露出一抹狡黠的微笑。`
+	choice
+		`	"Is there really an artificial singularity on Midgard?"`
+		`	"I don't have any more questions."`
+			goto none
+		
+	`	“那些引力测绘装置有时候确实很娇气。我敢肯定这没什么大不了的。”`
+		goto done
+	
+	label singularity?
+	`	"Those gravitational mapping devices can be so finicky sometimes. I'm sure it was nothing."`
+	choice
+		`	"When was the Deep really settled?"`
+		`	"I don't have any questions."`
+			goto none
+		
+	`	"The exact date has been lost to time, but folklore states that the first humans arrived here in the mid-1300s, before the time of the 'Black Death' plague on ancient Earth. It's not wise to believe in wonder tales, though."`
+	choice
+		`	"Were the original humans of the Deep really brought here by aliens?"`
+		`	"I don't have any more questions."`
+			goto none
+		
+	`	"That's a question for the people who were originally brought here." The woman flashes another sly smile.`
+	
+	label done
+	branch question2
+		has "Deep: Interrogation: offered"
+	
+	`	“目前的问题就到此为止。您马上将被护送离开。祝您今天余下的时光愉快，船长。”`
+		goto next
+	
+	label question2
+	`	“目前这些问题就问到这里。”`
+		goto next
+	
+	label none
+	branch question3
+		has "Deep: Interrogation: offered"
+	
+	`	“若再无其他事，本次会面就此结束。稍后将有人护送您离开。祝您今日愉快，船长。”`
+		goto next
+		
+	label question3
+	`	“很好。”`
+		goto next
+	
+	label next
+	branch question4
+		has "Deep: Interrogation: offered"
+	
+	`	那名女子从椅子上起身，在门口稍作停顿。她微微侧过头，压低声音说道：“我会盯着你的。”随即离去。片刻之后，先前带您前来的那两名男子走进房间，示意您跟他们走。他们将您带到一处入口，并在您踏出太空港时锁上了身后的门。`
+		decline
+
+	label question4
+	`	那名女子打开飞船舱门。“我们未来或许还会再见。请谨言慎行，下次会面定能相谈甚欢。再见了，船长。”`
+		decline
+	
+
+
+overwrite
+mission "Deep: Project Hawking"
+	minor
+	name `科研物资`
+	description `从<stopovers>取回科研物资，并于<date>前将物资送至<destination>，用于“霍金计划”（Project Hawking）。`
+	source
+		attributes "deep"
+		not attributes "station"
+	destination "Midgard"
+	clearance
+	stopover "Carbuncle Station"
+	stopover "Prime"
+	stopover "Vinci"
+	passengers 4
+	cargo "project supplies" 50
+	deadline
+	deadline 10
+	to offer
+		random < 40
+		has "Deep: Mystery Cubes 4: done"
+		not "Deep: TMBR 0: active"
+		not "Deep: TMBR 1: active"
+		or
+			not "chosen sides"
+			has "main plot completed"
+		
+	on offer
+		conversation
+			`你刚与一名本地商人就一篮水果的价格争执完毕（十积分只买十二颗水果，实在贵得离谱），转身离开时，瞥见四名科学家正四处走动，不时与几位船长简短交谈。`
+			branch know
+				has "Deep: TMBR 0: offered"
+			`	其中一人注意到了你，低头快速扫了一眼手中的平板，随即带领其余三人朝你走来。`
+			`	“您好，船长！”队伍中那位高个子男子开口道，“您是<first> <last>，对吗？”你点点头。“太好了！我是加里森，这几位是我的同事汉娜、皮埃尔和劳拉。我们正寻找一位愿意载我们前往天堂星区几颗行星的船长——我们将在那里为科研项目采购所需物资。目前‘深空’（The Deep）缺乏可用的备用运输船，但已批准我们雇佣值得信赖的商船船长，以免耽误截止日期。不知您是否愿意帮忙？”`
+			choice
+				`	“我很乐意帮忙。您要去哪里？”`
+					goto accept
+				`	“抱歉，我此刻太忙了。您得另找一位船长。”`
+					decline
+			
+			label know
+			`	你认出他们正是加里森、汉娜、皮埃尔和劳拉——此前曾委托你寻找《可能爆发骚乱》号飞船的那几位科学家。“<first> <last>，是您吗？真没想到会在这儿遇见您！”加里森兴奋地喊道，“我们正在物色一位船长，希望有人能载我们前往天堂星区（Paradise sector）内的几颗行星，以便为我们的研究采购补给物资。按惯例，我们会调用深空局（the Deep）的官方运输船，但眼下他们暂时抽不出船来。因此，我们已获准雇用一位值得信赖的商船船长，临时担任我们的运输载具。您愿意帮忙吗？”`
+			choice
+				`	"I'd be glad to help. Where do you need to go?"`
+				`	"Sorry, I'm too busy at the moment. You'll need to find a different captain."`
+					decline
+			
+			label accept
+			`	“谢谢您，船长！我们需要前往的行星是……”加里森转向另外三位科学家。“<stopovers>，”汉娜说道。`
+			`	“……多谢。待我们集齐全部补给后，还需将我们送至<destination>。”`
+			`	你将科学家们接到飞船上，他们迅速在铺位舱内安顿下来。当你走向舰桥时，无意间听到皮埃尔正低声与你推测为太空港当局的人员通话："……<last> 已同意。我预计‘霍金计划’将如期推进，我们将在<day>之前抵达。" 在你准备起飞时，不禁思索自己刚刚究竟接下了怎样一项任务。`
+				accept
+	
+	on accept
+		"reputation: Independent (Killable)" = 10
+	
+	npc
+		government "Independent (Killable)"
+		personality staying
+		system "Naos"
+		ship "Marauder Quicksilver (Engines)" "Gusoyn"
+	
+	on visit
+		dialog `你抵达<planet>，却发现护送科学家及其物资的护卫舰尚未到达。最好先行离港，在星系内等待护卫舰进入。`
+	on complete
+		"reputation: Independent (Killable)" = 10
+		payment 1500000
+		log `协助为‘霍金计划’收集材料——这是‘深空’科学家团队开展的一项能源与武器研究项目。一名海盗‘水银号’袭击了存放物资的建筑，并坠毁于地面，引发了一场地震。`
+		conversation
+			`加里森说道：“别去太空港，我们会把物资卸在别的地方。”他指引你朝山脉方向飞去。`
+			branch know
+				has "Deep Archaeology 5: done"
+			`	随着山峰逐渐逼近，加里森指向一座孤零零的建筑旁的四座着陆平台，整片设施被树林环绕。最近的村庄也在数公里之外。`
+				goto next
+			
+			label know
+			`	随着山峰越来越近，加里森指向紧邻一栋建筑的四座着陆平台，整片设施被树木环绕。此处离你为阿尔伯特·福斯特采集木材的那座教堂极近，也就是说，也离他引力传感器所声称探测到“人工奇点”的位置非常接近。`
+			
+			label next
+			`	地面上已有数十台叉车在等候你的飞船，乘客们则忙着监督卸货过程。着陆平台四周高耸的围栏限制了你的活动范围，但你仍趁此机会伸展双腿，尽情呼吸清冽的山间空气。`
+			`	你正绕着发射平台散步，却被降落飞船熟悉的警报音打断；抬头望去，一架深空安全部队的“渡鸦”号正急速下降。它降落在<ship>旁，帕里斯中尉快步走出舱门，神情显得颇为焦虑。`
+			`	‘船长！我需要你这艘飞船自接下这项任务起、尽可能久远的扫描日志。’`
+			`	听出他语气中的急迫，你急忙返回飞船驾驶舱，将扫描日志复制到数据芯片中，再交予帕里斯。他随即用平板电脑查看这些日志。`
+			`	“有三艘身份不明的飞船，在你每次运回更多货物后便开始尾随你。无论其意图是否怀有敌意，它们显然对这项计划极感兴趣。”`
+			choice
+				`	“你打算怎么办？”`
+				`	“你担心我们正身处险境吗？”`
+			`	“我毫无头绪。”巴黎望向正在卸载货物的船员，“快点！”，其中一人高声回应：“只剩最后几箱了，长官！”`
+			`	巴黎转向你，说道：“我建议你立刻离开。”接着又对科学家们说：“你们四位请跟我来，我们得弄清楚这里究竟发生了什么——此地恐怕已不再安全。”`
+			`	在太空中，高功率原子引擎的噪音仅能被感知为沉闷的轰鸣，而且即便如此，也仅限于引擎所驱动的飞船内部。但在大气层内，这种声音却震耳欲聋。高速大气层再入所引发的雷霆巨响迫使所有人仰头观望。一艘伤痕累累、涂着海盗涂装的“水银号”正朝这座建筑疾驰而来。工人们慌忙寻找掩体，丢下机器与货物四散奔逃。`
+			choice
+				`	（快跑回我的飞船！）`
+				`	（快躲到最近的掩体后面！）`
+					goto cover
+			
+			`	你以最快速度冲向自己的飞船，但尚未抵达，便听见“水银号”的火炮轰然开火。炮弹呼啸掠过头顶，猛烈撞击在建筑侧壁上，炸得碎石四溅，也将你掀翻在地。`
+				goto crash
+			
+			label cover
+			`	你迅速扑向分隔两个起降坪的混凝土掩体后方躲避，就在此时，你听见“水银号”的火炮轰然开火。炮弹呼啸掠过头顶，猛烈撞击在建筑侧壁上，炸得碎石四溅。`
+			
+			label crash
+			`	银快号（Quicksilver）如出现时一般迅疾，转瞬便隐没于树林之中，消失在视野之外。尽管引擎轰鸣已渐弱，巴黎仍需高声呼喊，才能让自己的命令盖过四周的喧嚣。你刚挣扎着站起身，大地便猛然震颤起来；几秒后，一声沉闷的爆炸巨响彻底淹没了巴黎的声音。半公里外、银快号飞去的方向，一股浓黑烟柱正冉冉升起；即便在白昼，你也能看见下方烈焰映照在升腾烟尘上的不祥反光。紧接着又是一次震动——比前一次更剧烈——猝不及防地袭来，将你再次掀翻在地。`
+			choice
+				`	“地震！”`
+				`	“究竟发生了什么？”`
+			
+			`	地面持续低沉震颤，森林也在建筑周围簌簌作响，没人能听见你的声音。这座本就因武器火力而伤痕累累、千疮百孔的建筑，在新一波应力冲击下轰然坍塌，最终只剩一堆瓦砾。震动开始一分钟后，震感戛然而止，空气陷入死寂——连树叶的沙沙声、鸟儿的啁啾声都听不见了。`
+			`	众人显然被这突如其来的变故惊得不轻，正缓缓从地上爬起。你看见加里森正在搀扶皮埃尔和汉娜。巴黎中尉与劳拉紧紧相拥，但一察觉到你在注视，便迅速松开了彼此。`
+			`	数艘深空安全部队的飞船开始降落，投下医疗人员与清理小组，处理那栋被摧毁的建筑。其中一艘飞船朝火场方向飞去。巴黎对你说：“船长，您最好尽快离开。深空安全部队会接手此处的事态。”`
+			`	你向科学家们道别，他们感谢你伸出援手——尽管大部分货物已被毁。你登上自己的飞船，驶向太空港。着陆后，你发现深空安全部队已向你的账户转账{0}。`
+
+
+
+overwrite
+mission "Deep: Project Hawking: Carbuncle"
+	landing
+	invisible
+	source "Carbuncle Station"
+	to offer
+		has "Deep: Project Hawking: active"
+	to fail
+		has "Deep: Project Hawking: done"
+	npc kill
+		government "Independent (Killable)"
+		personality waiting
+		ship "Marauder Splinter (Engines)" "Abaddon"
+	on offer
+		conversation
+			`卡邦克尔空间站的大部分区域禁止普通访客进入。这里的工作人员甚至拒绝应你的请求为你飞船补充燃料。显然，这座空间站的所有者——洛夫莱斯实验室——将诸多秘密藏于空间站的墙壁之内。`
+			`	你打开对接舱门，却发现通往空间站其余区域的隔舱门已被三名全副武装的安保人员封锁。你跟随科学家们的指引，上前靠近守卫。双方交谈了数分钟，最终一名守卫启动了通讯器上的开关。隔舱旁的一块视频屏幕随即亮起，画面中出现一位身着制服的女性——她的制服明显比眼前这些守卫的更为华美精致。`
+			`	“是什么风把您吹到卡邦克尔空间站来了？”`
+			`	皮埃尔仅用两个词回应：“霍金计划”，屏幕随即短暂变黑。当画面再度闪烁亮起时，她同样言简意赅，只说了一句：“准许三人进入。”`
+			`	经过简短商议，加里森同意留下来与你一同等待。皮埃尔、汉娜和劳拉则穿过舱壁门上那道略显局促的狭小入口，进入了管制区域。你们并未在守卫面前干等，而是与加里森一同返回了飞船，在熟悉的船舱中稍作休整。`
+			choice
+				`	“我们等的时候，该做点什么打发时间呢？”`
+				`	“他们要过多久才会回来？”`
+					goto wait
+			
+			`	“他们应该很快就会回来，所以如果你愿意，我们可以简单聊几句。”`
+				goto questions
+			
+			label wait
+			`	"最多十分钟。在此期间，我们可以简单聊几句。我可讨厌沉默带来的尴尬了。"`
+			
+			label questions
+			choice
+				`	"你知道洛夫莱斯实验室在这座空间站里存放着什么吗？"`
+				`	"‘霍金计划’是什么？"`
+					goto project
+			
+			`	"我对他们在这里存放的东西一无所知。就算我知道，也肯定不能告诉你。我唯一能确定的是，这里存有我们正在开展的项目所需的各种组件。"`
+			`	"霍金计划？"你问道。加里森点了点头。`
+			
+			label project
+			`	"‘霍金计划’的具体细节属于机密。我只能告诉你，我们正在开展能源与武器相关研究。深空区（Deep）中某些领域高度专业化的科学家，会不时被征召参与政府项目。"`
+			`	"在能源工程领域，我是深空区最顶尖的专家之一。我曾参与‘矮星核心’（Dwarf Core）项目。" 加里森顿了顿，自嘲地笑了笑，接着说："我还参与研发了那些滑稽又不实用的LP576a电池组——至今我还没见过哪艘飞船真正在用它们。"`
+			`	"总之，正因我过往的工作经历，深空区主动邀我加入本项目。报酬比之前优厚不少，我便接受了。更令人惊喜的是，我还见到了我的合作搭档——汉娜和我同届本科毕业，主修量子力学，辅修……你敢信吗？居然是古代史。"`
+			choice
+				`	"你们从卡邦克尔空间站（Carbuncle Station）需要获取的东西，究竟有多机密？"`
+				`	"皮埃尔和劳拉呢？"`
+					goto partners
+			
+			`	“正如我之前所说，该项目属于机密。即便如此，我也并不真正理解它——这属于劳拉的专业领域。您知道，她拥有……”`
+				goto end
+			
+			label partners
+			branch electron
+				has "event: navy using mark ii ships"
+			`	“皮埃尔年纪较大，过去三十年来一直致力于激光武器研发。在此前，他正负责另一项独立项目；但‘深空局’要求他暂时搁置原有工作，全力投入‘霍金计划’——因为他们正努力为他寻找接替者，毕竟该项目亟需一位在激光武器领域比我们其余人更富经验的专家。”`
+				goto laura
+			
+			label electron
+			`	“皮埃尔年纪较大，过去三十年来一直致力于激光武器研发。若您曾亲眼见过电子束武器实战，那真该感谢他——当然，还有其他几位同仁，但正是他的一项关键发现，真正将整个项目整合到了一起。”`
+			
+			label laura
+			`	“而劳拉那边——”`
+			
+			label end
+			`	加里森还没来得及说完，另外三位科学家便已返回，彼此协助搬运着一只密封的金属箱。‘如果不介意，我们先把这箱子放在后舱。’皮埃尔说道。随后，科学家们各自在铺位舱室安顿下来，准备启程。”`
+			`	飞船无线电传来一阵啁啾声，提示你收到了来自空间站的消息。你打开信息，对其内容毫不意外：`
+			``
+			`		你须即刻启程。`
+			`					卡邦克尔空间站停泊管理局`
+			``
+			`	你向船员与乘客发出信号，告知起飞即将开始，并遵从洛芙莱斯实验室研究站的要求。`
+				launch
+
+
+
+overwrite
+mission "Deep: Project Hawking: Prime"
+	landing
+	invisible
+	source "Prime"
+	to offer
+		has "Deep: Project Hawking: active"
+	to fail
+		has "Deep: Project Hawking: done"
+	npc kill
+		government "Independent (Killable)"
+		personality waiting
+		ship "Marauder Raven (Engines)" "Krampus"
+	on offer
+		conversation
+			`当你接近那座庞大的<planet>太空港建筑时，皮埃尔指引你将飞船停靠在第三层的起降平台上，位置靠近仓库区。“我们正在收集各类用于飞船制造的材料，需要采集样本进行测试。”皮埃尔解释道。`
+			`	科学家们与太空港当局交涉，对方随即从上方平台开始向你的货舱装载数吨合金。你与皮埃尔一同等待他们完成装货。`
+			choice
+				`	“这么多不同种类的合金，它们究竟用来做什么？”`
+				`	“我们为何非得专程赶到普莱姆星才能获取这些材料？”`
+					goto alloys
+			
+			`	皮埃尔歪着头看向你：“我们要把它们全毁掉——简单直接。我们需要测试不同飞船合金在我们正在研发的技术面前的承受能力。”`
+			
+			label alloys
+			`	“我们本可在深空区域就近的船坞获取材料，但参宿四船坞定期接收来自尘带（Dirt Belt）各船坞更常使用的金属货品，因此它实际上是我们获取全部所需材料的最近地点。”`
+			choice
+				`	"你享受为‘深空部’所做的工作吗？"`
+				`	"你为‘深空部’工作多久了？"`
+			
+			label story
+			`	"让我用一个简短的自述来回答这个问题。" 皮埃尔清了清嗓子，挺起胸膛，仿佛正准备讲述一段波澜壮阔的史诗。他或许有点过于热衷于谈论自己了……`
+			`	"我出生在雷戈尔星系的风崖星。那是一颗渺小而宁静的星球，在银河系中几乎毫无战略地位，但你有空真该去游览一番。我家境并不宽裕，所以我必须刻苦学习——而这份努力获得了丰厚回报。凭借大学期间出类拔萃的成绩，我甚至还没毕业就获得了一份政府职位。过去三十五年来，我一直在直接为‘深空部’效力，且至今仍在职；而我热爱这份工作的每一分钟！至于我那位年幼的妹妹嘛……嗯，这么说吧，她对学业可没那么上心，最终走上了违法的道路。"`
+			`	"那你呢？"`
+
+			`	你向皮埃尔讲述自己在<home planet>的成长经历：从十五岁起就在纺织厂打工，一分一厘地攒钱，直到终于考取飞行员执照，离开故乡世界，驶向星辰大海。`
+				to display
+					has "start: default"
+			`	你向皮埃尔讲述自己在<home planet>的成长经历：凭借优异的学业成绩，成功申请了深空（Deep）星舰贷款计划。`
+				to display
+					has "start: deep"
+			`	你向皮埃尔讲述自己在<home planet>的成长经历：自幼梦想成为星舰船长，十八岁生日那天终于如愿以偿，获得飞行员执照。`
+				to display
+					has "start: paradise"
+			`	你向皮埃尔讲述自己在银河系四处漂泊的经历：曾在辛迪加的工厂星球上工作五年，之后贷款购置飞船，正式开启了自己的商船船长生涯。`
+				to display
+					has "start: syndicate"
+			`	你刻意避开提及<home planet>和海伊族，只向皮埃尔讲述自己的经历：如何在一家旅行社尽职尽责地工作，只为早日实现遨游星海的梦想。`
+				to display
+					has "start: hai"
+
+			`	“我们其实也没太大差别，”皮埃尔说道，“我们都靠自己的努力才走到今天这一步。谢谢你分享，<first>。”`
+				to display
+					not "start: deep"
+					not "start: paradise"
+			`	“原来你也是来自深空区的，”皮埃尔咧嘴一笑，“那项贷款计划可不容易——干得漂亮！我上大学时，曾在一门应用工程课上参与过那些贷款飞船部分子系统的建造工作。真得佩服深空区的唯才是举制度。谢谢你分享，<first>。”`
+				to display
+					has "start: deep"
+			`	“你来自天堂世界啊，”皮埃尔说道，“那里大多数人毕业后都会安顿下来，接手父母的生意。极少有人会独自外出当商人。谢谢你分享，<first>。”`
+				to display
+					has "start: paradise"
+
+			`	“货物全部装舱完毕，船长！”加里森从上方平台朝下高喊，“随时可以出发！”`
+				accept
+
+
+
+overwrite
+mission "Deep: Project Hawking: Vinci"
+	landing
+	invisible
+	source "Vinci"
+	to offer
+		has "Deep: Project Hawking: active"
+	to fail
+		has "Deep: Project Hawking: done"
+	npc kill
+		government "Independent (Killable)"
+		personality waiting
+		ship "Marauder Manta (Engines)" "Valac"
+	on offer
+		conversation
+			`“找到我们需要的电子元件可能得花点时间，”你降落之后皮埃尔说道，“我们离开期间，你就在太空港附近稍作等候吧。”`
+			`	“你们能应付得来吧？”汉娜问道，“我好多年没去过文奇了，很想看看太空港游戏厅里现在有哪些虚拟现实项目。”`
+			`	另外三位科学家表示，没有她也能顺利开展工作。她立刻朝太空港游戏厅的方向飞奔而去。当你找到她时，她正忙着用VR设备与一个AI全息影像打乒乓球。看样子她球技非凡，目前比分仍是平局。`
+			choice
+				`	“你打得真棒！经常打乒乓球吗？”`
+				`	“你能行的！”`
+				
+			`	汉娜挥动虚拟球拍猛击乒乓球，球弹离桌面，径直掠过对手，随即在空气中化为虚无。`
+			`	"我表现得相当不错，对吧？这还是我第一次打乒乓球呢。"`
+			`	"你第一次玩就能打得这么好，是怎么做到的？"`
+			`	"我只是学得快而已，一向如此。大学时，我常在量子力学讲座上做历史课的作业，两门课都轻松拿到了全A。"`
+			choice
+				`	"这两门课的组合还真是奇怪。"`
+				`	"你在古代史课上学到了什么？"`
+					goto history
+			
+			`	“其他人也都这么跟我说过。不过那过程挺有趣的，而且我在古代史课上学到的许多知识，和量子力学课上的一样引人入胜。”`
+			`	“你在古代史课上学到了什么？”你问道。`
+			
+			label history
+			`	“我能连续几周滔滔不绝地讲那些课上学到的东西。其中最让我着迷的，是我的家族渊源——我的大多数祖先来自地球一个叫斯堪的纳维亚的地方，而我的姓氏在一种古语中意为‘花园’。”`
+			`	“知道一千多年前我的祖先生活在地球何处，这感觉很奇妙——那时人类还被牢牢困在母星之上。而跃迁引擎恰好也在那个时代被发明出来，这真是奇迹；否则，我们很可能早已自我毁灭。如今银河系各处的生活仍不完美，但平均而言，已远胜于仅限地球一隅的时代。”`
+			`	汉娜看起来正准备没完没了地大谈跃迁引擎发明前的地球史，好在劳拉及时解围：‘船长，我们需要的电子设备已全部装上您的飞船了。加里森和皮埃尔正在那儿等我们。’`
+				accept
+
+
+
+overwrite
+mission "Deep: Remnant 0"
+	minor
+	name `获取量子基石`
+	description `从海伊空间购买10枚量子基石，并将其送回<destination>。伊万及其团队将在那里对这些基石展开研究，并探究它们与终焉星系（Terminus）中空间异常现象之间的关联。`
+	source
+		attributes "deep"
+		not system "Epsilon Leonis"
+	to offer
+		random < 40
+		has "Deep: Mystery Cubes 4: done"
+		has "Terminus exploration: done"
+		has "First Contact: Hai: offered"
+		has "main plot completed"
+	
+	on offer
+		conversation
+			`你在太空港中闲逛时，一名男子朝你走来——你一眼便认出他正是伊万，那位在终焉星系中、你曾为其回收过无人机数据的科学家，全靠他那副滑稽厚重的眼镜令人过目难忘。他提到，自己听说了你对‘深空’（The Deep）内其他人的诸多帮助。`
+			`	“我希望你能继续协助我们对终焉星系空间异常现象的研究。多亏你取回的数据，我们已推断出该异常现象实际上是一种虫洞，但其稳定性极差，目前尚无法支撑任何物体穿越。”`
+			`	伊万环顾四周，随后凑近你低声说道：“我必须向你确认一下——你可听说过海伊人？”你点点头。“太好了！”他兴奋地一跃而起，差点把眼镜从脸上甩飞出去。“那你一定能帮上忙！我团队中一位科学家就在海伊领地长大，他提出：海伊人所售的所谓‘量子基石’，或许与这处虫洞存在某种联系。他记得一些海伊民间传说，称这些石头能令恒星际航行变得更加轻松；而海伊人昔日正居住在虫洞所在区域附近，二者之间很可能存在关联。以我们当前的知识水平，要稳定这处虫洞可谓难如登天，但这些基石或许能为我们开启通往虫洞的大门。不知你是否愿意代我们取回十枚？以便我们验证这些传说是否属实？”`
+			branch remnant
+				has "First Contact: Remnant: offered"
+			choice
+				`	"我很乐意帮忙。"`
+				`	"抱歉，但海伊星域离我太远了。"`
+					decline
+					
+			`	"再次感谢您，船长！"他非常热情地说道，“其实我自己也想去，但我必须坦白——我们目前资金紧张，除非取得某种重大发现，否则不会再获得拨款。等您返航后，我们能先支付这批矿石一半的费用。"`
+				accept
+			
+			label remnant
+			choice
+				`	"我早已知晓虫洞另一侧的情况。事实上，只需安装一枚量子基石，便足以进入该空间异常区域。"`
+				`	"抱歉，但眼下海伊星域离我实在太远了。"`
+					decline
+			action
+				set "deep: knew of stones before scientists"
+			`	伊万一听你提起自己曾穿过虫洞，激动得几乎要当场晕倒。“真的？快告诉我，你发现了什么！”`
+			branch friendly
+				has "event: ember waste label"
+			action
+				set "deep: did reveal remnant"
+			`	你向伊万详细讲述了穿越虫洞后所见的一切：那些外形奇特、以歌声与手语交流的人类——他们因你拒绝接受血液检测而发起攻击；你还提到了该空域的其他异常现象，例如尼尼亚星上那些能在太空真空中存活的奇异外星生物，以及数量众多、可供在该区域自由穿行的虫洞。`
+				goto end
+			
+			label friendly
+			choice
+				`	（揭示‘残响’的存在。）`
+				`	（不透露‘残响’的存在。）`
+					goto secret
+			action
+				set "deep: did reveal remnant"
+			`	你告诉伊万，虫洞另一侧的这片空域被称为‘余烬废土’，由一群在阿尔法战争期间逃难至此的友善人类所居住。这些人类已与人类主流社会隔绝发展数百年。你提及他们独特的文化，并尽可能回忆起‘残响’族人所吟唱的那些歌曲，向他娓娓道来。`
+			`	你还提到了余烬废土的其他异常现象，包括尼尼亚星上那些能在太空真空中生存的奇异外星生物，以及该区域内数量庞大的虫洞——它们使飞船得以在整片区域中自由穿行。`
+				goto end
+				
+			label secret
+			action
+				set "deep: did not reveal remnant"
+			`	你向伊万讲述了虫洞另一侧那片广袤而孤寂的太空区域。你描述了那里无处不在的暗红色辉光，其色调与虫洞本身如出一辙。你还提到了尼尼亚星上那些能在太空真空中生存的奇异外星生物，以及该区域内数量庞大的虫洞——它们使飞船得以在整片区域中自由穿行。`
+			
+			label end
+			`	“这非常有趣，若属实，将是一项惊人的发现。请把量子基石带给我们，以便我们研究其进入虫洞阈值所需的特殊性质。之后，我们还将进一步了解你所描述的这片区域。哦，差点忘了：我们可以支付你一半量子基石的费用。”`
+			choice
+				`	"I would be glad to help."`
+					accept
+				`	"Sorry, I don't want to help with this."`
+					decline
+	on visit
+		dialog `你尚未获得伊万要求你在海伊空间购买的10枚量子基石。请在取得这些基石后再返回此处。`
+	on complete
+		outfit "Quantum Keystone" -10
+		event "deep: keystone research" 14
+		payment 60000
+		log `遇到了正在终焉星系调查异常现象的科学家们，并向他们提供了从海伊空间获取的10枚量子基石用于研究。`
+		conversation
+			branch TMBR
+				has "Deep: TMBR 0: offered"
+			`返回<planet>后，你得知伊万已前往瓦尔哈拉星上的研究实验室，但他的研究助理雷娜正在等候接收量子密钥石。她交给你<payment>，足以支付密钥石总价的一半。`
+				goto end
+			
+			label TMBR
+			`返回<planet>后，你得知伊万已前往瓦尔哈拉星上的研究实验室，但取而代之的是，你发现雷娜正在等候接收量子密钥石。她交给你<payment>，足以支付密钥石总价的一半。`
+			
+			label end
+			`	"感谢你们为我们购得这些量子密钥石。我们可能需要一至两个月时间才能完成全面研究。待我们再次需要你的协助时，会主动与你联系。"`
+
+event "deep: keystone research"
+
+
+
+overwrite
+mission "Deep: Remnant: Keystone Research"
+	landing
+	name `Travel to <planet>`
+	description `前往<destination>与伊万会面，了解他对你交付的量子密钥石所开展的研究。`
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		not system "Epsilon Leonis"
+	destination "Valhalla"
+	to offer
+		has "event: deep: keystone research"
+	
+	on offer
+		dialog
+			`你收到科学家伊万发来的一条消息。他正在终点星系研究空间异常现象："船长，我们已完成对量子密钥石的研究，证实它们确实能开启虫洞通道。如愿继续协助我们的研究，请到<destination>与我见面。"`
+
+
+
+overwrite
+mission "Deep: Remnant 1"
+	landing
+	name `探索未知领域`
+	description `探索终点虫洞之外的太空区域。在尽可能探索所有可抵达区域后，返回<destination>。`
+	source "Valhalla"
+	waypoint "Terminus"
+	to offer
+		has "Deep: Remnant: Keystone Research: done"
+		not "deep: knew of stones before scientists"
+		not "First Contact: Remnant: offered"
+		# A relic of how Deep: Remnant use to be structured.
+		not "Deep: Remnant 1A: offered"
+		not "Deep: Remnant 1B: offered"
+		not "Deep: Remnant 1C: offered"
+	
+	on offer
+		conversation "deep: remnant"
+	on accept
+		outfit "Quantum Keystone" 1
+	on enter "Arculus"
+		dialog `这片太空区域似乎有智慧生命居住。你应设法进一步了解栖息于此的生物。`
+	on enter "Nenia"
+		set "discovered void sprites"
+		dialog
+			`该星系中充斥着大量奇特的太空生物，它们似乎正以小行星为食。其口器啃噬岩石、将其碾为尘埃的景象，定会让任何造访此星系的船长反复噩梦。你记下一条提醒：务必保持安全距离，以免它们将你的飞船误认为下一顿美餐。`
+			`	这些奇异生物距虫洞如此之近，不禁令人遐想：这片太空更深处，究竟还隐藏着什么？`
+	on visit
+		dialog `你已降落在<planet>，但尚未充分探索虫洞另一侧的太空区域。请返回虫洞，继续探索该区域，寻找任何值得关注的目标。`
+	to complete
+		has "First Contact: Remnant: offered"
+		has "discovered void sprites"
+
+
+
+overwrite
+mission "Deep: Remnant 2"
+	landing
+	name `分析虫洞`
+	description `伊万及其团队希望研究终结星系（Terminus）之外的虫洞。请携带扫描设备，重返那片奇异的太空区域，并穿越构成闭环的虫洞。`
+	source "Valhalla"
+	waypoint "Cardea"
+	waypoint "Insitor"
+	waypoint "Segesta"
+	waypoint "Aescolanus"
+	cargo "astronomical recorders" 5
+	blocked `你已返回<planet>，但伊万告知你，本次任务还需留出<capacity>的可用空间。请在备妥足够空间后再来执行任务。`
+	to offer
+		or
+			has "Deep: Remnant 1: done"
+			and
+				has "Deep: Remnant: Keystone Research: done"
+				not "Deep: Remnant 1: offered"
+				not "Deep: Remnant 1A: offered"
+				not "Deep: Remnant 1B: offered"
+				not "Deep: Remnant 1C: offered"
+				or
+					has "deep: knew of stones before scientists"
+					has "First Contact: Remnant: offered"
+	on offer
+		conversation "deep: remnant"
+	on visit
+		dialog `你已返回<planet>，但尚未穿越全部虫洞。请重返那片奇异的太空区域，完成虫洞闭环的全部穿越。`
+
+
+
+conversation "deep: remnant"
+	branch "on second mission" "on first mission"
+		has "Deep: Remnant 1: done"
+	
+	label "on first mission"
+	`你着陆后联系了伊万，他为你发送了前往其研究实验室的路线——该实验室位于城市郊区。“离我的办公室可真够远的，不过我们只能就地取材了。”他评论道。你抵达时几乎来不及向伊万、雷娜及其他人员打招呼，伊万便已开始讲述他们从量子基石中获得的研究成果。`
+	branch "knew before" "didn't know before"
+		has "deep: knew of stones before scientists"
+	
+	label "knew before"
+	`	“正如你之前所提到的，单枚基石便足以开启虫洞，”伊万说道，“我们已确认存在某种稳定效应——作用于飞船本身或虫洞之上——使物质得以穿越阈值。然而，要彻底理解其真实机制，我们还需大量时间与更多数据。”`
+	branch remnant1
+		has "deep: did reveal remnant"
+	`	“上一次，你提到过有外星生物能直接在太空真空中生存，对吗？”`
+	`	You nod.`
+	`	“没错。那么，若能进一步了解这些外星生物，将极为有趣。”`
+		goto end
+
+	label remnant1
+	`	“上一次，你提到过这片空间中生活着人类，也就是……‘余烬者’（The Remainder）？”`
+	`	“残余者”，你说道。`
+	`	“对，就是这个名字。嗯，若能进一步了解这个族群，将极为有趣。”`
+		goto end
+	
+	label "didn't know before"
+	`	“我们已分析过那些基石，令人惊讶的是，它们确实能开启终点星系的虫洞，”伊万解释道，“这些石块似乎能在飞船穿越虫洞时稳定其结构；又或者，它们是在以某种方式稳定飞船本身，而非虫洞。要彻底弄清其中真正的作用机制，我们还需大量时间。但无论如何，每艘飞船穿越虫洞时都必须配备一块基石。”`
+	`	“我们曾派出一架无人探测器穿越虫洞，以验证其可通行性，并为其预设了紧急返航程序——一旦虫洞另一端区域存在敌意或危险，它便会立即返回。你是否愿意替我们探索该区域？建议你加装冲压式集气引擎（ramscop），因为我们尚不确定那里是否存在可供飞船补给的地点。”`
+	branch "know now" "still don't know"
+		has "First Contact: Remnant: offered"
+	
+	label "know now"
+	choice
+		`	“实际上，在你们开展研究期间，我早已独自探索过虫洞另一端的区域了。”`
+			goto skip
+		`	“抱歉，我不想再为你工作了。”`
+			decline
+	
+	label "on second mission"
+	`你返回后，伊万和其他科学家都热切地等待你讲述自己的发现。`
+	
+	label skip
+	`	你首先讲述了自己在内尼亚星系遭遇的那些奇特太空生物的经历。当你提到它们能轻易吞噬小行星、并似乎毫不费力地摆脱当地气态巨行星引力时，伊万的眼睛睁得老大。你还提到，这片空域中存在更多与你此前穿越进入该区域时所经虫洞类似的奇异虫洞，其中一组虫洞甚至在多个星系之间形成了闭环。`
+	branch friendly
+		has "event: ember waste label"
+	action
+		set "deep: did reveal remnant"
+	`	接着，你向他们讲述了那些外貌奇特的人类——他们以歌声和手语交流，并在你拒绝接受血液检测后对你发动了攻击。`
+		goto remnant2
+		
+	label friendly
+	choice
+		`	(Reveal the existence of the Remnant.)`
+		`	(Don't reveal the existence of the Remnant.)`
+			goto secret
+	action
+		set "deep: did reveal remnant"
+	`	最后，你告诉他们关于‘残余者’的事：这是一群在阿尔法战争期间逃离人类疆域的友善人类，数世纪以来一直独立于人类社会之外发展；他们将这片空域称为‘余烬废土’。`
+		goto remnant2
+
+	label secret
+	action
+		set "deep: did not reveal remnant"
+	`	这群科学家自始至终都全神贯注，简直就像幼儿园的孩子在听童话故事。你刚一讲完，他们便立刻彼此热烈讨论起来，似乎对栖息于该区域的外星生物最感兴趣。他们一致认为，有必要进一步了解这些外星生命。`
+	`	“我们之后可以再深入研究这些外星生物，”伊万说道。`
+		goto end
+		
+	label remnant2
+	`	这群科学家自始至终都全神贯注，简直就像幼儿园的孩子在听童话故事。你刚一讲完，他们便立刻彼此热烈讨论起来，似乎对栖息于该区域的人类最感兴趣——尤其是人类所开发的技术。他们一致认为，有必要进一步了解这群人类及其技术。`
+	`	“我们之后可以再深入研究这群人类，”伊万说道。`
+
+	label end
+	`	“但首要任务，是我们应继续深入研究这些虫洞。你提到了一系列异常的虫洞，其行为特征显然值得关注。你能否携带一套天文观测仪器重返这片空域？若你能穿越这些虫洞，我们或许便能更深入地理解其运行机制。”`
+	choice
+		`	"好吧，我愿意接下这个任务。"`
+		`	"抱歉，但我并未同意在完成第一项工作后继续协助你。再见。"`
+			decline
+	`	"太棒了！我们马上把仪器装上你的飞船。"`
+		accept
+
+	label "still don't know"
+	choice
+		`	"我向来乐于踏上冒险之旅。"`
+		`	"这听起来风险太大了。你得另找别人去探索了。"`
+			decline
+	`	"太棒了！我们将为你提供一枚量子基石，助你穿越虫洞。探索结束后请返回此处。"`
+		accept
+
+
+
+overwrite
+mission "Deep: Remnant 3: Secret"
+	landing
+	name `分析外星生物`
+	description `扫描尼尼亚（Nenia）中外星生物的“装备”，然后携带详细的扫描日志返回<destination>的科学家处。`
+	source "Valhalla"
+	waypoint "Nenia"
+	to offer
+		has "Deep: Remnant 2: done"
+		has "deep: did not reveal remnant"
+	
+	on offer
+		conversation "deep: remnant 3"
+	on accept
+		event "remnant: nenia empty"
+	
+	npc "scan outfits"
+		government "Indigenous Lifeform"
+		personality timid mining harvests staying mute
+		system "Nenia"
+		fleet
+			cargo 0
+			variant
+				"Void Sprite"
+				"Void Sprite (Infant)"
+		dialog `你已完成对该星系中外星生物的扫描。现在可携带扫描日志返回<destination>。`
+	
+	on visit
+		dialog `你将扫描日志展示给伊万（Ivan），但他摇了摇头："这些还不够。在<waypoints>中应该还有更多外星生物等待你扫描。请务必同时使用装备扫描器。"`
+	on complete
+		event "deep: scan log research" 14
+		event "remnant: nenia restored"
+		log `在终点星系的虫洞另一侧扫描了外星生物，并将扫描日志交给了伊万及其团队。`
+		dialog `当你带着扫描日志返回时，团队成员明显十分兴奋。“给我们几周时间仔细研究这些数据，”伊万说道，“之后我们会联系你，告知下一步需要你做什么。”`
+
+
+
+overwrite
+mission "Deep: Remnant 3: Revealed"
+	landing
+	name `分析遗民飞船`
+	description `扫描阿库勒斯星系中遗民飞船的装备，然后携带详细扫描日志返回<destination>的科学家处。`
+	source "Valhalla"
+	waypoint "Arculus"
+	to offer
+		has "Deep: Remnant 2: done"
+		has "deep: did reveal remnant"
+	
+	on offer
+		conversation "deep: remnant 3"
+	on accept
+		event "deep: arculus empty"
+	
+	npc "scan outfits"
+		government "Remnant"
+		personality staying uninterested
+		system "Arculus"
+		fleet
+			names "remnant"
+			variant
+				"Albatross"
+				"Starling"
+		dialog `你已完成对该星系内遗民飞船的扫描，而它们似乎对此颇为不满。你现在可携带扫描日志返回<destination>。`
+	
+	on visit
+		dialog `你向伊万展示了扫描日志，但他摇了摇头：“这还不够。在<waypoints>区域应该还有更多可供扫描的残余飞船。请确保你已装备了装备扫描仪。”`
+	on complete
+		event "deep: scan log research" 14
+		event "deep: arculus restored"
+		log `你在终点星系虫洞另一侧扫描了残余飞船，并将扫描日志交给了伊万及其团队。`
+		dialog `当你携扫描日志返回时，团队明显十分兴奋；但当你提到扫描过程中那些飞船转为敌对状态后，他们的神情又变得凝重起来。“给我们几周时间仔细分析这些数据，”伊万说道，“之后我们会联系你，告知下一步行动方案。到那时——倘若我们能顺利返回——那些飞船大概也不会再那么生气了。”`
+
+event "deep: arculus empty"
+	system "Arculus"
+		remove fleet "Large Remnant"
+		remove fleet "Small Remnant"
+		remove fleet "Remnant Transport"
+		remove fleet "Remnant Home Guard"
+		remove fleet "Korath Ember Waste Raid"
+
+event "deep: arculus restored"
+	system "Arculus"
+		add fleet "Large Remnant" 3000
+		add fleet "Small Remnant" 2200
+		add fleet "Remnant Transport" 2200
+		add fleet "Remnant Home Guard" 2000
+		add fleet "Korath Ember Waste Raid" 40000
+
+
+
+conversation "deep: remnant 3"
+	`你抵达太空港时，那支科学家团队早已等候多时。他们立即从你的飞船上卸下设备，并在返回实验室后立刻开始分析数据结果。`
+	`	“初步看来，这一系列虫洞与进入本片空域所用的那条并无明显差异，但要全面解析传感器采集的所有数据，仍需一些时间。”伊万向你解释道。`
+	branch revealed
+		has "deep: did reveal remnant"
+	`	"不过，在您等待期间，我还有另一项任务可以交予您。您之前提到过虫洞另一侧存在一些奇特的外星生物，似乎能在太空真空中存活。您能否重返那里，为我们扫描这些生物？尽管这些外星生物身上并无可供扫描器识别的‘装备’，但常规的装备扫描器仍可能为我们提供最多的信息。"`
+		goto end
+
+	label revealed
+	`	"不过，在您等待期间，我还有另一项任务可以交予您。您之前提到过虫洞另一侧存在一群人类，或至少是类人生命体。您能否重返那里，为我们扫描他们的飞船？我很想看看装备扫描器会给出怎样的结果。您无需与他们接触，只需找到几艘飞船并进行扫描，以便我们进一步了解其能力。"`
+	label end
+	choice
+		`	"听起来是个不错的计划。我尽快赶回来！"`
+			accept
+		`	"抱歉，我对这个想法不太放心。您得另找他人了。"`
+			decline
+
+
+
+event "deep: scan log research"
+
+
+
+overwrite
+mission "Deep: Remnant Research"
+	landing
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	to offer
+		has "event: deep: scan log research"
+	
+	on offer
+		payment 250000
+		conversation
+			`您着陆后收到伊万发来的一条消息："感谢您近期的鼎力相助。我们已将研究成果提交给深空政府，但由于内容高度敏感，深空政府正谨慎评估是否资助后续研究。在此期间，我已自掏腰包向您的账户转账<payment>。我毫不怀疑深空政府未来定会批准本项目的进一步拨款，因此这笔款项我仅视作一项业务开支。待我们重启虫洞另一侧的研究时，我会立即与您联系。再次感谢！"`
+				decline
+
+
+
+# Patch mission for v0.9.13. If the player finished these missions prior to this update, then that means they must have revealed the existence of the Remnant to the Deep.
+overwrite
+mission "deep: player revealed remnant"
+	landing
+	invisible
+	non-blocking
+	to offer
+		has "Deep: Remnant Research: offered"
+		not "deep: did reveal remnant"
+		not "deep: did not reveal remnant"
+	on offer
+		set "deep: did reveal remnant"
+		fail
+
+
+overwrite
+mission "deep: remnant: rest period"
+	landing
+	invisible
+	non-blocking
+	to offer
+		has "Deep: Remnant Research: offered"
+	on offer
+		event "deep: remnant: rest period" 365
+		fail
+
+event "deep: remnant: rest period"
+
+
+
+overwrite
+mission "Deep: Remnant: Continue Research"
+	name `Travel to <planet>`
+	description `前往<destination>与伊万会合，继续协助开展余烬废土的研究工作。`
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		not system "Epsilon Leonis"
+	destination "Valhalla"
+	to offer
+		has "event: deep: remnant: rest period"
+		has "deep: did reveal remnant"
+		# If the player received subsequent missions prior to the addition of this one in v0.9.15, do not offer this one.
+		not "Deep: Remnant: Engines: offered"
+
+	on offer
+		conversation
+			`你收到了来自伊万的消息——这位深空研究所的科学家曾与你一同在余烬废土发现了遗迹文明。“<last>船长，好久不见！深空研究所已最终审阅完毕我们在余烬废土的研究成果，并批准了后续资金支持！若您愿再次协助我们，请前往<destination>与我们会合。您的帮助将备受感激，但即便您无法参与，我们仍将继续推进研究。”`
+			choice
+				`	(Accept.)`
+					accept
+				`	(Decline.)`
+					decline
+
+
+
+overwrite
+mission "Deep: Remnant: Engines"
+	landing
+	name `获取引擎`
+	description `从遗迹文明处获取「锻炉级」推进器与转向引擎，并运送至<destination>。`
+	source "Valhalla"
+	to offer
+		has "Deep: Remnant: Continue Research: done"
+		has "deep: did reveal remnant"
+	
+	on offer
+		conversation
+			`得益于深空研究所的新一轮资金拨款，研究团队已将实验室迁入一座更先进的设施，位置也更靠近太空港。“新址将极大简化货物从您的飞船运抵实验室的流程——未来几个月内，这类运输任务会非常频繁。此外，这里离我的办公室也近得多，工作起来方便多了。”伊万补充道，“对您此前采集的装备扫描数据进行细致分析后发现，遗迹文明的技术采用了前所未有的突破性进展与改进，这在人类现有技术中尚属首次。`
+			
+			branch friendly
+				has "event: ember waste label"
+			`	"尽管残余势力曾袭击过你，但我们对其技术可能蕴藏的更多秘密极为感兴趣。你是否愿意窃取部分他们的技术，交由我们进行分析？"`
+			choice
+				`	"Is this really necessary?"`
+				`	"我非常乐意提供帮助。"`
+					goto accept
+				`	"抱歉，我不再有兴趣为你们效力了。"`
+					decline
+			
+			`	"倘若他们不愿友善合作、直接向你出售其技术，那么恐怕这便是我们获取该技术的唯一途径。你无需摧毁他们的飞船——只需使其数艘暂时瘫痪，并缴获部分装备即可。"`
+			choice
+				`	"好吧，我这就去办。"`
+					goto accept
+				`	“抱歉，我不会为了科学而攻击人类。”`
+					decline
+			
+			label friendly
+			`	“你之前告诉我们这些人类很友好……至少在你们扫描过他们的飞船之前是这样。他们允许你购买他们的技术吗？”`
+			branch license
+				has "license: Remnant"
+			`	“没有，”你回答道，“他们并未授予我购买其任何装备或飞船的许可。”`
+			`	科学家们对此沉思片刻。最终，雷娜开口说道：“或许如果你以某种方式协助他们，他们便会接纳你进入其社会。我能理解——在独自生存了这么多年后，他们多少会有些戒备。你可以尝试为他们完成一些任务，或者去他们的太空港看看是否有人需要你的帮助。”`
+			`	“如果他们不肯出售技术，你也可以直接夺取，”伊万插话道，“当然，前提是你不能杀死他们。”`
+			choice
+				`	“我看看能不能弄到你需要的东西。”`
+					goto accept
+				`	“抱歉，我对为你做这种工作没兴趣。”`
+					decline
+			
+			label license
+			`	“是的，”你回应道，“我之前为他们干过几件零活，后来他们才允许我购买他们的装备和飞船。”`
+			`	“那你只需买下我们要求的东西，再带回来就行了。你有兴趣吗？”`
+			choice
+				`	"I'd be glad to help."`
+				`	“抱歉，我不想为你们的研究花钱。”`
+					decline
+			
+			label accept
+			`	“太好了！”伊万兴奋地喊道，“目前我们正想研究它们的引擎。请为我们带来一台‘锻炉级’推进器和一台‘锻炉级’转向舵。这两样东西应该不难弄到。”`
+				accept
+	
+	on visit
+		dialog `你已降落在<planet>，但尚未同时获得一台‘锻炉级’推进器和一台‘锻炉级’转向舵。请在集齐这两台引擎后，返回<planet>。`
+	on complete
+		outfit "Forge-Class Thruster" -1
+		outfit "Forge-Class Steering" -1
+
+
+
+overwrite
+mission "Deep: Remnant: Generators"
+	landing
+	name `获取一台发电机`
+	description `从残余势力处获取一台‘千年电池’发电机，并将其送往<destination>。`
+	source "Valhalla"
+	to offer
+		has "Deep: Remnant: Engines: done"
+	
+	on offer
+		payment 417000
+		conversation
+			`一支卸货小组迅速将引擎从你的飞船上卸下，并运往伊万的研究实验室。你被引导至一间接待大厅，一名行政人员向你支付了<payment>作为引擎报酬。他请你稍候片刻，并表示伊万或其他科学家很快就会出来与你见面。大约等待三小时后，伊万走进了房间。`
+			`	"这些引擎简直太出色了！扫描结果显示它们与人类的离子引擎相似，但令人惊讶的是，其性能甚至超越了原子引擎！推重比极佳，而且不知为何完全避免了我方引擎所伴随的巨大热量排放。它们确实存在一些缺点，但令人惊叹的是，这样一支与世隔绝的人类群体，竟能实现连‘深空’都未曾达成的技术飞跃。"`
+			`	"我们已决定，下一步要研究的残余者技术是他们的能量生成系统。你能为我们带回一枚‘千年电池’吗？"`
+			choice
+				`	"没问题，我马上回来。"`
+					accept
+				`	"抱歉，我已不再有兴趣为你们效力了。"`
+					decline
+	
+	on visit
+		dialog `你已降落在<planet>，但尚未获得千年电池。请在取得该发电机后，再返回<planet>。`
+	on complete
+		outfit "Millennium Cell" -1
+
+
+
+overwrite
+mission "Deep: Remnant: Inhibitor Cannon"
+	landing
+	name `取回一门炮`
+	description `从残余势力处获取一门抑制炮，并将该武器运送至<destination>。`
+	source "Valhalla"
+	to offer
+		has "Deep: Remnant: Generators: done"
+	
+	on offer
+		payment 276500
+		conversation
+			`残余势力的科技装备再次被从你的飞船上卸下，并运往研究实验室。你走进等候区，领取了<payment>报酬。数小时后，科学家们带着初步研究成果前来找你。`
+			`	“这枚‘千年电池’本质上只是一种放射性同位素热电发生器。若追求高功率输出，它绝非最佳选择——我们的聚变反应堆在这方面要优秀得多；但作为一款放射性同位素热电发生器，它产生的废热却异常之少。我们需将其拆解，方能查明他们是如何如此高效地调控衰变热的；不过为此做准备还需一些时间。”`
+			`	“我想，此时你已不止一次目睹残余势力飞船投入实战了。装备扫描显示，其主力武器之一是一门改装型粒子炮；但要真正理解改装原理，我们必须亲眼见到实物。你能为我们取回一门抑制炮吗？”`
+			choice
+				`	"I'd be glad to."`
+					accept
+				`	"Sorry, but I'm no longer interested in working for you."`
+					decline
+	
+	on visit
+		dialog `你已降落在<planet>，但尚未装备抑制炮。请在获得该武器后返回<planet>。`
+	on complete
+		outfit "Inhibitor Cannon" -1
+
+
+
+overwrite
+mission "Deep: Remnant Surveillance"
+	landing
+	name `残迹监控任务`
+	description `登陆全部残迹世界（<stopovers>），并在每个世界部署若干传感器立方体。完成后返回<destination>。`
+	source "Valhalla"
+	stopover "Viminal"
+	stopover "Aventine"
+	stopover "Caelian"
+	to offer
+		has "Deep: Remnant: Inhibitor Cannon: done"
+	
+	on offer
+		payment 235500
+		log `已将多件残迹科技装备交付深空研究所进行检测。伊万的项目已引起深空研究所的关注，抑制炮在开展研究前即被深空安全部队收走。`
+		conversation
+			`卸载人员并未将抑制炮运往伊万的实验室，而是将其转交至一艘待命的深空安全部队飞船；货舱门一关闭，该飞船便立即离港。与此前在着陆时迎接你的船员不同，此次所有人员均身着军装。当你在实验室见到伊万时，他解释道：深空研究所阅读了他此前的报告后，对残迹科技产生了特别兴趣，因此他的团队需在“更安全的地点”对该技术展开研究。`
+			branch friendly
+				"reputation: Remnant" >= 1
+			`	伊万递给你<payment>。“感谢你一直以来的帮助，<last>船长。过去几个月里，你为人类做出了巨大贡献。我们可能需要数年时间才能完全理解你带回来的这些技术，但请放心——一旦掌握，整个银河系都将因此变得更美好。后会有期，船长，务必保重。”`
+				decline
+				
+			label friendly
+			`	伊万递给你<payment>。“感谢你的鼎力相助，<last>船长，不过我还有一件事想拜托你。”他伸手探入衣袋，取出六个物体——你一眼认出那是传感器立方体。“能否请你将其中两个分别送往每个残余文明（Remnant）的世界？我们已从对残余文明装备的研究中获益良多，但除了你提供的扫描日志外，关于残余文明飞船的信息却少之又少。若你能将这些传感器安置在它们的太空港附近，它们便能自动扫描所有经过的飞船，这将对我们大有帮助。”`
+			choice
+				`	“放心交给我吧，伊万。”`
+				`	“抱歉，这事我恐怕不能答应。你得另找别人来帮你完成。”`
+					decline
+			
+			`	“谢谢，船长。等你完成任务后请返回此处，我定会为你此行提供丰厚酬劳。”`
+				accept
+	
+	on visit
+		dialog `你已降落在<planet>，但尚未在所有遗民世界放置两枚立方体。请返回余烬荒漠，并确认你已在<stopovers>部署了监控设备。`
+	on complete
+		payment 500000
+		log `你已秘密地在每个遗民行星的太空港附近安置了传感器立方体。伊万希望利用这些立方体收集的数据，进一步了解遗民飞船。`
+		dialog
+			`当你返回<planet>时，却找不到伊万。取而代之的是雷娜向你招手，并交给你一枚价值<payment>的积分芯片。`
+			`	“伊万让我把这交给你，船长。再次感谢你鼎力相助！没有你，我们根本无法完成任务。”`
+
+
+
+overwrite
+mission "Deep: Remnant Surveillance - Viminal"
+	landing
+	invisible
+	source "Viminal"
+	to offer
+		has "Deep: Remnant Surveillance: active"
+	on offer
+		conversation
+			`你小心翼翼地选择安放立方体的位置，尽量避免被人发现。你将其中一枚放在太空港穹顶外，埋入积雪之中，使其难以被发现；另一枚则藏进太空港一处幽暗的角落——刚一松手，它便出乎意料地与周围环境完美融为一体。`
+				decline
+
+overwrite
+mission "Deep: Remnant Surveillance - Caelian"
+	landing
+	invisible
+	source "Caelian"
+	to offer
+		has "Deep: Remnant Surveillance: active"
+	on offer
+		conversation
+			`你将第一枚立方体放置在一处现已废弃的地下聚居地入口，在一片昏暗、不易被察觉的区域。由于未能找到第二枚立方体的理想藏匿点，你决定将其埋入一条沟渠，并用沙子掩埋。尽管你并未看见任何人，却隐隐感到自己正被监视着。作为此处唯一的非‘残余者’，你本就十分显眼，但返程回飞船时，始终无人靠近你。`
+				decline
+
+overwrite
+mission "Deep: Remnant Surveillance - Aventine"
+	landing
+	invisible
+	source "Aventine"
+	to offer
+		has "Deep: Remnant Surveillance: active"
+	on offer
+		conversation
+			`当你穿行于小镇最古老的部分时，发现一条小巷——其中布满可供藏匿立方体的凹 recess（壁龛）。你决定将另一枚立方体安置在镇子极远处、山谷高处，那里仍能望见太空港。`
+				decline
+
+
+
+overwrite
+mission "remnant: clear deep surveillance"
+	landing
+	invisible
+	non-blocking
+	to offer
+		has "Deep: Remnant Research: offered"
+	on offer
+		clear "Remnant: Deep Surveillance: offered"
+		fail
+
+overwrite
+mission "Deep: Scientist Rescue Timer"
+	landing
+	invisible
+	non-blocking
+	to offer
+		has "Deep: Project Hawking: done"
+	on offer
+		event "deep: scientist rescue timer" 60
+		fail
+
+event "deep: scientist rescue timer"
+
+
+
+overwrite
+mission "Deep: Scientist Rescue 0"
+	minor
+	name "Locate Missing Scientists"
+	description "一艘载有数位著名深空科学家的星后号飞船失踪了。它最后一次被目击是在远北区的参宿四星系附近。请查明其下落，并尽可能将其送回<destination>。"
+	source
+		attributes "deep"
+		not attributes "station"
+	destination "Valhalla"
+	mark "Betelgeuse"
+	to offer
+		has "event: deep: scientist rescue timer"
+		or
+			not "chosen sides"
+			has "main plot completed"
+	
+	on offer
+		conversation
+			`你正在太空港一家名为“<origin> 西芙”的餐厅里，透过电视屏幕观看本地体育赛事，忽然听见有人从门口叫你的名字。你转过头，看见帕里斯中尉正朝你挥手，示意你出去一趟。你付完餐费，起身走出门外。`
+			`	“你好，船长。您现在方便聊几句吗？”`
+			choice
+				`	“可以。有什么事？”`
+					goto situation
+				`	"Sorry, but I'm busy right now."`
+			
+			`	“事态紧急，容不得等待，船长——您必须立刻行动。”`
+			choice
+				`	"What is it?"`
+				`	“我帮不了您。您得另寻他人协助。”`
+					decline
+			
+			label situation
+			`	“多名科学家在远征‘极北之地’时遭绑架。他们此行旨在研究戈尔维星系中的沃尔夫–拉叶星。由于该星系毗邻无政府主义世界，此前几乎未开展过相关研究。皮埃尔、汉娜……还有劳拉，均搭乘载有科学家的飞船‘星后号’。鉴于您与他们相识，我认为您理应知晓此事。”`
+			`	“我们于昨日接到绑架消息。‘星后号’及其护航舰队当时正停靠参宿四星系的普莱姆行星进行补给，一支规模庞大的海盗舰队突然闯入该星系。护航舰艇迅速被击毁，‘星后号’亦遭俘获。此后我们便彻底失去了与该船的一切联系。在我们筹备营救部队的同时，您是否愿意协助我们定位‘星后号’？”`
+			choice
+				`	“我非常乐意提供帮助。我将立即整备我的飞船。”`
+					accept
+				`	"你们自己为何无法定位它？"`
+			
+			`	"鉴于‘星后号’上科学家们的重要性，我们已倾尽所能，为其配备了我方最精锐的战舰之一。这些战舰及其船员的损失，对深空安全部队的作战能力造成了重大打击。目前，我们正全力应对此次损失带来的冲击，并紧急组建一支专业的救援舰队；因此，暂时无法抽调任何飞船组成侦察舰队。"`
+			`	"在这种情况下，分秒必争——倘若像你这样的独立船长能迅速找到‘星后号’，那么全员生还的希望将大大增加。"`
+			choice
+				`	"好吧，我愿意帮忙。"`
+					accept
+				`	"抱歉，但这件事在我看来并不值得。"`
+					decline
+	on enter "Betelgeuse"
+		unmark "Betelgeuse"
+		dialog `进入参宿四星系后，你未能发现“星后号”的任何踪迹。海盗很可能已将其俘获，并逃往邻近星系。`
+	on enter "Arneb"
+		unmark "Betelgeuse"
+		set "found star queen"
+		dialog `你进入天社一星系时，扫描器侦测到“星后号”正降落在避难港。不幸的是，还有大量海盗飞船正朝你所在方向逼近。你应立即返回巴黎，在<destination>向指挥部汇报，等候进一步指示。`
+	on visit
+		dialog `你已降落在瓦尔哈拉，但尚未找到“星后号”！它就在遥远北方的某处，请尽快搜寻。`
+	to complete
+		has "found star queen"
+
+
+
+overwrite
+mission "Deep: Scientist Rescue 0: Prime"
+	landing
+	source "Prime"
+	to offer
+		has "Deep: Scientist Rescue 0: active"
+		not "found star queen"
+	
+	on offer
+		conversation
+			`“星后号”并不在此星系中，于是你尝试寻找可能掌握线索的人。在走访多家商铺后，你找到一名商人——她曾负责为“星后号”离港时的货物办理海关清关。据她所述，一支庞大的海盗舰队突然跃迁而至，用她前所未见的武器瞬间歼灭了护航舰艇，随后挟持“星后号”向北逃往参宿七。你只能祈祷这条线索尚未中断。`
+				decline
+
+
+
+overwrite
+mission "Deep: Scientist Rescue 0: Farpoint"
+	landing
+	source "Farpoint"
+	to offer
+		has "Deep: Scientist Rescue 0: active"
+		not "found star queen"
+	
+	on offer
+		conversation
+			`与一名海军军官交谈数分钟后，你得知“星后号”早在一周多前便已途经此地，当时由数艘大型海盗飞船护航。海军不愿因交战危及船上人员生命，因此任其继续向北航行。`
+			`	你发现有人正在筹备一场营救行动，但经询问后得知：在星后号被劫持前数日，海军多艘主力舰接连被毁，因此上级已下令——所有海军舰船必须待援军抵达后方可离港。`
+			`	那名海军军官最后暗示，星后号很可能位于阿尔尼拉姆或阿尔内布星系，因为这两个星系距离任何试图搜寻或营救该船的势力都最为遥远。`
+				decline
+
+
+
+overwrite
+mission "Deep: Scientist Rescue 0: Pirates"
+	invisible
+	non-blocking
+	landing
+	destination "Haven"
+	to offer
+		has "Deep: Scientist Rescue 0: active"
+	to fail
+		or
+			has "Deep: Scientist Rescue 3A: done"
+			has "Deep: Scientist Rescue 3B: offered"
+	npc kill
+		government "Pirate"
+		personality nemesis staying
+		system Arneb
+		ship "Leviathan (Hai Engines)" "Barbas"
+		ship "Leviathan (Hai Engines)" "Barbatos"
+
+
+
+overwrite
+mission "Deep: Scientist Rescue 0: Haven"
+	landing
+	source "Haven"
+	to offer
+		has "Deep: Scientist Rescue 0: active"
+	
+	on offer
+		conversation
+			`你花费数小时扫描该行星地表，试图定位星后号，却一无所获。要找到这艘飞船，恐怕需要军用级扫描设备——而深空安全部队的营救舰队无疑配备有此类装备。`
+				decline
+
+
+
+overwrite
+mission "Deep: Scientist Rescue 0: Haven Pirates Backup"
+	landing
+	invisible
+	non-blocking
+	source "Haven"
+	destination "Valhalla"
+	to offer
+		has "Deep: Scientist Rescue 0: Haven: offered"
+		has "Deep: Scientist Rescue 0: Pirates: done"
+		has "Deep: Scientist Rescue 0: active"
+	npc evade
+		government "Pirate"
+		personality staying harvests plunders
+			confusion 20
+		system "Arneb"
+		fleet "Large Northern Pirates" 2
+		fleet "Small Northern Pirates"
+
+
+
+overwrite
+mission "Deep: Scientist Rescue 1"
+	landing
+	autosave
+	name "Secure the Scientists"
+	description "护送<npc>前往<destination>，取回‘星后号’。护卫队将在佐斯马星系的‘记忆站’和参宿二星系的‘远点站’等候你。"
+	source "Valhalla"
+	destination "Haven"
+	clearance
+	to offer
+		has "Deep: Scientist Rescue 0: done"
+	
+	on offer
+		payment 250000
+		log `已定位遭海盗劫持的深空星后号——该船原正驶往戈尔维途中。深空安全部队已完成营救舰队集结，即将启程营救船上科学家。`
+		log "People" "Tom Paris" `巴黎是深空安全部队的高级指挥官，军衔相当于共和国海军的上将。深空安全部队的主要职责是维护‘深空’区域内部安全，并抵御任何企图侵入该区域的海盗；而巴黎则主管其对外事务，负责在‘深空’疆域之外捍卫其利益。`
+		conversation
+			`你返回瓦尔哈拉，发现帕里斯中尉正与一大群身穿深空安全部队制服的男女交谈。当你走近时，中尉注意到你，随即停止了对众人的讲话。“<last>船长！您已找到‘星后号’了吗？”`
+			choice
+				`	“是的，它位于{destination}，但守卫极为严密。”`
+			
+			branch unknown
+				has "Deep: Scientist Rescue 0: Prime: offered"
+			`	你提到在该星系中目睹了多艘重型战舰，并指出天堂星（Haven）上很可能还驻扎着更多战舰。`
+				goto next
+			
+			label unknown
+			`	你提到在该星系中目睹了多艘重型战舰，并指出天堂星（Haven）上很可能还驻扎着更多战舰。你还转述了那名商人的说法：海盗使用的武器，是她前所未见的。`
+			
+			label next
+			`	听到这一消息，人群中许多人的脸色变得凝重——他们意识到，若想夺回‘星后号’，必将经历一场恶战。帕里斯中尉沉思片刻，随即转身面向众人：“卫队，准备你们的飞船！”众人齐声应道：“遵命，长官！”随后迅速奔向各自的飞船。`
+			`	临行前，他走到你面前，将<payment>交到你手中。`
+			`	“感谢你定位了‘星后号’。现在，<last>船长，你是否愿意协助我们？如果‘星后号’真如你所说防御森严，那我们就必须集结每一艘可用的飞船。”`
+			choice
+				`	"I'd be glad to."`
+				`	“我宁愿让专业人士来处理此事。祝你好运。”`
+					decline
+			
+			`	“非常感谢！我们的计划是在‘记忆星’与多艘战舰会合，随后前往‘参宿二’。远点基地的海军上将已向我的上级通报，那里已有数艘海军舰艇整装待发，誓为阵亡战友复仇。因此，我们预计在补给时便能获得部分增援。待舰队集结完毕，我们将开赴‘天社一’。”他略显紧张地笑了笑，补充道：“请务必确保< npc >成功登陆行星——她将搭载登陆部队，而我本人也会随行。”`
+			`	他腰间的通讯器突然响起，他迅速回应，向即将加入此次任务的舰队下达指令。在你返回飞船前，他说道：“祝你好运，船长！愿我们所有人皆能平安归来。我们在轨道上见。”`
+				accept
+	
+	npc accompany save
+		government "Deep Security"
+		personality escort
+		ship "Mule (Heavy)" "D.S.S. Faraday"
+	
+	on visit
+		dialog `你已降落在天堂星，但你把<npc>留在了后面！请等待<npc>进入该星系后再降落。`
+	on accept
+		event "battle in arneb"
+	on fail
+		event "battle in arneb end"
+
+event "battle in arneb"
+	system "Arneb"
+		remove fleet "Large Northern Pirates"
+		remove fleet "Small Northern Pirates"
+		remove fleet "Large Republic"
+		add fleet "Large Republic" 10000
+
+
+
+overwrite
+mission "Deep: Scientist Rescue 1: Pirates"
+	invisible
+	non-blocking
+	landing
+	to offer
+		has "Deep: Scientist Rescue 0: done"
+	to fail
+		or
+			has "Deep: Scientist Rescue 3A: done"
+			has "Deep: Scientist Rescue 3B: offered"
+	npc kill
+		government "Pirate"
+		personality nemesis staying
+		system "Arneb"
+		ship "Firebird (Hai Shields)" "Murmur"
+		ship "Firebird (Hai Shields)" "Ronove"
+		ship "Headhunter (Hai)" "Naberius"
+		ship "Headhunter (Hai)" "Zozo"
+
+
+
+overwrite
+mission "Deep: Scientist Rescue 1: Recruit Escorts"
+	landing
+	name "Deep Security escorts on <planet>"
+	description "帕里斯中尉提到，一支深空安全部队的护航编队正准备加入你的任务。如果你愿意，可在<destination>与他们会合。"
+	source "Valhalla"
+	destination "Memory"
+	to offer
+		has "Deep: Scientist Rescue 0: done"
+	to fail
+		or
+			has "Deep: Scientist Rescue 1: declined"
+			has "Deep: Scientist Rescue 1: done"
+
+
+
+overwrite
+mission "Deep: Scientist Rescue 1: Escorts"
+	invisible
+	landing
+	source "Memory"
+	to offer
+		has "Deep: Scientist Rescue 1: Recruit Escorts: done"
+	to fail
+		has "Deep: Scientist Rescue 2: done"
+	
+	on offer
+		conversation
+			`你降落时，注意到一群深空安全部队的战舰——三艘苍鹰级巡洋舰及其战斗机中队——正在太空港外装载弹药。你尚未抵达太空港，其中一名飞行员便向你挥手示意，邀你简短交谈：除飞行前检查清单上尚有几项琐碎事项待办外，这些战舰均已整装待发，即将加入营救行动。`
+				accept
+	npc kill
+		government "Deep Security"
+		personality heroic escort
+		fleet 3
+			names "deep"
+			fighters
+				names "deep fighter"
+			variant
+				"Aerie"
+				"Dagger" 4
+
+
+
+overwrite
+mission "Deep: Scientist Rescue 1: Recruit Reinforcements"
+	landing
+	name "Republic Navy escorts on <planet>"
+	description "帕里斯中尉提到，部分海军军官有意为阵亡战友复仇。如果你愿意，可在<destination>与他们会合。"
+	source "Valhalla"
+	destination "Farpoint"
+	to offer
+		has "Deep: Scientist Rescue 0: done"
+	to fail
+		or
+			has "Deep: Scientist Rescue 1: declined"
+			has "Deep: Scientist Rescue 1: done"
+
+
+
+overwrite
+mission "Deep: Scientist Rescue 1: Reinforcements"
+	invisible
+	landing
+	source "Farpoint"
+	to offer
+		has "Deep: Scientist Rescue 1: Recruit Reinforcements: done"
+	to fail
+		has "Deep: Scientist Rescue 2: done"
+	
+	on offer
+		conversation
+			`你在远点海军基地补给燃料时，两名海军军官主动接近你，并认出你正是<last>船长。他们告诉你，帕里斯中尉数日前已与他们取得联系，称营救舰队正在途中，很快便会抵达参宿二星系。他们还告知你，海军已紧急调拨两艘巡洋舰协助营救‘星后号’，随后便匆匆登舰离去。`
+				accept
+	npc kill
+		government "Republic"
+		personality heroic escort
+		fleet 2
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			variant
+				"Cruiser"
+				"Combat Drone" 4
+
+
+
+ship "Star Queen" "Star Queen (Unarmed)"
+	outfits
+		"NT-200 Nucleovoltaic"
+		"LP072a Battery Pack"
+		"D94-YV Shield Generator"
+		"Small Radar Jammer" 3
+		"X3700 Ion Thruster"
+		"X3200 Ion Steering"
+		"Hyperdrive"
+
+
+
+overwrite
+mission "Deep: Scientist Rescue 2"
+	landing
+	name "Return to <planet>"
+	description "现在你已成功夺取‘星后号’，请护送它安全抵达<destination>。"
+	source "Haven"
+	destination "Valhalla"
+	to offer
+		has "Deep: Scientist Rescue 1: done"
+	
+	on offer
+		conversation
+			`余下舰队迅速进入天堂星大气层，开始对地表展开扫描。约一小时后，你收到一条通讯，确认已发现‘星后号’，并附有其精确坐标。`
+			`	你远远观望：一架骡式运输机降落在某处海盗设施的机库外。运输机立即卸下至少四十余名全副武装的士兵；士兵们迅速包围并强行突入机库。“中尉，里面存有外星科技！”一名士兵通过无线电报告，“其中一些来自海伊族，但另一些……我从未见过。”`
+			`	“在你发现的任何外星科技上安放炸药。我们没有能力将所有设备完好无损地带回。摧毁它们才是更好的选择。”`
+			`	十五分钟后，机库大门缓缓开启，露出仍保持完好的‘星后号’。你从无线电中听到有人议论，称大部分船员和科学家仍被困在舰内。`
+			`	“干得漂亮，各位！”你听见帕里斯中尉通过通讯频道说道，“现在我们只需毫发无伤地返回<destination>即可。”话音未落，一道刺目的强光撕裂天空，在‘骡子号’护盾失效的瞬间将其彻底摧毁。士兵们迅速涌入‘星后号’，该舰随即与其他舰队一同升空，急速驶入太空。你将斥力引擎推至满功率，紧随其后飞向太空，而你身后的基地则接连爆发数次剧烈爆炸。`
+				launch
+	
+	on enter
+		dialog "As your engines roar, you notice a large pirate ship looming over the planet. Even from the underside, it is undeniably a Bactrian, but how a pirate could ever attain one is a mystery."
+		dialog `	你收到帕里斯中尉发来的通讯：“我隐约怀疑此事背后是别西卜所为。我建议我们立刻跃迁离开此地，先平安返回深空站，再考虑如何对付那头双峰驼。”`
+	
+	npc accompany save
+		government "Deep Security"
+		personality timid escort
+		ship "Star Queen (Unarmed)" "D.S.S. Alcubierre"
+	
+	on visit
+		dialog `你已降落在瓦尔哈拉，但你把<npc>留在了后面！请等待它进入该星系后再降落。`
+	on fail
+		event "battle in arneb end"
+
+
+
+ship "Bactrian" "Bactrian (Cosmic Devil)"
+	outfits
+		"Inhibitor Cannon" 2
+		"Hai Tracker Pod" 2
+		"Hai Tracker" 168
+		"Tracker Storage Pod" 2
+		"Pulse Turret" 4
+		"Point Defense Turret"
+		"Heavy Anti-Missile Turret"
+		"Boulder Reactor" 2
+		"Hai Ravine Batteries"
+		"Hai Chasm Batteries"
+		"Hai Diamond Regenerator"
+		"Liquid Helium Cooler"
+		"Outfits Expansion" 4
+		"Quantum Keystone"
+		"Tactical Scanner"
+		"Outfit Scanner"
+		"Cargo Scanner"
+		"Ramscoop"
+		`"Bondir" Atomic Thruster`
+		`"Bufaer" Atomic Steering`
+		"Hyperdrive"
+	gun "Inhibitor Cannon"
+	gun "Inhibitor Cannon"
+	gun "Hai Tracker Pod"
+	gun "Hai Tracker Pod"
+	turret "Heavy Anti-Missile Turret"
+	turret "Pulse Turret"
+	turret "Pulse Turret"
+	turret "Pulse Turret"
+	turret "Pulse Turret"
+	turret "Point Defense Turret"
+
+
+
+overwrite
+mission "Deep: Scientist Rescue 2: Pirate Bactrian"
+	landing
+	invisible
+	non-blocking
+	destination "Valhalla"
+	to offer
+		has "Deep: Scientist Rescue 1: done"
+	to fail
+		has "Deep: Scientist Rescue 2: done"
+	npc kill
+		government "Pirate"
+		personality staying nemesis
+		ship "Bactrian (Cosmic Devil)" "Cosmic Devil"
+		dialog
+			`击毁双峰驼号后，你收到来自未知来源的通讯。它突然自动接通，一个经电子扭曲处理的声音开始对你说话。`
+			`	“干得漂亮，船长。真不愧是扎在我肉里的一根刺。你必将为此付出代价——总有一天。”`
+			`通讯戛然而止，如同它突然开始一般。`
+
+
+
+overwrite
+mission "Deep: Scientist Rescue 2: More Pirates"
+	landing
+	invisible
+	non-blocking
+	to offer
+		has "Deep: Scientist Rescue 1: done"
+	to fail
+		or
+			has "Deep: Scientist Rescue 3A: done"
+			has "Deep: Scientist Rescue 3B: offered"
+	npc kill
+		government "Pirate"
+		personality staying nemesis
+		ship "Leviathan (Hai Weapons)" "Furfur"
+		ship "Leviathan (Hai Weapons)" "Pithius"
+
+
+
+overwrite
+mission "Deep: Scientist Rescue 3A"
+	landing
+	name "Take down the Devil"
+	description "你已将科学家们送回，但海盗仍拥有一艘双峰驼级飞船。消灭它，然后返回<destination>。"
+	source "Valhalla"
+	waypoint "Arneb"
+	to offer
+		has "Deep: Scientist Rescue 2: done"
+		not "Deep: Scientist Rescue 2: Pirate Bactrian: done"
+		not "Deep: Scientist Rescue 3B: offered"
+	
+	on offer
+		payment 2000000
+		log `护送获救的‘星后号’返回深空站。部分船员未能生还。海盗仍拥有一艘双峰驼号，而深空站要求将其彻底摧毁。`
+		conversation
+			`当你在‘星后号’附近着陆时，能看到乘客正被护送下船。汉娜含泪从飞船上奔向加里森——他想必一听到消息便立刻赶到了。一支医疗队正在逐一检查每位乘客，一名深空站安全部官员则在一旁询问情况并记录回答。令人痛心的是，你还注意到飞船旁摆放着数具尸袋，里面很可能是那些在船上被发现已死亡的科学家或船员。”`
+			`	帕里斯中尉正等在你的飞船外，你一走近，他便递给你另一笔<payment>。“多谢你鼎力相助，<last>船长。没有你，我们绝不可能成功。”`
+			`	帕里斯回头望向‘星后号’，你隐约听见一名深空安全部队军官正逐一念出遇难者姓名：“莎拉·里夫斯、妮科尔·费伊、皮埃尔·朱尔斯、劳拉·帕里斯……”名单总共略超十余人。“幸存船员告诉我们，最初仅有少数几人遇害——有的死于登船作战，有的则在前往避难所途中被抛出气闸舱。其余多数人员，要么抵达某处设施后遭杀害，要么被强行掳走；但船员无法辨认出该设施的具体用途。”`
+			`	当你再度看向帕里斯中尉时，发现他正强忍泪水。劳拉·帕里斯正是遇难科学家之一。`
+			`	他用一种异常紧绷的声音对你说道：“我要你返回天社四，彻底歼灭所有残余海盗，尤其是那艘‘双峰驼号’。我们一向严防‘双峰驼号’落入不法之徒手中，因此一旦发现海盗持有该舰，必须立即予以摧毁。眼下我们将在本地持续忙于善后工作，所以这项任务只能交由你来完成。”`
+			choice
+				`	“我定当全力完成，中尉。”`
+					goto accept
+				`	“很抱歉，我没有能力击败那艘双峰舰。你得亲自上阵了。”`
+			
+			`	“我明白了……祝您旅途顺利，<last>船长。”帕里斯中尉朝星后号走去，留下你独自站在自己的飞船旁。`
+				decline
+			
+			label accept
+			`	“谢谢你，<first>。”帕里斯中尉朝星后号走去，留下你独自站在自己的飞船旁。`
+				accept
+	
+	npc kill
+		government "Pirate"
+		personality staying nemesis
+		system "Arneb"
+		ship "Bactrian (Cosmic Devil)" "Cosmic Devil"
+		dialog
+			`After the Bactrian is eliminated, you receive a transmission from an unknown source. It suddenly opens on its own and an electronically distorted voice begins speaking to you.`
+			`	"Well done, Captain. Well done at being a thorn in my side. You will pay for this. One day."`
+			`The transmission cuts out as abruptly as it had started.`
+	on decline
+		event "battle in arneb end"
+	on visit
+		dialog "You landed on Valhalla, but you didn't kill the Bactrian! Return to Arneb and make sure that the Bactrian is destroyed and forever out of pirate hands."
+	on fail
+		event "battle in arneb end"
+	on complete
+		set "license: City-Ship"
+		event "battle in arneb end"
+		log `摧毁了企图阻止营救星后号的海盗双峰舰，并获得帕里斯签发的城市舰许可证。`
+		log "People" "Beelzebub" `深空安全部怀疑别西卜策划了绑架满载深空科学家的星后号一事。在营救科学家的行动中，一艘被称为“宇宙恶魔”的海盗双峰舰被击毁；但似乎别西卜并未在该舰上，或已在舰船被毁前成功逃脱。”`
+		conversation
+			`当你返回瓦尔哈拉时，星后号已不在着陆平台上，太空港看起来也已恢复正常运转。刚一降落，你便在当初巴黎中尉首次找到你的同一家餐厅里见到了他。他一句话也没说，先递给你一份执照。`
+			`	“谢谢您。我之前已经道过谢了，但真的再怎么感谢也不为过。”`
+			`	你低头看向巴黎刚刚递给你的执照，发现这是一份城市飞船执照——凭此执照，你便可购买双峰驼号。“我认为，既然你曾不得不与一艘双峰驼号生死相搏，那么理应获得购买它的资格；深空政府也持相同意见。这确实是我们……所能为您做的最起码的事。”`
+			choice
+				`	“太感谢了！我一定会让它物尽其用！”`
+				`	“真的吗？您本不必如此。”`
+			
+			`	“这艘飞船归你了。祝你旅途顺利，也愿你驾驶‘双峰驼号’时玩得开心。它可是一艘极佳的飞船。”巴黎中尉付清账单后离开，而你则开始思索前方等待着你的种种可能。`
+
+
+
+overwrite
+mission "Deep: Scientist Rescue 3B"
+	landing
+	invisible
+	to offer
+		has "Deep: Scientist Rescue 2: done"
+		has "Deep: Scientist Rescue 2: Pirate Bactrian: done"
+		not "Deep: Scientist Rescue 3A: offered"
+	
+	on offer
+		set "license: City-Ship"
+		event "battle in arneb end"
+		payment 2000000
+		log `护送获救的‘星后号’返回深空。部分船员未能生还。击毁了企图阻止营救‘星后号’的海盗‘双峰驼号’，并由巴黎授予城市飞船执照。`
+		log "People" "Beelzebub" `Deep Security suspect that Beelzebub was behind the kidnapping of a Star Queen full of Deep scientists. In the attempt to rescue the scientists, a pirate owned Bactrian known as the "Cosmic Devil" was destroyed, although it would appear that either Beelzebub was not on the ship, or escaped the ship before it was destroyed.`
+		conversation
+			`As you land near the Star Queen, you can see its passengers being escorted off. Hannah comes running off the ship in tears over to Garrison, who must have arrived as soon as he heard the news. A medical team is examining each passenger while a Deep Security officer asks questions and jots down the responses. Sadly, you also notice a number of body bags next to the ship, likely from scientists or crew that were found dead on the ship.`
+			`	Lieutenant Paris is waiting for you outside of your ship, and hands you another <payment> when you walk up to him. "Thanks for all the help, Captain <last>. We couldn't have done it without you."`
+			`	Paris looks back to the Star Queen, and you can overhear one of the Deep Security officers listing off names. "Sarah Reevs, Nicole Faye, Pierre Joules, Laura Paris..." the list goes on for slightly over a dozen total names. "The surviving crew tells us that only a few were killed initially, either during boarding or by being thrown out the airlock on the way to Haven. Most of the others were either killed or dragged off after they had reached their destination at a facility of some sort, its purpose unidentifiable to the crew."`
+			`	When you look back to Lieutenant Paris, you notice that he is holding back tears. Laura Paris was one of the scientists who died.`
+			`	他转向你，将一份执照递给你，随后用略显疲惫的声音说道：“谢谢你。我之前已道过谢，但实在无法充分表达我的感激之情。”`
+			`	You look down at the license that Paris just handed you and notice that it's a city-ship license, one that will allow you to purchase the Bactrian. "I think it's only fair that you be able to purchase one after having to fight one to the death, and the government of the Deep agrees. It's really the least I... we could do for you."`
+			choice
+				`	"Thank you so much! I'll make sure that this gets put to good use."`
+				`	"Really? You shouldn't have."`
+			
+			`	“这艘飞船归你了。祝你旅途顺利，也愿你驾驶‘双峰驼号’时玩得开心。它可是一艘极佳的飞船。”巴黎中尉朝‘星后号’走去，留下你独自思索前方等待着你的种种可能。`
+				decline
+
+event "battle in arneb end"
+	system Arneb
+		remove fleet "Large Republic"
+		add fleet "Small Northern Pirates" 400
+		add fleet "Large Northern Pirates" 500
+		add fleet "Large Republic" 15000
+
+
+
+overwrite
+mission "Stone of our Fathers 1"
+	name "Stone of our Fathers"
+	description "前往<destination>，将斯卡尔德加尔送回他早已抛弃的故乡。"
+	minor
+	passengers 1
+	to offer
+		random < 50
+	source "Helheim"
+	destination "Norn"
+	on offer
+		conversation
+			`赫尔海姆太空港一如繁荣城镇般始终喧嚣忙碌。这里尘土飞扬、生机勃勃，挤满了工人。当你穿行于太空港时，一位身穿破旧风霜侵蚀的装卸工夹克的老人向你挥了挥手，朝你走来。`
+			`	“你这副模样，一看就是对飞船里里外外都了如指掌的人。”他说道，“我叫斯卡尔德加尔，对飞船可不怎么在行；我的地盘是大地、泥土和岩石。不过呢，我现在确实需要出行一趟。”他顿了顿，脸上掠过一丝怅然若失的神情，“您瞧，我几十年前就离开了——没道别，没留字条，就那么……一走了之。与他人同住、照拂他人，对像我这样的人来说，实在艰难。我偏爱独处、宁静与劳作。可如今，我的骨头已变得脆弱：辐射病——我们管它叫‘地腐症’——已然缠身，时日无多了。而我忽然发觉，自己再也不想孤身一人了。”`
+			`	他停下话头，皱起眉头。“瞧我，像个老头子似的絮絮叨叨。先生，船长，我想付您<payment>积分，请您送我回家，去<destination>。”`
+			label choice
+			choice
+				`	“您若有余钱，我这儿还有空位。”`
+				`	“我想，我可以稍微绕个远路。”`
+				`	“您为何叫我‘先生’？”`
+					goto ser
+					to display
+						not "Stone of our Fathers: ser"
+				`	“‘Ser’这个词只用于男性吗？”`
+					goto "ser 2"
+					to display
+						has "Stone of our Fathers: ser"
+						not "Stone of our Fathers: ser 2"
+				`	“‘Ser’和‘sir’有什么区别？”`
+					goto "ser 3"
+					to display
+						has "Stone of our Fathers: ser"
+						not "Stone of our Fathers: ser 2"
+				`	（摇摇头。我可没闲工夫载着老头子到处跑。）`
+					goto decline
+
+			action
+				clear "Stone of our Fathers: ser"
+				clear "Stone of our Fathers: ser 2"
+			`	他点点头，闷哼一声，夹着一只小背包朝你的飞船走去，显然已随时准备好启程前往<planet>。`
+				accept
+
+			label ser
+			action
+				set "Stone of our Fathers: ser"
+			`	“你不是本地人吧？在深空地带，‘Ser’只是体面人之间相互称呼的敬语，表示尊重之类的意思。不过如今我听得越来越少了——老规矩正被遗忘，可世事不就这样么？”`
+			`	他停顿片刻，仿佛在思索此事，随后说道：“那么，你意下如何？支付{0}积分，送我去{1}行星？”`
+				goto choice
+
+			label "ser 2"
+			action
+				set "Stone of our Fathers: ser 2"
+			`	老人眯起眼睛打量着你，嘴巴微微张开，仿佛正费力解开一道谜题。最后他说道：“一个人胯下那点东西，跟这事有啥关系？我早说过了，‘阁下’不过是体面人之间互相的称呼罢了，再无其他含义。不管你是个男人、女人，还是别的什么身份，都无所谓。嘿，哪怕是个精灵帮过我大忙，我照样会称他一声‘阁下’。”`
+				goto "back to the point"
+
+			label "ser 3"
+			action
+				set "Stone of our Fathers: ser 2"
+			`	老人粗声粗气地朝你点点头，说道：“啊，我明白了。对初来乍到者来说，确实容易混淆。一个人胯下那点东西，跟这事压根儿扯不上关系。就像我先前说的，‘阁下’不过是体面人之间互相的称呼罢了，再无其他含义。不管你是个男人、女人，还是别的什么身份，都无所谓。嘿，哪怕是个精灵帮过我大忙，我照样会称他一声‘阁下’。”`
+
+			label "back to the point"
+			`	“现在，我想知道你能否送我去{0}行星。”`
+				goto choice
+
+			label decline
+			action
+				clear "Stone of our Fathers: ser"
+				clear "Stone of our Fathers: ser 2"
+			`	他脸上露出失望之色，轻轻一点头，随即悄然没入人海之中。`
+				decline
+
+	on visit
+		dialog `你已抵达<planet>，但护送斯卡尔德加尔的飞船尚未到达！最好先行离开，等待你的护航飞船抵达该星系。`
+
+	on complete
+		payment 15000
+		event "Stone waiting" 30
+		dialog `斯卡尔德加尔看起来比你以往见过的任何时候都干净：浑身洗刷得干干净净，胡须刮得整整齐齐，身上穿着虽略显过时——大概有几十年了吧——却体面得体。他双眼闪烁着光芒，转头望向你。`
+			`	“我这辈子犯过不少错。但回到家乡——哪怕会被人憎恨，甚至更糟，被人彻底遗忘——绝不是其中之一。多谢你捎我一程。”`
+			`	你祝这位老船长归乡愉快，目送他缓缓消失在那座静谧沉睡的太空港中。`
+
+
+event "Stone waiting"
+
+
+overwrite
+mission "Stone of our Fathers 2"
+	name "Stone of our Fathers"
+	description "将斯卡尔德加尔送回<destination>。"
+	minor
+	passengers 1
+	to offer
+		has "event: Stone waiting"
+	source "Norn"
+	destination "Helheim"
+	on offer
+		conversation
+			`在几乎荒废的诺恩太空港中，一个衣衫邋遢、步履迟缓的身影朝你蹒跚走来。“<first>船长！见到你真高兴，老朋友！我是斯卡尔德加尔——之前多亏你顺路载我一程啊！”他一边走近，一边高声招呼道。`
+			`	“我有个侄子在港口工作，我让他留意你进港的消息。”他拍了拍你的后背。“最近总体还算顺利，虽然不容易——家人嘛……有些人为能再见到我、记得我而高兴；可另一些人……”他顿了顿，“唉，有些错，终究是无法挽回的。”`
+			`	他短暂地别过脸去，随后点点头，望向自己收拾好的行囊。“能最后再回这儿一趟，真好。但故土与劳作始终在召唤着我。这辈子，我只擅长一件事，而且打算干到生命尽头。所以……我在想，你能不能送我回<planet>？”`
+			choice
+				`	（点头。斯卡尔德加和他的辛苦钱，都十分欢迎登上我的飞船。）`
+					goto accept
+				`	“不必了。我可没闲工夫接送老头子到处跑。”`
+			`	斯卡尔德加 briefly 瞪了你一眼，随即耸耸肩：“也是，你确实有更重要的事要忙。确实如此。”他转过身，缓缓走开了。”`
+				decline
+			label accept
+			`	斯卡尔德加尔报以一个真诚却略显僵硬的微笑，随后拿起背包登上你的飞船。`
+				accept
+	on visit
+		dialog `你已抵达<planet>，但与斯卡尔德加尔同行的护航舰队尚未抵达！最好立即离开，等待你的护航舰队进入该星系。`
+	on complete
+		event "Stone Waiting more" 60
+		payment 25000
+		dialog `赫尔海姆熙熙攘攘、喧嚣纷乱，几乎令人感官过载；然而斯卡尔德加尔虽年迈多病，步履却轻快雀跃，他悠然自得地走出你的飞船，汇入人潮涌动的街道。`
+			`	就在他即将被汹涌人潮裹挟而去之际，斯卡尔德加尔忽然转身，向你挥出最后一别，随即消失在人群之中。`
+		
+event "Stone Waiting more"
+
+
+
+overwrite
+mission "Stone of our Fathers 3"
+	name "Stone of our Fathers"
+	description "将斯卡尔德加尔的石碑送回他在<destination>的家族。"
+	minor
+	to offer
+		has "event: Stone Waiting more"
+	source "Helheim"
+	destination "Norn"
+	on offer
+		conversation
+			`一如往常，赫尔海姆挤满了来来往往的临时工，他们或怀揣暴富梦想，或只盼早日逃离此地。一名面相尚显年轻的男子，身穿沾满污渍的装卸工夹克，朝你挥手并走近过来。`
+			`	“你就是斯卡尔德加老是念叨的那位船长吧？是不是啊？”那年轻人试图用低沉而庄重的语调模仿斯卡尔德加：“他懂太空中的‘洋流’，就像我们熟悉自己的石头一样。”年轻人腼腆地笑了笑，“老斯卡尔德加说话总有一套，没错。”`
+			`	接着，年轻人低头沉思片刻，神情黯然，从口袋里掏出一块小巧、磨得发亮的石头，上面刻着一些奇异的纹路，并将它递向你。`
+			`	“他……他想，”他结结巴巴地开口，“他只想让你——只有你——把这东西送回诺恩星，交还给他的族人。”他咽了口唾沫，“这是古老的传统。这石头必须归还，而且不能由外人代劳。”年轻人耸了耸肩，“提前跟你说清楚：我可没钱付你报酬。这纯粹是帮老家伙一个忙。”`
+			choice
+				`	（伸手接过那块石头。）`
+					goto accept
+				`	“不干。我开的是飞船，不是慈善机构。”`
+			`	年轻人心领神会地点点头：“看来斯卡尔德加尔对你的判断有误，不过我能理解——人总得吃饭嘛。”说完他转身滑入无边无际的人潮中。`
+				decline
+			label accept
+			`	你惊讶地发现，那块光滑的石头握在掌中竟如此冰凉。`
+			`	他苦笑着说道：“斯卡尔德加尔向来擅长辨认好人。不管怎样，他告诉我他在诺恩太空港有个叫赫尔姆的侄子。找到他，他就能帮你和这块石头抵达该去的地方。”接着，年轻人直视着你的眼睛，缓缓而庄重地点头致意：“愿老斯卡尔德加尔在地狱里也能挖到矿石。”`
+			`	话音未落，那人便已消失在人群之中。`
+				accept
+	on complete
+		dialog `结果根本无需费心寻找赫尔姆——你一降落，他就已在等候。`
+			`	“我猜你此番归来，要么是和斯卡尔德加一同前来，要么就是带来了……”——他顿了顿——“消息。”他环顾四周，“可我没看见斯卡尔德加。”`
+			`	你向他展示那块被赠予的奇异石块，赫尔姆身体一僵，随即点头：“果然如此。我们最好在太空港碰面，商议下一步该如何行动。”`
+
+
+
+overwrite
+mission "Stone of our Fathers 4"
+	name "Stone of our Fathers"
+	description "将斯卡尔德加尔的石碑送回他在<destination>的家族墓冢。"
+	passengers 1
+	to offer
+		has "Stone of our Fathers 3: done"
+	source "Norn"
+	destination "Alfheim"
+	on offer
+		conversation
+			`赫尔姆在几乎空无一人的太空港酒吧里与你见面。“妈一直很疼爱斯卡尔德加舅舅。哪怕三十五年前他离家出走后，她提起他时仍满是温情。他总给家里寄钱，人确实不错——只是寄钱虽勤，寄来的爱却少得可怜。”`
+			`	赫尔姆叹了口气：“这事恐怕不易，但既然你身为‘石之承者’，就必须将这块石头呈交给他儿子。他家人住在城南一座随洋流漂浮的藻类岛屿上。你愿意陪我同去吗？”`
+			choice
+				`	“我已走到这一步，索性便把它做完。”`
+					goto accept
+				`	"当然，我要亲眼看到这件事完成。"`
+					goto accept
+				`	"不，我就送到这里了。石头已交到你手上，接下来就是你的事了。"`
+					goto decline
+			label decline
+			`	赫尔姆心领神会地点点头："说得有理，星际旅人。接下来由我来处理。"`
+				decline
+			label accept
+			`	当你答应陪同他同行时，赫尔姆露出了微笑。"这才对。"他说。`
+			`	稍作准备后，他带你走出屋外，来到港口。你登上一艘小型远洋船只——你推测这船归他所有。他摆弄了一阵操控装置，随后坐到你对面，飞船随即转向，驶向开阔的海洋。`
+			`	“这是个古老的传统，”他点点头，朝你手中的石头示意，“可追溯至‘深境’的创立时期——最早的拓荒者们。人在十六岁生日那天，会获赠一块石头，终生随身携带；每逢特殊或重大的时刻，便在石上刻下几道符文，将几段珍视的记忆镌刻于坚硬的岩石之上。”`
+			`	赫尔姆顿了顿，一群叽叽喳喳的海鸟掠过飞船附近，暗示着不远处有一座岛屿，随后他继续说道：“而当此人离世后，这块石头须由最亲近的家人送还至‘家族石冢’。”`
+			`	赫尔姆抬头远眺，目光扫过地平线。“我们快到了，收拾好你的东西。”他站起身，回到飞船的操控台前。”`
+			choice
+				`	“可为什么非得由我亲自把这块石头交到他儿子手上？”`
+					goto why
+				`	“这些石头是从哪儿来的？”`
+					goto from
+			label why
+			`	赫尔姆一边操纵飞船靠泊，一边耸了耸肩：“这是古老的传统。为确保‘石’不致遗失、损毁，或落入敌人之手。倘若石主离世时家族成员不在近旁，便将其托付给一位值得信赖的朋友，由他代为持守。这项使命太过重要、太过神圣，绝不能交予陌生人或信使。而你愿亲自将它一路护送至他儿子手中，再由其将石送还故土——这正是最恰当的选择。”`
+				goto earth
+			label from
+			`	赫尔姆一边操纵飞船靠泊，一边耸了耸肩：“石的交接地点，向来取决于当时最合理之处。若我没记错，斯卡尔德加尔那块石，是由他母亲——也就是我的祖母——交给他的；那石采自斯卡尔德加尔早年在大陆上勘探的一座古老矿坑。即便年仅十六岁，他已深深热爱着大地。”`
+			label earth
+			`	赫尔姆将飞船系泊于一座临时搭建的码头，你随他朝不远处一栋阴郁灰暗的建筑走去。你忽然意识到，这座藻类小岛——尽管如此之小——整座都归属于某位个人或某个家族。”`
+			`	当你抵达那扇坚固而饱经海水侵蚀的木门前，赫尔姆用力叩击门板，高声喊道：“索尔莱夫，快开门！”`
+			`	短暂等待后，门缓缓开启，露出一位身材魁梧、蓄着火红胡须的中年男子——他看起来像是年轻版、且健康得多的斯卡尔德加尔。你立刻意识到，眼前之人正是那位老人的儿子。当他看见赫尔姆时，脸上绽开宽厚而真诚的笑容，并热情地给了对方一个拥抱。“啊，表兄！好久不见！是什么风把你吹到我这寒舍来了？”`
+			`	索尔莱夫随即注意到了你，皱起眉头：“你带了谁来？”`
+			choice
+				`	（由我自己回答。）`
+				`	（让赫尔姆替我回答。）`
+					goto helm
+			`	你神情凝重地朝索尔莱夫微微一笑：“我是斯卡尔德加尔的朋友。我曾几次载他一程，而最近一次，他则将他的石碑托付给了我。”`
+				goto stone
+			label helm
+			`	赫尔姆把手搭在索尔莱夫肩上：“这位是<first>，他不远万里前来见你，并为你带来了斯卡尔德加尔的石碑。”`
+			label stone
+			`	索尔莱夫身体绷紧。“绝不可提起那个名字！”他眯起双眼。“赫尔姆，我与那块石头、与你这个人——”他朝你一指，“——以及那位老人曾想要或在乎的任何其他东西，统统毫无瓜葛。”`
+			`	索尔莱夫一边握紧又松开拳头，一边缓缓深呼吸数次，努力平复情绪，目光则投向远方地平线。“我明白你远道而来，入夜前已无法返回大陆。因此你可暂住客房，明早一早再离开。我绝不容许任何人说我索尔莱夫待客不周。”`
+			choice
+				`	（保持沉默，跟随赫尔姆前往客房。）`
+					goto rooms
+				`	（尝试为斯卡尔德加尔说几句话。）`
+			`	“请稍等，”你在索尔莱夫转身离去前开口道，“我并不了解、也无法知晓这里发生的一切，更不知你与你父亲之间究竟有过怎样的过往。但我每次见到他时，他都明显为往事深深懊悔，反复提及自己的过错。如今他已逝去，连同那些过错一同消逝。而这块石头……我不认为它象征着宽恕，但或许代表着对他本真自我的接纳，以及对他已然离去这一事实的坦然接受。”`
+			`	索尔莱夫转过身面向你，脸上泛起红光，咬紧牙关说道：“我没有父亲。我对那个男人毫无记忆，也绝不会费心去记住一个连陪我长大都做不到的人。现在，回你们的房间去，别来打扰我！”`
+			label rooms
+			`	你默不作声地跟随赫尔姆来到两间狭小、陈设简朴的房间，显然是为客人准备的。赫尔姆清了清嗓子，说道：“这或许会让你惊讶，但刚才的情况，实际上比我预想的要好得多。”`
+			`	接着，赫尔姆将目光投向一扇小窗，望向窗外渐趋昏暗的地平线。“乌云密布，恐怕我们得在此滞留不止一夜了。”`
+			choice
+				`	（随着屋顶开始响起第一阵雨滴声，你转身前去就寝。）`
+			`	你在暴雨猛烈敲击建筑的喧嚣声中醒来。正如赫尔姆所料，一场猛烈的风暴在夜间席卷而至，这座浮空岛屿正饱受狂暴天气的肆虐。到了上午过半时分，墙壁已开始吱呀作响——大自然咆哮着的力量正一刻不停地猛烈撞击着它。”`
+			`	你听到一扇门被推开又艰难地合上，接着传来沉重而哗啦作响的脚步声。浑身湿透的索尔莱夫站在主厅里，与赫尔姆一同面对着你。“这是场芬布尔赫里瑟风暴，”索尔莱夫惊呼道，“我见过最猛烈的之一！若不立即行动，整座岛屿恐怕都会被夷为平地。你愿意帮我吗？”`
+			choice
+				`	（选择帮助索尔莱夫。）`
+					goto help
+				`	“不，我已经为这个家族做得够多了——尤其是还分文不取！”`
+			`	索尔莱夫低吼道：“早该想到，不该相信那个没用老家伙的朋友！我让你在这儿过夜，现在你却连手都不愿抬一下来拯救它？我本就不该指望更多！”索尔莱夫与赫尔姆匆匆赶去风暴中照看岛屿，只留下你在屋内无所事事。`
+			`	索尔莱夫与赫尔姆英勇地利用岛屿上的金属舵和简陋引擎，将岛屿驶离风暴，驶向更平静、更安全的海域。然而，仅靠他们两人，许多附属建筑都被摧毁，索尔莱夫用来捕鱼和维修作业的几艘小型船艇也未能幸免。”`
+			`	你感觉这对索尔莱夫而言是一次代价高昂且影响重大的损失。风暴刚一平息，他便命令赫尔姆立刻把你送回大陆和你的飞船。“这位船长，”索尔莱夫语气中满是厌恶，“和我那所谓的父亲一样走运。我只想让他立刻消失。”`
+			`	返航途中，赫尔姆几乎一言不发。自你拒绝协助营救岛屿起，他对你就一直冷淡疏离。终于，在你即将登上自己飞船准备离舰时，他叫住了你：“你这次非但没帮上斯卡尔德加什么忙，反而害了他。我希望我们再也不要见到你。”`
+			`	赫尔姆摊开手掌，向你展示掌中的那块石头：“趁你小憩时，我悄悄取走了它。斯卡尔德加看错了你，而我至少会确保这块石头得到妥善照管。再见。”他朝出口方向示意，静候你离开后，才再次驾船启航。`
+				decline
+			label help
+			`	索尔莱夫点点头，带你和赫尔姆一同走出屋外，直面那场风暴——芬布尔赫里斯（Fimbulhrithr）。索尔莱夫与赫尔姆合力操控岛屿的金属舵和简陋引擎，试图将岛屿驶离风暴中心；而你则负责固定所有可能被狂风卷走的物品。`
+			`	风暴携来非自然的黑暗，天空中充斥着碎屑、鱼类，以及种种本不该出现在天穹之上的杂物。你争分夺秒，竭尽全力抢救尽可能多的东西。`
+			`	经过数小时的艰苦奋战，风暴终于开始平息，海面与天空逐渐恢复平静。筋疲力尽的索尔莱夫与赫尔姆踉跄着朝你走来，索尔莱夫环顾着他那座小小的岛屿，说道：“若无你的援助，我将失去大量尚存完好的东西。你恰好在此时到来，真是幸运。”`
+			`	说完，他转身朝主屋走去，你和赫尔姆拖着疲惫的身躯跟在后面。`
+			choice
+				`	（去主屋的炉火旁洗漱取暖。）`
+			`	你整晚都围坐在熊熊燃烧的炉火旁取暖，向赫尔姆与索尔莱夫讲述自己在太空中的冒险经历，以及所见的诸多奇观。`
+			`	作为回应，他们则向你讲述诺恩星洋流中遭遇过的海兽、利维坦与克拉肯；讲述那些满载被遗忘宝藏或居住着奇异族群的失落岛屿；甚至还有关于远古精灵的传说——据说这些精灵曾协助过他们的祖先，至今仍隐匿于世间。`
+			choice
+				`	（询问关于精灵的事。）`
+				`	（询问关于失落宝藏的事。）`
+					goto treasure
+			`	精灵——或者说他们自称的‘阿尔法尔’——这个概念令你着迷，于是你向对方打听他们所知的相关情况。`
+			`	“阿尔法尔，”索尔莱夫开口道，“传说在人类初临此地之时，曾给予我们莫大帮助。有人说，他们使我们免于瘟疫肆虐，庇护我们不受怪物侵扰。至今仍有许多人向他们献祭、祈祷，唯愿他们记得我们，并知晓我们仍是朋友与盟友。”`
+			`	索尔莱夫耸了耸肩。“这或许确有其事，而且是件好事；但另一些人却认为，阿尔法尔尽管表面行善，实则不可信任。他们的思想难以揣测，满是诡谲狡黠，其目的也与我们迥异。这正是我们家族所秉持的信念：他们值得尊重，却更须敬畏。我们必须彼此扶持、自强不息，而非将信任寄托于陌生者的作为。”`
+				goto family
+			label treasure
+			`	你向来不介意多赚点钱，而这次旅途虽令人投入，却丝毫没让你腰包鼓起来。于是你问起了传说中的隐秘宝藏。赫尔姆与索尔莱夫闻言都咧嘴一笑，彼此心照不宣地对视一眼，随即滔滔不绝地讲起失落文明的珍宝、被遗忘的海盗藏宝，甚至早期人类王国的秘藏。在浮岛林立、浓雾弥漫的海洋星球上，东西遗失再容易不过了。`
+			`	等他们讲完这些故事后，又对你提起：或许改日他们真会带你深入大洋深处，说不定你就能找到自己追寻的东西。他们露出狡黠的笑容，你心想他们大概是在逗你。“你们在这儿真找到过宝藏吗？”你问道。`
+			`	索尔莱夫耸了耸肩：“当年从阿尔弗海姆远道而来时，我们的先祖便觉得——这世界本身，才是真正的宝藏。我们无需追逐深渊之中的虚幻美梦。”`
+			label family
+			`	随着谈话渐入尾声，夜色已深，赫尔姆向众人告辞回房休息——毕竟，和你们一样，他今天也早已筋疲力尽。你也站起身来，深深感到自己同样亟需睡眠。`
+			`	“<first>，”索尔莱夫并未抬头，目光仍停留在篝火上，“我一直在想。我永远无法原谅父亲当年所作所为——那样抛下我和妈妈。但我想，我或许能与它和解，接受那块石头。”他抬起头，微笑着说道：“你带来了好运，而人，永远不该与好运争辩。”`
+			`	他站起身来。“我们明天早上再谈。”`
+			choice
+				`	（去床上好好睡一觉，你确实该休息了。）`
+			`	清晨阳光明媚，天空澄澈如洗，昨夜的风暴早已被遗忘。你正收拾行装，两位男子已在主厅等候。索尔莱夫摊开手掌，准备接过那块石碑，你欣然将它放入他手中。他微笑着端详石碑，指尖缓缓抚过上面雕刻的符文。`
+			`	“谢谢你，<first>。”你点点头，为终于完成这项任务而欣慰，也迫不及待要再次遨游于星际航道之间。`
+			`	“还有一件事，”索尔莱夫狡黠一笑，“我需要一位愿意载我前往阿尔弗海姆的船长——那里安放着我家人的石冢。”`
+			`	你还没反应过来，三人已登上赫尔姆的船，驶向太空港。`
+			`	“阿尔弗海姆，”索尔莱夫漫不经心地说，“你知道这个名字吗？它意为‘阿尔法尔之居’，也就是你们所说的精灵之乡。我从未去过那里，只听说过而已。如今要造访祖先的世界，实在令人感慨。”`
+			`	赫尔姆留在原地，而你与索尔莱夫则将装备装上飞船。`
+			`	你并不完全清楚自己是如何卷入这一切的，可一切又仿佛理所当然——就像你本就该在此处，做着本该做的事。这次冒险或许不涉及星际战争，也不牵扯远古秘辛，但有时，它真的就只是关于人：比如斯卡尔德加尔、索尔莱夫，还有赫尔姆。`
+				accept
+	on complete
+		conversation
+			`前往阿尔弗海姆的旅程虽有趣，却波澜不惊。索尔莱夫此前从未进入过太空，每次跃迁都让他严重晕船。然而与此同时，他亦为眼前景象深深着迷：亲眼目睹幽邃虚空与璀璨星辰；凝望那些微小的世界渐行渐远，最终隐没于天际。透过他的双眼，你仿佛也重新体验了一次太空那狂野壮阔的冒险。`
+			`	旅途中，他向你讲述起自己家族的故事：他们名为赫莱瓦加斯特（Hlewagast），是‘深空’早期历史上最早一批定居于阿尔夫海姆（Alfheim）的殖民者之一。他们一族曾是探索者与冒险家，后来才在此地扎根垦殖、辛勤耕耘。他的曾祖父母因痛心于当地肆无忌惮的资源掠夺，决心离开阿尔夫海姆，再度追寻冒险——最终来到了诺恩（Norn）。那里有翻涌的巨浪、狂暴的风暴，以及无边的孤寂。`
+			`	透过这一切，你对索尔莱夫（Thorleif）、斯卡尔德加德（Skaldgard）及其族人有了更深的理解；当飞船即将抵达阿尔夫海姆时，你甚至略感不舍。`
+			`	着陆后，你惊讶地发现阿尔夫海姆竟如此酷似赫尔海姆（Helheim）。尽管两颗星球的环境与生态迥然不同，但它们都以资源开采为主要用途，因此充斥着矿业 boomtown 的雇员与逐梦而来的移民——人们在此谋生、追梦，奋力在世间开辟自己的道路。`
+			`	索尔莱夫指向太空港：「我们进去看看能否找到向导吧。还得设法找到一座村庄——前提是它尚未被废弃或拆毁，好为新建的石油钻井平台腾地方。」`
+	on visit
+		dialog `你已抵达<planet>，但护送索尔莱夫与赫尔姆（Helm）的护卫舰尚未抵达！请立即离港，在该星系内等待护卫舰抵达。`
+
+
+
+overwrite
+mission "Stone of our Fathers 5"
+	name "Stone of our Fathers"
+	description "将拉格尼尔德和托尔莱夫送回 <destination>。"
+	passengers 2
+	to offer
+		has "Stone of our Fathers 4: done"
+	source "Alfheim"
+	destination "Norn"
+	on offer
+		conversation
+			`索尔莱夫显然很不适应身处如此拥挤的人群之中。你帮他稳住心神，一同向太空港内一位正在管理游客服务台的年轻女子走去。`
+			`	那女子抬起头，露出一个疲惫却训练有素的微笑：“欢迎来到阿尔弗海姆。您是在寻找工作，还是想了解某个特定的钻探站点？请注意，在您出示就业证明之前，我无法向您提供任何关于公司钻探平台的详细信息。”`
+			`	索尔莱夫摇摇头：“女士，不是的。我们并非任何人的雇员，也无需在此谋职。我是在寻找一个村庄——准确来说是个小村落，名叫格里姆萨尔。那里是我族人的故乡。”`
+			`	女子皱了皱眉，片刻后仿佛从恍惚中苏醒，脸上随即浮现出真切而温暖的笑容：“抱歉，只是太久没遇到不为求职而来的人了。阿尔弗海姆……嗯，它还是从前那个阿尔弗海姆，只不过如今这种状况更甚以往。”她耸了耸肩，“不过，我知道格里姆萨尔。事实上，我本人就来自林兹沃尔，就在同一个山谷里。”`
+			`	“那么，您能告诉我们它在哪儿吗？”索尔莱夫诚恳地问道。女子腼腆地朝索尔莱夫笑了笑：“告诉您？不如我带你们去吧？”`
+			choice
+				`	（邀请她登船。）`
+					goto accompany
+				`	（拒绝该提议。）`
+			`	你刚想说她不必随行，索尔莱夫便打断了你：“听起来太棒了！”`
+			`	她朝索尔莱夫灿烂一笑，并点了点头。`
+			choice
+				`	（叹气并摇头。）`
+			label accompany
+			`	她立刻丢下自己的摊位，耸了耸肩：“反正我本来也不怎么喜欢那份工作。”`
+			`	你和索尔莱夫跟着她来到一辆当地的空中穿梭车旁，她和索尔莱夫迅速坐到了一起，而你则独自一人坐在别处。`
+			`	接下来的三个小时里，他们似乎一直在深入交谈，而你则半梦半醒地看着窗外：油井区渐渐被雨林取代，随后雨林又在巍峨的林木覆盖的山脉前逐渐缩小。`
+			`	不知过了多久，你感到索尔莱夫正轻轻摇晃你的肩膀：“我们到了。”`
+			choice
+				`	（从座位上起身。）`
+			`	格里姆萨尔镇坐落于阿尔夫海姆西部高耸的艾汀山脉山麓。称其为“镇”或许有些言过其实；它实际上不过是由数十栋房屋组成的聚落，里面住着些老人——他们的子女早已远走他乡，去追寻财富与冒险，将他们彻底遗弃。`
+			`	那位你已得知名为拉格尼希尔德的女子，向此地几位居民介绍了索尔莱夫。没过多久，他们便设法将彼此古老的族谱联系起来，转眼间，所有人都被视作一家人。你还未回过神来，就已经在享用他们虽简朴却丰盛的食物，交换各自冒险经历的故事，并聆听关于往昔岁月的古老传说。`
+			`	夕阳西下之际，索尔莱夫走近你："是时候了，"他说，"前往石冢只需从这里徒步一小段路。我希望你能陪我同去。我想斯卡尔加尔会希望如此。"`
+			choice
+				`	（陪同索尔莱夫。）`
+					goto "follow cairn"
+				`	"这件事，你最好独自完成。"`
+			`	索尔莱夫皱起眉头。“我不能这么做。这感觉不对。若非有你，我根本不会来到这里。要完成此事，我需要你在我身边——为了我，也为了他。”`
+			choice
+				`	(Accompany Thorleif.)`
+					goto "follow cairn"
+				`	“很抱歉，但我不会去。”`
+			`	索尔莱夫脸色涨红，突然转身背对你。他已无话可辩，只留下你独自在村中等候。`
+			`	片刻之后，他重返此处，双眼湿润泛红。`
+			`	“我已与自己和解。我解读了他生命中的如尼符文，并将他的纪念石归还至赫勒瓦加斯特氏族石冢。他一生鲜有欢愉时刻，而最近的几次，都与我们二人有关。如今他已逝去，而我们尚存。”索尔莱夫拭去眼角泪水，“让我们稍作休憩，共进饮食吧。斯卡尔德加尔也会喜欢这样的。”`
+				goto "drink and be merry"
+			label "follow cairn"
+			`	你跟随索尔莱夫沿着一条几乎被植被完全覆盖的小径前行约半小时，最终踏出林地，来到一片开阔的平原。清风凉爽宜人，青草随风平稳摇曳，莫名令人感到安心。这片草地仿佛蕴藏着某种独特而永恒的气息。`
+			`	你注意到二十多根石柱呈环形排列，环绕着一座更为庞大、也更令人震撼的结构——一堵由某种你从未见过的金属凿刻而成的墙壁。墙上布满了你全然陌生的文字与图案。`
+			`	“那是一块精灵石。我们家族石冢之所以建在此处，正是为了它。这类石块遍布深域（The Deep）的大多数世界，坚不可摧，乃是阿尔法尔（Alfar）所留，原因却无人知晓。有些——比如眼前这块——早已被人遗忘；而另一些，则成了庆典乃至崇拜的重要场所。”`
+			`	他指向精灵石旁一座规模不大的石冢：‘我们此行的目标，正是它。’`
+			`	你打量着那座饱经风霜、磨损严重的石冢，其基座上一块褪色铭牌刻着‘赫勒瓦加斯特（Hlewagast）’的名字。`
+			`	索尔莱夫走近石冢。`
+			`	索尔莱夫将父亲的石头托于掌中，开始诵读刻在石头上的符文。`
+			`	“母亲将这块石头交予我，并告诉我她为我感到骄傲的那一天。”`
+			`	“我的儿子索尔莱夫出生的那一天。”`
+			`	“我在赫尔海姆发现富矿脉的那一天。”`
+			`	“我遇见<first>的那一天，是她帮我重新找到了我的家人。”`
+			`	“我再次见到儿子的那一天，尽管他再也看不见我。”`
+			`	托尔莱夫轻哼一声，稍作停顿，将石碑上所见之物记下，随后向前走去，将这块石头安放在石冢之上——如今，它已与成百上千块其他石头一同归于此处，每一块都承载着属于自己的寥寥数段回忆。`
+			`	“我想，他拥有的美好回忆并不太多，”托尔莱夫低声说道，“而如今我才意识到，我自己的也实在少得可怜。或许，仅凭这一点，他便足以教给我一课。为此，我感谢您，父亲。”`
+			`	话音刚落，托尔莱夫便含泪转身离开石冢。“事情已了。我们回去吧。”`
+			choice
+				`	（跟随索尔莱夫返回村庄。）`
+			`	你们二人踏着步子回到格里姆萨尔小村，村民们见到客人和久别重逢的亲人欣喜不已；而拉格尼希尔德则满心欢喜地与索尔莱夫共度更多时光，你们一同宴饮、畅谈、欢笑、追忆往昔。`
+			label "drink and be merry"
+			`	你尽情享受着这欢乐时光，直至夜色渐深，索尔莱夫才走近你——是时候启程返航了。`
+			`	“此地，”索尔莱夫开口道，“这颗星球，仿佛已遗忘了它的灵魂。工业与贪婪已然蔓延，像格里姆萨尔这样的古老乐土正日渐凋零。多年前我的家族离开这里，实属明智之举。诺恩——过去是，现在也依然是个宜居的好地方。”`
+			`	随后索尔莱夫朝拉格尼希尔德微微颔首：“正因如此，我这位崭新而至亲的朋友拉格尼希尔德，已决定随我们一同返回诺恩。”你望向拉格尼希尔德，却不知为何，竟丝毫未感到惊讶。`
+			`	她灿烂地笑了。“这是我许久以来收到的最好报价。”你们三人登上飞船，准备启程返航。`
+				accept
+	on visit
+		dialog `你已抵达<planet>，但为索尔莱夫与拉格希尔德预留空间的护航舰队尚未抵达！最好立即离开，等待护航舰队抵达该星系。`
+	on complete
+		event "stone waiting most" 30
+		set "stone waiting most: triggered"
+		payment 500000
+		conversation
+			`返回诺恩的旅途十分宁静。`
+			`	旅途中，你大部分时间都在聆听拉格希尔德讲述她儿时学到的阿尔夫海姆古老传说与故事。`
+			`	那些故事讲到外星树木低语着黑暗的秘密，石油大亨摧毁圣地后反被其所掠夺的外星遗物诅咒——而他们因贪婪蒙蔽双眼，竟对此视而不见；甚至还有关于精灵与精灵石奇迹的传说。`
+			`	再次，一如从前，当你终于返回诺恩时，心中竟泛起一丝淡淡的伤感。讲故事的时光已然结束，而道别的时刻却已悄然开始。`
+			`	索尔莱夫给了你一个熊抱。“感谢你所做的一切，<first>。我曾深陷于自己的愤怒与苦涩之中，目光所及，唯有自身之痛，再难看见其他。但如今，我仿佛重获新生。请相信，我们此次相遇，早已如刻石般铭印于我心。愿有朝一日，你能重返此地探望我们——记住在这遥远偏僻的小世界之上，还有我们这些平凡百姓，远离权力中心，亦不沾染宏大事件的尘嚣。请记住：这里永远是你的家。”`
+			`	话音落下，索尔莱夫与拉格尼希尔便离开你的飞船。索尔莱夫刚踏出几步，步入寂静的诺恩太空港，便忽然停住，转身面向你。`
+			`	“我差点忘了——那位老人啊，其实攒下了一大笔钱。我想他几乎没怎么为自己花过钱。总之，我决定将这笔遗产与你平分。缴税之后，你那一半正好约为50万积分。”`
+			`	索尔莱夫耸了耸肩，朗声一笑，随即与拉格尼希尔携手步入诺恩弥漫的薄雾之中。`
+
+
+
+overwrite
+mission "Home for Skadenga 1"
+	name "Home for Skadenga"
+	description "在<stopovers>搜寻塞特史托克号，然后返回<planet>。"
+	minor
+	to offer
+		random < 50
+	source "Nifel"
+	stopover "Asgard"
+	stopover "Windblain"
+	on offer
+		conversation
+			`这座几乎空无一人的太空港弥漫着深深的忧郁。几块纪念牌匾装点着墙壁，自豪地诉说着昔日尼菲尔作为银河系重要一员的辉煌岁月——那时这里曾是科研人员与医生们创造奇迹疗法的圣地。牌匾上的影像大多已显陈旧。`
+			`	但如今此地已成一座鬼城，你独自穿行于空荡的长廊之中，甚至开始怀疑自己最初为何要费心前来探索。`
+			`	你转过一个拐角，发现一名女子正站在一座展台旁，展台上张贴着大幅冰封地貌的照片。她兴奋地向你挥手致意。`
+			`	“您好，先生！希望您在我们这座顶尖水准的太空港逗留愉快！可既然来了，何不走出这方寸之地，去外面尽情探索呢？”她朝窗外的方向做了个手势。`
+			`	“去领略壮丽绝伦的格莱西斯维利尔冰原，或沸腾翻涌的斯利德河；我们甚至能带您前往赫里姆布林姆山谷——举世闻名的瑞格尔疗法正是在那里被发现的！”`
+			`	“那么，先生，”她继续说道，“您意下如何？要不要为您登记VIP‘冬日奇境’远足套餐？限时特惠价仅需2000积分！”`
+			choice
+				`	“当然，我很乐意多看看这颗星球。”`
+					goto excursion
+				`	“不了，呃，谢谢。在我看来，在冰天雪地的冻土带上活活冻死可算不上什么好体验。”`
+			`	那名女子皱起眉头，却若有所思地点了点头。“恐怕先生，大多数人和您的想法一样。不过，若您在外头遇到任何可能感兴趣的人，请务必转告他们——我们真的很需要这笔生意。”说完，她转身快步走回自己的摊位。”`
+				decline
+			label excursion
+			action
+				payment -2000
+			`	女子脸上顿时容光焕发，你感觉她似乎很少听到别人说“好”。“哦，太棒了，先生，真是太棒了！”`
+			`	她将手指按在耳畔，说道：“赫尔约德，有顾客来了！快把冰原车预热起来！”接着她放下手，朝你挥手，“请这边走，先生！顺便说一句——您绝不会失望的。”她一边领你走向一扇巨大的气密舱门，一边兴奋地滔滔不绝，介绍此次行程在文化、艺术与科学方面的非凡价值。`
+			`	她按下开关，舱门轰然开启；随后她引你进入一座寒气逼人的维修船坞。船坞中央，一辆粗陋刺耳的车辆正嗡嗡作响，周围散落着大量破损废弃的零件。“瞧，她来啦！”那女人几乎是在机械低吼声中高声喊道，“我们管她叫‘布伦希尔德’——冰雪女王！一台极其……耐用的载具，定能为您带来原汁原味的冰原探险体验！”`
+			`	这台名为‘布伦希尔德’的冰原车，在你看来远谈不上可靠：它仿佛是由一堆破旧杂乱的零件与临时拼凑的技术硬生生塞进一台已有三百年历史的老旧冰原车里——很可能正是最初殖民者所用的老古董。`
+			choice
+				`	“你确定这玩意儿安全吗？”`
+				`	“这东西到底多少年头了？！”`
+					goto old
+			`	那名女子略显迟疑。“别担心！要知道，这台‘冰原爬行者’可是尼菲尔星上最安全的地方！之前那些事故纯属偶然，而她姐姐那台‘冰原爬行者’——古德伦号所发生的意外，更是完全无法预见的。”`
+				goto what
+			label old
+			`	“嗯，您知道那句老话吧：‘如今的做工可比不上从前了’？今天可是您的幸运日——因为这台正是那个年代造出来的！本次观光之旅的一大亮点，就是乘坐一台货真价实、已有四百年历史的殖民时代‘冰原爬行者’！”`
+			label what
+			`	那名女子掏出一块小型触摸屏。“出于标准的责任豁免条款，我需要您快速在此处完成电子签名。若您在此次行程中受伤或不幸身亡，您本人或您的遗产继承人将不得就此向我方提起诉讼。此外，若您在野外迷路，或‘冰原爬行者’发生故障，我方亦不承担任何救援义务。”她勉强挤出一丝微笑。“当然，这种事情绝不会发生——而且正如我所说，这是旅游业中一项非常标准的免责协议，您不必太过在意。”`
+			`	她举起触摸屏，示意您签名。`
+			choice
+				`	（按我的签名键。）`
+					goto yolo
+				`	“我改变主意了。这次探险我就不参加了。”`
+			`	那名女子的脸因寒冷而泛红，神情沮丧却并不意外，仿佛她早料到会有这样的结果。“布鲁尼希尔达号确实……有点吓人，这没错。但请您放心，它绝对安全，先生！无论如何，我会送您回太空港。”`
+			`	说完，你便跟随那名女子回到温暖而几乎空无一人的太空港，她随即离开，返回她那间孤零零的展位。`
+				decline
+			label yolo
+			`	拿到你的签名后，那名女子眼中闪出喜悦的光芒，脚步也轻快起来，随即领你前往冰原爬行车。她拉动车身外侧的一根操纵杆，打开一扇门，并放下一条摇摇晃晃的登车坡道供你攀爬。她示意你走上这条看起来十分脆弱的坡道。“赫约德将担任本次探险的驾驶员兼向导。她已在车内等候您。谨代表‘无畏冰原探险有限公司’，祝您此次远征愉快、平安！”`
+			choice
+				`	（登上冰原爬行车。）`
+			`	这台冰原履带车‘布伦希尔德号’弥漫着机油、舱内空气与汗水的气味。车内空间狭小，仅设有一处铺着软垫的长凳区和几条磨损严重的安全带。到处都是裸露的电线与棱角分明的金属结构。你小心避开头顶纵横交错、通向驾驶舱的绿、白、蓝三色电线，随后坐定并系好安全带。`
+			`	此处温度仅比维修船坞略高一点。左右两侧是宽大却布满划痕、边缘结霜的观察窗。`
+			`	‘欢迎光临。我叫赫约德。’这位口音浓重的女子从驾驶座回过头来。她留着齐耳金发，脸上与手臂上布满蜿蜒绵长的蓝色纹身。‘我土生土长于此，一生都在这片苔原上穿行，这里的一切我都了如指掌。’她咧嘴一笑，笑容略显歪斜，随即拍了拍操纵台，‘而我们的布伦希尔德号，也绝不会让你失望。’`
+			`	赫约德转过身去，开始拉动几根操纵杆。‘现在，’她说，‘我们出发吧。’`
+			choice
+				`	（坐稳——引擎嗡鸣响起，冰原履带车猛地启动。）`
+			`	在一片荒凉空旷的废土上沉默爬行数小时后，赫约德将履带车转向了一片看起来更加荒凉、更加空旷的废土。`
+			scene "scene/iceplains"
+			`	“这里是著名的格莱西斯费利尔冰原。传说曾有一整支科研队在此神秘失踪。你可以在冰面上钻洞钓鱼——冰层之下栖息着味道极佳的沃利章鱼。”赫约德放慢车速，回头望向你。“你有问题吗？”`
+			label questions
+			choice
+				`	“那些研究人员怎么了？”`
+					to display
+						not "skadenga: asked about researchers"
+				`	“在冰面上行驶安全吗？”`
+					to display
+						not "skadenga: asked about ice"
+					goto ice
+				`	“冰层之下有海怪吗？”`
+					to display
+						not "skadenga: asked about monsters"
+					goto monster
+				`	"不，不回答任何问题。"`
+					goto "no question"
+			action
+				set "skadenga: asked about researchers"
+			`	"那是很久以前的事了。一支科研船队在寻找细菌类药物。当时这片区域有很多科研船队。最聪明的那些都会雇用本地向导——就像我这样的。而这一支船队却没那么明智，他们觉得向导纯属浪费钱。结果他们独自驶入冰原，再也没能回来。"`
+			`	赫洛德耸了耸肩："也许他们掉进冰缝里了；也许被冰蛞蝓吃了；也许遭遇雪崩被掩埋；又或者失足绊倒在自己的武器上送了命。总之，从来没人找到过他们的踪迹。导游手册上说，某些夜晚你甚至能看到他们的幽灵在冰原上游荡——那本导游手册纯属胡扯。"`
+			`	"还有别的问题吗？"`
+				goto questions
+			label ice
+			action
+				set "skadenga: asked about ice"
+			`	"非常安全……除非不安全。冰面永远是冻结的，但有时薄得吓人。我能分辨出来，你可不行。相信赫洛德，你就既不会溺死，也不会被冰蛞蝓吃掉。"`
+			`	“你还有问题吗？”`
+				goto questions
+			label monster
+			action
+				set "skadenga: asked about monsters"
+			`	“每个世界都有动物。有些动物很大，有些很小。‘绒毛章鱼’大多体型较小，仅与这台‘冰原爬行者’相当。而格莱西斯维利尔冰原上的‘弗斯特’则是‘冰蛞蝓’——它们能挤过冰层上最微小的缝隙。不过这需要很长时间，因为它们体型堪比一栋房屋。它们没有牙齿（牙齿太硬，难以挤过狭小的孔洞），但会喷吐强酸，轻易就能在‘冰原爬行者’上蚀出破洞。许多愚蠢的研究员和游客都成了它们的盘中餐。”`
+			`	她朝你微笑道：“你可不是那种愚蠢的游客。你和赫约德同行，所以很安全。”`
+			`	"Any more question?"`
+				goto questions
+			label "no question"
+			`	“不问问题，倒是很明智。赫约德只会告诉你最精彩的部分。”赫约德迅速朝你咧嘴一笑，随即转回她那临时拼凑的驾驶舱。“冰原游览到此为止，现在我们前往下一站。”`
+			scene "scene/iceplains2"
+			choice
+				`	（望着明亮的冰原缓缓沉入黯淡的地平线。）`
+			`	冰原履带车继续在雪地、山丘、山脉与苔原上跋涉一两个小时，随后一块巨大而形状奇异的岩石缓缓进入视野。希尔约德停下冰原履带车，好让你仔细观察它。`
+			scene "scene/lonelyrock"
+			`	“这是块石头。”她语气平淡地说道。你凝视良久，才发觉岩石表面竟有一张半浮雕式的人脸。`
+			`	“你已经看够了吗？那我们就可以前往下个地点了？”希尔约德问道。`
+			choice
+				`	“嗯，我再也不用盯着这块石头看了。”`
+					goto "river like"
+				`	“等等，那上面刻着的……是张男人的脸？这块石头到底有什么特别之处？”`
+			`	“那块石头本该纪念发现里格尔人解药的那个人。他叫汉克，或亨利，或比尔，反正诸如此类。”赫尔约德耸了耸肩，脸上明显流露出鄙夷之色。“解药确实是在这儿发现的，但那会儿冻原正在融化，尼菲尔还稍暖和些。据说这人发现了它，人们便想为他立一座宏伟雕像。可结果证明，尼菲尔并非竖立雕像的理想之地。况且，谁又愿意给一个骗子立像呢？”`
+			`	赫尔约德转回操纵台，再次驱动冰行者向前行进。“关于那块蠢石头和更蠢的人，就聊到这儿吧。”`
+			label "river like"
+			`	“现在我们去河边。”她告诉你。随着冰行者转向离开，那块巨大而形状怪异的岩石很快便从你的视野中消失了。`
+			scene "scene/snowfield"
+			`	前往斯利德尔沸腾冰河的平静旅程，突然被一阵深沉的震颤打断——紧接着是一声震耳欲聋的巨响，整台冰行者剧烈摇晃，随即在受扰动的冰面与积雪上打滑。远处某处，随之而来的隆隆声正迅速加剧。待赫尔约德重新掌控冰行者后，她立刻急转避开那噪音来源。“那是尼菲尔地震，刚才那巨响是雪崩，或是山体滑坡，也可能两者皆有。情况不妙。”`
+			`	尽管她神情镇定，操控冰行者时却近乎不顾一切：她竭力闪避翻滚而来的积雪。机械发出吱呀、嗡鸣与爆裂之声，奋力挣扎着，试图以数百年来从未有过的速度挣脱险境。轰隆声越逼越近，赫尔约德似乎也愈发难以维持抓地力。`
+			`	“我觉得——”赫约德刚开口，一座雪山便以震耳欲聋的巨力撞上了冰原爬行车。窗外霎时被积雪遮蔽，方向感尽失；爬行车在崎岖不平的地面上颠簸翻滚、剧烈扭转。你和赫约德紧紧抓住固定物，在车厢内被猛烈抛甩，直到它最终嘎吱作响地撞上某处相对坚实的障碍，骤然停住——车身已部分侧倾。`
+			`	数秒之后，轰隆声终于从你们身边远去。`
+			choice
+				`	（解开安全带，起身。）`
+			`	等你站稳身形时，赫约德早已收拾好大量补给，正准备打开舱门，徒手向上挖掘通往地表的通道。她望向你：“没什么好担心的，这种事常有。呃……其实也不是。这还是头一回，但赫约德绝不会让你死掉——大概率不会。我能带我们去附近一个定居点。”`
+			`	她扔给你一件陈旧邋遢的夹克，一只袖子上还裂开了一道口子。“在严寒中步行，有益健康。虽说咱们要走的路可能有点远，但回头想想，倒是个不错的谈资——回家后讲起来挺带劲的故事。”`
+			choice
+				`	（穿上夹克，跟随赫洛德走出舱门，踏上冰面。）`
+					goto jacket
+				`	“绝不可能！我受够了！我要呼叫我的飞船，或者修好这台冰原履带车——总之，我哪儿也不去！”`
+			`	赫洛德耸了耸肩：“你可能会死，也可能不会。这里的信号有时很不稳定。祝你好运，还有——概不退款。”说完，赫洛德打开舱盖，消失在舱外刺骨的白色风雪之中。`
+			choice
+				`	（迅速关上她身后的舱盖。）`
+			`	独自一人时，你必须做出抉择：你可以拆解部分冰原履带车，用其零件强化个人通讯设备，尝试向<ship>发送求救信号；或者尝试修复冰原履带车，使其重新运行——但那样你就无法使用它的部件来增强通讯信号了。`
+			choice
+				`	（拆解冰行者号以建立通讯。）`
+				`	（尝试修复冰行者号。）`
+					goto "fix me"
+			`你对自己飞船的信心远超这辆古董车。你花了数小时，将冰行者号上曾至关重要的机械部件一一拆下，改装成一台通讯信号增强器；最终勉强拼凑出一台可用的增强器，并为其编程，持续发送求救信号（S.O.S.）。`
+			`你确信自己的飞船终将接收到这则信号。可惜，你在冰行者号上造成的损伤影响了它的加热系统——在你等待的第八个小时，加热器彻底失效了。在此期间，你穿上了赫洛德留给你的夹克，并塞满破布和垃圾，试图借此保暖。`
+			choice
+				`	（试着忽略寒冷，小睡一会儿。）`
+			`	随着时间流逝，你的手脚逐渐失去知觉。没有补给品，曾经残存的一点余温也早已消散殆尽。但愿你选择在此等待并未铸成大错——而踏上这场凄惨的巡游，你确信自己已犯下错误。此刻你只渴望重新感受温暖，更绝不想死在这里。`
+			`	你开始在清醒与昏迷之间反复徘徊，突然间，一阵深沉的震动传来，舱外还响起低沉的轰鸣声。`
+			`	接下来发生的事，你全无记忆。但不知怎地，你竟从那台被冰雪掩埋的冰原 crawler 中爬了出来，穿越风雪，钻进了飞船的舱门——你唯一记得的下一件事，便是正躺在自己的飞船上缓缓回暖，并为这场磨难终于结束而倍感庆幸。`
+				decline
+			label "fix me"
+			`	经过数小时对这台机器内部结构的反复检修，你成功修复了大部分故障，代价只是手臂上一处严重的灼伤。如今，成败只系于一组线路的连接顺序：若能正确接驳这些导线，冰原 crawler 就应能重新启动。`
+			choice
+				`	（白、绿、蓝。）`
+					goto boom
+				`	（绿色、白色、蓝色。）`
+					goto "great success"
+				`	（蓝色、绿色、白色。）`
+					goto boom
+			label boom
+			`	你确信这是正确的线路连接顺序。你将每根线依次接好，然后启动冰原爬行车。车辆发出嗡鸣，成功启动。`
+			choice
+				`	（握拳向空中挥舞。）`
+				`	（欢呼。）`
+					goto cheer
+			`	你一时兴起，挥拳向空中猛力一击。`
+			`	可惜，你的拳头还没挥出多远——冰原爬行者号内部纵横交错的线路正发生严重的能量积聚，随即引发了一场瞬时、彻底致命的爆炸。`
+			scene "scene/smeer"
+			`	冰原爬行者号、你的整个身体、你的拳头，以及数百吨以上的积雪，都在一瞬间化为灰烬。`
+				die
+			label cheer
+			`	你内心涌起的成就感如此强烈，以至于完全无法抑制——一声纯粹喜悦的呐喊已冲到嘴边，甚至刚刚开始呼出……可惜它再也无法继续下去：冰原爬行者号内部纵横交错的线路正发生严重的能量积聚，随即引发了一场瞬时、彻底致命的爆炸。`
+			scene "scene/smeer"
+			`	冰原爬行者号、你的整个身体，以及数百吨以上的积雪，都在一瞬间化为灰烬。`
+				die
+			label "great success"
+			`	最后一根缆绳就位后，你屏住呼吸，启动了冰原履带车。引擎嗡嗡作响地启动，你又谨慎地等待了几秒，等待那场不可避免的爆炸……但它始终没有发生。`
+			`	你长舒一口气——成功了！在花了几分钟熟悉操控后，你成功将冰原履带车从积雪中拖了出来。接下来，你打算怎么做？`
+			scene "scene/icepicture"
+			choice
+				`	（追踪希尔罗德的足迹。）`
+					goto "follow her"
+				`	（尝试找到通往太空港的路径。）`
+			`	你已受够了这次远征。希尔罗德说她没事，那就到此为止吧。你调转冰原履带车方向，朝太空港驶去。`
+			`	只需几个小时，且“冰行者”号的操控相对简单。当你驶入维修船坞时，那位女销售员前来迎接，却发现赫洛德并未与你同行，她顿时面露忧色。`
+			`	她至今未收到赫洛德的消息，已开始担心最坏的情况。你默默祈祷一切顺利，随即返回自己的飞船，并尽可能快地远离此地。`
+				decline
+			label "follow her"
+			`	赫洛德的足迹在清冽的积雪中清晰可见，你循迹追踪数小时。就在第二颗太阳即将沉落之际，脚印在一座雪丘前戛然而止。`
+			`	你离开载具前去探查，发现赫洛德已精疲力竭、浑身冻僵，便立即将她扶回‘冰行者’号。她虚弱得无法言语，你忧心忡忡——若不立刻接受医疗救治，恐怕她撑不了多久。`
+			`	随着夜幕降临，你在远方瞥见一点闪烁的微光。`
+			choice
+				`	（驶向那闪烁的光点。）`
+					goto flicker
+				`	（返回太空港。）`
+			`	那闪烁的光点未必有什么意义，很可能只是白白浪费时间。你调转冰原爬行车的方向，以自认安全范围内的最快速度朝太空港返航。`
+			`	漫长的数小时过去，你持续赶路，而赫洛德仍处于昏迷之中……`
+			`	终于，在深夜时分，你回到了太空港。医护人员立刻围住你的载具；你得知她性命无虞，却也被告知她的双手和双脚已因冻伤而不得不截肢。那位向你出售此次远征行程的女子，对你救回她的朋友感激不尽，却依然拒绝退还费用。`
+				decline
+			label flicker
+			`	你精疲力竭，驱车驶向那闪烁的微光，发现它来自一座小村庄。`
+			`	刚踏入你认定的村庄中心，人群便蜂拥而至，围向你静止不动的载具。还没反应过来，他们已打开舱盖，将赫约德抬了出去。`
+			`	一名年轻女子朝你走来，她脸上绘有与赫约德相似的纹面；她领你前往一处共用的宿舍屋过夜。你疲惫不堪，无心弄清眼前状况，决定一切留待明日再议。`
+			scene "scene/snowvillage"
+			choice
+				`	（先睡一觉，明天再想。）`
+					goto "village arrival"
+			label jacket
+			action
+				set "put on jacket"
+			`	你套上夹克，并在衣内塞了几块破布，以防万一。`
+			`	希尔洛德朝你点点头，打开舱门。“距地表仅一米。”`
+			`	她纵身跃入积雪，以游爬的方式向上攀行。你紧随其后；虽然寒意刺骨，但当你迅速升至雪面之上、进入上方清冽刺骨的空气时，不禁松了口气。`
+			`	“跟紧我，”她一边在雪中跋涉一边说道，“除了我的足迹，任何路径都十分危险。”`
+			scene "scene/snowplain"
+			choice
+				`	（踩着希尔洛德的脚印行走。）`
+					goto travel
+				`	（随意四处走动。）`
+			`	赫尔洛德突然停下脚步，怒视着你。“你是个蠢货。你必死无疑，还会连累我一起送命。这可不是游戏——只准跟着我走，否则就等死。”`
+			choice
+				`	(Walk in Hjlod's footsteps.)`
+					goto travel
+				`	（继续随意绕行。）`
+			`	你按自己的节奏来回踱步，想往哪儿走就往哪儿走，完全无视赫尔洛德选择的路径。`
+			`	随着时间流逝，什么意外也没发生——你心中涌起一股正义凛然的扬眉吐气之感；这恰恰证明赫尔洛德刚才不过是专横跋扈罢了。你本不必听她指手画脚；说到底，要不是她害的，你怎会沦落到这颗垃圾行星上，在刺骨寒风与刺眼强光中孤立无援？`
+			`	想到这儿，你愤愤地用力跺了几脚，好让她明白：她那些毫无价值的警告，你根本懒得理会！可就在此刻，一阵怪异的咕噜嘶嘶声传来。你低头一看，脚下并非紧实的积雪，而是一团灰紫色的黏稠物，已牢牢缠住了你的小腿。`
+			choice
+				`	（设法挣脱。）`
+					goto free
+				`	（向赫洛德呼救。）`
+			`	见鬼的自尊心！你大喊道：“赫洛德，救命！有什么东西缠住我的脚了！”`
+			`	赫洛德回头望向你，脸上毫无表情：“是紫灰色的吗？”`
+			`	“是的，没错！快帮忙！我不知道该怎么办！”`
+			`	“你该做的，就是听从赫洛德的指示，而不是像被宠坏的孩子一样，在雪地上胡乱踩踏。”`
+			`	“求求你，赫洛德！”你哭喊着，靴子最后一部分也已溶解殆尽，你赤裸的脚上正爬着那滑腻的冰蛞蝓。`
+			`	“已经太迟了。冰蛞蝓已经缠上你。你现在唯一能做的，就是痛苦地死去。”赫洛德转过身，开始慢跑着离你而去。`
+			choice
+				`	（试着挣脱束缚。）`
+			label free
+			`	尽管使出全身力气，你的腿却纹丝不动。滋滋的灼烧声持续不断，一阵尖锐而可怕的灼痛感席卷全身。你双眼涌出泪水，痛苦地尖叫着，乞求援助与怜悯。`
+			`	你持续挣扎，试图挣脱束缚。空气中弥漫着自己脚部液化的腥气，接着某处骤然断裂——你向前扑倒。低头一看，你的右腿已自膝盖以下消失。你拼命将这景象驱出脑海，手脚并用地向前爬行，只想逃离身后正逐渐凝聚成形的灰紫色团块。`
+			`	你竭力呼喊赫尔洛德的名字，却发不出声音；取而代之的是野兽般嘶哑、空洞的惨叫。你徒劳地朝她伸出手，朝任何方向伸出手——但为时已晚。冰蛞蝓已然追至身前，你感到它那腐蚀性的触须正缠绕上你仅存的那条腿与下腹。剧痛撕心裂肺，下半身开始迅速溶解。`
+			`	你最后一次绝望地抬头张望，期盼赫尔洛德赶来营救——然而视野尽头只有一抹灰影，一个早已认定你必死无疑、远远离去的背影。此刻，唯有你与冰蛞蝓相伴，唯有你独自承受这无尽的痛楚。在被彻底溶解吞噬之前，你短暂地回想了自己所犯下的错误。`
+				die
+			label travel
+			`	数小时过去，寒冷而单调的跋涉令人身心俱疲。你隐约察觉尼菲尔星系的两颗恒星正缓缓横越辽阔天穹。`
+			`	暮色与疲惫如影随形；当最后一颗太阳沉落地平线时，你已不确定自己还能坚持多久。‘看！’赫尔洛德打破数小时的沉寂，指向暮色 landscape 中微弱闪烁的光点。‘太好了，’她嗓音沙哑地承认道，两人踉跄着朝那光芒奔去，‘若再拖到入夜，我们绝难活命。’`
+			`	夜色渐深，寒意刺骨。你的身体开始逐渐停止运转，冻伤正啃噬着你的双手、双足与裸露的手臂。前方的光源依旧遥不可及，而你已几乎无法挪动分毫。你似乎瞥见几道类人身影在光晕中晃动。可就在此时，你一个踉跄，重重摔倒在地。你竭尽全力向前爬行，直至力竭……然后，万籁俱寂。`
+			choice
+				`	（醒来。）`
+			label "village arrival"
+			branch "body aches"
+				has "put on jacket"
+			`	第一颗太阳苍白的晨光透过合成材质的窗子洒落在你脸上。你试图重新沉入梦乡，却总觉得哪里不对劲，于是迷迷糊糊地打量起四周环境。`
+				goto barracks
+			label "body aches"
+			`	第一颗太阳苍白的晨光透过合成材质的窗子洒落在你脸上。浑身酸痛，你本能地想再度沉入睡眠，但某种异样感挥之不去，迫使你集中精神审视周遭。`
+			label barracks
+			`	你身处一座半木结构、半合成材料构筑的营房之中——原始地球科技与古老殖民风格建筑的奇异混搭。单凭这点倒还不足以令人惊惶；真正令人心悸的，是围在你床边静静凝视、并朝你指指点点的一群人。`
+			choice
+				`	"Excuse me?"`
+			`	人群向后退开，一位老妇人走上前来。她灰白的头发盘成精致紧密的发辫，脸上和手上布满褪色的蓝色纹身。`
+			`	“我们很荣幸称您为贵客。您救了我们的女儿，不仅如此——您将拯救我们所有人。”老妇人与身后所有人均向您跪拜。`
+			branch "with hjlod"
+				has "put on jacket"
+			action
+				set "Hjlodsaved"
+			choice
+				`	“哇哦，等等，等等！你这话什么意思——‘拯救我们所有人’？”`
+					goto woah
+				`	“你们的女儿？赫洛德？她还好吗？”`
+			`	老妇人温暖地微笑着：“您还惦记着她，真是仁善。多亏了您，赫洛德会平安无事。若您再晚来片刻，她恐怕就要失去双手，甚至更糟。不过她如今正在康复，稍后便会来与我们团聚。”`
+			choice
+				`	"Woah, woah, woah! What do you mean 'save us all?'"`
+			label woah
+			`	那位老妇人摊开双手，掌心朝外。“这里是乌丹萨克尔村。我是翁杜迪斯，也就是本村领袖。我们是斯卡登加人，冰霜、群山与严寒之女神——巨魔女神斯卡德的女儿。”`
+			`	“近一个世纪以来，我们一直在等待身负斯卡德印记之人。”她用布满纹身的手指向你手臂上那道修理冰原爬行者时被电击留下的灼痕，“看来，我们等的人就是你。”`
+				goto "woah after"
+			label "with hjlod"
+			choice
+				`	"Woah, woah, woah! What do you mean 'save us all?'"`
+			`	The elderly woman opens her palms and spreads them wide. "This is village of Udainsakr. I am Ondurdis, or leader, and we are Skadenga, daughters of Skade, the Troll-Goddess of ice, mountains, and cold."`
+			`	“近一个世纪以来，我们一直在等待身负斯卡德印记之人。”她用布满纹身的手指向你穿越风雪时在手臂上留下的冰冻灼伤，“看来，我们等的人就是你。”`
+			label "woah after"
+			choice
+				`	“你希望我做什么？”`
+					goto expect
+				`	“你说的一个世纪是什么意思？你们在这儿待了多久？又为何要等我？”`
+			`	翁杜尔迪斯扬起一道眉毛。“所以你想知道我们的秘密？既然你问得如此郑重，那我就告诉你一些连多数人都不清楚的事。很久以前，那些所谓‘精灵’将斯卡登加人带到了深渊星系。我们曾因某些过失而需赎罪。我们的女先知——即‘沃尔瓦’——预见：唯有前往尼弗尔，方能弥补过错。当时我们并不知晓原因，但当我们寻获‘女神之石’时，才明白自己做出了正确的抉择。”`
+			`	“自那以后，我们便定居于此，为他人担当向导与探路者。正是我们姐妹之一——草药师艾曼妮——发现了里格尔瘟疫的解药。我们一度以为，这便是我们被遣至此地的缘由：履行‘疗愈侍女’的使命。”`
+			label expect
+			`	“随着年岁流逝，尼弗尔日渐寒冷，外来者也愈发稀少。我们的族人日渐凋零，作用亦随之减弱。这是一个正在死去的世界，而我们需要新的家园。八十年前，我们一位最神圣的姐妹曾得一神启幻象——她看见一名身负斯卡德印记的异乡人将到来，并助我们寻得新家园。”`
+			`	翁杜尔迪斯用一根嶙峋的手指直直指向你：“首先，你须为我们勘定新家园所属的行星；其次，你须为我们寻得远航载具。我们自会以某种方式酬谢于你。你可愿为我们完成此事？”`
+			choice
+				`	“我答应了。绝不会让各位失望。”`
+					goto "do it"
+				`	“不，这不是我的问题。我只想回到自己的飞船上。”`
+			`	翁杜迪斯躬身退后一步。“若您执意如此，那您便并非我们所等待之人。”说完，她与其余所有人一同离开了兵营。`
+			branch "use shuttle"
+				has "put on jacket"
+			`	你爬下铺位，前往冰原履带车。随后，你直接返回太空港。这段行程耗时数小时，途中你不禁思索起这一连串离奇的遭遇——自己竟从一场与严酷自然环境殊死搏斗的绝境，一跃成了某个偏远社区的救世主。`
+			`	“哦，算了。”你自言自语道，“我又不可能拯救所有人。”`
+				goto onboard
+			label "use shuttle"
+			`	你听到头顶传来熟悉的穿梭机轰鸣声，便爬下铺位前去迎接。接着，你直接返回太空港。这段路程很短，你几乎没有时间细想自决定参加此次远足以来所发生的一切。你甚至开始担心自己可能需要接受心理治疗。`
+			label onboard
+			`	太空港逐渐映入眼帘，转眼间你已安全返回飞船。`
+				decline
+			label "do it"
+			`	翁杜迪斯微笑着说道：“谢谢。”她朝门口点点头，“跟我来。”`
+			`	晨光熹微中，村庄显得比你记忆中更加奇异：雕琢精美的木质结构与光滑的合成材料建筑浑然一体，古老传统与现代工艺完美交融。奇妙的是，这种混搭非但不显突兀，反而透出天衣无缝的艺术感。村南是一片开阔空地，地上堆叠着高耸的石冢。空地中央——即圣地——矗立着一堵巨大的金属墙，泛着异样的光泽，周围环绕着八根装饰华美的木柱。尽管墙上刻满奇诡的文字与图像，最醒目的却是一个巨型类人形象。当你凝视这面墙壁时，一股莫名的寒意悄然袭来。`
+			`	“那是女神之石。”翁杜迪斯指向那堵巨大的石墙，“我们正是为此才定居于此。深域（Deep）的大多数世界表面都分布着此类石碑，人们称其为‘精灵之石’‘神祇之石’‘巨人之石’等等。而如今，石墙基座旁的这些木柱，便是我们的‘塞特施托克’（Setstokkr）。它们是我们族群的圣物，早在久远之前便指引我们来到此地、来到这堵石墙之下；如今，它们也将再度引领我们前往新的家园。此处共有八根塞特施托克，但原本应有九根。”`
+			`	翁杜迪斯转过身面向你：“你必须寻回第九根塞特施托克——那根失踪的石柱。它早在很久以前便坠入太空，而根据其最初轨迹推断，它只可能抵达两个世界之一：要么在雷戈尔星系的温德布莱恩（Windblain），要么在纳奥斯星系的阿斯加德（Asgard）。”她递给你一枚小型存储设备，继续说道：“塞特施托克拥有……特殊的性质。这个存储器内含追踪它们所需的信息。前往这两个世界，设法寻获塞特施托克，并将消息带回给我们。我们急切地想知道斯卡蒂（Skade）将把我们引向何方。”`
+			`	天空泛起微光，大地微微震颤，一架穿梭机在村庄不远处着陆。“那架穿梭机将送你返回太空港和你的飞船。愿斯凯德指引你。”说完，翁杜迪斯便离你而去。`
+			choice
+				`	（前往穿梭机。）`
+					goto shuttle
+				`	（花点时间调查女神石。）`
+			`	你走向那座公园，园中遍布石堆、木柱，以及那块女神石。`
+			`	在此距离下，你能看清石堆基座上刻有铭牌。有些铭牌已严重褪色磨损，名字难以辨认；另一些则较清晰，上面刻着家族姓氏。你能辨认出的仅有米尔林加（Myrlinga）、巴宁（Baning）和阿玛隆（Amalung）这几个名字。`
+			`	石堆之外，矗立着几根雕工精湛的木柱，奥恩杜尔迪斯人称之为“塞特史托克”（Setstokkr）。每根木柱均高达十余米，通体刻满如尼文字、图案与纹饰。其中少数木柱仍保留未修剪的枝杈，枝杈上亦有独立雕刻；而大多数则已削尽枝干，光秃无枝。你在一根塞特史托克上注意到：其盘绕动物图案中反复出现的一种刻痕，形状竟与你手臂上的灼痕极为相似。`
+			`	最终，你抵达了那块宏伟的“女神之石”。如今你几乎看不到石面有任何一处裸露——图像之中嵌套图像，字符之内又藏字符。这些异域文字与塞特史托克上的如尼符文毫无关联，确为彻头彻尾的外星文字。`
+			choice
+				`	(Head to the shuttle.)`
+			label shuttle
+			branch "three fingers"
+				has "put on jacket"
+			`	一名孤身人影伫立在怠速运转的穿梭机旁。当你逐渐靠近，认出了那是赫约洛德（Hjlod）。`
+			`	“我只想向你道谢。”赫约洛德灰蓝色的眼眸在晨光中熠熠生辉，“我总说‘赫约洛德保游客平安’，但昨天却是你救了赫约洛德。此事我永志不忘，切记。”`
+				goto lopsided
+			label "three fingers"
+			`	一名孤身人影伫立在怠速运转的穿梭机旁。当你逐渐靠近，认出了那是赫约洛德。“瞧见没，”她说道，“跟着赫约洛德，你大概率能活命。”她举起一只缠着绷带、仅剩三指的手，耸了耸肩，“至少……大部分时候如此。”`
+			label lopsided
+			`	赫尔洛德露出她那标志性的歪嘴一笑，随后便独自留下你和穿梭机。是时候出发了。`
+				accept
+	on stopover
+		dialog
+			`你降落在被要求访问的最后一个世界。在此事了结后，你应返回尼菲尔。`
+	on visit
+		dialog phrase "generic stopover on visit"
+	on complete
+		event "nifel waiting" 15
+		conversation
+			`	着陆后，你收到赫尔洛德发来的一段录音消息：“{0}，我们正忙于疏散分散的斯卡登加社区。等局势稳定些，几周后再回来吧。”`
+			`	消息戛然而止。`
+
+
+
+event "nifel waiting"
+
+
+
+overwrite
+mission "Home for Skadenga 2"
+	invisible
+	landing
+	to offer
+		has "Home for Skadenga 1: active"
+	source "Windblain"
+	destination "Nifel"
+	on offer
+		conversation
+			`在<origin>的高空大气层中，你的飞船传感器探测到了奇异的塞斯特克物质痕迹。传感器将该物质精确定位至一片人口稀疏的岛状大陆南缘——沿海小镇赫里斯菲亚尔。`
+			`	你的飞船降落在聚居地外围，你手持追踪器离开，其频率已锁定塞斯特克尔物质。一进入聚居地，踪迹便中断了。赫里斯菲亚尔小村不过是一条杂草丛生的道路上零星分布的数十座木屋。这些房屋本身工艺精湛、设计精巧，但其中许多似乎已被遗弃。村中不见居民踪影，但你注意到几行新鲜的脚印正朝海岸方向延伸，于是循迹而去。`
+			scene "scene/seascape"
+			`	温德布莱恩的浩瀚海洋在粉笔般洁白的悬崖与蓝绿色天幕下汹涌翻腾。当你扫视地平线时，目光被远处峭壁之外一道刺眼的反光攫住。你朝那个方向前进，发现一人静坐于峭壁边缘——一位老人盘腿而坐，凝望着大海，也望着矗立于距岸约一英里外灰浪之上的那座熠熠生辉的金属高墙。`
+			`	老人并未回头，开口说道，声音沙哑："你好，异乡人。你是来表达敬意的吗？"`
+			choice
+				`	"向什么表达敬意？"`
+				`	"Who are you?"`
+					goto who
+			`	"当然是向兰石致敬。"老人指向海中的金属巨塔，"如今已鲜有人至此，更少有人记得、或在意那些古老的传统。但女神兰，却如大海一般既极富耐心，又令人敬畏；正如大海吞噬万物，她亦已将此世界据为己有。"`
+			`	“那么，若非前来瞻仰神明的庄严圣容，你又为何来打扰老朽阿尔德弗里斯呢？”`
+				goto why
+			label who
+			`	“我名阿尔德弗里斯。住在附近的赫里思菲亚尔，但大半生都在海上漂泊，将每一处港口都当作自己的家。”阿尔德弗里斯说话时眼神一时恍惚。`
+			`	“然而那些岁月已然远去。如今，我多半只是静坐、沉思、生活。在浩瀚大洋之上，我曾目睹过……一些无法解释、不可理解之物。因此，我如今便坐在此处，面对宏伟的‘兰石’——神明的庄严圣容，静思那亘古之谜。”`
+			`	“那么，你此番前来，莫非并非为向兰神致以敬意？”`
+			label why
+			choice
+				`	“我在寻找一根雕饰华美的木柱，上面刻满浮雕，它自天而降。”`
+				`	“你在这附近见过什么古老的木制遗物吗？”`
+					goto relics
+			`	阿尔德弗里斯抚了抚自己雪白的胡须，沉吟片刻：“潮水会带来形形色色有趣的浮木。但来自太空的浮木？那不是天方夜谭，就是深不可测的谜团。”`
+			`	他抬头望向你，脸上浮现出一抹困惑又戏谑的笑意：“不，这儿可没有那种东西。不过，如果你对浮木感兴趣，我们倒常用它来造船、建屋。”`
+				goto ran
+			label relics
+			`	“遗物？呵！”阿尔德弗里斯咯咯笑道，“水手们总爱急不可耐地向陌生人吹嘘深海中那些奇珍异宝。”`
+			`	老人顿了顿，挠了挠头：“可惜啊，我实在想不出有什么木制物件能被称作‘遗物’。这里的咸湿海风和更咸的海水，容不得未经处理的木材在此久存——除非是船或房屋，否则你的‘遗物’绝不会在这里。”`
+			label ran
+			`	你将目光转向海中那堵巨大、闪亮的金属墙壁。与尼菲尔的“女神之石”不同，它上面没有高耸的人形雕像，而是呈现出更抽象的形态——螺旋状的分形图案与波浪般的纹路交织。当你凝视它时，内心涌起一股狂野之感；而一旦移开视线，这股感觉便瞬间消散。你转身离去，任由那石碑独自静立于波涛之中，也任由那人守候着他的石碑。`
+			`	你再次在赫里斯菲亚尔启动追踪器，但它又一次无法锁定任何目标。你四周弥漫着微弱而弥散的异质材料痕迹，却找不到任何确切的信号。此刻，你在此地已难有更多发现，于是返回飞船。`
+				accept
+	to complete
+		has "event: nifel waiting"
+		has "Home for Skadenga 3: offered"
+	on complete
+		conversation
+			`当你进入<planet>的大气层时，收到一条消息：赫洛德将在太空港等候你。`
+			`	然而，你尚未来得及步入太空港，便已迎面遇上一位衣着考究的行政官和几名面目平凡的卫兵。`
+			`	“<last>船长，”行政官语气干练地说道，“您受邀出席一场VIP会议室会议，请随我来。”`
+			choice
+				`	"免了。让你的老板给我寄封信之类的，我自会择日过目。"`
+					goto pass
+				`	"不了，谢谢。我其实约好了要见个人。"`
+					goto someone
+				`	守卫抓住你的双臂。“很高兴你如此配合。请将此举视作一项预防措施。”管理员随即转身，你们紧随其后。`
+			`	"当然可以，带路吧。"`
+				goto "fancy pants"
+			label pass
+			`	当你试图绕开管理员时，他的打手一把抓住了你。“尊敬的船长，这并非您有权拒绝的邀请。"`
+				goto "fancy pants"
+			label someone
+			`	“啊，对，别担心。我们已让港口管理局拖住你那位山巫朋友了。等她脱身时，你多半早已办完事了。”管理员向卫兵们点点头，他们随即向你围拢过来。`
+			`	“遗憾的是，这并非一封你可以随意忽略的邀请函。那么，我们这就动身吧，如何？”`
+			label "fancy pants"
+			`	你被带至太空港外一座庞大的科研基地，并被安置在一间高端、纯白、极简风格的会议室中。室内坐着两位衣着考究、气度不凡的男子。“谢谢你，拉尔斯。带卫兵们到外面等候我们。”坐在你对面的男子说道。`
+			`	“遵命，长官。”这位名叫拉尔斯的管理员应声转身，两名打手紧随其后走出门外。`
+			`	方才开口的男子面带友善微笑，毫无讽刺意味地说道：“非常高兴你愿意见我们一面。我们深知像您这样成就卓著的船长日理万机，因此我们定当长话短说。”`
+			`	“我是雅各布·福赛思，尼菲尔行星副总督，同时也是尼菲尔研究解决方案公司首席执行官。坐在我身旁的这位是亨里克·福格尔，‘深域’人口与文化局副署长兼副局长。自你初抵此地、卷入那些可悲、落后、住在山丘上的女巫事件起，我们便一直在监视你。”雅各布端起桌上一只精致玻璃杯，浅啜一口。`
+			choice
+				`	“既然你们一直在监视我，那是否意味着你们早已知晓冰行者事故，却袖手旁观？”`
+			`	“我当然知道。”雅各布答道，“知悉一切本就是我的职责所在。如今仍居住在这颗星球上的，只有我公司的雇员，以及那些山丘女巫。”他举起双手，做出安抚的姿态，又补充道：“对于未能将你从雪崩中营救出来，我确实深表歉意。我们已不再为救援任务配置任何资源；包括紧急服务在内的各项职能，如今仅能勉强维持运转。事实上，整个星球上的运营项目正逐步关停——这里已无利可图。正因如此，五十年内，这颗星球将彻底无人居住。”`
+			choice
+				`	“你们竟要抛弃一整颗行星？”`
+			`	他身体前倾，脸上浮现出狡黠的神情。“仔细想想：为何要在一片白雪皑皑的荒原上，雇佣三十万遍布全球的员工，徒劳地寻找新型药物？数代以来，此地从未有过任何盈利性发现。这纯粹是个无底洞。你驾驶飞船、经营生意，应该明白这个道理。”`
+			`	“不过，眼下有个小麻烦。”雅各布向后靠去，“一根扎在我们侧腹的刺——自六百多年前我们的研究所首次殖民这颗行星起，它就一直存在。那些疯癫的山野女巫。诚然，早期她们曾作为向导之类角色发挥过作用。但如今，她们已成为文化上的死胡同，是我们企业化世界的返祖式污点。你知道吗，”他眼中闪过一丝戏谑，“她们居然坚信自己是在地球石器时代被魔法太空仙子带来的。”`
+			`	“好了，好了。”亨里克终于插话道，“我们在‘深域’始终珍视所有居民及其文化。我们绝非来贬低本国公民——无论他们多么与众不同。”`
+			choice
+				`	“可她们正要离开，那问题又出在哪儿？”`
+					goto leaving
+				`	“精灵传说在深域不是早已司空见惯了吗？斯卡登加人究竟和你们其他人有何不同？”`
+			`	亨里克向后靠去。“嗯，你这话倒也不算错。事实上，已有学者研究过：斯卡登加人究竟是深域民众传统意义上的真实缩影，还是我们昔日形态的一种极端分支。简而言之，我相信是后者，而绝大多数当代深域历史学家也会赞同我的观点。”`
+			`	"真正让他们与众不同的，是这一点：我们广为流传的民间传说，就像你小时候听过的‘怪物’故事一样。而斯卡登加人却不止于讲述这些故事——他们甚至以这些故事为基础建立了一整套宗教。如果你曾与他们交谈过，想必能感受到，这种信仰体系非常类似于古代的多神教。当然，他们有权信奉任何宗教，但我们对其多神教传统所附带的某些常见含义深感忧虑。目前我们尚无法证实存在极端行为，但他们的宗教确实令我们心生疑虑。倘若他们继续在深域内部保持文化孤立，其宗教发展可能会走向更……危险的方向。我就说到这里。"`
+				goto resettle
+			label leaving
+			`	亨里克清了清嗓子："离开？没错，可要前往何处？这些可怜的人极度需要我们的援助，需要我们的公共服务。他们原始而迷信的生活方式，既令深域蒙羞，也构成一场亟待解决的人道主义危机。"`
+			label resettle
+			`	"深域绝不会强行迁移任何人口。但借助你的协助，我们有机会引导他们前往一个能获得切实帮助的地方。我们知道你近期曾造访风之平原（Windblain）与阿斯加德（Asgard）。将他们送往风之平原——一颗几乎无人居住、毫无实用公共服务的世界——将是重大失误；这些可怜的流民必将消失在未知的荒野之中。而阿斯加德则拥有健全的公共服务体系与完善的社会保障网，正适合帮助他们逐步适应我们的现代文明。"`
+			`	"这正是我请行星副总督召开此次会议的原因。深域需要你去说服这些可怜、落后的民众，让他们自愿迁居至阿斯加德。"亨里克耸了耸肩，"说不定你早已认定阿斯加德才是最佳选择——果真如此，那我们其实并未要求你做任何你原本不打算做的事。此外，我们将提供运输支持，全力协助此次迁移。作为对你在这起敏感事务中鼎力相助的酬谢，待他们抵达阿斯加德后，我们将向你的账户划拨85万积分。说到底，这是一场共赢。"`
+			choice
+				`	"可是斯卡登加人——"`
+				`	“我觉得——”`
+				`	“这真是个好消息——”`
+			`	雅各布在你还没说完之前就打断了你：“现在听好了，你先好好考虑一下。我们并不急着要你立刻答复。我们只需要你把那些人护送到阿斯加德。只要你做到这一点，瓦尔哈拉的运输联盟就会为你提供所需的飞船。如果你拒绝，那对所有人来说事情恐怕都会变得棘手得多。另外别忘了，我们会用真正的积分支付报酬——可不是什么魅力手链。”`
+			`	“拉尔斯！”雅各布喊道，管理员与他的两名卫兵随即应声进入房间。“带<last>船长回他们的飞船。本次会面到此结束。”`
+			`	“遵命，长官。”拉尔斯答道。`
+			`	守卫们一把抓住你，将你“护送”出场所。趁着这番干扰已解除，是时候前往太空港与赫约德会面了。`
+
+
+
+overwrite
+mission "Home for Skadenga 3"
+	invisible
+	landing
+	to offer
+		has "Home for Skadenga 1: active"
+	source "Asgard"
+	destination "Nifel"
+	on offer
+		conversation
+			scene "scene/busystreet"
+			`在阿斯加德拥挤的高空大气层中，极难探测到与异域材料塞特斯特克完全匹配的读数。不过，你在赫尔辛格市中心区域倒确实收到了一个来自相关材料的异常信号。`
+			`	你的飞船降落在一座服务于赫尔辛格的区域性太空港，而你手中的追踪器则指引你前往城市中心——那里矗立着一座庞大蜿蜒的购物中心。追踪器继续引导你进入商场内部。`
+			`	一进入商场，你便立刻注意到一座巨大的金属结构在眼前闪耀，整座商场正是围绕它盘旋建造而成。你能辨认出结构表面刻有奇异图案与外星文字。原来这座购物中心竟是围绕阿斯加德的‘神石’而建，而这块神石如今竟被用作商场内无数店铺的异域风格装饰墙。`
+			choice
+				`	（跟随追踪器。）`
+			`	你一时忘却了“神石”，转而专注追踪信号。它将你引向顶层一家主题餐厅，名为“冒险家应得之物”。餐厅内陈列着诸多异域文物，据称取自已知与未知宇宙的各个角落。`
+			`	你的追踪器锁定了其中一个展柜。柜中是一只刻有符文的匣子，其纹样与斯卡登加人所用的图案颇为相似。展柜上方的铭牌写着：`
+			``
+			`	‘此匣曾盛放瑞格尔瘟疫的解药，原属著名探险家、冒险家兼研究员亨利·福赛思博士。由福赛思学术诚信基金会捐赠。’`
+			``
+			`	你颇感失望，于是返回商场低层，在“神石”基座旁一处小型室内公园长椅上坐下。片刻之后，一位身着剪裁合体裤装的女士朝你走来。`
+			choice
+				`	（你含糊地打了个招呼：“你好。”）`
+				`	（咧嘴一笑，说：“嘿！”）`
+				`	(Ignore her.)`
+			`	“您好！”她朝你露出职业化的微笑，“这地方真美，对吧？不只是这座购物中心，整个赫尔辛格镇本身就很美。”`
+			`	她在你身旁坐下。“你可能还没意识到，但这里的住宅价格眼下简直低得惊人。如果你正打算找个新住处，现在就是最佳时机。”她压低声音，“不过你得抓紧行动——赫尔辛格的秘密很快就要传开了，一旦曝光，这里的房价必将一飞冲天！”`
+			`	“镇子边缘刚竣工了三座超大型预制住宅区。如果你有兴趣，我今天就能帮你约个看房时间。”她递给你一张名片，“我叫卡拉·冯·豪森，很荣幸担任你的房产经纪人。”她露出一个锐利而训练有素的微笑，却并未真正抵达眼底。`
+			choice
+				`	“走开，女士。”`
+				`	“谢谢，不过我只是路过而已。”`
+					goto stars
+				`	“我的家，在群星之间。”`
+					goto stars
+			`	卡拉脸上的笑容微微一滞，闪过一丝不悦，随即又恢复了职业化的微笑。“信我没错——何必租房，不如直接拥有？与其把一大家子搬去一颗荒芜、餐馆选择又少的星球，何不搬来这里？”`
+			`	她站起身，抚平西装外套。“等你改变主意时，我还会在这里。”话音未落，她已转身离去，而你终于可以重新将注意力转向那块‘神石’。”`
+				goto "elf stone"
+			label stars
+			`	卡拉报以一个居高临下的微笑。“啊，亲爱的，你或许常年在太空中工作，但终归需要一颗能称之为‘家’的星球。”`
+			`	她站起身，整理了一下西装外套。“等你准备好迈出房产投资这关键一步时，你知道去哪儿找我。”卡拉朝你眨了眨眼，随即汇入熙熙攘攘的购物人群之中。你独自一人，重新将目光投向‘神石’。`
+			label "elf stone"
+			`	此刻暴露在外的‘神石’部分黯淡无光、毫无光泽。你试图寻找某种规律，却因可见墙面面积过小而一无所获。整面墙被分隔成若干区域，每家商店和餐厅各自占据其中一块。你凝视着它，却感受不到任何异样，只有一片空洞。不过，你注意到一处未被遮挡的大片墙面旁立着一块铭牌。`
+			choice
+				`	（阅读铭牌。）`
+				`	(Return to my ship.)`
+					goto ship
+			`	The plaque labels the God-Stone as "Colonial Graffiti" and reads:`
+			``
+			`	23世纪‘深域’殖民时期，最早一批殖民者竖立起巨大的金属板，并在上面刻写形似字母的符号。据信，此举旨在提升其早期殖民世界的声望——他们宣称这些石板是威力强大的外星遗物，或坚称它们由更早抵达此地的人类所造；而那些先民之所以能来到此地，则归功于仙子的庇佑与干预。`
+			`	无论出于牟利目的，还是怀揣着对故土的眷恋，许多当地社群都曾热衷宣扬这些关于建筑起源的说法。科学家已确认，这些建筑实为最初殖民飞船金属船体的大块残骸。迄今为止，人们仍难以准确判定其制造所用的合金成分。`
+			`	深空（Deep）中绝大多数世界都留存有“殖民涂鸦”，它们是我们富有开拓精神的殖民历史引以为傲的见证。在更早的文献及早期社群中，它们有时也被称为‘神石’与‘精灵石’。`
+			``
+			`	赫尔辛格家族欢乐购物中心始终致力于弘扬我们的历史传统！正因涂鸦是当下文化的标志性符号，我们秉持这一精神，将这座殖民时代遗迹翻新改造为一座核心公共艺术装置，并使其成为我们充满活力的社区中不可或缺的一部分！`
+			``
+			`	你读完铭牌，抬头望向那面黯淡的灰色金属墙壁，以及墙上刻着的那些非人的图案——它看起来与任何飞船船体毫无相似之处。`
+			label ship
+			`	These people seem disconnected from their past. You wonder if the Skadenga could help them reconnect with it, but worry that the place would change the Skadenga more than they could change it. There is nothing more you can do here. You head back to your ship.`
+				accept
+	to complete
+		has "Home for Skadenga 2: offered"
+
+
+
+overwrite
+mission "Home for Skadenga 4"
+	name "Transport for Skadenga"
+	description "前往<destination>，确保斯卡登加人的运输安全。"
+	to offer
+		has "Home for Skadenga 2: done"
+		has "event: nifel waiting"
+	source "Nifel"
+	destination "Valhalla"
+	on offer
+		conversation
+			`你抵达这座几乎空无一人的太空港时，并未见到赫尔洛德的踪影。你在周围闲逛了几分钟，才看见她沿着走廊朝你走来。“抱歉来晚了，你简直无法相信他们给我填了多少文书工作。我想他们对‘冰行者号’可不太满意。”`
+			choice
+				`	“没关系，我不介意等一会儿。”`
+					goto waiting
+				`	“我被行星副总督大人绑架了。”`
+			`	“这倒不奇怪，”赫尔洛德漫不经心地说道，“他们总爱干这种事，对我们而言无关紧要。”`
+			`	你问她是否担心你已被策反——是否正损害斯卡登加人的根本利益。赫尔洛德摇摇头：“不会。未来早已注定。该发生的，终将发生。你受命告知我们前往何处，我们便依你所指而行。其余一切，不过是噪音罢了。”`
+			label waiting
+			`	“好了，”赫约德说道，“跟我说说塞特斯特克。你找到它了吗？”`
+			choice
+				`	“我没找到确凿的证据。”`
+					goto nothing
+				`	“我觉得我在温德布莱恩上发现了它的蛛丝马迹。”`
+					goto nothing
+				`	“我在阿斯加德发现了一个与塞特斯特克相似的奇怪盒子。”`
+			`	“听起来像是草药师用的盒子。翁杜尔迪斯在我出生前很久就有一个，后来把它给了那个骗子。不过这并不重要，它可不是塞特斯特克。”`
+			label nothing
+			`	“把一大块木头送进太空，恐怕不是翁杜尔迪斯最明智的主意。”赫洛德咧嘴一笑，“不过，你最终找到什么倒没那么重要，关键是你有何感受。你已亲眼见过那些世界。接下来，我们该去往何方？”`
+			choice
+				`	“风之平原。”`
+				`	“阿斯加德。”`
+					goto asgard
+			action
+				set "Nifel"
+			`	你答道：“海边有一座名叫赫里思菲亚尔的几乎被遗弃的村庄，紧邻一座神石。那个地方给我的感觉很对——我相信斯卡登加人就该迁往那里。”`
+			`	赫尔约德点点头：“赫里思菲亚尔听起来是个好地方。我会告诉翁杜尔迪斯。”`
+				goto end
+			label asgard
+			action
+				set "Asgard"
+			`	你答道：“在阿斯加德，那里建有一座围绕‘神石’兴起的大型市场，还有许多新家园亟待居民入住。当地民众已迷失方向，需要斯卡登加之人提醒他们自己曾是谁。”`
+			`	赫约洛德点点头：“斯卡登加之人历来是向导，是探路者。我会将此事告知翁杜尔迪斯。”`
+			label end
+			`	“你离开期间，部族议事大会召开了。翁杜尔迪斯已从尼弗尔各地所有村落召回全部斯卡登加之人。你必须为两千两百名族人安排运输。这便是翁杜尔迪斯嘱我转告你的任务。”`
+			`	你皱起眉头，问道：“她可提供了资金？”`
+			`	赫约洛德摇摇头：“没有。我们负担不起。你必须前往瓦尔哈拉，说服运输工会主席支持我们。”她轻拍你的肩膀，“感谢你的帮助，感谢你为我们寻得新家园。我们迫切需要它。我现在必须向翁杜尔迪斯复命了。愿斯卡德与你同在。”说完她转身离去。”`
+				accept
+	on complete
+		conversation
+			`飞船外，一位运输联盟代表迎上前来：“我们一直在等候您，<last>船长。”他们护送您乘电梯登上瓦尔哈拉首都希敏博格最高建筑的顶层公寓。`
+			scene "scene/tower"
+			`	三位穿着时髦的年轻人面带微笑迎接您的到来。“啊，<last>船长，终于见到您，真是荣幸！我是凯登，这两位是我的同事布莱登和格雷登。我们都是运输联盟的高管。显然，我们早已得知您将到访，也热切期待与您及您的……客户建立长期而互利的合作关系。”`
+			`	“我们听说，您有一个鼓舞人心的构想——将整个偏远星球上的社区整体迁移到另一颗星球上。”凯登说道。`
+			`	“确实令人振奋！”布莱登附和道。`
+			`	“太振奋人心了！”格雷登一边说着，一边做了个意味不明的手势——那动作您似乎曾在某位名人身上见过。`
+			`	“在运输联盟，我们常说‘运输的核心在于人’。正因如此，我们深感荣幸，也倍感振奋，愿全力支持您这场美好而鼓舞人心的人道主义远征。”凯登说完，布雷登和格雷登都热情地鼓起掌来。`
+			`	凯登等掌声平息后，带着了然的微笑继续说道：“那么，请告诉我们这些为人民服务的 humble 仆从：这些可怜的灵魂该送往何处？”`
+			branch asgard
+				has "Asgard"
+			choice
+				`	“这是个极好的消息！斯卡登加号需要被运往温德布莱恩。”`
+				`	“他们必须前往温德布莱恩。”`
+			`	房间里顿时一片寂静，布雷登与格雷登都面带困惑，望向凯登。`
+			`	“风布拉因。布莱恩。”凯登缓缓说道，“——风——布——拉——因。你确定这些普通人想去的真是这颗星球？是不是搞混了运单？或者把名字写错了？”布雷登和格雷登都默默点头。`
+			choice
+				`	“风布拉因。没错，我确定。”`
+				`	“我口齿不清吗？”`
+			`	“那情况就不同了。”凯登转向格雷登，“那里真有激励政策吗？”`
+			`	格雷登正忙着用平板扫描资料。“没有再城市化补贴，没有大学进修资助，甚至连住房开发使用奖励都没有。整个项目大概仍能作为税务抵扣项，但人口普查与文化局肯定不高兴。而且，显然，他们也不会支付任何发现者酬金。”`
+			`	凯登随即望向布雷登，后者摇了摇头。“为迁往……风崖星的人们做公共关系？风崖星上根本没几个有头有脸的人物，其他人也压根不在乎那些人。”`
+			`	“是的，很抱歉，但这对我们来说行不通。”凯登露出一副为难的表情，“眼下我们并不愿承接此类项目。”三人几乎同时起身。“今后请别再浪费我们的时间了。”凯登边说边与另外两人一同离开了房间。”`
+			`	你的护卫再度现身。“我奉命通知你：在深空区域，没有任何人能承担起你所要求规模的人口迁移任务。等你准备务实一点时，随时联系我们，我们将非常乐意提供协助。现在，请跟我离开这栋大楼。”你乘着长长的电梯降至大厅，随后被带至出口。当你走出大楼时，又一名员工尾随而出。他经过你身旁时，低声说道：“到太空港找我。”`
+				decline
+			label asgard
+			choice
+				`	“这真是个好消息！斯卡登加人需要前往阿斯加德的运输服务。”`
+				`	“他们必须前往阿斯加德。”`
+			`	凯登笑容满面：“太棒了，简直太棒了！我刚才还在跟这里的同事们说，阿斯加德对这个部落而言简直是绝佳的安置地。宣传效应会非常巨大——各所大学很可能争相开展各类研究项目，政府也会在那儿推出形形色色的扶持计划与倡议行动，帮助他们接纳正统的‘深境’文化，最终成长为像我们一样的、富有生产力的公民。”`
+			`	格雷登、布雷登和凯登纷纷握手致意，彼此祝贺有幸参与如此鼓舞人心的伟大事业。庆祝结束后，凯登转而面向你说道：“我们的运输舰队已听候您的调遣，目前正于阿维奥尔星系的马尼卫星上进行改装升级。”`
+			`	三人齐刷刷站起身来。格雷登与布雷登先行离去，凯登在门口稍作停顿，转身向你说道：‘今天承蒙您拨冗莅临，为我们提供了这样一次真正回馈周边弱势社群的宝贵机会，我们深感荣幸。’话音未落，三人已尽数离开，你的护卫随即返回，引领你离开现场。”`
+				decline
+
+
+
+overwrite
+mission "Home for Skadenga 5"
+	landing
+	name "Transport for Skadenga"
+	description "前往<destination>，为运输联盟舰队做准备。"
+	to offer
+		has "Asgard"
+	source "Valhalla"
+	destination "Mani"
+	on complete
+		event "mani refit" 21
+		conversation
+			scene "scene/citydark"
+			`马尼是一颗寂静而荒凉的卫星，仅有零星几处人类活动据点。深境安全部队、运输联盟及其他半官方舰队均在此接受维护与补给。`
+			`	你着陆后，一名运输联盟高管迎上前来：“船长<last>，飞船还需一段时间才能准备就绪。我们正在为它们加装‘原始文明防护系统’，以防来自尼菲尔的那些冰原野蛮人一不小心把自己弄死。等飞船整备完毕，我会立刻发消息通知您——预计耗时约三周。”他一边解释，一边快速浏览着平板电脑上显示的时间进度表。`
+			`	“等那些飞船满载干草、粪便及其他低技术垃圾返航时，我们得花上几周时间才能让它们恢复到可用状态。”他低声咕哝着，随即转身离去。`
+
+
+
+event "mani refit"
+
+
+
+overwrite
+mission "Mani Refit"
+	landing
+	name "Mani Refitted"
+	to offer
+		has "event: mani refit"
+	description "返回<destination>，与运输联盟舰队会合。"
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		not planet "Mani"
+	destination "Mani"
+	on offer
+		conversation
+			`你的收件箱闪烁着一条来自运输联盟的新消息：`
+			``
+			`	舰队已整装待发，即将踏上鼓舞人心的征程。请即刻返回马尼。`
+			`				杰登，马尼行政长官，运输联盟`
+				accept
+
+
+
+overwrite
+mission "Home for Skadenga 6"
+	landing
+	name "Transport the Skadenga"
+	description `护送一支经改装、专用于运输斯卡登加的货船舰队前往<destination>。`
+	source "Mani"
+	destination "Nifel"
+	to offer
+		has "Mani Refit: done"
+	on offer
+		conversation
+			`你抵达太空港，看到一名联盟执行官正在监督其舰队的最后整备工作。片刻之后，最后一批船员离开他身边，登上了各自的飞船。他朝你走来："舰队已准备就绪，随时可以出发。你的任务是护送他们前往尼弗尔，在那里尽可能多地接载人员，再将他们送往阿斯加德。舰队随后可自行返回尼弗尔，并从那里继续执行其余的移民运输任务。但请务必确保所有飞船安然无恙。"`
+			choice
+				`	"咱们赶紧把这事办完吧。"`
+				`	"别担心，你的飞船交到可靠的人手上了。"`
+				`	"是时候把斯卡登加人送回家了。"`
+			`	飞船开始升空，你脚下的地面随之震颤。`
+				launch
+	npc accompany save
+		government "Deep Security"
+		personality timid escort
+		ship "Bactrian" "D.T.U. Endeavor"
+		ship "Bulk Freighter" "D.T.U. Consistency"
+		ship "Bulk Freighter" "D.T.U. Dependable"
+		ship "Freighter" "D.T.U. Empathy"
+	on visit
+		dialog
+			`你已抵达<planet>，但运输联盟的飞船尚未全部到达。你应该起飞并等待它们追上你。`
+
+
+
+overwrite
+mission "Home for Skadenga 7"
+	landing
+	name "Transport the Skadenga"
+	description `Escort a fleet of freighters, refitted for carrying the Skadenga, to <destination>.`
+	source "Nifel"
+	destination "Asgard"
+	to offer
+		has "Home for Skadenga 6: done"
+	on offer
+		conversation
+			`舰队降落在乌丹萨克尔村外——这个村庄早已人满为患。四周 landscape 上聚集着大批斯卡登加人。`
+			`	翁杜迪斯号向你靠近。“离去虽难，但寒冬终将结束。”当她的族人登上飞船时，她补充道：“我将率先启程前往阿斯加德，但我必须重返族人之中。感谢你所做的一切，我们定将在新家园再度相逢。”`
+				accept
+	npc accompany save
+		government "Deep Security"
+		personality timid escort
+		ship "Bactrian" "D.T.U. Endeavor"
+		ship "Bulk Freighter" "D.T.U. Consistency"
+		ship "Bulk Freighter" "D.T.U. Dependable"
+		ship "Freighter" "D.T.U. Empathy"
+	on visit
+		dialog
+			`You have reached <planet>, but not all the Transport Union ships have arrived yet. You should take off and wait for them to catch up with you.`
+	on complete
+		payment 850000
+		event "skadenga death" 367
+		conversation
+			`为迎接首批斯卡登加移民的到来，赫尔辛格已化身为一场疯狂的马戏盛宴：即兴乐队四处演奏，毫无预兆的游行随机穿行，兴奋的邻里们高举欢迎标语，热烈迎接斯卡登加人迈入三十一世纪。此外，各类应急与民政人员也悉数到场——消防员、警察、医生、社会工作者纷纷登场，对茫然无措的新移民展开身份查验、健康检测、问询调查与各项评估。就在一片喧嚣混乱之中，翁杜迪斯找到了你，并告知她希望亲眼看看‘神石’。`
+			scene "scene/buildings"
+			`	你们一同前往商场，你向她解释这座建筑是如何围绕神石而建，并将其用作商场内各高档场所的装饰性背景墙。`
+			`	见到这一幕，这位年迈而心力交瘁的妇人双膝跪地，泪如雨下。“这些人迷失了，”她说，“我们……也迷失了。”`
+			`	翁杜迪斯用满是泪水的脸望着你，说道：“你是斯凯德的工具。我看见了。可为什么？为何如此？为何偏偏是我们？”`
+			`	此后，她再不肯对你多说一句。她仰起头望向天空，开始狂乱地吟诵。几名已抵达此处的斯卡登加人加入其中。各大新闻媒体蜂拥而至，争相记录翁杜迪斯精神崩溃的现场。`
+			`	你缓缓后退，却不慎撞到了一个人。转身一看，房产中介卡拉·冯·豪森正朝你微笑：“干得漂亮，<last>船长！我已获授权通知您：我的上级已按先前约定，向您的账户汇入85万积分。”`
+			choice
+				`	“你的上级！？”`
+			`	卡拉咧嘴一笑：“人口与文化局。我是他们的外勤特工之一。他们对你此次任务的处理方式非常满意。协助斯卡登加人重新融入我们的文化，对文化局和斯卡登加人双方而言都是一次重大胜利。”`
+			`	“总之，我只想把这消息转达给你。多亏了你，我接下来可有的忙了。”她眨了眨眼，随即消失在人群之中。`
+			`	你回到自己的飞船上清点酬金，同时听见运输工会的飞船启动引擎，准备接载另一批斯卡登加人。`
+
+
+
+event "skadenga death"
+
+
+
+overwrite
+mission "Skadenga Call 1"
+	landing
+	name "Check on Hjlod"
+	description `前往<destination>，看看赫洛德和斯卡登加人还需要你提供什么帮助。着陆时请确保飞船内有52个空余铺位。`
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		not planet "Asgard"
+	destination "Asgard"
+	to offer
+		has "event: skadenga death"
+	on offer
+		dialog
+			`你的收件箱中有一条新消息，发件人是赫洛德——那位你曾协助迁移到<planet>的斯卡登加人。`
+			`	"<first>，我们需要你的帮助。请前往<planet>，并为52人预留舱位。"`
+
+
+
+overwrite
+mission "Skadenga Call 2"
+	landing
+	name "Return the Skadenga"
+	description "将斯卡登加难民送回<destination>。"
+	source "Asgard"
+	destination "Nifel"
+	blocked `你想起赫尔约德曾要求你为此任务预留52个铺位。待舱位充足后，请返回。`
+	passengers 48
+	to offer
+		has "Skadenga Call 1: done"
+	on offer
+		conversation
+			`阿斯加德太空港嗡嗡作响，充斥着上千种难以辨识的交谈声。这里人潮汹涌，生机勃勃却令人窒息。你在人群中徘徊数小时，只为寻得赫尔约德的身影。精疲力竭之际，你几乎准备放弃，却突然感到一只强有力的手抓住了你的手臂。你转身望去，一张熟悉的、布满纹身的脸庞映入眼帘——她双眼黯淡无光，头发稀疏凌乱，脸上刻满忧愁与疲惫。`
+			`	"别说废话。"赫尔约德一边说着，一边带你走向太空港一处标有“关闭中——施工进行”的区域。她拉着你快步前行。短短一年间，她竟变化如此之大，令你倍感陌生——你上次将她带到这里，不过是去年的事。`
+			`	她领你穿过一道道本为阻拦顺从民众而设的隔离屏障。最终，她将你带入一条长长的走廊——那里散落着生活的残迹：空食物容器、脏污的毛毯，还有其他更不堪入目的杂物。此外，还有人蜷缩于此：衣衫肮脏、挤作一团、神情凄惨。`
+			`	赫尔洛德转过身面向你。“在这里说话是安全的。但既然必须谈，那我们就只能在此处谈。”`
+			choice
+				`	"What do you want from me?"`
+				`	“这些人是谁？”`
+					goto who
+			`	赫尔洛德怒视着你。“从你那里？一切！因为那正是你从我们手中夺走的东西。”`
+			`	“我不知道你为何这么做，为何把我们带到此处。是斯凯德真的辜负了我们，还是你无视了她的警告？”她低吼道，“但这已不重要。唯一重要的是我们必须离开——而这正是我们需要你的原因。”`
+				goto here
+			label who
+			`	赫尔洛德大笑起来，泪水顺着脸颊滑落。“你难道认不出我们了吗？你们伟大的救世主？我们就是斯卡登加人，而这一切，都是你亲手造就的。”`
+			`	她将目光从你身上移开，继续说道：“其余的人并未死去，不。但他们已离我们而去。大多数人过得很快乐——有饭吃便快乐，有娱乐便快乐，能忘却自己是谁便快乐；他们名义上仍是斯卡登加人，实际上却早已不是。但留在此地的我们，无法接受这一切。我们拒绝变成他们。”`
+			`	“我们现在躲藏起来——躲开社工、躲开服务提供者、躲开政府。他们仍能找到我们，知道我们就在这里；但他们不知道的是，我们还能离开。而你，可以带我们离开这里。”`
+			label here
+			`	赫洛德深深吸了一口气，努力让自己平静下来。“我向你发出呼叫，是因为你是我们唯一的希望。他们不会允许我们离开，不会允许我们存在，更会窃取我们的灵魂。”她颤抖着手指向你，“带我们回尼菲尔去。所有尚存的斯卡登加人，全都带回去。我们明白，严寒终将吞噬我们。但宁可在垂死的世界中作为斯卡登加人活着，也绝不愿在此地沦为一无所有之人。”`
+			choice
+				`	"I will help you."`
+					goto help
+				`	“我需要考虑一下。”`
+			`	赫洛德皱起眉头。“一旦他们察觉你已抵达此处，便会立刻来拘捕我们。请一小时后回来。若超过这个时限，我们便已不复存在。”当你走出那条幽暗肮脏的隧道时，她颓然瘫坐在地——在隧道深处，仅存的斯卡登加人正紧紧攥住那转瞬即逝的身份认同。`
+			`	此刻你孤身一人，必须做出抉择：你可以返回去帮助他们逃离这颗星球；或者找到人口与文化局的卧底特工克拉拉·冯·豪森，向她汇报当前事态。她很可能会为这些情报付给你一笔丰厚的报酬。`
+			choice
+				`	（返回赫洛德，协助斯卡登加人撤离。）`
+					goto Hjlod
+				`	（寻找克拉拉。）`
+			`	你将赫洛德及其那群顽固野蛮人的队伍抛在身后，重返喧嚣繁忙的太空港核心区域。作为一位所谓房地产经纪人的克拉拉，其联络方式很容易查到；几分钟后，你便成功接通了她的通讯。“<last>船长，再次听到您的声音真是荣幸！不知有什么可以为您效劳？”她以令人信服的欢快语调说道。`
+			`	你向她讲述了藏匿在太空港内的斯卡登加人，以及他们计划逃往尼弗尔的行动。`
+			`	“哎呀！”卡拉说道，“太可怕了！那些可怜、愚蠢又天真的人，肯定会在那片可怕的冰封世界饱受折磨。他们真是大错特错。我们清楚，确实有些人难以融入。这的确令人痛心，但接下来的事就由我们来处理。希望最终能说服他们完成整合——这真的对所有人都最好。真希望他们的前任领袖能在去世前明白这一点，那样对大家都会轻松许多。”`
+			`	“一如既往，我们衷心感谢您宝贵的支持与贡献。我这就批准一笔丰厚的积分，转入您的账户。不过我还需要走些审批流程，款项大概需要两三天才能到账。谢谢您，再见啦！”`
+				decline
+			label Hjlod
+			`	你回到赫洛德身边。她对你居然去而复返颇感惊讶，并得知你决定帮助他们。`
+			label help
+			`	听到这话，大厅里那些萎靡不振、垂头丧气的掘进者们顿时振奋起来，纷纷从麻木中起身。一些人匆忙收拾物品，另一些人则飞快冲向太空港深处那些黑暗而久未启用的区域。`
+			`	“我们眼下有52人急需离开这颗星球。”赫洛德略作迟疑，接着补充道：“我们知道您很看重报酬。我们已把全部积蓄凑在了一起，愿付给您<payment>作为本次任务的酬劳。”她一把抓起一只破旧的帆布包，一群人立刻围拢到她身旁。“其余人会直接前往您的飞船汇合。我们即刻出发。”`
+			choice
+				`	（跟随赫尔洛德。）`
+			`	回到运作中的太空港后，你和你的队伍迅速行动，途中不时引来好奇旁观者的目光。当你们抵达飞船时，一群衣衫凌乱的斯卡尔登加人正等候着你们。“所有人立刻上船！”赫尔洛德朝她的族人厉声下令。`
+			`	几分钟后，全员均已登船。“阿斯迪斯，清点人数！”赫尔洛德下令道。就在你等待之际，又有两名肮脏而憔悴的斯卡尔登加人赶到。阿斯迪斯将他们加入统计，随后向赫尔洛德报告：“翁杜尔迪斯，共计四十八人。”`
+			`	赫尔洛德皱起眉头：“是阿尔恩松一家吧？我早告诉过他，他离得太远了。”`
+			`	不远处几处终端突然骚动起来，你看见几名文职人员和当地警察正朝这边赶来。阿斯迪斯也在注视着那边。“他们可能还会追来。”`
+			`	“对他们来说，已经太迟了。”赫洛德关上了舱门。“<first>，如果我们曾经是朋友的话——立刻起飞！”`
+			choice
+				`	（起飞。）`
+					goto takeoff
+				`	（关闭飞船动力并打开舱门。）`
+			`	你关闭了飞船引擎，在赫洛德反应过来之前猛地掀开舱门，纵身跃出。卡拉·冯·豪森、至少两名文职人员以及一队警察数秒内便赶到现场。卡拉朝你露出一丝紧绷的微笑：“最后还是决定做正确的事？我们很感激。”`
+			`	警察登上你的飞船，开始制服并押走船上的斯卡登加人。`
+			`	“一如既往，我们十分感谢您的帮助，也珍视双方持续的合作关系。您的援助酬金将在未来几天内发放——待我完成审批流程后即刻支付。”卡拉退后一步，打量着斯卡登加人，其中大多数神情阴郁、沉默寡言；唯有一人却在尖叫、踢踹、撕咬。`
+			`	那名失控的斯卡登加人被拖拽着从你身旁经过，唾沫溅到了你的脸颊上。“我要杀了你，<first>！若再相见，我必杀你！你已将我杀死……你已将我杀死！”赫约德涨红而泪痕斑驳的脸庞渐行渐远，几名军官正强行将她拖走。`
+			`	“一个误入歧途的女孩啊……”卡拉黯然叹息，“后续交给我们处理即可。祝您今天愉快，<last>船长。”`
+				decline
+			label takeoff
+			`	你猛推油门，飞船引擎轰鸣，朝着星辰全速进发。推进力启动时，赫约德明显放松下来，她疲惫地闭上双眼，瘫软在地板上，只喃喃道：“感谢斯卡德。”`
+				launch
+	on complete
+		payment 12481
+		event "the book" 200
+		event "nifel hjlod" 2700
+		conversation
+			scene "scene/snowvillage"
+			`你的飞船降落在废弃村落乌丹斯卡尔之外。乘客们无声地下船，缓缓步入这片他们曾熟悉、却以为永难再见的世界。村落虽遭遗弃，却保存完好；看来，这里的人们将不难重拾往昔生活。`
+			`	希尔洛德在你的飞船旁稍作停留。“积分已存入你飞船控制台的硬盘中。希望这能让你开心。”`
+			`	“我不知道你为何派我们去那个地方。但能回家，我已心满意足。所以走吧，或许有朝一日，我再见到你时便不再心生憎恶。”`
+
+
+
+event "nifel hjlod"
+
+
+
+event "the book"
+
+
+
+overwrite
+mission "Skadenga Call 3"
+	landing
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	to offer
+		has "Skadenga Call 2: declined"
+	on offer
+		payment 300000
+		event "asgard hjlod" 2000
+		conversation
+			`你收到银行发来的一条消息：来自深域人口与文化局的{0}已存入你的账户。随信附有一份备忘录：`
+			`	“嘉奖你为深域的理想与繁荣所做出的英勇而无私的贡献。”`
+				decline
+
+
+
+event "asgard hjlod"
+
+
+
+overwrite
+mission "Skadenga Call 4"
+	landing
+	source "Nifel"
+	to offer
+		has "event: nifel hjlod"
+	on offer
+		event "hjlod waits again" 360
+		conversation
+			`一位熟悉的女子正等在你的飞船外。尽管距你们上次相见已逾七年，你仍一眼认出了希尔洛德。她的眼眸比分别之时更加明亮，脸上挂着你记忆中那抹歪斜的微笑。“{0}，我看见你的飞船降落，就想过来打声招呼。”`
+			`	你问她近况如何，她告诉你斯卡登加这个小型社区已在此重建家园，并蓬勃发展起来；甚至还有少量移民迁入他们这座袖珍小镇。有关他们从阿斯加德仓皇逃亡的消息早已传开。`
+			`	她告诉你，她已原谅你过往的所作所为，并希望你在群星之间终能寻得自己追寻之物。临别前，她甚至给了你一个拥抱。`
+				decline
+
+
+
+event "hjlod waits again"
+
+
+
+overwrite
+mission "Skadenga Call 5"
+	landing
+	to offer
+		has "event: asgard hjlod"
+	on offer
+		payment 27
+		conversation
+			`你收到一条来自深域人口与文化局的消息：深域公民赫尔洛德已去世，死因疑似与严重药物滥用有关。该局认定你为其最亲近的亲属，并已将她的全部遗产——<payment>——转交予你。`
+				decline
+
+
+overwrite
+mission "Home for Skadenga 8"
+	name "<planet> Mystery Man"
+	description "前往<destination>，在太空港与赫罗尔会合。"
+	to offer
+		has "Nifel"
+	source "Valhalla"
+	destination "Muspel"
+	on offer
+		conversation
+			`运输联盟的雇员正守候在入口附近。他头戴宽檐帽，围着厚实围巾，身着高领长外套，还戴着墨镜。你担心他这种刻意扮作平庸的夸张打扮，反而会招来更多注意。`
+			`	“不能久聊，”他说，“太危险了。我可担不起被人看见和你在一起的风险。”`
+			`	你问他这究竟是怎么回事。`
+			`	“我不同意联盟或深空派的所作所为。我在一座小镇长大，那里的人们依然尊重自己的历史。我无法袖手旁观、无所作为。所以听好了：如今联盟与你为敌，没有任何运输公司敢接你的合同——但有一个例外。在<planet>上，有一位胆大妄为的流亡矿产大亨，他憎恨联盟，或许愿意答应你的请求。”`
+			choice
+				`	“我该怎么找到他？”`
+			`	那名联盟雇员开始向后退开。“他叫赫罗尔。你通常能在穆斯佩尔太空港内的红岩酒馆找到他。”`
+			`	这名心怀不满的联盟雇员随即提高嗓门大声说道：“我不知道手镯店在哪儿，请别再问我了！”然后匆匆离你而去。`
+				accept
+	on complete
+		dialog
+			`你已抵达赤褐色的星球——穆斯佩尔。你应该前往太空港，看看能否找到赫罗尔。`
+
+
+
+overwrite
+mission "Home for Skadenga 9"
+	to offer
+		has "Home for Skadenga 8: done"
+	source "Muspel"
+	on offer
+		event "hroar message" 13
+		conversation
+			`太空港地面覆盖着数百双来回走动的脚踩出的污浊赤红色尘土。勘探者、矿工、钻探员以及他们形形色色的随行人员混杂于此，彼此闲聊着最新发现、事故与收获。每个人或浑身沾满赤红泥土，或一尘不染，直观地勾勒出阶级、薪资与领导地位的无形界限。`
+			scene "scene/redrocks"
+			`	红岩酒馆位于太空港商贸区深处，远离游客区域，足以劝退所有无关人士，只留下本地人和有正事要办的人进入。`
+			choice
+				`	（进入红岩酒馆。）`
+			`	门扉敞开，映入眼帘的是一个光线昏暗的房间，里面挤满了粗野而令人不安的家伙。廉价扬声器正播放着钢琴曲，酒馆顾客们目光斜瞥，不动声色地打量着你。现场陷入一阵充满期待的静默——你感觉他们正等着你开口宣告什么，或是转身离开。`
+			choice
+				`	"我在找赫罗尔。"`
+			`	一时间毫无动静，随后一个粗哑的声音从幽暗的角落里传来："我在这儿。"`
+			scene "scene/hroar"
+			`	你走向酒馆后方，发现一名粗犷男子身穿长款红褐色夹克，背靠墙壁而坐，桌面上只孤零零放着一瓶威士忌。"请坐。"他说。`
+			`	你坐下后，他将一把枪放在桌上。"所以艾伦兄弟以为能派个毛头杀手来干掉我？"赫罗尔嗤笑一声，"想得倒美。"他用空着的手灌了一大口威士忌，接着说道："听好了——我不会杀你，顶多让你受点伤。你回去告诉艾伦兄弟，下次他们再派人来，下场会更惨。我们之间有约定，我期望他们遵守诺言。"`
+			choice
+				`	"你找错人了。我甚至都不知道艾伦兄弟是谁。"`
+					goto prenext
+				`	“我可不是什么艾伦家派来的，你要是敢碰我一根手指头，我就把这整颗行星烧成灰烬。”`
+			branch "buff boi"
+				"combat rating" > 8104
+			`	赫罗尔爆发出一阵狂笑。邻座明显一直在偷听的几个人也跟着笑了起来。“别放些自己根本兑现不了的狠话——否则你很快就会变成一具装在尸袋里的信使。”`
+			label prenext
+			`	“既然不是艾伦家派你来的，那你到底效命于谁？莱辛斯基家族？疯子米克尔帮？还是哈诺瓦里安？”赫罗尔顿了顿，“不，这不像他的作风。那……究竟是谁？”`
+				goto next
+			label "buff boi"
+			`	赫罗尔脸上掠过一丝迟疑，缓缓将手从枪上移开。“没必要这么剑拔弩张嘛——咱们可都是朋友。”`
+			`	他话锋一转，神情也随之变化：“艾伦家那帮人，恐怕根本雇不起你这样的人物——那你究竟为何而来？”`
+			label next
+			choice
+				`	(Explain the situation.)`
+			`	你解释完后，赫罗尔皱起眉头：“你这下可真是陷入进退两难的窘境了。不管人道不人道，我可不是那种白干活的人。但你说得没错：要是联盟不肯出手，那在深空地带，你找我就最合适了。”`
+			`	“这么干，倒真能让联盟脸上无光。而且我还能博取不少好感——说不定光靠税务减免和政府拨款就能收回大部分成本。不过……”他顿了顿，目光锐利地盯了你片刻，“这样吧：我免费帮你办成这事，只要你答应将来欠我一个人情。一人一次，互惠互利。怎么样？”`
+			choice
+				`	“成交。”`
+					goto deal
+				`	“什么类型的人情？”`
+				`	"No deal."`
+					goto "last chance"
+			`	“哦，这我可说不准。这儿总有些事需要人去办。你知道的，我可是从一贫如洗一路打拼到富甲一方，这种发迹之路难免会留下一堆心怀不满的旧识。再者，生意场上有时也需要某种特定类型的船长。至于具体要你做什么，我先跟你说明白：我经营的是正经——嗯，至少基本正经——的组织，绝不会让你干太过违法的事。”`
+			`	他咧嘴一笑：“那么，怎么样？成交？”`
+			choice
+				`	"Deal."`
+					goto deal
+				`	"No deal."`
+			label "last chance"
+			`	赫罗尔向后一靠：“朋友，听好了。如果联邦不肯干，我又不干，那就没人会干了。你得自己搞到那2200个铺位，否则这事根本成不了。我保证，绝不会让你做太过违法的事。所以，你真确定要拒绝吗？”`
+			choice
+				`	“我接了。成交。”`
+					goto deal
+				`	“我不干。不成交。”`
+			action
+				set "refusedhroar"
+			`	赫罗尔露出一丝讥笑：“行吧，你退出了。赶紧离开我的隔间，祝你那场小慈善冒险好运。”赫罗尔继续喝他的威士忌，而你出门时，酒馆那扇晃动的门正拍在你身上。`
+				decline
+			label deal
+			action
+				set "dealwithhroar"
+			`	“很好，很好。大家谈生意——这不正是社会的本质嘛，你懂的？好了，听清楚：我大概需要两周时间来集结舰队，运送你的朋友们。整个行动得跑好几趟，但你只需为我们领航第一趟即可。所以，到时再回来这里，咱们就正式启程！”`
+				decline
+
+
+
+event "hroar message"
+
+
+
+overwrite
+mission "Home for Skadenga 10"
+	landing
+	name "Head Back to <planet>"
+	to offer
+		has "event: hroar message"
+		has "dealwithhroar"
+	description "返回<destination>，与赫罗尔的舰队会合。"
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		not planet "Muspel"
+	destination "Muspel"
+	on offer
+		conversation
+			`你的收件箱闪烁着一条来自<planet>的赫罗尔的新消息。`
+			``
+			`	一切均已准备就绪，请速返此地。`
+			`				赫罗尔`
+			`			哈迪·赫罗尔货运公司首席执行官`
+			`			我们是一股势不可挡的力量，从未遭遇过不可撼动的障碍！`
+				accept
+
+
+
+overwrite
+mission "Home for Skadenga 11"
+	name "Evacuate Nifel"
+	description "护送赫罗尔的舰队前往<destination>，接回斯卡登加号。"
+	source "Muspel"
+	destination "Nifel"
+	to offer
+		has "Home for Skadenga 10: done"
+	on offer
+		conversation
+			`位于<origin>的太空港内，各货运飞船的船员正忙着为自己的运输船做最后检查。你发现赫罗尔正站在一群船长附近。`
+			`	"<first>！"你走近时，赫罗尔高声招呼道，"太好了，你总算及时赶到了！听说联合体那帮人对此气得不行——这简直是在挑战他们的权威，哈哈，简直太棒了！"他用力拍了拍你的后背，"我的船长们已经准备就绪。咱们这就开始这场‘牛仔竞技’吧？"`
+			choice
+				`	"耶——哈！"`
+				`	"终于等到这一刻了。"`
+			`	起飞警报轰鸣作响，全体船员迅速登船，舰队腾空而起！`
+				launch
+	npc accompany save
+		government "Merchant"
+		personality timid escort
+		ship "Behemoth" "H.H.H. Hroar's Howl"
+		ship "Hauler" "H.H.H. Red Dawn"
+		ship "Hauler" "H.H.H. Crimson Carrier"
+		ship "Hauler III" "H.H.H. Unstoppable Force"
+		ship "Hauler II" "H.H.H. Fixed Income"
+		ship "Mule" "H.H.H. Breadbasket"
+		ship "Star Queen" "H.H.H. Land of Plenty"
+		ship "Star Barge" "H.H.H. Bandwagon"
+		ship "Bounder" "H.H.H. Rustborn"
+	on visit
+		dialog
+			`你已抵达<planet>，但哈迪·赫罗尔货运飞船尚未全部到达。你应先行升空，等待它们追上你。`
+
+
+
+conversation "land at windblain"
+	scene "scene/seasidecliffs"
+	`温德布莱恩那保守而权力受限的政府对你及你的舰队毫不理会，任由你们驶向赫里斯菲亚尔郊外。灰云低垂，狂风席卷着荒芜的大地，船外仅有一小群饱经风霜的渔民在等候着你。`
+	`	"我就知道还会再见到你，"阿尔德弗里斯站在他小型使团最前方说道，"我梦见冰雹自海面倾泻而下，而兰女神为此欣然欢悦。"他脸上的皱纹随着回忆舒展开来，露出微笑；随后目光转向正陆续离舰的斯卡登加人。片刻之后，翁杜尔迪斯人也加入了你们。`
+	`	"那么，你们就是自星辰坠落的寒冰？"阿尔德弗里斯眼中带着一丝笑意问道。`
+	`	“我们是斯卡登加人，斯凯德之女。冰霜、群山与严寒的主宰。但如今，我想她正派我们前往她的姐妹——拉恩之处。”昂杜迪斯人答道。`
+	`	阿尔德弗里斯缓缓点头：“我们是拉恩子民；浪涛所育，长风所教，风暴所守。我们在此欢迎你们与你们的族人。虽然眼下此处人丁稀少，但更多同族正散居于汹涌波涛之间。”他瞥了一眼越来越多的斯卡登加人，“若你们愿随我来，我将引你们前往村落，并向你们展示可供使用的建筑。不过，恐怕我们难以容纳如此众多之人。”`
+	`	昂杜迪斯人微笑着说道：“感谢你们的热情款待。能遇见仍铭记古老之道的族群，实乃幸事。请不必担忧——我们素来足智多谋。”她转而对你继续说道：“几小时后，请到临时太空港附近的飞船处与我相会。此刻我尚有许多事务亟待处理。”随后，她与许多其他斯卡登加人一同跟随阿尔德弗里斯及其队伍，前往赫里思菲亚尔的大厅。`
+	`	目送他们离去时，你听见赫罗尔舰队升空起飞，正返航尼菲尔，准备接载其余斯卡登加人。”`
+		to display
+			not "refusedhroar"
+
+
+
+overwrite
+mission "Home for Skadenga 12"
+	landing
+	name "Evacuate <origin>"
+	description `护送赫罗尔舰队（搭载斯卡登加人）前往<destination>。`
+	source "Nifel"
+	destination "Windblain"
+	to offer
+		has "Home for Skadenga 11: done"
+	on offer
+		conversation
+			`舰队降落在拥挤的乌丹萨克尔村外围。四周 landscape 上聚集着众多斯卡登加人。`
+			`	翁杜迪斯向你靠近："离开并不容易，但寒冬终将过去。"她凝望着族人登上舰队，"我将率先启程前往温德布林，但我必须重返族人之中。感谢你所做的一切，我们定将在新家园再度相逢。"`
+			`	她在寒风凛冽的村庄中留下一个温暖的微笑，随后离去。`
+				accept
+	npc accompany save
+		government "Merchant"
+		personality timid escort
+		ship "Behemoth" "H.H.H. Hroar's Howl"
+		ship "Hauler" "H.H.H. Red Dawn"
+		ship "Hauler" "H.H.H. Crimson Carrier"
+		ship "Hauler III" "H.H.H. Unstoppable Force"
+		ship "Hauler II" "H.H.H. Fixed Income"
+		ship "Mule" "H.H.H. Breadbasket"
+		ship "Star Queen" "H.H.H. Land of Plenty"
+		ship "Star Barge" "H.H.H. Bandwagon"
+		ship "Bounder" "H.H.H. Rustborn"
+	on visit
+		dialog
+			`You have reached <planet>, but the Hardy Hroar's Hauler ships have not all arrived yet. You should take off and wait for them to catch up with you.`
+	on complete
+		event "skadenga life" 367
+		conversation "land at windblain"
+
+
+
+overwrite
+mission "Home for Skadenga Captain"
+	landing
+	name "Evacuate <origin>"
+	description `护送载有斯卡登加人的舰队前往<destination>。`
+	passengers 2200
+	source "Nifel"
+	destination "Windblain"
+	to offer
+		has "refusedhroar"
+	on offer
+		conversation
+			`你的舰队降落在拥挤的乌丹萨克尔村外围。四周 landscape 上聚集着众多斯卡登加人。`
+			`	翁杜迪斯号向你靠近。“离开虽难，但寒冬终将过去。”她好奇地打量着你的舰队。“这倒出乎我的意料。这些飞船并非运输联盟的，而是属于你？你竟亲自率领自己的舰队来援助我们？”`
+			`	你微笑着耸了耸肩，示意有时事情只能亲力亲为。她摇摇头：“你总是令人惊喜，<first>。或许有朝一日，我也会给你一个惊喜。”`
+			`	她的目光转向正在忙碌登船的族人。“我必须回到族人中去了。但衷心感谢你所做的一切，待我们在新家园安顿下来，我们定当再叙。”翁杜迪斯在冬日村庄中向你投来温暖一笑，随后离去。`
+				accept
+	on visit
+		dialog
+			`你已抵达<planet>，但你的飞船尚未全部到达。你应立即起飞，等待其余飞船赶上来。`
+		
+	on complete
+		event "skadenga life" 367
+		conversation "land at windblain"
+
+
+
+event "skadenga life"
+
+
+
+overwrite
+mission "Home for Skadenga 13"
+	source "Windblain"
+	to offer
+		or
+			has "Home for Skadenga 12: done"
+			has "Home for Skadenga Captain: done"
+	on offer
+		outfit "Tear of Skade"
+		event "the book" 200
+		conversation
+			`你抵达时，翁杜迪斯向你躬身致意：“你为我们挑选了一个理想的家园。”`
+			scene "outfit/skadetear"
+			`	她手持一只小巧的木盒，盒面镶嵌着符文，外观与你在阿斯加德所见的那只极为相似。她打开木盒，露出一枚泛着幽蓝光芒的石头，石面上刻有一个符文。“我们称其为‘斯卡蒂之泪’。我们在尼弗尔女神石周围挖掘时，只发现了寥寥几枚。它们始终冰凉刺骨，或许在炎热的飞船上会派上用场。”她将木盒递给你。`
+			choice
+				`	“您给予我莫大的荣光，万分感谢。”`
+					goto honor
+				`	“就一块发光的石头？我辛辛苦苦忙活一场，酬金在哪儿？”`
+			`	昂杜迪斯悲伤地摇摇头：“我赠予你的，远比任何数额的积分都更珍贵。而你却对此不屑一顾。在这片幸福的社群之中，在我们的故事里，蕴藏着比积分更宝贵的价值。请收下这枚圣石——你已凭功绩赢得它；愿你在时光流转中，终能领悟我未能教会你的真义。”`
+			`	她转身离去，回归她那幸福的社群与崭新的家园，只留下你独自握着那枚奇异的石头，以及由你自己一手造就的孤寂沉默。`
+				decline
+			label honor
+			`	“不，是我们承蒙您的厚爱。我们绝不会忘记此事。此前初遇时，我曾答应为您解惑——您想了解些什么？”`
+			label answers
+			choice
+				`	“您高寿？”`
+					goto age
+					to display
+						not "ages"
+				`	“精灵族究竟是谁？”`
+					goto elves
+					to display
+						not "elf"
+				`	“斯卡登加人为何要做出补偿？”`
+					goto amends
+					to display
+						not "amending"
+				`	“这枚‘斯凯德之泪’，我此前曾见过类似之物。您可否为我多讲讲这些神秘石料？”`
+					goto enigmatic
+					to display
+						has "Ice Queen 6: done"
+						not "tears"
+				`	"不，我在此地的使命已经结束了。"`
+					goto done
+			label age
+			action
+				set "ages"
+			`	翁杜迪斯的眼中闪烁着狡黠的光芒。“太老了？这么说吧——我的名字是艾曼尼，曾是发现瑞格尔瘟疫解药的‘探路者’。至于我为何如此长寿，又或我所见证的一切：我不能再多透露，因为那并非由我来讲述的故事。”`
+				goto answers
+			label elves
+			action
+				set "elf"
+			`	"精灵是一个宽泛的称谓。漫长岁月中，许多生灵都被冠以‘精灵’之名。但在此处——在深境之中，我认为存在两类精灵。其一为阿尔法尔（Alfar），广为人知。正是他们将我们自地球迁徙至此。我不知其动机为何，却清楚此举绝非出于仁慈。他们诡计多端，且难以揣测。"`
+			`	翁杜迪斯压低声音，身体微微前倾。“但深境中另有一类精灵——胡杜尔族（Hudulfolk），即‘隐者’。他们曾侍奉神石的铸造者。此族极为稀少，且大多处于沉眠状态。我甚至怀疑阿尔法尔自身都尚未察觉他们的存在。外星生命皆不可轻信，隐者亦不例外；但他们并不诡诈。每位隐者各不相同，却皆与自然世界紧密相连。当斯卡登加人初临尼菲尔之时，我们曾与他们有过些许往来，随后他们便再度陷入万载长眠。”`
+				goto answers
+			label amends
+			action
+				set "amending"
+			`	翁杜迪斯缓缓点头。“在阿尔法尔——或称精灵——降临地球之前，我们早已遗弃了斯卡德。《圣书》之民劝诱我们舍弃古老传统，皈依他们新立的信仰。我们背弃了神庙，抛弃了圣树，并自以为因此而更趋完善。”`
+			`	她苍老的面容因回忆而愤怒地皱起：“当年我们初抵深境，目睹女神石之时，才恍然惊觉自己犯下的愚行。我们决心赎罪，也必将变得强大。”她仰起头望着你，双眼炯炯有神，神情坚毅：“而我们，确实已变得强大。”`
+				goto answers
+			label enigmatic
+			action
+				set "tears"
+			`	“远不如我所愿，”她轻声说道，“我活得越久，便越明白自己所知甚少。在飞船到来之前，在我们只懂得石之道的年代，此地曾存在另一种力量——脆弱而温和的‘石之魔法’。后来，无穷无尽的殖民者驾着穿行于夜空的飞船降临，石之魔法随之失效，隐秘之道也尽数关闭。”`
+			`	她悲伤地望着你：“这些石块，是失落时代的遗物，是被窃取的时代的遗物。”她顿了顿，“更多我无法相告；但若你能为我带来这样的石块，我定会寻你，看看是否还能忆起更多。”`
+				goto answers
+			label done
+			action
+				clear "ages"
+				clear "elf"
+				clear "amending"
+			`	“关于那些古老秘密的窃窃私语，到此为止吧。”她挺直腰背，抚平裙装。“我还有许多事情要处理，想必你也是。保重，<first>。愿斯凯德庇佑你。”斯凯登加的领袖转身离去，回到小而如画的赫里斯菲亚尔镇那风势强劲的山丘上，与她的族人会合。`
+			scene "scene/sunset"
+			`	谈话结束，你缓步朝飞船走去，此时夕阳西下。四周人声鼎沸，满是满怀热忱、追寻崭新而激动人心人生的民众。崭新起点的承诺，几乎与拂过衣襟、裹挟着淡淡海盐气息的清凉微风一样令人心醉神迷。`
+			`	你不禁思忖是否遗漏了什么——是否该找到赫约德，与她交谈一番。但她却不见踪影，你忽然意识到，日后自会有机会再见到她。你登上飞船，离开这群人，任由他们在此安顿新家园；而你心中悄然浮现一个问题：在这漫天璀璨星辰与温暖世界之间，何处才是你的归宿？`
+				decline
+
+
+
+overwrite
+mission "Homecoming to Skadenga"
+	description "护送哀悼中的斯卡登加人前往<destination>，以便他们为其逝者举行葬礼仪式。报酬为<payment>。"
+	source "Windblain"
+	destination "Nifel"
+	passengers 5
+	to offer
+		has "Home for Skadenga 13: offered"
+		has "event: skadenga life"
+	on offer
+		conversation
+			scene "scene/Seasunset"
+			`熟悉的<origin>景象勾起往日回忆。距离你协助斯卡登加人在<origin>定居已过去一年有余，你不禁思索是否该前去探望他们。`
+			choice
+				`	（前往赫里思菲亚尔。）`
+				`	（不前往赫里思菲亚尔。）`
+					decline
+			`	前往赫里思菲亚尔郊区的航程很短。你显然早已被远处发现，有人正等候着你。`
+			`	赫尔洛德歪斜的微笑温暖而令人舒畅。“<first>！”她由衷地欢喜道，“你竟没说再见！我怎能原谅你？”你拥抱了她。你们并肩沿着海岸走向赫里斯菲亚尔。她向你娓娓道来村庄日益兴旺的情形——斯卡登加人在此繁衍生息，且与兰族人和睦共处。`
+			`	她指着前方一艘小巧的木制船：“这是我造的。”她自豪地说，“赫尔洛德再也不开冰原履带车啦——我现在是水手啦！偶尔也载些好奇的游客出海。可比冰原履带车安全多了……当然，翻船的时候除外。”她耸耸肩，咧嘴一笑，“也许哪天你还能再当我的游客。这次我保证绝无意外！而且，也不用担心冰蛞蝓啦。”她顿了顿，“不过嘛……倒是有鲨鱼克拉肯。但别担心，赫尔洛德会保护你的。”`
+			`	你在赫里斯菲亚尔度过了整个下午，受到贵宾般的礼遇。翁杜迪斯看起来比你记忆中更年轻了些，似乎也格外喜爱老阿尔弗里思。你们品尝了奇异的鱼类，聆听了匪夷所思的故事，还为荒诞不经的笑话开怀大笑。`
+			`	当夕阳西沉时，你表示该启程返航了。“等等，”翁杜迪斯说道，“我有个任务想交给你——如果你感兴趣的话。”`
+			choice
+				`	"What is it?"`
+					goto task
+				`	“当然可以！为了你们，我什么都愿意做。”`
+					goto task
+				`	"坚决拒绝。"`
+			`	你解释自己已为他们做了足够多的事，且另有要务在身。他们欣然接受了你的理由，你随即返回自己的飞船。`
+				decline
+			label task
+			`	翁杜迪斯微笑着说道：“我就知道你会答应。”`
+			`	“过去一年里，我们奥恩杜里斯族已有不少族人离世——大多为年迈寿终，少数死于意外，皆属寻常。但每位斯卡登加人都随身携有一块生命石，用以镌刻毕生记忆。当斯卡登加人去世后，这些生命石必须由其最近的亲属或最亲密的朋友送返其家族石冢。然而，我们所有的家族石冢都位于<planet>。”`
+			`	她随后朝你点点头：“倘若你能护送逝者亲属前往<planet>归还生命石，此恩情将惠及此处所有人。作为酬谢，我们将支付你<payment>。”`
+			choice
+				`	"Of course."`
+					goto yes
+				`	“我免费帮你做。”`
+					goto "yes yes"
+				`	"No thanks."`
+			`	你向他们解释，自己还有更紧急的事务需要处理，无法充当他们哀悼期间的专职摆渡人。他们欣然接受了你的理由，你随即返回自己的飞船。`
+				decline
+			label "yes yes"
+			`	翁杜迪斯摇摇头："你们已为我们做了太多，而我们给的报酬却太少。我们完全付得起酬金，也一定会付给你。"`
+			label yes
+			`	"五位石持者将护送你们返回飞船。他们将支付你<payment>作为前往<planet>的运输费用。愿斯凯德与兰护佑你的航程。" 翁杜迪斯将这句话化作祝酒辞，众人欣然举杯响应。`
+			`	赫洛德陪你和乘客们一同返回你的飞船。"一路平安，<first>。"`
+				accept
+	on complete
+		payment 50000
+		event "hjlod waits" 360
+		conversation
+			`被遗弃的乌代恩萨克尔村寒冷、黑暗，且大半被永不停歇的暴雪掩埋。一切似乎都比你记忆中更加严寒，你不禁思索：这颗行星还要多久才会彻底变成一颗永恒的雪球？`
+			`	你带来的五名斯卡登加人举止礼貌而谨慎。着陆后，他们将<payment>交予你，随即离开飞船，径直前往斯卡德女神石——那座矗立于成堆石堆之中的圣石。每人各自走向一座特定的石冢，在石冢前静立片刻，或低语，或吟诵，随后将自己的石头安放其上。待仪式完成，他们庄重地返回你身边，任务已然结束。此地再无其他事需他们操心，他们请求你送他们回家。`
+
+
+
+overwrite
+mission "Stones of Skadenga 1"
+	landing
+	name "Stones of Skadenga"
+	source "Nifel"
+	passengers 5
+	destination "Windblain"
+	description "将斯卡登加哀悼者送至<destination>。"
+	to offer
+		has "Homecoming to Skadenga: done"
+	on complete
+		event "skadenga mourners" 90
+		dialog
+			`斯卡登加人回到家乡后倍感欣慰。<planet>这片土地仿佛有种魔力，令他们精神振奋，他们由衷感谢你的帮助。`
+
+
+
+event "skadenga mourners"
+
+
+
+event "hjlod waits"
+
+
+
+overwrite
+mission "Stones of Skadenga 2"
+	landing
+	name "Stones of Skadenga"
+	description "护送哀悼中的斯卡登加人前往<stopovers>，以便他们为其逝者举行葬礼仪式，随后将他们送回<planet>。报酬为<payment>。"
+	source "Windblain"
+	stopover "Nifel"
+	passengers 8
+	to offer
+		has "event: skadenga mourners"
+		has "Stones of Skadenga 1: done"
+	on offer
+		dialog
+			`八名斯卡登加人向你走来，询问你是否愿意载他们前往<stopovers>，以便将逝去亲人的石头归还至各自的家族石冢，并愿以<payment>作为运输酬金。`
+	on stopover
+		dialog
+			`八名斯卡登加人庄重地离开你的飞船，步入尼菲尔冰封的荒原。数小时后，他们归来时浑身冰冷，却急切渴望返回温德布莱恩的家园。`
+	on complete
+		dialog
+			`斯卡登加人很高兴回到家乡。<planet>翻涌的海浪令他们心旷神怡，他们在付给你<payment>后，便欣然步入那沁人心脾的海风之中。`
+		payment 80000
+
+
+
+
+
+overwrite
+mission "Stones of Skadenga 3"
+	source "Windblain"
+	to offer
+		has "Stones of Skadenga 2: done"
+	on offer
+		conversation
+			`你惊讶地发现翁杜迪斯正朝你走来。`
+			`	她礼貌地点了点头，随后开口道：“<first>，我想特别感谢你将我们的石熊守护者运送至尼菲尔并平安返航。我已将这项任务添加至任务公告板，以便你今后能更便捷地提供协助。此外，我也已告知他们需备足资金支付返程费用。”翁杜迪斯轻轻拍了拍你的肩膀，随即转身离去。`
+				decline
+
+
+
+overwrite
+mission "Stone-Bearers to Nifel"
+	description "Take the mourning Skadenga to <stopovers>, so that they can enact the rites of their dead, then return them to <planet>. Payment is <payment>."
+	source "Windblain"
+	stopover "Nifel"
+	passengers 1 10 .7
+	job
+	repeat
+	to offer
+		has "Stones of Skadenga 3: offered"
+		random < 30
+	on visit
+		dialog phrase "generic missing stopover or passengers"
+	on stopover
+		dialog
+			`哀悼者们拿起各自的小石子，前去祭拜祖先堆砌的石冢。过了一段时间后，他们返回你的飞船，欣喜地发现那片冰封荒原——尼菲尔已被抛在身后。`
+	on complete
+		payment
+		dialog
+			`斯卡登加人在下船返回风布拉因星球生活时，将<payment>交予了你。`
+
+
+
+overwrite
+mission "Hjlod Remembers Windblain"
+	landing
+	name "Hjlod Remembers"
+	description `赫洛德希望再次于<planet>与你见面。`
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		not planet "Windblain"
+	destination "Windblain"
+	to offer
+		has "event: hjlod waits"
+		has "Hjlodsaved"
+	on offer
+		dialog
+			`你的收件箱中传来一条来自<planet>的新消息：`
+			``
+			`亲爱的<first>，`
+			`	多年前在尼菲尔星上，你救了我的命，我却从未向你郑重道谢。若你今后途经此地，请务必来<planet>一叙。`
+			`				赫洛德 敬上`
+	on complete
+		outfit "Tear of Skade"
+		conversation
+			`赫尔洛德在你着陆时正等着你。她看起来健康、强壮而快乐——比起你们初次在尼菲尔星相遇时那副憔悴焦虑的模样，已大为不同。她给了你一个拥抱。“见到你总是很高兴，<first>。我一直在想，最近事情接连不断、千头万绪，竟一直没机会感谢你把我从严寒中救出来。”`
+			`	她伸手探入衣袋，掏出一只小布袋。“这是一块在我家族中传承已久的石头。我想把它送给你——愿它为你酷热的飞船带来一丝清凉，也让你在遥远的银河系中想起赫尔洛德。”`
+			scene "outfit/skadetear"
+			`	赫尔洛德递给你一枚泛着幽蓝光芒的‘斯凯德之泪’，和此前翁杜迪斯曾赠予你的那一枚一模一样。`
+			`	“这样的东西还有多少？”你问道。`
+			`	“只有少数几枚。”她答道，“它们早在远古时代便发现于‘女神之石’周围，世代由斯卡登加母亲传给斯卡登加女儿。我没有女儿，但我有你——所以，这枚现在属于你了。”`
+			`	你向她道谢，随后与她共度余下的时光，在<planet>这颗亲切的星球上谈笑漫步。`
+
+
+
+overwrite
+mission "Hjlod Remembers Nifel"
+	landing
+	name "Hjlod Remembers"
+	description `Hjlod wishes to meet with you again on <planet>.`
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		not planet "Nifel"
+	destination "Nifel"
+	to offer
+		has "event: hjlod waits again"
+		has "Hjlodsaved"
+	on offer
+		dialog
+			`你的收件箱嗡嗡作响，收到一封来自尼菲尔的新消息。`
+			``
+			`Dear <first>,`
+			`	多年前承蒙你救我一命，我一直未能当面致谢。若你日后途经此地，务必来<planet>坐坐。`
+			`				Signed, Hjlod`
+			
+	on complete
+		outfit "Tear of Skade"
+		conversation
+			`尼菲尔比你记忆中更加寒冷：积雪更深，冰层更硬。尽管如此，这座小型再殖民定居点——乌代恩萨克尔，却似乎生机勃勃。尽管最初仅有不到五十名斯卡登加人，但得益于朝圣者源源不断的涌入，如今村庄人口已逾千人。`
+			`	赫约德找到了你，朝你微微一笑：“很高兴你来了。”`
+			`	她伸手探入衣袋，取出一只小巧的木盒，与你多年前在阿斯加德所见的那只颇为相似。“我一直在思索，”赫尔约德说道，“或许这一切都是斯卡迪的意志。或许你带我们前往阿斯加德，正是为了让我们变得更强大、更优秀。这是一堂苦涩的课，而如今，我终于明白了。”`
+			`	她将木盒递向你。“这是斯卡迪之泪。世上仅存寥寥几颗，而我将它赠予你——为救我一命，为带我们重返此地，更为让我们变得更强。”`
+			scene "outfit/skadetear"
+			`	木盒开启，内里静静躺着一枚幽蓝微光的小石。“永远冰冷。永远如此。酷热飞船中尤其实用。请随身携带着它，并铭记：斯卡登加之魂亦与你同在。”赫尔约德一边说着，一边将它交到你手中。`
+			`	她眼中泛起泪光，抬手轻轻拭去。“你的故事，将永镌刻于我们的石碑之上。”`
+			`	她转身离去，独留你伫立原地，手握斯卡迪之泪，在尼福尔那无情刺骨的寒意中微微颤抖。`
+
+
+
+overwrite
+mission "The Book of Skadenga"
+	minor
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+	to offer
+		random < 10
+		has "event: the book"
+	on offer
+		conversation
+			`当你在太空港中闲逛时，一个售卖礼品、小饰品及其他杂货的摊位引起你的注意。`
+			`	摊位上摆着一本复古风格的书，冰蓝色封面上印着书名：《斯卡登加传奇：绝境求生》，作者：赫约洛德·赫里姆尼尔丝多蒂尔。`
+			choice
+				`	（忽略这本书，继续前行。）`
+					goto ignore
+				`	（拿起这本书。）`
+			branch windblain
+				has "Home for Skadenga 13: offered"
+			`	这本书拿在手中沉甸甸的，你随手翻阅起来。书中章节讲述了在尼菲尔星上濒死求生的经历、阿斯加德星隐晦的敌意、老奥恩杜迪斯——你这才知道他名叫艾曼尼——的猝然离世，以及赫约洛德与幸存者们在尼菲尔星上的最终胜利。`
+				goto end
+			label windblain
+			branch captain
+				has "Home for Skadenga Captain: done"
+			`	这本书拿在手中沉甸甸的，你随手翻阅起来。书中章节讲述了在尼菲尔星上濒死求生的经历、深空局官员的腐败丑闻、穆斯佩尔星上五彩斑斓的货运飞船，以及最终在温德布莱恩星取得的辉煌胜利。`
+				goto end
+			label captain
+			`	这本书拿在手中沉甸甸的，你随手翻阅起来。书中章节讲述了在尼菲尔星上濒死求生的经历、深空局官员的腐败丑闻，以及最终在温德布莱恩星取得的辉煌胜利。`
+			label end
+			`	你将书放回展架，工作人员注意到了你。“这本可挺火的。听说它直接催生了眼下这股‘回归自然’的原始主义邪教风潮。”他耸耸肩，“反正能卖出去就行，你懂的。对了，要买吗？”`
+			`	你婉言谢绝。这个故事你早已耳熟能详。`
+				decline
+			label ignore
+			`	你继续前行。这个故事你早已耳熟能详。`
+				decline

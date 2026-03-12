@@ -1,0 +1,1895 @@
+# Copyright (c) 2016 by Michael Zahniser
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+overwrite
+phrase "coalition ringworld workers"
+	word
+		`You drop off the workers on the <planet>. A few minutes later you receive a transfer of <payment>.`
+
+overwrite
+mission "Coalition: Ringworld Workers 1"
+	job
+	repeat
+	name "Workers to the <planet>"
+	description "将这支< bunks >人的工作队运送至赫利阿克< planet >，协助开展环形世界的维护与扩建工作。酬金为< payment >。"
+	passengers 5 8 .2
+	to offer
+		has "known to the heliarchs"
+		random < 40
+	source
+		government "Coalition"
+	destination
+		government "Heliarch"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 10000
+		dialog phrase "coalition ringworld workers"
+
+overwrite
+mission "Coalition: Ringworld Workers 2"
+	job
+	repeat
+	name "Workers to the <planet>"
+	description "Transport this crew of <bunks> workers to the Heliarch <planet>, where they will help in the efforts to maintain and expand the ringworld. Payment will be <payment>."
+	passengers 5 5 .1
+	to offer
+		has "known to the heliarchs"
+		random < 20
+	source
+		government "Coalition"
+	destination
+		government "Heliarch"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 15000
+		dialog phrase "coalition ringworld workers"
+
+overwrite
+mission "Coalition: Ringworld Workers 3"
+	job
+	repeat
+	name "Workers to the <planet>"
+	description "Transport this crew of <bunks> workers to the Heliarch <planet>, where they will help in the efforts to maintain and expand the ringworld. Payment will be <payment>."
+	passengers 5 3 .04
+	to offer
+		has "known to the heliarchs"
+		random < 10
+	source
+		government "Coalition"
+	destination
+		government "Heliarch"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 20000
+		dialog phrase "coalition ringworld workers"
+
+
+overwrite
+phrase "coalition ringworld volunteers"
+	word
+		`You drop off the volunteers on the <planet>, where they are met by a Heliarch agent. A few minutes later you receive a transfer of <payment>.`
+
+overwrite
+mission "Coalition: Ringworld Volunteers 1"
+	job
+	repeat
+	name "Volunteers to the <planet>"
+	description "政府将向你支付{payment}，以运送这{bunks}名志愿者前往{planet}；他们将在当地参与建设工作，并以此换取食宿。"
+	passengers 5 3 .3
+	to offer
+		has "known to the heliarchs"
+		random < 60
+	source
+		government "Coalition"
+	destination
+		government "Heliarch"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 4000
+		dialog phrase "coalition ringworld volunteers"
+
+overwrite
+mission "Coalition: Ringworld Volunteers 2"
+	job
+	repeat
+	name "Volunteers to the <planet>"
+	description "The government will pay you <payment> to bring these <bunks> volunteer workers to the <planet>, where they will assist in the construction effort in return for room and board."
+	passengers 5 10 .5
+	to offer
+		has "known to the heliarchs"
+		random < 30
+	source
+		government "Coalition"
+	destination
+		government "Heliarch"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 8000
+		dialog phrase "coalition ringworld volunteers"
+
+overwrite
+mission "Coalition: Ringworld Volunteers 3"
+	job
+	repeat
+	name "Volunteers to the <planet>"
+	description "The government will pay you <payment> to bring these <bunks> volunteer workers to the <planet>, where they will assist in the construction effort in return for room and board."
+	passengers 5 4 .2
+	to offer
+		has "known to the heliarchs"
+		random < 20
+	source
+		government "Coalition"
+	destination
+		government "Heliarch"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 12000
+		dialog phrase "coalition ringworld volunteers"
+
+
+overwrite
+phrase "coalition ringworld materials"
+	word
+		`You drop off the construction materials and receive <payment> in payment.`
+
+overwrite
+mission "Coalition: Ringworld Materials 1"
+	job
+	repeat
+	name "Materials to the <planet>"
+	description "在<date>前将这些<tons>吨建筑材料运送至赫利阿克<planet>。报酬为<payment>。"
+	deadline
+	cargo "Construction" 10 3 .02
+	to offer
+		has "known to the heliarchs"
+		random < 30
+	source
+		government "Coalition"
+	destination
+		government "Heliarch"
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 30000
+		dialog phrase "coalition ringworld materials"
+
+overwrite
+mission "Coalition: Ringworld Materials 2"
+	job
+	repeat
+	name "Materials to the <planet>"
+	description "Deliver these <tons> of construction materials to the Heliarch <planet> by <date>. Payment will be <payment>."
+	deadline
+	cargo "Construction" 10 4 .02
+	to offer
+		has "known to the heliarchs"
+		random < 20
+	source
+		government "Coalition"
+	destination
+		government "Heliarch"
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 40000
+		dialog phrase "coalition ringworld materials"
+
+overwrite
+mission "Coalition: Ringworld Materials 3"
+	job
+	repeat
+	name "Materials to the <planet>"
+	description "Deliver these <tons> of construction materials to the Heliarch <planet> by <date>. Payment will be <payment>."
+	deadline
+	cargo "Construction" 10 5 .02
+	to offer
+		has "known to the heliarchs"
+		random < 10
+	source
+		government "Coalition"
+	destination
+		government "Heliarch"
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 50000
+		dialog phrase "coalition ringworld materials"
+
+
+overwrite
+phrase "coalition ringworld supplies"
+	word
+		`You drop off the donation of <commodity> and receive <payment> in payment.`
+
+overwrite
+mission "Coalition: Ringworld Supplies 1"
+	job
+	repeat
+	name "Supplies to the <planet>"
+	description "这批共计<tons>吨的物资，是由<origin>政府捐赠给赫利阿克<planet>的援助物资。货物送达后，你将获得<payment>报酬。"
+	cargo random 5 10 .2
+	to offer
+		has "known to the heliarchs"
+		random < 50
+	source
+		government "Coalition"
+	destination
+		government "Heliarch"
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 2000
+		dialog phrase "coalition ringworld supplies"
+
+overwrite
+mission "Coalition: Ringworld Supplies 2"
+	job
+	repeat
+	name "Supplies to the <planet>"
+	description "This shipment of <tons> of supplies is a donation from the government of <origin> to help support the Heliarch <planet>. You will be paid <payment> on delivery."
+	cargo random 5 10 .15
+	to offer
+		has "known to the heliarchs"
+		random < 30
+	source
+		government "Coalition"
+	destination
+		government "Heliarch"
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 4000
+		dialog phrase "coalition ringworld supplies"
+
+overwrite
+mission "Coalition: Ringworld Supplies 3"
+	job
+	repeat
+	name "Supplies to the <planet>"
+	description "This shipment of <tons> of supplies is a donation from the government of <origin> to help support the Heliarch <planet>. You will be paid <payment> on delivery."
+	cargo random 5 10 .1
+	to offer
+		has "known to the heliarchs"
+		random < 20
+	source
+		government "Coalition"
+	destination
+		government "Heliarch"
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 6000
+		dialog phrase "coalition ringworld supplies"
+
+
+overwrite
+mission "Coalition: Heliarch Candidate"
+	job
+	repeat
+	name "Candidate to the <planet>"
+	description "你将在<date>前，把这位晋升为赫利阿克的候选人运送至<planet>，酬金为<payment>。"
+	passengers 1
+	deadline 5 1
+	to offer
+		has "known to the heliarchs"
+		random < 10
+	source
+		government "Coalition"
+	destination
+		government "Heliarch"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 50000
+		dialog `赫利阿克特工在你的飞船停靠后立即登舰，以一场小型仪式接收你所护送的候选人。几分钟后，你将收到一笔<payment>的转账。`
+
+
+overwrite
+phrase "coalition interpreters dialog"
+	word
+		`You drop off the interpreters on <planet>. A few minutes later you receive a transfer of <payment>.`
+
+overwrite
+mission "Coalition: Interpreters 1"
+	job
+	repeat
+	name "Interpreters to <planet>"
+	description "将这<bunks>名赫利阿克特工（经培训担任翻译与调解员）运送至<destination>。酬金为<payment>。"
+	passengers 2 3 .5
+	to offer
+		has "known to the heliarchs"
+		random < 40
+	source
+		government "Heliarch"
+	destination
+		government "Coalition"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 5000
+		dialog phrase "coalition interpreters dialog"
+
+overwrite
+mission "Coalition: Interpreters 2"
+	job
+	repeat
+	name "Interpreters to <planet>"
+	description "Bring these <bunks> Heliarch agents, trained as interpreters and mediators, to <destination>. Payment is <payment>."
+	passengers 2 5 .5
+	to offer
+		has "known to the heliarchs"
+		random < 20
+	source
+		government "Heliarch"
+	destination
+		government "Coalition"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 10000
+		dialog phrase "coalition interpreters dialog"
+
+overwrite
+mission "Coalition: Interpreters 3"
+	job
+	repeat
+	name "Interpreters to <planet>"
+	description "Bring these <bunks> Heliarch agents, trained as interpreters and mediators, to <destination>. Payment is <payment>."
+	passengers 2 10 .5
+	to offer
+		has "known to the heliarchs"
+		random < 10
+	source
+		government "Heliarch"
+	destination
+		government "Coalition"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 10000
+		dialog phrase "coalition interpreters dialog"
+
+
+overwrite
+phrase "coalition peacekeepers dialog"
+	word
+		`You drop off the peacekeepers on <planet>. A few minutes later you receive a transfer of <payment>.`
+
+overwrite
+mission "Coalition: Peacekeepers 1"
+	job
+	repeat
+	name "Peacekeepers to <planet>"
+	description "将这支< bunks >人的维和部队运送至< destination >，调查有关卢纳里乌姆活动的报告。酬金为< payment >。"
+	passengers 10 10 .2
+	to offer
+		has "known to the heliarchs"
+		random < 20
+	source
+		government "Heliarch"
+	destination
+		government "Coalition"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 20000
+		dialog phrase "coalition peacekeepers dialog"
+
+overwrite
+mission "Coalition: Peacekeepers 2"
+	job
+	repeat
+	name "Peacekeepers to <planet>"
+	description "Transport this corps of <bunks> peacekeepers to <destination> to investigate reports of Lunarium activity. Payment is <payment>."
+	passengers 10 5 .1
+	to offer
+		has "known to the heliarchs"
+		random < 10
+	source
+		government "Heliarch"
+	destination
+		government "Coalition"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 30000
+		dialog phrase "coalition peacekeepers dialog"
+
+
+overwrite
+phrase "coalition interspecies settlers"
+	word
+		`You drop off the settlers on <planet>. A few minutes later you receive a transfer of <payment>.`
+
+overwrite
+mission "Coalition: Saryd Interspecies 1"
+	job
+	repeat
+	name "Saryds to <planet>"
+	description "作为跨物种交流计划的一部分，这些<bunks>志愿移民者需被运送至<destination>。政府将支付每人<payment>的运输费用。"
+	passengers 4 2 .1
+	to offer
+		has "known to the heliarchs"
+		random < 70
+	source
+		attributes "saryd"
+	destination
+		attributes "kimek" "arach"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 10000
+		dialog phrase "coalition interspecies settlers"
+
+overwrite
+mission "Coalition: Saryd Interspecies 2"
+	job
+	repeat
+	name "Saryds to <planet>"
+	description "As part of the Interspecies Exchange Program, these <bunks> volunteer settlers need transportation to <destination>. The government will pay their transport fee of <payment>."
+	passengers 4 4 .1
+	to offer
+		has "known to the heliarchs"
+		random < 30
+	source
+		attributes "saryd"
+	destination
+		attributes "kimek" "arach"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 15000
+		dialog phrase "coalition interspecies settlers"
+
+overwrite
+mission "Coalition: Kimek Interspecies 1"
+	job
+	repeat
+	name "Kimek to <planet>"
+	description "As part of the Interspecies Exchange Program, these <bunks> volunteer settlers need transportation to <destination>. The government will pay their transport fee of <payment>."
+	passengers 4 2 .1
+	to offer
+		has "known to the heliarchs"
+		random < 70
+	source
+		attributes "kimek"
+	destination
+		attributes "saryd" "arach"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 10000
+		dialog phrase "coalition interspecies settlers"
+
+overwrite
+mission "Coalition: Kimek Interspecies 2"
+	job
+	repeat
+	name "Kimek to <planet>"
+	description "As part of the Interspecies Exchange Program, these <bunks> volunteer settlers need transportation to <destination>. The government will pay their transport fee of <payment>."
+	passengers 4 4 .1
+	to offer
+		has "known to the heliarchs"
+		random < 30
+	source
+		attributes "kimek"
+	destination
+		attributes "saryd" "arach"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 15000
+		dialog phrase "coalition interspecies settlers"
+
+overwrite
+mission "Coalition: Arach Interspecies 1"
+	job
+	repeat
+	name "Arachi to <planet>"
+	description "As part of the Interspecies Exchange Program, these <bunks> volunteer settlers need transportation to <destination>. The government will pay their transport fee of <payment>."
+	passengers 4 2 .1
+	to offer
+		has "known to the heliarchs"
+		random < 70
+	source
+		attributes "arach"
+	destination
+		attributes "saryd" "kimek"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 10000
+		dialog phrase "coalition interspecies settlers"
+
+overwrite
+mission "Coalition: Arach Interspecies 2"
+	job
+	repeat
+	name "Arachi to <planet>"
+	description "As part of the Interspecies Exchange Program, these <bunks> volunteer settlers need transportation to <destination>. The government will pay their transport fee of <payment>."
+	passengers 4 4 .1
+	to offer
+		has "known to the heliarchs"
+		random < 30
+	source
+		attributes "arach"
+	destination
+		attributes "saryd" "kimek"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 15000
+		dialog phrase "coalition interspecies settlers"
+
+
+overwrite
+phrase "coalition transfer dialog"
+	word
+		`You drop off the workers on <planet>. A few minutes later you receive a transfer of <payment>.`
+
+overwrite
+mission "Coalition: Transfer 1"
+	job
+	repeat
+	name "Transfer to <planet>"
+	description "作为充分就业计划的一部分，这些<bunks>工人需要被运送至<destination>。政府将支付每人<payment>的运输费用。"
+	passengers 2 10 .3
+	to offer
+		has "known to the heliarchs"
+		random < 40
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		attributes "mining" "farming" "factory" "oil"
+		distance 2 20
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 5000
+		dialog phrase "coalition transfer dialog"
+
+overwrite
+mission "Coalition: Transfer 2"
+	job
+	repeat
+	name "Transfer to <planet>"
+	description "As a part of the Full Employment Program, these <bunks> workers need transportation to <destination>. The government will pay their transport fee of <payment>."
+	passengers 2 10 .2
+	to offer
+		has "known to the heliarchs"
+		random < 30
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		attributes "mining" "farming" "factory" "oil"
+		distance 2 20
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 10000
+		dialog phrase "coalition transfer dialog"
+
+overwrite
+mission "Coalition: Transfer 3"
+	job
+	repeat
+	name "Transfer to <planet>"
+	description "As a part of the Full Employment Program, these <bunks> workers need transportation to <destination>. The government will pay their transport fee of <payment>."
+	passengers 2 10 .1
+	to offer
+		has "known to the heliarchs"
+		random < 20
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		attributes "mining" "farming" "factory" "oil"
+		distance 2 20
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 15000
+		dialog phrase "coalition transfer dialog"
+
+
+overwrite
+phrase "coalition tourists outbound"
+	word
+		`The tourists thank you for bringing them to <planet> and pay you <payment>.`
+
+overwrite
+mission "Coalition: Tourists Out 1"
+	job
+	repeat
+	name "Vacationers to <planet>"
+	description "这些<bunks>名游客愿付您<payment>积分，将他们运送至<destination>，且要求乘坐极为舒适的飞船。若未能在<date>前抵达，报酬作废。"
+	deadline
+	passengers 2 5 .5
+	to offer
+		has "known to the heliarchs"
+		random < 40
+	to accept
+		has "outfit (installed): Luxury Accommodations"
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		attributes "tourism"
+		distance 5 20
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		"coalition jobs" ++
+		payment 22000 200
+		dialog phrase "coalition tourists outbound"
+
+overwrite
+mission "Coalition: Tourists Out 2"
+	job
+	repeat
+	name "Vacationers to <planet>"
+	description "These <bunks> tourists will pay you <payment> to bring them to <destination> and desire to travel in a very comfortable ship. Payment is void if they do not arrive by <date>."
+	deadline
+	passengers 2 5 .4
+	to offer
+		has "known to the heliarchs"
+		random < 30
+	to accept
+		has "outfit (installed): Luxury Accommodations"
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		attributes "tourism"
+		distance 5 20
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		"coalition jobs" ++
+		payment 32000 200
+		dialog phrase "coalition tourists outbound"
+
+overwrite
+mission "Coalition: Tourists Out 3"
+	job
+	repeat
+	name "Vacationers to <planet>"
+	description "These <bunks> tourists will pay you <payment> to bring them to <destination> and desire to travel in a very comfortable ship. Payment is void if they do not arrive by <date>."
+	deadline
+	passengers 2 5 .3
+	to offer
+		has "known to the heliarchs"
+		random < 20
+	to accept
+		has "outfit (installed): Luxury Accommodations"
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		attributes "tourism"
+		distance 5 20
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		"coalition jobs" ++
+		payment 42000 200
+		dialog phrase "coalition tourists outbound"
+
+
+overwrite
+phrase "coalition tourists homebound"
+	word
+		`The tourists thank you for bringing them home and pay you <payment>.`
+
+overwrite
+mission "Coalition: Tourists Home 1"
+	job
+	repeat
+	name "Vacationers to <planet>"
+	description "这< bunks >名游客愿付你< payment >积分，让你将他们送回< destination >老家，且要求乘坐极为舒适的飞船。若未能在< date >前抵达，报酬作废。"
+	deadline
+	passengers 2 5 .5
+	to offer
+		has "known to the heliarchs"
+		random < 40
+	to accept
+		has "outfit (installed): Luxury Accommodations"
+	source
+		government "Coalition"
+		attributes "tourism"
+	destination
+		government "Coalition"
+		distance 5 20
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		"coalition jobs" ++
+		payment 22000 200
+		dialog phrase "coalition tourists homebound"
+
+overwrite
+mission "Coalition: Tourists Home 2"
+	job
+	repeat
+	name "Vacationers to <planet>"
+	description "These <bunks> tourists will pay you <payment> to bring them home to <destination> and desire to travel in a very comfortable ship. Payment is void if they do not arrive by <date>."
+	deadline
+	passengers 2 5 .4
+	to offer
+		has "known to the heliarchs"
+		random < 30
+	to accept
+		has "outfit (installed): Luxury Accommodations"
+	source
+		government "Coalition"
+		attributes "tourism"
+	destination
+		government "Coalition"
+		distance 5 20
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		"coalition jobs" ++
+		payment 32000 200
+		dialog phrase "coalition tourists homebound"
+
+overwrite
+mission "Coalition: Tourists Home 3"
+	job
+	repeat
+	name "Vacationers to <planet>"
+	description "These <bunks> tourists will pay you <payment> to bring them home to <destination> and desire to travel in a very comfortable ship. Payment is void if they do not arrive by <date>."
+	deadline
+	passengers 2 5 .3
+	to offer
+		has "known to the heliarchs"
+		random < 20
+	to accept
+		has "outfit (installed): Luxury Accommodations"
+	source
+		government "Coalition"
+		attributes "tourism"
+	destination
+		government "Coalition"
+		distance 5 20
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		"coalition jobs" ++
+		payment 42000 200
+		dialog phrase "coalition tourists homebound"
+
+
+overwrite
+phrase "coalition fast courier"
+	word
+		`The recipient thanks you for bringing the <commodity> here so quickly, and pays you <payment>.`
+
+overwrite
+mission "Coalition: Fast Courier 1"
+	job
+	repeat
+	name "Fast courier to <planet>"
+	description "在<date>前将< cargo >运送至< destination >。报酬为< payment >。"
+	deadline 5 1
+	cargo random 2 20 .6
+	to offer
+		has "known to the heliarchs"
+		random < 60
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		distance 6 20
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 30000
+		dialog phrase "coalition fast courier"
+
+overwrite
+mission "Coalition: Fast Courier 2"
+	job
+	repeat
+	name "Fast courier to <planet>"
+	description "Deliver <cargo> to <destination> by <date>. The payment is <payment>."
+	deadline 5 1
+	cargo random 2 30 .6
+	to offer
+		has "known to the heliarchs"
+		random < 40
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		distance 6 20
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 40000
+		dialog phrase "coalition fast courier"
+
+overwrite
+mission "Coalition: Fast Courier 3"
+	job
+	repeat
+	name "Fast courier to <planet>"
+	description "Deliver <cargo> to <destination> by <date>. The payment is <payment>."
+	deadline 5 1
+	cargo random 2 40 .6
+	to offer
+		has "known to the heliarchs"
+		random < 30
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		distance 6 20
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 50000
+		dialog phrase "coalition fast courier"
+
+
+overwrite
+phrase "coalition commodity delivery"
+	word
+		`You drop off the <commodity> on <planet>, and receive <payment> in payment.`
+
+overwrite
+mission "Coalition: Cargo 1"
+	job
+	repeat
+	name "Cargo to <planet>"
+	description "Deliver <cargo> to <destination>. Payment is <payment>."
+	cargo "coalition cargo" 4 6 .3
+	to offer
+		has "known to the heliarchs"
+		random < 80
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		distance 2 20
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 2000
+		dialog phrase "coalition commodity delivery"
+
+overwrite
+mission "Coalition: Cargo 2"
+	job
+	repeat
+	name "Cargo to <planet>"
+	description "Deliver <cargo> to <destination>. Payment is <payment>."
+	cargo "coalition cargo" 4 8 .3
+	to offer
+		has "known to the heliarchs"
+		random < 70
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		distance 2 20
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 4000
+		dialog phrase "coalition commodity delivery"
+
+overwrite
+mission "Coalition: Cargo 3"
+	job
+	repeat
+	name "Cargo to <planet>"
+	description "Deliver <cargo> to <destination>. Payment is <payment>."
+	cargo "coalition cargo" 4 11 .3
+	to offer
+		has "known to the heliarchs"
+		random < 60
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		distance 2 20
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 6000
+		dialog phrase "coalition commodity delivery"
+
+overwrite
+mission "Coalition: Cargo 4"
+	job
+	repeat
+	name "Cargo to <planet>"
+	description "Deliver <cargo> to <destination>. Payment is <payment>."
+	cargo "coalition cargo" 4 15 .3
+	to offer
+		has "known to the heliarchs"
+		random < 50
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		distance 2 20
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 8000
+		dialog phrase "coalition commodity delivery"
+
+
+overwrite
+mission "Coalition: Bulk 1"
+	job
+	repeat
+	name "Bulk cargo to <planet>"
+	description "Deliver <cargo> to <destination>. Payment is <payment>."
+	cargo random 20 6 .1
+	to offer
+		has "known to the heliarchs"
+		random < 60
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		distance 3 20
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 10000
+		dialog phrase "coalition commodity delivery"
+
+overwrite
+mission "Coalition: Bulk 2"
+	job
+	repeat
+	name "Bulk cargo to <planet>"
+	description "Deliver <cargo> to <destination>. Payment is <payment>."
+	cargo random 30 9 .1
+	to offer
+		has "known to the heliarchs"
+		random < 50
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		distance 3 20
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 14000
+		dialog phrase "coalition commodity delivery"
+
+overwrite
+mission "Coalition: Bulk 3"
+	job
+	repeat
+	name "Bulk cargo to <planet>"
+	description "Deliver <cargo> to <destination>. Payment is <payment>."
+	cargo random 40 15 .1
+	to offer
+		has "known to the heliarchs"
+		random < 40
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		distance 3 20
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 20000
+		dialog phrase "coalition commodity delivery"
+
+overwrite
+mission "Coalition: Bulk 4"
+	job
+	repeat
+	name "Bulk cargo to <planet>"
+	description "Deliver <cargo> to <destination>. Payment is <payment>."
+	cargo random 50 25 .1
+	to offer
+		has "known to the heliarchs"
+		random < 30
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		distance 3 20
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 30000
+		dialog phrase "coalition commodity delivery"
+
+
+overwrite
+mission "Coalition: Rush 1"
+	job
+	repeat
+	name "Rush Delivery to <planet>"
+	description "<destination> 需要在 <date> 前收到一批 <cargo> 货物。报酬为 <payment>。"
+	deadline
+	cargo random 10 8 .2
+	to offer
+		has "known to the heliarchs"
+		random < 60
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		distance 4 20
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 32000
+		dialog phrase "coalition commodity delivery"
+
+overwrite
+mission "Coalition: Rush 2"
+	job
+	repeat
+	name "Rush Delivery to <planet>"
+	description "<destination> needs a shipment of <cargo> by <date>. Payment will be <payment>."
+	deadline
+	cargo random 10 12 .2
+	to offer
+		has "known to the heliarchs"
+		random < 50
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		distance 4 20
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 40000
+		dialog phrase "coalition commodity delivery"
+
+overwrite
+mission "Coalition: Rush 3"
+	job
+	repeat
+	name "Rush Delivery to <planet>"
+	description "<destination> needs a shipment of <cargo> by <date>. Payment will be <payment>."
+	deadline
+	cargo random 10 18 .2
+	to offer
+		has "known to the heliarchs"
+		random < 40
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		distance 4 20
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 50000
+		dialog phrase "coalition commodity delivery"
+
+
+overwrite
+mission "Coalition: Doctors"
+	job
+	repeat
+	name "Doctors to <planet>"
+	description "政府将向你支付{payment}，以运送这支由{bunks}名医生组成的医疗队前往{destination}，应对一场病毒疫情。他们必须于{date}前抵达。"
+	deadline 8 1
+	passengers 4 10 .4
+	to offer
+		has "known to the heliarchs"
+		random < 20
+	source
+		government "Coalition"
+	destination
+		government "Coalition"
+		distance 4 20
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 50000
+		dialog `医生们有条不紊地收拾好设备，离开你的飞船。从他们并不急迫的表现来看，这似乎只是一次例行事件，而非危机。几分钟后，你收到了一笔 <payment> 的转账。`
+
+
+overwrite
+phrase "coalition cadets dialog"
+	word
+		`You drop off the cadets on <planet>. A few minutes later you receive a transfer of <payment>.`
+
+overwrite
+mission "Coalition: Cadets 1"
+	job
+	repeat
+	name "Cadets to <planet>"
+	description "这批<bunks>新兵需被运送至<destination>的学院报到，报酬为<payment>。"
+	passengers 10 10 .5
+	to offer
+		has "known to the heliarchs"
+		random < 30
+	source
+		near "Belug" 1 20
+		government "Coalition"
+	destination "Belug's Plunge"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 10000
+		dialog phrase "coalition cadets dialog"
+
+overwrite
+mission "Coalition: Cadets 2"
+	job
+	repeat
+	name "Cadets to <planet>"
+	description "These <bunks> new recruits need transport to the Academy on <destination>. Payment is <payment>."
+	passengers 10 10 .4
+	to offer
+		has "known to the heliarchs"
+		random < 20
+	source
+		near "Belug" 2 20
+		government "Coalition"
+	destination "Belug's Plunge"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 12000
+		dialog phrase "coalition cadets dialog"
+
+
+overwrite
+phrase "coalition games dialog"
+	word
+		`The passengers thank you for bringing them to <planet> and pay you <payment>.`
+
+overwrite
+mission "Coalition: To Games 1"
+	job
+	repeat
+	name "Spectators to <planet>"
+	description "这<bunks>名乘客愿支付<payment>，以确保在<date>前抵达<planet>，参加联盟运动会。"
+	deadline 0 2
+	passengers 4 4 .2
+	to offer
+		has "known to the heliarchs"
+		random < 90
+		month == 7
+		"days until year end" - 2 * "hyperjumps to system: Homeward" > 153
+	source
+		near "Homeward" 2 20
+		government "Coalition"
+	destination "Far Home"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		"coalition jobs" ++
+		payment 10000 200
+		dialog phrase "coalition games dialog"
+
+overwrite
+mission "Coalition: To Games 2"
+	job
+	repeat
+	name "Spectators to <planet>"
+	description "These <bunks> passengers will pay <payment> for transportation to <planet> in time for the Coalition Games (by <date>)."
+	deadline 0 2
+	passengers 4 4 .1
+	to offer
+		has "known to the heliarchs"
+		random < 70
+		month == 7
+		"days until year end" - 2 * "hyperjumps to system: Homeward" > 153
+	source
+		near "Homeward" 2 20
+		government "Coalition"
+	destination "Far Home"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		"coalition jobs" ++
+		payment 15000 200
+		dialog phrase "coalition games dialog"
+
+overwrite
+mission "Coalition: To Games 3"
+	job
+	repeat
+	name "Spectators to <planet>"
+	description "These <bunks> passengers will pay <payment> for transportation to <planet> in time for the Coalition Games (by <date>)."
+	deadline 0 2
+	passengers 4 4 .05
+	to offer
+		has "known to the heliarchs"
+		random < 50
+		month == 7
+		"days until year end" - 2 * "hyperjumps to system: Homeward" > 153
+	source
+		near "Homeward" 2 20
+		government "Coalition"
+	destination "Far Home"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		"coalition jobs" ++
+		payment 25000 200
+		dialog phrase "coalition games dialog"
+
+
+overwrite
+mission "Coalition: From Games 1"
+	job
+	repeat
+	name "Passengers to <planet>"
+	description "将原在<origin>参加联盟运动会的<bunks>名乘客送返其母星<destination>。报酬为<payment>。"
+	passengers 4 4 .2
+	to offer
+		has "known to the heliarchs"
+		random < 90
+		month > 7
+		month < 10
+	source "Far Home"
+	destination
+		government "Coalition"
+		distance 2 20
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 10000
+		dialog phrase "coalition games dialog"
+
+overwrite
+mission "Coalition: From Games 2"
+	job
+	repeat
+	name "Passengers to <planet>"
+	description "Transport <bunks> passengers, who were on <origin> for the Coalition Games, back to their home world of <destination>. Payment is <payment>."
+	passengers 4 4 .1
+	to offer
+		has "known to the heliarchs"
+		random < 70
+		month > 7
+		month < 10
+	source "Far Home"
+	destination
+		government "Coalition"
+		distance 2 20
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 15000
+		dialog phrase "coalition games dialog"
+
+overwrite
+mission "Coalition: From Games 3"
+	job
+	repeat
+	name "Passengers to <planet>"
+	description "Transport <bunks> passengers, who were on <origin> for the Coalition Games, back to their home world of <destination>. Payment is <payment>."
+	passengers 4 4 .05
+	to offer
+		has "known to the heliarchs"
+		random < 50
+		month > 7
+		month < 10
+	source "Far Home"
+	destination
+		government "Coalition"
+		distance 2 20
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		"coalition jobs" ++
+		payment
+		payment 25000
+		dialog phrase "coalition games dialog"
+
+
+overwrite
+mission "Heliarchs Buy Jump Drive Job 1"
+	job
+	name "Sell Jump Drive"
+	"apparent payment" 5000000
+	description "向赫利阿克人出售一台跳跃引擎，获得<payment>积分。"
+	source
+		government "Heliarch"
+	to offer
+		not "Coalition: Lost: Offer: active"
+		has "Heliarchs Buy Jump Drive Mission: declined"
+		has "outfit (cargo): Jump Drive"
+	on accept
+		conversation
+			`赫利阿克斯见你接受了他们的提议，纷纷向你致以诚挚谢意；很快，数艘他们的飞船便降落在你船旁。显然，他们已获悉你改变了主意，对此交换满怀期待——船员们纷纷离舰，将你的飞船团团围住。不久后，他们腾出空间，让一支工程师队伍登舰，拆卸你飞船上的备用跳跃引擎。此时，赫利阿克斯特工们仍伫立原地静观其变，但已列成整齐队形，彼此低声私语，目光极少移动，仿佛在观赏一场盛大演出。`
+			`	一旦跃迁引擎被卸下你的飞船，它就会被装入一个过度加固的容器中，并在数百名全副武装士兵的护送下，运往环形空间站的禁入区域。负责此次行动的一位赫利阿克——一位名为阿拉克的成员——亲自前来向你致谢，并将<payment>交到你手中。“船长，您如此慷慨，实乃对我们的莫大荣耀。尽管我们在跃迁引擎及其机理的研究上已取得重大进展，却仍无法自行制造，亦无其他途径获取新的引擎。您所能提供的每一台跃迁引擎，都价值连城。若您有意出售更多跃迁引擎，我们将持续为您安排此类任务。”`
+			branch license
+				"coalition jobs" < 30
+			`	她再次向你致谢，行了个军礼，随即离开，前去跟随护卫新购跳跃引擎的随行队伍。`
+				accept
+			label license
+			action
+				"reputation: Coalition" += 10
+				"reputation: Heliarch" += 10
+				set "license: Coalition"
+				log "Sold a jump drive to the Heliarchs and received permission to purchase Coalition civilian technology and ships."
+				log "Factions" "Saryds" `萨瑞德人是一种外星物种，外形与人类早期神话中的半人马惊人地相似。他们偏爱绿意盎然的星球定居，甚至连主要城市中也遍布公园与花园。大多数萨瑞德人居住在小型公社中，每栋房屋通常容纳数十名成员。`
+				log "Factions" "Kimek" `基梅克人是体型庞大的昆虫类外星种族，属于联盟成员。他们在萨瑞德人之后、阿拉奇人之前掌握了太空飞行技术。他们是高度群居的生命体，偏好聚居于容纳数千居民的巨型建筑中；其诸多世界人口达数百亿，远超任何人族世界。`
+				log "Factions" "Arachi" `蜘蛛般的阿拉奇人（Arachi）是联盟三大种族中最后一个掌握星际航行技术的种族。他们社会中的大多数成员效忠于某一个伟大的阿拉奇‘世家’——这类组织类似于行会，各自专精于某一特定工业或技术领域。`
+			`	她再次向你致谢，行了个军礼，随即离开，前去跟随护卫新购跳跃引擎的随行队伍。她刚离开不到一分钟，又有三位赫利阿克抵达你的飞船——这是一支由联盟三大种族各一名代表组成的使团，每人头戴金色圆环，彰显其身份与权威。萨瑞德说道：“这真是一次出人意料、却极为可贵的贡献。没想到我们的访客竟如此热切，急于证明自己的勤勉与忠诚。”`
+			`	基梅克人说道：“你们曾协助我国社会挣脱夸格人的牢笼，因此我们愿以本国技术信任你们。”`
+			`	"但，"阿剌克人说道，"如同所有平民——即便是本国公民——我们仍无法向你们出售武器与战舰。"`
+			choice
+				`	"Thank you."`
+					goto end
+				`	"你们为何不允许平民购买武器或战舰？"`
+			`	“这是为了和平着想，”萨瑞德说道，“赫利阿克军队训练有素，只将武器用于防御，且仅在正义之名下动用；每一位成员都坚定地将联盟的利益置于本族自身的野心之上。而平民却缺乏这样的纪律性——就连您也不例外。但您是受人尊敬的客人，我们允许您保留自己的武器。”`
+			label end
+			`	此处显然没有任何商品出售，但他们向你保证，许多联盟世界如今将允许你进入它们的船坞和装备店。三位赫利阿克均对你慷慨赠予全新跳跃引擎深表感激，并祝你前程顺遂。`
+				accept
+		"coalition jobs" >?= 30
+		outfit "Jump Drive" -1
+		payment 5000000
+		fail
+
+overwrite
+mission "Heliarchs Buy Jump Drive Job 2"
+	job
+	repeat
+	name "Sell Jump Drive"
+	"apparent payment" 5000000
+	description "Sell a jump drive to the Heliarchs for <payment>."
+	source
+		government "Heliarch"
+	to offer
+		not "Coalition: Lost: Offer: active"
+		has "outfit (cargo): Jump Drive"
+		has "Heliarchs Buy Jump Drive Mission: offered"
+		or
+			not "Heliarchs Buy Jump Drive Mission: declined"
+			has "Heliarchs Buy Jump Drive Job 1: offered"
+	on accept
+		dialog "A team of Heliarch engineers carefully removes the spare jump drive from your ship and brings it to a restricted section of the ring. You're approached by the Heliarch who supervised the procedure, who thanks you for bringing in another drive, and hands you the pay of <payment>."
+		"coalition jobs" += 2
+		outfit "Jump Drive" -1
+		payment 5000000
+		fail
+
+
+overwrite
+mission "Heliarch Contain True"
+	job
+	repeat
+	name `押送罪犯`
+	description `请于{date}前抵达{destination}，与{bunks}名其他赫利阿克特工一同在当地打击犯罪分子。报酬为{payment}。`
+	deadline
+	passengers 16 58
+	to offer
+		random < 3
+		has "license: Heliarch"
+	source
+		government "Heliarch"
+	destination
+		distance 2 10
+		not attributes "coalition station"
+	on offer
+		require "Enforcer Confrontation Gear"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		payment
+		payment 70000
+		dialog `你与其他特工一同抵达标记区域，并迅速行动封锁所有出口。经过短暂交火后，罪犯投降，一艘赫利阿克飞船随即俯冲而下将他们接走。你向赫利阿克同事道别，随后返回自己的飞船，欣喜地发现<payment>已转入你的账户。`
+
+overwrite
+mission "Heliarch Contain Fail"
+	job
+	repeat
+	name `Contain Criminals`
+	description `Fly to <destination> by <date> so that you and <bunks> other Heliarch agents can combat criminals on site. Payment is <payment>.`
+	deadline
+	passengers 16 58
+	"apparent payment" 70000
+	to offer
+		random < 15
+		has "license: Heliarch"
+	source
+		government "Heliarch"
+	destination
+		distance 2 10
+		not attributes "coalition station"
+	on offer
+		require "Enforcer Confrontation Gear"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		dialog `你与其他特工前往标记区域，但抵达后却发现占据该地点的人员已成功逃脱。你陪同其他特工返回太空港，他们为此次任务失败而扼腕叹息。`
+
+overwrite
+mission "Heliarch Contain Fake"
+	job
+	repeat
+	name `Contain Criminals`
+	description `请于{date}前抵达{destination}，与{bunks}名其他赫利阿克特工一同在当地打击犯罪分子。报酬为{payment}。`
+	deadline
+	passengers 16 58
+	to offer
+		random < 45
+		has "license: Heliarch"
+	source
+		government "Heliarch"
+	destination
+		distance 2 10
+		not attributes "coalition station"
+	on offer
+		require "Enforcer Confrontation Gear"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		payment
+		payment 55000
+		dialog `你的小队猛然出击，完全出其不意地制服了目标。对方未作任何抵抗，立即交出了武器。你呼叫一艘赫利阿克飞船前来接走他们，随后向其他特工道别离去。当你返回飞船时，一笔额外的<payment>酬金已存入你的账户。`
+
+
+overwrite
+mission "Heliarch Prisoner Transport"
+	job
+	repeat
+	name `押送囚犯`
+	description `将<origin>上逮捕的<bunks>名罪犯押送至<destination>。报酬为<payment>。`
+	passengers 3 11
+	to offer
+		random < 15
+		has "license: Heliarch"
+	source
+		government "Coalition"
+	destination
+		government "Heliarch"
+	on offer
+		require "Enforcer Riot Staff"
+		require "Brig"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		payment
+		payment 45000
+		dialog `当你在<destination>着陆后，赫利阿克特工协助你将囚犯逐个带离飞船。待最后一名囚犯离开后，你将获得<payment>。`
+
+
+overwrite
+mission "Heliarch Investigate"
+	job
+	repeat
+	name `调查犯罪活动迹象`
+	description `在<stopovers>着陆，你与< bunks >名其他赫利阿克特工将调查一处被报告存在可疑活动的区域。完成调查后，返回<origin>领取< payment >。`
+	passengers 6 11
+	to offer
+		random < 60
+		has "license: Heliarch"
+	source
+		government "Heliarch"
+	stopover
+		distance 5 10
+		not attributes "coalition station"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on stopover
+		dialog `你与其他特工前往报告区域搜寻任何异常迹象。虽未发现明显线索，但现场确有明确迹象表明此处近期曾被使用。你花费数小时收集证据后，返回自己的飞船。`
+	on complete
+		payment
+		payment 40000
+		dialog `特工们感谢你用飞船运送他们，祝你旅途平安，随后便离开去向上级呈交调查结果。数分钟后，你收到了 <payment> 的酬金。`
+
+
+overwrite
+mission "Evacuate Lunarium True"
+	job
+	repeat
+	name "Rescue Lunarium Members"
+	description "在 <stopovers> 接载 <bunks> 名卢纳里乌姆成员，并于 <date> 前将他们运送至 <destination>。"
+	deadline
+	to offer
+		random < 10
+		has "Lunarium: Evacuation 6: done"
+		not "Heliarch Investigation 2: active"
+		not "joined the heliarchs"
+	to fail
+		has "Heliarch Investigation 2: active"
+		has "joined the heliarchs"
+	passengers 24 65
+	source
+		government "Coalition"
+	stopover
+		government "Coalition"
+		distance 2 4
+	destination
+		government "Coalition"
+		distance 5 6
+	on stopover
+		dialog `你的飞船一降落在机库，卢纳里乌姆成员便迅速围拢过来。你立即打开舱门，让他们登船。其中一名较为镇定的成员要求你尽快前往<destination>。`
+	on visit
+		dialog phrase "generic missing stopover or passengers"
+	on complete
+		payment
+		payment 33000
+		dialog `每位卢纳里乌姆成员在离开你的飞船前都会向你致谢，表达感激之情。最后一名成员将<payment>交予你，随后与其他人一同离去。`
+
+overwrite
+mission "Evacuate Lunarium Fail"
+	job
+	repeat
+	name "Rescue Lunarium Members"
+	description "在<stopovers>接载<bunks>名卢纳里乌姆成员，然后于<date>前将他们送往<destination>。"
+	deadline
+	to offer
+		random < 5
+		has "Lunarium: Evacuation 6: done"
+		not "Heliarch Investigation 2: active"
+		not "joined the heliarchs"
+	to fail
+		has "Heliarch Investigation 2: active"
+		has "joined the heliarchs"
+	passengers 24 65
+	source
+		government "Coalition"
+	stopover
+		government "Coalition"
+		distance 2 4
+	destination
+		government "Coalition"
+		distance 5 6
+	on stopover
+		dialog `你降落在机库中，等待了几分钟，但卢纳里乌姆成员始终未现身。相反，码头却逐渐被赫利阿克特探员填满。你的显示器上弹出一条消息，称赫利阿克特已抢先一步抵达此处并控制了这些成员，但仍感谢你付出的努力。`
+		fail
+
+
+overwrite
+mission "Lunarium: Armageddon Core Delivery"
+	job
+	repeat
+	name "Armageddon Core Delivery"
+	description "卢纳里乌姆组织愿支付<payment>，委托你将一枚末日核心运抵<destination>。"
+	to offer
+		random < 4
+		has "Lunarium: Smuggling: Reactors: done"
+		not "Lunarium: Armageddon Core Delivery: active"
+		not "Heliarch Investigation 2: active"
+		not "joined the heliarchs"
+	to fail
+		has "Heliarch Investigation 2: active"
+		has "joined the heliarchs"
+	source
+		government "Coalition"
+	destination
+		distance 5 12
+		not government "Heliarch"
+		not attributes "coalition station"
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		outfit "Armageddon Core" -1
+		payment 13500000
+		dialog `按指示在<planet>一处偏僻区域着陆后，部分卢纳里乌姆成员卸下了‘末日核心’。他们将<payment>交予你，随后悄然运走了反应堆。`
+
+overwrite
+mission "Lunarium: Fusion Reactor Delivery"
+	job
+	repeat
+	name "Fusion Reactor Delivery"
+	description "卢纳里乌姆组织愿支付<payment>，委托你将一台聚变反应堆运送至<destination>。"
+	to offer
+		random < 7
+		has "Lunarium: Smuggling: Reactors: done"
+		not "Lunarium: Fusion Reactor Delivery: active"
+		not "Heliarch Investigation 2: active"
+		not "joined the heliarchs"
+	to fail
+		has "Heliarch Investigation 2: active"
+		has "joined the heliarchs"
+	source
+		government "Coalition"
+	destination
+		distance 3 8
+		not government "Heliarch"
+		not attributes "coalition station"
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		outfit "Fusion Reactor" -1
+		payment 7500000
+		dialog `一些卢纳里乌姆成员按指示在<planet>的偏僻区域着陆后卸下了聚变反应堆。他们将<payment>交给你，随后悄然运走了反应堆。`
+
+overwrite
+mission "Lunarium: Breeder Reactor Delivery"
+	job
+	repeat
+	name "Breeder Reactor Delivery"
+	description "卢纳里乌姆组织愿支付<payment>，委托你将一台育种反应堆运送至<destination>。"
+	to offer
+		random < 10
+		has "Lunarium: Smuggling: Reactors: done"
+		not "Lunarium: Breeder Reactor Delivery: active"
+		not "Heliarch Investigation 2: active"
+		not "joined the heliarchs"
+	to fail
+		has "Heliarch Investigation 2: active"
+		has "joined the heliarchs"
+	source
+		government "Coalition"
+	destination
+		distance 3 6
+		not government "Heliarch"
+		not attributes "coalition station"
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		outfit "Breeder Reactor" -1
+		payment 3250000
+		dialog `一些卢纳里乌姆成员按指示在<planet>的偏僻区域着陆后卸下了育种反应堆。他们将<payment>交给你，随后悄然运走了反应堆。`
+
+overwrite
+mission "Lunarium: Torpedo Delivery"
+	job
+	repeat
+	name "Torpedo Delivery"
+	description "卢纳里乌姆组织愿支付<payment>，委托你将一座鱼雷发射器（含30枚鱼雷）运送至<destination>。"
+	to offer
+		random < 12
+		has "Lunarium: Smuggling: Torpedoes: done"
+		not "Lunarium: Torpedo Delivery: active"
+		not "Heliarch Investigation 2: active"
+		not "joined the heliarchs"
+	to fail
+		has "Heliarch Investigation 2: active"
+		has "joined the heliarchs"
+	source
+		government "Coalition"
+	destination
+		distance 6 12
+		not government "Heliarch"
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		outfit "Torpedo Launcher" -1
+		outfit "Torpedo" -30
+		payment 183000
+		dialog `若干卢纳里乌姆成员按指示在<planet>的偏僻区域着陆后，卸下了鱼雷发射器及其弹药。他们将<payment>交给你，随后悄然运走了货物。`
+
+overwrite
+mission "Lunarium: Typhoon Delivery"
+	job
+	repeat
+	name "Typhoon Delivery"
+	description "卢纳里乌姆组织愿支付<payment>，委托你将一台台风鱼雷发射器（含30枚台风鱼雷）运抵<destination>。"
+	to offer
+		random < 7
+		has "Lunarium: Smuggling: Torpedoes: done"
+		not "Lunarium: Typhoon Delivery: active"
+		not "Heliarch Investigation 2: active"
+		not "joined the heliarchs"
+	to fail
+		has "Heliarch Investigation 2: active"
+		has "joined the heliarchs"
+	source
+		government "Coalition"
+	destination
+		distance 6 12
+		not government "Heliarch"
+	on complete
+		outfit "Typhoon Launcher" -1
+		outfit "Typhoon Torpedo" -30
+		payment 511500
+		dialog `若干卢纳里乌姆成员按指示在<planet>的偏僻区域着陆后，卸下了台风发射器及其弹药。他们将<payment>交给你，随后悄然运走了货物。`
+
+overwrite
+mission "Lunarium: Plasma Delivery"
+	job
+	repeat
+	name "Plasma Turret Delivery"
+	description "卢纳里乌姆组织愿支付<payment>，委托你将一座等离子炮塔运送至<destination>。"
+	to offer
+		random < 6
+		has "Lunarium: Smuggling: Heat: done"
+		not "Lunarium: Plasma Delivery: active"
+		not "Heliarch Investigation 2: active"
+		not "joined the heliarchs"
+	to fail
+		has "Heliarch Investigation 2: active"
+		has "joined the heliarchs"
+	source
+		government "Coalition"
+	destination
+		distance 4 9
+		not government "Heliarch"
+	on complete
+		outfit "Plasma Turret" -1
+		payment 780000
+		dialog `若干卢纳里乌姆成员按指示在<planet>的偏僻区域着陆后，卸下了等离子炮塔。他们将<payment>交给你，随后悄然运走了炮塔。`
+
+overwrite
+mission "Lunarium: Flamethrower Delivery"
+	job
+	repeat
+	name "Flamethrower Delivery"
+	description "卢纳里乌姆组织愿支付<payment>，委托你将两台火焰喷射器运抵<destination>。"
+	to offer
+		random < 8
+		has "Lunarium: Smuggling: Heat: done"
+		not "Lunarium: Flamethrower Delivery: active"
+		not "Heliarch Investigation 2: active"
+		not "joined the heliarchs"
+	to fail
+		has "Heliarch Investigation 2: active"
+		has "joined the heliarchs"
+	source
+		government "Coalition"
+	destination
+		distance 2 6
+		not government "Heliarch"
+	on complete
+		outfit "Flamethrower" -2
+		payment 570000
+		dialog `一些卢纳里乌姆成员按指示在<planet>的偏僻区域着陆后卸下了火焰喷射器。他们将<payment>交给你，随后悄然运走了火焰喷射器。`
+
+overwrite
+mission "Lunarium: Grenade Delivery"
+	job
+	repeat
+	name "Grenade Delivery"
+	description "卢纳里乌姆组织愿支付<payment>，委托你将十二枚破片手雷运抵<destination>。"
+	to offer
+		random < 11
+		has "Lunarium: Smuggling: Grenades: done"
+		not "Lunarium: Grenade Delivery: active"
+		not "Heliarch Investigation 2: active"
+		not "joined the heliarchs"
+	to fail
+		has "Heliarch Investigation 2: active"
+		has "joined the heliarchs"
+	source
+		government "Coalition"
+	destination
+		distance 7 13
+		not government "Heliarch"
+	on complete
+		outfit "Fragmentation Grenades" -12
+		payment 306000
+		dialog `一些卢纳里乌姆成员按指示在<planet>的偏僻区域着陆后卸下了破片手雷。他们将<payment>交给你，随后悄然运走了手雷。`
+
+overwrite
+mission "Lunarium: Anti-Missile Delivery"
+	job
+	repeat
+	name "Anti-Missile Delivery"
+	description "卢纳里乌姆组织愿支付<payment>，委托你将一座重型反导炮塔运送至<destination>。"
+	to offer
+		random < 10
+		has "Lunarium: Smuggling: AM: done"
+		not "Lunarium: Anti-Missile Delivery: active"
+		not "Heliarch Investigation 2: active"
+		not "joined the heliarchs"
+	to fail
+		has "Heliarch Investigation 2: active"
+		has "joined the heliarchs"
+	source
+		government "Coalition"
+	destination
+		distance 9 14
+		not government "Heliarch"
+	on complete
+		outfit "Heavy Anti-Missile Turret" -1
+		payment 225000
+		dialog `一些卢纳里乌姆成员按指示在<planet>的偏僻区域着陆后卸下了重型反导弹炮塔。他们将<payment>交给你，随后悄然运走了炮塔。`

@@ -1,0 +1,547 @@
+# Copyright (c) 2014 by Michael Zahniser
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+overwrite
+mission "First Contact: Unfettered"
+	landing
+	source
+		attributes "unfettered"
+	on offer
+		conversation
+			branch hai
+				has "First Contact: Hai: offered"
+			`这颗行星上生活着一个敌对的外星种族，外形酷似巨型、高智商的松鼠。尽管它们在轨道上时表现出敌意，但在地表却几乎无视你的存在。你是否要靠近其中一只？`
+			choice
+				`	(Sure.)`
+					goto sure
+				`	（现在不行，风险太大了。）`
+					defer
+
+			label sure
+			`	你与一名外星码头工人目光相遇，对方走了过来。“啊，”它说道，“这只猴子很好奇嘛。这只猴子以前从未面对面见过真正的海伊人？”`
+			choice
+				`	“海伊？这就是你们对自己的称呼？”`
+					goto name
+				`	“你说的‘真正的海伊’是什么意思？”`
+					goto true
+				`	“你为什么要向我开火？你们正在交战吗？”`
+					goto war
+
+			label hai
+			`此处的海伊人似乎正与其同族其他成员交战。你是否要靠近其中一人，询问原因？`
+			choice
+				`	(Sure.)`
+				`	(Not now, it's too risky.)`
+					defer
+			`	你与一名海伊码头工人目光相遇，对方走了过来。“啊，”他们说道，“这只猴子很好奇嘛。这只猴子以前从未面对面见过真正的海伊人？”`
+			choice
+				`	"不，我在你们这片区域以南已遇到过许多你们的同胞。"`
+					goto brethren
+				`	"What do you mean, 'true Hai'?"`
+					goto true
+				`	“你们为什么要跟其他所有势力开战？”`
+					goto everyone
+			
+			label brethren
+			`	他们发出嘶嘶声：“他们并非真正的海伊。我们才是海伊——纯血之裔。早在人类猴子学会使用拇指之前，我们便已是上百颗星球的主宰。”`
+				goto masters
+			
+			label true
+			`	“这意味着我们未经任何改变，是如初生之时那般纯粹的海伊——征服者海伊。在人类猴子学会使用拇指之前，我们早已统治过上百个世界。”`
+				goto masters
+			
+			label name
+			`	“我们是海伊。征服者海伊。在人类猴子学会使用拇指之前，我们早已统治上百个世界。”`
+				goto masters
+			
+			label war
+			`	“我们奋战，只为捍卫自身免于灭绝。”他们如此说道。`
+			`	"灭绝？"你问道，"你的意思是……其他海伊已不复存在？"`
+			`	“我们是原始海伊仅存的后裔，”他们说道，“未经改造，纯粹的征服者。在人类猴子学会使用拇指之前，我们早已统治上百个世界。”`
+				goto masters
+			
+			label everyone
+			`	"We fight to defend ourselves from extinction," they say.`
+			`	"灭绝？"你问道，"你的意思是……你们与其他海伊并非同一物种？"`
+			`	“确实如此。”他们说道，“我们是原始海伊族仅存的后裔——未经改造、未曾屈服的征服者。在人类这些猴子学会使用拇指之前，我们早已统治上百颗星球。”`
+				goto masters
+			
+			label masters
+			choice
+				`	"你们的领地在哪儿？我以前怎么从未听说过你们？"`
+				`	“你说的‘海伊被改造过’是什么意思？”`
+			
+			`	“这是我们自己的故事，”他们说道，“曾经，无数位于虫洞之外的世界皆属我们所有。那已是十万年前的往事。我们亟需更多世界。一个不思扩张的种族，终将如咸淡水般浑浊滞涩，如发育不良的树木般萎靡不振。然而南方的龙族已造出跃迁引擎，而人类猿猴也已在‘龙族’眼中以极富智慧的方式敲击石块。于是，我们被禁止再攫取新的世界。”`
+			branch sheragi
+				has "Rim Archaeology 6: offered"
+			`	“‘龙族’？”，你问道，“我从未听说过他们。”`
+			`	“谢拉吉人（Sheragi）？”他们说，“他们已经灭绝了。只有那些愚钝的祖先还活着，就像猴子终将比会思考的人类存活得更久。”`
+				goto altered
+
+			label sheragi
+			`	“‘龙族’？”，你问道，“你们是指谢拉吉人吗？”`
+			`	"令人印象深刻，"他们回应道，"这猴子居然知晓谢拉吉。我们比他们全都活得更久。有趣的是，唯有他们那些愚钝的祖先存留至今，正如猴子终将比会思考的人类存活得更久。"`
+
+			label altered
+			`	“你们是如何被改造的？”你问道。`
+			`	他们说道：“我们海伊人曾与谢拉吉人交战，并夺取了德拉克声称属于他们的世界——那些世界甚至连谢拉吉人都尚未发现。德拉克随即展开报复：所有海伊世界的轨道上，都出现了德拉克飞船。一场瘟疫席卷每颗行星：高烧来得迅猛，更有一种奇异的虚弱感，仿佛你只剩一副易碎的枯骨，口中满是尘土。感染者虽能幸存，却尽失雄心壮志，唯余一个念头——在安逸的老年中悄然离世。”`
+			choice
+				`	“你尝试过抵抗德拉克人吗？”`
+					goto resist
+				`	“这件事发生在十万年前，你又是如何得知的？”`
+					goto know
+			
+			label resist
+			`	“愚蠢的猴子，”他们说，“无人能够抗拒。他们强大无比，意志坚不可摧。而他们的意志，便是将整个银河系变成一座动物园——每个种族仅存的残余，都被关在各自独立的笼中。目前他们暂且放任人类自由活动，好让人类继续增长知识；但不久之后，人类也将被关进属于自己的笼子。”`
+				goto help
+			
+			label know
+			`	“所有海伊人都知晓这段历史。它代代相传。其他人讲述的是一个被篡改过的版本——将‘和平之道’描绘成一种自主选择，而非一道强加于身的创伤；但每一代中，总有些人会领悟真相，并来到我们这里加入我们。”`
+				goto help
+			
+			label help
+			choice
+				`	"这是一个令人恐惧的故事。感谢您抽出时间与我交谈。"`
+					decline
+				`	"有什么我能帮上您的吗？"`
+			action
+				set "unfettered requested jump drives"
+			`	“倘若你愿出售一台跳跃引擎给我们，我们将给予丰厚酬谢。而若你发现了我们自行建造跳跃引擎、从而逃离这座牢笼的秘密，请将此秘密带给我们——你将在我们之中如神明般永生。”`
+			choice
+				`	"抱歉，我不知道跳跃引擎的秘密。没有任何人类知道。"`
+				`	"倘若我手头有多余的跳跃引擎出售，定会优先找你。"`
+					goto sell
+			`	“那请别再打扰我们。”他们说完便转身离去。`
+				decline
+			
+			label sell
+			`	"为我们带来一台跳跃引擎，我们便视你为友；若带来更多，待我们夺回属于我们的东西之时，甚至可考虑让你分享战利品。"`
+				decline
+	
+	on decline
+		log "Factions" "Unfettered Hai" `“无羁者”是海伊种族内部的一个派系，其成员远不如其他海伊那般和平，通常对人类亦不友善。他们声称，远古时代德拉克曾改造过海伊，使其变得温顺而平和；而无羁者正是那些成功避开了该次改造的海伊后裔。他们正四处搜寻跳跃引擎，以便逃离如今被困其中的“监狱”——位于海伊疆域最北端、几颗日益衰败的行星。`
+		log "Factions" "Sheragi" `无羁海伊人称，曾有一种形似巨龙、名为‘谢拉吉’的物种长期栖息于人类疆域——那时尚未被人类占据的广袤星域，当时大多由海伊人掌控。`
+
+
+
+overwrite
+mission "Unfettered Jump Drive 1"
+	minor
+	landing
+	name "More Jump Drives"
+	description "无羁海伊人承诺：只要你为他们带来更多跳跃引擎，便将给予你丰厚酬劳。"
+	to offer
+		has "First Contact: Unfettered: offered"
+		not "Wanderers: Jump Drive Source: active"
+	to fail
+		has "event: wanderers: unfettered invasion starts"
+	to complete
+		has "Unfettered Jump Drive 2: offered"
+	source
+		attributes "unfettered"
+	on offer
+		conversation
+			`无羁者显然已察觉你装备有跳跃引擎；一大群无羁者已将你的飞船团团围住。你是否要与他们交谈，或许商谈出售你的跳跃引擎？`
+			choice
+				`	(No.)`
+					defer
+				`	(Yes.)`
+			`	你刚一走近人群，其中一人便走上前说道：“一百万积分，外加真正海伊人民的友谊——这就是我们为换取跳跃引擎所开出的条件。”`
+			choice
+				`	"好，我接受这笔交易。"`
+					goto end
+				`	"您能提供的，就只有这些吗？"`
+					goto more
+				`	“没有跳跃引擎，我的飞船怎么离开这里？”`
+			
+			`	“如有需要，我们可以为您提供一台跃迁引擎作为替代，”他们说道，“并且您将被视为我们的朋友，因此无需仓促离开此地，也无需在武力威胁下撤离。”你不禁暗自思忖：若拒绝这笔交易，他们是否会强行夺取你的飞船？`
+			`	“哦，对了，顺带一提——今后你无需再维持‘奇虾号’的正常运转，来维系我们之间的友谊了。”他们补充道。`
+				to display
+					has "Hai Legacy 3: done"
+			choice
+				`	“好，我接受您慷慨的提议。”`
+					goto end
+				`	"抱歉，但如果我把这台跳跃引擎交给你，我就将失去继续捕获更多它们的能力。请耐心等待，待我有能力时，定会为你带来几台。"`
+					goto refuse
+			
+			label refuse
+			`	他们对此思索片刻，随后说道：“很好。我们的提议依然有效——只要你愿意归来，随时欢迎。”他们让你安然返回自己的飞船。`
+				defer
+			
+			label more
+			`	"切莫低估我们友谊的价值，"他们说道，"不久之后，我们将再度崛起，掌控众多富饶世界；到那时，身为我们的盟友，你们必将获益匪浅。"`
+			choice
+				`	"好吧，只要你给我一个跃迁引擎来替换它，我就把我的跳跃引擎交给你。"`
+					to display
+						"outfit (cargo): Jump Drive" + "outfit (flagship installed): Hyperdrive" + "outfit (flagship installed): Scram Drive" + "outfit (flagship installed): Jump Drive" == 1
+					goto end
+				`	"你可以拿走跳跃引擎，但我并不需要以跃迁引擎作为交换。"`
+					to display
+						"outfit (cargo): Jump Drive" + "outfit (flagship installed): Hyperdrive" + "outfit (flagship installed): Scram Drive" + "outfit (flagship installed): Jump Drive" > 1
+					goto spareJD
+				`	"Sorry, but if I give you this jump drive, I will lose my ability to capture more of them. Be patient, and I will bring you several of them when I am able."`
+					goto refuse
+			
+			label end
+			branch spareJD
+				"outfit (cargo): Jump Drive" + "outfit (flagship installed): Hyperdrive" + "outfit (flagship installed): Scram Drive" + "outfit (flagship installed): Jump Drive" > 1
+			action
+				outfit "Hyperdrive" 1
+			`	无羁者工程师迅速而谨慎地拆下你的跳跃引擎，并换装为一台普通跃迁引擎。你由衷希望将这项新技术交给他们并非错误之举。其中一人将报酬交予你时说道：‘请记住——当你获得更多的跳跃引擎后，务必携其重返此处，我们将给予你更丰厚的回报。愿幸运眷顾你，人类朋友。’`
+				accept
+			label spareJD
+			`	无羁者工程师迅速取回了跳跃引擎。你由衷地希望，将这项新技术交给他们并非一个错误的决定。“记住，”其中一位工程师将报酬交给你时说道，“当你获得更多的跳跃引擎后，请带着它们回到这里，我们将给予你更丰厚的奖励。在此期间，愿幸运眷顾你，人类朋友。”`
+				accept
+	
+	on accept
+		outfit "Jump Drive" -1
+		payment 1000000
+		"reputation: Hai (Unfettered)" >?= 10
+
+
+
+overwrite
+mission "Unfettered Jump Drive 2"
+	minor
+	landing
+	name "More Jump Drives"
+	description "无羁海伊人承诺：只要你为他们带来更多跳跃引擎，不仅将给予你丰厚酬劳，还将向你透露更多关于他们计划的情报。"
+	to offer
+		has "Unfettered Jump Drive 1: offered"
+		not "Wanderers: Jump Drive Source: active"
+	to fail
+		has "event: wanderers: unfettered invasion starts"
+	to complete
+		has "Unfettered Jump Drive 3: offered"
+	source
+		attributes "unfettered"
+	on offer
+		conversation
+			`和之前一样，当你驾驶装有跳跃引擎的飞船降落在这颗无羁世界时，一大群人立刻围拢到你的飞船周围。显然，他们又一次期盼你能安排一场交易。你要和他们讨价还价吗？`
+			choice
+				`	(No.)`
+					defer
+				`	(Yes.)`
+			`	当你靠近人群时，其中一人说道：“欢迎，人类朋友。我们已将你告知所有兄弟姐妹——你是极少数选择协助真正海伊重获自由的生灵之一。若你再提供一台跳跃引擎，我们将额外支付你一百万积分，并任命你为我们的使者，代为收取我们体弱的兄弟们为换取和平而筹措的款项。你可愿接受这笔交易？”`
+			choice
+				`	"抱歉，我急需这台跳跃引擎，但稍后我会回来把它卖给你。"`
+					defer
+				`	"是的，我愿将我的跳跃引擎出售给你。"`
+			
+			branch spareJD
+				"outfit (cargo): Jump Drive" + "outfit (flagship installed): Hyperdrive" + "outfit (flagship installed): Scram Drive" + "outfit (flagship installed): Jump Drive" > 1
+			action
+				outfit "Hyperdrive" 1
+			label spareJD
+			`	他们再次为您将跳跃引擎更换为跃迁引擎，并支付的报酬远超您在别处出售跳跃引擎所能获得的最高价格。他们告诉您：‘我们将在海伊族各招聘公告板上推荐您承接任务’，并提醒您：‘我们仍需更多跳跃引擎。’`
+			choice
+				`	"那我就去找更多，并把他们带到你面前。"`
+					accept
+				`	“能告诉我你们用它们来做什么吗？”`
+			`	"还不能确定。如果你能进一步证明你的友谊，或许我们就会考虑。"你向他们保证，自己将继续竭尽全力提供协助。`
+				accept
+	
+	on accept
+		outfit "Jump Drive" -1
+		payment 1000000
+		"reputation: Hai (Unfettered)" >?= 20
+		fail "Unfettered Jump Drive 1"
+
+
+
+overwrite
+mission "Unfettered Jump Drive 3"
+	minor
+	landing
+	invisible
+	to offer
+		has "Unfettered Jump Drive 2: offered"
+		not "Wanderers: Jump Drive Source: active"
+	source
+		attributes "unfettered"
+	on offer
+		conversation
+			`你手中还有另一台跳跃引擎，无羁者肯定愿意为此向你支付丰厚报酬。他们还暗示，或许会向你透露更多关于他们计划如何使用这些跳跃引擎的情报。你是否打算再卖一台给他们？`
+			choice
+				`	(No.)`
+					defer
+				`	(Yes.)`
+			`	你与几位当地无羁者领袖会面，他们再次付给你一百万积分，并安排将你飞船上的跳跃引擎更换下来。“如果你再带来更多，我们仍会继续付钱给你，”他们说道。`
+			choice
+				`	"您能告诉我你们使用跳跃引擎的目的吗？"`
+				`	"谢谢您，待我有能力时，定会带来更多此类物品。"`
+					goto job
+			action
+				set "unfettered know of wanderers"
+			`	他们用本族语言短暂而低声地商议片刻后，其中一位领袖说道：“你们已证明了自己的价值，因此我们将与你们分享这一秘密。海伊族曾拥有银河系边缘的众多世界——唯有借助跳跃引擎才能抵达那片疆域。那些世界物产丰饶，且几乎无人居住。我们将重新收复故土，并在那里为‘无羁者’储备足以维系数千年的食物。”`
+			branch know
+				or
+					has "First Contact: Wanderer: offered"
+					has "First Contact: Wanderer (Before Hai): offered"
+			choice
+				`	"还有其他方式可以助您收复那些世界吗？"`
+					goto help
+				`	“‘几乎无人居住’？你的意思是，如今已有其他物种定居于其中一些世界？”`
+					goto wanderers
+			
+			label know
+			`	你怀疑他们谈论的是如今由漫游者占据的那片疆域。`
+			choice
+				`“你们正在与漫游者交战吗？我能帮你们收复失地吗？”`
+					goto help
+				`	“你打算对眼下拥有这些世界的那个种族做些什么？”`
+					goto wanderers
+			
+			label help
+			`	“你的帮助或许确实对我们有益，”首领说道，“若其他人有适合你执行的特定任务，我会让他们主动联系你。”`
+			choice
+				`	"我很期待收到他们的消息。"`
+					goto job
+				`	“你打算如何处置如今栖居于那些世界上的物种？”`
+			
+			label wanderers
+			`	“那些世界如今被一群拾荒者种族占据，他们以昔日辉煌文明的废墟为食。我们的侦察员报告称，这些食腐者几乎抹去了所有海伊文明遗迹——将我们的城市熔解成金属，用于建造他们的飞船与工厂；又在我们战争留下的伤痕之上，栽种出一片片崭新的森林加以掩盖。他们是一个古老而强大的种族，但人口稀少，而那些世界本就理应属于我们。”`
+			`	你试图向他们追问更多信息，但他们并未提供任何有用线索，只承诺会在收复领地之时寻求你的协助。`
+			label job
+			branch spareJD
+				"outfit (cargo): Jump Drive" + "outfit (flagship installed): Hyperdrive" + "outfit (flagship installed): Scram Drive" + "outfit (flagship installed): Jump Drive" > 1
+			action
+				outfit "Hyperdrive" 1
+			label spareJD
+			`	"若你希望向我们提供更多跳跃引擎，请从此前往任务公告板接取相关委托，"首领说道，"我们将安排战士按惯例报酬向你接收这些装备。"`
+				accept
+	
+	on accept
+		outfit "Jump Drive" -1
+		payment 1000000
+		"reputation: Hai (Unfettered)" >?= 30
+		fail "Unfettered Jump Drive 2"
+		fail
+
+
+
+overwrite
+mission "Unfettered Jump Drive Trading"
+	minor
+	landing
+	invisible
+	source "Darkcloak"
+	substitutions
+		<hood> ""
+		<hood> ", with their face hidden,"
+			has "unfettered: blade rodeo"
+		<learned> ""
+		<learned> "It did take you two tries, but I am glad that you were able to learn from your mistake. "
+			"unfettered: blade rodeo" == 1
+		<learned> "You finally learned from your mistakes. This is why our challenges are never fatal. "
+			"unfettered: blade rodeo" == 2
+		"<The engineer>" "The engineer, who had stepped back during the fight,"
+		"<The engineer>" "The real engineer then moves out of the crowd,"
+			"unfettered: blade rodeo" == 1
+		"<The engineer>" "The engineer, who had stepped back during the fight, reveals their face and"
+			"unfettered: blade rodeo" == 2
+		"<as before (run)>" "You"
+		"<as before (run)>" "As before, you"
+			has "unfettered: dodged the blade"
+		"<as before (flee)>" "You"
+		"<as before (flee)>" "Just like last time, you"
+			has "unfettered: flee from the blade"
+		<leave> "She then leaves, to your surprise."
+		<leave> "She then leaves, her anger barely contained."
+			has "unfettered: blade rodeo"
+	to offer
+		has "Unfettered Jump Drive 3: offered"
+		not "Wanderers: Jump Drive Source: active"
+		not "Wanderers: Jump Drive Source: done"
+		# There is no minimum amount of JD to sell (other than the first 3), except if you failed to prove yourself the first time.
+		# "Unfettered Jump Drive 4: failed" represents the amount of JD sold.
+		"unfettered: jd to sell" <= "Unfettered Jump Drive 4: failed"
+		random < 20 + 8 * "Unfettered Jump Drive 4: failed"
+	on offer
+		conversation
+			`当你走出飞船前往太空港时，发现一名无羁海伊<hood>正守候在你的舱门前。`
+			`	你越靠越近，推测对方是一名工程师——单凭其手持的记事板与随身设备便可断定。或许此人想与你交易的，并非金钱，而是别的东西。你是否愿就此与他们讨价还价，换取另一台引擎？`
+				to display
+					not "unfettered: blade rodeo"
+			`	他们很可能仍想沿用先前以跳跃引擎交换武器的交易方案。你是否打算这次努力证明自身价值，从而争取到一台跳跃引擎？`
+				to display
+					has "unfettered: blade rodeo"
+			choice
+				`	(No.)`
+					defer
+				`	(Yes.)`
+			`	你刚踏上这颗星球，那位所谓的工程师便丢下工具，像先前一样朝你掷出一把刀刃——看来她已不愿再对你浪费时间了。`
+				to display
+					"unfettered: blade rodeo" == 1
+				goto blade
+			`	你走出飞船，但还没来得及靠近工程师，另一名‘无羁者’便高声呼喊吸引你的注意，随即毫无预警、毫不拖泥带水地向你掷出一把刀刃。`
+				to display
+					"unfettered: blade rodeo" > 1
+				goto blade
+			`	你走下飞船，工程师立刻带你前往装备店。“我们备有武器，以答谢你为我们提供跳跃引擎的帮助。目前你仅可购买其中一种；但若你持续协助我们，便有望证明自己配得上使用其余武器。”他们甚至从未停下来问你是否真的对新武器感兴趣。`
+			label repeat
+			choice
+				`	（尾随他们。）`
+					goto next
+				`	"我对海伊人的武器并不感兴趣。"`
+					to display
+						not "unfettered: uninterested in weapons"
+					goto uninterested
+				`	"我现在真的不想做这件事。"`
+			action
+				clear "unfettered: uninterested in weapons"
+				"unfettered: jd to sell" ++
+			`	“真没礼貌！你最好祈祷下次还有别人来为你引路！”工程师在你返回飞船时说道。`
+				defer
+			label uninterested
+			action
+				set "unfettered: uninterested in weapons"
+			`	"船长，这些可不是标准的海伊制式武器，请务必相信我。再者，在亲眼见过之前就妄下判断，恐怕也不太妥当吧？"`
+				goto repeat
+			label next
+			`	他们带你穿过惯常的装备店，随后却转向一个你此前从未留意过的区域——很可能是因为本就不该被你发现。当你正要通过一道看似安检关卡的入口时，一名无羁者突然朝你的面部掷出一把刀刃！`
+			label blade
+			`	你认出此人正是上次见过的那位‘无羁者’；她似乎格外热衷于朝人投掷刀刃。`
+				to display
+					has "unfettered: blade rodeo"
+			choice
+				`	（试着抓住它。）`
+					goto grab
+				`	（尝试躲避它。）`
+					goto dodge
+				`	（向侧面跃闪，并使用我的武器反击。）`
+				`	（逃跑。）`
+					goto flee
+			`	你向侧面跃开，及时抄起自己的武器，对准了向你掷出刀刃的无羁者。对方似乎对你这非常规战术略感惊讶，于是放下了自己的武器。“干得漂亮！实话说，在战场上活下来才是至高无上的荣耀，唯有如此，你才能把战利品带回给真正需要的人！一种战术是否有效，取决于你能否迅速发现并果断执行——而你恰恰做到了这一点。<learned>我是德斯尼帕鲁，很荣幸与您会面，船长。”`
+				goto meet
+			label grab
+			`	你及时抓起武器，恰好挡下了同一台‘无羁者’发起的进攻。你们随即展开对决，时间仿佛凝固成永恒。起初，你惊讶于自己竟能存活如此之久；但很快便意识到——由于你始终未能成功击中对方一次，这必然是某种刻意安排的考验。`
+			`	接着，你忽然察觉对手的节奏骤然变化；这场较量已然结束。她以一记精妙绝伦的打击轻易将你缴械，随即微笑着收起武器。“看来你对刀剑之道颇有心得！<learned>我是德斯尼帕鲁（Desneeparu），很荣幸见到您，<last>船长！”她朗声说道，又见你一脸惊愕，不禁莞尔。你顿时明白，她从一开始便是在与你戏耍——然而，她似乎仍对你方才的表现颇为满意。`
+			label meet
+			action
+				log "Minor People" "Desneeparu" `一名精通刀术的无羁战士。在获准使用新型无羁武器前，曾接受过她的试炼。若非她当时有所保留，此人早已命丧当场。`
+			`	她以拳行了一种礼节，随后转身离去。“我必须即刻动身了。愿你寻得所需之武器。”`
+			`	<工程师> 带你深入地下，穿过一排又一排的原型武器展区，部分武器正由工程师现场调试。他们解释道：“我们更倾向于在实战战场上完成大部分测试。在此地，我们仅进行最基础的安全测试，随后便交付给‘无羁者’舰长使用。舰长们通常会先前往火炉星（Firelode）极限测试新武器，确保其不会在战斗关键时刻发生爆炸。某款原型武器若越受青睐，我们对其的后续研发力度也就越大。”你继续前行，最终步入设施内的装备店区域；此处陈列的商品远比地表所见更为先进——先进程度之高，几乎可与一家‘普通’的海伊装备店相媲美；唯独那过度充能、令人压抑的试验场氛围，才暴露了此地的真实身份。`
+			`	“欢迎光临装备店的高级专区，船长！此区域仅对最尊贵的客人开放。如今您已多次向我们出售跳跃引擎，我便可向您透露：我们提供的远不止金钱——而是更为珍贵之物。目前，我仅能为您提供威力强大的三脉冲碎裂炮；但未来，您将获得全部种类武器的采购权限。我的提议是：两门三脉冲碎裂炮，外加我们的同情，换取一台跳跃引擎。”他们一边说着，一边将武器呈现在你面前。如今你得以仔细端详，发现这些武器整体上与海伊族其他武器颇为相似，但在某一方面均经过了强化。除三脉冲碎裂炮外，你还能辨认出一门体积极小的离子炮，以及一座搭载离子炮的炮塔。`
+			label weapons
+			choice
+				`	“跟我多说说我能购买的三脉冲撕裂者武器。”`
+					to display
+						not "choice: tripulse"
+					goto tripulse
+				`	"那我就选三脉冲炮了。"`
+					to display
+						has "choice: tripulse"
+					goto "buy tripulse"
+				`	"能再给我详细说说那种小型离子武器吗？"`
+					to display
+						not "choice: blaster"
+				`	"我想了解一下……这种安装在炮塔上的离子炮？"`
+					to display
+						not "choice: turret"
+					goto turret
+				`	"I would just prefer the money, actually."`
+					goto money
+			action
+				set "choice: blaster"
+			scene "outfit/hai ionic blaster"
+			`	"啊，爆能枪。许多护盾甲虫舰长都偏爱它，因为它无需占用太多武器空间，便能轻易扭转战局。尤其考虑到它的其他效果，其伤害输出已足以胜任。诚然，它单独造成的离子伤害尚不足以彻底瘫痪一艘飞船，但它能干扰敌方武器系统，从而让你在持久战中占据上风。不过，这是一项较新的技术革新，有人认为它缺乏……其他武器那种精妙的操控感。"`
+				goto "back to choose"
+			label turret
+			action
+				set "choice: turret"
+			scene "outfit/hai ionic turret"
+			`	"在我用过的所有武器中，它绝对是我最钟爱的一款。不同于兼具远程打击与强离子化效果的离子炮，这款武器的核心使命是瘫痪敌方飞船。哪怕对方装备了大量炮塔，面对它也会闻风丧胆！再加上其超远射程与极快转向速度，小型飞船乃至战斗机都将彻底不敢再靠近你！"`
+			label "back to choose"
+			`	“然而，我们仅拥有极少量此类武器，因此目前尚无法提供给你们。那么，关于我的提议，您是否已做出决定？”`
+				goto weapons
+
+			label money
+			`	"哦。既然如此，船长，我们今后便不会再向您推销这件武器，也不会在太空港任务板或任何其他场合再向您推荐其他武器了。"`
+			choice
+				`	"听起来不错。"`
+				`	"等等，那件武器叫什么来着？"`
+					goto tripulse
+			action
+				payment 1000000
+				set "unfettered: money for drives"
+			`	“如你所愿。请记住，若你想继续向我们出售跳跃引擎以换取积分，可前往任务公告板。”`
+				goto end
+
+			label tripulse
+			action
+				set "choice: tripulse"
+			scene "outfit/tripulse shredder"
+			`	“三脉冲碎裂炮看似粗犷，却威力惊人！它的独到之处在于，能在单个武器插槽中集成大量火力；加之其爆发式射击特性，尤其适合惯用‘打了就跑’战术的飞行员。有些船长甚至声称——只要你技术娴熟，一艘海蝎级飞船装配四门此炮，便足以在对抗护盾甲虫级时占据上风！正如我之前所说，我或许愿以两门此炮，换取你的跳跃引擎。”`
+				goto weapons
+			label "buy tripulse"
+			action
+				outfit "Tripulse Shredder" 2
+			`	他们命令船员执行货物转运，随后在离开前向你致意：“请注意，若你今后需要更多武器，我们始终愿意在任务板上以跳跃引擎进行交换。当然，倘若金钱对你而言价值更高，我们也可直接提供酬金。不过，此类交易仅限于在<origin>进行，因为这些先进武器仅在此地生产并储备。”`
+			label end
+			branch spareJD
+				"outfit (cargo): Jump Drive" + "outfit (flagship installed): Hyperdrive" + "outfit (flagship installed): Scram Drive" + "outfit (flagship installed): Jump Drive" > 1
+			action
+				outfit "Hyperdrive" 1
+			label spareJD
+			`	工程师离开后，你在工作人员护送下离开设施，返回你的飞船。`
+				accept
+
+			label dodge
+			action
+				"unfettered: jd to sell" += 2
+				"unfettered: dodged the blade" ++
+			`	<如前（执行）> 成功躲开刀刃，但同一具‘无羁者’随即与另一具协同逼近，挥刀劈下——你顿时陷入毫无防备之境。它们在千钧一发之际猛然收手，脸上写满不满。`
+			branch fail
+				has "unfettered: flee from the blade"
+			`	“原来这就是你们所谓的‘战斗’，船长？躲藏？闪避？你们拒绝夺取我们的武器，因此便不配拥有它们。”`
+				goto fail
+			label flee
+			action
+				"unfettered: jd to sell" += 4
+				"unfettered: flee from the blade" ++
+			`	<如前（逃离）>：你轻易躲开了那柄利刃，但投掷它的海伊人仅用数秒便追上你，并用刀锋抵住你的咽喉，令你动弹不得。`
+			`	“ captain，你令我失望。在战场上，认清自身对敌之优势至关重要；而临阵脱逃则暴露了你的软弱，只会招致敌人全力追击。你在此事上两方面皆已失败——你本就绝无可能摆脱我的追击，唯一展现的，只有恐惧。”`
+				to display
+					not "unfettered: dodged the blade"
+			label fail
+			action
+				"unfettered: blade rodeo" ++
+			`	“ captain，你一次次让我失望。上一次，你试图逃避一场根本无法脱身的战斗；这一次，又想躲开一件已明明白白摆在你面前的武器？或许你的确算不上战士，把所有脏活累活都推给了下属。”`
+				to display
+					"unfettered: flee from the blade" == 1
+					"unfettered: dodged the blade" == 1
+			`	“我不会再反复教你同一个教训！你已经有过机会。一个无法从错误中吸取教训的人，我们无法接纳。看来，我们不能将最先进的武器交托于你。”她说完便拂袖而去，明显十分恼火。”`
+				to display
+					or
+						"unfettered: dodged the blade" > 1
+						"unfettered: flee from the blade" > 1
+				decline
+			`	<离开> 一直旁观战斗的工程师随后解释道：“既然你未能通过测试，我们暂不能向你开放宝库权限。我们的武器仅授予最杰出的战士。你当然仍可继续以跳跃引擎换取积分，但在你另行证明自身实力之前，这便是全部权限。”`
+			`	“这个失误并非不可挽回；只要你为我们带来更多跳跃引擎，我相信她定会欣然原谅你。届时，将另有一名工程师在你的舱门处等候。”`
+				to display
+					"unfettered: jd to sell" < "Unfettered Jump Drive 4: failed"
+				defer
+			`	“事实上，你为我们带来跳跃引擎的名声如此卓著，以至于她不久之后别无选择，只能宽恕你。届时，将有另一位工程师在你的舱门处等候。”`
+				to display
+					"unfettered: jd to sell" > "Unfettered Jump Drive 4: failed"
+				defer
+	on accept
+		clear "unfettered: uninterested in weapons"
+		clear "unfettered: blade rodeo"
+		clear "choice: turret"
+		clear "choice: tripulse"
+		clear "choice: blaster"
+		outfit "Jump Drive" -1
+		"reputation: Hai (Unfettered)" >?= 40
+		fail

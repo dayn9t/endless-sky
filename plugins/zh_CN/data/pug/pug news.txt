@@ -1,0 +1,321 @@
+news "artist on post-fw Deneb"
+	location
+		government "Neutral"
+		system "Deneb"
+	name
+		word
+			"作家"
+			"画家"
+			"艺术家"
+			"雕塑家"
+			"设计师"
+			"摄影师"
+			"作曲家"
+	message
+		word
+			"这座"
+		word
+			"星球"
+			"城市"
+			"建筑"
+		word
+			"的"
+		word
+			"外星"
+			"地外"
+			"独特的"
+			"普格"
+		word
+			"起源真是太"
+		word
+			"令人振奋"
+			"引人入胜"
+			"令人激动"
+			"令人兴奋"
+		word
+			"了！我充满了"
+		word
+			"满满的"
+			"涌动的"
+		word
+			" "
+		word
+			"灵感"
+			"创意"
+			"能量"
+		word
+			"！"
+
+news "tourist on post-fw Deneb"
+	location
+		government "Neutral"
+		system "Deneb"
+	name
+		word
+			"游客"
+			"观光客"
+			"旅行者"
+	message
+		word
+			"你能想象吗"
+			"你知道吗"
+		word
+			"，这整座"
+		word
+			"整个"
+			"全部"
+			"每一部分"
+		word
+			" "
+		word
+			"城市"
+			"建筑"
+		word
+			"是由"
+		word
+			"一个外星物种"
+			"外星人"
+			"昆虫形外星人"
+			"另一个种族"
+		word
+			"建造的？"
+		word
+			"真是"
+			"我觉得这"
+		word
+			" "
+			"太"
+		word
+			"令人振奋"
+			"难以置信"
+			"令人兴奋"
+			"令人着迷"
+		word
+			"了！"
+
+news "conspiracy theorist on post-fw Deneb"
+	location
+		government "Neutral"
+		system "Deneb"
+	name
+		word
+			"阴谋论者"
+			"批判性思考者"
+			"真相追求者"
+	message
+		word
+			"你真的"
+			"你怎么能"
+		word
+			" "
+		word
+			"相信"
+			"还认为"
+			"接受"
+			"信任"
+		word
+			"这座"
+		word
+			"城市"
+			"太空港"
+			"建筑"
+			"地方"
+		word
+			"是由"
+		word
+			"另一个物种"
+			"外星人"
+			"不同的种族"
+		word
+			"建造的？这明显是"
+		word
+			"显然"
+			"毫无疑问"
+			"清楚地"
+		word
+			"为人类建造的，由人类建造。"
+		word
+			"你最终会意识到"
+			"你会看到"
+			"我正在为公开审判收集证据"
+			"我可以提供你需要的所有证据"
+			"这只是共和国和自由世界的一个噱头"
+		word
+			"。"
+
+news "reporter on post-fw Deneb"
+	location
+		government "Neutral"
+		system "Deneb"
+	name
+		word
+			"记者"
+			"新闻工作者"
+			"特派员"
+	message
+		word
+			"我认为这里没有什么"
+			"我觉得这里没有什么"
+			"这里没有什么"
+		word
+			" "
+		word
+			"特别的"
+			"独特的"
+			"不同的"
+		word
+			"，但"
+		word
+			"人们"
+			"我的观众"
+		word
+			" "
+		word
+			"不这么认为"
+			"总是喜欢我从这里报道"
+			"还是喜欢看我在这里"
+			"想让我在这里，所以我就来了"
+			"觉得很有趣"
+		word
+			"。不管怎样，我"
+		word
+			"现在得走了"
+			"要去演播室了"
+			"得出发了"
+			"已经待太久了"
+			"不该和你聊天"
+		word
+			"，"
+		word
+			"节目"
+			"我的环节"
+		word
+			" "
+		word
+			"快开始了"
+			"三分钟后开始"
+			"一分钟后直播"
+		word
+			"。"
+
+news "merchant on post-fw Deneb"
+	location
+		government "Neutral"
+		system "Deneb"
+	name
+		phrase
+			"merchant names"
+	message
+		word
+			"你不会相信"
+			"我没想到"
+		word
+			"经过这里的"
+		word
+			"种类"
+			"数量"
+			"类型"
+			"庞大数量"
+		word
+			"的"
+		word
+			"飞船"
+			"交通"
+			"商人"
+		word
+			"。这是"
+		word
+			"自由世界"
+			"尘土带"
+			"南方"
+			"塔拉泽德"
+		word
+			"和辛迪加之间的捷径。"
+		word
+			"就在昨天"
+			"几天前"
+			"当我到达时"
+		word
+			" "
+		word
+			"我不得不等待"
+			"我被耽误了"
+			"他们让我等候"
+			"他们一直告诉我没有空闲的停机坪"
+		word
+			"了"
+		word
+			""
+			"大约"
+			"似乎有"
+			"约"
+			"将近"
+		word
+			"四个小时"
+			"半天"
+			"九十分钟"
+		word
+			"！"
+
+news "worker on pug-occupied planet after fw"
+	location
+		neighbor system "Deneb"
+		not government "Pug"
+	name
+		word
+			"码头工人"
+			"工人"
+	message
+		word
+			"我"
+		word
+			"当时在"
+			"当时在工作"
+			"碰巧在"
+			"有合同在"
+		word
+			"这里"
+		word
+			"占领期间"
+			"普格战争期间"
+			"普格攻击我们时"
+		word
+			"。"
+		word
+			"尽管他们是奇怪的外星人"
+			"即使被激怒"
+			"大多数情况下"
+		word
+			"，他们"
+		word
+			"并没有真正制造麻烦"
+			"没有造成太多损害"
+			"只是让我们独处"
+		word
+			"。不像某些"
+		word
+			"政客"
+			"文职人员"
+			"人"
+			"官僚"
+		word
+			" "
+		word
+			"在家乡"
+			"在地球上"
+			"我认识的"
+			"在这里"
+			"我们这些天遇到的"
+		word
+			"。"
+
+news "pug on pug planets during fw"
+	location
+		government "Pug"
+		not attributes "uninhabited"
+	name
+		word
+			"普格"
+	message
+		phrase
+			"friendly pug"

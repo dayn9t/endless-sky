@@ -1,0 +1,230 @@
+# Copyright (c) 2020 by @Karirawri
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+ship "Emerald Sword"
+	sprite ship/emeraldsword
+	thumbnail "thumbnail/emeraldsword"
+	swizzle 3
+	attributes
+		category "Superheavy"
+		"cost" 100000000
+		"shields" 9500
+		"hull" 45000
+		"required crew" 86
+		"bunks" 302
+		"mass" 4360
+		"drag" 41
+		"heat dissipation" 0.22
+		"fuel capacity" 900
+		"cargo space" 169
+		"outfit space" 1190
+		"weapon capacity" 512
+		"engine capacity" 230
+		"spinal mount" 1
+		weapon
+			"blast radius" 993
+			"shield damage" 19930
+			"hull damage" 11965
+			"hit force" 11495
+	outfits
+		"Dragonflame Cannon"
+		"Particle Waveform Turret" 6
+		"Sheragi Anti-Missile" 2
+		
+		"Large EM Battery"
+		"Large Hybrid Cooling"
+		"Electronic Warfare System" 2
+		
+		"Fusion Drive"
+	engine 83 275
+		zoom 1.3
+		over
+	engine 132 282
+		zoom 0.8
+		over
+	engine -83 275
+		zoom 1.3
+		over
+	engine -132 282
+		zoom 0.8
+		over
+	"reverse engine" -131 136
+		zoom 0.6
+		angle 335
+		over
+	"reverse engine" 131 136
+		zoom 0.6
+		angle 25
+		over
+	"steering engine" -131 136
+		zoom 0.5
+		angle 155
+		over
+		left
+	"steering engine" 131 136
+		zoom 0.5
+		angle 205
+		over
+		right
+	"steering engine" -34.5 -221.5
+		zoom 0.2
+		angle 60
+		over
+		right
+	"steering engine" -39 -193.5
+		zoom 0.2
+		angle 60
+		over
+		right
+	"steering engine" -43.5 -165.5
+		zoom 0.2
+		angle 60
+		over
+		right
+	"steering engine" 34.5 -221.5
+		zoom 0.2
+		angle 300
+		over
+		left
+	"steering engine" 39 -193.5
+		zoom 0.2
+		angle 300
+		over
+		left
+	"steering engine" 43.5 -165.5
+		zoom 0.2
+		angle 300
+		over
+		left
+	gun 0 -276 "Dragonflame Cannon"
+	turret -18 -41.5 "Particle Waveform Turret"
+	turret 18 -41.5 "Particle Waveform Turret"
+	turret -70 70.5 "Particle Waveform Turret"
+	turret 70 70.5 "Particle Waveform Turret"
+	turret 0 114 "Sheragi Anti-Missile"
+	turret -128.5 174 "Particle Waveform Turret"
+	turret 128.5 174 "Particle Waveform Turret"
+	turret 0 183 "Sheragi Anti-Missile"
+	bay "Fighter" 0 220.5 back
+		"launch effect" "sheragi launch"
+	bay "Fighter" 0 220.5 back
+		"launch effect" "sheragi launch"
+	bay "Fighter" 0 220.5 back
+		"launch effect" "sheragi launch"
+	bay "Fighter" 0 220.5 back
+		"launch effect" "sheragi launch"
+	bay "Fighter" 0 220.5 back
+		"launch effect" "sheragi launch"
+	bay "Fighter" 0 220.5 back
+		"launch effect" "sheragi launch"
+	explode "tiny explosion" 60
+	explode "small explosion" 26
+	explode "medium explosion" 47
+	explode "large explosion" 39
+	explode "huge explosion" 42
+	explode "nuke explosion" 2
+	"final explode" "nuke explosion" 2
+	"final explode" "nuke residue fast" 50
+	description "一艘古老的谢拉吉战舰，曾由内战中叛逃的哗变船员驾驶，最终逃入星际空间。该舰被发现环绕一颗孤立恒星运行，体型极为庞大，正适合同样体型巨大的谢拉吉人。其主武器是一门名为“龙焰炮”的聚变泵浦伽马射线激光炮。尽管所装配的装备相对原始，但凭借其庞大的体积，它仍是一台极为强悍的战争机器。"
+	description "对于最初的谢拉吉主人而言，这艘战舰可容纳约100名乘员。但对其他种族而言，这一数字却翻倍有余，使其规模堪比最大的城市飞船。"
+
+ship "Emerald Sword" "Emerald Sword (Fixed)"
+	sprite ship/emeraldsword
+	thumbnail "thumbnail/emeraldsword"
+	swizzle 3
+	outfits
+		"Dragonflame Cannon"
+		"Particle Waveform Turret" 6
+		"Sheragi Anti-Missile" 2
+		
+		"Large EM Battery"
+		"Large Hybrid Cooling"
+		"Electronic Warfare System" 2
+		"Outfits Expansion" 2
+		
+		"Fusion Drive"
+		"Jump Drive"
+	gun "Dragonflame Cannon"
+	turret "Particle Waveform Turret"
+	turret "Particle Waveform Turret"
+	turret "Particle Waveform Turret"
+	turret "Particle Waveform Turret"
+	turret "Sheragi Anti-Missile"
+	turret "Particle Waveform Turret"
+	turret "Particle Waveform Turret"
+	turret "Sheragi Anti-Missile"
+
+ship "Black Diamond"
+	sprite "ship/blackdiamond"
+	thumbnail "thumbnail/blackdiamond"
+	swizzle 9
+	attributes
+		category "Fighter"
+		"cost" 1000000
+		"shields" 1600
+		"hull" 3400
+		"automaton" 1
+		"mass" 60
+		"drag" .95
+		"heat dissipation" .82
+		"outfit space" 152
+		"weapon capacity" 35
+		"engine capacity" 38
+		"delayed hull repair rate" 1
+		"repair delay" 60
+		weapon
+			"blast radius" 24
+			"shield damage" 240
+			"hull damage" 120
+			"hit force" 360
+	outfits
+		"Heavy Ion Cyclotron"
+		"Shard Fabricator" 2
+		
+		"Electronic Warfare System"
+		"Small EM Battery"
+		"Small Hybrid Cooling"
+		
+		"Fission Drive"
+	gun 0 -39.5 "Heavy Ion Cyclotron"
+	gun 22 -7.5 "Shard Fabricator"
+	gun -22 -7.5 "Shard Fabricator"
+	engine 0 38
+		zoom 1.3
+		over
+	"steering engine" 27 22
+		zoom 0.3
+		angle 225
+		over
+		right
+	"steering engine" 27 2
+		zoom 0.3
+		angle 315
+		over
+		left
+	"steering engine" -27 22
+		zoom 0.3
+		angle 135
+		over
+		left
+	"steering engine" -27 2
+		zoom 0.3
+		angle 45
+		over
+		right
+	explode "tiny explosion" 10
+	explode "small explosion" 20
+	"final explode" "final explosion small"
+	description "谢拉吉人因体型过于庞大，难以有效操控此类小型飞船，因此大力投入自主战斗机的研发。其控制系统在复杂度上并不比人类疆域内的战斗无人机高多少，但体积更大；同时，由于无需配备生命维持系统及飞行员相关设施，这类战机得以腾出额外的装备安装空间。"
+	description "	该战斗机还配备了一套强大的船体修复系统，以提升其战场生存能力。但该系统在遭受攻击时无法运作——战斗机需先短暂脱离交火、确保未受损伤，方可启动修复功能。"
+	description "	Fighters do not come equipped with a hyperdrive. You cannot carry a fighter unless you have a ship in your fleet with a fighter bay."

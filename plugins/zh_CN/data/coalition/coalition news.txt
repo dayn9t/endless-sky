@@ -1,0 +1,496 @@
+# Copyright (c) 2021 by Arachi-Lover
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+
+news "heliarch news"
+	location
+		government "Coalition" "Heliarch"
+	name
+		word
+			"Heliarch broadcast"
+	message
+		word
+			"A sizable crowd is watching one of the monitors in the spaceport where an interviewer is speaking to a Heliarch agent. You learn from someone in the crowd that the agent was a professional athlete until recently."
+			"A news broadcast shows footage of many Heliarch agents arresting a group of terrorists. The Heliarch who was supervising the operation is later interviewed, explaining that the new prisoners were found to have stolen government equipment."
+			"The news show a Heliarch consul giving a short speech in a ship launching ceremony. After they finish, the brand new Heliarch warships are shown heading to their first patrol."
+			"All the spaceport screens momentarily swap to a broadcast from the Heliarch government, where they show a video of several dozens of arrested criminals. The Heliarch host describing the event mentions their sentences range from 40 years to life, prompting varying reactions from the civilian spectators."
+			"During one of the more busy hours on the spaceport, the news details the crimes of a recently arrested terrorist group: arson, kidnapping, theft of government equipment, possession of weapons, conspiring against the Coalition, attacking both government and civilian properties, subversion... The list goes on for a few more minutes."
+			`继最新一期新闻报道赫利阿克政权在邻近星球上逮捕了一批恐怖分子后，新闻频道反复播放数段内容雷同的短片，呼吁公众“保持警惕”，并报告一切可疑活动。`
+
+news "heliarch propaganda"
+	location
+		government "Coalition" "Heliarch"
+	name
+		word
+			"Heliarch broadcast"
+	message
+		word
+			"A short film plays on a monitor during a commercial break. A young Saryd walks in a forest, looking to his sides every few seconds to take in the view. Eventually he turns to see another Saryd, both surprised. As he approaches her and the two start talking, the camera pans out to a rising sun over the forest."
+			"A local screen shows a stressed Saryd working at a computer late at night. The door creaks, and she looks back to find her children peeking. She puts them to sleep and then goes to bed herself. After waking up, she finds nobody around the house. She goes outside, seeing the children, along with their father, admiring the sun rising."
+			"After a government broadcast, a timelapse plays on a spaceport monitor, showcasing Ring of Friendship gaining more and more solar panels on its exterior over the centuries."
+			"During a break, a recruitment advertisement plays. A recruit of each species is shown putting on their brand new uniforms, then training on some sort of obstacle track, and then the view switches to troops marching in unison in the Academy of Cadets of Belug's Plunge."
+
+news "longcow rancher"
+	location
+		government "Coalition"
+		attributes "arach" "longcows"
+	name
+		word
+			"Longcow rancher"
+	message
+		word
+			`“照料长颈牛可是件苦差事。它们占地太多，腿又太多。”`
+			`"你以前没见过发怒的长角牛吧？听句忠告：千万别靠近它们侧面。"`
+			`“早就不给长颈牛打疫苗了。我们从来就记不住该打在哪条腿上。”`
+			`“真希望我的美女们能听懂我的笑话——她们准会笑得前仰后合。”`
+			`“新鲜牛排来啦！前腿牛排、后腿牛排……买第十块后腿牛排还有折扣哦！”`
+			"You see a rancher walk out of a shop with a trolley full of bells. You wonder if they are for multiple longcows, or just a particularly long one."
+
+news "kimek farmer"
+	location
+		government "Coalition"
+		attributes "kimek"
+		attributes "farming"
+	name
+		word
+			"Kimek farmer"
+	message
+		word
+			`“刚开始干这行时，我迷失在自己接手的农场里。满眼全是绿色，真难分辨自己身在何处。”`
+			`“我曾是一名赫利阿克特工。这份工作压力太大，所以我转而接下了这份差事。如今我仍会收到来自同事的消息，但如果他们亲眼见到我在此地播下的成果，定会毫不犹豫地加入我。”`
+			`“船长，想来点新鲜蔬果吗？若您买下这些，我还能教您一道家传食谱——人类肯定会喜欢的，大概吧。”`
+			"After noticing you looking at the produce, the farmer asks if you would like some free samples, before grabbing an entire box with various fruits and vegetables and handing it to you."
+			`当你走过太空港时，不同摊位上的数十名农民纷纷向你招手，邀请你看看今日“食品博览会”的特惠价格。你稍后查了一下，结果发现昨天也办了一场博览会，前天同样如此——而明天的博览会，将在今天这场一结束便立刻开始。`
+
+news "heliarch agent"
+	location
+		government "Coalition" "Heliarch"
+	name
+		word
+			"Heliarch agent"
+	message
+		word
+			`“守护与服务。”`
+			`"如有任何需要协助之处，我随时听候调遣。"`
+			`"若发现任何麻烦，请务必向我们报告。"`
+			`“萨里德、基梅克、阿拉赫、人类——无论何种物种，我们皆誓死守护全体公民。”`
+			`“我很喜欢自己的这份工作，但联盟运动会期间，我还是想好好休息一下，去观赛。”`
+			`“我是‘惩戒者’号船员之一。降落、补给、休整，然后继续维护那艘宏伟的飞船！”`
+			`“我确实被邀请担任大法官一职。只是，我对这类政务管理毫无兴趣。”`
+			`“抱歉，但我必须速速行动。一批驻防炮失踪了——要是找不到，我就得回去清洗‘潜行者’引擎！”`
+			`“身为调停者，有时真是难上加难。若言辞稍有不慎，萨瑞德人或许会以为阿剌克人在谈论长角牛时，是在侮辱他们的母亲。”`
+			"An agent is trying to calm down a small crowd outside a local bar. After some minutes, the more agitated drunkards are convinced to accompany the agent to a nearby Heliarch office."
+			"A pair of agents passes by you. Most of the spaceport crowd gives them a wide berth."
+			`“我曾经是一名飞行员。驾驶技术是跟年长的兄弟学的。”`
+			`“你见过那些在我们一些世界活动的蓝色制服慈善工作者吗？他们的初衷或许高尚，但我实在无法理解——既然我们早已承担起照拂所有人的责任，他们又何必多此一举？”`
+
+news "heliarch candidate"
+	location
+		government "Heliarch"
+	name
+		word
+			"Heliarch candidate"
+	message
+		word
+			`“法律、历史、理论……我读了太多，却仍远远落后……”`
+			`"在我接受试炼期间，必须研读奥洛里领事的著作。他的书远超我的预期。"`
+			`“我们候选人所经历的考验，旨在证明我们的忠诚，并展现我们的潜力。尽管艰难，但我们确信——一旦通过，必能胜任职责。”`
+
+news "coalition ad"
+	location
+		government "Coalition"
+	name
+		word
+			"Advertisement"
+	message
+		word
+			"You see a commercial where a Saryd sits down after a workout, and as the camera spins, it switches to a Kimek studying, and then to an Arach watching sports while cheering. It seems to be an ad for a brand of foldable chairs."
+			"A commercial for House Debdo plays on a local monitor, with various scenes of tourist spots being accompanied by an upbeat, serene jingle."
+			"An ad shows various graphs of what you guess are stock values. An Arach leg swipes the view, and the graphs begin fluctuating a lot more to one side. At the end, the logo of House Plumtab flashes on the screen."
+			"An ad for an energy drink is on display on a local shop. A Kimek is down on the ground in the middle of the streets, struggling to move, as a crowd gathers around them. When they get the drink, they jump up and bolt past the crowd, and then proceed to climb up a skyscraper. At the end a disclaimer advises against Saryds consuming the drink."
+
+news "arach tourist"
+	location
+		government "Coalition"
+		attributes "tourism"
+		not attributes "arach" "station"
+	name
+		word
+			"Arach tourist"
+	message
+		word
+			`“自从我又添了一个孩子，政府便延长了我的休假期限，并提高了我的假期薪资。”`
+			`“这儿的食物比我预想的要好得多。不过，还是比不上长牛排——这里没有任何东西能胜过它。”`
+			`“我早听说这儿的街道太窄，容不下我们阿腊奇人，但到目前为止，我还没遇到什么问题。”`
+
+news "kimek tourist"
+	location
+		government "Coalition"
+		attributes "tourism"
+		not attributes "kimek" "station"
+	name
+		word
+			"Kimek tourist"
+	message
+		word
+			`‘我随商队来到此处。虽更便宜，但我们必须结伴而行，且他们安排的日程过于紧凑。我几乎无暇欣赏沿途风光！’`
+			`“家人让我从旅行中给他们带些礼物，但我行李箱装不下全部，只买了一半的礼物！”`
+			`“我来自一座弧形城市，因此对我而言，假期加倍——去一颗没有弧形城市的行星旅行，便是如此。”`
+
+news "saryd tourist"
+	location
+		government "Coalition"
+		attributes "tourism"
+		not attributes "saryd" "station"
+	name
+		word
+			"Saryd tourist"
+	message
+		word
+			`“我远道而来，在飞船上已沉睡数周。这是我首次前往另一颗行星，因此极不习惯远离自然。我真不明白其他萨瑞德人是如何当上飞行员的。”`
+			`“此地风光的确令人叹为观止，美食亦让我大快朵颐。唯愿本地居民的着装品味能更显文明些。”`
+			`‘此地居民能攀爬墙壁。目睹他们在当地某些建筑独具特色的结构上如此行动，实属异域奇观。’`
+
+news "coalition researcher"
+	location
+		government "Coalition"
+		attributes "research"
+	name
+		word
+			"Researcher"
+	message
+		word
+			`“请原谅，能否为我提供一份血液样本？我对人类免疫系统与我们自身的差异颇感兴趣。”`
+			`“我常前往智慧之环，在那里举办过许多盛大的会议。”`
+			`“我想迁往智慧之环。那里拥有大量先进试验设施，获取复杂化学品也容易得多……”`
+			`“我最近购入了一艘萨瑞德旅行者号飞船。我的飞行技术并不出众，但作为一艘科研船，该型号依然配备了充足的实验设施。更重要的是，飞船不会被粗鲁的邻居打扰，能为我的研究团队提供清净环境。”`
+			`一名萨瑞德人正全神贯注地盯着平板电脑，屏幕上显示着奇异的文字，几乎撞上你。“抱歉。”他们喃喃道，随即继续赶路。`
+			`“我此行是来举办一场纳米技术讲座的。不过邀请函并未说明——我究竟是给教职员工讲课，还是给学生授课。”`
+			`“我早些时候获得了异星生物学学位。目前，我在该领域一位顶尖研究员手下工作。”`
+
+news "coalition researcher yottrite"
+	to show
+		has "Coalition Yottrite 9: done"
+	location
+		government "Coalition"
+		attributes "research"
+	name
+		word
+			"Researcher"
+	message
+		word
+			`“关于钇钛矿的研究已取得有趣发现。你为助我们增进认知所作的贡献，理应感到自豪。”`
+			`“如今我们掌握了更多关于约特瑞特的信息，我倒想看看阿布洛玛布家族是否会索要样本用于实验。”`
+			`“为了获取有关钇钛矿研究的文件，我甚至不惜杀人——但相关信息至今仍属机密。”`
+
+news "coalition ringworld worker"
+	location
+		government "Heliarch"
+		attributes "station"
+	name
+		word
+			"Ringworld engineer"
+			"Ringworld worker"
+			"Construction supervisor"
+			"Solar panel engineer"
+			"Solar panel welder"
+			"Maintenance worker"
+	message
+		word
+			`“我刚抵达此处。能最终获聘这份工作，我实在太高兴了！”`
+			`“食物、住宿、一份重要且薪酬优厚的工作，再加上绝佳的风景——我还能再奢求什么呢？”`
+			`“完成剩余两座环形结构建造所需的资源，我们至今仍未获得，但总有一天，它们必将完工。”`
+			`“我们的联盟绝对安全，但在这里，我感觉更安全。身处一座坚不可摧的空间站中，还有什么好害怕的？”`
+			`“我们顶尖的科学家仍在研究构成环带的合金，因此目前仅追加安装了辅助太阳能板。”`
+			"A small section of the area is roped off. An Arach has removed a floor panel and is busy reconfiguring circuitry below."
+			`“朋友，请让一让。”一名基梅克人朝一辆装满工具与设备的大型推车示意，你侧身让其通过。`
+
+news "coalition spaceport worker"
+	location
+		government "Coalition" "Heliarch"
+	name
+		word
+			"Spaceport worker"
+	message
+		word
+			`“由于需与他族船长打交道，我们配发了翻译器。这对我们而言只是简易工具，但对许多人来说却过于昂贵，难以购置；因此，我们竭力把握住每一次使用它的机会。”`
+			`“我们每天都要应对三种不同制式的飞船，因此绝不能依赖自动驾驶——否则，搞不好就会给飞船加错燃料。”`
+			`“赫利阿克人会对每一只装船前的货箱进行检查——这可是一项繁琐的流程。”`
+
+news "coalition merchant"
+	location
+		government "Coalition" "Heliarch"
+	name
+		word
+			"Saryd captain"
+			"Kimek captain"
+			"Arach captain"
+			"Saryd pilot"
+			"Kimek pilot"
+			"Arach pilot"
+	message
+		word
+			`“我当时没有足够资金购买第一艘飞船，于是和一位网友合买了一艘‘穿梭艇’。我们本该另选一艘船的，因为独自驾驶它飞往他们的行星实在太困难了。”`
+			`“我当时没有足够资金购买第一艘飞船，于是向普鲁姆塔布家族借了一笔贷款。早该更仔细看看利率的……”`
+			`“我第一次在飞船上工作，是在一艘‘巨兽级’货船上。当时我还以为它快散架了，结果它却切换成了纺锤形态。”`
+			`“有位基梅克乘客实在太喜欢我的飞船，竟决定搬进去住了！他们仍会为‘运输服务’付费，所以我倒也不介意。”`
+			`“我十分嫉妒你。若我拥有跳跃引擎，便能绕过萨瑞德与阿拉赫空间之间的间隔，迅速赚取巨额财富。”`
+			`“我曾答应运送一批萨瑞德学院毕业生去进行一次‘实地考察’，结果差点被逮捕。”`
+			"The spacefarer is assisting the rest of their crew in unloading cargo from a ship."
+			`“曾与我一同飞行的是我兄弟，可如今他已成了赫利阿克。”`
+
+news "arach civilian"
+	location
+		government "Coalition"
+		attributes "arach"
+	name
+		word
+			"Local Arach"
+	message
+		word
+			`"新闻里那些恐怖分子，就在我的表亲们工作地点附近被捕了。可他们压根没注意到这些人有什么不对劲。"`
+			`‘这些广播里，太阳永远高悬天际；可我值的是夜班，所以这辈子都无缘亲眼得见……’`
+			`“我的一位研究员朋友已前往智慧之环。我们最睿智者常在那里交流，却极少有人留下长驻——对我们而言，有时这着实不易。”`
+			`‘游客们老是把我们的“氏族”（Houses）搞混——基梅克人和萨瑞德人都是如此。我倒不在意，可我的朋友们有时却会因此生气。’`
+			`“学会了他们的语言，结交了一些基梅克朋友，但他们说话太快，实在难以听懂。”`
+
+news "kimek civilian"
+	location
+		government "Coalition"
+		attributes "kimek"
+	name
+		word
+			"Local Kimek"
+	message
+		word
+			`"Arrested close to where my cousins work, the terrorists on the news were. Notice anything wrong with them, they never did."`
+			`"Always rising, the sun in these broadcasts is, but a night shift I work, so see it for myself, I never can..."`
+			`"To Ring of Wisdom, a researcher friend of mine has gone. Always there, our wisest mingle, but remain here, few do. Difficult for us, sometimes it is."`
+			`“我姐姐受够了故障频发的翻译器，于是开始学习说阿拉奇语。”`
+			`“萨瑞德人比我们内敛得多。他们寿命极长，以至于理解其习性都十分困难。”`
+
+news "saryd civilian"
+	location
+		government "Coalition"
+		attributes "saryd"
+	name
+		word
+			"Local Saryd"
+	message
+		word
+			`"Arrested close to where my cousins work, the terrorists on the news were. Notice anything wrong with them, they never did."`
+			`"Always rising, the sun in these broadcasts is, but a night shift I work, so see it for myself, I never can..."`
+			`"To Ring of Wisdom, a researcher friend of mine has gone. Always there, our wisest mingle, but remain here, few do. Difficult for us, sometimes it is."`
+			`“令人心烦的是，基梅克人与阿拉奇游客竟带着孩子前来——他们到处攀爬，无所顾忌。”`
+			`“过去我常四处旅行，但我们的行星并非无穷无尽，如今所有星球我都已踏足。”`
+
+news "coalition vendor"
+	location
+		government "Coalition"
+		not attributes "station" "uninhabited"
+	name
+		word
+			"Street vendor"
+	message
+		word
+			`"买些萨瑞德蛋糕吧，您想来点吗？纯手工制作哦。"`
+			`“对这幅挂毯感兴趣？它由最上等的长牛皮制成。我可以给你特别折扣。”`
+			`“对这些环世界钥匙扣感兴趣？只要30积分！”`
+			`“这条项链可曾吸引您的目光？这可是真正的树篱狮翎羽制成，能为慷慨购入者带来极大好运。”`
+			`"生态建筑微缩模型？阿拉奇装甲复刻版？多功能园艺工具？以上种种，还有更多——我这儿价格最优惠！"`
+
+news "coalition civilian expeditions past"
+	to show
+		has "Coalition: Expeditions Past 10: done"
+	location
+		government "Coalition" "Heliarch"
+	name
+		word
+			"Spaceport worker"
+			"Passerby"
+			"Local vendor"
+			"Saryd captain"
+			"Kimek captain"
+			"Arach captain"
+	message
+		word
+			`‘听说了，我听说那位赫利阿克护民官从外界回来了。她可真是幸运至极啊。’`
+			`‘听说了，我听说那赫利阿克女孩从外界回来了。依我看啊，她压根儿就没离开过，这说法纯属谎言。’`
+			`“你看到新闻了吗？一位萨瑞德赫利阿克已从外界归来！真想知道外面的情况究竟有多糟。”`
+			`“协助那位赫利阿克监察官完成远征任务的，就是你吧？若你们二人真能平安返航，你的飞船必定极为强大。”`
+			`“你帮那位赫利阿克检查官从外界回来了，真了不起！我向来觉得这根本不可能。”`
+
+news "heliarch expeditions past"
+	to show
+		has "Coalition: Expeditions Past 10: done"
+	location
+		government "Heliarch"
+	name
+		word
+			"Heliarch agent"
+	message
+		word
+			`“那位萨瑞德调查员在完成远征后被擢升为仲裁官。执政官们显然对外部的调查结果极为满意。”`
+			`“那个萨瑞德女孩在‘远征’后被擢升为仲裁官，但她真的离开过吗？我们有何证据？居然蠢到去尝试那种事，谁都不会这么干。”`
+			`“尽管萨瑞德检查官的远征取得了成功，但她返航后却令诸多执政官彼此震怒；许多人原本并不指望她能平安归来。”`
+			`“感谢您协助塞德利塔里斯检查员，您已帮上大忙。最后一支远征队的报告终于找到了归途。”`
+			`“协助塞德利塔里斯监察官完成远征任务的，就是你，没错吧？我已读过她的相关报告。上一支远征队的命运令人不安，但至少，我们现已收回了他们的全部发现。”`
+
+news "coalition games broadcast"
+	to show
+		month == 7
+	location
+		government "Coalition" "Heliarch"
+	name
+		word
+			"Coalition Games broadcast"
+	message
+		word
+			"A Saryd game is playing on a monitor nearby. The athletes, separated into two teams, gallop around an uneven field, dotted with small mounds and holes, as they try to whack some balls into nets located around the arena's edges. Your best guess is that it's an awfully convoluted mix of cricket, football, and pool."
+			"A crowd has gathered for the transmission, waiting for some kind of race or marathon to start. The camera pans by the competitors, who are all Kimek, then pulls back as the race begins. You judge it to be a pretty standard race initially, until the camera spins around, and it's made clear that the Kimek are running upside down."
+			"Some Arachi attentively wait for a game to start. The screen shows the competitors, who are also Arachi, putting on various layers of plate armor. They then all move to a metal cable, just thick enough for them to be gripped with all legs. They then stay there. For many minutes. Until they start falling one by one. Exhilarating."
+			"During a break from the games, some analysts go over spreadsheets with the statistics for the competitors of the past few games. You can't read any of it, but passerby workers and captains stay a while to glance at the results."
+			"One of the competitors from the last game, still catching their breath from the event, is giving an interview and gulping down water every time the interviewer talks. Given their excitement, you figure they must've performed very well."
+
+news "coalition games people"
+	to show
+		month == 7
+	location
+		government "Coalition" "Heliarch"
+		not planet "Far Home"
+	name
+		word
+			"Saryd captain"
+			"Kimek captain"
+			"Arach captain"
+			"Local Saryd"
+			"Local Kimek"
+			"Local Arach"
+	message
+		word
+			`“我要去观看联盟运动会了。这是我们一年一度最盛大的活动。”`
+			`“今年，我的一位朋友将参加联盟运动会。我们全家都会为他加油助威。”`
+			`“你看过最新一期的联盟运动会转播了吗？我可是全程紧张得坐立不安！”`
+			`“最近查看过任务公告板吗？许多乘客都热切期盼着联盟运动会的开幕——这可是生意兴隆的好时节！”`
+			`"最近一直在看联盟运动会的转播，我自己也曾尝试成为运动员，但他们的训练计划实在太严苛了！这反倒让我更加欣赏这些运动项目了。"`
+			`“我刚从首届联盟运动会现场观赛归来，体验简直令人震撼！明年我一定还要去！”`
+
+news "coalition games planet heliarch"
+	to show
+		month == 7
+	location
+		planet "Far Home"
+	name
+		word
+			"Heliarch agent"
+	message
+		word
+			"Dozens of Heliarch agents are guarding the spaceport entrances, occasionally blocking passage as they try to control the flow of people to and from the Coalition Games events."
+			"You spot a few agents on their lunch break inside a local restaurant. They seem to be enjoying the Coalition Games broadcast more than the meals themselves."
+			`“你要去参加联盟运动会吗？若是如此，请务必原谅我们——今早组织观众时出了些状况，整条入场队伍因此延迟了五分钟。”`
+			`“我本人曾是一名运动员。我的军衔是在‘竞技大会’中赢得的，因此我一直热衷于协助组织这项赛事。”`
+
+news "coalition games planet people"
+	to show
+		month == 7
+	location
+		planet "Far Home"
+	name
+		word
+			"Saryd captain"
+			"Kimek captain"
+			"Arach captain"
+			"Local Saryd"
+			"Local Kimek"
+			"Local Arach"
+	message
+		word
+			"An avid fan rushes out of a ship next to yours, and into the lines of people being admitted into the Coalition Games. For the next many minutes, an increasingly larger number of Heliarch agents attempt to explain they're not allowed to bring in so many sports goods with them."
+			"You see a fan angrily stomping to a ship docked nearby, going inside, then coming back out with a coin of sorts. It seems they forgot the entry ticket for the Games, and will have to wait in line all over again."
+			`“我带孩子们来观看竞技大会了。竞技大会是我们文化中极为重要的一部分，我很高兴能与他们一同体验。”`
+			`“我带孩子们来观看竞技大会了。但愿这次他们能好好表现……”`
+			`“你也来参加竞技大会？这可是整个联盟规模最大的盛事！我每年都专程赶来观赛！”`
+			`“来观看我一位亲戚参赛。他们已刻苦训练多年，我确信他们定能表现出色。”`
+
+news "coalition games crowd"
+	to show
+		month == 7
+	location
+		planet "Far Home"
+	name
+		word
+			"Coalition Games crowds"
+	message
+		word
+			"The lines of people heading to the Coalition Games seem to have stopped moving abruptly. Upon further investigation, you see some young Kimek have fallen on their backs and are being helped back to their feet one by one by both Heliarch agents and others from the crowd."
+			"This is a particularly crowded part of the spaceport today. The lines of people waiting for admission into the Games have started crossing and looping in on themselves. Some even head inside shops and restaurants while others stretch into docking areas. Battalions of Heliarch agents work as hard as they can to bring everyone back into orderly lines."
+			"Several children coming to see the Coalition Games are running and playing simplified versions of the events, sporting different colors and assets for different games. Their parents struggle to get them to settle down while keeping their spots in the waiting lines."
+
+news "fangvin beyond the hyperdrive news"
+	to show
+		has "beyond the hyperdrive news can show now"
+	location
+		government "Coalition" "Heliarch"
+	name
+		word
+			"Spaceport worker"
+			"Passerby"
+			"Local vendor"
+			"Saryd captain"
+			"Kimek captain"
+			"Arach captain"
+			"Saryd"
+			"Kimek"
+			"Arach"
+			"Tourist"
+	message
+		word
+			`"`
+		word
+			`太棒了！这本《超越跃迁引擎》真令人赞叹！我已经读过了！`
+			`我从未读过人类写的书，但当我发现安娜·方文的作品时，立刻买下了她的书！`
+			`安娜·方文非常友善，她十分愉快地为我的书签了名！`
+			`我通读了《超越跃迁引擎》全书！书中那些从压迫者手中夺取资源的英雄深深激励了我！`
+		word
+			`"`
+
+news "lunarium charity"
+	location
+		government "Coalition"
+		not planet "Fourth Shadow"
+	name
+		word
+			"Charitable Organization"
+	message
+		word
+			"Several workers in blue uniforms are loading up cargo crates and containers full of charity goods into Coalition merchant ships."
+			"A few civilian captains in the spaceport are discussing their recent jobs for a charity organization. It seems they operate mostly in Kimek space."
+			"The spaceport has a few flyers glued to the entrance walls. You ask one of the locals, and they tell you they're for promoting a charity organization."
+			"Coalition families have formed a line to a large cargo ship. Brought by their parents, the children are one by one giving away blankets, outdated electronics, and all sorts of toys, which are all carefully packed into cargo containers. It seems they are donating to a charity organization."
+			"Charity workers are meeting with a few wealthy-looking individuals in the spaceport. Apparently all the expenses of the endeavor are paid by donations, and they are trying to bring in some new patrons to expand the efforts."
+
+news "lunarium charity worker"
+	to show
+		not "Heliarch License 1: offered"
+	location
+		government "Coalition"
+	name
+		word
+			"Charity worker"
+	message
+		word
+			`‘我们致力于为那些负担不起的人们提供生活必需品与服务。若你有意相助，我们主要在基梅克星域开展行动。’`
+			`“有意为慈善事业贡献力量吗？我们接受各类捐赠——积分、越冬物资、小饰品、老旧科技设备……无论是什么，只要您愿意捐赠，皆可在此处交付。”`
+			`“我们刚刚为整支蛛形舰舰队的货舱装满了教学用品。这项工作非常疲惫，但我们的慈善行动确实在改变现状，这让我倍感欣慰。”`
+			`“我们的大部分资金来自一些蛛族世家和富裕的萨瑞德家族。这些积分本只应用于采购部分慈善物资及运输手段——而我们的工作完全是志愿性质的。”`
+			`一名工人站在太空港入口处，向进出人员分发传单：“你好，人类访客！我是慈善团体成员，正为我们的事业宣传造势。你可知道？贫瘠的基梅克世界上的孩子们，因缺乏电子设备而难以开展诸多教育活动？携手努力，我们定能改变现状！”`

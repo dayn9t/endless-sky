@@ -1,0 +1,349 @@
+# Copyright (c) 2017 by Michael Zahniser
+# Copyright (c) 2018 by Nate Graham
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+overwrite
+mission "Frontier delivery [0]"
+	name "Frontier delivery to <planet>"
+	job
+	repeat
+	description `将 <cargo> 交付至边疆世界 <destination>。边疆星系海盗活动频繁，务必做好自卫准备。报酬为 <payment>。`
+	cargo random 5 2 .1
+	to offer
+		random < 30
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		not attributes "frontier"
+	destination
+		not government "Pirate"
+		distance 2 10
+		attributes "frontier"
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+			confusion 30
+		system destination
+		fleet "Small Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis staying harvests plunders
+			confusion 30
+		system destination
+		fleet "Small Northern Pirates" 2
+	on complete
+		payment 4000 180
+		dialog phrase "generic cargo delivery payment"
+
+
+overwrite
+mission "Frontier delivery [1]"
+	name "Frontier delivery to <planet>"
+	job
+	repeat
+	description `Deliver <cargo> to the frontier world of <destination>. Frontier systems have a high rate of piracy, so prepare to defend yourself. Payment is <payment>.`
+	cargo random 25 2 .05
+	to offer
+		random < 25
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		not attributes "frontier"
+	destination
+		not government "Pirate"
+		distance 2 10
+		attributes "frontier"
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+			confusion 20
+		system destination
+		fleet "Small Northern Pirates" 2
+	npc
+		government "Pirate"
+		personality nemesis staying harvests plunders
+			confusion 20
+		system destination
+		fleet "Small Northern Pirates" 3
+	on complete
+		payment 4000 180
+		dialog phrase "generic cargo delivery payment"
+
+
+overwrite
+mission "Frontier delivery [2]"
+	name "Frontier delivery to <planet>"
+	job
+	repeat
+	description `Deliver <cargo> to the frontier world of <destination>. Frontier systems have a high rate of piracy, so prepare to defend yourself. Payment is <payment>.`
+	cargo random 40 2 .02
+	to offer
+		random < 20
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		not attributes "frontier"
+	destination
+		not government "Pirate"
+		distance 2 10
+		attributes "frontier"
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+		system destination
+		fleet "Large Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis staying harvests plunders
+		system destination
+		fleet "Small Northern Pirates"
+		fleet "Large Northern Pirates"
+	on complete
+		payment 4000 180
+		dialog phrase "generic cargo delivery payment"
+
+
+overwrite
+mission "Frontier Emigration [0]"
+	name "Emigration to <planet>"
+	job
+	repeat
+	description "这<bunks>名乘客终于攒够了钱，准备在<destination>开启新生活，愿付你<payment>作为运输酬劳。"
+	passengers 2 10 .9
+	to offer
+		random < 30
+	source
+		not government "Pirate"
+		attributes "frontier"
+		not planet "Shangri-La"
+	destination
+		distance 2 10
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		not attributes "frontier"
+	on complete
+		payment 3000 140
+		dialog phrase "generic passenger dropoff payment"
+
+
+overwrite
+mission "Frontier Emigration [1]"
+	name "Emigration to <planet>"
+	job
+	repeat
+	description "These <bunks> passengers have finally saved up enough money to start a new life on <destination>, and are willing to pay you <payment> to transport them."
+	passengers 4 10 .8
+	to offer
+		random < 25
+	source
+		not government "Pirate"
+		attributes "frontier"
+		not planet "Shangri-La"
+	destination
+		distance 2 10
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		not attributes "frontier"
+	on complete
+		payment 3000 140
+		dialog phrase "generic passenger dropoff payment"
+
+
+overwrite
+mission "Frontier Emigration [2]"
+	name "Emigration to <planet>"
+	job
+	repeat
+	description "These <bunks> passengers have finally saved up enough money to start a new life on <destination>, and are willing to pay you <payment> to transport them."
+	passengers 6 10 .7
+	to offer
+		random < 20
+	source
+		not government "Pirate"
+		attributes "frontier"
+		not planet "Shangri-La"
+	destination
+		distance 2 10
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		not attributes "frontier"
+	on complete
+		payment 3000 140
+		dialog phrase "generic passenger dropoff payment"
+
+
+overwrite
+mission "Disaster Relief"
+	name "Disaster relief to <planet>"
+	job
+	repeat
+	description "边境世界<destination>上的一处殖民地发生了灾难。请于<date>前将<cargo>运送至该行星，报酬为<payment>。"
+	cargo "disaster relief supplies" 25 2 .05
+	deadline
+	to offer
+		random < 10
+	source
+		government "Republic" "Free Worlds" "Syndicate" "Neutral" "Independent"
+		not attributes "frontier"
+	destination
+		not government "Pirate"
+		distance 2 10
+		attributes "frontier"
+		not planet "Shangri-La"
+	on complete
+		payment 10000 160
+		dialog "You drop off your cargo of <commodity> and collect your payment of <payment>. A group of <planet> citizens thank you and bid you farewell."
+
+
+overwrite
+mission "Instruct Novice Pilot"
+	job
+	repeat
+	description "一名新手飞行员希望向一位经验丰富的船长学习，并请求你护送其前往<stopovers>。完成护送后，请返回<origin>，你将获得<payment>的报酬。"
+	to offer
+		random < 5
+		"combat rating" > 100
+	source
+		government "Republic" "Free Worlds" "Neutral" "Independent"
+		attributes "frontier" "dirt belt" "rim" "north" "south" "mining" "farming"
+	stopover
+		not government "Pirate"
+		attributes "frontier"
+		attributes "outfitter"
+		attributes "spaceport"
+		distance 3 7
+	on stopover
+		dialog "After a smooth landing, you guide your student through an especially rough part of the spaceport, full of trash, homeless drifters, and poorly-lit alleyways. You explain the ins and outs of avoiding pickpockets, keeping out of bar fights, and how to spot a lousy deal at an outfitter's shop. After a few hours in one of the seedier parts of the galaxy, both of you are eager to return to <origin>."
+	on visit
+		dialog "You've returned to <planet>, but forgot to escort the <npc> to <stopovers> first! Better head there first."
+	on complete
+		payment 75000
+		dialog "Your student thanks you for the instruction and for providing a guided view of some of the galaxy's rougher areas. You receive your payment of <payment>."
+	npc
+		government "Pirate"
+		personality nemesis waiting
+		fleet "Small Northern Pirates"
+		system
+			distance 3 7
+	npc accompany save
+		government "Merchant"
+		personality escort heroic vindictive
+		fleet
+			names "civilian"
+			variant
+				"Sparrow"
+			variant
+				"Star Barge"
+			variant
+				"Shuttle"
+			variant
+				"Heavy Shuttle"
+
+
+overwrite
+mission "Small Pirate gambling"
+	invisible
+	minor
+	to offer
+		random < 3
+		"reputation: Pirate" < 0
+		"combat rating" < 200
+		credits > 14357
+	source
+		attributes "dirt belt" "south" "rim" "pirate" "frontier"
+	deadline 1
+	on offer
+		conversation
+			`你正在一家灯光昏暗的太空港酒吧里喝酒，忽然注意到一群身穿猩红皮衣的年轻人在阴暗角落里赌博。酒保警惕地打量着他们。其中一人举起酒杯向你示意，并挥手招呼你过去加入他们的赌局。`
+			choice
+				`	（加入他们的游戏。）`
+					goto gamble
+				`	（无视他们，迅速离开。）`
+					defer
+
+			label gamble
+			`	你走到桌边。仔细观察后，你几乎可以断定这些人是海盗：他们无一超过19岁，人人身上纹着骇人的图案，腰间还别着看似危险的手枪。几轮牌打下来，他们作弊的行径已昭然若揭，甚至几乎懒得向你掩饰。`
+			branch "good luck" "bad luck"
+				random < 30
+
+			label "good luck"
+			action
+				payment 23974
+			`	幸运的是，你最终还是凭借智谋胜出，赢得了一大堆积分芯片。他们看起来不太高兴，但并未阻拦你迅速离开。你暗自庆幸：自己不仅面对面遭遇海盗却毫发无伤，还净赚了近25000积分。`
+				accept
+
+			label "bad luck"
+			`	你的资金正迅速流失，目前已亏损超过10,000积分。`
+			choice
+				`	（当面揭穿他们的作弊行为。）`
+					goto call
+				`	（什么也不说，继续玩下去。）`
+					goto lose
+
+			label lose
+			action
+				payment -14357
+			`	你咬紧牙关，一局接一局地输掉，直到游戏终于结束。你离开时，海盗们得意洋洋地炫耀着他们“赢来”的近15,000积分。`
+				decline
+
+			label call
+			`	你当面揭穿他们公然作弊的行为，其中看起来最凶狠的一个朝你低吼道：“我们不过是在这儿玩个游戏罢了，懂？要是你想活得久一点，最好把那张大嘴给我闭上！信不信我们立刻就能让你吃不了兜着走！”`
+			`	那些恶棍恶狠狠地瞪着你，伸手去掏枪。`
+			choice
+				`	(Shoot first!)`
+					goto shoot
+				`	（端起锅就跑！）`
+					goto run
+				`	（任由他们宰我。）`
+					goto lose
+
+			label shoot
+			branch "shoot and die" "shoot and run"
+				random < 30
+
+			label "shoot and die"
+			`	遗憾的是，他们比你更快。你残缺不全的尸体“噗”地一声砸在地板上。`
+				die
+
+			label "shoot and run"
+			action
+				payment 23974
+			`	你庆幸自己从不 unarmed 地离开飞船，手已本能地探向大腿侧的手枪。你拔枪便射，子弹正中刚刚威胁你的海盗胸口中央，他应声倒地。其余惊愕的同伙慌乱摸向武器，但你已抢占先机——在他们反应过来前，又迅速击毙一人。你意识到是时候撤离了，顺手抄起桌上部分积分扬长而去！`
+			`	你冲向机库舱，匆忙起飞。你迅速清点战利品，发现自己已净赚近25,000积分！刚飞出大气层一半，剩余的两名海盗便从各自的飞船中通过通讯频道对你破口大骂，并紧追不舍。`
+				launch
+
+			label run
+			branch "grab and die" "grab and run"
+				random < 30
+
+			label "grab and die"
+			`	你一把抄起锅子拔腿就跑！那些恶棍嚎叫着拔出枪来。你在枪林弹雨中左闪右避，朝着门口狂奔，刚跑到一半，一枚子弹便击中了你。你痛苦地扑倒在地，眼睁睁看着身下迅速蔓延开一滩自己的鲜血。你挣扎着想站起来，可其中一名看起来最凶悍的海盗一脚将你踹翻在地，又补了一枪，彻底结果了你。`
+				die
+
+			label "grab and run"
+			action
+				payment 23974
+			`	你一把抄起锅子拔腿就跑！那些恶棍嚎叫着拔出枪来。你以之字形路线冲向门口，子弹呼啸着从身边掠过，在墙壁上炸出一块块碎屑。你回头一瞥，正巧看见酒保端起一杆巨型霰弹枪，把其中一名恶棍轰成了肉酱。剩下的三人则紧追不舍。`
+			`	你冲向机库舱，匆忙起飞。你迅速清点战利品，发现自己已净赚近25,000积分！刚飞出大气层一半，港口当局便发来消息警告你：他们已逮捕了两名海盗，但另外两名已成功登船，正全速追击你。`
+				launch
+
+	to complete
+		never
+
+	npc
+		personality launching heroic plunders vindictive nemesis
+			confusion 20
+		government "Pirate"
+		fleet
+			names "pirate"
+			variant
+				"Sparrow" 2
+			variant
+				"Wasp" 2
+			variant
+				"Wasp"
+				"Sparrow"

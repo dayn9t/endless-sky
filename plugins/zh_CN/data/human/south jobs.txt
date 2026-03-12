@@ -1,0 +1,376 @@
+# Copyright (c) 2017 by Michael Zahniser
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+overwrite
+mission "Pirate Occupation [0]"
+	name `占领 <system> 的海盗`
+	minor
+	repeat
+	description `一支小型海盗团伙已占据<system>星系，当地政府请求援助。请在该星系内击溃海盗，并于<date>前在<planet>行星着陆，即可领取<payment>的报酬。`
+	deadline
+	to offer
+		random < 5
+		"combat rating" > 100
+	source
+		not government "Pirate"
+		attributes "south" "rim"
+	destination
+		not government "Pirate" "Quarg"
+		distance 2 3
+		attributes "south"
+	npc
+		government "Militia"
+		personality heroic
+		fleet "Small Militia"
+	npc
+		government "Militia"
+		personality heroic staying
+		system destination
+		fleet "Small Militia"
+	npc evade
+		government "Pirate"
+		personality heroic staying target harvests plunders
+		system destination
+		fleet "Small Southern Pirates" 3
+	on offer
+		conversation "pirate occupation"
+	on visit
+		dialog phrase "generic pirate fleet battle on visit"
+	on complete
+		payment 100000
+		dialog phrase "generic pirate attack payment dialog"
+
+overwrite
+mission "Pirate Occupation [1]"
+	name `Pirates occupying <system>`
+	minor
+	repeat
+	description `一伙海盗已占领<system>，当地政府请求援助。请在<date>之前击溃该星系内的海盗，并降落在<planet>上，以领取<payment>积分的报酬。`
+	deadline
+	to offer
+		random < 5
+		"combat rating" > 200
+	source
+		not government "Pirate"
+		attributes "south" "rim"
+	destination
+		not government "Pirate" "Quarg"
+		distance 2 3
+		attributes "south"
+	npc
+		government "Militia"
+		personality heroic
+		fleet "Small Militia" 2
+	npc
+		government "Militia"
+		personality heroic staying
+		system destination
+		fleet "Small Militia"
+	npc evade
+		government "Pirate"
+		personality heroic staying target harvests plunders
+		system destination
+		fleet "Small Southern Pirates" 2
+		fleet "Large Southern Pirates"
+	on offer
+		conversation "pirate occupation"
+	on visit
+		dialog phrase "generic pirate fleet battle on visit"
+	on complete
+		payment 150000
+		dialog phrase "generic pirate attack payment dialog"
+
+overwrite
+mission "Pirate Occupation [2]"
+	name `Pirates occupying <system>`
+	minor
+	repeat
+	description `一支庞大的海盗团伙已占领<system>星系，当地政府请求援助。请在<date>之前击溃该星系内的海盗，并降落在<planet>行星上，以领取<payment>积分报酬。`
+	deadline
+	to offer
+		random < 5
+		"combat rating" > 300
+	source
+		not government "Pirate"
+		attributes "south" "rim"
+	destination
+		not government "Pirate" "Quarg"
+		distance 2 3
+		attributes "south"
+	npc
+		government "Militia"
+		personality heroic
+		fleet "Large Militia"
+		fleet "Small Militia"
+	npc
+		government "Militia"
+		personality heroic staying
+		system destination
+		fleet "Small Militia"
+	npc evade
+		government "Pirate"
+		personality heroic staying target harvests plunders
+		system destination
+		fleet "Large Southern Pirates" 3
+	on offer
+		conversation "pirate occupation"
+	on visit
+		dialog phrase "generic pirate fleet battle on visit"
+	on complete
+		payment 200000
+		dialog phrase "generic pirate attack payment dialog"
+
+conversation "pirate occupation"
+	`突然，你听到外面传来高声喧哗与呼喊，飞行员们正奔向自己的飞船：“<destination> 正遭到海盗舰队占领！他们正紧急求援，任何能在 <date> 前抵达的具备作战能力的飞船，请立即加入防御！”<planet> 当局很可能会为你提供丰厚酬金，但这也可能让你轻易丢掉性命。`
+	choice
+		`	（不要参与战斗。）`
+			decline
+		`	(Join the defense fleet.)`
+	`几名民兵飞行员已集结起来，协助抵御海盗袭击。你加入他们，并为即将到来的战斗做好飞船准备……`
+		accept
+
+
+
+overwrite
+mission "Sketchy Cargo [0]"
+	name "Delivery to <planet>"
+	job
+	repeat
+	description "向<destination>运送<tons>吨货物。报酬为<payment>。"
+	cargo "unlabeled cargo" 5 2 .1
+	to offer
+		random < 15
+	source
+		attributes "south"
+	destination
+		distance 2 10
+		attributes "south"
+	on accept
+		dialog `你按任务说明前往一座看似废弃的仓库，发现货物装在未贴标签的货箱中。当你将货物装载上飞船时，忽然感到自己正被人暗中监视。`
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		payment 0 160
+		dialog "You drop off the unlabeled cargo in a warehouse not too dissimilar to the one you picked it up in. A man dressed in a cloak hands you <payment> after the last crate is removed from your ship."
+
+overwrite
+mission "Sketchy Cargo [1]"
+	name "Delivery to <planet>"
+	job
+	repeat
+	description "Deliver <tons> of cargo to <destination>. Payment is <payment>."
+	cargo "unlabeled cargo" 25 2 .05
+	to offer
+		random < 10
+	source
+		attributes "south"
+	destination
+		distance 2 10
+		attributes "south"
+	on accept
+		dialog `You follow the directions specified in the job to an abandoned-looking warehouse and find your cargo in unlabeled crates. As you load it onto your ship, you get the feeling that you are being watched.`
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		payment 0 160
+		dialog "You drop off the unlabeled cargo in a warehouse not too dissimilar to the one you picked it up in. A man dressed in a cloak hands you <payment> after the last crate is removed from your ship."
+
+
+
+overwrite
+mission "Sketchy Passenger [0]"
+	name "Passenger transport to <planet>"
+	job
+	repeat
+	description "Bring <fare> to <destination>. Payment is <payment>."
+	passengers 2 10 .9
+	to offer
+		random < 15
+	source
+		attributes "south"
+	destination
+		distance 2 10
+		attributes "south"
+		not attributes "station"
+	on accept
+		dialog `你费了一番功夫才找到你的乘客，但经过将近一小时的搜寻，你终于找到了他们。当他们跟着你返回飞船时，你听到他们彼此低声私语，却听不清他们在说些什么。`
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		payment 2000 160
+		dialog "Your passengers ask that you land away from the busy spaceport center. They hand you <payment> and rush out of your ship and away from the spaceport with considerable speed."
+
+overwrite
+mission "Sketchy Passenger [1]"
+	name "Passenger transport to <planet>"
+	job
+	repeat
+	description "Bring <fare> to <destination>. Payment is <payment>."
+	passengers 2 10 .7
+	to offer
+		random < 10
+	source
+		attributes "south"
+	destination
+		distance 2 10
+		attributes "south"
+		not attributes "station"
+	on accept
+		dialog `You have some difficulty finding your passengers, but after almost an hour of searching you finally find them. As they follow you back to your ship, you hear them whispering to each other, but you can't make out what they're saying.`
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		payment 2000 160
+		dialog "Your passengers ask that you land away from the busy spaceport center. They hand you <payment> and rush out of your ship and away from the spaceport with considerable speed."
+
+overwrite
+mission "Delta V Shipment [0]"
+	name "Shipment to <planet>"
+	description "将< cargo >运送至< destination >——南方边缘地带主要导弹与引擎制造商“德尔塔五公司”（Delta V Corporation）的总部所在地。报酬为< payment >。"
+	cargo "alloys" 5 2 .1
+	job
+	repeat
+	to offer
+		random < 10
+		has "landing access: Solace"
+	source
+		near Pherkad 2 15
+		attributes factory
+		not government "Pirate"
+	destination Solace
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		payment 0 160
+		dialog phrase "generic cargo delivery payment"
+
+overwrite
+mission "Delta V Shipment [1]"
+	name "Shipment to <planet>"
+	description "Deliver <cargo> to <destination>, the home of Delta V Corporation, a major missile and engine manufacturing firm in the Southern Rim. Payment is <payment>."
+	cargo Electronics 5 2 .1
+	job
+	repeat
+	to offer
+		random < 10
+		has "landing access: Solace"
+	source
+		near Pherkad 2 15
+		attributes factory
+		not government "Pirate"
+	destination Solace
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		payment 0 160
+		dialog phrase "generic cargo delivery payment"
+
+overwrite
+mission "Tarazed Shipyards Shipment [0]"
+	name "Shipment to <planet>"
+	description "将 <cargo> 交付至 <planet>——天社一船坞的所在地。该船坞是人类南部地区规模最大的造船企业之一。报酬为 <payment>。"
+	cargo "weapons" 5 2 .1
+	job
+	repeat
+	to offer
+		random < 10
+		has "landing access: Wayfarer"
+	source
+		near Tarazed 2 10
+		attributes factory
+	destination Wayfarer
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		payment 0 160
+		dialog phrase "generic cargo delivery payment"
+
+overwrite
+mission "Tarazed Shipyards Shipment [1]"
+	name "Shipment to <planet>"
+	description "Deliver <cargo> to <planet>, the home of Tarazed Shipyards, one of the largest shipbuilding firms in the South. Payment is <payment>."
+	cargo "Ship Alloys" 5 2 .1
+	job
+	repeat
+	to offer
+		random < 10
+		has "landing access: Wayfarer"
+	source
+		near Tarazed 2 10
+		attributes factory mining
+	destination Wayfarer
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		payment 0 160
+		dialog phrase "generic cargo delivery payment"
+
+overwrite
+mission "Tarazed Shipyards Shipment [2]"
+	name "Shipment to <planet>"
+	description "Deliver <cargo> to <planet>, the home of Tarazed Shipyards, one of the largest shipbuilding firms in the South. Payment is <payment>."
+	cargo "Ship Systems" 5 2 .1
+	job
+	repeat
+	to offer
+		random < 10
+		has "landing access: Wayfarer"
+	source
+		near Tarazed 2 10
+		attributes factory mining
+	destination Wayfarer
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		payment 0 160
+		dialog phrase "generic cargo delivery payment"
+
+overwrite
+mission "Tarazed Systems Shipment [0]"
+	name "Shipment to <planet>"
+	description "将 <cargo> 交付至 <planet>——天社一系统公司的所在地。该公司是人类南部空间广受尊敬的装备制造商与设计商。报酬为 <payment>。"
+	cargo "alloys" 5 2 .1
+	job
+	repeat
+	to offer
+		random < 10
+		has "landing access: Wayfarer"
+	source
+		near Tarazed 2 10
+		attributes factory mining
+	destination Wayfarer
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		payment 0 160
+		dialog phrase "generic cargo delivery payment"
+
+overwrite
+mission "Tarazed Systems Shipment [1]"
+	name "Shipment to <planet>"
+	description "Deliver <cargo> to <planet>, the home of Tarazed Systems, a respected outfits manufacturer and designer in southern human space. Payment is <payment>."
+	cargo Electronics 5 2 .1
+	job
+	repeat
+	to offer
+		random < 10
+		has "landing access: Wayfarer"
+	source
+		near Tarazed 2 10
+		attributes factory
+	destination Wayfarer
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		payment 0 160
+		dialog phrase "generic cargo delivery payment"

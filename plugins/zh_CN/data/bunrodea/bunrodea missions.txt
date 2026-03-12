@@ -1,0 +1,221 @@
+# Copyright (c) 2023 by Amazinite
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+overwrite
+mission "First Contact: Bunrodea (Hostile)"
+	landing
+	name "An Intriguing Invitation"
+	description "你收到了一份邀请——或者说传唤——来自一群形似螳螂的外星人，他们似乎一直在人类领空内尾随你，如今指定你前往标记星系。"
+	source
+		near "Sol" 0 100
+		not attributes "urban" "station"
+		attributes "spaceport"
+	destination "Erabuthro"
+	clearance "After hailing the planet the map pointed you towards, you hear an alien voice respond. Before you can think of what to say, the small device that the aliens threw at you on <origin> responds for you. The voice on the other end says something short, then cuts the feed. It seems like you've been cleared to land."
+	to offer
+		random < 10
+		or
+			"reputation: Bunrodea" < 1
+			"reputation: Bunrodea (Megasa)" < 1
+			"reputation: Bunrodea (Erabu)" < 1
+			"reputation: Bunrodea (Guard)" < -1
+	
+	on offer
+		"bunrodea: guard rep" = "reputation: Bunrodea (Guard)"
+		"bunrodea: megasa rep" = "reputation: Bunrodea (Megasa)"
+		"bunrodea: erabu rep" = "reputation: Bunrodea (Erabu)"
+		"bunrodea: normal rep" = "reputation: Bunrodea"
+		conversation
+			`当你离开飞船时，一艘小型外星飞船突然在你正前方解除隐形，令你大吃一惊。两名优雅的螳螂状外星生物自船上走下，每人手持一件外形奇异的武器，枪口直指你。它们拥有四条修长的昆虫般节肢腿和两条手臂；尽管手臂末端看似手掌，却还生有怪异的爪状结构，自前臂向外延伸，将武器牢牢握持于掌中。你环顾四周，试图寻找其他目击者，却发现此刻正值深夜，你降落在<origin>的主太空港，放眼望去，唯你一人是人类。`
+			`	外星人开始用你听不懂的语言与你交谈，话语间夹杂着咔嗒声。其中一名外星人说话时声音近乎机械，仿佛正通过语音合成器发声。你凑近细看，发现它身体某些部位显然经过了赛博格改造：喉咙、一只眼睛以及腿部关节均呈现非有机材质特征。而另一名外星人则未见此类明显改造痕迹。`
+			choice
+				`	“你们是和平而来的吗？”`
+				`	"我一个字都听不懂你在说什么。"`
+				`	“别开火！我带你们去见我的首领。”`
+			`	那些外星人彼此对视，低声交谈了几句。其中一人从腰带上取下一个小装置，扔在你面前的地面上。`
+			choice
+				`	（捡起来。）`
+				`	（闪避至掩体后。）`
+					goto dodge
+			`	你拿起那个装置，仔细端详。它突然在你手中弹开，吓得你失手将它掉落。装置坠至地面后，开始投射一幅全息星图。你认出星图上标注的几个星系——那正是你曾与一支外星舰队交战的地方，而那支舰队的飞船，与眼前这艘极为相似。星图中，该区域仅有一个星系被高亮标出。外星人返回他们的飞船，飞船随即再次隐形；虽然你看不见它，却能听见它起飞并远去的声音。`
+				accept
+			label dodge
+			`	你迅速闪身躲到飞船后方寻求掩护。几秒钟后，你听到一声弹簧弹射般的声响。当你再次从飞船后探出头时，外星人已不见踪影，而他们朝你投掷的装置正投射出一幅全息星图。你认出了星图上部分星系——正是你此前与一支外星舰队交战过的地方，那些舰队的飞船与眼前这艘极为相似。星图中，该区域内的某一个星系被特别高亮标出。那艘外星飞船随即再度隐形；你虽无法看见它，却能听见它升空并飞离的声音。`
+				accept
+	
+	on accept
+		"reputation: Bunrodea" = 0
+		"reputation: Bunrodea (Guard)" = 0
+		"reputation: Bunrodea (Megasa)" = 0
+		"reputation: Bunrodea (Erabu)" = 0
+	
+	on complete
+		"reputation: Bunrodea" = 10
+		conversation
+			`当你进入大气层时，两艘庞大的外星飞船左右伴飞，引导你降落至指定着陆区。当你离开飞船时，两名外星人迎面而来——他们的外形与你在<origin>上曾惊扰过你的那些外星人极为相似，甚至手持相同的武器。`
+			`	你稍作环顾，发现自己正置身于一座宏伟的巨型都市中央。天际线上耸立着比人类疆域中所见任何建筑都要高大的摩天楼群；而你身旁的多数楼宇，其建筑风格则显得格外优雅。正前方是一座宏伟如宫殿般的建筑，通往正门的宽阔台阶绵延而上。`
+			`	你向前迈出一步，但其中一名外星人一边挥舞武器一边说了些什么，你立刻领会到：此刻不宜移动。另一名外星人则对着通讯装置说了几句，随后一屁股坐在地上，并朝你做了个手势，示意你也坐下。你隐约觉得，自己恐怕得在这儿等上一阵子了。`
+			choice
+				`	(Sit down.)`
+					goto sit
+				`	（转身，重新返回我的飞船。）`
+			`	你重新登上飞船，外星人并未阻止你。你决定重启飞船并尝试起飞；但就在你试图启动反重力引擎的瞬间，舱外传来一阵刺耳的嗡鸣声。你望向最近的舷窗，只见外星人已将某种车辆驶至飞船附近，车身正嗡嗡震颤、能量涌动。你再次尝试起飞，但飞船的反重力引擎却毫无反应——那辆车似乎正在压制周边所有反重力装置。`
+			choice
+				`	（用炮塔轰击该载具。）`
+					to display
+						"flagship base attribute: turret mounts" > "flagship attribute: turret mounts"
+				`	（离开我的飞船，坐下来与外星人交谈。）`
+					goto leave
+			action
+				"reputation: Bunrodea" = -10
+				"reputation: Bunrodea (Guard)" = -10
+				"reputation: Bunrodea (Megasa)" = -10
+				"reputation: Bunrodea (Erabu)" = -10
+			`	你将一门炮塔转向那辆载具并开火，随即立刻尝试拉升飞船。看来这一击要么摧毁了载具，要么已足够干扰其运作，使你得以摆脱它的影响——你的飞船正急速升入大气层。不过，外星人显然对你的举动颇为不满，因为你已在雷达上看到多艘敌舰正锁定你的位置。`
+				flee
+			label leave
+			`	你离开飞船，坐在登船坡道上。那些注视着你的外星人似乎并不在意你刚才试图离开。`
+				goto intro
+			label sit
+			`	你坐在飞船登船坡道上，一边等待，一边欣赏周围的景色。`
+			label intro
+			`	过了一会儿，你抬头望向宫殿台阶，注意到一个六肢生物——它与那些螳螂般的、一直在监视你的外星人截然不同。它缓缓走下台阶，临近最后一两级时，守卫你的外星人立刻立正站好。你不禁疑惑：莫非此前所有时间，你都只是在等待这位外星人走下楼梯？`
+			`	那生物以六肢爬行向你靠近，但在距你仅数步之遥时，便直立起后两条腿。它体型娇小，即便完全站直也仅及你下巴高度，生着一对圆滚滚的大眼睛和一个硕大凸出的鼻子。它将四条手臂向外展开，露出掌心——除面部与手掌外，全身覆盖着一层浅金色的棕褐色绒毛。它开始说话，你虽听不懂内容，却能察觉它正快速切换多种语言，每说一句便稍作停顿，且句句音调、韵律迥异。突然间，它用无比清晰流利的语调说道：“你好。”`
+			choice
+				`	"Hello?"`
+				`	"等等，再说一遍。"`
+			label loop
+			`	"你好，"那生物重复道。"你好。你好。你好，"它继续说道。`
+			choice
+				`	"您还能说点别的吗？"`
+				`	"How do you know my language?"`
+					goto language
+				`	"Hello."`
+					goto loop
+			`	“你还能说点别的吗？”它重复着问你。`
+				goto human
+			label language
+			`	“你怎会懂我的语言？”它将这句话复述给你。`
+			label human
+			`	“人类？”它问道。`
+			choice
+				`	“是的，我是人类。”`
+				`	"你到底是什么东西？"`
+			`	"人类，"它自信地自言自语道，"人类。人类。人类，"它反复念着，环顾四周，仿佛正在脑海中搜寻什么，"……一百年前。人类。"`
+			choice
+				`	"我不是第一个抵达此地的人类？"`
+				`	“你这话什么意思？一百年前？”`
+			`	"许多年前，曾有来自人类疆域的访客，"它说道，"无关紧要。女王希望你即刻觐见。"接着，它用一种螳螂状外星人能理解的语言说了些什么，那些外星人随即示意你跟上；那只小型外星生物已转身朝宫殿台阶方向走去。你隐隐有种预感：接下来半小时恐怕会令你坐立不安。`
+			`	你终于筋疲力尽地登上了宫殿阶梯的顶端，而随行的外星人却显得毫不费力。`
+			`	外星人带你进入宫殿，穿过一条条典雅的走廊。墙壁上陈列着大理石雕像与壁画，似乎描绘了该外星种族的历史人物与重大事件，但你不被允许久留，因而无法仔细端详其中任何一件。`
+			`	你最终抵达一扇巨大而华美的门扉前，外星人将其推开，门后显露的正是女王的王座厅——这是一间狭长的厅堂，两侧镶嵌着彩绘玻璃窗，尽头处设有一把王座椅，外星女王正端坐其上。女王属于螳螂状物种，体型远比护送你的那些守卫更为庞大。`
+			`	你靠近时，那只小型生物向女王说了些什么，女王随即回应。随后，那生物转向你，为你翻译。`
+			branch royalty
+				"bunrodea: erabu rep" < 1
+			branch guard
+				"bunrodea: guard rep" < -1
+			branch civi
+				"bunrodea: normal rep" < 1
+			`	"我听说你攻击了我的一艘梅加萨飞船。"`
+			choice
+				`	“你什么？”`
+					goto megasa
+				`	"我只是在自卫而已。"`
+					goto lie
+				`	"我确实这么做了，对此我表示歉意。"`
+					goto apologize
+				`	"好吧，然后呢？"`
+					goto and
+			
+			label civi
+			`	"我听说你袭击了我的一名平民。"`
+			choice
+				`	"I was only defending myself."`
+					goto lie
+				`	"I have, and for that I apologize."`
+					goto apologize
+				`	"Okay, and?"`
+					goto and
+			
+			label guard
+			`	"我听说你与我的一名卫兵交过手。"`
+			choice
+				`	"I was only defending myself."`
+					goto defending
+				`	"嘿，他们罪有应得——是他们先袭击我的！"`
+					goto attacked
+				`	"I have, and for that I apologize."`
+					goto apologize
+				`	"Okay, and?"`
+					goto and
+			
+			label royalty
+			`	"我听说你攻击了我的一艘埃拉布飞船。"`
+			choice
+				`	"Your what?"`
+					goto erabu
+				`	"I was only defending myself."`
+					goto lie
+				`	"I have, and for that I apologize."`
+					goto apologize
+				`	"Okay, and?"`
+					goto and
+			
+			
+			label erabu
+			`	当那只小生物为你翻译时，女王以一种奇特的吱吱声笑了起来。“厄拉布人是我领地上的贵族。袭击他们乃重罪。”那生物为女王传译道，“你有何话可说？”`
+				goto rechoice
+			
+			label megasa
+			`	当那只小生物为你翻译时，女王以一种奇特的吱吱声笑了起来。“梅加萨人虽是我子民中最卑微者，却仍是须由我庇护的臣民。”那生物为女王传译道，“你有何话可说？”`
+			
+			label rechoice
+			choice
+				`	“无论我攻击了谁，都只是在自卫而已。”`
+					goto lie
+				`	“那对此我表示歉意。”`
+					goto apologize
+				`	"Okay, and?"`
+					goto and
+			
+			label defending
+			`	那只小型生物为你翻译时，女王以一种奇特的叽喳声笑了起来。“是的，我的皇家卫队确实……热衷于保卫疆土，对此我深表歉意。”女王说话之际，那生物随即翻译道。“但若我的皇家卫队不抵御未知威胁、守护我的领土，它又怎能真正履行职责？当然，或许它们在判定真实威胁时本可更耐心些。我本该惩罚相关责任人，不过看起来，你已自行处置了那些冒犯你的人。”`
+				goto slighted
+			
+			label attacked
+			`	当那只小生物为你翻译时，女王以一种奇特的吱吱声笑了起来。“你说‘罪有应得’？”女王开口之际，那生物随即翻译道，“若我的皇家卫队不为我抵御未知威胁，又怎能尽到守土之责？不过，或许他们在判定真正威胁时的确该更耐心些。我本可惩处相关责任人，但看来你已自行处置了那些冒犯你的人。”`
+				goto slighted
+			
+			label lie
+			`	那只小型生物为你翻译时，女王从王座上走下，向你靠近。她伸展双腿，身高瞬间拔升至你的两倍以上，居高临下俯视着你。她开口说话，那生物随即翻译：“你竟敢在至高无上的皇室面前如此轻慢地撒谎——不是胆大包天，便是愚蠢至极。”女王旋即转身，回到王座之上。“这次，我破例宽恕你。但下次，你可就没这么幸运了。”`
+				goto threatened
+			
+			label and
+			`	那只小型生物为你翻译时，女王从王座上走下，向你靠近。她伸展双腿，身高瞬间拔升至你的两倍以上，居高临下俯视着你。她开口说话，那生物随即翻译：“你竟敢在至高无上的皇室面前如此轻慢地妄言——不是胆大包天，便是愚蠢至极。”女王旋即转身，回到王座之上。“这次，我破例宽恕你。但下次，你可就没这么幸运了。”`
+				goto threatened
+			
+			label apologize
+			`	当那只小生物为你翻译时，女王看起来仿佛在微笑。“一句道歉？如此……出人意料的回应。”那生物继续为女王传译道，“通常，冒犯了女王的人总会为自己辩解开脱。你的道歉，已被接受。”`
+			`	女王朝一名守卫示意，并对其说了几句那生物并未翻译的话语。随后她转向你开口说话，那生物为你译道：“既然你已致歉，你便可活命。我的守卫已奉命不得干涉你，你亦可在我方少数几个世界中自由出入。但这仅是为了防止你再生事端，以及方便你在途经我的星系时补充燃料。你的存在仅被容忍，而非欢迎。现在，请离开我的宫廷。”`
+				goto end
+			
+			label threatened
+			`	女王朝一名守卫示意，并对其说了几句那生物并未翻译的话语。随后她转向你开口说话，那生物为你译道：“既然我已对你施以仁慈，你便可活命。我的守卫已奉命不得干涉你，你亦可在我方少数几个世界中自由出入。但这仅是为了防止你再生事端，以及方便你在途经我的星系时补充燃料。你的存在仅被容忍，而非欢迎。现在，请离开我的宫廷。”`
+				goto end
+			
+			label slighted
+			`	女王朝一名守卫示意，并对其说了几句那生物并未翻译的话语。随后她转向你开口说话，那生物为你译道：“既然冒犯你的乃是我的守卫，你便可活命。我的守卫已奉命不得干涉你，你亦可在我方少数几个世界中自由出入。但这仅是为了防止你再生事端，以及方便你在途经我的星系时补充燃料。你的存在仅被容忍，而非欢迎。现在，请离开我的宫廷。”`
+			
+			label end
+			`	你被护送离开王座厅，那只小生物告诉你一抵达飞船就立刻离开。你走出宫殿，猛然意识到自己不得不再次面对那长长的阶梯。你深吸一口气，为漫长的下山之旅做好准备。`
+				launch

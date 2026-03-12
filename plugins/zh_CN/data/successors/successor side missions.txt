@@ -1,0 +1,468 @@
+# Copyright (c) 2024 by Daeridanii
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+overwrite
+mission "Successors: Predecessor Research 1"
+	minor
+	landing
+	name "Assist Predecessor Research"
+	description "在< date >前，将这< bunks >名研究先驱者文明的学者运送至< planet stopovers >，再送回< destination >。"
+	clearance
+	passengers 7
+	deadline 30
+	to offer
+		has "trusted by the successors"
+		"flagship attribute: quantum keystone" > 0
+		random < 40
+	to fail
+		has "Successors: Unified Defense: offered"
+	source "Staja-Kella-Oa"
+	stopover "Myiara-Aret-Iir"
+	on offer
+		conversation
+			branch "has deferred"
+				has "Successors: Predecessor Research 1: deferred"
+			`当你降落在太空港停机坪上时，你看到一张熟悉的面孔正朝你走来——那是西厄塞杰，那位曾在你首次与继承者接触时为你翻译的继承者学者，也曾协助你完成索埃奥拉家族的任务。他们正带着一小群穿着相似服饰的人向你走来，你推测这些人应该也都是某种学者。`
+			`	"船长！欣见汝重返此地；吾一获悉汝将抵达，便即刻匆匆赶来！"`
+			`	你向西厄塞杰致意，他们解释说，随行的学者是追寻先驱者遗迹的研究人员，希望搭乘一艘能穿越虫洞的飞船。`
+			`	“所需的飞船改装费用高得令人绝望，”其中一名研究员继续说道，“倘若我们向西奥埃拉与学院申请一艘配备齐全的飞船，恐怕得苦等数年——而这样的进度，对我们的研究而言实在太过缓慢。若阁下能亲自运送我们一程，哪怕只是短暂航行，也将极大推进我们的研究进展。”`
+			choice
+				`	"当然，我很乐意效劳。"`
+					goto accept
+				`	"我以后还能再来吗？"`
+					goto deferred
+				`	"抱歉，您得另找他人带您前往。"`
+					decline
+			label deferred
+			action
+				set "Successors: Predecessor Research 1: deferred"
+			`	"嗯，大概吧。我们已为此耐心等待了这么久，不过我仍敦促你尽快再次前来寻访我们。"`
+				defer
+			label accept
+			`	"万分感谢！" 研究团队的几名成员相视而笑，神情诡秘，显然为能插队而兴奋不已。西厄塞杰也向你致谢，并明确表示会"留心留意更多有趣的机会。"`
+				accept
+			label "has deferred"
+			`	你意识到西奥拉家族的先驱者研究团队很可能仍在等待，看能否由你将他们运送至<planet stopovers>。是否要联系他们？`
+			choice
+				`	(Yes.)`
+				`	（现在不行。）`
+					defer
+				`	(Never.)`
+					decline
+			`	你成功联系上了该研究小组的负责人，对方听说你终于有机会运送他们及其团队时显得异常兴奋。在太空港等待约一小时后，研究人员抵达与你会合；你最终顺利将他们全部接上飞船，并做好了出发准备。`
+				accept
+	on stopover
+		conversation
+			`尽管抵达途中研究人员一直显得相对平静克制，但你的飞船起落架刚一触地，他们便几乎立刻从气闸舱中冲了出来，双臂满载着数量惊人的手册、目录册以及各种奇异装置，毫不迟疑地将它们高举向天空，或直接塞向岩石与土壤。`
+			`	当夜幕开始笼罩这颗行星，研究人员虽心有不舍，仍满身尘土、疲惫不堪地返回你的飞船；但他们因新发现而兴奋不已，言语间充满激动。`
+			`	当你正准备离开时，你意识到此刻正是向专家们了解先驱者（Predecessors）的绝佳时机——尤其考虑到返程途中你恐怕得一路听着他们滔滔不绝地谈论新获取的数据。”`
+			choice
+				`	"关于先行者，您能告诉我些什么？"`
+					goto who
+				`	（什么都不要问他们。）`
+					launch
+			label questions
+			choice
+				`	"前辈文明是谁？"`
+					to display
+						not "Successors: who"
+				`	“实际上，我最后也没啥问题要问了。”`
+					to display
+						not "Successors: who"
+					goto end
+				`	"是什么导致了文明的崩溃？"`
+					to display
+						has "Successors: who"
+						not "Successors: collapse"
+					goto collapse
+				`	"他们的帝国规模有多大？"`
+					to display
+						has "Successors: who"
+						not "Successors: empire"
+					goto empire
+				`	"他们的科技水平如何？"`
+					to display
+						has "Successors: who"
+						not "Successors: tech"
+					goto tech
+				`	“我已没有其他问题了。”`
+					to display
+						has "Successors: who"
+					goto end
+			label who
+			action
+				set "Successors: who"
+			`	"我们的先驱者，正是我们早已逝去的祖先。在一千五百年前，他们曾以自身帝国之名统治着这片星域，乃至更广阔的疆土。随着帝国大部崩塌，无数先驱者连同其血脉一同消亡；但其中一部分人穿越虫洞，抵达了如今我们这些‘继承者’所栖居的星团。"`
+				goto questions
+			label collapse
+			action
+				set "Successors: collapse"
+			`	研究员叹了口气。“我们尚不清楚；或者说，真相的全貌至今仍被遮蔽。空间本身的血肉被撕裂、扭曲；其影响延续至今：天空中嵌入的空洞、光芒的黯淡消逝，乃至超空间航路的衰亡。那是一段战火纷飞的年代；诸世家彼此攻伐，或仓皇逃遁，而空间本身则在炮火闪烁与引擎跃迁的辉光中熊熊燃烧……”`
+			`	研究员停顿片刻，整理了一下思绪。`
+			`	"我离题了，还请见谅。此事真伪难辨，实在难以厘清。我们的先驱者所掌握的力量远超我们今日的拙劣模仿——那是一种足以在世界根基深处播下和平或混沌种子的力量，一种会触碰、拨弄那些本该永世封存之领域的力量。'导致文明崩塌的根源是什么？'你如此发问？依我之见，是傲慢。"`
+				goto questions
+			label empire
+			action
+				set "Successors: empire"
+			`	“你随身佩戴的翻译装置，其精妙程度已足以说明一切。西厄塞吉告诉我，在帝国鼎盛时期，我们的学者甚至曾亲眼目睹过你们的世界——那片遥远北方的故土！而今残存的这些死寂星系，不过是昔日帝国核心疆域的一小部分罢了。其中一些，想必已被其他种族占据；另一些，则似乎被刻意遮蔽了。我们既不知其如何发生，亦不明其为何如此，唯知先祖所绘星图，与今日所见早已大相径庭。”`
+				goto questions
+			label tech
+			action
+				set "Successors: tech"
+			`	"它曾辉煌而壮美，既是工程杰作，亦是艺术瑰宝。我们先驱者的造物，就连夸格族都为之艳羡——而夸格族在艺术与科学领域的造诣，能与之比肩者寥寥无几。其本质奇异、用途独特：生于恒星之中的活体金属，可刺穿空间本身的精微尖点。我们虽保有相关记载，足以粗略模仿其工艺流程，但即便彻底洞悉其原理，我们新系统的空间环境似乎也难以承载这种技艺的再现。我们甚至无法复刻高阶世家世代珍藏的传家宝物；其所用材料与工艺，始终遥不可及。"`
+				goto questions
+			label end
+			`	你让研究人员继续研究他们的发现。`
+			action
+				clear "Successors: who"
+				clear "Successors: collapse"
+				clear "Successors: empire"
+				clear "Successors: tech"
+	on complete
+		"successor jobs" += 2
+		"old houses jobs" += 2
+		payment 250000
+		conversation
+			`不出所料，返程途中学者们依旧健谈不休：他们议论着异常的辐射读数，还对某位运气极佳的队员所采集到的几块微小金属碎片大加赞叹。`
+			`	他们几乎忘了在将目标人物送回<destination>时支付报酬，但首席研究员将一枚价值<payment>的芯片塞入你手中，并向你道谢，随后便匆匆步入太空港。`
+
+overwrite
+mission "Successors: Biology Research 1"
+	minor
+	name "Assist Predecessor Biologist"
+	description "在<date>前，将一名继承者生物学家运送至<stopovers>，再将其送返<destination>。"
+	passengers 1
+	deadline 20
+	to offer
+		has "known to the successors"
+		random < 30
+	to fail
+		has "Successors: Unified Defense: offered"
+	source
+		attributes "successor"
+		attributes "education"
+	stopover "Naph-Naap-Kella"
+	on offer
+		conversation
+			`当你正坐在太空港中时，一名身着奇特绿色服装、手持数件看似高科技设备的继承者向你走来——设备之多，几乎要从他们臂弯中滑落。他们解释自己是一名继承者生物学家，原本包租了一艘飞船前往年轻且仍在演化的行星<planet stopovers>考察原始生命，但飞行员却被扣留，导致他们被困在此地。`
+			`	“倘若你能提供前往那颗行星的航行支持，我或许仍能在研究休假期结束前完成数据采集。”`
+			choice
+				`	"Sure, I would be happy to."`
+					goto accept
+				`	"Sorry, but you'll have to find someone else to take you."`
+					decline
+			label accept
+			`	“我向你致以深切而确凿的谢意。此事切勿外传——高阶世家对我们学者可谓蛮横无理。”这位自称为‘卡提奥拉’的生物学家，将一整套采集设备装入你的飞船（其间差点失手摔坏一件格外易碎的仪器），最终准备就绪， ready 出发。`
+				accept
+	on stopover
+		conversation
+			`来此途中，卡提奥拉展现出惊人的求知欲，以一种你此前认为绝不可能达到的热情与兴奋，接连不断地向你询问人类生物学的种种细节。待他们耗尽你对人类生物学所有已知细节的了解后，又毫不犹豫地转向前辈数据库中记载的其他地球物种——从牛、青蛙，再到诸多你闻所未闻却在继承者圈内风靡一时的奇异生物。`
+			`	当你终于抵达这颗行星时，卡提奥拉暂时离开了一小会儿——他们又一次抱着远超双臂所能承受的设备，兴奋而谨慎地扫描着着陆点周围的火山温水池与小型湖泊，不时因发现而激动地惊呼。`
+			`	最终，他们返回你的飞船，对自己收集到的数据量感到满意，但显然仍因这次经历而兴奋不已。`
+			`	临行之前，你意识到此刻正是向专家深入了解继承者的好时机。况且，来此途中你几乎一直在回答卡提奥拉的诸多问题，现在理应轮到你提出几个自己的疑问了。`
+			choice
+				`	（询问继承者种族的生物学特征。）`
+				`	（什么都不要问。）`
+					goto end
+			`	不出所料，卡提奥拉非常乐意分享他们的生物学知识，并询问你是否有什么特别想了解的内容。`
+			label questions
+			choice
+				`	"关于继承者，您能告诉我些什么？"`
+					to display
+						not "Successors: successor"
+					goto successor
+				`	"从生物学角度而言，先驱者与当今的继承者有何不同？"`
+					to display
+						not "Successors: predecessor"
+					goto predecessor
+				`	"这个星团中的生活是什么样的？"`
+					to display
+						not "Successors: cluster"
+					goto cluster
+				`	"I have no more questions."`
+					goto end
+			label successor
+			action
+				set "Successors: successor"
+			`	“在母星海洋深处度过我们大部分进化史；如今你显然能看出，我们与你们呼吸着同样的空气，但我们仍保留着畏寒且喜水的习性。我们的呼吸系统在水下与在陆地上同样高效，不过皮肤必须始终保持一定程度的湿润。”`
+			`	"除此之外，我们属于雌雄同体物种——这与我们母星上绝大多数生物一致；而当我们迈向星辰时，我们发现这种特征虽不常见，却也并非罕见。因此，人们不免好奇：为何我们的母星孕育了如此丰富多样的雌雄同体物种，而其他星球却大多没有？或许正因为我们成长于一颗炽烈恒星之下，摆脱了生物学性别的束缚所赋予的冗余适应性，反而在进化过程中为我们带来了优势。"`
+			`	“当然，你此刻想必已注意到我们皮肤天生的伪装能力。如今，它主要用于交流；但远古时代，它曾是我们躲避视觉捕食者的有力工具——直到我们最终获得智慧，学会智取而非逃避自己的天敌。”`
+				goto questions
+			label predecessor
+			action
+				set "Successors: predecessor"
+			`	“正所谓‘简洁乃智慧之魂’，因此，我们的先祖在核心生物学层面与我们并无显著差异。若一位大灾变时期高阶世家（High Houses）的后裔现身今日，其外貌举止也绝不会令寻常人侧目。然而，他们对自身生物学的理解远胜于我们：其医学科技远比我们先进，且诸多技术更是以基因编码方式锁定，仅能由特定家族成员使用。”`
+				goto questions
+			label cluster
+			action
+				set "Successors: cluster"
+			`	“你问得正是时候！这颗行星，以及其上孕育的生命，或许能为我们提供那个问题更佳的答案。此地许多恒星炽热而年轻，对初生生命而言环境严酷，然而你 surely 已目睹那些环绕其运行的苍翠世界！其中部分确系旧帝国时期早期殖民所致，但大部分却并非如此，因而至今仍是个令人费解的谜题：生命究竟是如何在此演化出来的？若我们能追溯这颗行星上生命的演化路径，便有望找到你我共同追寻的答案。”`
+				goto questions
+			label end
+			`	你任卡提奥拉继续处理他们的事务，随即开始为随时起飞做准备。`
+			action
+				clear "Successors: successor"
+				clear "Successors: predecessor"
+				clear "Successors: cluster"
+	on complete
+		"successor jobs" += 2
+		payment 200000
+		conversation
+			`	返程途中，卡提奥拉依然兴致高昂、滔滔不绝，只是如今略显收敛——毕竟它已耗尽了你关于生物科学的所有知识储备，而近期采集的数据分析工作也足以让它忙个不停。`
+			`	抵达<destination>后，他们从你的飞船上 disembark（下船），再次携带着大量装备，临行前付给你<payment>积分作为酬金，并再次感谢你为他们提供的运输服务。`
+
+overwrite
+mission "Successors: Stargazing 1"
+	minor
+	name "Transport Successor stargazers"
+	description "将一对继承者星象观测员运送至< planet stopovers >，并于< date >前将其送返目的地< destination >。"
+	source
+		attributes "successor"
+		not attributes "crime" "tourism" "uninhabited"
+	stopover "Khosa-Kella-Oa"
+	to offer
+		has "known to the successors"
+		random < 40
+	to fail
+		has "Successors: Unified Defense: offered"
+	passengers 2
+	cargo "Vacuum Tents" 1
+	deadline 20
+	on offer
+		conversation
+			`当你停留在<origin>的太空港时，注意到一对神情疲惫的继承者正拖着一辆手推车，车上装着某种奇特的折叠材料；两人轮换着拖拽这显然十分沉重的行李穿行于地面。然而，当他们看见你和你的飞船时，精神顿时大振，立刻充满干劲地将设备朝你推来，最终顺利靠近到足以开口交谈的距离。`
+			`	体型较大的那位开口道：“哦！你就是最近那位外星人吧？你指挥的飞船真是美极了——”`
+			`	"我们本想说的是——"`
+			`	“抱歉，只是——”`
+			`	"您接载客任务吗？"`
+			choice
+				`	"我愿意。"`
+					goto immediate
+				`	“这取决于用途。”`
+			`	其中一名继承者显得有些尴尬，暗绿色的皮肤微微泛红。另一名继承者随即开口回应。`
+			`	"观星。银河系边缘有一颗行星，是最遥远的边缘；那里拥有最壮丽的景色——"`
+			`	“我们已自带了所需设备。”`
+			`	“那里的天空被划分为繁星密布的黑夜与彻底的虚无。阁下可愿载我们前往？”`
+			`	“当然还得原路返回，还有我们的货物。”另一人边说边朝那辆装着叠放布料的手推车做了个手势。`
+			`	“还要返程，以及我们的货物。我们可以付给你们一笔微薄的酬金。”`
+			choice
+				`	"当然，我可以带你去。"`
+					goto yes
+				`	“你得另找一位飞行员了。”`
+					decline
+			label immediate
+			`	“哦！太完美了！我们正想找一艘私人运输船。我们是观星者——”`
+			`	“银河边缘有一颗行星，拥有绝佳的观景视野——”`
+			`	"The sky there's divided into star-studded night and utter void. Could thou take us there?"`
+			`	“当然还得原路返回，还有我们的货物。”另一人边说边朝那辆装着叠放布料的手推车做了个手势。`
+			`	"And back. And our cargo. We can give thee modest pay."`
+			choice
+				`	"Sure, I can take you."`
+					goto yes
+				`	“抱歉，您得另找一位飞行员了。”`
+					decline
+			label yes
+			`	两人似乎兴奋不已，体型较大的那位甚至泛起了一层暗淡的粉红色。“啊！汝真乃高尚尊贵的异星贵族！吾名恩内萨。”`
+			`	"贾索拉。谢谢您，船长。此处大多数飞行员都不愿前往无人居住的星系。"`
+			`	"是的，你必须告诉我们你去过的所有地方——"`
+			choice
+				`	"不如我们先让你登船。"`
+			`	恩内萨再度因窘迫而微微泛光，贾索拉则伸出支持的手臂，轻轻环住其身体。两人邀请你协助搬运满载设备的推车——这推车远比看上去沉重得多；但三人齐心协力，最终还是顺利将全部行李运入<ship>的货舱，整装待发。`
+				accept
+	on stopover
+		conversation
+			`恩内萨和贾索拉一路上都深深着迷；这对形影不离的伙伴似乎将每个清醒时刻都花在了透过<ship>的舷窗凝望飞逝的星辰上。然而，当抵达马斯帕-玛弗拉星系时，她们的兴奋之情却渐渐平息，转而化为你所能称之为“内敛敬畏”的神情——仰望穹顶之上铺展而出的整个银河。`
+			`	科萨-凯拉-奥亚本身寒冷、幽暗、遍布岩石：从所有实际用途来看，它与银河系中无数其他无人居住、没有大气的星球毫无区别。但你的乘客们却对此颇为满意；恩内萨评论道：“本地恒星‘昏暗得几乎没有任何眩光！’”贾索拉也充满活力地表示赞同。他们在<ship>的货舱内启动了装有折叠设备的手推车，手推车缓缓充气并展开，形态介于帐篷与反重力悬浮平台之间。它如融化的冰一般在地板上滑行，轻轻撞了几次舱壁，直到贾索拉终于让它停稳。`
+			`	“再次感谢您护送我们，船长。”贾索拉一边说着，一边将一捆望远镜搬进飞船内。`
+			`	“哦！这颗行星简直完美——没有大气干扰视野，也没有其他飞船遮蔽天空——"`
+			`	“我们几个小时后就回来，请等我们。”`
+			`	二人乘着滑翔帐篷离去；帐篷离港时表面浮现出数个透明区域，内部则伸出一簇簇望远镜探头。`
+			choice
+				`	(Wait.)`
+			`	恩内萨与贾索拉如约于数小时后返回，他们那奇异的帐篷如离舰时一般流畅地滑入<ship>的货舱。两人卸下数本装满照片与素描的笔记，兴奋地谈论着所观测到的各星座与恒星现象。恩内萨尤为激动，迅速从杂乱交叠的纸页中抽出一幅出人意料地精准且构图精良的星图，骄傲地举到你面前。你不禁注意到，这叠画稿中好几张描绘的并非天体现象，而是贾索拉本人。`
+			`	“船长，你来自地图上的何处？”恩内萨粗略地指向他们地图上的一片区域，你认出那是人类势力范围。”`
+			choice
+				`	（指示<家乡星系>。）`
+					to display
+						has "human space start"
+					goto rutilicus
+				`	（指示太阳系。）`
+					to display
+						has "species: human"
+					goto sol
+				`	(Indicate <home system>.)`
+					to display
+						has "hai space start"
+					goto "fah soom"
+				`	（朝地图上所绘的浩瀚太空广阔地挥手指向。）`
+			`	“哦！”恩内萨说道，“你首先是群星的后裔，生来便属于星辰？这很公平。你拥有一整座星系可供漫游，一片近乎无垠的苍穹。那里定有无数奇景等待你去发现——"`
+				goto interrupt
+			label rutilicus
+			`	“哦！”恩内萨说道，“我不确定是否知道那个名字，船长。你称你的故乡为何名？"`
+			`	"<home system>，"你回答道。`
+				goto "novel name"
+			label sol
+			`	“哦！”恩内萨说道，“太阳。”她 quietly 反复轻声念了几遍这个词，努力读准发音。“我们称之为‘萨卡-维伊尔贾’（Saaqa-Viirja）。那是我们先祖航行所及的最北端之一。啊……但你肯定早已知晓此事。"`
+				goto interrupt
+			label "fah soom"
+			`	“哦！”恩内萨说道，“竟远至北方？你们一族定已扩散得极为辽阔，才能将如此遥远之地视作家园。你如何称呼它？"`
+			`	"<home system>," you reply.`
+			label "novel name"
+			`	恩内萨请你将这个词再念一遍，随后缓慢揣摩你的发音，并在星图上以流畅的字母序列记下音标。‘这名字悦耳动听，’他们说道。`
+			label interrupt
+			`	你们二人正交谈间，贾索拉突然出现，需要恩内萨帮忙将已开始瘪塌的帐篷重新收进手推车；待此事完成后，他们便示意已准备好返家。`
+	on complete
+		"successor jobs" += 2
+		payment 78000
+		conversation
+			`归途之中，恩内萨和贾索拉依然持续为群星而惊叹，同时还花了大量时间共同翻阅她们从马斯帕-玛弗拉收集来的照片、素描与星图。“万分感谢，船长！”你们降落在太空港后，贾索拉向你致意，此时恩内萨正费力地收拾帐篷和手推车。“这真是一次充满喜悦的航程。”恩内萨朝他们招手呼唤；那顶帐篷显然至少需要两人合力才能收好。贾索拉将<payment>作为酬金交予你，随即赶去帮忙；两人协力将装备搬出你的货舱，最后匆匆喊出一句风趣而热情的告别。`
+
+overwrite
+mission "Successors: People's Houses: First Contact"
+	landing
+	source "Kasii-Tuur-Saqru"
+	to offer
+		has "known to the successors"
+	to fail
+		has "Successors: Unified Defense: offered"
+	on offer
+		conversation
+			`与你在继承者领地所见过的大多数太空港相比，这座太空港显得肮脏、拥挤且令人不适。你所见的大多数继承者同样邋遢而不快，而你注意到的少数降落飞船中，大部分涂装为一种更深的红色。`
+			`	你想向此处的某人打听这个地方的情况吗？`
+			choice
+				`	(Yes.)`
+				`	(Not now.)`
+					defer
+				`	(Never.)`
+					decline
+			`	你走向一艘涂成红色的飞船旁正在下船的一名船员，随着距离拉近，你注意到那艘飞船表面布满多处巨大的灼烧痕迹与伤疤。`
+			`	"打扰一下，不知您能否为我介绍一下这个地方？它似乎与我此前经过的其他继承者领空截然不同。"`
+			`	继承者朝太空港瞥了一眼，随后轻轻哼了一声，决定回应。他们的声音比你此前听过的大多数继承者都更低沉、更阴郁，皮肤颜色与质感也迅速变化，几乎每说一个词都会改变。`
+			branch kaatrij
+				has "successors kaatrij patron"
+			`	“你便是那由古世家引来的异星来客，对吗？就是他们引以为傲、四处炫耀的‘高贵宾客’？”`
+				goto affirm
+			label kaatrij
+			`	“你便是那位在诸世家之间被轮番展示的异星来客，对吗？是他们口中的‘高贵宾客’，还是依说话对象不同而摇身变为‘轻浮浪子’？”`
+			label affirm
+			choice
+				`	“是的。”`
+				`	"你也可以说确实如此。"`
+			`	尽管你被指责‘像展品一样被牵来引去’，继承者士兵仍对你的话再次发出咕哝声；这究竟是认可还是厌恶，你无从分辨。他们倚靠在太空港地面的一个货柜旁，继续说道。`
+			`	“那么，你不过是又一个懒散愚昧之徒罢了——无疑被他们许诺的财富与权势所蒙蔽，只要乖乖听话便可坐享其成？哼，环顾四周，看看他们那‘高贵誓言’究竟价值几何！诸世家根本不在乎你、我，抑或他们中的任何一人！”继承者以宽广而有力的手势朝人群一挥。`
+			choice
+				`	“他们是谁？”`
+					goto who
+				`	"我可不觉得自己是个傻瓜。"`
+			`	"那么你便更是如此了——因你在此空间中存续的时间既新且短，故你脑中所思，恰如稚子一般，仍对世界懵然无知。但若有人看似友善，你当珍视其为友；而当你背后暗藏匕首之时，亦请铭记我今日所言。"`
+			`	话音刚落，继承者便起身离去，从货箱上站起，悄然朝太空港方向走去。`
+				decline
+			label who
+			`	"他们是新氏族的流放者，和其余人一样，在旧帝国化为灰烬时被迫来到此地。但当其他新氏族凭借雄厚财富迁徙并开拓自己的新领地时，并非所有人都能挣脱他们强加给我们的这片中转之地——我们至今仍在此等待。千年已过，他们却依然用鄙夷的目光打量我们，将我们对自由的渴望污蔑为罪恶。"`
+			choice
+				`	"自由？"`
+					goto free
+				`	"谢谢。我没有其他问题了。"`
+			`	“倘若汝真通晓那罕有的智慧之艺，便当谨慎提防、严守后方——防备汝那些新结交却背信弃义的‘朋友’。”`
+			`	“或者不这么做。再多一个被埋葬的蠢货，也无足轻重。”`
+			`	With that, the Successor leaves, rising from the cargo containers and heading silently towards the spaceport.`
+				decline
+			label free
+			`	"自由？或者说，比旧世界与新世界所允许的更为自由。人民之家所代表的，并非权贵与贵族血裔，而是那曾经一切之真正而诚实的继承者。"`
+			`	继承者望向太空港，随后最后一次将注意力转回到你身上。`
+			`	"Thou would be wise, if thou possesses that rare art, to keep and guard thy back against thy new and treacherous 'friends.'`
+			`	"Or don't. Another buried fool makes little difference."`
+			`	With that, the Successor leaves, rising from the cargo containers and heading silently towards the spaceport.`
+				decline
+
+overwrite
+mission "Successors: Unified Defense"
+	invisible
+	landing
+	non-blocking
+	infiltrating
+	source
+		attributes "successor"
+	to offer
+		has "Successors: First Contact 1: offered"
+		or
+			"reputation: Successor" < 0
+			"reputation: New Houses" < 0
+			"reputation: Old Houses" < 0
+	to complete
+		never
+	on offer
+		"reputation: Successor" <?= -999
+		"reputation: Old Houses" <?= -999
+		"reputation: House Chydiyi" <?= -999
+		"reputation: House Myurej" <?= -999
+		"reputation: House Sioeora" <?= -999
+		"reputation: New Houses" <?= -999
+		"reputation: House Aqrabe" <?= -999
+		"reputation: House Kaatrij" <?= -999
+		"reputation: House Seineq" <?= -999
+		"reputation: People's Houses" <?= -999
+		event "successors: unified defense"
+		conversation
+			branch uninhabited
+				has "flagship planet attribute: uninhabited"
+			branch "populated language"
+				has "language: Successor"
+			`你在此处着陆后发现，太空港工作人员完全没有为你飞船补给燃料或进行维修的打算；与此同时，大批继承者军方军官正聚集在你的着陆平台上，武器齐齐对准你的飞船。此外，数架拦截机也已悬停在你的飞船上方，武器均已就绪。你被迫紧急起飞。`
+				flee
+			label "populated language"
+			`你在此处着陆后发现，太空港工作人员完全没有为你飞船补给燃料或进行维修的打算；与此同时，大批继承者军方军官正聚集在你的着陆平台上。`
+			`	你很快收到一条经由本地太空港转发的通讯：“汝近日对我族所采取之敌对行动，已充分证明准许汝进入我方空域实为失策。诸世家已在议会中共同裁定：汝即为我族之敌，此后一切待遇亦将依此而行。”`
+			choice
+				`	"这是个意外！"`
+					goto accident
+				`	“为我的失当行为致歉，绝不再犯。”`
+					goto "never again"
+				`	"他们罪有应得。"`
+					goto "deserved it"
+			label uninhabited
+			branch "uninhabited language"
+				has "language: Successor"
+			`刚在此着陆不久，你就收到来自继承者联盟的一条远程通讯。尽管你完全听不懂其中任何词汇，却能明显感受到他们对你怒不可遏。`
+				goto end
+			label "uninhabited language"
+			`刚在此着陆不久，你就收到来自继承者联盟的一条远程通讯：“汝近期对我族所采取之敌对行动，已清楚表明：准许汝进入我方空域实为失策。诸世家已在议会中裁定，汝为我族之敌，此后将依此对待汝。”`
+			choice
+				`	"It was an accident!"`
+					goto accident
+				`	"I apologize for the transgression. I won't do it again."`
+					goto "never again"
+				`	"They deserved it."`
+					goto "deserved it"
+			label accident
+			`	继承者皮肤上浮现出灼灼燃烧的橙色斑点。“任何屡屡招致此类‘意外’的生物，都不配存在于我们的世界之中。”他们就此中断了通讯。`
+				goto end
+			label "never again"
+			`	继承者方的通讯画面骤然闪过一片暗红色。‘我们的舰队自会确保此事。’他们就此中断了通讯。`
+				goto end
+			label "deserved it"
+			`	一阵颤动的黑色波纹掠过继承者的躯体，随后他们中断了通讯。`
+			label end
+			branch decline
+				has "flagship planet attribute: uninhabited"
+			`	你的着陆许可被撤销，一队军官已将武器对准你的飞船。数架拦截机随即悬停在你的着陆平台上空，武器均已就绪，你被迫紧急起飞。`
+				flee
+		
+	npc
+		government "New Houses"
+		personality heroic staying vindictive
+		system Kella-Uoasa
+		ship "Aaulqra" "Kijria-Sol"
+		ship "Aaulqra" "Aret-I"
+		ship "Veusade" "Nosola-o-Kasja"
+		ship "Veusade" "Saqra-Vasa"

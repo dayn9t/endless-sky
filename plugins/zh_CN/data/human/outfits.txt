@@ -1,0 +1,597 @@
+# Copyright (c) 2014 by Michael Zahniser
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+outfit "Cooling Ducts"
+	plural "Cooling Ducts"
+	category "Systems"
+	series "Cooling"
+	index 01010
+	cost 10000
+	thumbnail "outfit/cooling ducts"
+	"mass" 5
+	"outfit space" -5
+	"cooling" 5
+	description "当你试图在飞船上塞入尽可能多的高功率装备时，有时会达到一个临界点：飞船开始间歇性过热并自动关机。此时，你可能需要安装一个此类散热装置。"
+
+outfit "Water Coolant System"
+	category "Systems"
+	series "Cooling"
+	index 01020
+	cost 25000
+	thumbnail "outfit/water cooling"
+	"mass" 10
+	"outfit space" -10
+	"cooling" 12
+	description "该系统比普通散热管道更进一步：它在外部散热器与飞船内部最热的部件之间循环冷却水，防止部件过热。"
+
+outfit "Liquid Nitrogen Cooler"
+	category "Systems"
+	series "Cooling"
+	index 01030
+	cost 60000
+	thumbnail "outfit/liquid nitrogen"
+	"mass" 20
+	"outfit space" -20
+	"cooling" 29
+	description "对于散热需求极高的飞船，液氮冷却系统是最佳解决方案。单台此类冷却器即可散去除最重型武装外所有设备所产生的热量。"
+
+outfit "Liquid Helium Cooler"
+	category "Systems"
+	series "Cooling"
+	index 01040
+	cost 150000
+	thumbnail "outfit/liquid helium"
+	"mass" 40
+	"outfit space" -40
+	"cooling" 69
+	description "液氦是当前冷却技术的巅峰。然而该冷却系统体积庞大，你或许更应直接换装高效低发热组件；但在无法如此操作的情况下，这款冷却器几乎能应对任何严苛散热需求。"
+
+
+outfit "D14-RN Shield Generator"
+	category "Systems"
+	series "Shields"
+	index 01010
+	cost 20000
+	thumbnail "outfit/tiny shield"
+	"mass" 15
+	"outfit space" -15
+	"shield generation" .2
+	"shield energy" .2
+	description "这是战斗机与拦截机的标准护盾发生器，亦广泛装备于众多非战斗型星际飞船。尽管理论上飞船可完全不安装护盾发生器，仅在停靠适宜太空港时为其护盾矩阵充电，但深空环境变幻莫测，因此绝大多数飞行员都认为护盾发生器所占据的空间物有所值。"
+
+outfit "D23-QP Shield Generator"
+	category "Systems"
+	series "Shields"
+	index 01020
+	cost 35000
+	thumbnail "outfit/small shield"
+	"mass" 22
+	"outfit space" -22
+	"shield generation" .32
+	"shield energy" .32
+	description "这是一种比大多数小型飞船标配的护盾发生器略强的型号。若战斗持续时间足够长，更高的护盾充能速率将为你带来优势；但即便如此，完全充满护盾仍需较长时间。"
+
+outfit "D41-HY Shield Generator"
+	category "Systems"
+	series "Shields"
+	index 01030
+	cost 65000
+	thumbnail "outfit/medium shield"
+	"mass" 30
+	"outfit space" -30
+	"shield generation" .51
+	"shield energy" .51
+	description "这是一款功率更强的护盾发生器，专为频繁参与战斗的飞船，或护盾容量极大、使用小型发生器充能将耗时过长的飞船而设计。"
+
+outfit "D67-TM Shield Generator"
+	category "Systems"
+	series "Shields"
+	index 01040
+	cost 120000
+	thumbnail "outfit/large shield"
+	"mass" 45
+	"outfit space" -45
+	"shield generation" .82
+	"shield energy" .82
+	description "该护盾发生器功率强大，在对抗某些特别弱小的飞船时，对方甚至可能无法以快于护盾自动充能的速度击破你的护盾。"
+
+outfit "D94-YV Shield Generator"
+	category "Systems"
+	series "Shields"
+	index 01050
+	cost 200000
+	thumbnail "outfit/huge shield"
+	"mass" 60
+	"outfit space" -60
+	"shield generation" 1.31
+	"shield energy" 1.31
+	description "这是人类疆域内最强大的护盾发生器。由于体积庞大，D94-YV 护盾发生器通常仅装备于大型战舰；但若您愿意牺牲引擎功率或武器以腾出空间，也可将其安装在较小的飞船上。"
+
+outfit "S-270 Regenerator"
+	category "Systems"
+	series "Shields"
+	index 01060
+	cost 220000
+	thumbnail "outfit/small regenerator"
+	"mass" 12
+	"outfit space" -12
+	"shield generation" .6
+	"shield energy" .6
+	"energy consumption" .3
+	"heat generation" 2
+	description "护盾再生器通过细微调整护盾矩阵的几何结构，使护盾更具延展性，从而大幅提升充能效率。但遗憾的是，这也会降低护盾的整体效能，导致能量持续从其他系统中被抽走（即使未处于护盾充能状态），并产生额外热量。"
+
+outfit "S-970 Regenerator"
+	category "Systems"
+	series "Shields"
+	index 01070
+	cost 800000
+	thumbnail "outfit/large regenerator"
+	"mass" 37
+	"outfit space" -37
+	"shield generation" 2.3
+	"shield energy" 2.3
+	"energy consumption" .9
+	"heat generation" 6
+	description "S-970护盾再生器是一种先进的护盾充能技术。遗憾的是，其功耗相当高；此外，它在调整护盾配置时还会产生一定反馈，导致再生器自身持续积热——即使你的护盾处于满额状态也不例外。"
+
+
+outfit "Small Radar Jammer"
+	category "Systems"
+	series "Jammers"
+	index 01010
+	cost 24000
+	thumbnail "outfit/small radar jammer"
+	"mass" 4
+	"outfit space" -4
+	"radar jamming" 2
+	description "该雷达干扰器专用于干扰响尾蛇导弹及其他依赖雷达制导追踪目标的导弹；干扰有时会导致导弹丢失锁定目标。"
+
+outfit "Large Radar Jammer"
+	category "Systems"
+	series "Jammers"
+	index 01020
+	cost 138000
+	thumbnail "outfit/large radar jammer"
+	"mass" 14
+	"outfit space" -14
+	"radar jamming" 10
+	description "这款高功率雷达干扰器将大幅增加依赖雷达制导的导弹锁定你的难度。但对光学追踪或热信号追踪的导弹无效。"
+
+
+outfit "Ramscoop"
+	category "Systems"
+	series "Ramscoops"
+	index 01010
+	cost 60000
+	thumbnail "outfit/ramscoop"
+	"mass" 10
+	"outfit space" -10
+	"ramscoop" 1
+	description "在太空探索的早期，飞船往往需穿越六七个星系才能抵达一处已建立的殖民地进行补给；那时，磁流收集器（ramscoop）是必不可少的装备，它能从太阳风中采集等离子体，为你的跃迁引擎燃料舱补充燃料。虽然你可以为一艘飞船安装多个磁流收集器，但除首个之外的额外收集器效率会显著降低。"
+	description "	不同种类的恒星在太阳风中产生的燃料量各不相同，但无论哪种恒星，离它越近，燃料积累速度就越快。作为一项安全措施，所有飞船均可通过靠近恒星来采集微量燃料，而此装备则能让你以快得多的速度积累燃料。"
+
+outfit "Catalytic Ramscoop"
+	category "Systems"
+	series "Ramscoops"
+	index 01020
+	cost 320000
+	thumbnail "outfit/catalytic ramscoop"
+	"mass" 16
+	"outfit space" -16
+	"ramscoop" 7
+	description "冲压式集气器技术数百年来几乎未曾改变，因为人类活动空间内的几乎所有星系均已殖民，飞船无需自行生产燃料。然而，随着自由世界战争再度使星际航行变得困难，最近深空地区的部分工程师为商船队研发出一种性能大幅提升的新型冲压式集气器。"
+
+outfit "Hyperdrive"
+	category "Systems"
+	series "Drives"
+	index 10
+	cost 50000
+	thumbnail "outfit/hyperdrive"
+	"mass" 20
+	"outfit space" -20
+	"jump speed" .2
+	"jump fuel" 100
+	"hyperdrive" 1
+	description "这个神秘的匣子静静坐落于你飞船的核心，思索着它那难以参透的念头。当星际航行时刻来临，它便会引发一场足以夷平整座城市的核聚变反应，随后又以某种方式将这场爆炸裹挟进寻常时空结构的褶皱之间——恰如黄蜂刺入橡树叶脉以产卵。你的飞船则乘着这场空间织物泛起的涟漪前行。"
+	description "	据说，如今在世的人类中，通晓跃迁引擎内部构造者尚不足一打。"
+
+outfit "Scram Drive"
+	category "Systems"
+	series "Drives"
+	index 20
+	cost 90000
+	thumbnail "outfit/scram drive"
+	"mass" 30
+	"outfit space" -30
+	"scram drive" .2
+	"jump fuel" 150
+	"hyperdrive" 1
+	description "扰频引擎是一种特制的跃迁引擎，即使飞船正以极高的速度航行也能正常工作，但会额外消耗更多燃料。当你被海盗追击（或急需快速抵达某地）时，这额外的一点速度可能带来巨大优势。"
+
+outfit "Jump Drive"
+	category "Systems"
+	series "Drives"
+	index 30
+	cost 1000000
+	thumbnail "outfit/jump drive"
+	"mass" 20
+	"outfit space" -20
+	"jump speed" .3
+	"jump fuel" 200
+	"jump drive" 1
+	description "跳跃引擎的工作原理至今仍是未解之谜。人类科学家迄今所能确认的唯一结论是：该装置是一种约束场，用于禁锢某种在本宇宙中本不可能自然存在的物质态；一旦打开引擎外壳，约束场便会坍缩，其内部物质也将随之消失。因此，尽管多年来人类已缴获过几台跳跃引擎，但至今仍未能实现逆向工程。"
+
+outfit "Jump Drive (Broken)"
+	plural "Jump Drives (Broken)"
+	series "Drives"
+	index 40
+	category "Systems"
+	cost 25000
+	thumbnail "outfit/jump drive (broken)"
+	"mass" 20
+	"outfit space" -20
+	description "跳跃引擎的工作原理完全是个谜，尤其是如今这台引擎看起来已彻底损毁。它已完全无法运作，但或许仍具备一定的科研价值。"
+
+
+outfit "Cargo Scanner"
+	category "Systems"
+	series "Scanners"
+	index 01020
+	cost 8000
+	thumbnail "outfit/cargo scanner"
+	"mass" 1
+	"outfit space" -1
+	"cargo scan power" 9
+	"cargo scan efficiency" 5
+	description "该扫描仪可让你扫描当前锁定目标飞船的货舱，前提是你的飞船与其距离足够近。巡逻舰常配备货舱扫描仪，用于侦测非法违禁品。安装多个此类扫描仪可提升扫描距离与速度。"
+
+outfit "Outfit Scanner"
+	category "Systems"
+	series "Scanners"
+	index 01030
+	cost 24000
+	thumbnail "outfit/outfit scanner"
+	"mass" 2
+	"outfit space" -2
+	"outfit scan power" 25
+	"outfit scan efficiency" 15
+	description "此扫描器可让你识别当前锁定飞船所安装的装备——前提是甘愿冒险靠近目标以获取有效读数！共和国海军常借此探测船只是否搭载非法武器。安装多个此类扫描器可提升扫描距离与速度。"
+
+outfit "Asteroid Scanner"
+	category "Systems"
+	series "Scanners"
+	index 01010
+	cost 61000
+	thumbnail "outfit/asteroid scanner"
+	"mass" 6
+	"outfit space" -6
+	"asteroid scan power" 40
+	description "这套高度专业化的扫描系统可分析附近小行星的矿物成分，并识别出含有珍贵资源的小行星。"
+
+outfit "Tactical Scanner"
+	category "Systems"
+	series "Scanners"
+	index 01040
+	cost 144000
+	thumbnail "outfit/tactical scanner"
+	"mass" 4
+	"outfit space" -4
+	"tactical scan power" 32
+	description "战术扫描器可使你的飞船探测附近目标的燃料储量、能量水平、热量状态及船员数量。数个世纪以来，战术扫描器仅限海军使用；而近期，克拉兹赛博尼克斯公司已开始为民兵舰只量产该设备。"
+
+outfit "Surveillance Pod"
+	category "Systems"
+	series "Scanners"
+	index 01050
+	cost 122500
+	thumbnail "outfit/surveillance pod"
+	"mass" 5
+	"outfit space" -5
+	"outfit scan power" 16
+	"outfit scan efficiency" 20
+	"cargo scan power" 4
+	"cargo scan efficiency" 10
+	"atmosphere scan" 100
+	"tactical scan power" 9
+	description "这是海军技术，一套专为监控无人机内部空间完美适配而设计的扫描仪组合。由于其输出接口较为标准，你也可以将其接入自身飞船的系统。安装多套可提升扫描范围与速度。"
+
+
+outfit "Cloaking Device"
+	category "Unique"
+	series "Functional Unique"
+	index 10
+	cost 1200000
+	"mass" 10
+	"outfit space" -10
+	"cloak" .01
+	"cloaking energy" 1
+	"cloaking fuel" .2
+	"cloaked regen multiplier" -1
+	"cloaked repair multiplier" -1
+	"unique" 1
+	"unplunderable" 1
+	description "你确信隐形装置就藏在这里某处，却怎么也看不见它。"
+
+
+outfit "Outfits Expansion"
+	category "Systems"
+	series "Expansions"
+	index 20
+	cost 50000
+	thumbnail "outfit/outfit expansion"
+	"mass" 5
+	"outfit space" 15
+	"cargo space" -20
+	"cooling inefficiency" 1
+	"heat dissipation" -.0065
+	"unplunderable" 1
+	description "该扩展模块允许你牺牲部分货舱空间，以腾出额外空间安装更多装备，适用于仅需略微增加空间即可安装某套特定系统的情况。它不会增加武器或引擎的安装空间。"
+	description "	遗憾的是，以如此根本性的方式重构飞船内部结构，往往会干扰其冷却系统。"
+
+outfit "Cargo Expansion"
+	category "Systems"
+	series "Expansions"
+	index 10
+	cost 30000
+	thumbnail "outfit/cargo expansion"
+	"mass" 5
+	"cargo space" 15
+	"outfit space" -20
+	"unplunderable" 1
+	description "若相比先进武器或其他系统，你更看重载货能力，那么货舱扩容装备将显著增大你的货舱容量。"
+
+outfit "Bunk Room"
+	category "Systems"
+	series "Passenger"
+	index 20
+	cost 40000
+	thumbnail "outfit/bunk room"
+	"mass" 5
+	"bunks" 4
+	"outfit space" -20
+	"unplunderable" 1
+	description "若你确实需要为更多乘客（或船员——比如你正试图俘获其他飞船）腾出空间，可将飞船生活区扩展至原本预留用于安装装备的区域。"
+
+outfit "Small Bunk Room"
+	category "Systems"
+	series "Passenger"
+	index 10
+	cost 20000
+	thumbnail "outfit/small bunk room"
+	"mass" 3
+	"bunks" 2
+	"outfit space" -12
+	"unplunderable" 1
+	description "那些不太在意乘客或船员舒适度的船长，通常总能找到办法——比如把双层床塞进动力发电机后方，或干脆将几副吊床挂在引擎上，以此权宜地腾出更多空间容纳人员。"
+
+outfit "Brig"
+	category "Systems"
+	series "Passenger"
+	index 30
+	cost 40000
+	thumbnail "outfit/brig"
+	"mass" 3
+	"outfit space" -3
+	"unplunderable" 1
+	description "加装强化舱门、锁具和安保系统后，任何飞船的客舱均可改造成牢房。这使其适用于押运罪犯与囚徒，或参与高度非法的银河系奴隶贸易。此类牢房常见于赏金猎人、海盗，以及共和国星际执法部门所拥有的飞船之上。"
+
+outfit "Luxury Accommodations"
+	plural "Luxury Accommodations"
+	category "Systems"
+	series "Passenger"
+	index 40
+	cost 250000
+	thumbnail "outfit/luxury accommodations"
+	"mass" 10
+	"outfit space" -10
+	"required crew" 2
+	"unplunderable" 1
+	description "多数深空航行难免令乘客感到不适。只要额外加装几台淡水储罐、私人卫生间、木质内饰以及配备若干服务人员，任何飞船都能吸引更高端——也更富有的——乘客群体。"
+
+outfit "Fuel Pod"
+	category "Systems"
+	series "Fuel"
+	index 10
+	cost 20000
+	thumbnail "outfit/fuel pod"
+	"mass" 8
+	"outfit space" -8
+	"fuel capacity" 100
+	description "燃料舱可提升你的燃料容量，使飞船在需要降落补给前，多进行一次超空间跃迁。"
+
+outfit "Interference Plating"
+	category "Systems"
+	series "Special Systems"
+	index 01010
+	cost 50000
+	thumbnail "outfit/interference plating"
+	"mass" 4
+	"outfit space" -4
+	"scan interference" .5
+	description "若你习惯携带违禁货物或装备，此装甲可提升扫描设备无法侦测到它们的概率。安装越多此类装甲，成功规避侦测的几率就越高。它甚至对太空港内的扫描也有效，因此你能更可靠地降落补给而不会被发现。"
+
+
+outfit "Laser Rifle"
+	category "Hand to Hand"
+	series "H2H"
+	index 01010
+	cost 8000
+	thumbnail "outfit/laser rifle"
+	"capture attack" .6
+	"capture defense" .8
+	"unplunderable" 1
+	description "激光步枪比船员通常用于防御海盗的随身武器更进一步：威力更强，精度也更高。每有一名船员手持这种步枪，你成功俘获敌舰或抵御登舰敌人的几率都将大幅提升。"
+
+outfit "Fragmentation Grenades"
+	plural "Fragmentation Grenades"
+	category "Hand to Hand"
+	series "H2H"
+	index 01020
+	cost 17000
+	thumbnail "outfit/fragmentation grenades"
+	"capture attack" 1.3
+	"capture defense" .3
+	"unplunderable" 1
+	description "破片手雷是一种仅勉强合法的近战武器，适用于登船作战，特别适合驱赶那些在舰内易守难攻的狭窄通道中固守的防御者。作为防御性武器时效果较差，但总比没有强。"
+
+outfit "Security Station"
+	category "Hand to Hand"
+	series "Fortifications"
+	index 01010
+	cost 42000
+	thumbnail "outfit/security station"
+	"mass" 2
+	"outfit space" -2
+	"capture defense" 3.4
+	"unplunderable" 1
+	description "这是一种特制的障碍物，可安装在飞船走廊中，作为抵御登船敌人的强力防御手段，有效阻止对方夺取你的飞船。"
+
+outfit "Nerve Gas"
+	plural "Nerve Gas"
+	category "Hand to Hand"
+	series "H2H"
+	index 01030
+	cost 75000
+	thumbnail "outfit/nerve gas"
+	"capture attack" 2.8
+	"capture defense" .8
+	"scan brightness" 1
+	"illegal" 1000000
+	"unplunderable" 1
+	description "这是一种在登舰作战中使用的高度非法近战武器。由于星际法律明令禁止化学武器，一旦被查获持有神经毒气罐，你将面临巨额罚款。但不可否认，它清理敌方飞船的速度几乎快过其他任何手段……"
+
+outfit "Mug"
+	category "Hand to Hand"
+	series "H2H"
+	index 99010
+	cost 50
+	thumbnail "outfit/mug"
+	"capture attack" .1
+	"unique" 1
+	"unplunderable" 1
+	description "紧急情况下，你大概可以把它扔出去。"
+
+outfit "Antigrav Glass"
+	category "Hand to Hand"
+	series "H2H"
+	index 99020
+	plural "Antigrav Glasses"
+	cost 25
+	thumbnail "outfit/unknown"
+	"capture attack" .2
+	"unique" 1
+	"unplunderable" 1
+	description "此玻璃杯加装了一枚微型斥力器，其原理与无人机、反重力手推车及飞船所用斥力器相同。启动后，它可通过悬浮效应使你无需手持即可畅饮杯中饮品。"
+	description "	杯底安装的微型斥力器使这个玻璃杯比其他杯子略重一些；因此，万一哪天你真需要用饮具把别人打晕，你猜测这个杯子的效果或许会比手头其他任何杯子都略微强那么一点。"
+
+outfit "Old Man's Sword"
+	category "Unique"
+	series "H2H"
+	index 99030
+	cost 220000
+	thumbnail "outfit/sword"
+	"capture attack" 1.4
+	"capture defense" 1
+	"unplunderable" 1
+	"unique" 1
+	description "如今，剑被视为古老的奇珍或纪念品——数千年前火药在战场上占据主导地位后，剑便已失去实战价值。但此剑却与你所见的任何剑都截然不同。尽管外观沉重，实则异常轻盈；剑刃上刻有铭文，却似乎不属于任何人类语言。"
+
+outfit "Puny"
+	category "Unique"
+	series "Non-Functional Unique"
+	index 10
+	"display name" `"弱小的"`
+	thumbnail "outfit/collar"
+	"unique" 1
+	description `一只你从自由星（Freedom）一座可疑赛犬训练基地中救出的贵宾犬。她似乎已与你建立起深厚羁绊，愿意始终陪伴在你身边。`
+	description `	她的履历与普基吻合，但普基的主人坚称‘小不点’并非她所有。此外，‘小不点’也极少出现尿失禁情况；你推测赛事组织方或许已对她进行了如厕训练。`
+
+outfit "Tear of Skade"
+	category "Unique"
+	series "Functional Unique"
+	index 20
+	thumbnail "outfit/skadetear"
+	"cooling" 4
+	"unique" 1
+	description "斯卡登加人赠予你的一块奇异发光石。它没有明显能源，却异常冰冷。"
+
+outfit "Blood of Surtr"
+	category "Unique"
+	series "Functional Unique"
+	index 21
+	thumbnail "outfit/surtrblood"
+	"energy generation" 2
+	"heat generation" 4
+	"unique" 1
+	description "伊尔迪科·德里法赠予你的一块奇异发光石。它持续发出嗡鸣，并散发能量与热量。"
+
+
+outfit "Local Map"
+	category "Special"
+	cost 1000
+	thumbnail "outfit/map"
+	"map" 12
+	"map minables" 1
+	description "该数据芯片包含距当前星系最近的十二个星系的完整信息：行星、太空港、政府、贸易价格、可提供服务等。你也可以亲自探索这些星系来获取全部相同的信息，但拥有一张星图能帮你避免在穿越陌生空域、快速前往特定星系时走错跃迁路径。"
+
+
+outfit "Pilot's License"
+	category "Licenses"
+	series "Licenses"
+	index 01010
+	cost 120000
+	thumbnail "outfit/license"
+	description "在共和国近三个世纪的历史中，能否驾驶自己的星际飞船，长久以来仅取决于你是否有能力购买一艘。然而，为增加税收收入，共和国议会在千禧年之际通过了一项法律，强制所有飞船船长必须购买飞行员执照——且费用不菲。毋庸赘言，这项政策在自由职业商船船长群体中极不受欢迎。"
+
+outfit "Navy License"
+	category "Licenses"
+	series "Licenses"
+	index 01020
+	thumbnail "outfit/navy license"
+	description "虽属罕见，但并非闻所未闻：普通公民有时会被授予购买海军舰船、供私人使用的权利。近来，某些富裕世界更已开始向议会请愿，申请特别许可，以采购海军战舰装备其私人安全部队。"
+
+outfit "Navy Auxiliary License"
+	category "Licenses"
+	series "Licenses"
+	index 01030
+	thumbnail "outfit/auxiliary license"
+	description "任何类型的海军辅助舰被私人购得并用于非军事用途，都是一种极为罕见的现象。"
+
+outfit "Navy Cruiser License"
+	category "Licenses"
+	series "Licenses"
+	index 01040
+	thumbnail "outfit/navy cruiser license"
+	description "获准私人购置一艘海军主力舰——这不仅因其巡洋舰级别的火力，更因其本身即是共和国强盛实力的有力象征——实属极为罕见的特权。"
+
+outfit "Navy Carrier License"
+	category "Licenses"
+	series "Licenses"
+	index 01050
+	thumbnail "outfit/navy carrier license"
+	description "过去一个世纪里，仅有极少数人获准为私人用途购入海军航母——哪怕是一艘已退役的型号。"
+
+outfit "Militia License"
+	category "Licenses"
+	series "Licenses"
+	index 01060
+	thumbnail "outfit/militia license"
+	description "这是所有加入地方民兵组织的飞行员所持的标准执照；随着自由世界联盟的成立，该执照亦被授予所有为自由世界事业而战的飞行员，允许其驾驶涂有自由世界标志的飞船，并购买由这一新兴政府自主研发的独特舰船。"
+
+outfit "City-Ship License"
+	category "Licenses"
+	series "Licenses"
+	index 01070
+	thumbnail "outfit/city-ship license"
+	description "你仔细端详执照上飞船的轮廓，却无法辨认出这是哪一型号的飞船。或许这是一艘古老的城市飞船——人类初登群星、迈向辉煌时所使用的首批飞船之一。"

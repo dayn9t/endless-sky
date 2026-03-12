@@ -1,0 +1,4194 @@
+# Copyright (c) 2014-2015 by Michael Zahniser
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+ship "Aerie"
+	sprite "ship/aerie"
+	thumbnail "thumbnail/aerie"
+	attributes
+		category "Medium Warship"
+		"cost" 3500000
+		"shields" 5700
+		"hull" 1900
+		"required crew" 10
+		"bunks" 28
+		"mass" 390
+		"drag" 6.15
+		"heat dissipation" .47
+		"fuel capacity" 500
+		"cargo space" 50
+		"outfit space" 390
+		"weapon capacity" 150
+		"engine capacity" 95
+		weapon
+			"blast radius" 80
+			"shield damage" 800
+			"hull damage" 400
+			"hit force" 1200
+	outfits
+		"Sidewinder Missile Launcher" 2
+		"Sidewinder Missile" 90
+		"Heavy Laser Turret" 2
+		"Heavy Anti-Missile Turret"
+		
+		"NT-200 Nucleovoltaic"
+		"KP-6 Photovoltaic Panel" 2
+		"LP072a Battery Pack"
+		"D41-HY Shield Generator"
+		"Large Radar Jammer"
+		"Laser Rifle" 3
+		
+		"X3700 Ion Thruster"
+		"X3200 Ion Steering"
+		"Hyperdrive"
+		
+	engine 15 97
+	engine -15 97
+	gun -12 -78 "Sidewinder Missile Launcher"
+	gun 12 -78 "Sidewinder Missile Launcher"
+	turret 0 1.5 "Heavy Anti-Missile Turret"
+	turret -31 15.5 "Heavy Laser Turret"
+	turret 31 15.5 "Heavy Laser Turret"
+	bay "Fighter" -43.5 2
+		"launch effect" "human internal"
+	bay "Fighter" 43.5 2
+		"launch effect" "human internal"
+	bay "Fighter" -43.5 2
+		"launch effect" "human internal"
+	bay "Fighter" 43.5 2
+		"launch effect" "human internal"
+	leak "leak" 50 50
+	leak "flame" 50 80
+	leak "big leak" 90 30
+	explode "tiny explosion" 10
+	explode "small explosion" 25
+	explode "medium explosion" 25
+	explode "large explosion" 10
+	"final explode" "final explosion medium"
+	description "狮心雕巢号是一艘轻型航母，设计尺寸恰好可容纳四座战斗机机库，并配备相当可观的自卫火力。该船型的各类变体已在深空服役近五百年，而本型号则搭载了最新的发电机与武器技术。"
+
+
+
+ship "Argosy"
+	plural "Argosies"
+	sprite "ship/argosy"
+	thumbnail "thumbnail/argosy"
+	attributes
+		category "Light Freighter"
+		"cost" 1960000
+		"shields" 4200
+		"hull" 2600
+		"required crew" 4
+		"bunks" 14
+		"mass" 480
+		"drag" 7.4
+		"heat dissipation" .56
+		"fuel capacity" 400
+		"cargo space" 120
+		"outfit space" 270
+		"weapon capacity" 90
+		"engine capacity" 80
+		weapon
+			"blast radius" 60
+			"shield damage" 600
+			"hull damage" 300
+			"hit force" 900
+	outfits
+		"Energy Blaster" 2
+		"Meteor Missile Launcher" 2
+		"Meteor Missile" 60
+		"Blaster Turret"
+		"Anti-Missile Turret"
+		
+		"RT-I Radiothermal"
+		"LP072a Battery Pack"
+		"D23-QP Shield Generator"
+		
+		"Greyhound Plasma Thruster"
+		"Greyhound Plasma Steering"
+		"Capybara Reverse Thruster"
+		"Hyperdrive"
+		
+	engine -25 91 0.6
+	engine -14 91 0.8
+	engine 14 91 0.8
+	engine 25 91 0.6
+	gun -22 -37 "Energy Blaster"
+	gun -22 -37 "Meteor Missile Launcher"
+	gun 22 -37 "Energy Blaster"
+	gun 22 -37 "Meteor Missile Launcher"
+	turret 0 -12.5 "Blaster Turret"
+	turret 0 9.5 "Anti-Missile Turret"
+	leak "leak" 60 50
+	leak "flame" 60 80
+	explode "tiny explosion" 10
+	explode "small explosion" 25
+	explode "medium explosion" 25
+	explode "large explosion" 10
+	"final explode" "final explosion medium"
+	description "南向船坞出品的“大篷车号”在商人群体中广受欢迎——这并非因其载货量（实际上略小于辛迪加货运舰），而是因为它即便面对一支小型海盗舰队，也能在战斗中稳住阵脚。"
+	description "	阿戈西号也极易根据需要升级——例如换装更强劲的引擎或更强大的武器，因此许多私人拥有的阿戈西号，其实际性能与标准型号已大相径庭。"
+
+
+
+ship "Arrow"
+	sprite "ship/arrow"
+	thumbnail "thumbnail/arrow"
+	attributes
+		category "Transport"
+		"cost" 1200000
+		"shields" 2000
+		"hull" 400
+		"required crew" 1
+		"bunks" 5
+		"mass" 180
+		"drag" 2.3
+		"heat dissipation" .74
+		"fuel capacity" 600
+		"cargo space" 10
+		"outfit space" 180
+		"weapon capacity" 50
+		"engine capacity" 75
+		weapon
+			"blast radius" 24
+			"shield damage" 240
+			"hull damage" 120
+			"hit force" 360
+	outfits
+		"Sidewinder Missile Pod" 2
+		"Sidewinder Missile" 12
+		"Anti-Missile Turret"
+		
+		"Dwarf Core"
+		"Supercapacitor"
+		"D14-RN Shield Generator"
+		"Small Radar Jammer"
+		"Luxury Accommodations"
+		
+		"A250 Atomic Thruster"
+		"A255 Atomic Steering"
+		"Hyperdrive"
+		
+	engine -8 56
+	engine 8 56
+	gun -7.5 -36 "Sidewinder Missile Pod"
+	gun 7.5 -36 "Sidewinder Missile Pod"
+	turret 0 17.5 "Anti-Missile Turret"
+	leak "leak" 80 50
+	explode "tiny explosion" 12
+	explode "small explosion" 18
+	explode "medium explosion" 6
+	"final explode" "final explosion small"
+	description "“箭号”是一艘轻型运输舰，专为快速、优雅地运送少数极为富有的乘客（例如辛迪加企业的首席执行官）往返于各行星之间而设计。它虽火力薄弱，却凭借极高的航速，几乎能甩开天空中所有其他飞船。"
+
+
+
+ship "Auxiliary"
+	plural "Auxiliaries"
+	sprite "ship/auxiliaryh"
+	thumbnail "thumbnail/auxiliaryh"
+	attributes
+		category "Utility"
+		licenses
+			"Navy Auxiliary"
+		"cost" 13720000
+		"shields" 17100
+		"hull" 5900
+		"required crew" 87
+		"bunks" 250
+		"mass" 1900
+		"drag" 22.6
+		"heat dissipation" .27
+		"fuel capacity" 900
+		"cargo space" 250
+		"outfit space" 720
+		"weapon capacity" 160
+		"engine capacity" 200
+		weapon
+			"blast radius" 280
+			"shield damage" 2800
+			"hull damage" 1400
+			"hit force" 4200
+	outfits
+		"Sidewinder Missile Launcher" 2
+		"Sidewinder Missile" 90
+		"Quad Blaster Turret" 2
+		"Heavy Anti-Missile Turret" 2
+		
+		"Fusion Reactor"
+		"LP288a Battery Pack"
+		"D94-YV Shield Generator"
+		"D67-TM Shield Generator"
+		"Water Coolant System"
+		"Large Radar Jammer"
+		"Ramscoop"
+		
+		"X4700 Ion Thruster"
+		"X1700 Ion Thruster"
+		"X5200 Ion Steering"
+		"Scram Drive"
+	engine -41. 180.5 0.45
+	engine 41. 180.5 0.45
+	gun -12.5 -182
+	gun 12.5 -182
+	turret 0 -74 "Heavy Anti-Missile Turret"
+	turret 0 -17
+	turret 0 32
+	turret 0 83 "Heavy Anti-Missile Turret"
+	bay "Fighter" 0 -74
+		"launch effect" "human internal"
+	bay "Fighter" 0 -17
+		"launch effect" "human internal"
+	bay "Fighter" 0 32
+		"launch effect" "human internal"
+	bay "Fighter" 0 83
+		"launch effect" "human internal"
+	leak "leak" 30 50
+	leak "flame" 30 80
+	leak "big leak" 30 30
+	explode "tiny explosion" 20
+	explode "small explosion" 45
+	explode "medium explosion" 50
+	explode "large explosion" 40
+	explode "huge explosion" 10
+	"final explode" "final explosion large"
+	description "辅助舰是共和国海军的后勤骨干。其尺寸与耐久性堪比主力舰，却拥有比任何其他海军舰船更充裕的货物与乘员空间；每当海军需要大规模运送部队或物资，并确保其必达目的地时，便会启用辅助舰。"
+	description "辅助舰在设计之初即以模块化为核心理念，可根据任务需求灵活配置为侧重货舱容量或铺位空间。然而，这种高度模块化也导致其建造成本极为高昂，因此实属罕见。"
+
+ship "Auxiliary" "Auxiliary (Cargo)"
+	plural "Auxiliaries"
+	sprite "ship/auxiliaryc"
+	thumbnail "thumbnail/auxiliaryc"
+	add attributes
+		"bunks" -112
+		"cargo space" 200
+	gun -12 -186
+	gun 12.5 -186
+	turret 0 -72 "Heavy Anti-Missile Turret"
+	turret 0 -20
+	turret 0 32
+	turret 0 83 "Heavy Anti-Missile Turret"
+	bay "Fighter" 0 -72
+		"launch effect" "human internal"
+	bay "Fighter" 0 -20
+		"launch effect" "human internal"
+	bay "Fighter" 0 32
+		"launch effect" "human internal"
+	bay "Fighter" 0 83
+		"launch effect" "human internal"
+
+ship "Auxiliary" "Auxiliary (Transport)"
+	plural "Auxiliaries"
+	sprite "ship/auxiliaryt"
+	thumbnail "thumbnail/auxiliaryt"
+	add attributes
+		"bunks" 112
+		"cargo space" -200
+	gun -12 -186
+	gun 12.5 -186
+	turret 0 -74 "Heavy Anti-Missile Turret"
+	turret 0 -17
+	turret 0 20
+	turret 0 78 "Heavy Anti-Missile Turret"
+	bay "Fighter" 0 -74
+		"launch effect" "human internal"
+	bay "Fighter" 0 -17
+		"launch effect" "human internal"
+	bay "Fighter" 0 20
+		"launch effect" "human internal"
+	bay "Fighter" 0 78
+		"launch effect" "human internal"
+
+
+
+ship "Bactrian"
+	sprite "ship/bactrian"
+	thumbnail "thumbnail/bactrian"
+	attributes
+		licenses
+			City-Ship
+		category "Utility"
+		"cost" 17600000
+		"shields" 17500
+		"hull" 8600
+		"required crew" 70
+		"bunks" 245
+		"mass" 2450
+		"drag" 30.6
+		"heat dissipation" .22
+		"fuel capacity" 700
+		"cargo space" 530
+		"outfit space" 740
+		"weapon capacity" 300
+		"engine capacity" 180
+		weapon
+			"blast radius" 260
+			"shield damage" 2600
+			"hull damage" 1300
+			"hit force" 3900
+	outfits
+		"Sidewinder Missile Launcher" 2
+		"Sidewinder Missile" 90
+		"Torpedo Launcher"
+		"Torpedo" 30
+		"Heavy Laser Turret" 4
+		"Heavy Anti-Missile Turret" 2
+		
+		"Fusion Reactor"
+		"LP144a Battery Pack"
+		"D94-YV Shield Generator"
+		"Large Radar Jammer"
+		"Ramscoop"
+		"Laser Rifle" 15
+		
+		"X4700 Ion Thruster"
+		"X5200 Ion Steering"
+		"Hyperdrive"
+		
+	engine 18.5 232
+	engine -15 232
+	gun -9 -231.5
+	gun 13.5 -231.5 "Torpedo Launcher"
+	gun 36.5 -197 "Sidewinder Missile Launcher"
+	gun 42 -193 "Sidewinder Missile Launcher"
+	turret 37 -132.5 "Heavy Anti-Missile Turret"
+	turret -39 -39 "Heavy Laser Turret"
+	turret 31.5 -26 "Heavy Laser Turret"
+	turret -42.5 75 "Heavy Laser Turret"
+	turret 32.5 132 "Heavy Laser Turret"
+	turret -33.5 192.5 "Heavy Anti-Missile Turret"
+	bay "Fighter" -43.5 -125
+		"launch effect" "human internal"
+	bay "Fighter" 53 -72.5
+		"launch effect" "human internal"
+	bay "Fighter" -50 103.5
+		"launch effect" "human internal"
+	leak "leak" 30 50
+	leak "flame" 30 80
+	leak "big leak" 50 30
+	explode "small explosion" 25
+	explode "medium explosion" 35
+	explode "large explosion" 45
+	explode "huge explosion" 30
+	"final explode" "final explosion large"
+	description "狮心双峰驼号是最后一批大型城市飞船之一，其设计理念可追溯至太空殖民早期——彼时远程飞船必须成为自给自足的完整世界，足以在数周内不接触任何宜居行星的情况下独立生存。它不仅是一艘货船，更是一艘航母，同时亦是一艘短距或远距作战皆游刃有余的强大战舰。"
+	description "	当然，这种多功能性也使其价格极其昂贵，而双峰驼级飞船通常仅向经深空地区地方政府审核通过的公民出售。"
+
+
+
+ship "Barb"
+	sprite "ship/barb"
+	thumbnail "thumbnail/barb"
+	attributes
+		category "Fighter"
+		"cost" 50000
+		"shields" 800
+		"hull" 200
+		"required crew" 1
+		"bunks" 2
+		"mass" 20
+		"drag" .8
+		"heat dissipation" .78
+		"outfit space" 85
+		"weapon capacity" 28
+		"engine capacity" 22
+		weapon
+			"blast radius" 12
+			"shield damage" 120
+			"hull damage" 60
+			"hit force" 180
+	outfits
+		"Energy Blaster"
+		"Blaster Turret"
+		
+		"nGVF-AA Fuel Cell"
+		"LP036a Battery Pack"
+		"D14-RN Shield Generator"
+
+		"X1050 Ion Engines"
+		
+	engine 9 25
+	engine -8 25
+	gun -7.5 -24.5 "Energy Blaster"
+	turret 9.5 8.5 "Blaster Turret"
+	leak "leak" 60 50
+	explode "tiny explosion" 15
+	explode "small explosion" 5
+	description `辛迪加虽不建造战斗机母舰，却正以‘巴布’号试探水深——这是一款廉价而灵活的舰载机，配备了新近研发的微型离子引擎。‘巴布’号的设计理念似乎是‘比‘守护者’更丑陋’；当你望向那嵌在巨大炮口与炮塔基座之间的狭小驾驶舱时，不禁疑惑：动力系统究竟被塞到哪儿去了？尽管外观笨拙，它却具备足够的灵活性，一旦编入航母舰队，便可能成为一支极具威胁的力量。`
+	description "	为在保留炮塔安装位的同时容纳质子炮，辛迪加系统公司不得不移除多种生命维持系统，迫使飞行员必须身穿加压宇航服，而非依赖舱室整体加压。尽管这使得驾驶“巴巴”战机成了一种不适的体验，但最终换来的却是同级别飞行器中前所未有的近距火力。"
+	description "	Fighters do not come equipped with a hyperdrive. You cannot carry a fighter unless you have a ship in your fleet with a fighter bay."
+
+
+
+ship "Bastion"
+	sprite "ship/bastion"
+	thumbnail "thumbnail/bastion"
+	attributes
+		category "Medium Warship"
+		"cost" 3860000
+		"shields" 8600
+		"hull" 5300
+		"required crew" 17
+		"bunks" 40
+		"mass" 1100
+		"drag" 15.5
+		"heat dissipation" .34
+		"fuel capacity" 500
+		"cargo space" 110
+		"outfit space" 470
+		"weapon capacity" 190
+		"engine capacity" 120
+		weapon
+			"blast radius" 120
+			"shield damage" 1200
+			"hull damage" 600
+			"hit force" 1800
+	outfits
+		"Plasma Cannon" 2
+		"Heavy Rocket Launcher" 2
+		"Heavy Rocket" 60
+		"Heavy Rocket Rack" 2
+		"Blaster Turret" 2
+		"Anti-Missile Turret"
+		
+		"S3 Thermionic"
+		"LP144a Battery Pack"
+		"nGVF-BB Fuel Cell"
+		"D67-TM Shield Generator"
+		"Water Coolant System"
+		"Tactical Scanner"
+		"Laser Rifle" 7
+		
+		"Impala Plasma Thruster"
+		"Impala Plasma Steering"
+		"Hyperdrive"
+		
+	engine 31.5 89.5
+	engine -31.5 89.5
+	gun -52.5 -0.5 "Heavy Rocket Launcher"
+	gun -52.5 -0.5 "Plasma Cannon"
+	gun 52.5 -0.5 "Heavy Rocket Launcher"
+	gun 52.5 -0.5 "Plasma Cannon"
+	turret 0 0.5 "Anti-Missile Turret"
+	turret -35.5 29.5 "Blaster Turret"
+	turret 35.5 29.5 "Blaster Turret"
+	leak "leak" 40 50
+	leak "flame" 40 80
+	leak "big leak" 70 30
+	explode "tiny explosion" 5
+	explode "small explosion" 15
+	explode "medium explosion" 30
+	explode "large explosion" 20
+	"final explode" "final explosion medium"
+	description "南向船坞‘堡垒号’专为护航货船队而设计，是一款重型防御平台；同时其货舱容量也足以独立承担货运任务。由于火力强大，它被归类为战舰而非货船。"
+
+
+
+ship "Behemoth"
+	sprite "ship/behemoth"
+	thumbnail "thumbnail/behemoth"
+	attributes
+		category "Heavy Freighter"
+		"cost" 10800000
+		"shields" 7600
+		"hull" 6300
+		"required crew" 12
+		"bunks" 30
+		"mass" 1120
+		"drag" 14.6
+		"heat dissipation" .26
+		"fuel capacity" 600
+		"cargo space" 490
+		"outfit space" 510
+		"weapon capacity" 280
+		"engine capacity" 90
+		weapon
+			"blast radius" 140
+			"shield damage" 1400
+			"hull damage" 700
+			"hit force" 2100
+	outfits
+		"Heavy Laser Turret" 4
+		"Heavy Anti-Missile Turret" 2
+		
+		"NT-200 Nucleovoltaic"
+		"LP144a Battery Pack"
+		"D41-HY Shield Generator"
+		"Small Radar Jammer"
+		"Laser Rifle" 3
+		
+		"X3700 Ion Thruster"
+		"X3200 Ion Steering"
+		"X1100 Ion Reverse Thruster" 2
+		"Scram Drive"
+		
+	engine -34 143 0.8
+	engine 34 143 0.8
+	engine -56 148.5 0.6
+	engine 56 148.5 0.6
+	gun -47.5 -57.5
+	gun 47.5 -57.5
+	turret -31 -50 "Heavy Laser Turret"
+	turret 31 -50 "Heavy Anti-Missile Turret"
+	turret -47.5 33.5 "Heavy Laser Turret"
+	turret 47.5 33.5 "Heavy Laser Turret"
+	turret -22 66.5 "Heavy Anti-Missile Turret"
+	turret 22 66.5 "Heavy Laser Turret"
+	leak "leak" 30 50
+	leak "flame" 30 80
+	leak "big leak" 50 30
+	explode "small explosion" 15
+	explode "medium explosion" 25
+	explode "large explosion" 35
+	explode "huge explosion" 20
+	"final explode" "final explosion large"
+	description "巨兽号是参宿七船坞近期推出的新型飞船，旨在作为辛迪加大型货运飞船的替代方案。尽管其货物运载能力略低，但机动性更强，且默认配备更强大的武装。"
+
+
+
+ship "Berserker"
+	sprite "ship/berserker"
+	thumbnail "thumbnail/berserker"
+	attributes
+		category "Interceptor"
+		"cost" 520000
+		"shields" 2200
+		"hull" 500
+		"required crew" 1
+		"bunks" 2
+		"mass" 130
+		"drag" 2.5
+		"heat dissipation" .74
+		"fuel capacity" 400
+		"cargo space" 10
+		"outfit space" 200
+		"weapon capacity" 35
+		"engine capacity" 65
+		weapon
+			"blast radius" 30
+			"shield damage" 300
+			"hull damage" 150
+			"hit force" 450
+	outfits
+		"Energy Blaster" 2
+		"Javelin Mini Pod" 2
+		"Javelin" 60
+		
+		"nGVF-CC Fuel Cell"
+		"LP072a Battery Pack"
+		"D23-QP Shield Generator"
+		
+		"X2700 Ion Thruster"
+		"X3200 Ion Steering"
+		"Hyperdrive"
+		
+	engine -10 45
+	engine 10 45
+	gun -20 12 "Energy Blaster"
+	gun 20 12 "Energy Blaster"
+	gun -44 10 "Javelin Mini Pod"
+	gun 44 10 "Javelin Mini Pod"
+	leak "leak" 60 50
+	leak "flame" 80 80
+	explode "tiny explosion" 10
+	explode "small explosion" 15
+	"final explode" "final explosion small"
+	description "曾是拦截舰中最受欢迎的型号之一，但如今“狂战士号”的人气已逐渐被更现代、更多用途的飞船（如“鹰号”）所取代。尽管参宿四船坞仍在小批量生产该型号，但如今服役的大多数“狂战士号”已有半个多世纪的舰龄。"
+
+
+
+ship "Blackbird"
+	sprite "ship/blackbird"
+	thumbnail "thumbnail/blackbird"
+	attributes
+		category "Transport"
+		"cost" 2230000
+		"shields" 4400
+		"hull" 900
+		"required crew" 3
+		"bunks" 28
+		"mass" 360
+		"drag" 6.2
+		"heat dissipation" .56
+		"fuel capacity" 700
+		"cargo space" 60
+		"outfit space" 350
+		"weapon capacity" 90
+		"engine capacity" 110
+		weapon
+			"blast radius" 60
+			"shield damage" 600
+			"hull damage" 300
+			"hit force" 900
+	outfits
+		"Heavy Laser Turret"
+		"Heavy Anti-Missile Turret"
+		
+		"S3 Thermionic"
+		"KP-6 Photovoltaic Array" 3
+		"LP072a Battery Pack"
+		"D23-QP Shield Generator"
+		"Small Radar Jammer"
+		"Luxury Accommodations"
+		
+		"Impala Plasma Thruster"
+		"Impala Plasma Steering"
+		"Hyperdrive"
+		
+	engine -42.5 52
+	engine 42.5 52
+	turret -26 15 "Heavy Laser Turret"
+	turret 26 15 "Heavy Anti-Missile Turret"
+	leak "leak" 50 50
+	leak "flame" 70 80
+	explode "tiny explosion" 15
+	explode "small explosion" 34
+	explode "medium explosion" 18
+	explode "large explosion" 2
+	"final explode" "final explosion small"
+	description "塔拉泽德黑鸟号是一艘高端客运飞船，专为在银河系内快速、安全地运送大量乘客而设计。虽然其武器配置并不丰富，但黑鸟号防护性能优异、航速迅捷，足以规避海盗袭击；同时，其货舱容量充足，允许船长顺带承接信使任务。"
+
+
+
+ship "Bounder"
+	sprite "ship/bounder"
+	thumbnail "thumbnail/bounder"
+	attributes
+		category "Transport"
+		"cost" 1140000
+		"shields" 2200
+		"hull" 700
+		"required crew" 1
+		"bunks" 17
+		"mass" 200
+		"drag" 4.4
+		"heat dissipation" .67
+		"fuel capacity" 800
+		"cargo space" 40
+		"outfit space" 220
+		"weapon capacity" 50
+		"engine capacity" 110
+		weapon
+			"blast radius" 30
+			"shield damage" 300
+			"hull damage" 150
+			"hit force" 450
+	outfits
+		"Anti-Missile Turret" 2
+		
+		"nGVF-CC Fuel Cell"
+		"KP-6 Photovoltaic Array"
+		"LP036a Battery Pack"
+		"D14-RN Shield Generator"
+		
+		"X3700 Ion Thruster"
+		"X3200 Ion Steering"
+		"Hyperdrive"
+		
+	engine -10 44
+	engine 10 44
+	turret -38 12 "Anti-Missile Turret"
+	turret 38 12 "Anti-Missile Turret"
+	leak "leak" 60 50
+	explode "tiny explosion" 10
+	explode "small explosion" 20
+	explode "medium explosion" 15
+	"final explode" "final explosion small"
+	description "百万秒差距漫游者号是一艘侦察舰兼信使舰，专为快速运送乘客及少量货物跨越遥远距离而设计，而非用于战斗。"
+
+
+
+ship "Boxwing"
+	sprite "ship/boxwing"
+	thumbnail "thumbnail/boxwing"
+	attributes
+		category "Fighter"
+		cost 369000
+		"shields" 400
+		"hull" 800
+		"required crew" 1
+		"bunks" 1
+		"mass" 54
+		"drag" .65
+		"heat dissipation" .25
+		"outfit space" 45
+		"engine capacity" 28
+		"cargo space" 80
+		weapon
+			"blast radius" 12
+			"shield damage" 120
+			"hull damage" 60
+			"hit force" 180
+	outfits
+		"nGVF-AA Fuel Cell"
+
+		"X1050 Ion Engines"
+
+	engine 23 -1
+	engine -23 -1
+	engine 19 29
+	engine -19 29
+	leak "leak" 70 50
+	leak "flame" 50 80
+	explode "tiny explosion" 15
+	explode "small explosion" 5
+	description `在为运货船推出“F型”货舱后，商船船长们很快意识到：若能为战斗机臂加装货箱，新型运输舰便可为舰队提供更高灵活性。于是，“F6-C：箱翼战机”应运而生——一款不用于作战、专司货运的战斗机。其搭载的货物保鲜设备大幅增加了整机质量，且散热性能远逊于其他战斗机。它无法装载任何武器，但这仅是飞行员私下称其为“飞行棺材”的部分原因；除此之外，该机外形酷似棺材、机动极其迟缓，驾驶舱“座椅”兼作铺位，狭小得远超大多数人的舒适承受极限。唯有交互式全景舷窗HUD系统，才勉强防止幽闭恐惧症成为严重问题。`
+	description "	Fighters do not come equipped with a hyperdrive. You cannot carry a fighter unless you have a ship in your fleet with a fighter bay."
+
+
+ship "Bulk Freighter"
+	sprite "ship/bulk freighter"
+	thumbnail "thumbnail/bulk freighter"
+	attributes
+		category "Heavy Freighter"
+		"cost" 11100000
+		"shields" 4000
+		"hull" 7600
+		"required crew" 12
+		"bunks" 21
+		"mass" 1510
+		"drag" 16.8
+		"heat dissipation" .27
+		"fuel capacity" 900
+		"cargo space" 640
+		"outfit space" 410
+		"weapon capacity" 180
+		"engine capacity" 85
+		weapon
+			"blast radius" 120
+			"shield damage" 1200
+			"hull damage" 600
+			"hit force" 1800
+	outfits
+		"Sidewinder Missile Launcher"
+		"Sidewinder Missile" 45
+		"Laser Turret" 3
+		"Heavy Anti-Missile Turret" 2
+		
+		"RT-I Radiothermal"
+		"LP144a Battery Pack"
+		"D23-QP Shield Generator"
+		"Laser Rifle"
+		
+		"X3700 Ion Thruster"
+		"X3200 Ion Steering"
+		"X1100 Ion Reverse Thruster"
+		"Scram Drive"
+		
+	engine -22 198
+	engine 22 198
+	gun -20 -175 "Sidewinder Missile Launcher"
+	gun 20 -175
+	turret -12 -155 "Laser Turret"
+	turret 12 -155 "Heavy Anti-Missile Turret"
+	turret 0 5 "Laser Turret"
+	turret -30 175 "Heavy Anti-Missile Turret"
+	turret 30 175 "Laser Turret"
+	leak "leak" 40 50
+	leak "flame" 30 80
+	leak "big leak" 50 30
+	explode "small explosion" 15
+	explode "medium explosion" 25
+	explode "large explosion" 35
+	explode "huge explosion" 20
+	"final explode" "final explosion large"
+	description "重型货运飞船是终极货运载具，运载能力相当于四艘普通辛迪加货运飞船。其搭载的可调节起降齿轮系统，使其足以服务最原始的殖民地；不过繁忙太空港的装卸工人常打趣道：‘与其用它运货，不如直接把几艘小型货运飞船塞进它那巨大的货舱里。’"
+	description "	这艘飞船速度极慢，且极难操控，尤其是满载货物时。一些货运商队宁可使用普通货船，也不愿使用大型货船，只为避免反复等待大型货船完成超空间航行所需的精确姿态校准。"
+
+
+
+ship "Bulwark"
+	sprite "ship/pirate bulwark"
+	thumbnail "thumbnail/pirate bulwark"
+	attributes
+		category "Medium Warship"
+		"cost" 4360000
+		"shields" 8000
+		"hull" 6500
+		"required crew" 19
+		"bunks" 31
+		"mass" 1582
+		"drag" 20.1
+		"heat dissipation" .28
+		"fuel capacity" 500
+		"cargo space" 12
+		"outfit space" 521
+		"weapon capacity" 223
+		"engine capacity" 120
+		"threshold percentage" .08
+		weapon
+			"blast radius" 145
+			"shield damage" 1450
+			"hull damage" 725
+			"hit force" 2175
+	outfits
+		"Plasma Cannon" 2
+		"Heavy Rocket Launcher" 2
+		"Heavy Rocket" 60
+		"Heavy Rocket Rack" 2
+		"Quad Blaster Turret" 2
+		"Heavy Anti-Missile Turret"
+		
+		"Fission Reactor"
+		"LP144a Battery Pack"
+		"D94-YV Shield Generator"
+		"Water Coolant System"
+		"Tactical Scanner"
+		"Laser Rifle" 19
+		"Nerve Gas" 3
+		
+		"Impala Plasma Thruster"
+		"Impala Plasma Steering"
+		"Hyperdrive"
+		
+	engine 31.5 89.5
+	engine -31.5 89.5
+	gun -52.5 -0.5 "Heavy Rocket Launcher"
+	gun -52.5 -0.5 "Plasma Cannon"
+	gun 52.5 -0.5 "Heavy Rocket Launcher"
+	gun 52.5 -0.5 "Plasma Cannon"
+	turret 0 0.5 "Heavy Anti-Missile Turret"
+	turret -35.5 29.5 "Quad Blaster Turret"
+	turret 35.5 29.5 "Quad Blaster Turret"
+	leak "leak" 40 50
+	leak "flame" 50 80
+	leak "big leak" 70 40
+	explode "small explosion" 15
+	explode "medium explosion" 40
+	explode "large explosion" 20
+	"final explode" "final explosion medium"
+	description `壁垒号（Bulwark）本质上就是把一堆废金属焊死在堡垒号（Bastion）上造出来的。这是一艘坚固而迟缓的近战型飞船，通常被军阀用以守卫其资产——无论是自己的飞船，还是藏身据点，以防当局或敌对势力突袭。由于航速缓慢且缺乏货舱空间，这类飞船极少离开本星系去劫掠商船队。`
+
+
+
+ship "Carrier"
+	sprite "ship/carrier"
+	thumbnail "thumbnail/carrier"
+	attributes
+		category "Heavy Warship"
+		licenses
+			"Navy Carrier"
+		"cost" 15200000
+		"shields" 21400
+		"hull" 8300
+		"required crew" 111
+		"bunks" 184
+		"mass" 2640
+		"drag" 35.4
+		"heat dissipation" .23
+		"fuel capacity" 700
+		"cargo space" 100
+		"outfit space" 820
+		"weapon capacity" 240
+		"engine capacity" 210
+		weapon
+			"blast radius" 300
+			"shield damage" 3000
+			"hull damage" 1500
+			"hit force" 4500
+	outfits
+		"Meteor Missile Launcher" 2
+		"Meteor Missile" 60
+		"Sidewinder Missile Rack" 8
+		"Sidewinder Missile" 184
+		"Torpedo Launcher" 2
+		"Torpedo" 60
+		"Heavy Laser Turret"
+		"Heavy Anti-Missile Turret" 2
+		
+		"Fusion Reactor"
+		"LP288a Battery Pack"
+		"D94-YV Shield Generator" 2
+		"Large Radar Jammer" 2
+		"Water Coolant System"
+		"Brig"
+		"Laser Rifle" 40
+		"Fragmentation Grenades" 40
+		"Security Station" 2
+		"Tactical Scanner"
+		
+		"X5700 Ion Thruster"
+		"X4200 Ion Steering"
+		"Hyperdrive"
+
+	engine -36.5 200 0.65
+	engine 36.5 200 0.65
+	gun -17.5 -176.5 "Torpedo Launcher"
+	gun 17.5 -176.5 "Torpedo Launcher"
+	gun -26 -167.5 "Meteor Missile Launcher"
+	gun 26 -167.5 "Meteor Missile Launcher"
+	turret 0 -49 "Heavy Laser Turret"
+	turret -22 22 "Heavy Anti-Missile Turret"
+	turret 22 22 "Heavy Anti-Missile Turret"
+	bay "Fighter" -38.5 -64.5
+		"launch effect" "human internal"
+	bay "Fighter" 38.5 -64.5
+		"launch effect" "human internal"
+	bay "Fighter" -38.5 -64.5
+		"launch effect" "human internal"
+	bay "Fighter" 38.5 -64.5
+		"launch effect" "human internal"
+	bay "Fighter" -50 40.5
+		"launch effect" "human internal"
+	bay "Fighter" 50 40.5
+		"launch effect" "human internal"
+	bay "Fighter" -50 40.5
+		"launch effect" "human internal"
+	bay "Fighter" 50 40.5
+		"launch effect" "human internal"
+	bay "Drone" -71.5 -49.5
+		"launch effect" "human internal"
+	bay "Drone" 71.5 -49.5
+		"launch effect" "human internal"
+	bay "Drone" -115 55
+		"launch effect" "human internal"
+	bay "Drone" 115 55
+		"launch effect" "human internal"
+	bay "Drone" -85 55
+		"launch effect" "human internal"
+	bay "Drone" 85 55
+		"launch effect" "human internal"
+	leak "leak" 30 50
+	leak "flame" 30 80
+	leak "big leak" 30 30
+	explode "tiny explosion" 20
+	explode "small explosion" 45
+	explode "medium explosion" 50
+	explode "large explosion" 40
+	explode "huge explosion" 10
+	"final explode" "final explosion large"
+	description "航母远不止是一艘战舰：它实际上是一座移动空间站，配备可容纳整支无人机与战斗机编队的停机舱，以及足以填满一座小型村庄的船员。尽管主要设计用于远程交战，航母在近距战斗中同样能造成可观伤害。"
+
+
+
+ship "Class C Freighter"
+	sprite "ship/bulk freighter"
+	thumbnail "thumbnail/bulk freighter"
+	attributes
+		category "Heavy Warship"
+		"cost" 13400000
+		"shields" 13500
+		"hull" 7600
+		"required crew" 18
+		"bunks" 43
+		"mass" 1525
+		"drag" 16.8
+		"heat dissipation" .27
+		"fuel capacity" 900
+		"cargo space" 20
+		"outfit space" 410
+		"weapon capacity" 150
+		"engine capacity" 85
+		weapon
+			"blast radius" 200
+			"shield damage" 2000
+			"hull damage" 1000
+			"hit force" 3000
+	outfits
+		"Proton Turret"
+		"Quad Blaster Turret" 2
+		"Heavy Anti-Missile Turret"
+		"Anti-Missile Turret"
+		"Sidewinder Missile Launcher"
+		"Sidewinder Missile" 45
+		
+		"Fusion Reactor"
+		"LP036a Battery Pack"
+		"Supercapacitor"
+		"Water Coolant System"
+		"Cooling Ducts"
+		"S-970 Regenerator"
+		"Laser Rifle" 18
+		"Brig"
+		"Interference Plating"
+		
+		"A250 Atomic Thruster"
+		"A255 Atomic Steering"
+		"Scram Drive"
+		
+	engine -20 195.5
+	engine 20 195.5
+	gun -20 -175 "Sidewinder Missile Launcher"
+	gun 20 -175
+	turret -12 -155 "Quad Blaster Turret"
+	turret 12 -155 "Heavy Anti-Missile Turret"
+	turret 0 5 "Proton Turret"
+	turret 30 175 "Quad Blaster Turret"
+	turret -30 175 "Anti-Missile Turret"
+	bay "Drone" -66 -115 left
+		"launch effect" "human internal"
+	bay "Drone" -66 -65 left
+		"launch effect" "human internal"
+	bay "Drone" -66 -15 left
+		"launch effect" "human internal"
+	bay "Drone" -66 35 left
+		"launch effect" "human internal"
+	bay "Drone" -66 85 left
+		"launch effect" "human internal"
+	bay "Drone" -66 135 left
+		"launch effect" "human internal"
+	bay "Drone" 66 -115 right
+		"launch effect" "human internal"
+	bay "Drone" 66 -65 right
+		"launch effect" "human internal"
+	bay "Drone" 66 -15 right
+		"launch effect" "human internal"
+	bay "Drone" 66 35 right
+		"launch effect" "human internal"
+	bay "Drone" 66 85 right
+		"launch effect" "human internal"
+	bay "Drone" 66 135 right
+		"launch effect" "human internal"
+	leak "leak" 30 50
+	leak "flame" 50 80
+	leak "big leak" 40 30
+	explode "small explosion" 15
+	explode "medium explosion" 25
+	explode "large explosion" 35
+	explode "huge explosion" 20
+	"final explode" "final explosion large"
+	description `C级‘货船’实为一艘Q船——由辛迪加设计的隐形战舰，旨在伪装成一艘毫无防备的普通散装货船，以此引诱海盗上钩。`
+	description `	船体内部，一层干扰装甲掩盖了其军用级设备；经过改装的货舱中暗藏十余架战斗无人机；而伪装成传动机构的外壳下，则隐藏着额外的护盾发射器。`
+
+
+
+ship "Clipper"
+	sprite "ship/clipper"
+	thumbnail "thumbnail/clipper"
+	attributes
+		category "Light Freighter"
+		"cost" 900000
+		"shields" 2700
+		"hull" 800
+		"required crew" 3
+		"bunks" 9
+		"mass" 210
+		"drag" 4.3
+		"heat dissipation" .7
+		"fuel capacity" 500
+		"cargo space" 70
+		"outfit space" 260
+		"weapon capacity" 60
+		"engine capacity" 80
+		weapon
+			"blast radius" 36
+			"shield damage" 360
+			"hull damage" 180
+			"hit force" 540
+	outfits
+		"Beam Laser" 2
+		"Javelin Mini Pod" 2
+		"Javelin" 60
+		
+		"nGVF-DD Fuel Cell"
+		"LP072a Battery Pack"
+		"D23-QP Shield Generator"
+		
+		"Greyhound Plasma Thruster"
+		"Greyhound Plasma Steering"
+		"Hyperdrive"
+		
+	engine -22 47
+	engine 22 47
+	gun -21.5 -18 "Javelin Mini Pod"
+	gun 21.5 -18 "Javelin Mini Pod"
+	gun -11 -8.5 "Beam Laser"
+	gun 11 -8.5 "Beam Laser"
+	leak "leak" 60 50
+	leak "flame" 50 80
+	explode "tiny explosion" 15
+	explode "small explosion" 20
+	explode "medium explosion" 10
+	"final explode" "final explosion small"
+	description "‘快剪号’是南行船坞广受欢迎的‘远征号’的缩小版姊妹舰。尽管载货量不及后者，但‘快剪号’用途广泛，既可充当客运飞船、信使船，紧急情况下甚至能作为战舰使用；其内部预留了充足的自由空间，可根据每位船长的个性化需求进行定制改装。"
+
+
+
+ship "Combat Drone"
+	sprite "ship/combat drone"
+	thumbnail "thumbnail/combat drone"
+	attributes
+		category "Drone"
+		licenses
+			Navy
+		"cost" 63000
+		"hull" 700
+		"automaton" 1
+		"mass" 20
+		"drag" .59
+		"heat dissipation" .9
+		"outfit space" 58
+		"weapon capacity" 8
+		"engine capacity" 28
+		weapon
+			"blast radius" 5
+			"shield damage" 50
+			"hull damage" 25
+			"hit force" 75
+	outfits
+		"Beam Laser"
+		
+		"nGVF-AA Fuel Cell"
+		"Supercapacitor"
+		
+		"X1700 Ion Thruster"
+		"X1200 Ion Steering"
+		
+	engine -8.5 28.5 0.9
+	engine 8.5 28.5 0.9
+	gun 0 -29 "Beam Laser"
+	explode "tiny explosion" 15
+	description "战斗无人机是共和国海军主要使用的无人驾驶攻击飞船。尽管自身极为脆弱、极易被摧毁，但在数量庞大时却极具威胁。由于无需驾驶舱，无人机内部可完全填充装备与实心金属，因此其船体强度高于其他同类小型飞船。"
+	description "	Drones do not come equipped with a hyperdrive. You cannot carry a drone unless you have a ship in your fleet with a drone bay."
+
+
+
+ship "Container Transport"
+	sprite "ship/container transport"
+	thumbnail "thumbnail/container transport"
+	attributes
+		category "Heavy Freighter"
+		"cost" 9200000
+		"shields" 3500
+		"hull" 8000
+		"required crew" 6
+		"bunks" 18
+		"mass" 1525
+		"drag" 21.1
+		"heat dissipation" .4
+		"fuel capacity" 600
+		"cargo space" 550
+		"outfit space" 410
+		"weapon capacity" 180
+		"engine capacity" 85
+		weapon
+			"blast radius" 120
+			"shield damage" 1200
+			"hull damage" 600
+			"hit force" 1800
+	outfits
+		"Sidewinder Missile Launcher"
+		"Sidewinder Missile" 45
+		"Laser Turret" 3
+		"Heavy Anti-Missile Turret" 2
+		
+		"RT-I Radiothermal"
+		"LP144a Battery Pack"
+		"D23-QP Shield Generator"
+		"Laser Rifle"
+		
+		"X3700 Ion Thruster"
+		"X3200 Ion Steering"
+		"X1100 Ion Reverse Thruster"
+		"Scram Drive"
+		
+	engine -20 195.5
+	engine 20 195.5
+	gun -23.5 -182 "Sidewinder Missile Launcher"
+	gun 23.5 -182
+	turret 0 -90.5 "Laser Turret"
+	turret 0 -40.5 "Heavy Anti-Missile Turret"
+	turret 0 9.5 "Laser Turret"
+	turret 0 59.5 "Heavy Anti-Missile Turret"
+	turret 0 109 "Laser Turret"
+	leak "leak" 40 50
+	leak "flame" 30 80
+	leak "big leak" 50 30
+	explode "small explosion" 15
+	explode "medium explosion" 25
+	explode "large explosion" 35
+	explode "huge explosion" 20
+	"final explode" "final explosion large"
+	description "集装箱运输船是散货货运船的一种更新、更受欢迎的改型：它将原有的外挂式散装货舱替换为标准化集装箱，从而在规模更大、设施更完善的太空港实现更高效的装卸周转。"
+	description "	然而，与其带齿轮传动的同类一样，它仍是一艘航速缓慢且难以操控的飞船，尤其在满载货物时更是如此。一些货运商队宁可使用普通货船，也不愿使用集装箱运输船，只为避免每次超空间航行前都得反复等待集装箱运输船精确校准姿态的麻烦。”"
+
+
+
+ship "Corvette"
+	sprite "ship/corvette"
+	thumbnail "thumbnail/corvette"
+	attributes
+		category "Medium Warship"
+		"cost" 4400000
+		"shields" 6800
+		"hull" 800
+		"required crew" 8
+		"bunks" 32
+		"mass" 380
+		"drag" 4.9
+		"heat dissipation" .5
+		"fuel capacity" 500
+		"cargo space" 40
+		"outfit space" 420
+		"weapon capacity" 150
+		"engine capacity" 100
+		weapon
+			"blast radius" 80
+			"shield damage" 800
+			"hull damage" 400
+			"hit force" 1200
+	outfits
+		"Heavy Laser" 2
+		"Sidewinder Missile Launcher" 2
+		"Sidewinder Missile" 90
+		"Heavy Laser Turret"
+		"Anti-Missile Turret"
+		
+		"NT-200 Nucleovoltaic"
+		"KP-6 Photovoltaic Array"
+		"KP-6 Photovoltaic Panel" 2
+		"LP072a Battery Pack"
+		"D94-YV Shield Generator"
+		"Large Radar Jammer"
+		"Laser Rifle" 3
+		
+		"X3700 Ion Thruster"
+		"X3200 Ion Steering"
+		"Hyperdrive"
+		
+	engine -11.5 119
+	engine 11.5 119
+	gun -11.5 -68.5 "Heavy Laser"
+	gun 11.5 -68.5 "Heavy Laser"
+	gun -26 -8 "Sidewinder Missile Launcher"
+	gun 26 -8 "Sidewinder Missile Launcher"
+	turret 0 -10 "Heavy Laser Turret"
+	turret 0 76 "Anti-Missile Turret"
+	leak "leak" 40 50
+	leak "flame" 50 80
+	leak "big leak" 90 30
+	explode "tiny explosion" 18
+	explode "small explosion" 36
+	explode "medium explosion" 24
+	explode "large explosion" 8
+	"final explode" "final explosion medium"
+	description "狮心级护卫舰采用了新型实验性轻质材料，兼具战斗机的速度与敏捷性，以及重型战舰的强大火力。其薄弱的船体结构，由先进的护盾矩阵充分弥补。"
+
+
+
+ship "Cruiser"
+	sprite "ship/cruiser"
+	thumbnail "thumbnail/cruiser"
+	attributes
+		category "Heavy Warship"
+		licenses
+			"Navy Cruiser"
+		"cost" 11200000
+		"shields" 19600
+		"hull" 6400
+		"required crew" 81
+		"bunks" 136
+		"mass" 1910
+		"drag" 18.7
+		"heat dissipation" .25
+		"fuel capacity" 600
+		"cargo space" 60
+		"outfit space" 760
+		"weapon capacity" 320
+		"engine capacity" 170
+		weapon
+			"blast radius" 260
+			"shield damage" 2600
+			"hull damage" 1300
+			"hit force" 3900
+	outfits
+		"Particle Cannon" 4
+		"Sidewinder Missile Launcher" 2
+		"Sidewinder Missile" 90
+		"Heavy Laser Turret" 2
+		"Heavy Anti-Missile Turret" 2
+		
+		"Fusion Reactor"
+		"LP288a Battery Pack"
+		"D67-TM Shield Generator"
+		"Large Radar Jammer" 2
+		"Liquid Nitrogen Cooler"
+		"Laser Rifle" 20
+		"Fragmentation Grenades" 20
+		"Security Station"
+		"Tactical Scanner"
+		
+		"X4700 Ion Thruster"
+		"X4200 Ion Steering"
+		"Hyperdrive"
+		
+	engine -28 154 0.95
+	engine 28 154 0.95
+	engine -52 151 0.75
+	engine 52 151 0.75
+	gun -30 -55 "Particle Cannon"
+	gun 30 -55 "Particle Cannon"
+	gun -40.5 -52 "Particle Cannon"
+	gun 40.5 -52 "Particle Cannon"
+	gun -30 -30 "Sidewinder Missile Launcher"
+	gun 30 -30 "Sidewinder Missile Launcher"
+	turret 0 -39.5 "Heavy Anti-Missile Turret"
+	turret -32 -23 "Heavy Laser Turret"
+	turret 32 -23 "Heavy Laser Turret"
+	turret 0 0 "Heavy Anti-Missile Turret"
+	bay "Drone" -25 19.5
+		"launch effect" "human internal"
+	bay "Drone" 25 19.5
+		"launch effect" "human internal"
+	bay "Drone" -25 49.5
+		"launch effect" "human internal"
+	bay "Drone" 25 49.5
+		"launch effect" "human internal"
+	leak "leak" 30 50
+	leak "flame" 50 80
+	leak "big leak" 40 30
+	explode "tiny explosion" 20
+	explode "small explosion" 45
+	explode "medium explosion" 50
+	explode "large explosion" 40
+	explode "huge explosion" 10
+	"final explode" "final explosion large"
+	description "共和国巡洋舰是一款相对较新的设计，是护卫舰的大幅放大版本，必要时可独自迎战整支海盗舰队。除配备多种武器外，巡洋舰还拥有搭载四架攻击无人机的空间：这些是高速、无人驾驶的战斗机，可远程操控。"
+
+
+
+ship "Cutthroat"
+	sprite "ship/pirate cutthroat"
+	thumbnail "thumbnail/pirate cutthroat"
+	attributes
+		category "Light Warship"
+		"cost" 1100000
+		"shields" 3000
+		"hull" 1000
+		"required crew" 3
+		"bunks" 5
+		"mass" 202
+		"drag" 3.9
+		"heat dissipation" .7
+		"fuel capacity" 800
+		"cargo space" 82
+		"outfit space" 255
+		"weapon capacity" 32
+		"engine capacity" 111
+		weapon
+			"blast radius" 40
+			"shield damage" 400
+			"hull damage" 200
+			"hit force" 600
+	outfits
+		"Gatling Gun" 4
+		"Gatling Gun Ammo" 12000
+		
+		"S3 Thermionic"
+		"LP036a Battery Pack"
+		"D41-HY Shield Generator"
+		"Laser Rifle" 5
+		
+		"A370 Atomic Thruster"
+		"A375 Atomic Steering"
+		"Volcano Afterburner"
+		"Hyperdrive"
+		
+	engine -22 47
+	engine 22 47
+	engine -13 43.5 .7
+	engine 13 43.5 .7
+	gun -21.5 -18 "Gatling Gun"
+	gun 21.5 -18 "Gatling Gun"
+	gun -11 -8.5 "Gatling Gun"
+	gun 11 -8.5 "Gatling Gun"
+	leak "leak" 70 50
+	leak "flame" 60 80
+	explode "tiny explosion" 10
+	explode "small explosion" 25
+	explode "medium explosion" 10
+	"final explode" "final explosion small"
+	description `海盗们将这艘经过大幅改装的快船称为“割喉者”。它额外加装了一对引擎舱，唯一目的就是极致提速，使其速度远超天空中几乎所有未经精密调校的飞船，令使用者几乎能突破任何封锁线。`
+
+
+
+ship "Dagger"
+	sprite "ship/dagger"
+	thumbnail "thumbnail/dagger"
+	attributes
+		category "Fighter"
+		"cost" 129000
+		"shields" 1000
+		"hull" 300
+		"required crew" 1
+		"bunks" 1
+		"mass" 20
+		"drag" .63
+		"heat dissipation" .9
+		"outfit space" 90
+		"weapon capacity" 20
+		"engine capacity" 35
+		weapon
+			"blast radius" 12
+			"shield damage" 120
+			"hull damage" 60
+			"hit force" 180
+	outfits
+		"Beam Laser"
+		"Javelin Mini Pod" 2
+		"Javelin" 60
+		
+		"nGVF-AA Fuel Cell"
+		"Supercapacitor"
+		"D14-RN Shield Generator"
+		"Small Radar Jammer"
+		
+		"A120 Atomic Thruster"
+		"X1200 Ion Steering"
+		
+	engine -8 34
+	engine 8 34
+	gun 0 -35 "Beam Laser"
+	gun -11 -21 "Javelin Mini Pod"
+	gun 11 -21 "Javelin Mini Pod"
+	leak "leak" 60 50
+	explode "tiny explosion" 15
+	explode "small explosion" 5
+	description "匕首战斗机由狮心工业公司设计，专为搭载于其‘栖鹰’级战舰而优化；不过其他舰船也常搭载该机型。与多数狮心工业飞船一样，其机体大量采用轻质复合材料，使其速度显著超越同类战斗机。"
+	description "	Fighters do not come equipped with a hyperdrive. You cannot carry a fighter unless you have a ship in your fleet with a fighter bay."
+
+
+
+ship "Dreadnought"
+	sprite "ship/dreadnought"
+	thumbnail "thumbnail/dreadnought"
+	attributes
+		category "Heavy Warship"
+		licenses
+			"Militia"
+		"cost" 11900000
+		"shields" 18100
+		"hull" 7300
+		"required crew" 84
+		"bunks" 147
+		"mass" 1840
+		"drag" 18.7
+		"heat dissipation" .36
+		"fuel capacity" 600
+		"cargo space" 100
+		"outfit space" 790
+		"weapon capacity" 360
+		"engine capacity" 190
+		weapon
+			"blast radius" 260
+			"shield damage" 2600
+			"hull damage" 1300
+			"hit force" 3900
+	outfits
+		"Torpedo Launcher" 4
+		"Torpedo" 120
+		"Plasma Turret" 3
+		"Heavy Anti-Missile Turret" 2
+		
+		"Breeder Reactor"
+		"S3 Thermionic"
+		"LP072a Battery Pack"
+		"D41-HY Shield Generator"
+		"Small Radar Jammer"
+		"Liquid Helium Cooler"
+		"Tactical Scanner"
+		"Laser Rifle" 25
+		
+		"Orca Plasma Thruster"
+		"Orca Plasma Steering"
+		"Hyperdrive"
+		
+	engine -25.5 173.5
+	engine 25.5 173.5
+	gun -9.5 -186 "Torpedo Launcher"
+	gun 9.5 -186 "Torpedo Launcher"
+	gun -18.5 -173.5 "Torpedo Launcher"
+	gun 18.5 -173.5 "Torpedo Launcher"
+	turret 0 -99.5 "Plasma Turret"
+	turret -39 -63.5 "Heavy Anti-Missile Turret"
+	turret 39 -63.5 "Heavy Anti-Missile Turret"
+	turret -39 107.5 "Plasma Turret"
+	turret 39 107.5 "Plasma Turret"
+	leak "leak" 40 50
+	leak "flame" 20 80
+	leak "big leak" 80 30
+	explode "tiny explosion" 50
+	explode "small explosion" 50
+	explode "medium explosion" 50
+	explode "large explosion" 50
+	explode "huge explosion" 20
+	"final explode" "final explosion large"
+	description "无畏舰是一种新型战舰，由南向船坞设计，旨在为自由世界舰队提供大型主力舰——一种足以抗衡海军巡洋舰甚至航母的舰艇。"
+
+
+ship "Dropship"
+	sprite "ship/dropship"
+	thumbnail "thumbnail/dropship"
+	attributes
+		category "Fighter"
+		licenses
+			Navy
+		"cost" 91000
+		"shields" 600
+		"hull" 200
+		"required crew" 1
+		"bunks" 9
+		"mass" 30
+		"drag" 0.8
+		"heat dissipation" .9
+		"cargo space" 5
+		"outfit space" 100
+		"weapon capacity" 16
+		"engine capacity" 40
+		weapon
+			"blast radius" 12
+			"shield damage" 120
+			"hull damage" 60
+			"hit force" 180
+	outfits
+		"Beam Laser" 2
+		
+		"nGVF-BB Fuel Cell"
+		"Supercapacitor"
+		"D14-RN Shield Generator"
+		"Small Radar Jammer"
+		
+		"X1700 Ion Thruster"
+		"X1200 Ion Steering"
+	
+	engine 13 26
+	engine -13 26
+	gun 2 -27 "Beam Laser"
+	gun -2 -27 "Beam Laser"
+	leak "leak" 60 50
+	explode "tiny explosion" 15
+	explode "small explosion" 5
+	description "登陆艇的设计初衷是为海军辅助部队服务。着陆后的辅助部队常充当前沿作战基地，因此需要转运至其他区域的部队往往依赖这些登陆艇。这艘狭小且不适的飞船，却能以与其尺寸极不相称的高速运送一整支共和国士兵小队。"
+	description "	Fighters do not come equipped with a hyperdrive. You cannot carry a fighter unless you have a ship in your fleet with a fighter bay."
+
+
+
+ship "Enforcer"
+	sprite "ship/enforcer"
+	thumbnail "thumbnail/enforcer"
+	attributes
+		category "Light Warship"
+		"cost" 490000
+		"shields" 2300
+		"hull" 1100
+		"required crew" 3
+		"bunks" 5
+		"mass" 180
+		"drag" 3.3
+		"heat dissipation" .61
+		"fuel capacity" 400
+		"cargo space" 30
+		"outfit space" 210
+		"weapon capacity" 55
+		"engine capacity" 60
+		weapon
+			"blast radius" 34
+			"shield damage" 340
+			"hull damage" 170
+			"hit force" 510
+	outfits
+		"Energy Blaster" 4
+		"Laser Turret"
+		
+		"nGVF-CC Fuel Cell"
+		"LP036a Battery Pack"
+		"D14-RN Shield Generator"
+		
+		"X2700 Ion Thruster"
+		"X2200 Ion Steering"
+		"Hyperdrive"
+
+	engine 0 39
+	gun -11 -52
+	gun 11 -52
+	gun -5.5 -48
+	gun 5.5 -48
+	turret 0 -0.5
+	leak "leak" 40 30
+	leak "flame" 50 60
+	explode "tiny explosion" 8
+	explode "small explosion" 12
+	explode "medium explosion" 4
+	description `在银河共和国成立之前，许多恒星系统由“治理型企业实体”所拥有，绝大多数太空对普通公民完全不开放。唯一例外是海盗团伙——他们仅有少量飞船，通常为偷窃所得，或源自叛逃的企业舰队；然而这些海盗却对星际贸易产生了远超其规模的重大影响。企业为保护自身运营而不得不加强安保，因此执法者号成为当时最常用于安全与防御任务的舰船之一。该舰配备四门固定炮位及一座炮塔，全部集成于小巧却易于防御的舰体之上，在其问世之时堪称动力强劲。`
+	description `	尽管早已停产退市，执法者号（Enforcer）仍被少数商人持有；颇具讽刺意味的是，它也落入了多支海盗团体之手——作为一艘日渐老化的战斗舰，其性能已被其他轻型战舰甚至同尺寸的截击机全面超越。`
+
+
+
+ship "Falcon"
+	sprite "ship/falcon"
+	thumbnail "thumbnail/falcon"
+	attributes
+		category "Heavy Warship"
+		"cost" 10900000
+		"shields" 12800
+		"hull" 3700
+		"required crew" 52
+		"bunks" 91
+		"mass" 1260
+		"drag" 11.4
+		"heat dissipation" .42
+		"fuel capacity" 600
+		"cargo space" 130
+		"outfit space" 560
+		"weapon capacity" 250
+		"engine capacity" 150
+		weapon
+			"blast radius" 160
+			"shield damage" 1600
+			"hull damage" 800
+			"hit force" 2400
+	outfits
+		"Plasma Cannon" 2
+		"Torpedo Launcher" 2
+		"Torpedo" 60
+		"Quad Blaster Turret" 3
+		"Heavy Anti-Missile Turret"
+		
+		"Breeder Reactor"
+		"KP-6 Photovoltaic Array"
+		"KP-6 Photovoltaic Panel" 2
+		"LP144a Battery Pack"
+		"D41-HY Shield Generator"
+		"Large Radar Jammer"
+		"Liquid Nitrogen Cooler"
+		"Laser Rifle" 15
+		
+		"Impala Plasma Thruster"
+		"Impala Plasma Steering"
+		"Hyperdrive"
+		
+	engine -16.5 143
+	engine 16.5 143
+	gun -16 -86.5 "Plasma Cannon"
+	gun 16 -86.5 "Plasma Cannon"
+	gun -19 -76.5 "Torpedo Launcher"
+	gun 19 -76.5 "Torpedo Launcher"
+	turret -16 -29 "Heavy Anti-Missile Turret"
+	turret 16 -29 "Quad Blaster Turret"
+	turret -50 39.5 "Quad Blaster Turret"
+	turret 50 39.5 "Quad Blaster Turret"
+	leak "leak" 30 50
+	leak "flame" 50 80
+	leak "big leak" 60 30
+	explode "tiny explosion" 40
+	explode "small explosion" 55
+	explode "medium explosion" 60
+	explode "large explosion" 40
+	"final explode" "final explosion medium"
+	description "塔拉泽德猎鹰号是民间可购得的最强大战舰之一，它比经典却略显过时的利维坦级战舰更加流线型，也更灵活机动。"
+
+
+
+ship "Finch"
+	plural "Finches"
+	sprite "ship/finch"
+	thumbnail "thumbnail/finch"
+	attributes
+		category "Fighter"
+		"cost" 126000
+		"shields" 1100
+		"hull" 200
+		"required crew" 1
+		"bunks" 1
+		"mass" 50
+		"drag" .87
+		"heat dissipation" .81
+		"outfit space" 110
+		"weapon capacity" 20
+		"engine capacity" 40
+		weapon
+			"blast radius" 12
+			"shield damage" 120
+			"hull damage" 60
+			"hit force" 180
+	outfits
+		"Beam Laser"
+		"Javelin Mini Pod" 2
+		"Javelin Storage Crate"
+		"Javelin" 160
+		
+		"nGVF-BB Fuel Cell"
+		"LP036a Battery Pack"
+		"D14-RN Shield Generator"
+		
+		"Chipmunk Plasma Thruster"
+		"Chipmunk Plasma Steering"
+		
+	engine -5 32
+	engine 5 32
+	gun 0 -31.5 "Beam Laser"
+	gun -7 -14 "Javelin Mini Pod"
+	gun 7 -14 "Javelin Mini Pod"
+	leak "flame" 60 80
+	explode "tiny explosion" 15
+	explode "small explosion" 5
+	description "当自由世界开始向本地船坞寻求航母解决方案时，塔拉泽德船坞迅速意识到，只需稍作改造，便能将其入门级截击机升级为顶级战斗机。‘雀鹀号’约85%的零部件均与‘麻雀号’产线共享；因此，即便被大幅缩减尺寸（仅勉强塞入战斗机机库），这艘快如闪电的战机，仍与其具备超空间航行能力的表亲高度相似，也就不足为奇了。"
+	description "	Fighters do not come equipped with a hyperdrive. You cannot carry a fighter unless you have a ship in your fleet with a fighter bay."
+
+
+
+ship "Firebird"
+	sprite "ship/firebird"
+	thumbnail "thumbnail/firebird"
+	attributes
+		category "Medium Warship"
+		"cost" 3700000
+		"shields" 5800
+		"hull" 3400
+		"required crew" 7
+		"bunks" 22
+		"mass" 630
+		"drag" 6.75
+		"heat dissipation" .4
+		"fuel capacity" 400
+		"cargo space" 50
+		"outfit space" 400
+		"weapon capacity" 160
+		"engine capacity" 100
+		weapon
+			"blast radius" 100
+			"shield damage" 1000
+			"hull damage" 500
+			"hit force" 1500
+	outfits
+		"Particle Cannon" 2
+		"Meteor Missile Launcher" 2
+		"Meteor Missile" 60
+		"Quad Blaster Turret"
+		"Anti-Missile Turret"
+		
+		"RT-I Radiothermal"
+		"nGVF-AA Fuel Cell"
+		"LP144a Battery Pack"
+		"D41-HY Shield Generator"
+		"Laser Rifle" 3
+		
+		"X3700 Ion Thruster"
+		"X3200 Ion Steering"
+		"Hyperdrive"
+		
+	engine -31.5 67
+	engine 31.5 67
+	gun -27 -28 "Particle Cannon"
+	gun 27 -28 "Particle Cannon"
+	gun -38 -13 "Meteor Missile Launcher"
+	gun 38 -13 "Meteor Missile Launcher"
+	turret 0 -38 "Anti-Missile Turret"
+	turret 0 3 "Quad Blaster Turret"
+	leak "leak" 50 50
+	leak "flame" 30 80
+	explode "tiny explosion" 18
+	explode "small explosion" 36
+	explode "medium explosion" 24
+	explode "large explosion" 8
+	"final explode" "final explosion medium"
+	description "参宿七船坞火鸟号是一艘拥有漫长而辉煌历史的战舰；半千年前的阿尔法战争中，双方阵营均有火鸟号参战。尽管此后其设备与系统持续升级，但基本舰体设计几乎从未改变。火鸟号结构极为坚固，易于维修；据称，当年参战的部分火鸟号至今仍在服役。"
+
+
+
+ship "Flivver"
+	sprite "ship/flivver"
+	thumbnail "thumbnail/flivver"
+	attributes
+		category "Transport"
+		"cost" 180000
+		"shields" 1400
+		"hull" 200
+		"required crew" 1
+		"bunks" 3
+		"mass" 50
+		"drag" 1.05
+		"heat dissipation" .86
+		"fuel capacity" 500
+		"cargo space" 15
+		"outfit space" 130
+		"weapon capacity" 16
+		"engine capacity" 45
+		weapon
+			"blast radius" 16
+			"shield damage" 160
+			"hull damage" 80
+			"hit force" 240
+	outfits
+		
+		"nGVF-BB Fuel Cell"
+		"KP-6 Photovoltaic Panel" 3
+		"Supercapacitor"
+		"D14-RN Shield Generator"
+		
+		"A120 Atomic Thruster"
+		"X1200 Ion Steering"
+		"X1100 Ion Reverse Thruster"
+		"Hyperdrive"
+		
+	engine -16.5 26
+	engine 16.5 26
+	gun -6 -35.5
+	gun 6 -35.5
+	leak "leak" 60 50
+	explode "tiny explosion" 10
+	explode "small explosion" 10
+	description "弗利弗号既无货舱，也无客舱，更无法搭载重型武器，其唯一卖点便是速度。它主要面向富裕阶层销售，满足那些不愿与普通人共用商船卧铺、渴望独自畅游星海的客户。"
+
+
+
+ship "Freighter"
+	sprite "ship/freighter"
+	thumbnail "thumbnail/freighter"
+	attributes
+		category "Light Freighter"
+		"cost" 730000
+		"shields" 2000
+		"hull" 2000
+		"required crew" 2
+		"bunks" 7
+		"mass" 410
+		"drag" 7.6
+		"heat dissipation" .45
+		"fuel capacity" 600
+		"cargo space" 150
+		"outfit space" 250
+		"weapon capacity" 80
+		"engine capacity" 70
+		weapon
+			"blast radius" 40
+			"shield damage" 400
+			"hull damage" 200
+			"hit force" 600
+	outfits
+		"Blaster Turret" 2
+		"Heavy Anti-Missile Turret"
+		
+		"nGVF-DD Fuel Cell"
+		"LP072a Battery Pack"
+		"D14-RN Shield Generator"
+		
+		"X2700 Ion Thruster"
+		"X2200 Ion Steering"
+		"X1100 Ion Reverse Thruster"
+		"Scram Drive"
+		
+	engine -7.5 92
+	engine 7.5 92
+	turret 0 -64 "Blaster Turret"
+	turret 0 -4.5 "Heavy Anti-Missile Turret"
+	turret 0 64.5 "Blaster Turret"
+	leak "leak" 60 50
+	leak "flame" 50 80
+	explode "tiny explosion" 10
+	explode "small explosion" 30
+	explode "medium explosion" 20
+	"final explode" "final explosion small"
+	description "货船由辛迪加设计，旨在高效地在星系间运输货物；但其航速极慢且着陆困难，令大多数飞行员都厌恶驾驶它。"
+	description "	货船显然是海盗的明显目标，但其转向过于迟缓，无法将任何朝前安装的武器对准逼近的敌人。因此，最新款货船仅配备炮塔，其中包括一座反导弹炮塔，以防攻击者从安全距离外单纯依靠导弹轰炸将其强行制服。"
+
+
+
+ship "Frigate"
+	sprite "ship/frigate"
+	thumbnail "thumbnail/frigate"
+	attributes
+		category "Medium Warship"
+		licenses
+			Navy
+		"cost" 5200000
+		"shields" 8000
+		"hull" 2500
+		"required crew" 21
+		"bunks" 44
+		"mass" 710
+		"drag" 8.1
+		"heat dissipation" .46
+		"fuel capacity" 500
+		"cargo space" 35
+		"outfit space" 410
+		"weapon capacity" 170
+		"engine capacity" 100
+		weapon
+			"blast radius" 100
+			"shield damage" 1000
+			"hull damage" 500
+			"hit force" 1500
+	outfits
+		"Particle Cannon" 2
+		"Torpedo Launcher" 2
+		"Torpedo" 60
+		"Blaster Turret" 2
+		"Anti-Missile Turret"
+		
+		"NT-200 Nucleovoltaic"
+		"LP072a Battery Pack"
+		"LP036a Battery Pack"
+		"D41-HY Shield Generator"
+		"Large Radar Jammer"
+		"Laser Rifle" 5
+		"Fragmentation Grenades" 5
+		"Security Station"
+		
+		"X3700 Ion Thruster"
+		"X3200 Ion Steering"
+		"Hyperdrive"
+		
+	engine -26 96.5
+	engine 26 96.5
+	gun -11 -84.5 "Particle Cannon"
+	gun 11 -84.5 "Particle Cannon"
+	gun -11 -84.5 "Torpedo Launcher"
+	gun 11 -84.5 "Torpedo Launcher"
+	turret 0 -37.5 "Anti-Missile Turret"
+	turret -15.5 -12.5 "Blaster Turret"
+	turret 15.5 -12.5 "Blaster Turret"
+	leak "leak" 40 50
+	leak "flame" 50 80
+	leak "big leak" 90 30
+	explode "tiny explosion" 18
+	explode "small explosion" 36
+	explode "medium explosion" 24
+	explode "large explosion" 8
+	"final explode" "final explosion medium"
+	description "数个世纪以来，护卫舰一直是共和国海军船坞建造的最大型战舰；但如今与巡洋舰或航母相比，它已显得相当小巧。护卫舰装备多种武器，既能有效拦截小型战斗机，也能对大型舰船实施轨道轰炸。在其鼎盛时期，护卫舰在同级别舰船中拥有相对出色的机动性；而如今它仍持续服役，主要得益于此前已大量建造并投入现役。"
+
+
+
+ship "Fury"
+	plural "Furies"
+	sprite "ship/fury"
+	thumbnail "thumbnail/fury"
+	attributes
+		category "Interceptor"
+		"cost" 490000
+		"shields" 2000
+		"hull" 400
+		"required crew" 1
+		"bunks" 3
+		"mass" 105
+		"drag" 1.8
+		"heat dissipation" .79
+		"fuel capacity" 600
+		"cargo space" 15
+		"outfit space" 160
+		"weapon capacity" 40
+		"engine capacity" 60
+		weapon
+			"blast radius" 24
+			"shield damage" 240
+			"hull damage" 120
+			"hit force" 360
+	outfits
+		"Energy Blaster" 4
+		
+		"nGVF-CC Fuel Cell"
+		"LP036a Battery Pack"
+		"D14-RN Shield Generator"
+		"Small Radar Jammer" 2
+		
+		"X2700 Ion Thruster"
+		"X2200 Ion Steering"
+		"Hyperdrive"
+		
+	engine -11 35 0.8
+	engine 11 35 0.8
+	engine -18 37 0.6
+	engine 18 37 0.6
+	gun -11 -28
+	gun 11 -28
+	gun -17 -19.5
+	gun 17 -19.5
+	gun -5.5 -33
+	gun 5.5 -33
+	leak "flame" 50 80
+	explode "tiny explosion" 10
+	explode "small explosion" 20
+	description "‘狂怒号’是南向船坞最受欢迎的护航舰设计。其火力强于所有其他截击舰级飞船，这意味着任何单艘出没的海盗在攻击一支有‘狂怒号’护航的商队前都得三思而后行。不过，‘狂怒号’的机动性却远逊于其他小型飞船。"
+
+
+
+ship "Gunboat"
+	sprite "ship/gunboat"
+	thumbnail "thumbnail/gunboat"
+	attributes
+		category "Light Warship"
+		licenses
+			Navy
+		"cost" 3200000
+		"shields" 5800
+		"hull" 1400
+		"required crew" 7
+		"bunks" 12
+		"mass" 280
+		"drag" 4.0
+		"heat dissipation" .62
+		"fuel capacity" 600
+		"cargo space" 50
+		"outfit space" 270
+		"weapon capacity" 100
+		"engine capacity" 90
+		weapon
+			"blast radius" 72
+			"shield damage" 720
+			"hull damage" 360
+			"hit force" 1080
+	outfits
+		"Heavy Laser" 2
+		"Heavy Laser Turret"
+		
+		"RT-I Radiothermal"
+		"LP144a Battery Pack"
+		"D14-RN Shield Generator"
+		"Small Radar Jammer"
+		"Cargo Scanner"
+		"Outfit Scanner"
+		"Tactical Scanner"
+		"Brig"
+		
+		"X3700 Ion Thruster"
+		"X2200 Ion Steering"
+		"Hyperdrive"
+		
+	engine -12 57.5 0.7
+	engine 12 57.5 0.7
+	gun -28.5 -27.5 "Heavy Laser"
+	gun 28.5 -27.5 "Heavy Laser"
+	turret 0 -1 "Heavy Laser Turret"
+	leak "leak" 50 50
+	leak "flame" 80 80
+	explode "tiny explosion" 10
+	explode "small explosion" 20
+	explode "medium explosion" 15
+	"final explode" "final explosion small"
+	description "海军炮艇专为近距交战而设计，同时也作为海军的移动传感器平台，负责扫描过往飞船是否搭载非法装备或货物。"
+
+
+
+ship "Hauler"
+	sprite "ship/hauler i"
+	thumbnail "thumbnail/hauler i"
+	attributes
+		category "Light Freighter"
+		"cost" 1430000
+		"shields" 2500
+		"hull" 3700
+		"required crew" 3
+		"bunks" 12
+		"mass" 490
+		"drag" 9.8
+		"heat dissipation" .43
+		"fuel capacity" 400
+		"cargo space" 130
+		"outfit space" 350
+		"weapon capacity" 140
+		"engine capacity" 80
+		weapon
+			"blast radius" 60
+			"shield damage" 600
+			"hull damage" 300
+			"hit force" 900
+	outfits
+		"Meteor Missile Pod" 2
+		"Meteor Missile" 14
+		"Quad Blaster Turret" 2
+		"Heavy Anti-Missile Turret" 2
+		
+		"S3 Thermionic"
+		"LP072a Battery Pack"
+		"D23-QP Shield Generator"
+		"Small Radar Jammer"
+		
+		"Greyhound Plasma Thruster"
+		"Impala Plasma Steering"
+		"Capybara Reverse Thruster"
+		"Hyperdrive"
+
+	engine -45 122.5
+	engine 45 122.5
+	gun -14.5 -92.5
+	gun 14.5 -92.5
+	turret -21.5 -48 "Quad Blaster Turret"
+	turret 21.5 -48 "Heavy Anti-Missile Turret"
+	turret -18.5 78.5 "Heavy Anti-Missile Turret"
+	turret 18.5 78.5 "Quad Blaster Turret"
+	leak "leak" 60 50
+	leak "flame" 50 80
+	leak "big leak" 90 30
+	explode "tiny explosion" 20
+	explode "small explosion" 35
+	explode "medium explosion" 20
+	explode "large explosion" 5
+	"final explode" "final explosion medium"
+	description "几个世纪前，在共和国初创时期，商业与太空航行的迅猛发展催生了对货运飞船的巨大需求。最早的运输船仅是在标准货柜上加装驾驶舱与引擎模块而成，其基本设计自那时起便几乎未曾改变。"
+
+
+
+ship "Hauler II"
+	sprite "ship/hauler ii"
+	thumbnail "thumbnail/hauler ii"
+	attributes
+		category "Heavy Freighter"
+		"cost" 2340000
+		"shields" 2900
+		"hull" 5200
+		"required crew" 3
+		"bunks" 12
+		"mass" 640
+		"drag" 10.7
+		"heat dissipation" .43
+		"fuel capacity" 400
+		"cargo space" 260
+		"outfit space" 350
+		"weapon capacity" 140
+		"engine capacity" 80
+		weapon
+			"blast radius" 80
+			"shield damage" 800
+			"hull damage" 400
+			"hit force" 1200
+	outfits
+		"Meteor Missile Pod" 2
+		"Meteor Missile" 59
+		"Meteor Missile Box" 3
+		"Quad Blaster Turret" 2
+		"Heavy Anti-Missile Turret" 2
+		
+		"S3 Thermionic"
+		"LP072a Battery Pack"
+		"D23-QP Shield Generator"
+		"Small Radar Jammer"
+		"Laser Rifle"
+		
+		"Greyhound Plasma Thruster"
+		"Impala Plasma Steering"
+		"Capybara Reverse Thruster"
+		"Hyperdrive"
+		
+	engine -45 159.5
+	engine 45 159.5
+	gun -14.5 -129.5
+	gun 14.5 -129.5
+	turret -21.5 -84.5 "Quad Blaster Turret"
+	turret 21.5 -84.5 "Heavy Anti-Missile Turret"
+	turret -18.5 115.5 "Heavy Anti-Missile Turret"
+	turret 18.5 115.5 "Quad Blaster Turret"
+	leak "leak" 60 50
+	leak "flame" 40 80
+	leak "big leak" 80 30
+	explode "tiny explosion" 10
+	explode "small explosion" 25
+	explode "medium explosion" 30
+	explode "large explosion" 15
+	"final explode" "final explosion medium"
+	description "这是一艘中型货运飞船，旨在货物运载能力与防御能力之间取得平衡。数百年前，各类‘搬运工’型号曾占据在役商船总数的近一半；而如今，该设计已被视为略显过时。"
+
+
+
+ship "Hauler III"
+	sprite "ship/hauler iii"
+	thumbnail "thumbnail/hauler iii"
+	attributes
+		category "Heavy Freighter"
+		"cost" 3260000
+		"shields" 3300
+		"hull" 6700
+		"required crew" 3
+		"bunks" 12
+		"mass" 790
+		"drag" 11.6
+		"heat dissipation" .43
+		"fuel capacity" 400
+		"cargo space" 390
+		"outfit space" 350
+		"weapon capacity" 140
+		"engine capacity" 80
+		weapon
+			"blast radius" 100
+			"shield damage" 1000
+			"hull damage" 500
+			"hit force" 1500
+	outfits
+		"Meteor Missile Pod" 2
+		"Meteor Missile" 59
+		"Meteor Missile Box" 3
+		"Quad Blaster Turret" 2
+		"Heavy Anti-Missile Turret" 2
+		
+		"S3 Thermionic"
+		"LP072a Battery Pack"
+		"D23-QP Shield Generator"
+		"Small Radar Jammer"
+		"Laser Rifle"
+		
+		"Greyhound Plasma Thruster"
+		"Impala Plasma Steering"
+		"Capybara Reverse Thruster"
+		"Hyperdrive"
+
+	engine -45 196.5
+	engine 45 196.5
+	gun -14.5 -166.5
+	gun 14.5 -166.5
+	turret -21.5 -122 "Quad Blaster Turret"
+	turret 21.5 -122 "Heavy Anti-Missile Turret"
+	turret -18.5 152.5 "Heavy Anti-Missile Turret"
+	turret 18.5 152.5 "Quad Blaster Turret"
+	leak "leak" 50 50
+	leak "flame" 40 80
+	leak "big leak" 80 30
+	explode "small explosion" 15
+	explode "medium explosion" 30
+	explode "large explosion" 20
+	explode "huge explosion" 5
+	"final explode" "final explosion large"
+	description "许多人认为这种飞船已经过时，但由于其价格相对低廉且结构简单，仍有大量运货船在服役。这款大型运货船在价格与货舱容量之间取得了最佳平衡。"
+
+
+
+ship "Hawk"
+	sprite "ship/hawk"
+	thumbnail "thumbnail/hawk"
+	attributes
+		category "Interceptor"
+		"cost" 670000
+		"shields" 2500
+		"hull" 500
+		"required crew" 1
+		"bunks" 4
+		"mass" 170
+		"drag" 2.5
+		"heat dissipation" .67
+		"fuel capacity" 300
+		"cargo space" 20
+		"outfit space" 200
+		"weapon capacity" 50
+		"engine capacity" 70
+		weapon
+			"blast radius" 30
+			"shield damage" 300
+			"hull damage" 150
+			"hit force" 450
+	outfits
+		"Heavy Laser" 2
+		
+		"nGVF-CC Fuel Cell"
+		"KP-6 Photovoltaic Panel" 2
+		"LP036a Battery Pack"
+		"D23-QP Shield Generator"
+		"Small Radar Jammer"
+		
+		"Greyhound Plasma Thruster"
+		"Greyhound Plasma Steering"
+		"Hyperdrive"
+		
+	engine -23.5 41
+	engine 23.5 41
+	gun -8.5 -17.5
+	gun 8.5 -17.5
+	leak "leak" 60 50
+	explode "tiny explosion" 15
+	explode "small explosion" 5
+	"final explode" "final explosion small"
+	description "塔拉泽德猎鹰号是一艘拦截舰级战舰，常被用作货运飞船的护航舰，或编入行星民兵巡逻中队。猎鹰号速度足够快，可追击大多数小型飞船，同时还能搭载威力更强大的武器。当然，它也是那些已赚足资金、买得起该舰的海盗船长们的最爱。"
+
+
+
+ship "Headhunter"
+	sprite "ship/headhunter"
+	thumbnail "thumbnail/headhunter"
+	attributes
+		category "Light Warship"
+		"cost" 1850000
+		"shields" 3800
+		"hull" 700
+		"required crew" 2
+		"bunks" 4
+		"mass" 175
+		"drag" 3.0
+		"heat dissipation" .7
+		"fuel capacity" 400
+		"cargo space" 50
+		"outfit space" 250
+		"weapon capacity" 60
+		"engine capacity" 80
+		weapon
+			"blast radius" 44
+			"shield damage" 440
+			"hull damage" 220
+			"hit force" 660
+	outfits
+		"Heavy Laser" 2
+		"Heavy Anti-Missile Turret"
+		
+		"RT-I Radiothermal"
+		"KP-6 Photovoltaic Array"
+		"LP072a Battery Pack"
+		"D23-QP Shield Generator"
+		
+		"Greyhound Plasma Thruster"
+		"Greyhound Plasma Steering"
+		"Hyperdrive"
+	
+	engine -16 47
+	engine 16 47
+	gun -17.5 -17
+	gun 17.5 -17
+	gun -12 -25.5 "Heavy Laser"
+	gun 12 -25.5 "Heavy Laser"
+	turret 0 9 "Heavy Anti-Missile Turret"
+	leak "leak" 60 50
+	leak "flame" 80 80
+	explode "tiny explosion" 20
+	explode "small explosion" 25
+	explode "medium explosion" 15
+	"final explode" "final explosion small"
+	description "猎头者号是狮心公司最新设计的飞船之一：一款多用途舰船，既可高效运输货物，也可胜任赏金猎人任务。与狮心公司的许多设计一样，其船体主要采用复合纤维而非金属制造，在牺牲部分装甲强度的同时，显著减轻了重量并提升了机动性。"
+
+
+
+ship "Heavy Shuttle"
+	sprite "ship/heavy shuttle"
+	thumbnail "thumbnail/heavy shuttle"
+	attributes
+		category "Transport"
+		"cost" 470000
+		"shields" 700
+		"hull" 700
+		"required crew" 1
+		"bunks" 10
+		"mass" 110
+		"drag" 2.1
+		"heat dissipation" .73
+		"fuel capacity" 500
+		"cargo space" 40
+		"outfit space" 130
+		"weapon capacity" 16
+		"engine capacity" 65
+		weapon
+			"blast radius" 12
+			"shield damage" 120
+			"hull damage" 60
+			"hit force" 180
+	outfits
+		"nGVF-AA Fuel Cell"
+		"LP036a Battery Pack"
+		"D14-RN Shield Generator"
+		
+		"X2700 Ion Thruster"
+		"X2200 Ion Steering"
+		"Hyperdrive"
+		
+	engine -6.5 38.5
+	engine 6.5 38.5
+	gun -3 -38.5
+	gun 3 -38.5
+	leak "leak" 60 50
+	explode "tiny explosion" 10
+	explode "small explosion" 5
+	description "重型穿梭机是由参宿七船坞推出的新一代穿梭机，旨在对其经久不衰的经典型号进行升级：略微提升了货物与乘客运载能力，但牺牲了一定的速度与机动性。"
+
+
+
+ship "Hogshead"
+	sprite "ship/hogshead"
+	thumbnail "thumbnail/hogshead"
+	attributes
+		category "Space Liner"
+		"cost" 3150000
+		"shields" 3200
+		"hull" 1900
+		"required crew" 18
+		"bunks" 84
+		"mass" 450
+		"drag" 6.2
+		"heat dissipation" .38
+		"fuel capacity" 600
+		"cargo space" 45
+		"outfit space" 320
+		"weapon capacity" 80
+		"engine capacity" 90
+		weapon
+			"blast radius" 51
+			"shield damage" 510
+			"hull damage" 255
+			"hit force" 765
+	outfits
+		"Heavy Anti-Missile Turret"
+		"Anti-Missile Turret"
+
+		"S3 Thermionic"
+		"KP-6 Photovoltaic Array" 2
+		"LP036a Battery Pack"
+
+		"D41-HY Shield Generator"
+		"Small Radar Jammer" 2
+		"Luxury Accommodations"
+		
+		"Greyhound Plasma Thruster"
+		"Greyhound Plasma Steering"
+		"Hyperdrive"
+
+	engine 34 42
+	engine -34 42
+	gun -17.5 -79.5
+	gun 17.5 -79.5
+	turret 0 -44 "Heavy Anti-Missile Turret"
+	turret 0 63 "Anti-Missile Turret"
+	leak "leak" 50 40
+	leak "big leak" 70 40
+	explode "tiny explosion" 10
+	explode "small explosion" 25
+	explode "medium explosion" 25
+	explode "large explosion" 10
+	"final explode" "final explosion medium"
+	description `数百年前，一艘早已被遗忘的船坞首次制造了这艘飞船。因其引擎舱呈桶状，酷似酒桶（hogshead），故得名“豪格希德”；其设计一度成为各地船长热议的话题。该飞船一经面向民用市场发售便迅速走红，在人类疆域各星系中随处可见，被普遍视为人类空间中的“太空巴士”。`
+	description `	遗憾的是，该舰艇问世仅数十年后，其建造船坞便宣告破产，从此销声匿迹，使得“酒桶号”成为载入史册的昙花一现之作。在当今时代，“酒桶号”已极为罕见；相较于“星后号”等现代舰艇，它们被普遍视为“有碍观瞻”，不过人类疆域内仍有少数地点仍在出售此型飞船。`
+
+
+
+ship "Jackal"
+	sprite "ship/jackal"
+	thumbnail "thumbnail/jackal"
+	attributes
+		category "Interceptor"
+		"cost" 320000
+		"shields" 1600
+		"hull" 500
+		"required crew" 1
+		"bunks" 2
+		"mass" 100
+		"drag" .95
+		"heat dissipation" .68
+		"fuel capacity" 500
+		"cargo space" 10
+		"outfit space" 155
+		"weapon capacity" 25
+		"engine capacity" 40
+		weapon
+			"blast radius" 21
+			"shield damage" 210
+			"hull damage" 105
+			"hit force" 315
+	outfits
+		"Modified Blaster" 4
+		
+		"nGVF-BB Fuel Cell"
+		"LP036a Battery Pack"
+		"D14-RN Shield Generator"
+		
+		"Chipmunk Plasma Thruster"
+		"Chipmunk Plasma Steering"
+		"Hyperdrive"
+
+	engine -10 35
+	engine 10 35
+	gun -17 -8.5
+	gun 17 -8.5
+	gun -25 -6
+	gun 25 -6
+	leak "leak" 50 40
+	leak "flame" 70 80
+	explode "tiny explosion" 10
+	explode "small explosion" 10
+	"final explode" "final explosion small"
+	description `豺狼级战舰以其开创性著称——它是最早一批专为‘自由船长’而非企业或执法机构设计的战舰之一。在其鼎盛时期，豺狼级曾与狂战士级争夺人类疆域内最受欢迎的拦截舰称号。然而，随着舰体老化，以及在新型武器技术适配方面的僵化，豺狼级销量持续下滑，最终其制造商被宿敌——参宿四船坞旗下的狂战士级战舰生产线所兼并。`
+
+
+
+ship "Lance"
+	sprite "ship/lance"
+	thumbnail "thumbnail/lance"
+	attributes
+		category "Fighter"
+		"cost" 93000
+		"shields" 800
+		"hull" 400
+		"required crew" 1
+		"bunks" 1
+		"mass" 30
+		"drag" .7
+		"heat dissipation" .8
+		"outfit space" 100
+		"weapon capacity" 20
+		"engine capacity" 30
+		weapon
+			"blast radius" 12
+			"shield damage" 120
+			"hull damage" 60
+			"hit force" 180
+	outfits
+		"Energy Blaster"
+		"Sidewinder Missile Pod" 2
+		"Sidewinder Missile" 12
+		
+		"nGVF-AA Fuel Cell"
+		"Supercapacitor" 4
+		"D14-RN Shield Generator"
+		"Small Radar Jammer" 2
+		
+		"X1700 Ion Thruster"
+		"X1200 Ion Steering"
+		
+	engine -14.5 30.5
+	engine 14.5 30.5
+	gun 0 -34 "Energy Blaster"
+	gun -13.5 -6.5 "Sidewinder Missile Pod"
+	gun 13.5 -6.5 "Sidewinder Missile Pod"
+	explode "tiny explosion" 15
+	explode "small explosion" 5
+	description "长矛号是共和国海军的主力战斗机。与所有战斗机一样，它单舰作战能力较弱，但在编队协同作战时极为高效。"
+	description "	Fighters do not come equipped with a hyperdrive. You cannot carry a fighter unless you have a ship in your fleet with a fighter bay."
+
+
+
+ship "Leviathan"
+	sprite "ship/leviathan"
+	thumbnail "thumbnail/leviathan"
+	attributes
+		category "Heavy Warship"
+		"cost" 9800000
+		"shields" 14400
+		"hull" 5000
+		"required crew" 43
+		"bunks" 64
+		"mass" 1515
+		"drag" 14.2
+		"heat dissipation" .3
+		"fuel capacity" 500
+		"cargo space" 80
+		"outfit space" 620
+		"weapon capacity" 240
+		"engine capacity" 120
+		weapon
+			"blast radius" 80
+			"shield damage" 800
+			"hull damage" 400
+			"hit force" 1200
+	outfits
+		"Particle Cannon" 4
+		"Quad Blaster Turret" 3
+		"Anti-Missile Turret"
+		
+		"Fusion Reactor"
+		"LP144a Battery Pack"
+		"D67-TM Shield Generator"
+		"Liquid Helium Cooler"
+		"Laser Rifle" 15
+		
+		"X3700 Ion Thruster"
+		"X4200 Ion Steering"
+		"Hyperdrive"
+		
+	engine -24 126
+	engine 24 126
+	gun -37.5 -31.5 "Particle Cannon"
+	gun 37.5 -31.5 "Particle Cannon"
+	gun -49 -19.5 "Particle Cannon"
+	gun 49 -19.5 "Particle Cannon"
+	turret -14 -10 "Quad Blaster Turret"
+	turret 14 -10 "Quad Blaster Turret"
+	turret -25.5 12.5 "Quad Blaster Turret"
+	turret 25.5 12.5 "Anti-Missile Turret"
+	leak "leak" 50 50
+	leak "flame" 30 80
+	leak "big leak" 60 30
+	explode "tiny explosion" 18
+	explode "small explosion" 36
+	explode "medium explosion" 24
+	explode "large explosion" 8
+	"final explode" "final explosion large"
+	description "参宿七船坞利维坦号早在共和国成立之前便已投入服役。尽管如今被视为过时笨重的型号，它仍是一股不容小觑的力量。"
+
+
+
+ship "Mammoth"
+	sprite "ship/pirate mammoth"
+	thumbnail "thumbnail/pirate mammoth"
+	attributes
+		category "Utility"
+		"cost" 18800000
+		"shields" 6200
+		"hull" 7400
+		"required crew" 18
+		"bunks" 30
+		"mass" 1361
+		"drag" 18.5
+		"heat dissipation" .21
+		"fuel capacity" 1000
+		"cargo space" 400
+		"outfit space" 536
+		"weapon capacity" 294
+		"engine capacity" 114
+		"scan interference" 2
+		weapon
+			"blast radius" 136
+			"shield damage" 1360
+			"hull damage" 680
+			"hit force" 2040
+	outfits
+		"Sidewinder Missile Launcher" 2
+		"Sidewinder Missile" 90
+		"Proton Turret" 2
+		"Quad Blaster Turret" 2
+		"Anti-Missile Turret" 4
+		
+		"Fission Reactor"
+		"LP072a Battery Pack"
+		"D41-HY Shield Generator"
+		"Large Radar Jammer"
+		"Cooling Ducts"
+		"Catalytic Ramscoop"
+		"Laser Rifle" 18
+		
+		"Volcano Afterburner" 2
+		"AR120 Reverse Thruster"
+		"A370 Atomic Thruster"
+		"A375 Atomic Steering"
+		"Scram Drive"
+		
+	engine 17 147 0.8
+	engine -17 147 0.8
+	engine -34 143 0.8
+	engine 34 143 0.8
+	engine -56 148.5 0.6
+	engine 56 148.5 0.6
+	gun -47.5 -57.5
+	gun 47.5 -57.5
+	turret -31 -50 "Anti-Missile Turret"
+	turret 31 -50 "Anti-Missile Turret"
+	turret -14.5 0 "Quad Blaster Turret"
+	turret 14.5 0 "Quad Blaster Turret"
+	turret -47.5 33.5 "Proton Turret"
+	turret 47.5 33.5 "Proton Turret"
+	turret -22 66.5 "Anti-Missile Turret"
+	turret 22 66.5 "Anti-Missile Turret"
+	leak "leak" 40 50
+	leak "flame" 40 80
+	leak "big leak" 50 30
+	explode "small explosion" 15
+	explode "medium explosion" 20
+	explode "large explosion" 40
+	explode "huge explosion" 20
+	"final explode" "final explosion large"
+	description "这是一艘稀有且经过大幅改装的‘巨兽级’飞船，被部分海盗与走私者用于向远近各星系运送大量货物。其武装足以应对甚至海军护卫舰的拦截，速度也足够甩开任何体型更大的对手。"
+
+
+
+ship "Manta"
+	sprite "ship/manta"
+	thumbnail "thumbnail/manta"
+	attributes
+		category "Medium Warship"
+		"cost" 3400000
+		"shields" 5900
+		"hull" 1500
+		"required crew" 6
+		"bunks" 10
+		"mass" 352
+		"drag" 6.3
+		"heat dissipation" .6
+		"fuel capacity" 400
+		"cargo space" 20
+		"outfit space" 350
+		"weapon capacity" 140
+		"engine capacity" 100
+		weapon
+			"blast radius" 80
+			"shield damage" 800
+			"hull damage" 400
+			"hit force" 1200
+	outfits
+		"Particle Cannon" 4
+		"Torpedo Storage Rack"
+		"Torpedo" 21
+		"Torpedo Pod" 2
+		
+		"RT-I Radiothermal"
+		"LP144a Battery Pack"
+		"D14-RN Shield Generator"
+		"Laser Rifle"
+		
+		"X3700 Ion Thruster"
+		"X3200 Ion Steering"
+		"Hyperdrive"
+		
+	engine -33 40
+	engine 33 40
+	gun -68.5 -33 "Torpedo Pod"
+	gun 68.5 -33 "Torpedo Pod"
+	gun -20 -31 "Particle Cannon"
+	gun 20 -31 "Particle Cannon"
+	gun -26.5 -30 "Particle Cannon"
+	gun 26.5 -30 "Particle Cannon"
+	leak "leak" 60 50
+	leak "flame" 40 80
+	explode "tiny explosion" 10
+	explode "small explosion" 20
+	explode "medium explosion" 15
+	"final explode" "final explosion small"
+	description "在梅加帕塞克公司研发的“水银号”轻型战舰——配备粒子炮、广受护航舰队与行星防御部队青睐——大获成功之后，该公司决定开发一款尺寸更大、机动性相近但火力更强劲的战舰。“蝠鲼号”由此诞生：它拥有足以覆盖远距离的强悍火力，几乎令任何试图逃离与其交战的对手无路可逃。"
+
+
+
+ship "Mining Drone"
+	sprite "ship/mining drone"
+	thumbnail "thumbnail/mining drone"
+	attributes
+		category "Drone"
+		"cost" 58000
+		"hull" 300
+		"automaton" 1
+		"mass" 12
+		"drag" .55
+		"heat dissipation" .8
+		"outfit space" 62
+		"weapon capacity" 12
+		"engine capacity" 28
+		weapon
+			"blast radius" 3
+			"shield damage" 30
+			"hull damage" 15
+			"hit force" 45
+	outfits
+		"Mining Laser"
+
+		"nGVF-AA Fuel Cell"
+		"Supercapacitor"
+
+		"X1700 Ion Thruster"
+		"X1200 Ion Steering"
+		
+	engine 0 22 0.9
+	gun 0 -22
+	explode "tiny explosion" 10
+	description "半自主采矿无人机由辛迪加部署，作为“裂解者”采矿船的辅助单位。这种无人机本质上只是一台安装在小型引擎后方的采矿激光器，结构极其脆弱，因此在与其他飞船交战时往往难以持久。"
+	description "	Drones do not come equipped with a hyperdrive. You cannot carry a drone unless you have a ship in your fleet with a drone bay."
+
+
+
+ship "Modified Argosy"
+	plural "Modified Argosies"
+	sprite "ship/modified argosy"
+	thumbnail "thumbnail/modified argosy"
+	attributes
+		category "Light Warship"
+		"cost" 1960000
+		"shields" 4800
+		"hull" 1900
+		"required crew" 5
+		"bunks" 12
+		"mass" 400
+		"drag" 7.8
+		"heat dissipation" .48
+		"fuel capacity" 400
+		"cargo space" 60
+		"outfit space" 340
+		"weapon capacity" 140
+		"engine capacity" 80
+		weapon
+			"blast radius" 80
+			"shield damage" 800
+			"hull damage" 400
+			"hit force" 1200
+	outfits
+		"Heavy Laser" 2
+		"Meteor Missile Launcher" 2
+		"Meteor Missile" 60
+		"Heavy Laser Turret"
+		"Heavy Anti-Missile Turret"
+		
+		"NT-200 Nucleovoltaic"
+		"LP072a Battery Pack"
+		"D23-QP Shield Generator"
+		"Small Radar Jammer"
+		"Brig"
+		"Laser Rifle" 12
+		
+		"Greyhound Plasma Thruster"
+		"X3200 Ion Steering"
+		"Hyperdrive"
+		
+	engine -25 93 0.6
+	engine -14 93 0.8
+	engine 14 93 0.8
+	engine 25 93 0.6
+	gun -22 -37 "Heavy Laser"
+	gun 22.5 -37 "Heavy Laser"
+	gun -22 -37 "Meteor Missile Launcher"
+	gun 22.5 -37 "Meteor Missile Launcher"
+	turret 0 -12.5 "Heavy Anti-Missile Turret"
+	turret 0 9.5 "Heavy Laser Turret"
+	leak "leak" 70 50
+	leak "flame" 30 80
+	explode "tiny explosion" 10
+	explode "small explosion" 25
+	explode "medium explosion" 30
+	explode "large explosion" 15
+	"final explode" "final explosion medium"
+	description "长期以来，“大篷车号”一直是海盗们的首选舰船；他们开发出大量改装技巧，使其更适合作为战舰使用。"
+
+
+
+ship "Monitor"
+	sprite "ship/monitor"
+	thumbnail "thumbnail/monitor"
+	attributes
+		category "Medium Warship"
+		"cost" 2900000
+		"shields" 4900
+		"hull" 2400
+		"required crew" 20
+		"bunks" 32
+		"mass" 690
+		"drag" 8.4
+		"heat dissipation" .32
+		"fuel capacity" 500
+		"cargo space" 20
+		"outfit space" 330
+		"weapon capacity" 130
+		"engine capacity" 90
+		weapon
+			"blast radius" 73
+			"shield damage" 730
+			"hull damage" 365
+			"hit force" 1095
+	outfits
+		"Heavy Blaster" 3
+		"Laser Turret" 2
+		"Anti-Missile Turret"
+		
+		"KP-6 Photovoltaic Array" 3
+		"nGVF-BB Fuel Cell"
+		"LP036a Battery Pack"
+		"D23-QP Shield Generator"
+		"Laser Rifle" 6
+		"Fragmentation Grenades" 4
+		
+		"X3700 Ion Thruster"
+		"X3200 Ion Steering"
+		"Hyperdrive"
+		
+	engine -20.5 92
+	engine 20.5 92
+	gun 0 -94.5 "Heavy Blaster"
+	gun -11 -86 "Heavy Blaster"
+	gun 11 -86 "Heavy Blaster"
+	turret -17.5 -19.5 "Laser Turret"
+	turret 17.5 -19.5 "Laser Turret"
+	turret 0 17 "Anti-Missile Turret"
+	leak "leak" 30 40
+	leak "flame" 40 80
+	leak "big leak" 70 30
+	explode "tiny explosion" 20
+	explode "small explosion" 40
+	explode "medium explosion" 20
+	explode "large explosion" 5
+	"final explode" "final explosion medium"
+	description `共和国初建之时，各行星政府与企业常各自组建舰队；唯有深空舰队具备某种形式的联合海军。地球常陷入低效调度这些舰队去围剿海盗或镇压叛离世界之困境。为践行共和国“群星之间的和平”这一宗旨，新成立的共和国海军委托月球船坞设计一款坚固的战舰，以彰显统一共和国的强大力量。由此诞生的‘监视者号’，长期作为海军舰队主力，直至更先进的护卫舰问世。`
+	description `如今仍在航行的少数“监视者号”飞船，是海军在贝特尔格斯加入共和国之前售予其政府的残余舰只。而在流入私人手中的“监视者号”中，部分最终辗转进入了远北地区的黑市。`
+
+
+
+ship "Mule"
+	sprite "ship/mule"
+	thumbnail "thumbnail/mule"
+	attributes
+		category "Utility"
+		"cost" 4080000
+		"shields" 5400
+		"hull" 4400
+		"required crew" 14
+		"bunks" 43
+		"mass" 780
+		"drag" 9.1
+		"heat dissipation" .32
+		"fuel capacity" 600
+		"cargo space" 170
+		"outfit space" 440
+		"weapon capacity" 170
+		"engine capacity" 110
+		weapon
+			"blast radius" 100
+			"shield damage" 1000
+			"hull damage" 500
+			"hit force" 1500
+	outfits
+		"Sidewinder Missile Launcher" 2
+		"Sidewinder Missile" 136
+		"Sidewinder Missile Rack" 2
+		"Heavy Laser Turret" 2
+		"Anti-Missile Turret" 2
+		
+		"NT-200 Nucleovoltaic"
+		"KP-6 Photovoltaic Array"
+		"LP072a Battery Pack"
+		"D41-HY Shield Generator"
+		"Small Radar Jammer" 2
+		"Ramscoop"
+		"Laser Rifle"
+		
+		"X3700 Ion Thruster"
+		"X3200 Ion Steering"
+		"X1100 Ion Reverse Thruster"
+		"Hyperdrive"
+		
+	engine 11 128
+	engine -8 128
+	gun -11 -125 "Sidewinder Missile Launcher"
+	gun 11 -125 "Sidewinder Missile Launcher"
+	turret -22 -53.5 "Heavy Laser Turret"
+	turret 19.5 -39 "Anti-Missile Turret"
+	turret 20 33 "Heavy Laser Turret"
+	turret -20.5 103.5 "Anti-Missile Turret"
+	bay "Fighter" -25 -25
+		"launch effect" "human internal"
+	leak "leak" 50 50
+	leak "flame" 80 80
+	leak "big leak" 80 30
+	explode "tiny explosion" 10
+	explode "small explosion" 30
+	explode "medium explosion" 20
+	"final explode" "final explosion medium"
+	description "‘骡子号’正如其外观所示，是一艘拼凑而成的飞船。狮心造船厂的设计者将大量货舱空间、相当可观的武器系统，甚至一个战斗机机库整合在一起，最终造就了这艘主要用作货运飞船、却也因火力强大且护盾厚重而能胜任战舰职责的多功能舰船。不过，这种拼凑式设计也有其弊端：船员需求量高，而且任何同等造价但专精于单一用途的飞船，在其专业领域内的表现都会优于‘骡子号’。"
+
+
+
+ship "Nest"
+	sprite "ship/nest"
+	thumbnail "thumbnail/nest"
+	attributes
+		category "Utility"
+		"cost" 2500000
+		"shields" 2500
+		"hull" 3700
+		"required crew" 5
+		"bunks" 14
+		"mass" 510
+		"drag" 9.8
+		"heat dissipation" .48
+		"fuel capacity" 500
+		"cargo space" 40
+		"outfit space" 400
+		"weapon capacity" 140
+		"engine capacity" 80
+		weapon
+			"blast radius" 60
+			"shield damage" 600
+			"hull damage" 300
+			"hit force" 900
+	outfits
+		"Meteor Missile Launcher" 2
+		"Meteor Missile" 60
+		"Quad Blaster Turret" 2
+		"Heavy Anti-Missile Turret" 2
+		
+		"S3 Thermionic"
+		"LP072a Battery Pack"
+		"D41-HY Shield Generator" 2
+		"Large Radar Jammer"
+		"Laser Rifle" 2
+		
+		"Greyhound Plasma Thruster"
+		"Impala Plasma Steering"
+		"Hyperdrive"
+		
+	engine -45 122.5
+	engine 45 122.5
+	gun -14.5 -92.5
+	gun 14.5 -92.5
+	turret -21.5 -48 "Quad Blaster Turret"
+	turret 21.5 -48 "Heavy Anti-Missile Turret"
+	turret -18.5 78.5 "Heavy Anti-Missile Turret"
+	turret 18.5 78.5 "Quad Blaster Turret"
+	bay "Fighter" -47 12 under
+		"launch effect" "human external"
+	bay "Fighter" 47 12 under
+		"launch effect" "human external"
+	leak "leak" 60 50
+	leak "flame" 40 80
+	leak "big leak" 80 30
+	explode "tiny explosion" 20
+	explode "small explosion" 35
+	explode "medium explosion" 20
+	explode "large explosion" 5
+	"final explode" "final explosion medium"
+	description `南向船坞迅速响应自由世界的航母需求，将货船改装为货运集装箱——加装了两对战斗机对接臂、额外的装备安装空间，甚至配备了几个铺位。由于舰内通往战斗机的通道极为不便，大多数飞行员选择在飞行期间直接留在自己的战斗机中。该舰的技术名称为“运输舰 I 型：F型”，但南向船坞的装配工人因其搭载的雀鹰战斗机而将其单集装箱变体戏称为“巢”，这一名称就此沿用下来。`
+
+
+
+ship "Nighthawk"
+	sprite "ship/pirate nighthawk"
+	thumbnail "thumbnail/pirate nighthawk"
+	attributes
+		category "Transport"
+		"cost" 2630000
+		"shields" 4000
+		"hull" 1100
+		"required crew" 6
+		"bunks" 39
+		"mass" 400
+		"drag" 6.5
+		"heat dissipation" .52
+		"fuel capacity" 700
+		"cargo space" 16
+		"outfit space" 340
+		"weapon capacity" 72
+		"engine capacity" 123
+		"outfit scan opacity" 200
+		weapon
+			"blast radius" 51
+			"shield damage" 510
+			"hull damage" 255
+			"hit force" 765
+	outfits
+		"Quad Blaster Turret"
+		"Anti-Missile Turret" 2
+		
+		"RT-I Radiothermal"
+		"KP-6 Photovoltaic Array" 3
+		"LP072a Battery Pack"
+		"D23-QP Shield Generator"
+		"Large Radar Jammer"
+		"Laser Rifle" 24
+		"Nerve Gas" 10
+		"Brig" 1
+		
+		"Impala Plasma Thruster"
+		"Impala Plasma Steering"
+		"Hyperdrive"
+		
+	engine -42.5 63 .8
+	engine 42.5 63 .8
+	engine -24 68 .6
+	engine 24 68 .6
+	turret 0 -6 "Quad Blaster Turret"
+	turret -26 15 "Anti-Missile Turret"
+	turret 26 15 "Anti-Missile Turret"
+	leak "leak" 40 50
+	leak "flame" 70 80
+	explode "tiny explosion" 20
+	explode "small explosion" 30
+	explode "medium explosion" 15
+	explode "large explosion" 2
+	"final explode" "final explosion small"
+	description "夜鹰号是在黑鸟号基础上改造而成的飞船，旨在提升载客能力，专门用于运送无法无天之徒及奴隶，为此大幅牺牲了原始货舱空间。此外，该船还通过牺牲部分护盾强度，对船体进行了改装，加装了额外装甲板和一座炮塔支架。这使得夜鹰号在战斗中的防御能力远超黑鸟号——而后者本就无意卷入任何战斗。"
+
+
+
+ship "Osprey"
+	sprite "ship/osprey"
+	thumbnail "thumbnail/osprey"
+	attributes
+		category "Medium Warship"
+		"cost" 4200000
+		"shields" 7200
+		"hull" 1600
+		"required crew" 9
+		"bunks" 24
+		"mass" 630
+		"drag" 8.9
+		"heat dissipation" .54
+		"fuel capacity" 600
+		"cargo space" 40
+		"outfit space" 450
+		"weapon capacity" 180
+		"engine capacity" 130
+		weapon
+			"blast radius" 80
+			"shield damage" 800
+			"hull damage" 400
+			"hit force" 1200
+	outfits
+		"Plasma Cannon" 4
+		"Quad Blaster Turret"
+		"Heavy Anti-Missile Turret"
+		
+		"Breeder Reactor"
+		"LP036a Battery Pack"
+		"D41-HY Shield Generator"
+		"Large Radar Jammer"
+		"Liquid Helium Cooler"
+		"Laser Rifle" 3
+		
+		"Impala Plasma Thruster"
+		"Impala Plasma Steering"
+		"Hyperdrive"
+		
+	engine -42.5 62.5 .8
+	engine 42.5 62.5 .8
+	engine -16.5 105 .6
+	engine 16.5 105 .6
+	gun -9.5 -95.5 "Plasma Cannon"
+	gun 9.5 -95.5 "Plasma Cannon"
+	gun -25 -49.5 "Plasma Cannon"
+	gun 25 -49.5 "Plasma Cannon"
+	turret -15.5 -12 "Quad Blaster Turret"
+	turret 15.5 -12 "Heavy Anti-Missile Turret"
+	leak "leak" 40 50
+	leak "flame" 80 80
+	leak "big leak" 80 30
+	explode "medium explosion" 24
+	explode "large explosion" 16
+	explode "small explosion" 40
+	explode "tiny explosion" 28
+	"final explode" "final explosion medium"
+	description "黑鸟号原本设计为运输船，却意外因其敏捷性而广受轻型战舰飞行员欢迎；塔拉泽德公司因此决定专门开发一款全新战舰，鹗式战舰由此诞生。尽管多数精明的飞行员认为其定价过高，但对于那些手头宽裕、愿意为此额外付费的飞行员而言，它始终是经久不衰的热门之选。"
+
+
+
+ship "Protector"
+	sprite "ship/protector"
+	thumbnail "thumbnail/protector"
+	attributes
+		category "Heavy Warship"
+		"cost" 5500000
+		"shields" 10000
+		"hull" 7800
+		"required crew" 30
+		"bunks" 69
+		"mass" 1150
+		"drag" 16.5
+		"heat dissipation" .38
+		"fuel capacity" 400
+		"cargo space" 50
+		"outfit space" 590
+		"weapon capacity" 230
+		"engine capacity" 100
+		weapon
+			"blast radius" 160
+			"shield damage" 1600
+			"hull damage" 800
+			"hit force" 2400
+	outfits
+		"Meteor Missile Launcher" 2
+		"Meteor Missile" 60
+		"Quad Blaster Turret" 6
+		"Heavy Anti-Missile Turret"
+		"Anti-Missile Turret"
+		
+		"Fusion Reactor"
+		"LP288a Battery Pack"
+		"D67-TM Shield Generator"
+		"Small Radar Jammer" 3
+		"Liquid Nitrogen Cooler"
+		"Laser Rifle" 6
+		
+		"X3700 Ion Thruster"
+		"X3200 Ion Steering"
+		"Hyperdrive"
+		
+	engine -12 122.5
+	engine 12 122.5
+	gun -17.5 -101 "Meteor Missile Launcher"
+	gun 17.5 -101 "Meteor Missile Launcher"
+	turret -48.5 -48.5 "Quad Blaster Turret"
+	turret 48.5 -48.5 "Quad Blaster Turret"
+	turret 0 -28.5 "Heavy Anti-Missile Turret"
+	turret -68.5 0 "Quad Blaster Turret"
+	turret 68.5 0 "Quad Blaster Turret"
+	turret 0 30 "Anti-Missile Turret"
+	turret -48.5 48.5 "Quad Blaster Turret"
+	turret 48.5 48.5 "Quad Blaster Turret"
+	leak "leak" 60 50
+	leak "flame" 20 80
+	explode "tiny explosion" 18
+	explode "small explosion" 36
+	explode "medium explosion" 24
+	explode "large explosion" 8
+	"final explode" "final explosion large"
+	description `《星辰与星舰》杂志曾将其票选为“天空中最丑陋的飞船”。这艘“守护者号”是辛迪加工程学粗暴高效的典型代表：本质上不过是八座炮塔、一套引擎和船员舱室的简单拼接，专为护航商队而设计的防御平台。`
+
+
+
+ship "Quicksilver"
+	sprite "ship/quicksilver"
+	thumbnail "thumbnail/quicksilver"
+	attributes
+		category "Light Warship"
+		"cost" 836000
+		"shields" 3000
+		"hull" 800
+		"required crew" 3
+		"bunks" 6
+		"mass" 170
+		"drag" 3.1
+		"heat dissipation" .7
+		"fuel capacity" 400
+		"cargo space" 15
+		"outfit space" 240
+		"weapon capacity" 80
+		"engine capacity" 70
+		weapon
+			"blast radius" 40
+			"shield damage" 400
+			"hull damage" 200
+			"hit force" 600
+	outfits
+		"Particle Cannon" 2
+		
+		"nGVF-DD Fuel Cell"
+		"LP036a Battery Pack"
+
+		"Capybara Reverse Thruster"
+		"Greyhound Plasma Thruster"
+		"Greyhound Plasma Steering"
+		"Hyperdrive"
+		
+	engine -15.5 54
+	engine 15.5 54
+	gun -6 -39.5 "Particle Cannon"
+	gun 6 -39.5 "Particle Cannon"
+	leak "leak" 50 50
+	explode "tiny explosion" 12
+	explode "small explosion" 16
+	"final explode" "final explosion small"
+	description "‘百万秒差距’水银号是一艘围绕单一理念建造的战舰：设计出能搭载两门粒子炮的体积最小、速度最快的飞船。凭借其高航速、反向推进器以及超长武器射程，水银号可与绝大多数目标保持安全距离，并以连续粒子脉冲轰击直至将其摧毁。对武器系统的极致侧重，使得水银号连最基础的护盾发生器都无处安装。遗憾的是，后来问世的‘猎头者’号最终超越了水银号的原始设计目标；但得益于水银号更高的耐久度/成本比，以及长期合同的存在，它至今仍在辛迪加安全部队中服役。"
+
+
+
+ship "Rainmaker"
+	sprite "ship/rainmaker"
+	thumbnail "thumbnail/rainmaker"
+	attributes
+		category "Light Warship"
+		licenses
+			Navy
+		"cost" 1580000
+		"shields" 3500
+		"hull" 1200
+		"required crew" 3
+		"bunks" 7
+		"mass" 260
+		"drag" 4.6
+		"heat dissipation" .5
+		"fuel capacity" 500
+		"cargo space" 25
+		"outfit space" 240
+		"weapon capacity" 70
+		"engine capacity" 50
+		weapon
+			"blast radius" 40
+			"shield damage" 400
+			"hull damage" 200
+			"hit force" 600
+	outfits
+		"Energy Blaster" 2
+		"Meteor Missile Launcher" 4
+		"Meteor Missile" 180
+		"Meteor Missile Box" 4
+		
+		"nGVF-CC Fuel Cell"
+		"LP036a Battery Pack"
+		"D14-RN Shield Generator"
+		"Large Radar Jammer"
+		"Tactical Scanner"
+		
+		"X2700 Ion Thruster"
+		"X2200 Ion Steering"
+		"Hyperdrive"
+		
+	engine -11.5 44.5 0.4
+	engine 11.5 44.5 0.4
+	gun -7.5 -36.5 "Energy Blaster"
+	gun 7.5 -36.5 "Energy Blaster"
+	gun -27 8 "Meteor Missile Launcher"
+	gun 27 8 "Meteor Missile Launcher"
+	gun -22 8 "Meteor Missile Launcher"
+	gun 22 8 "Meteor Missile Launcher"
+	leak "leak" 50 50
+	explode "tiny explosion" 10
+	explode "small explosion" 20
+	explode "medium explosion" 15
+	"final explode" "final explosion small"
+	description "造雨者号是一艘在共和国海军船坞建造的导弹艇，配备四具导弹发射器，所携弹药足以摧毁数倍于自身尺寸的敌舰。由于机动性较差且护盾相对较弱，造雨者号最适合作为远程打击舰使用；一旦导弹耗尽，其在战斗中便基本失去价值。"
+
+
+
+ship "Raven"
+	sprite "ship/raven"
+	thumbnail "thumbnail/raven"
+	attributes
+		category "Light Warship"
+		"cost" 2200000
+		"shields" 4700
+		"hull" 1400
+		"required crew" 6
+		"bunks" 13
+		"mass" 250
+		"drag" 4.8
+		"heat dissipation" .62
+		"fuel capacity" 500
+		"cargo space" 30
+		"outfit space" 280
+		"weapon capacity" 100
+		"engine capacity" 100
+		weapon
+			"blast radius" 60
+			"shield damage" 600
+			"hull damage" 300
+			"hit force" 900
+	outfits
+		"Heavy Laser" 2
+		"Torpedo Launcher"
+		"Torpedo" 30
+		"Sidewinder Missile Launcher"
+		"Sidewinder Missile" 45
+		
+		"RT-I Radiothermal"
+		"KP-6 Photovoltaic Panel" 2
+		"LP072a Battery Pack"
+		"D41-HY Shield Generator"
+		"Laser Rifle" 2
+		
+		"X3700 Ion Thruster"
+		"X3200 Ion Steering"
+		"Hyperdrive"
+		
+	engine -9.5 63
+	engine 9.5 63
+	gun -13.5 -35.5 "Heavy Laser"
+	gun 13.5 -35.5 "Heavy Laser"
+	gun -21 -28 "Torpedo Launcher"
+	gun 21 -28 "Sidewinder Missile Launcher"
+	leak "leak" 60 50
+	leak "flame" 50 80
+	explode "medium explosion" 24
+	explode "large explosion" 16
+	explode "tiny explosion" 28
+	explode "small explosion" 40
+	"final explode" "final explosion small"
+	description "狮心渡鸦号是其最受欢迎的战舰，身形敏捷、外形优雅，却既能输出也能承受极为可观的伤害。赏金猎人尤其钟爱此舰：它远超海盗拦截机的性能，且技艺娴熟的飞行员更能凭借它击落体型大得多的敌舰。"
+
+
+
+ship "Roost"
+	sprite "ship/roost"
+	thumbnail "thumbnail/roost"
+	attributes
+		category "Utility"
+		"cost" 3000000
+		"shields" 2900
+		"hull" 5200
+		"required crew" 7
+		"bunks" 16
+		"mass" 680
+		"drag" 10.7
+		"heat dissipation" .48
+		"fuel capacity" 600
+		"cargo space" 80
+		"outfit space" 450
+		"weapon capacity" 140
+		"engine capacity" 80
+		weapon
+			"blast radius" 80
+			"shield damage" 800
+			"hull damage" 400
+			"hit force" 1200
+	outfits
+		"Meteor Missile Launcher" 2
+		"Meteor Missile" 60
+		"Quad Blaster Turret" 2
+		"Heavy Anti-Missile Turret" 2
+		
+		"S3 Thermionic"
+		"LP072a Battery Pack"
+		"D41-HY Shield Generator" 4
+		"Large Radar Jammer"
+		"Tactical Scanner"
+		"Laser Rifle" 2
+		
+		"Greyhound Plasma Thruster"
+		"Impala Plasma Steering"
+		"Hyperdrive"
+		
+	engine -45 159.5
+	engine 45 159.5
+	gun -14.5 -129.5
+	gun 14.5 -129.5
+	turret -21.5 -84.5 "Quad Blaster Turret"
+	turret 21.5 -84.5 "Heavy Anti-Missile Turret"
+	turret -18.5 115.5 "Heavy Anti-Missile Turret"
+	turret 18.5 115.5 "Quad Blaster Turret"
+	bay "Fighter" -47 -24 under
+		"launch effect" "human external"
+	bay "Fighter" 47 -24 under
+		"launch effect" "human external"
+	bay "Fighter" -47 50 under
+		"launch effect" "human external"
+	bay "Fighter" 47 50 under
+		"launch effect" "human external"
+	leak "leak" 50 50
+	leak "flame" 40 80
+	leak "big leak" 80 30
+	explode "tiny explosion" 10
+	explode "small explosion" 25
+	explode "medium explosion" 30
+	explode "large explosion" 15
+	"final explode" "final explosion medium"
+	description `南向船坞推出的新型战斗机运载集装箱，赋予了许多人眼中已过时的设计以全新用途。舰体外部设有四个战斗机机库，使其成为当前市场上最大的民用航母——尽管作为战舰略显笨拙。继装配工人成功为前型命名“巢”之后，“运输舰 II 型：F型”很快也依循同一主题被称作“栖”（Roost）。`
+
+
+
+ship "Saber"
+	sprite "ship/saber"
+	thumbnail "thumbnail/saber"
+	attributes
+		category "Medium Warship"
+		"cost" 2200000
+		"shields" 4600
+		"hull" 2600
+		"required crew" 16
+		"bunks" 25
+		"mass" 660
+		"drag" 8.7
+		"heat dissipation" .35
+		"fuel capacity" 600
+		"cargo space" 30
+		"outfit space" 280
+		"weapon capacity" 105
+		"engine capacity" 90
+		weapon
+			"blast radius" 72
+			"shield damage" 720
+			"hull damage" 360
+			"hit force" 1080
+	outfits
+		"Beam Laser" 3
+		"Javelin Pod" 2
+		"Javelin" 600
+		"Javelin Storage Crate" 2
+		"Blaster Turret"
+		
+		"nGVF-CC Fuel Cell"
+		"LP072a Battery Pack"
+		"D23-QP Shield Generator"
+		
+		"X3700 Ion Thruster"
+		"X3200 Ion Steering"
+		"Hyperdrive"
+
+	engine 0 105
+	gun -10.5 -105 "Beam Laser"
+	gun 0 -105 "Beam Laser"
+	gun 10.5 -105 "Beam Laser"
+	gun -5 -104 "Javelin Pod"
+	gun 5 -104 "Javelin Pod"
+	turret 0 27.5 "Blaster Turret"
+	leak "leak" 60 60
+	leak "flame" 40 80
+	leak "big leak" 40 20
+	explode "tiny explosion" 10
+	explode "small explosion" 24
+	explode "medium explosion" 28
+	explode "large explosion" 10
+	"final explode" "final explosion medium"
+	description "商队时代期间，一支支装备更精良、技术更先进的深空商船舰队沿贸易路线开辟出经济繁荣浪潮，催生了诸如‘弯刀号’这样的舰船。这款中型战舰曾是其时代的军事主力之一：舰首配备五门炮位，背部还设有一座炮塔，可攻击正前方以外的任何目标。随着海盗为应对防御更强的商船而集结成规模更大的作战团伙，‘弯刀号’亦在他们当中广受欢迎。与‘火鸟号’等其他舰船不同，它并未因竞争加剧而迅速被淘汰，而是逐渐淡出历史舞台；但凡仍拥有此舰之人，无不视若珍宝。"
+
+
+
+ship "Scout"
+	sprite "ship/scout"
+	thumbnail "thumbnail/scout"
+	attributes
+		category "Transport"
+		"cost" 850000
+		"shields" 2000
+		"hull" 400
+		"required crew" 1
+		"bunks" 12
+		"mass" 160
+		"drag" 3.9
+		"heat dissipation" .61
+		"fuel capacity" 800
+		"cargo space" 55
+		"outfit space" 220
+		"weapon capacity" 40
+		"engine capacity" 100
+		weapon
+			"blast radius" 16
+			"shield damage" 160
+			"hull damage" 80
+			"hit force" 240
+	outfits
+		"Energy Blaster" 2
+		"Anti-Missile Turret"
+		
+		"nGVF-CC Fuel Cell"
+		"LP036a Battery Pack"
+		"D14-RN Shield Generator"
+		"Small Radar Jammer"
+		"Ramscoop"
+		
+		"X3700 Ion Thruster"
+		"X3200 Ion Steering"
+		"Hyperdrive"
+		
+	engine -7 40
+	engine 7 40
+	gun -18.5 -6 "Energy Blaster"
+	gun 18.5 -6 "Energy Blaster"
+	turret 0 -2.5 "Anti-Missile Turret"
+	explode "tiny explosion" 10
+	explode "small explosion" 20
+	explode "medium explosion" 15
+	leak "leak" 50 50
+	leak "flame" 60 80
+	"final explode" "final explosion small"
+	description "狮心侦察舰诞生于银河系人口尚稀疏的年代——当时为勘探宜居星球或资源富集星球而远航的飞船，往往需驶离所有可供补给的宜居太空港甚远。尽管如今银河系已被更全面地探索，侦察舰仍因其卓越的远程航行能力而广受青睐。"
+
+
+
+ship "Scrapper"
+	sprite "ship/pirate scrapper"
+	thumbnail "thumbnail/pirate scrapper"
+	attributes
+		category "Interceptor"
+		"cost" 60000
+		"shields" 450
+		"hull" 520
+		"required crew" 1
+		"bunks" 4
+		"mass" 71
+		"drag" 1.5
+		"heat dissipation" .77
+		"fuel capacity" 300
+		"cargo space" 21
+		"outfit space" 125
+		"weapon capacity" 12
+		"engine capacity" 58
+		weapon
+			"blast radius" 10
+			"shield damage" 80
+			"hull damage" 50
+			"hit force" 140
+	outfits
+		"Twin Blaster"
+		
+		"KP-6 Photovoltaic Panel" 4
+		"LP036a Battery Pack"
+		
+		"X2700 Ion Thruster"
+		"X2200 Ion Steering"
+		"Hyperdrive"
+		
+	engine -6 30
+	engine 6 30
+	gun 0 -31
+	leak "leak" 60 50
+	explode "tiny explosion" 10
+	explode "small explosion" 5
+	description "“拾荒者”并非某一款特定型号的飞船，而是一类由报废穿梭机残骸拼凑而成的舰船家族。共和国当局极少承认其存在；即便偶有关注，也往往将其视为近乎非法、涉嫌侵犯专利、极度危险的死亡陷阱。尽管如此，许多出身贫寒的船长（以及海盗）正是从这类飞船起步，开启了自己的航程。"
+
+
+
+ship "Shuttle"
+	sprite "ship/shuttle"
+		"frame time" 4
+		"delay" 14
+		"random start frame"
+	thumbnail "thumbnail/shuttle"
+	attributes
+		category "Transport"
+		"cost" 180000
+		"shields" 500
+		"hull" 600
+		"required crew" 1
+		"bunks" 6
+		"mass" 80
+		"drag" 1.8
+		"heat dissipation" .77
+		"fuel capacity" 400
+		"cargo space" 20
+		"outfit space" 120
+		"weapon capacity" 10
+		"engine capacity" 60
+		weapon
+			"blast radius" 12
+			"shield damage" 120
+			"hull damage" 60
+			"hit force" 180
+	outfits
+		"nGVF-AA Fuel Cell"
+		"LP036a Battery Pack"
+		"D14-RN Shield Generator"
+		
+		"X2700 Ion Thruster"
+		"X2200 Ion Steering"
+		"Hyperdrive"
+		
+	engine -6 30
+	engine 6 30
+	gun 0 -31
+	leak "leak" 60 50
+	explode "tiny explosion" 10
+	explode "small explosion" 5
+	description "尽管参宿四船坞也生产其他型号的飞船，但其大部分利润均来自穿梭机的销售。这款多用途飞船既可胜任客运任务，亦可担当货运信使。此外，它恰好也是你能买到的、具备超空间航行能力的最廉价飞船。"
+	description `	穿梭机并非为承受任何类型的战斗而设计，但其速度较快、机动性较强，若遭体型更大、速度更慢的飞船攻击，尚能及时脱离险境。尽管穿梭机通常未配备武器，但其内部仍有空间安装一门武器——这正是广为流传的俗语‘给穿梭机装爆能炮，纯属多此一举’的由来。`
+
+
+
+ship "Skein"
+	sprite "ship/skein"
+	thumbnail "thumbnail/skein"
+	attributes
+		category "Utility"
+		licenses
+			"Militia"
+		"cost" 3500000
+		"shields" 3300
+		"hull" 6700
+		"required crew" 7
+		"bunks" 18
+		"mass" 850
+		"drag" 11.6
+		"heat dissipation" .51
+		"fuel capacity" 700
+		"cargo space" 120
+		"outfit space" 500
+		"weapon capacity" 140
+		"engine capacity" 80
+		weapon
+			"blast radius" 100
+			"shield damage" 1000
+			"hull damage" 500
+			"hit force" 1500
+	outfits
+		"Meteor Missile Pod" 2
+		"Meteor Missile" 29
+		"Meteor Missile Box"
+		"Quad Blaster Turret" 2
+		"Heavy Anti-Missile Turret"
+		"Anti-Missile Turret"
+		
+		"S3 Thermionic"
+		"LP072a Battery Pack"
+		"D67-TM Shield Generator" 4
+		"Tactical Scanner"
+		"Laser Rifle" 4
+		
+		"Greyhound Plasma Thruster"
+		"Impala Plasma Steering"
+		"Capybara Reverse Thruster"
+		"Hyperdrive"
+
+	engine -45 196.5
+	engine 45 196.5
+	gun -14.5 -166.5
+	gun 14.5 -166.5
+	turret -21.5 -122 "Quad Blaster Turret"
+	turret 21.5 -122 "Heavy Anti-Missile Turret"
+	turret -18.5 152.5 "Anti-Missile Turret"
+	turret 18.5 152.5 "Quad Blaster Turret"
+	bay "Fighter" -47 -61 under
+		"launch effect" "human external"
+	bay "Fighter" 47 -61 under
+		"launch effect" "human external"
+	bay "Fighter" -47 14 under
+		"launch effect" "human external"
+	bay "Fighter" 47 14 under
+		"launch effect" "human external"
+	bay "Fighter" -47 88 under
+		"launch effect" "human external"
+	bay "Fighter" 47 88 under
+		"launch effect" "human external"
+	leak "leak" 50 50
+	leak "flame" 40 80
+	leak "big leak" 70 30
+	explode "small explosion" 15
+	explode "medium explosion" 30
+	explode "large explosion" 20
+	explode "huge explosion" 5
+	"final explode" "final explosion large"
+	description `这套特定的驾驶舱与引擎组合，已被安装在南向船坞（Southbound Shipyards）最新研制的三台「F型」战斗机母舰舱段上。自由世界当初提出建造航母的需求时，绝未料到成品竟可搭载近似海军最重型战舰数量的战斗机。正因如此，自由世界已要求南向船坞与塔拉泽德（Tarazed）公司严格限制「运输者III：F型」及「经纬号」（Skein）的销售范围，仅限其民兵部队采购。`
+
+
+
+ship "Sparrow"
+	sprite "ship/sparrow"
+	thumbnail "thumbnail/sparrow"
+	attributes
+		category "Interceptor"
+		"cost" 225000
+		"shields" 1400
+		"hull" 300
+		"required crew" 1
+		"bunks" 3
+		"mass" 60
+		"drag" .95
+		"heat dissipation" .77
+		"fuel capacity" 300
+		"cargo space" 15
+		"outfit space" 130
+		"weapon capacity" 25
+		"engine capacity" 40
+		weapon
+			"blast radius" 16
+			"shield damage" 160
+			"hull damage" 80
+			"hit force" 240
+	outfits
+		"Beam Laser" 2
+		
+		"nGVF-BB Fuel Cell"
+		"LP036a Battery Pack"
+		"D14-RN Shield Generator"
+		
+		"Chipmunk Plasma Thruster"
+		"Chipmunk Plasma Steering"
+		"Hyperdrive"
+		
+	engine -5 35
+	engine 5 35
+	gun -7 -10
+	gun 7 -10
+	gun -10.5 -8.5
+	gun 10.5 -8.5
+	leak "flame" 60 80
+	explode "tiny explosion" 15
+	explode "small explosion" 5
+	description "塔拉泽德云雀号被归类为截击机而非战斗机，因其自带跃迁引擎，无需由大型飞船搭载运输。它是目前可获得的最小、最廉价的战斗飞船。受限于狭小的货物与乘员空间，云雀号飞行员维持生计的主要方式是升级武器、猎杀海盗……或干脆自己沦为海盗。无论哪种选择，这都是一条危机四伏的谋生之路。"
+	description "	政府报告显示，首次购船者中，每三位选择驾驶“麻雀号”飞船的人里，就有两位会在购船首月内失去飞船（往往连同性命一并丧失）。那些幸存超过一个月的飞行员普遍坚信：必须用导弹发射器替换原装武器。"
+
+
+
+ship "Splinter"
+	sprite "ship/splinter"
+	thumbnail "thumbnail/splinter"
+	attributes
+		category "Medium Warship"
+		"cost" 3100000
+		"shields" 5200
+		"hull" 1700
+		"required crew" 7
+		"bunks" 21
+		"mass" 510
+		"drag" 5.6
+		"heat dissipation" .5
+		"fuel capacity" 600
+		"cargo space" 75
+		"outfit space" 400
+		"weapon capacity" 150
+		"engine capacity" 100
+		weapon
+			"blast radius" 60
+			"shield damage" 600
+			"hull damage" 300
+			"hit force" 900
+	outfits
+		"Proton Gun" 2
+		"Blaster Turret" 2
+		"Anti-Missile Turret"
+		
+		"RT-I Radiothermal"
+		"LP144a Battery Pack"
+		"D67-TM Shield Generator"
+		"Small Radar Jammer" 2
+		"Water Coolant System"
+		"Laser Rifle"
+		
+		"X3700 Ion Thruster"
+		"X3200 Ion Steering"
+		"Hyperdrive"
+		
+	engine -15.5 115
+	engine 15.5 115
+	gun -12 -93 "Proton Gun"
+	gun 12 -93 "Proton Gun"
+	turret -13 42 "Blaster Turret"
+	turret 0 9 "Anti-Missile Turret"
+	turret 13 42 "Blaster Turret"
+	leak "leak" 60 50
+	leak "flame" 40 80
+	leak "big leak" 90 30
+	explode "tiny explosion" 18
+	explode "small explosion" 36
+	explode "medium explosion" 24
+	explode "large explosion" 8
+	"final explode" "final explosion medium"
+	description "‘碎裂者号’是兆秒差距船坞建造的最大型战舰。其设计目标是比同级别其他飞船更快、更灵活，以胜任重型护航舰角色，或编入行星防御与巡逻舰队。由于其预期用途包括为商船队护航，该舰还配备了相当可观的货舱空间。"
+
+
+
+ship "Star Barge"
+	sprite "ship/star barge"
+	thumbnail "thumbnail/star barge"
+	attributes
+		category "Light Freighter"
+		"cost" 190000
+		"shields" 600
+		"hull" 1000
+		"required crew" 1
+		"bunks" 3
+		"mass" 80
+		"drag" 2.2
+		"heat dissipation" .77
+		"fuel capacity" 300
+		"cargo space" 50
+		"outfit space" 130
+		"weapon capacity" 20
+		"engine capacity" 40
+		weapon
+			"blast radius" 16
+			"shield damage" 160
+			"hull damage" 80
+			"hit force" 240
+	outfits
+		"Anti-Missile Turret"
+
+		"nGVF-BB Fuel Cell"
+		"LP036a Battery Pack"
+		"D14-RN Shield Generator"
+		
+		"X1700 Ion Thruster"
+		"X1200 Ion Steering"
+		"Hyperdrive"
+		
+	engine -9.5 38
+	engine 9.5 38
+	turret 0 -18 "Anti-Missile Turret"
+	leak "leak" 60 50
+	explode "tiny explosion" 10
+	explode "small explosion" 10
+	description "辛迪加CT-50星运驳船本质上不过是一串货运集装箱，一端装有引擎，另一端设有驾驶舱。它是一艘缓慢而丑陋的飞船，却拥有足以承载大量货物的运力，即便在银河系中乘客稀少、信使任务难寻的区域，也能为其船长带来稳定收入。"
+	description "	由于星港驳船常运载高价值货物，且航速过慢无法规避任何攻击者，因此常成为海盗的袭击目标。"
+
+
+
+ship "Star Queen"
+	sprite "ship/star queen"
+	thumbnail "thumbnail/star queen"
+	attributes
+		category "Space Liner"
+		"cost" 4200000
+		"shields" 4100
+		"hull" 2200
+		"required crew" 33
+		"bunks" 112
+		"mass" 525
+		"drag" 6.7
+		"heat dissipation" .44
+		"fuel capacity" 700
+		"cargo space" 60
+		"outfit space" 360
+		"weapon capacity" 120
+		"engine capacity" 100
+		weapon
+			"blast radius" 60
+			"shield damage" 600
+			"hull damage" 300
+			"hit force" 900
+	outfits
+		"Sidewinder Missile Launcher"
+		"Sidewinder Missile" 45
+		"Heavy Anti-Missile Turret" 2
+		
+		"KP-6 Photovoltaic Array" 4
+		"LP036a Battery Pack"
+		"D94-YV Shield Generator"
+		"Small Radar Jammer" 3
+		"Luxury Accommodations"
+		
+		"X3700 Ion Thruster"
+		"X2200 Ion Steering"
+		"AR120 Reverse Thruster"
+		"Hyperdrive"
+		
+	engine -18.5 115
+	engine 18.5 115
+	"reverse engine" -19 51
+		over
+	"reverse engine" 19 51
+		over
+	gun 0 -113
+	gun -24 -76 "Sidewinder Missile Launcher"
+	gun 24 -76
+	turret -21.5 2.5 "Heavy Anti-Missile Turret"
+	turret 21.5 2.5 "Heavy Anti-Missile Turret"
+	leak "leak" 50 50
+	leak "big leak" 80 30
+	explode "tiny explosion" 10
+	explode "small explosion" 25
+	explode "medium explosion" 25
+	explode "large explosion" 10
+	"final explode" "final explosion medium"
+	description "‘星后号’是银河系历史上一段更和平时期的遗存：一艘面向高端游客的豪华游轮。每间客舱均配备独立迷你吧，浴室则铺设大理石瓷砖，并配有使用真正热水（而非化学剂或声波振动）的淋浴设施。"
+	description "	为支持银河系各地的环保运动，所有“星后级”飞船均标配太阳能电池板阵列作为唯一能源，取代了更常见的燃料电池或核反应堆等会产生一定废料的动力装置。尽管有人认为此举毫无意义——毕竟清洁聚变反应堆早已普及，但也有不少人对此表示赞赏，并指出聚变反应堆高昂的成本正是改用太阳能电池板的重要原因。"
+
+
+
+ship "Sunder"
+	sprite "ship/sunder"
+	thumbnail "thumbnail/sunder"
+	attributes
+		category "Utility"
+		"cost" 1000000
+		"shields" 1200
+		"hull" 1600
+		"required crew" 3
+		"bunks" 5
+		"mass" 260
+		"drag" 4.7
+		"heat dissipation" .56
+		"fuel capacity" 600
+		"cargo space" 80
+		"outfit space" 230
+		"weapon capacity" 50
+		"engine capacity" 90
+		weapon
+			"blast radius" 28
+			"shield damage" 280
+			"hull damage" 140
+			"hit force" 420
+	outfits
+		"Mining Laser" 2
+		"Tractor Beam"
+
+		"Asteroid Scanner"
+		"nGVF-CC Fuel Cell"
+		"LP036a Battery Pack"
+		"D23-QP Shield Generator"
+
+		"X3700 Ion Thruster"
+		"X3200 Ion Steering"
+		"Hyperdrive"
+
+	engine -11.5 54
+	engine 11.5 54
+	gun -9.5 -53
+	gun 9.5 -53
+	turret 0 28.5
+	bay "Drone" 0 -14
+		"under"
+		"launch effect" "human external"
+	bay "Drone" 0 38
+		"under"
+		"angle" 180
+		"launch effect" "human external"
+	leak "leak" 60 50
+	leak "flame" 50 80
+	explode "tiny explosion" 20
+	explode "small explosion" 15
+	explode "medium explosion" 15
+	"final explode" "final explosion small"
+	description "‘撕裂者号’（Sunder）是一艘多用途采矿平台，配备了专用的勘探设备，其中最显著的是可搭载两台采矿无人机的机身下部结构。该舰的设计谱系可追溯至数百年前太阳系主小行星带所使用的古老采矿船；然而，由于辛迪加近期正加紧开发核心区（Core）的矿产资源，最新一代‘撕裂者号’目前已由辛迪加船坞（Syndicated Shipyards）负责制造。"
+
+
+
+
+ship "Surveillance Drone"
+	sprite "ship/surveillance drone"
+	thumbnail "thumbnail/surveillance drone"
+	attributes
+		category "Drone"
+		licenses
+			Navy
+		"cost" 50000
+		"hull" 300
+		"automaton" 1
+		"mass" 15
+		"drag" .53
+		"heat dissipation" .9
+		"outfit space" 53
+		"weapon capacity" 0
+		"engine capacity" 28
+		weapon
+			"blast radius" 3
+			"shield damage" 30
+			"hull damage" 15
+			"hit force" 45
+	outfits
+		"nGVF-AA Fuel Cell"
+		"Surveillance Pod"
+		
+		"X1700 Ion Thruster"
+		"X1200 Ion Steering"
+		
+	engine -3 29
+	engine 3 29
+	explode "tiny explosion" 15
+	description "侦察无人机是共和国海军使用的无武装无人机，用于扫描恒星系内的飞船与行星。"
+	description "	Drones do not come equipped with a hyperdrive. You cannot carry a drone unless you have a ship in your fleet with a drone bay."
+
+
+
+ship "Valkyrie"
+	sprite "ship/pirate valkyrie"
+	thumbnail "thumbnail/pirate valkyrie"
+	attributes
+		category "Medium Warship"
+		"cost" 3900000
+		"shields" 4800
+		"hull" 2800
+		"required crew" 9
+		"bunks" 19
+		"mass" 436
+		"drag" 7.4
+		"heat dissipation" .42
+		"fuel capacity" 500
+		"cargo space" 81
+		"outfit space" 400
+		"weapon capacity" 180
+		"engine capacity" 105
+		weapon
+			"blast radius" 76
+			"shield damage" 760
+			"hull damage" 380
+			"hit force" 1140
+	outfits
+		"Quad Blaster Turret" 2
+		"Particle Cannon" 2
+		"Torpedo Launcher" 2
+		"Torpedo" 60
+		
+		"NT-200 Nucleovoltaic"
+		"KP-6 Photovoltaic Panel" 3
+		"LP072a Battery Pack"
+		"D23-QP Shield Generator"
+		"Small Radar Jammer"
+		"Laser Rifle" 18
+		"Nerve Gas" 3
+		
+		"X3700 Ion Thruster"
+		"X3200 Ion Steering"
+		"Hyperdrive"
+		
+	engine 15 97
+	engine -15 97
+	gun -12 -78 "Particle Cannon"
+	gun 12 -78 "Particle Cannon"
+	gun -64 -19 "Torpedo Launcher"
+	gun 64 -19 "Torpedo Launcher"
+	turret -31 15.5
+	turret 31 15.5
+	bay "Fighter" -43.5 2
+	bay "Fighter" 43.5 2
+	leak "leak" 50 50
+	leak "flame" 50 80
+	leak "big leak" 90 30
+	explode "tiny explosion" 10
+	explode "small explosion" 25
+	explode "medium explosion" 25
+	explode "large explosion" 10
+	"final explode" "final explosion medium"
+	description "女武神号是经过改装的苍穹级飞船，将其两个货舱及船员铺位空间改造为额外的货物空间，用于走私货物；同时还腾出更多空间加装两座额外武器挂点，并增强装甲防护。这使得女武神号既能承受也能输出可观的伤害。然而，由于增重影响，其航速略有下降，护盾效率也稍有减弱。"
+
+
+
+ship "Vanguard"
+	sprite "ship/vanguard"
+	thumbnail "thumbnail/vanguard"
+	attributes
+		category "Heavy Warship"
+		"cost" 7200000
+		"shields" 9800
+		"hull" 6000
+		"required crew" 23
+		"bunks" 45
+		"mass" 1030
+		"drag" 12
+		"heat dissipation" .4
+		"fuel capacity" 400
+		"cargo space" 50
+		"outfit space" 560
+		"weapon capacity" 220
+		"engine capacity" 120
+		weapon
+			"blast radius" 160
+			"shield damage" 1600
+			"hull damage" 800
+			"hit force" 2400
+	outfits
+		"Proton Gun" 7
+		"Anti-Missile Turret"
+
+		"Fusion Reactor"
+		"LP072a Battery Pack"
+		"D67-TM Shield Generator"
+		"Liquid Nitrogen Cooler"
+		"Laser Rifle" 4
+		
+		"X3700 Ion Thruster"
+		"X4200 Ion Steering"
+		"Hyperdrive"
+	
+	engine -16.5 131
+	engine 16.5 131
+	gun 0 -132.5 "Proton Gun"
+		parallel
+	gun -24 -122.5 "Proton Gun"
+		parallel
+	gun 24 -122.5 "Proton Gun"
+		parallel
+	gun -40 -47.5 "Proton Gun"
+		parallel
+	gun 40 -47.5 "Proton Gun"
+		parallel
+	gun -35 -44.5 "Proton Gun"
+		parallel
+	gun 35 -44.5 "Proton Gun"
+		parallel
+	turret 0 42 "Anti-Missile Turret"
+	leak "leak" 60 50
+	leak "flame" 30 80
+	explode "tiny explosion" 18
+	explode "small explosion" 36
+	explode "medium explosion" 24
+	explode "large explosion" 8
+	"final explode" "final explosion medium"
+	description `“先锋号”是辛迪加系统公司最新推出的战舰，专为重型反海盗防御市场设计。“先锋号”配备了一套非同寻常的武器系统，以威力强大的固定式火炮为核心，并采用了辛迪加系统公司最新的自动化技术，使其船员编制远低于同级别飞船。面对正面来袭之敌，它能倾泻出毁灭性的火力齐射，极少有主力舰能在如此猛烈的炮火下长久支撑。`
+
+
+
+ship "Wasp"
+	sprite "ship/wasp"
+	thumbnail "thumbnail/wasp"
+	attributes
+		category "Interceptor"
+		"cost" 400000
+		"shields" 1500
+		"hull" 500
+		"required crew" 1
+		"bunks" 2
+		"mass" 80
+		"drag" 1.3
+		"heat dissipation" .73
+		"fuel capacity" 400
+		"cargo space" 10
+		"outfit space" 150
+		"weapon capacity" 28
+		"engine capacity" 60
+		weapon
+			"blast radius" 20
+			"shield damage" 200
+			"hull damage" 100
+			"hit force" 300
+	outfits
+		"Energy Blaster" 2
+		"Sidewinder Missile Pod"
+		"Sidewinder Missile" 6
+		
+		"nGVF-BB Fuel Cell"
+		"LP036a Battery Pack"
+		"D14-RN Shield Generator"
+		"Small Radar Jammer"
+		
+		"X2700 Ion Thruster"
+		"X2200 Ion Steering"
+		"Hyperdrive"
+		
+	engine -5.5 32.5
+	engine 5.5 32.5
+	gun 0 -41 "Sidewinder Missile Pod"
+	gun -13.5 -35 "Energy Blaster"
+	gun 13.5 -35 "Energy Blaster"
+	gun -18.5 -27
+	gun 18.5 -27
+	leak "leak" 60 50
+	explode "tiny explosion" 20
+	explode "small explosion" 10
+	description "黄蜂级是一艘中等强度的拦截舰，由辛迪加船坞设计，专为货船护航任务而打造。与大多数辛迪加飞船一样，它外观并不出众，但至少能胜任其设计初衷。"

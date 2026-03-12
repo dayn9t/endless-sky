@@ -1,0 +1,398 @@
+# Copyright (c) 2021 by MasterOfGrey
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+overwrite
+mission "Theater Chat"
+	minor
+	source
+		government "Hai"
+		not attributes "station"
+	destination
+		distance 1 3
+		government "Hai"
+	to offer
+		random < 1
+	on offer
+		conversation
+			`当你穿过太空港时，偶然遇见了一对罕见的组合——一名海伊人与一名人类正用人类通用语交谈，其对话因此格外引人注目。`
+			`	“哦，哦，格梅纳里，这看起来真有趣！”这位人类女性看上去六十多岁，当你转头看去时，她正兴致勃勃地端详着一则全息剧院演出广告。“这看起来多可爱啊，对吧？哦，上面还写着，他们将采用涟漪射线折射全息飞行特效呢！”`
+			`	这则广告确实看起来极为震撼，你驻足观察了片刻。`
+			`	这位海伊——大概就是盖马纳里——看起来也是一位较为成熟的女士，她眯起眼打量着它，皱了皱鼻子：“呃，那是格尔蒙提安人的解读罢了。”`
+			`	此言引来了困惑的一瞥，盖玛纳里略作思索后加以澄清：“你们会称之为社会达尔文主义式的解读。”`
+			`	那位女士皱起眉头，还做了个干呕的动作："真不敢相信，在如此古老的社会里，你们居然还保留着这类思想流派。"`
+			`	“哦，我们其实并不太讲究这个——至少在科学界是这样；但一个引人入胜的故事，却比这些形式更能流传久远。我个人实在受不了它，但它的确是一部经典。”当那位女士露出不以为然的神情时，盖马纳里轻笑一声，温柔地挽起她的手臂，再次将她轻轻引开。“别担心，阿林塔；我想此刻‘米希普·瓦胡登’公司正在<destination>上演我最钟爱的版本。我们可以去看看有没有便宜的票。当然啦，我姑妈肯定会坚持说第一百八十三版才是唯一真正的版本——但她向来如此……”`
+			`	你渐渐听不清他们的谈话，只见他们渐行渐远，只留下你独自思忖：一部关于远古会飞的海伊人、被冰封于寒冰之中的戏剧，其第一百八十三版究竟有何特别之处？`
+				decline
+
+
+
+overwrite
+mission "Musical Entertainment Expo"
+	minor
+	source
+		government "Hai"
+		not attributes "station"
+	to offer
+		random < 1
+	on offer
+		conversation
+			`你在太空港停留补给时，惊讶地发现竟难以找到一处可供坐下来用餐饮酒的地方。似乎所有海伊人都已挤满了每家酒吧及其他设有公共显示屏的场所，身披绶带、披肩，以及各式各样的其他饰物——依你所见，这些饰物看起来……很像团队运动的周边商品？`
+			`	你对海伊社会中此类事务的具体表现并不熟悉；因此，当你终于在酒吧里（别无他选）寻得一处座位时，便向那位看上去疲惫不堪的酒保询问，究竟发生了什么。`
+			`	“哦，这个？他们全都是来看‘音乐娱乐博览会’直播的。可惜啊，除非自己支持的队伍至少宣布了一项重要成果，否则谁都不会开始喝酒。”他翻了个白眼，一脸无奈地说道。`
+			choice
+				`	“好的。我能在这里先弄点吃的吗？”`
+					goto wrapup
+				`	"音乐娱乐博览会是什么？"`
+				`	"他们为何还不开始饮酒？"`
+			`	“嗯，你看，各大音乐厂牌全年都在进行大量人才发掘工作。它们都设有专门部门，专职寻找并组建全新音乐团体，力推下一位现象级新星。按传统，只有当你正式与一支新乐队踏上征程后，才会举行庆祝仪式。每三年，业界都会举办ME2盛会——也就是你头顶上正在上演的这场演出——用于集中发布新一轮乐队，并提前预热可能在赛季中期推出的其他作品。”`
+			choice
+				`	“你的音乐是流水线生产的？”`
+					goto production
+				`	"你们就没有音乐家试图单打独斗、闯出一番名堂吗？"`
+			`	"噢，那当然，不过大多只是为了被这些公司招募而已。"`
+			label production
+			`	酒保轻笑一声：“我们创作流行音乐的历史，比你们人类掌握用火还要久远。其核心在于——亲历一支乐队从默默无闻走向万众瞩目、星光熠熠的全过程。一位资深海伊乐迷，几乎总能在浩如烟海的曲库中，为任何人生际遇、任何音乐风格，精准找到一首契合的歌。真正重要的，是这段旅程本身，以及其中鲜活的人格魅力。”`
+			choice
+				`	"真奇怪。"`
+				`	"真有意思。"`
+			`	“不管怎样，我猜你是来找些食物的吧？”`
+			label wrapup
+			`	酒保朝您略一颔首，接过您的点单：“没问题，马上就好。”`
+			`	这顿饭吵闹得很。`
+				decline
+
+
+
+overwrite
+mission "The Meme Wars 1"
+	minor
+	source
+		government "Hai"
+		not attributes "station"
+	to offer
+		random < 1
+	on offer
+		conversation
+			`踏入太空港，你立刻被一片绚烂色彩所包围。所有本不用于商业广告的空白表面，此刻都挂满了悬浮全息投影仪、横幅与彩带。甚至还有真正的纸质传单和海报，似乎被随意粘贴在任何能附着的地方。起初你怀疑是否正逢某场庆典，但当你看到一名头戴兜帽的年轻海伊人啪地一声贴上一台新全息投影仪，投射出一个挥舞长剑的卡通化根茎类蔬菜形象，而它正劈砍邻近一幅由虹彩三角形构成的印象派海伊长者全息图时，你才恍然大悟。接着，那名年轻海伊人又一把扯下横幅，在一张巨型海报上涂抹胶状物——海报随即开始溶解，两名身着制服的安保人员冲了过来；他们的制服上明显加装了非标准配件，正一边追一边将他赶出了太空港。`
+			branch translator
+				has "language: Hai"
+			`	你凝神观看时，全息投影出的那位三角形长者影像先是闪烁几下，随即随着电池单元耗尽而彻底熄灭——显然，那株根茎类蔬菜正对其发起‘攻击’；此刻它竟跳起了胜利之舞，继而又做出一连串令你完全无法理解的动作。`
+			`	再往前一点，你遇到两群示威者——姑且称其为示威者吧——他们像某种康茄舞队列般，在太空港入口间穿梭往来。三角形长老与对立的根茎类蔬菜图案反复出现在他们的标语牌上，其中一些还是全息动态影像。`
+			`	另一名安保人员——这次穿着常服——出现在你身旁。“你看起来有点迷茫。别担心，这不过是一场模因战争。继续忙你的事就好，别碰那些模因物品，就没人会因此来打扰你。”`
+			`	你感谢安保人员给出的建议，随后继续做自己原本的事情，而周围那场令人困惑的冲突仍在持续。`
+				decline
+			label translator
+			`	你注视着全息投影中那位三角形的长者，其影像忽然闪烁几下，随即随着电池单元电量耗尽而彻底消失——显然，那株根茎类蔬菜已将其“击溃”，此刻正跳着胜利之舞。令你惊讶的是，你的翻译器突然发声：“[胜利，成功]属于真实且方正的根！它比长老们的[三元][体系，传统]更[重要，有意义]！”`
+			`	A little further on you encounter two different groups of protesters, assuming that's what they are, weaving in and out of the spaceport's entrances like some kind of conga line. The triangular elder and opposing root vegetable make several reappearances on their placards, some of them holographically animated.`
+			`	另一名安保人员——这次穿着常服——出现在你身旁。“你看起来有点迷茫。别担心，这不过是一场模因战争。继续忙你的事就好，别碰那些模因物品，就没人会因此来打扰你。”`
+			choice
+				`	“好的，马上照办。”`
+					goto done
+				`	“你们的长老实行三权分立制度？”`
+			`	安保人员轻笑一声说道：“哦，你能听懂？其实他们自己也未必真懂——这只是源自一场早已落幕的政治运动的古老笑话：长老们真正关心的信条只有三条，而它们全都是对我们影响最小的。”`
+			`	当你询问此事缘由时，他答道：“哦，最新发布的教育重点恰好聚焦于四大信条——偏偏就在同一天，一位长老不小心引用了旧日运动的口号。真是妙趣横生。”`
+			choice
+				`	"How strange."`
+				`	“听起来很有趣。”`
+			label done
+			`	You thank the security guard for his advice and go about what you were doing as the baffling conflict continues around you.`
+				decline
+
+
+
+overwrite
+mission "Wrestling Star"
+	minor
+	source
+		government "Hai"
+		not attributes "station"
+	to offer
+		random < 1
+	on offer
+		conversation
+			`当你穿过太空港时，注意到一群发出啁啾声的海伊人正聚集在某处。`
+			choice
+				`	（无视他们，径直走过。）`
+					goto skip
+				`	（看一看。）`
+			`	人群主要由年轻的海伊人组成，不过也有少数年长些的海伊人在场，他们明显更克制自己的热情。你来到人群边缘，越过个子较矮的海伊人向前张望，看见一张摆好的桌子，两侧立着两面竖旗，桌上还叠放着一摞泛着光泽的印刷照片。`
+			`	横幅上描绘了一位体格健硕的海伊人，刻画极为精细，还配有全息增强动画，使其看似正持续重复着举起并放下一名模糊对手的动作。但事实上，这一效果纯粹依靠人为变换视角的视觉技巧实现。令你惊讶的是，这竟是一场摔跤明星的签名会。`
+			`	仅过片刻，那位当事人便从展台后方的隔间中走出，热情地向粉丝们致意——粉丝们反应极其热烈；随后，他拿起某种笔具坐下，供聚集而来的海伊们依次排队签名。看来某些人类习俗已在海伊群体中流行开来。`
+			label skip
+			`	你忙于事务时，能听见远处海伊人群发出的颤音鸣叫。`
+				decline
+
+
+
+overwrite
+mission "Fencing Star"
+	minor
+	source
+		government "Hai"
+		not attributes "station"
+	to offer
+		random < 1
+	on offer
+		conversation
+			`As you pass through the spaceport you notice a crowd of trilling Hai clustered in one area.`
+			choice
+				`	(Ignore them and pass by.)`
+					goto skip
+				`	(Take a look.)`
+			`	The crowd appears to be mostly made up of younger Hai, though a few more mature Hai are also there, visibly exhibiting more restraint on their enthusiasm. Reaching the edge of the crowd and peering over the shorter Hai folk, you can see a table set up with two standing banners flanking it and a stack of, at a glance, glossy printed photos.`
+			`	横幅上描绘了一位身形修长的海伊人，身着极具辨识度的击剑手服饰，还配有全息增强动画，使其看似正持续优雅地对画外对手施展格挡与反刺。但事实上，这一效果同样仅靠人为变换视角的视觉技巧实现。令你惊讶的是，这竟是一场击剑明星的签名会。`
+			`	After only a moment the individual in question emerges from a booth behind the setup and greets their fans, who prove very enthusiastic, before sitting down with some kind of pen for the assembled Hai to line up. It would seem that certain human customs have become popularized among the Hai.`
+			label skip
+			`	You can hear the Hai crowd trilling for some distance as you go about your business.`
+				decline
+
+
+
+overwrite
+mission "Mystery Sport Star"
+	minor
+	source
+		government "Hai"
+		not attributes "station"
+	to offer
+		random < 1
+	on offer
+		conversation
+			`As you pass through the spaceport you notice a crowd of trilling Hai clustered in one area.`
+			choice
+				`	(Ignore them and pass by.)`
+					goto skip
+				`	(Take a look.)`
+			`	The crowd appears to be mostly made up of younger Hai, though a few more mature Hai are also there, visibly exhibiting more restraint on their enthusiasm. Reaching the edge of the crowd and peering over the shorter Hai folk, you can see a table set up with two standing banners flanking it and a stack of, at a glance, glossy printed photos.`
+			`	横幅上绘有一对海伊人：一个手持渔网，另一个则握着类似带刃飞盘的器具。他们究竟在做什么完全不得而知；而当这两位当事人从展台后方的隔间中走出、向粉丝们致意时，你才恍然明白——即便你设法在尖锐的鸣叫声中喊出问题，恐怕也没人特别愿意向你解释。`
+			`	二人摘下头盔，向粉丝们绽放出耀眼夺目的海伊式微笑，随后拿起某种笔具坐下，供聚集而来的海伊排队签名。看来，明星签售在海伊社会中同样广受欢迎。`
+			label skip
+			`	You can hear the Hai crowd trilling for some distance as you go about your business.`
+				decline
+
+
+
+overwrite
+mission "Gambling Judgment"
+	minor
+	source
+		government "Hai"
+		not attributes "station"
+	to offer
+		random < 1
+	on offer
+		conversation
+			`你在太空港地面的一家小餐馆停下用餐，但还没坐多久，就注意到一群其他人类飞船船长正聚在角落里玩牌——依你判断，那似乎是一场扑克游戏。你留意到，这群人正频频招致店内其他海伊食客投来的各种不友善目光。`
+			`	过了一会儿，一位中等身材、略显发福的海伊酒保走过来为你点单。`
+			choice
+				`	（下单。）`
+					goto end
+				`	“嘿，我注意到这儿气氛有点阴沉。人类船长不受欢迎吗？”`
+			`	酒保先是一愣，随即望向那张桌子，恍然大悟地摇了摇头：“哦不，您完全受欢迎。那群人只是公然违背了‘成熟准则’；有些海伊人看到成年人在公共场合肆无忌惮地表现得像个孩子，会感到很不适。”`
+			choice
+				`	(Place an order.)`
+					goto end
+				`	"成熟信条？"`
+			`	“哦对，我倒忘了你可能并不知情。海伊人在成长过程中会学习若干条戒律，这些是内化于心的教诲，旨在培养出对社会负责且能正常履职的成员。第二条是‘行事须诚实’，第三条是‘仅可凭技艺博弈，不可凭运气下注’——所以他们的游戏同时违背了其中两条。”`
+			choice
+				`	"有人会说，扑克牌比运气更考验技巧。"`
+				`	"可既然这不过是个游戏，那玩一玩又有什么害处呢？"`
+			`	“哦不，恐怕第一条戒律就决定了，无论哪种方式都不合适。第一条是‘须明确区分幻想与现实’，因此游戏若产生真实后果，便已不再是幻想，而成了现实。所以为游戏下注赌钱，就是将真实后果带入一场幻想活动——这对成年人而言是禁忌。”`
+			`	“倘若你将这场游戏理解为纯粹比拼技艺、不涉及赌注，那么你虽满足了第一与第三条戒律，却仍面临一个问题：游戏中核心技艺乃是虚张声势与操控他人，而这恰恰违背了第二条戒律。虚张声势并非被视作具有德行的技艺，操控亦然。”`
+			choice
+				`	"等等，海伊人从不撒谎或虚张声势吗？"`
+			`	酒保发出一阵古怪的颤音，咯咯笑道：“哦不，海伊人当然会说谎、会虚张声势。事实上，我们在进化过程中非常擅长 bluff（虚张声势）——在野外这可是生存优势呢。但这种行为被视为极为幼稚且低级。一名成年海伊理应能凭成熟自律过完一生，而不必诉诸如此原始的本能。早在我们退守至如今疆界之前，我们就已为此付出惨痛代价，深刻领悟了这一点。”`
+			`	他专注地注视着你，随后继续说道：“你不会常听到这些信条被提起，但若仔细观察，便会发现其中前三条已深深融入我们的社会肌理。”`
+			`	他耸了耸肩，啪地翻开点单本，又拍了拍自己的肚子："当然啦，我奶奶总说，第十条之后的规矩与其说是铁律，不如说是参考指南；而我对第十三条，可真有不少异议呢。好了，我可不想再絮叨下去把你们耳朵磨出茧子——想点些什么？"`
+			label end
+			`	他面带微笑，一丝不苟地记下你的订单。`
+				decline
+
+
+
+overwrite
+mission "Academy Motto"
+	minor
+	source
+		government "Hai"
+		attributes "urban"
+		not attributes "station"
+	to offer
+		random < 1
+		has "language: Hai"
+	on offer
+		conversation
+			`今日，太空港因某种玄妙难解的机缘巧合与物流叠加，人满为患，拥挤程度令人难以置信。尽管你已基本办妥各项事务，但港务当局仍告知你：至少七小时内无法安排安全离港时段（即便这个时限也未必能兑现）。于是，你只得独自打发这清晨意外多出的一段空闲时光。`
+			choice
+				`	（在我飞船上下几盘棋。）`
+				`	（到更远的地方四处看看。）`
+					goto "field trip"
+			`	你可不想在庞大的海伊城市里迷路，于是干脆打开一台娱乐终端，打发接下来的几个小时。`
+				decline
+			label "field trip"
+			`	海伊人高效地将人群聚集于充满活力却人口稠密的空间之中的倾向，在你穿行于熙攘的海伊人群时展露无遗；他们大多礼貌地尽量避免与你相撞。五彩缤纷的横幅、旗帜、壁画，甚至窗户本身，都为底层那些常见而实用主义的建筑风格增添了绚丽亮色。就连你途经的几栋公寓楼入口处，也悬浮着全息投影的欢迎标牌，并附有禁止上门推销的提示语。`
+			`	某座公寓楼的外围围栏上挂着一块巨大的标牌，你的翻译器告知你上面写着：“此处严禁模因内容，请勿张贴。”`
+			`	过了一会儿，你发现了一家看似咖啡馆（或功能相当的场所），便坐下来，选了个能清晰观赏附近某座宏伟建筑群的位置。片刻之后，桌面上嵌入的全息投影以人类通用语向你询问：是否要通过桌面点单，还是想与店员当面交谈？`
+			choice
+				`	（按顺序通过桌子。）`
+					goto "pleasant lunch"
+				`	（通过某个人下单。）`
+			`	一位友善的海伊人上前为你点单，并礼貌地告知：在露台用餐需加收10%服务费。对一名飞船船长而言，这点金额实在微不足道，你只是点点头，随即努力辨认起眼前的食物来。最终，你选了一份橡子酱三明治，配几片明显经过香料腌制或泡制的蔬菜——具体是哪种，你实在拿不准。这道菜是店员力荐的头号菜品，而且全程未向你追问任何关于海伊饮食偏好的、你答不上来的问题。”`
+				goto "finishing chat"
+			label "pleasant lunch"
+			`	该操作界面用人类尺寸的手操作起来颇为别扭，但最终你还是选了一份三明治：涂有橡子酱、夹着几片蔬菜——那些蔬菜似乎经过香料腌制或泡制，你一时也拿不准。这是系统推荐度最高的餐品，而且没附带任何关于海伊人饮食偏好的后续提问，而这类问题你根本答不上来。`
+			label "finishing chat"
+			`	当你享用这顿奇异却意外可口的午餐时，你注意到对面建筑群入口大门上方刻着一大段文字。片刻之后，你的翻译器察觉到你的视线方向，随即为你朗读出来。`
+			`	“知者方能领导，学者方能明理，服务即为研习，领导即是奉献。”`
+			`	自然，你的翻译器无法回答问题，因此你吃完午餐后便不再理会，直到一名工作人员出来收走你的餐盘。`
+			choice
+				`	(向他们询问此事。)`
+					goto question
+				`	（把我的想法藏在心里。）`
+			`	工作人员接过你的餐盘，并祝你拥有愉快的一天。`
+				decline
+			label question
+			`	当他们将你用过的餐盘从桌上收走时，你向他们询问门廊上铭文的内容。`
+			`	“哦，那是城市学院。它是个……呃……”她顿了顿，随即用海伊语说了句什么，你的翻译器立刻将其转译为：“非技术类大学。”`
+			`	她惊讶地看了眼盒子，微笑着继续用海伊语说道：“如果你想成为管理者、政治家、社会工作者，甚至只是公众演说者，就该去学院修读领导力与沟通课程。严格来说，入学并非强制要求，但许多机构若未见你持有某种学院资质，便根本不会考虑让你担任这类职务；而且学院确实能提供非常实用的技能。我本人明年就打算去那里进修一门正式的人类语言课程。”`
+			`	"从技术上讲，各大学院彼此独立，但都奉行同一句校训。这其实也是一种强制性要求——校训所强调的正是这一点。我听说多数人类觉得这种做法很落后，但事实并非如此。各大学院会持续追踪其毕业生的表现：倘若你以私利为先、未加研习便贸然履职、只学不悟，或空有知识却不知应用，学院甚至有权撤销你的资质认证。入学免费，因此人们也期望你不要辜负学院倾注于教学的心血与时间。"`
+			`	“这位可相当有声望，不过靠近太空港的那些人，向来都是如此。”她眨了眨眼，“毕竟，通过自然接触所获得的经验，远比金钱所能买到的更有价值。”`
+			`	片刻之后，你的通讯平板提示：你已被分配了一个相对紧凑的太空港离港窗口。`
+			`	"嗯，我得去招呼其他顾客了。祝你今天愉快！"她说道，随即离开，让你继续忙自己的事。`
+				decline
+
+
+
+overwrite
+mission "Robotic Musical 1"
+	minor
+	source
+		government "Hai"
+		attributes "hai tourism"
+		not attributes "station"
+	to offer
+		random < 1
+	on offer
+		conversation
+			`你沿着这座太空港的主干道前行，几乎忽略了隔离带中那堆杂乱堆放的货箱。刚卸载的货箱临时堆放在港口各商家门前、醒目地避开人流通道，这在本地并不罕见；但眼前这种毫无章法的堆叠方式，却显得格格不入。`
+			`	你刚放慢脚步准备仔细观察，那堆箱子便立刻活了过来。`
+			branch translator
+				has "language: Hai"
+			`	音乐响起，六七个身着夸张服饰、形似海伊的机器人卡通形象从各只货箱中跃出，开始一系列滑稽舞动，其设计意图显然在于逗乐观众——至少从它们频频转身‘望向’观众并眨眼的动作来看确是如此。全息投影的横幅与符文（推测为广告信息）在循环播放中不断切换画面；整套表演结束时，每名围观者都至少收到一台机器人的某种邀约；随后，所有机器人立即爬回各自的货箱。`
+			`	在此期间，几名海伊人驻足观看，其中两三人看到结尾时发出几声轻笑，随后便继续赶路。不过大多数人只是翻了个白眼，便径直走开了。一名孩童不慎靠得太近，其父母急忙绕开它；刹那间，一个小小的红色全息警示标志在孩童面前一闪而过。没人似乎愿意向你解释刚才那一幕的含义，而此刻那些货箱依然牢牢紧闭着。`
+			action
+				set roboticconfusion
+			# This controls branching if there's a future follow-up where you get to see the performance.
+			`	细想之下，你甚至不确定他们是否全都重新钻回了当初爬出来的那些箱子。`
+				decline
+			label translator
+			`	音乐响起，六七个身着夸张服饰的海伊机器人卡通形象从各个货箱中跃出，开始以一系列互动动作滑稽起舞。你的翻译器竭力跟上节奏，但它们语速极快、充满双关妙语的玩笑却难以准确译出。起初，这些幽默似乎即兴而发；然而全息表演效果太过逼真，直到演出结束，你才猛然意识到：机器人根本不可能真正即兴发挥。整场表演配有专门配乐，节奏停顿处，那些机械海伊会齐刷刷转向观众，仿佛‘注视’着你并眨眨眼。全息横幅与符文标志接连闪现，向你宣告这是一场名为《祖母的法则》的全自动机器人喜剧音乐剧广告。广告声称该剧支持观众实时起哄互动，并列出了全部演出日期与场馆——全都在遥远的未来。`
+			`	每台机器人表演结束时都会摆出一个造型，并分别邀请不同人群前来体验‘十年一遇的精彩时光’，票价从73积分起；整支机器人群体随即收尾，立刻攀爬回各自的货箱中。你甚至不确定它们是否全都回到了最初钻出来的那几个箱子。`
+			`	在此期间，几名海伊人驻足观看，其中两三人看到结尾时发出几声轻笑，随后便继续赶路。不过大多数人只是翻了个白眼，便径直走开了。`
+			`	人群中一位中年海伊人眼周毛色灰白、形似浣熊，身着典型的商船船长服饰。他好奇地打量着你，随即走上前来：‘哎呀呀，船长，您这盒子可真不寻常啊！没想到他们已经开始制造活体翻译设备了！它运行得还顺利吗？’`
+			choice
+				`	"哦，这是同类中的第一艘。"`
+					goto first
+				`	“我大致理解了，不过只有当我直视它们时，才会读出内容。”`
+			`	"啊，是的，我想这倒是个合乎逻辑的设计特性，"他说道，"我简直难以想象，倘若它试图读取周遭所有文字，该会有多笨拙。"`
+				goto resolve
+			label first
+			`	“第一次见面？哦，您是<last>船长！很荣幸与您相识。”他打量了你一秒钟。`
+			`	他带着一丝戏谑的笑意上下打量着你：“你比我想像中要矮一些。”`
+			label resolve
+			`	“嗯，如果你真有机会，我强烈推荐你观看这场演出。几个月前我看过一次，确实非常精彩——尤其在人类聚居较多的海伊世界广受欢迎。”`
+			`	他朝你友好地挥了挥手。“我得走了。别靠展台太近，它们不喜欢被人触碰！”`
+			`	海伊显得非常满意，慢悠悠地走开，离开时还低声咯咯笑着。`
+				decline
+
+
+
+overwrite
+mission "Hai Film Release"
+	minor
+	source
+		government "Hai"
+		not attributes "station"
+	to offer
+		has "Hai Film Crew 3: done"
+		random < 1
+	on offer
+		conversation
+			`抵达太空港后，你注意到一张用海伊语张贴的电影海报。你认出故事背景设定在暗息星（Darkrest），立刻意识到这一定是利伊特（Likeet）制作的那部电影。海伊语片名已被译为《最终安息》，但整部影片目前似乎尚未配有你的语言字幕。`
+			choice
+				`	（去看看吧。）`
+				`	（跳过。）`
+					decline
+			branch translator
+				has "language: Hai"
+			`	你发现一家电影院正在放映利基特的电影。你不太确定剧情走向：似乎与一只潜伏于空间站内的无形怪物有关，它会令所有遭遇者逐渐陷入疯狂。尽管如此，这部电影似乎颇受海伊观众欢迎，而你离开影院时则明显感到一阵不安。`
+				decline
+			label translator
+			`	你发现一家电影院正在放映利基特的电影，但你的翻译器在此几乎派不上用场。影片台词极少，仅有的几句对白似乎隐晦地援引了海伊文学与哲学典故。你勉强能理解的是：影片讲述了一只无形怪物潜伏于空间站内，缓慢地将所有遭遇它的人逼至疯狂。尽管如此，这部电影似乎颇受海伊观众欢迎，而你离开影院时则明显感到一阵不安。`
+
+
+
+overwrite
+mission "Sick of Acorn Bread"
+	minor
+	source
+		government "Hai"
+		not attributes "station"
+		attributes "hai: human presence" "human tourism"
+	to offer
+		credits > 50
+		random < 2
+	on offer
+		conversation
+			`趁着海伊码头工人检修你的飞船之际，你闲来无事，便步入太空港寻觅些食物果腹。各家餐馆纷纷在橱窗上用鲜艳醒目的色彩展示菜单；在琳琅满目的选择中，你发现一家标榜“正宗海伊料理”的餐厅，橱窗上还印有大号的海伊文字。紧邻其旁，一位人类街头小贩正兜售着各式零食与即食餐食。`
+			choice
+				`	(进入餐厅。)`
+					goto restaurant
+				`	（转而向人类食品摊贩购买些东西。）`
+				`	（再想想，我其实没那么饿。）`
+					decline
+			action
+				payment -25
+			`	人类制作的食物无疑更为安全。摊主卖给你一份菜肴：清蒸蔬菜配一块泛着淡黄色的鱼排，她向你保证此鱼完全可食。这顿饭口味略显寡淡，但鱼肉细腻柔滑、入口即化。你将剩菜倒入附近一个垃圾回收口，只见它发出悦耳的蜂鸣声，随即焚毁了残渣。`
+				decline
+			label restaurant
+			`	一家海伊餐厅定能为你带来更独特的体验。你推门而入时，门铃奏出一段短促的旋律；一位中年女性海伊背对着你，用海伊语高声说了句什么。`
+			branch translator
+				has "language: Hai"
+			`	你瞬间僵住，一时无法判断海伊人究竟想从你这里得到什么。`
+				goto order
+			label translator
+			`	你的翻译器尽职地发出清脆声响：“请随意找个[座位/休息处]歇息！我马上过来为您服务。”`
+			label order
+			`	仅仅片刻之后，同一位海伊女侍者便朝你探过头来，发出一阵叽叽喳喳的声响——你推测这大概是尴尬所致。“万分抱歉！我刚才竟没意识到今天有幸为一位人类服务。请随意在吧台边找个位置坐下，我稍后就来为您点单。”`
+			`	你环顾四周，发现这家餐厅实际上相当拥挤。店内有身着考究礼服、时尚服饰、休闲装束的海伊人，甚至还有些人穿着古怪的工装裤——裤背特意留有开口，以便尾巴伸出；似乎没有其他人类在场。仅剩寥寥几个空位，你选了最末端的一个，紧挨着一位体型颇为壮硕、身穿绿色工装裤与橙色草帽的海伊人。你坐上那张明显为带尾巴生物设计的高脚凳时，他只是含混地咕哝了一声，不置可否。没过多久，女侍应便走上前来，询问你的点单。`
+			choice
+				`	"我要今天特供的。"`
+				`	"请给我来点汤。"`
+			`	“您真走运，”她说，“今天每份餐点都免费附赠一份橡子面包。”她蹦跳着跑去为您下单并取餐。`
+			`	你身旁的海伊人又哼了一声——这次明显带着恼怒——然后转过身开口说道：“橡子面包！这儿现在就只供应这种面包了。自从你们人类进入我们的星域以来，我们就只能吃这个。传统的海伊面包制作技艺早已失传。”`
+			choice
+				`	"能给我讲讲海伊人的传统面包制作工艺吗？"`
+				`	"抱歉，我无意冒犯您的文化。"`
+					goto offend
+			`	你表现出的兴趣似乎让他稍稍平静了些。`
+				goto breads
+			label offend
+			`	他脸上的神情缓和下来。“该道歉的应该是我才对。我们的太空港菜单在这一方面发生变化，并非你的过错。人类也为海伊社会的许多领域带来了新的活力。唯一遗憾的是，我们不得不远行千里，才能寻得昔日年份里那种风味的面包。”`
+			`	“你能给我讲讲其他种类的面包吗？”你问道。`
+			label breads
+			`	“哦，没错。”他挪了挪凳子上的身子，“我年纪够大，还记得海伊普面包、尤尔基面包——你随便点一种都行。海伊普是一种谷物，和你们人类的‘玉米’很相似，磨成粉后呈健康而红润的褐色。那种面包扎实耐嚼，却又精致绝伦。”你注意到他脸上浮现出怀念的神情。“尤尔基是一种乳制品，取自我们饲养的牲畜。你在新家园可能见过一些；听说你们人类有种类似的动物叫‘绵羊’。用尤尔基制成的面包浓郁丰腴、奢华诱人，是我早餐最爱的食物之一。”他顿了顿，神情略显黯然：“橡子面包曾是海伊饮食中难得一见的珍馐——甜度过高。但自从人类来到我们的星球定居后，大家只认准橡子面包。高涨的需求，已将我从小吃到大的所有传统面包，尽数挤出了这类高流量场所，比如这家太空港餐厅。我很怀念以前能轻易买到它们的日子。”`
+			action
+				payment -50
+			`	仿佛心有灵犀，女侍应生端来了你们各自的餐食。坐在你身旁的那位海伊人——你至今仍不知其姓名——望着自己那份免费赠送的橡子面包，轻叹一声，却仍将其吃下。你们各自默默用完餐食，随后一同离开。`
+				decline

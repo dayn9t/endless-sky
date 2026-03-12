@@ -1,0 +1,35 @@
+# Copyright (c) 2025 by Azure
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+
+overwrite
+mission "Disabled Aberrant"
+	boarding
+	invisible
+	source
+		government "Aberrant"
+	destination "Earth"
+	on offer
+		conversation
+			branch "boarded ka'het"
+				has "Disabled Ka'het: offered"
+			action
+				log `成功登上了异化体飞船。调查期间，一种诡异的存在仿佛在暗中注视着我们，令人不寒而栗、心生不祥之感。它似乎也是一种单一的、舰船大小的生物体，依靠特殊的外骨骼在太空中航行。`
+			`你将<旗舰>驶近这个奇异的实体。尽管它一动不动，却散发出不祥的气息。当你靠近其船体脆弱部位的一个破洞时，感觉这艘飞船本身就有根本性的问题——破洞处似乎包裹着某种外壳，内部是一只巨大的蛞蝓状生物。该生物暴露在武器火力下，看似已死亡，但你却感到仿佛正被什么东西注视着。`
+			`	你轻松地与看似其“外骨骼”的结构完成对接，一边思索下一步行动。尽管异常体与普通飞船差异过大，无法被你直接操控，但可以肯定的是，你现在能搜刮它的一部分装备。其余装备则似乎嵌入某种坚硬、玻璃状的组织之中；或许摧毁这艘飞船便能将其释放出来。`
+				decline
+			label "boarded ka'het"
+			action
+				log `成功登上了异化体飞船。其外形与凯赫特极为相似，却明显被扭曲成了一种全新的形态，整体透出一种根本性的违和与异常。`
+			`你将<旗舰>驶近这个奇异却又似曾相识的实体。尽管它一动不动，却散发出不祥的气息。这艘飞船表面酷似卡赫特（Ka'het），实则绝非卡赫特——或许是远亲，又或许是一艘被其他力量彻底改造过的卡赫特飞船；你本能地感到它 fundamentally 不对劲。你靠近其船体脆弱部位的一个破洞，只见一只‘赫特蛞蝓’静卧其中，看似已死，但你却几乎能感觉到它仍在注视着你。`
+			`	你轻松地与它的“外骨骼”完成对接，一边思索下一步行动。尽管异常体与普通飞船差异过大，无法被你直接操控，但可以肯定的是，你现在能搜刮它的一部分装备。其余装备则似乎嵌入某种坚硬、玻璃状的组织之中；或许摧毁这艘飞船便能将其释放出来。`

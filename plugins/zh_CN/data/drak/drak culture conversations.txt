@@ -1,0 +1,147 @@
+# Copyright (c) 2025 by Arachi-Lover
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+overwrite
+mission "Drak Revelations: Arachi"
+	entering
+	invisible
+	source
+		system "Flugbu"
+	destination "Earth"
+	to offer
+		has "drak revelations: arachi"
+		has "entered system by: takeoff"
+	on offer
+		clear "drak revelations: arachi"
+		conversation
+			`当<ship>穿过最后一层云层升空时，你惊讶地发现自己竟完全离开了飞船，置身于地下。`
+			`	狭小隧道群仅靠微小孔洞透入极少量光线，远不足以照亮藏身其中的各类生物的身形。仅凭你所能瞥见的零星轮廓，它们似乎正挤作一团，颤抖着，畏缩着。`
+			`	头顶上方正持续传来行军声，震得隧道嗡嗡作响。几个胆子稍大的生物从你身旁疾驰而过，身披厚重的全身装甲，覆盖住整个躯体与众多肢节。它们向上挖掘，一见到首个泛着淡金色光泽的物体便立刻跃起扑击，将那庞然大物掀翻在地。`
+			`	你再也没见过其中任何一只——更多的生物持续从洞中涌出，朝四面八方奔去。有些生物仅稍作停留，与躲藏者简短交谈几句，便迅速向上方移动。`
+			`	在一次急速上升过程中，所有孔洞都被大量涌出的物质堵满，四周顿时陷入一片黑暗。当光明重现时，你发现自己刚刚冲出大气层。`
+				decline
+
+
+overwrite
+mission "Drak Revelations: Hai"
+	landing
+	minor
+	invisible
+	source "Darkwaste"
+	to offer
+		"flagship model" == "Anomalocaris"
+	on offer
+		conversation
+			`你走下<ship>，开始探索四周环境。你在着陆的悬崖边缘附近发现了一小滩积水，驻足凝视片刻。`
+			`	等你意识到自己已无法移开视线时，水洼中似乎已悄然隆起几座微小的土丘，且水洼看起来也变得深不可测。你注意到一些极其微小的生物正从其中一座"岛屿"游向另一座。`
+			`	飞船四散远航，群岛随之变得生机勃勃、繁忙喧闹。然而风浪与阳光日益狂暴酷烈，灼热很快开始炙烤岛屿与舰船，蒸干海水；巨浪则越涌越高，整艘飞船、整座岛屿皆被吞没，浪峰甚至试图攀上苍穹，扑灭太阳。`
+			`	当海面最终平静下来、太阳西沉之后，所有岛屿若尚存于世，也已沦为废墟，而能往来于岛屿之间的飞船也所剩无几。`
+			`	你眨了眨眼，发现水洼已恢复如常。`
+				decline
+
+
+overwrite
+mission "Drak Revelations Setup: Humanity"
+	landing
+	invisible
+	non-blocking
+	source "Jupiter"
+	to offer
+		has "chosen sides"
+		not "main plot completed"
+	on offer
+		set "drak revelations: humanity"
+		fail
+
+
+overwrite
+mission "Drak Revelations: Humanity"
+	landing
+	minor
+	invisible
+	source "Earth"
+	to offer
+		has "drak revelations: humanity"
+	on offer
+		clear "drak revelations: humanity"
+		conversation
+			`这艘<ship>于黄昏时分降落在<origin>，你在监督完成燃料补给程序并结束飞船完整性检查后，回到自己的舱室稍作休息。`
+			`	当你昏昏欲睡时，一缕微光轻触你视野的边缘，在那些你无法明确辨识的边界上盘绕。你四周竖立着一根根栏杆，向上延伸并连接至支撑结构，宛如一座摇篮。平台在黑暗中缓缓旋转。`
+			`	突然，一块巨石呼啸着朝你疾速滚来，眼看就要砸毁摇篮——就在此刻，一道强光猛然闪现，巨石瞬间消失无踪。`
+			`	摇篮再度旋转。黑暗被血红色的烈焰吞没，火焰舔舐着摇篮边缘；但就在木料即将噼啪作响、发出呻吟之际，光芒在你视野中再度脉动一闪，烈焰本身也随之消散殆尽。`
+			`	长久以来只有一片黑暗。随后爆发了一场激战：无数无形实体在摇篮四周激烈交锋，全然无视摇篮的存在，这种漠视危险而轻率。这一次，光芒在你周身骤然迸发，强光迫使你紧闭双眼。`
+			`	你再次睁开双眼，发现自己正躺在自己的床上。`
+				decline
+
+
+overwrite
+mission "Drak Revelations: Korath"
+	entering
+	invisible
+	source
+		system "Mesuket"
+	destination "Earth"
+	to offer
+		has "Efreti: Distress Call 7: done"
+	on offer
+		conversation
+			`就在你的飞船抵达<origin>时，你眨了一下眼，便发现自己已不在驾驶舱内。`
+			`	在一片嶙峋的高原之上，碎石与沙砾构成了建筑的地基；那些由泥土与铁锈堆砌而成、体型粗壮且轮廓略似人形的庞大身影，正在此地建造结构。一道强光自上方倾泻而下，照亮了整片区域。`
+			`	你感觉时间正飞速流逝。随着月复一月、年复一年过去，这些生物不断建起更高更宏伟的塔楼，既将自身不断抬升，又渐渐遮蔽了天光。最终，整片高原都化作了宏伟穹顶巨塔的基座。`
+			`	微光从缝隙与裂口中悄然渗入，但那些生物正迅速修补这些缺口，似乎对光线颇为不满，发出嘶嘶声。它们开始升温、发光，温度越来越高，直至褪去污浊的外壳，化作一尊尊闪亮灼热的青铜之躯。`
+			`	这些生物以崭新形态傲然挺立，身躯却持续升温，致使青铜熔解，高塔在酷热中开始崩塌扭曲，最终整个穹顶轰然坍塌。`
+			`	你再次睁开双眼，已回到<ship>的驾驶舱中。`
+				decline
+
+
+overwrite
+mission "Drak Revelations: Quarg"
+	entering
+	invisible
+	source
+		system "Terra Incognita"
+	destination "Earth"
+	to offer
+		or
+			has "FW Pug 3: Quarg: done"
+			has "FWC Pug 4B: Quarg: done"
+		has "Ruin: Landing: offered"
+		not "entered system by: takeoff"
+	on offer
+		conversation
+			`你的飞船刚完成跳跃，驾驶舱内的灯光便开始逐一熄灭，直至一切陷入黑暗。`
+			`	起初你只能看到一片荒芜潮湿的土壤，上方仅有一缕微弱而遥远的光线勉强照亮此处。浓雾从地面的裂缝中缓缓升腾，远处则隐约传来海浪反复拍岸的轰响。`
+			`	一个苍白金黄、骨瘦如柴的巨人猛然冲破雾气，癫狂般猛击地面，一边哀嚎，一边徒劳地拍打、踢踹着地上的积水。灯光随之其击打与恸哭的节奏忽明忽暗，继而沉寂。”`
+			`	当光芒短暂地亮到足以看清时，你能辨认出那些坟墓。它们环绕在你四周，仿佛向四面八方的地平线无限延伸。那巨人从不触碰或玷污这些坟墓；而在它短暂的休憩期间，似乎连看一眼坟墓都难以忍受，随即再度陷入狂怒。`
+			`	光芒熄灭，你再看不到任何东西。你的飞船灯光重新亮起，你发现自己回到了驾驶舱内。`
+				decline
+
+
+overwrite
+mission "Drak Revelations: Saryds"
+	landing
+	minor
+	invisible
+	source "Chosen Nexus"
+	to offer
+		has "drak revelations: saryds"
+	on offer
+		clear "drak revelations: saryds"
+		conversation
+			`你在<origin>着陆后起身离开驾驶舱，开始执行着陆后的各项检查。当你打开舱门时，眼前并非<ship>的主通道，而是一片阳光明媚的林间空地；回头望去，连你的驾驶舱也仿佛被一片森林所取代。`
+			`	数尊钢铁铸就的雄伟巨鹿静立林间空地中央，此刻纷纷昂首而起，既显好奇，又带警觉；一群高大、肤色呈淡金色的巨人正缓步靠近。巨人轻柔地伸出手臂，巨鹿的躯体随之逐一由黯淡的钢铁色泽，焕变为熠熠生辉的银白。夜幕降临。`
+			`	第二天，阳光微弱地重现。越过森林边缘，你看见巨人们正在追逐小型生物，并将它们关进一个个小笼子。雄鹿们再次聚集在林间空地，似乎正就外部战争该如何应对而争论不休。太阳再次落下。`
+			`	随后场景切换至森林外的田野，此刻整片天地已被一场狂暴雷暴笼罩，唯有密集的闪电照亮大地。雄鹿与巨人双方皆横尸遍野，彼此身上遍布惨烈伤痕。仅存的几头雄鹿哀伤地踏过遍布尸体的大地，目光低垂，望向那些已然破碎的牢笼。`
+			`	场景如初现之时一般徐徐展开，而你正站在自己驾驶舱门外。`
+				decline
+

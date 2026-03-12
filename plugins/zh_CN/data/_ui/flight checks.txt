@@ -1,0 +1,38 @@
+# Copyright (c) 2014 by Michael Zahniser
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+# Conversations shown when launching from a planet with insufficiently equipped ships.
+conversation "flight check: no energy!"
+	scene "scene/engine2"
+	`你早已听过太多关于星际飞船系统故障所引发事故的恐怖故事，因此完全确信起飞前安全检查的必要性。当你聆听<ship>启动时那复杂而富有韵律的嗡鸣、咔嗒与震动声时，你在脑海中逐项核对检查清单：计算机系统——正常；生命维持系统——正常。`
+	`	一切进展顺利，直到该启动系统进行测试运行时……你却发现发电机输出功率不足，无法驱动这些系统。你必须加装一些电池，或换装一台更强劲的发电机。`
+	
+conversation "flight check: no thruster!"
+	scene "scene/engine2"
+	`You've heard enough horror stories about the sort of accidents that happen when starship systems malfunction to be completely convinced of the necessity of a pre-flight safety check. As you listen to the complex symphony of hums, rattles, and clicks of the <ship> warming up, you run through a mental checklist. Computers: check. Life support: check.`
+	`	一切进展顺利，直到该启动推进器进行测试运行时……你尴尬地发现，飞船根本没装推进器。是时候返回装备店解决这个问题了！`
+
+conversation "flight check: no steering!"
+	scene "scene/engine"
+	`You've heard enough horror stories about the sort of accidents that happen when starship systems malfunction to be completely convinced of the necessity of a pre-flight safety check. As you listen to the complex symphony of hums, rattles, and clicks of the <ship> warming up, you run through a mental checklist. Computers: check. Life support: check.`
+	`	一切进展顺利，直到该启动转向引擎进行测试运行时……你尴尬地发现，飞船根本没装转向引擎。是时候返回装备店解决这个问题了！`
+	
+conversation "flight check: overheating!"
+	scene "scene/engine"
+	`You've heard enough horror stories about the sort of accidents that happen when starship systems malfunction to be completely convinced of the necessity of a pre-flight safety check. As you listen to the complex symphony of hums, rattles, and clicks of the <ship> warming up, you run through a mental checklist. Computers: check. Life support: check.`
+	`	当你完成检查清单时，舱内已变得异常闷热。空气中弥漫着臭氧与灼热金属的气味，而你的摄像头正显示一股蒸汽或烟雾正从引擎附近的船体处喷出。若系统在大气层内运行时就已如此高温，那么一旦进入高真空环境，极有可能立即过热。你必须要么加装散热系统，要么将部分组件更换为发热量更低的替代品。`
+
+conversation "flight check: no bunks!"
+	scene "outfit/bunk room"
+	`You've heard enough horror stories about the sort of accidents that happen when starship systems malfunction to be completely convinced of the necessity of a pre-flight safety check. As you listen to the complex symphony of hums, rattles, and clicks of the <ship> warming up, you run through a mental checklist. Computers: check. Life support: check.`
+	`	一切进展顺利，但诊断屏幕上突然弹出一个手动确认提示。你呼叫<ship>的船员……却尴尬地意识到，飞船根本没装铺位。是时候返回装备店解决这个问题了！`

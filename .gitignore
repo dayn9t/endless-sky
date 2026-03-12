@@ -34,8 +34,9 @@ test-report.xml
 # Generated documentation
 docs/api/
 
-# User-installed plugins
-/plugins/
+# User-installed plugins (except bundled zh_CN localization)
+/plugins/*
+!/plugins/zh_CN
 
 # OS-specific generated files
 .DS_Store

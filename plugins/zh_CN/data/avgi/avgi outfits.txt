@@ -1,0 +1,658 @@
+# Copyright (c) 2023 by Azure
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+
+# Systems:
+
+outfit "Radiative Lamina"
+	plural "Radiative Laminae"
+	category "Systems"
+	series "Special Systems"
+	index 07010
+	cost 120000
+	thumbnail "outfit/radiative lamina"
+	"mass" 12
+	"anchor point" -1
+	"heat dissipation" 0.3
+	"solar heat" 3
+	description "这组模块化石墨烯微通道散热器可紧密贴合安装于飞船外壳表面，大幅提升飞船向外辐射废热的能力。其辐射功率随所排放废热的温度升高而增加，因此在高温运行的飞船上，辐射散热板的效果更佳。"
+	description "	层板式装备可利用大多数阿维吉飞船外部特制的挂载点安装，无需占用任何装备槽位。但它们通常也会增加飞船从本地恒星吸收的热量。"
+
+
+outfit "Concealment Lamina"
+	plural "Concealment Laminae"
+	category "Systems"
+	series "Special Systems"
+	index 07020
+	licenses
+		"Twilight Guard"
+	cost 3000000
+	thumbnail "outfit/concealment lamina"
+	"mass" 6
+	"anchor point" -1
+	"scan interference" 6
+	"radar jamming" 12
+	"optical jamming" 1.2
+	"solar heat" 6
+	description "一种由量子点相控阵天线构成的专用涂层，通过逐分子生长工艺制成，可形成贴合船体表面的薄膜，有效干扰并阻断任何对飞船的扫描或探测行为。当多个单元协同工作时，该相控阵还可从更远距离干扰导弹传感器，甚至以低功率光束致其致盲。然而，实现上述效果所需的高密度量子点会显著增加飞船使用‘隐匿薄片’时所吸收的太阳光量，而这种尖端材料自然价格不菲。"
+	description "	Laminae take advantage of special external hardpoints built into most Avgi ships, allowing them to be mounted without taking up any outfit space. However, they also tend to increase the amount of heat absorbed from the local star."
+
+
+outfit "Magnetic Scoop"
+	category "Systems"
+	series "Ramscoops"
+	index 07010
+	cost 720000
+	thumbnail "outfit/magnetic scoop"
+	"mass" 9
+	"outfit space" -9
+	"ramscoop" 6
+	"fuel generation" 0.03
+	"energy consumption" 1.2
+	"solar heat" 2.4
+	description "对Avgi而言，星际飞船 aboard 可靠的燃料与工质供应至关重要。早在跃迁引擎发明之前，磁吸式集气罩便已大幅提升了其飞船的续航力与性能，使其得以以前所未有的速度穿越恒星间的广袤虚空。如今，即便已掌握超光速航行技术，冲压式集气罩的重要性依然不减当年——它使Avgi得以在众多尚未建设燃料补给站的星系之间自由穿行于超空间航道。"
+	description "	一组高功率激光器能电离搭载此类冲压引擎的飞船周围星际介质，从而使磁力收集器不仅能捕获天然带电的太阳风，还能额外收集更多物质。这使得燃料供应更加稳定可靠，即便在氘含量贫乏的恒星周围亦然。当然，这些激光器所需的能量相当可观，而压缩入射等离子体所产生的热量也同样巨大。"
+
+
+outfit "Plasmadyne Scoop"
+	category "Systems"
+	series "Ramscoops"
+	index 07020
+	cost 30000000
+	thumbnail "outfit/plasmadyne scoop"
+	"mass" 60
+	"outfit space" -120
+	"gun ports" -1
+	"spinal mount" -1
+	"ramscoop" 90
+	"fuel generation" 0.6
+	"energy consumption" 9
+	"solar heat" 9
+	"drag" 3
+	weapon
+		"hardpoint sprite" "hardpoint/plasmadyne scoop"
+	description "等离子磁体赋予该冲压式集气引擎无与伦比的采集范围，使其能够收集海量燃料。通过向一对垂直于太阳风流向的线圈中通入振荡且相位相反的电流，可在弥漫于太空中的稀薄等离子体中引入磁场。该磁场本身会牵引等离子体中的自由电子沿环形路径运动，从而在巨大的虚拟回路中感应出电流；此电流又进一步生成一个成比例增强的准静态磁场——以等离子动力集气器（Plasmadyne Scoop）为例，该磁场直径可达数百公里。"
+	description "	该磁场的覆盖范围远超任何合理尺寸的物理导线环所能产生的磁场，同时还能避免星际飞船携带大量超导导线所带来的巨大质量负担。然而，它运行时需要消耗相当可观的能量，且与行星际介质中的等离子体相互作用，会产生显著的阻力。"
+
+
+outfit "Deuterium Slush Tank"
+	category "Systems"
+	series "Fuel"
+	index 07010
+	cost 240000
+	thumbnail "outfit/deuterium slush tank"
+	"mass" 3
+	"outfit space" -12
+	"fuel capacity" 300
+	"energy consumption" 0.6
+	"heat generation" 0.6
+	description "这种轻量化燃料罐以氘冰浆（液态氘与氘冰的混合浆料）形式储存大量超空间燃料，从而实现高于常规方式的燃料存储密度。但为维持零沸腾损耗系统所需的低温冷却器，需持续消耗少量能量，将压力容器内的热量泵出。"
+
+
+outfit "Cryogenic Deuterium Tank"
+	category "Systems"
+	series "Fuel"
+	index 07020
+	cost 120000
+	thumbnail "outfit/cryogenic deuterium tank"
+	"mass" 12
+	"outfit space" -6
+	"cargo space" -30
+	"fuel capacity" 600
+	description "这种隔热加压容器专为在极低温下储存超空间燃料而设计，适用于大批量运输。虽然其效率略逊于氘冰浆储罐，但该装备专为适配飞船货舱而设计，对其他系统预留空间的侵占极小，因此可同时安装多个，且无需配备深度低温冷却器。"
+
+
+outfit "Heatsink Partition"
+	category "Systems"
+	series "Fuel"
+	index 07030
+	cost 60000
+	thumbnail "outfit/heatsink partition"
+	"mass" 9
+	"outfit space" -3
+	"fuel capacity" -100
+	"heat capacity" 240
+	description "这种轻量化改装通过绝缘隔膜，在飞船燃料箱内划分出一个独立舱段，用以储存高比热容的氢化锂纳米流体，并可通过冷却管路环绕该舱段进行热交换。作为热沉装置，它本身不主动参与散热，但可使飞船在维持安全温度的同时，暂时承受更高的热负荷。"
+
+
+outfit "Multispectral Scanner"
+	category "Systems"
+	series "Scanners"
+	index 07010
+	cost 360000
+	thumbnail "outfit/multispectral scanner"
+	"mass" 6
+	"outfit space" -12
+	"tactical scan power" 144
+	"energy consumption" 0.45
+	"heat generation" 1.8
+	description "多光谱扫描仪是一套功能完备的探测设备组合，包括主动式相控阵雷达、红外/光学/紫外三波段复合望远镜、半导体伽马射线探测器阵列，以及一捆氦-3中子探测管。凭借如此丰富的探测手段，该设备可在敌方竭力隐蔽的情况下，依然实现对远距离飞船的探测、测距与持续追踪。"
+	description "	为提高仪器灵敏度，部分组件需通过低温冷却至微开尔文量级的极低温度。负责维持该低温环境的热泵系统功耗惊人，同时还会产生大量废热。"
+
+
+outfit "Spectrometer Array"
+	category "Systems"
+	series "Scanners"
+	index 07020
+	cost 450000
+	thumbnail "outfit/spectrometer array"
+	"mass" 9
+	"outfit space" -18
+	"outfit scan power" 72
+	"outfit scan efficiency" 18
+	"cargo scan power" 72
+	"cargo scan efficiency" 18
+	"asteroid scan power" 90
+	"atmosphere scan" 90
+	"energy consumption" 0.12
+	description "这套光谱仪阵列可通过分析物质的光谱特征来判定其成分。配套的小型激光器能对小行星表面进行微量烧蚀采样，再通过分析所发射光谱线来加速分析过程；但遗憾的是，该方法对护盾保护下的飞船及其内部系统效果甚微。"
+	description "	遗憾的是，尽管这些传感器在读取基础物理与化学信息（例如物体的元素组成）方面表现出色，但要预测某件装备的功能，所需处理的传感器数据量极大，因此该传感器在扫描飞船复杂系统或货物时往往相当缓慢。"
+
+
+outfit "Diffuse Deflector"
+	category "Systems"
+	series "Shields"
+	index 07010
+	cost 450000
+	thumbnail "outfit/diffuse deflector"
+	"mass" 48
+	"outfit space" -48
+	"energy capacity" 14400
+	"delayed shield generation" 0.6
+	"delayed shield energy" 1.8
+	"delayed shield heat" 4.8
+	"shield delay" 3
+	description "阿维吉人并未自主研发护盾技术，而是由来自‘深空’的失落探险者首次为其引入该技术。直接仿制人类护盾的技术路线令阿维吉科学家颇感排斥——部分原因在于其原理与自身科技体系全然迥异；于是他们转而尝试利用巨型超导磁体激发护盾效应——对阿维吉人而言，超导磁体是一项更为成熟的技术，广泛应用于高效能源储存领域。"
+	description "	遗憾的是，以它的体积而言，你本期望这款护盾发生器的性能远超实际表现。尽管其尺寸几乎与人类最重型的护盾发生器相当，实际防护强度却仅有后者的一半左右，且功耗高得多。其中大量能量并未用于高效再生护盾，而是以废热形式散失，因此这款发生器用‘孱弱’二字来形容都算十分宽厚了。”"
+
+
+outfit "Specular Deflector"
+	category "Systems"
+	series "Shields"
+	index 07020
+	cost 1200000
+	thumbnail "outfit/specular deflector"
+	"mass" 72
+	"outfit space" -72
+	"energy capacity" 25920
+	"delayed shield generation" 1.2
+	"delayed shield energy" 3.6
+	"delayed shield heat" 9.6
+	"shield delay" 3
+	description "阿夫吉阵营所制造的最大型护盾发生器令人印象深刻，其原因仅在于阿夫吉对其尚处萌芽阶段的护盾原理理解已推进得如此之远。尽管其工程创造力值得钦佩，但对护盾底层物理原理认知的不完整性终有极限，而这款发生器已几乎逼近这一极限。"
+	description "	Avgi护盾复制尝试虽成效有限，但其护盾发生器中庞大的超导线圈所储存的能量同样惊人，因而这些装置实际上也充当了超导磁能存储设备，并附带缓慢恢复护盾的功能。"
+
+
+# Power:
+
+
+outfit "Concentrating Solar Cell"
+	category "Power"
+	series "Solar"
+	index 07010
+	cost 12000
+	thumbnail "outfit/concentrating solar cell"
+	"mass" 1
+	"outfit space" -3
+	"solar collection" 0.3
+	"solar heat" 0.12
+	description "这款微型太阳能发电机可高效收集阳光并将其转化为可用能量。超薄反射镜将阳光汇聚至数量有限但光电转换效率极高的薄膜太阳能电池上，从而减轻重量并提升整体能效。由于太阳能电池需持续散热，该装置亦会产生大量废热。"
+
+
+outfit "Concentrating Solar Array"
+	category "Power"
+	series "Solar"
+	index 07020
+	cost 90000
+	thumbnail "outfit/concentrating solar array"
+	"mass" 3
+	"outfit space" -18
+	"solar collection" 2.4
+	"solar heat" 1.02
+	description "这款大型太阳能发电机通过收集阳光并将其转化为可用能量来工作。纤薄的反射镜将阳光聚焦至少量高效率薄膜太阳能电池上，在减轻重量的同时显著提升了效能。"
+	description "	尽管比单个电池板高效得多，聚光太阳能阵列产生的热量却不成比例地高。"
+
+
+outfit "Photoelectric Lamina"
+	plural "Photoelectric Laminae"
+	category "Power"
+	series "Solar"
+	index 07030
+	cost 420000
+	thumbnail "outfit/photoelectric lamina"
+	"mass" 24
+	"anchor point" -1
+	"solar collection" 6
+	"solar heat" 1.8
+	description "这些聚光型太阳能板可紧贴飞船外壳安装，收集照射在船体表面的部分阳光。"
+	description "	光伏薄片利用了大多数阿维吉飞船外部特制的硬点接口，可直接安装而无需占用任何装备槽位。但它们也会显著增加飞船从本地恒星吸收的热量。"
+
+
+outfit "Lantern Fission Core"
+	category "Power"
+	series "Generators"
+	index 07010
+	cost 1500000
+	thumbnail "outfit/lantern fission core"
+	"mass" 24
+	"outfit space" -24
+	"energy generation" 6
+	"heat generation" 48
+	"overheat damage rate" 3
+	description "尽管大多数 Avgi 星舰依靠太阳能板或直接从热核推进器中汲取能量，但有时仍需更稳定可靠的能源。‘灯笼’号是一种紧凑型静电气体芯裂变反应堆，可为中小型飞船提供稳定、可靠的电力输出。其核心内将铀等离子体与氢气混合，在外加电压作用下约束电离态铀燃料；同时让超高温氢气流经紧凑型磁流体发电机发电。如此高温使该反应堆在体积受限的前提下仍实现了出人意料的高热力学效率，代价则是产生大量废热。"
+	description "	提灯引擎在接近其热极限的边缘运行，无法容忍冷却回路过热；若持续过热，将导致灾难性损毁。"
+
+
+outfit "Ultracapacitor Cell"
+	category "Power"
+	series "Batteries"
+	index 07010
+	cost 14400
+	thumbnail "outfit/ultracapacitor cell"
+	"mass" 1
+	"outfit space" -3
+	"energy capacity" 1500
+	"ion protection" -0.01
+	"description" "The internal structure of this deceptively light capacitor cell resembles a fractal of molecule-thin graphene sheets interlocked together, flexing as charge builds up. While not the most efficient in their use of volumetric outfit space, this capacitor cell is extraordinarily energy dense for its mass, a legacy design choice from the days of sublight interstellar travel when every gram counted."
+	description "	遗憾的是，电容器内部结构十分精密脆弱，在暴露于外部电流及电离环境时极易发生意外放电。所幸，坚固的接地设计与安全联锁机制可有效防止此类放电演变为灾难性事故。"
+	
+	
+outfit "Ultracapacitor Bank"
+	category "Power"
+	series "Batteries"
+	index 07020
+	cost 72000
+	thumbnail "outfit/ultracapacitor bank"
+	"mass" 6
+	"outfit space" -18
+	"energy capacity" 10800
+	"ion protection" -0.03
+	"description" "These fractal capacitors are capable of storing a large amount of energy within superconducting graphene sheets. This capacitor bank chains together six individual cells in parallel, but saves space by discarding redundant components and unnecessary structural mass, such as the safety mechanisms."
+	"description" "	Like its component cells, the capacitor bank is vulnerable to ionizing weapons, but is relatively better shielded for its size by virtue of its reduced surface area to volume ratio."
+
+
+# Engines:
+
+outfit "Magnetoplasma Drive"
+	category "Engines"
+	series "Engines"
+	index 07010
+	"cost" 27000
+	thumbnail "outfit/magnetoplasma drive"
+	"mass" 12
+	"outfit space" -12
+	"engine capacity" -12
+	"thrust" 4.5
+	"thrusting energy" 1.2
+	"thrusting heat" 0.6
+	"reverse thrust" 4.5
+	"reverse thrusting energy" 1.2
+	"reverse thrusting heat" 0.6
+	"turn" 180
+	"turning energy" 1.2
+	"turning heat" 0.6
+	"drag reduction" 0.3
+	"flare sprite" "effect/wanderer flare/tiny"
+		"frame rate" 5
+	"flare sound" "plasma tiny"
+	"steering flare sprite" "effect/wanderer flare/tiny"
+		"frame rate" 5
+	"steering flare sound" "plasma tiny"
+	"reverse flare sprite" "effect/wanderer flare/tiny"
+		"frame rate" 5
+	"reverse flare sound" "plasma tiny"
+	description "为实现乘客与货物的大批量运输，阿维吉人长期采用电推进系统——它用途广泛且成本低廉。这套紧凑型磁等离子体动力推进器在给予足够加速时间的前提下，可推动轻型飞船达到惊人速度；但其能耗也颇为显著。由于无需特定推进剂，该推进器常以普通水或氨作为工质，因而享有极高的灵活性美誉。"
+	description "	专为集群安装与任意朝向设计，该推进器布局赋予飞船完整的六自由度操控能力，使其能够轻松实现任意方向的平移与旋转。"
+
+
+outfit "Vapor Nuclear Rocket"
+	category "Engines"
+	series "Engines"
+	index 07010
+	"cost" 900000
+	thumbnail "outfit/vapor nuclear rocket"
+	"mass" 24
+	"outfit space" -24
+	"engine capacity" -24
+	"thrust" 24
+	"thrusting energy" 1.5
+	"thrusting heat" -6
+	"energy generation" 1.5
+	"heat generation" 9
+	"overheat damage rate" 3
+	"drag reduction" 0.6
+	"flare sprite" "effect/avgi flare/ntr"
+		"frame rate" 15
+	"flare sound" "atomic small"
+	description "聚变引擎虽是一种高效的推进方式，但体积庞大且笨重，难以小型化。阿维吉人为较小的飞船采用了气体核裂变热火箭，这类飞船需要比电推进系统更高的推重比，却又不足以承载动辄数百吨重的聚变火炬引擎。通过使用U-233或Am-242m等高性能燃料，这些引擎实现了极高的比功率，但同时也使其成本颇为高昂。"
+	description "	蒸汽气体核热火箭源自与提灯裂变核心相同的反应堆设计，但移除了能量转换设备与辐射屏蔽层。与提灯核心一样，它利用数伏特的静电场将电离铀等离子体约束在反应堆内，同时允许高温氢气自由流过。该引擎为双模态设计，可通过热离子转换器持续输出少量电力，但代价是持续产生大量热量。"
+
+
+outfit `A-3600 "Beam" Amat Drive`
+	category "Engines"
+	series "Engines"
+	index 07080
+	"cost" 300000000
+	thumbnail "outfit/beam antimatter drive"
+	"mass" 3600
+	"outfit space" -360
+	"engine capacity" -360
+	"thrust" 600
+	"thrusting energy" 15
+	"thrusting heat" 90
+	"thrusting fuel" 0.3
+	"drag reduction" 9
+	"flare sprite" "effect/avgi flare/antimatter"
+		"frame rate" 15
+	"flare sound" "fusion torch"
+	"turn" 6000
+	"turning energy" 9
+	"turning heat" 54
+	"steering flare sprite" "effect/avgi flare/rcs"
+		"frame rate" 15
+		"scale" 0.5
+	"steering flare sound" "remnant afterburner"
+	"magnetic nozzle" 18
+	description "The fastest Avgi starships were propelled not just by their engines, but also by immense banks of lasers and particle beams stationed in the Anax system, pushing ships to velocities in excess of 0.2c before braking with a magsail or plasma magnet. Just before the invention of the hyperdrive, however, the Avgi perfected this beam-core antimatter drive, capable of pushing a starship with sufficient antimatter fuel to 0.4c and perhaps beyond. Requiring immense quantities of antimatter, the amat farms around Anax such as Antivli Station would have been strained to their limits had this design entered mass production, but the surprise invention of the hyperdrive rendered it laughably obsolete overnight."
+
+
+outfit `Z-333 "Spark" Fusion Torch`
+	category "Engines"
+	series "Engines"
+	index 07050
+	licenses
+		"Avgi Torch"
+	"cost" 3600000
+	thumbnail "outfit/spark fusion torch"
+	"mass" 333
+	"outfit space" -33
+	"engine capacity" -33
+	"thrust" 120
+	"thrusting energy" 9
+	"thrusting heat" 60
+	"thrusting fuel" 0.15
+	"drag reduction" 1
+	"flare sprite" "effect/avgi flare/fusion"
+		"frame rate" 15
+		"scale" 0.75
+	"flare sound" "fusion torch"
+	"afterburner effect" "small remass injection"
+	"magnetic nozzle" 3
+	description "Avgi 最小型聚变火炬实际上是该系列中最新设计的型号，这源于核聚变系统微型化所面临的技术难题。它通过激光冷却燃料，并使其穿过极强的磁场，实现自旋极化——即对氘核的原子核自旋进行定向排列，从而降低点火要求，并将部分释放的中子导向飞船外部。尽管自旋极化技术应用于所有 Avgi 聚变火炬，但它特别使「火花」（Spark）型号显著减轻重量、大幅缩小体积，进而降低了实现磁约束所需的电流强度，以及所需辐射屏蔽层的质量。"
+	description "	该磁喷管专为支持多种可插拔组件而设计，能实现各类功能：从注入额外推进剂以提升推力，到汲取膨胀聚变等离子体中的能量为飞船系统供能。"
+
+
+outfit `Z-666 "Zap" Fusion Torch`
+	category "Engines"
+	series "Engines"
+	index 07060
+	licenses
+		"Avgi Torch"
+	"cost" 9000000
+	thumbnail "outfit/zap fusion torch"
+	"mass" 666
+	"outfit space" -66
+	"engine capacity" -66
+	"thrust" 270
+	"thrusting energy" 18
+	"thrusting heat" 120
+	"thrusting fuel" 0.3
+	"drag reduction" 2
+	"flare sprite" "effect/avgi flare/fusion"
+		"frame rate" 15
+	"flare sound" "fusion torch"
+	"afterburner effect" "medium remass injection"
+	"magnetic nozzle" 6
+	description "Avgi人偏爱的核聚变约束方案是Z箍缩的一种变体：它沿一柱氘等离子体轴向通入电流，利用产生的磁场将其压缩，直至达到足以发生聚变的高温与高密度。环绕主箍缩区域的环形气流可维持其稳定性，将等离子体约束足够长的时间，使其在流经整个发动机长度并从尾部磁喷管喷出时，燃料几乎完全燃烧殆尽。该推进系统无需脆弱笨重的磁体或庞大的激光器来点火与约束聚变反应，因而效率极高、结构紧凑，数百年来一直是Avgi飞船推进系统的主力。"
+	description "	The magnetic nozzle is designed to support a variety of components that can be slotted in to provide various effects, from injecting additional propellant to improve thrust to tapping energy from the expanding fusion plasma to power a ship's systems."
+
+
+outfit `Z-999 "Arc" Fusion Torch`
+	category "Engines"
+	series "Engines"
+	index 07070
+	licenses
+		"Avgi Torch"
+	"cost" 14400000
+	thumbnail "outfit/arc fusion torch"
+	"mass" 999
+	"outfit space" -99
+	"engine capacity" -99
+	"thrust" 450
+	"thrusting energy" 27
+	"thrusting heat" 180
+	"thrusting fuel" 0.45
+	"drag reduction" 3
+	"flare sprite" "effect/avgi flare/fusion"
+		"frame rate" 15
+		"scale" 2
+	"flare sound" "fusion torch"
+	"afterburner effect" "large remass injection"
+	"magnetic nozzle" 9
+	description "这是Avgi族最常用、最大且历史最悠久的聚变火炬引擎——弧光型。其设计源自星际级引擎，后经修改与降规，以牺牲比冲为代价换取更高的推力，从而更适用于行星际航行。在此尺寸下，磁约束区长度足以将等离子体约束足够长的时间，不仅可使氘发生聚变生成氦-3与氚的混合物，还能进一步让前述聚变产物与剩余氘发生二次聚变，释放更多能量。这种被称为‘催化式氘-氘聚变’的反应，使弧光型引擎相比更小型的同类产品具备更优的燃料效率。"
+	description "	The magnetic nozzle is designed to support a variety of components that can be slotted in to provide various effects, from injecting additional propellant to improve thrust to tapping energy from the expanding fusion plasma to power a ship's systems."
+
+
+effect "small remass injection"
+	sprite "effect/avgi flare/remass"
+		"frame rate" 30
+		"scale" 0.75
+	zooms
+	sound "flamethrower"
+	"sound category" "afterburner"
+
+effect "medium remass injection"
+	sprite "effect/avgi flare/remass"
+		"frame rate" 30
+	zooms
+	sound "flamethrower"
+	"sound category" "afterburner"
+
+effect "large remass injection"
+	sprite "effect/avgi flare/remass"
+		"frame rate" 30
+		"scale" 2
+	zooms
+	sound "flamethrower"
+	"sound category" "afterburner"
+
+
+outfit "Remass Injector"
+	category "Engines"
+	series "Engines"
+	index 07099
+	licenses
+		"Avgi Torch"
+	"cost" 90000
+	thumbnail "outfit/remass injector"
+	"mass" 6
+	"outfit space" -6
+	"engine capacity" -6
+	"afterburner thrust" 90
+	"afterburner energy" 3
+	"afterburner heat" -18
+	"afterburner fuel" 0.6
+	"magnetic nozzle" -1
+	description "一台强劲的涡轮泵将大量液态氢强行注入聚变火炬磁喷管的喉部，在显著提升推力的同时，也大幅增加了推进剂消耗量。额外增加的质量流同样降低了火炬推进器所吸收的废热，使大量废热随注入聚变等离子体周围的反应质量一同排出。"
+	description "	重质注入器是一种可安装至阿维吉聚变火炬引擎的组件，为其提供加力燃烧能力。安装需占用一个磁喷管插槽。"
+
+
+outfit "Inductive Extractor"
+	category "Engines"
+	series "Engines"
+	index 07098
+	licenses
+		"Avgi Torch"
+	"cost" 120000
+	thumbnail "outfit/inductive extractor"
+	"mass" 12
+	"outfit space" -12
+	"engine capacity" -6
+	"energy generation" 1.5
+	"heat generation" 1.5
+	"thrust" -30
+	"thrusting energy" -24
+	"thrusting heat" 6
+	"magnetic nozzle" -1
+	description "一组强化型超导线圈、一只大型整流二极管以及一套电力调节单元，共同构成了一套系统，可从聚变火炬喷出的等离子体尾流中，通过磁喷嘴产生的磁场对其进行感应式能量提取。这一过程虽会消耗部分尾流能量并降低推力输出，但所释放的能量极为可观，因此成为高性能阿维吉星际飞船最主要的供能方式。"
+	description "感应式能量提取器是一种可安装至阿维吉聚变火炬的组件，能将部分推力转化为能量。安装此组件需占用一个磁喷管插槽。"
+
+
+outfit "R-180 RCS Thrusters"
+	plural "R-180 RCS Thrusters"
+	category "Engines"
+	series "Engines"
+	index 07020
+	"cost" 54000
+	thumbnail "outfit/rcs small"
+	"mass" 18
+	"outfit space" -18
+	"engine capacity" -18
+	"turn" 750
+	"turning energy" 1.5
+	"turning heat" -3
+	"reverse thrust" 9
+	"reverse thrusting energy" 1.5
+	"reverse thrusting heat" -3
+	"steering flare sprite" "effect/avgi flare/rcs"
+		"frame rate" 30
+		"scale" 0.0625
+	"steering flare sound" "plasma small"
+	"reverse flare sprite" "effect/avgi flare/rcs"
+		"frame rate" 30
+		"scale" 0.125
+	"reverse flare sound" "plasma small"
+	description "阿夫吉反应控制推进器是一种热电混合型推进器，专为实现任意方向平移而设计。它利用反应堆余热将过热水蒸气从一组喷嘴中喷出，从而在提供机动能力的同时帮助飞船散热；但其运行前提是飞船必须存在过剩热量。"
+
+
+outfit "R-360 RCS Thrusters"
+	plural "R-360 RCS Thrusters"
+	category "Engines"
+	series "Engines"
+	index 07030
+	"cost" 126000
+	thumbnail "outfit/rcs medium"
+	"mass" 36
+	"outfit space" -36
+	"engine capacity" -36
+	"turn" 1710
+	"turning energy" 3
+	"turning heat" -6
+	"reverse thrust" 18
+	"reverse thrusting energy" 3
+	"reverse thrusting heat" -6
+	"steering flare sprite" "effect/avgi flare/rcs"
+		"frame rate" 30
+		"scale" 0.125
+	"steering flare sound" "plasma small"
+	"reverse flare sprite" "effect/avgi flare/rcs"
+		"frame rate" 30
+		"scale" 0.25
+	"reverse flare sound" "plasma small"
+	description "阿维吉人将其姿态控制推进器设计为与聚变火炬协同工作：通过分流聚变火炬产生的高温废热，用以将水超热汽化，从而驱动其姿态控制系统。此外，每个推进器喷口外围均配备额外的磁流体动力加速器，在显著增加能耗的同时提升了比冲。凭借这些推进器，阿维吉星际飞船得以轻松对接空间站或其他飞船，而无需点燃具有高度放射性的聚变火炬。"
+
+
+outfit "R-720 RCS Thrusters"
+	plural "R-720 RCS Thrusters"
+	category "Engines"
+	series "Engines"
+	index 07040
+	"cost" 270000
+	thumbnail "outfit/rcs large"
+	"mass" 72
+	"outfit space" -72
+	"engine capacity" -72
+	"turn" 3690
+	"turning energy" 6
+	"turning heat" -9
+	"reverse thrust" 36
+	"reverse thrusting energy" 6
+	"reverse thrusting heat" -9
+	"steering flare sprite" "effect/avgi flare/rcs"
+		"frame rate" 30
+		"scale" 0.25
+	"steering flare sound" "plasma small"
+	"reverse flare sprite" "effect/avgi flare/rcs"
+		"frame rate" 30
+		"scale" 0.5
+	"reverse flare sound" "plasma small"
+	description "这套大型‘水壶式’姿态控制推进器，可让即便是体型最大的阿维吉星际飞船也能轻松完成机动操作，甚至无需完全调转方向即可实现倒车。此外，它还能通过电磁加速器喷射超高温水蒸气，高效排出大量废热。"
+
+
+# Special:
+
+
+outfit "Optical Laser Rifle"
+	category "Hand to Hand"
+	series "H2H"
+	index 07010
+	cost 12000
+	thumbnail "outfit/optical laser rifle"
+	"capture attack" 0.9
+	"capture defense" 1.8
+	"unplunderable" 1
+	description "这款纤细的激光步枪可调节至产生宽频谱范围的光束，是一种适用于地面作战与登舰行动的多功能轻武器。其固态发射器可在近红外至蓝绿色波段间稳定工作，并支持多种功率与脉冲时长设定。尽管近红外波段的低频端名义上对人眼安全，但可见光波束即使发生漫反射亦可致人瞬间失明，因此该步枪使用者必须佩戴特制护目镜——遇强光即自动变暗。顺带一提，这使得光学激光步枪对毫无防备的敌人（例如不速之客或敌方登舰小队）尤为危险。"
+	description "	瞄准镜与激光发射口共用同一块聚焦镜，从而消除了瞄准视差，并使自动对焦光学系统能够轻松将光束对准用户在瞄准镜视野内所见的任何目标。"
+
+
+outfit "Trefoil Board"
+	category "Unique"
+	series "Functional Unique"
+	index 07010
+	cost 69000
+	thumbnail "outfit/trefoil board"
+	"capture attack" 0.3
+	"capture defense" 0.9
+	"unique" 1
+	"unplunderable" 1
+	description "一副精美的阿维吉‘三叶草’棋盘，由稀有的整体木手工雕琢而成，并由发言人紫藤赠予你。木质表面刻有纹饰，并镶嵌银质环带；三组棋子则分别由抛光青金石、翡翠与石榴石制成，历经无数局对弈，早已磨得温润光滑。"
+	description "	你推测这种致密木材在紧急情况下倒可充当钝器使用，不过用如此精良的物件进行粗野的近战搏斗，未免太过可惜。"
+
+
+outfit "Damselflyman"
+	thumbnail "outfit/void sprite parts"
+	"capture attack" 30
+	"capture defense" 60
+	"unplunderable" 1
+	description "这个神秘的放射性肿瘤虽属良性，却在你胸腔中央异常增生，在胸骨正中形成一片发光的蜻蜓状斑块。敌人仅在争夺一艘已瘫痪星舰的控制权时，才会因目睹此物而惊慌溃逃。此外，你本不该能直接看见这件‘装备’。"
+
+
+outfit "Lancet Adamant"
+	category "Unique"
+	series "Functional Unique"
+	index 07020
+	cost 3000000
+	thumbnail "outfit/unknown"
+	"capture attack" 3
+	"capture defense" 6
+	"unplunderable" 1
+	description "这是一柄纯粹用于礼仪场合的武器，外形流畅的短矛由一整块金刚石或纳米钻石打造而成。尽管在现代远程作战的实际环境中并不实用，但其外观确实令人印象深刻。"
+
+
+outfit "Twilight Guard License"
+	category "Licenses"
+	series "Licenses"
+	index 07010
+	thumbnail "outfit/unknown"
+
+outfit "Avgi Torch License"
+	category "Licenses"
+	series "Licenses"
+	index 07020
+	thumbnail "outfit/unknown"
+
+outfit "Avgi Atomics License"
+	category "Licenses"
+	series "Licenses"
+	index 07020
+	thumbnail "outfit/unknown"

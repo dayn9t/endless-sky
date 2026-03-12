@@ -1,0 +1,405 @@
+# Copyright (c) 2024 by Daeridanii
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+outfit `"Ojet" Bimodal Coilgun`
+	category "Guns"
+	series "Guns"
+	index 11010
+	cost 1370000
+	thumbnail "outfit/bimodal coilgun"
+	licenses
+		"High Houses"
+	"mass" 22
+	"outfit space" -22
+	"weapon capacity" -22
+	"gun ports" -1
+	weapon
+		sprite "projectile/bimodal"
+			"frame rate" 5
+			"start frame" 0
+			"no repeat"
+		sound "bimodal"
+		"hit effect" "bimodal impact"
+		"fire effect" "moonbeam fleck" 4
+		"inaccuracy" 1
+		"velocity" 30
+		"lifetime" 15
+		"range override" 900
+		"burst count" 12
+		"burst reload" 6
+		"reload" 30
+		"firing energy" 80
+		"firing heat" 120
+		"firing force" 25
+		# Because parent projectiles inherit the damage of their submunitions, we must subtract the total damage of all submunitions from the parent projectile to get the desired behavior (different damage profiles over different ranges).
+		"shield damage" -94
+		# 50 (parent) - 3*48 (child)
+		# close: 50 shield damage
+		# far: 144 shield damage
+		"hull damage" 93
+		# 135 (parent) - 3*14 (child)
+		# close: 135 hull damage
+		# far: 42 hull damage
+		"hit force" 120
+		"cluster"
+		"submunition" "Bimodal Switch" 3
+	description `精准而致命，奥杰特双模线圈炮自人类初涉星空之前，便一直是高等世家的首选武器。其设计初衷极为简单——打造一款完美武器；据传，在先驱者帝国覆灭之时，他们已有一千多年未曾为飞船加装任何其他武器。`
+	description `	“奥杰特”武器发射超密带电粒子束，粒子束在飞行中逐渐扩散：近距离时，高度集中的光束可穿透装甲；远距离时，弥散的离子喷雾则能干扰并瓦解护盾。装备此类武器的飞船仅需调整交战距离，即可灵活切换伤害模式，从而对任何敌人都具备极高作战效能。`
+
+outfit "Bimodal Coilgun Turret"
+	category "Turrets"
+	series "Turrets"
+	index 11010
+	cost 2950000
+	thumbnail "outfit/bimodal coilgun turret"
+	licenses
+		"High Houses"
+	"mass" 55
+	"outfit space" -55
+	"weapon capacity" -55
+	"turret mounts" -1
+	"required crew" 1
+	weapon
+		"hardpoint sprite" "hardpoint/bimodal turret"
+		"hardpoint offset" 12
+		sprite "projectile/bimodal"
+			"frame rate" 5
+			"start frame" 0
+			"no repeat"
+		sound "bimodal"
+		"hit effect" "bimodal impact"
+		"fire effect" "moonbeam fleck" 4
+		"inaccuracy" 1
+		"velocity" 30
+		"lifetime" 15
+		"range override" 900
+		"turret turn" 1
+		"burst count" 24
+		"burst reload" 3
+		"reload" 15
+		"firing energy" 80
+		"firing heat" 120
+		"firing force" 25
+		"shield damage" -94
+		"hull damage" 93
+		"hit force" 120
+		"cluster"
+		"submunition" "Bimodal Switch" 3
+	description `继承者级战舰传统上依赖固定式武器来对抗敌人，但高等氏族也研制了一款搭载奥杰特线圈炮的炮塔平台，以确保其体型更大、机动性更差的舰船在面对更灵活的目标时仍能维持作战效能。该炮塔并排安装两门武器，并经过特殊校准，使其每次齐射发射的弹药数量加倍，从而与固定式武器挂点保持同步。`
+
+effect "bimodal impact"
+	sprite "effect/bimodal impact"
+		"frame rate" 30
+		"no repeat"
+	lifetime 8
+	"velocity scale" 0.2
+
+outfit "Bimodal Switch"
+	weapon
+		sprite "projectile/bimodal switch"
+			"random start frame"
+			"frame rate" 20
+		"hit effect" "bimodal switch impact"
+		"inaccuracy" 10
+		"velocity" 30
+		"lifetime" 6
+		"random lifetime" 3
+		"shield damage" 48
+		"hull damage" 14
+
+effect "bimodal switch impact"
+	sprite "effect/bimodal switch impact"
+		"frame rate" 12
+		"no repeat"
+	lifetime 30
+	"velocity scale" 0.02
+
+outfit "Drag Cannon"
+	category "Guns"
+	series "Guns"
+	index 11020
+	cost 455000
+	thumbnail "outfit/drag cannon"
+	licenses
+		"High Houses"
+	"mass" 12
+	"outfit space" -12
+	"weapon capacity" -12
+	"gun ports" -1
+	weapon
+		sound "drag cannon"
+		"fire effect" "moonbeam fleck" 2
+		"hit effect" "drag cannon impact" 3
+		"velocity" 0
+		"lifetime" 0
+		"range override" 375
+		"velocity override" 25
+		"burst count" 6
+		"burst reload" 6
+		"reload" 45
+		"firing energy" 30
+		"firing heat" 55
+		"cluster"
+		"submunition" "Drag Projectile" 3
+	description `继承者族历史上素来偏爱实弹武器，这一传统延续至今。‘拖曳炮’发射短程、精度极低的大范围弹幕，不仅能造成可观伤害，还可暂时干扰目标飞船的引擎运行。`
+	description `	尽管其设计远不如久经考验的奥杰特线圈炮优雅，因而也较少受到青睐，但拖曳炮仍被继承者组织广泛装备于高速攻击舰上，主要用以减缓敌方飞船速度，以便主力舰队将其捕获并歼灭。`
+
+outfit "Drag Projectile"
+	weapon
+		sprite "projectile/drag cannon"
+			"frame rate" 20
+			"no repeat"
+		"hit effect" "drag cannon impact"
+		"inaccuracy" 20
+		"velocity" 25
+		"lifetime" 10
+		"random lifetime" 5
+		"slowing damage" 0.45
+		"shield damage" 52
+		"hull damage" 48
+
+effect "drag cannon impact"
+	sprite "effect/drag cannon impact"
+		"frame rate" 10
+		"no repeat"
+	lifetime 20
+	"velocity scale" 0
+	"random velocity" 1
+
+outfit "Successor Pulse Laser"
+	category "Guns"
+	series "Guns"
+	index 11030
+	cost 69000
+	thumbnail "outfit/successor pulse laser"
+	licenses
+		"Successor"
+	"mass" 10
+	"outfit space" -10
+	"weapon capacity" -10
+	"gun ports" -1
+	weapon
+		sprite "projectile/successor pulse laser"
+			"random start frame"
+			"frame rate" 5
+		sound "successor pulse laser"
+		"hit effect" "successor pulse laser impact"
+		"inaccuracy" 0.4
+		"velocity" 490
+		"lifetime" 1
+		"burst count" 9
+		"burst reload" 1
+		"reload" 6
+		"firing energy" 11
+		"firing heat" 15
+		"shield damage" 10.5
+		"hull damage" 12
+		"piercing" 0.05
+	description "这种穿透护盾的激光武器，是少数几种在继承者（Successor）领地内独立制造的武器之一，而非在高阶氏族（High Houses）的监管与限制下生产。正因如此，它既不特别强大，也不格外高效；但其低廉的成本与较小的占用空间，使其成为那些无法获取高阶氏族更强大武器者的相对理想的防御选择。"
+
+outfit "Pulse Laser Turret"
+	category "Turrets"
+	series "Turrets"
+	index 11020
+	cost 145000
+	thumbnail "outfit/successor pulse laser turret"
+	licenses
+		"Successor"
+	"mass" 30
+	"outfit space" -30
+	"weapon capacity" -30
+	"turret mounts" -1
+	"required crew" 1
+	weapon
+		sprite "projectile/successor pulse laser"
+			"random start frame"
+			"frame rate" 5
+		"hardpoint sprite" "hardpoint/successor pulse laser turret"
+		"hardpoint offset" 8
+		sound "successor pulse laser"
+		"hit effect" "successor pulse laser impact"
+		"inaccuracy" 0.4
+		"velocity" 490
+		"turret turn" 2.6
+		"lifetime" 1
+		"burst count" 9
+		"burst reload" 1
+		"reload" 3
+		"firing energy" 11
+		"firing heat" 15
+		"shield damage" 10.5
+		"hull damage" 12
+		"piercing" 0.05
+	description "脉冲激光炮的问世，令高阶家族中那些头脑敏锐者猛然警醒——这是数百年来首次出现由高阶家族以外势力制造的武器。多数继承者将炮塔式脉冲激光视为暴力手段‘民主化’进程的延续；而更偏执者则声称，高阶家族早已渗透进生产环节，并蓄意破坏了该武器的设计。"
+
+effect "successor pulse laser impact"
+	sprite "effect/successor pulse laser impact"
+		"frame rate" 30
+		"random start frame"
+	lifetime 3
+	"velocity scale" 0
+
+outfit "Overcharged Pulse Laser"
+	category "Guns"
+	series "Guns"
+	index 11040
+	cost 84000
+	thumbnail "outfit/overcharged pulse laser"
+	licenses
+		"Successor"
+	"mass" 12
+	"outfit space" -12
+	"weapon capacity" -12
+	"gun ports" -1
+	weapon
+		sprite "projectile/successor pulse laser"
+			"start frame" 2
+			"frame rate" 8
+			"rewind"
+		sound "overcharged pulse laser"
+		"hit effect" "overcharged pulse laser impact"
+		"inaccuracy" 5.5
+		"velocity" 490
+		"lifetime" 1
+		"burst count" 4
+		"burst reload" 1
+		"reload" 7
+		"firing energy" 9.1
+		"firing heat" 30.8
+		"shield damage" 14
+		"hull damage" 13.3
+		"piercing" 0.05
+		"cluster"
+	description `由于无法大量获取高庭制造的高性能武器，人民之庭只得利用手头现有资源——主要是继承者领地内自主生产的、功率相对较低的脉冲激光炮。这款脉冲激光炮已绕过安全限制，并升级了光学系统，使其在更低能耗下对护盾造成更大伤害，代价是产热大幅增加。`
+
+outfit "Overcharged Laser Turret"
+	category "Turrets"
+	series "Turrets"
+	index 11030
+	cost 136000
+	thumbnail "outfit/overcharged pulse laser turret"
+	licenses
+		"Successor"
+	"mass" 24
+	"outfit space" -24
+	"weapon capacity" -24
+	"turret mounts" -1
+	"required crew" 1
+	weapon
+		sprite "projectile/successor pulse laser"
+			"start frame" 2
+			"frame rate" 8
+			"rewind"
+		"hardpoint sprite" "hardpoint/overcharged pulse laser turret"
+		"hardpoint offset" 8
+		sound "overcharged pulse laser"
+		"hit effect" "overcharged pulse laser impact"
+		"inaccuracy" 5.5
+		"velocity" 490
+		"lifetime" 1
+		"turret turn" 3
+		"burst count" 4
+		"burst reload" 1
+		"reload" 7
+		"firing energy" 12.6
+		"firing heat" 43.05
+		"shield damage" 19.6
+		"hull damage" 18.667
+		"piercing" 0.05
+		"cluster"
+	description `由人民公馆中更具个性的成员手工打造，这款定制化超载脉冲激光炮塔相较固定型号，其激光发生器被注入了更多能量，以致于在同等尺寸的武器中产生了惊人的热量。尽管外形不够优雅，它仍是一件令人生畏的武器——尤其值得注意的是，它依然保有部分穿透护盾的能力。`
+
+effect "overcharged pulse laser impact"
+	sprite "effect/overcharged pulse laser impact"
+		"frame rate" 30
+		"random start frame"
+	lifetime 6
+	"velocity scale" 0
+
+outfit `"Sjeja" Kinetic Lance`
+	category "Secondary Weapons"
+	series "Secondary Weapons"
+	index 11010
+	cost 3500000
+	licenses
+		"High Houses"
+	thumbnail "outfit/sjeja kinetic lance"
+	"mass" 60
+	"outfit space" -60
+	"weapon capacity" -60
+	"energy capacity" 1900
+	"gun ports" -1
+	"spike capacity" 20
+	weapon
+		sprite "projectile/sjeja kinetic lance"
+			"frame rate" 4
+			"random start frame"
+		sound "sjeja lance"
+		ammo "High-Velocity Spike"
+		icon "icon/hv spike"
+		"fire effect" "moonbeam fleck" 20
+		"fire effect" "electron impact"
+		"hit effect" "torpedo hit"
+		"cluster"
+		"velocity" 320
+		"lifetime" 8
+		"reload" 160
+		"firing force" 800
+		"firing energy" 1900
+		"firing ion" 3.0
+		"firing heat" 4000
+		"shield damage" 1069
+		"hull damage" 1920
+		"piercing" 0.15
+		"hit force" 800
+		"penetration count" 5
+	description "继任者联盟（Successors）现役武器中体积最大、威力最强的一款——这门巨型超导线圈炮设计简洁优雅，可在极远距离上干净利落地贯穿目标。尽管该武器发射时需瞬间输出巨大能量，但其线圈本身可储存部分所需能量，因此无需额外电池组即可开火；代价是会对飞船系统造成持续性的电力负荷。"
+	description "	Ammunition for this weapon can be restocked at any outfitter."
+		to display
+			has "gamerule: universal ammo restocking"
+
+outfit "High-Velocity Spike"
+	category "Ammunition"
+	series "Ammunition"
+	index 11010
+	cost 3500
+	thumbnail "outfit/hv spike"
+	"mass" .5
+	"spike capacity" -1
+	description `斯杰亚动能长矛发射的弹体过于庞大，无法直接利用飞船储备实时合成，必须单独携带。`
+
+outfit "High-Velocity Spike Rack"
+	category "Ammunition"
+	series "Ammunition"
+	index 11020
+	cost 50000
+	licenses
+		"High Houses"
+	thumbnail "outfit/hv spike rack"
+	"mass" 7
+	"outfit space" -12
+	"energy capacity" 800
+	"spike capacity" 16
+	ammo "High-Velocity Spike"
+	description `尽管斯杰亚动能长矛内置的弹药储备足以应付除最持久战斗外的所有战况，但高等世家仍为此制造了这种额外的储存单元，专供其最大的战舰使用。该弹药架还配备了一组小型电池，以协助承担斯杰亚动能长矛高昂的能源消耗。`
+
+outfitter "Kinetic Lance Restock"
+	to sell
+		has "gamerule: universal ammo restocking"
+		or
+			has `outfit: "Sjeja" Kinetic Lance`
+			has "outfit: High-Velocity Spike Rack"
+	location
+		attributes "outfitter"
+	stock
+		"High-Velocity Spike"

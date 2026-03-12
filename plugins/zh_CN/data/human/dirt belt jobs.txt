@@ -1,0 +1,427 @@
+# Copyright (c) 2017 by Michael Zahniser
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+overwrite
+mission "Drought Relief"
+	name `向<planet>运送抗旱援助物资`
+	job
+	repeat
+	description `农业星球 <destination> 目前正遭遇严重干旱。请于 <date> 前将 <cargo> 运送至该行星，酬金为 <payment>。`
+	cargo "drought relief supplies" 25 2 .05
+	deadline
+	to offer
+		random < 10
+	source
+		government "Republic"
+		not attributes "farming"
+	destination
+		distance 3 10
+		attributes "dirt belt"
+		attributes "farming"
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		payment 10000 160
+		dialog "You drop off your cargo of <commodity> and collect your payment of <payment>. A group of <planet> citizens thank you and bid you farewell."
+
+
+overwrite
+mission "To Remembrance Day celebration [0]"
+	name `纪念日庆典`
+	job
+	repeat
+	description `请于{date}前将{fare}运送至{destination}，用于2月19日的纪念日庆典。酬金为{payment}。`
+	passengers 4 4 .5
+	deadline
+	to offer
+		or
+			and
+				random < 20
+				month == 12
+				day >= 21
+			and
+				random < 30
+				month == 1
+			and
+				random < 10
+				month == 2
+				day < 19
+	to fail
+		month * 100 + day >= 219
+	source
+		attributes "dirt belt"
+	destination
+		distance 3 15
+		attributes "dirt belt"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		payment 1000 180
+		dialog "You wish your <passengers> the best of luck on <planet>. The children run off your ship in green face paint, and the parents pay you <payment>."
+
+
+overwrite
+mission "To Remembrance Day celebration [1]"
+	name `Remembrance Day celebration`
+	job
+	repeat
+	description `在<date>前将<cargo>运送至<destination>，为2月19日纪念日庆典做准备。报酬为<payment>。`
+	cargo random 5 2 .1
+	deadline
+	to offer
+		or
+			and
+				random < 40
+				month == 12
+				day >= 21
+			and
+				random < 60
+				month == 1
+			and
+				random < 20
+				month == 2
+				day < 19
+	to fail
+		month * 100 + day >= 219
+	source
+		attributes "dirt belt"
+	destination
+		distance 3 15
+		attributes "dirt belt"
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		payment 1000 180
+		dialog `太空港工作人员早已身着节日盛装庆祝纪念日，他们从你的飞船上卸下<commodity>货物，并将<payment>报酬交予你。`
+
+overwrite
+mission "To Remembrance Day celebration [2]"
+	name `Remembrance Day celebration`
+	job
+	repeat
+	description `Deliver <cargo> to <destination> by <date> in preparation for the Remembrance Day celebration on February 19th. Payment is <payment>.`
+	cargo random 5 2 .1
+	deadline
+	to offer
+		or
+			and
+				random < 40
+				month == 12
+				day >= 21
+			and
+				random < 60
+				month == 1
+			and
+				random < 20
+				month == 2
+				day < 19
+	to fail
+		month * 100 + day >= 219
+	source
+		attributes "dirt belt"
+	destination
+		distance 3 15
+		attributes "dirt belt"
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		payment 1000 180
+		dialog `Spaceport workers already festively dressed for Remembrance Day remove the cargo of <commodity> from your ship and hand you your payment of <payment>.`
+
+
+overwrite
+mission "To Remembrance Day celebration [3]"
+	name `Remembrance Day celebration`
+	job
+	repeat
+	description `Bring <fare> to <destination> by <date> for the Remembrance Day celebration on February 19th. Payment is <payment>.`
+	passengers 20 4 .15
+	deadline
+	to offer
+		random < ( "passenger space" - 30 ) * 2
+		or
+			and
+				random < 20
+				month == 12
+				day >= 21
+			and
+				random < 90
+				month == 1
+			and
+				random < 30
+				month == 2
+				day < 19
+	to fail
+		month * 100 + day >= 219
+	source
+		attributes "dirt belt"
+	destination
+		distance 3 15
+		attributes "dirt belt"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		payment 200000 120
+		dialog "You wish your <passengers> the best of luck on <planet>. The children run off your ship in green face paint, and the parents pay you <payment>."
+
+
+overwrite
+mission "From Remembrance Day celebration [0]"
+	name `纪念日返程任务`
+	job
+	repeat
+	description `纪念日庆典结束后，将<fare>送回<destination>。报酬为<payment>。`
+	passengers 4 4 .5
+	to offer
+		or
+			and
+				random < 25
+				month == 2
+				day > 19
+			and
+				random < 15
+				month == 3
+			and
+				random < 10
+				month == 4
+				day < 20
+	source
+		attributes "dirt belt"
+	destination
+		distance 3 15
+		attributes "dirt belt"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		payment
+		payment 1000
+		dialog `Your passengers thank you for returning them to <planet>, and you collect your payment of <payment>.`
+
+
+overwrite
+mission "From Remembrance Day celebration [1]"
+	name `Return from Remembrance Day`
+	job
+	repeat
+	description `Bring <fare> home to <destination> after the Remembrance Day celebration. Payment is <payment>.`
+	passengers 4 4 .3
+	to offer
+		or
+			and
+				random < 20
+				month == 2
+				day > 19
+			and
+				random < 10
+				month == 3
+			and
+				random < 5
+				month == 4
+				day < 20
+	source
+		attributes "dirt belt"
+	destination
+		distance 3 15
+		attributes "dirt belt"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		payment
+		payment 1000
+		dialog `Your passengers thank you for returning them to <planet>, and you collect your payment of <payment>.`
+
+
+overwrite
+mission "From Remembrance Day celebration [2]"
+	name `Return from Remembrance Day`
+	job
+	repeat
+	description `Bring <fare> home to <destination> after the Remembrance Day celebration. Payment is <payment>.`
+	passengers 20 4 .15
+	to offer
+		random < ( "passenger space" - 30 ) * 2
+		or
+			and
+				random < 60
+				month == 2
+				day > 19
+			and
+				random < 30
+				month == 3
+			and
+				random < 15
+				month == 4
+				day < 20
+	source
+		attributes "dirt belt"
+	destination
+		distance 3 15
+		attributes "dirt belt"
+	on visit
+		dialog phrase "generic passenger on visit"
+	on complete
+		payment 120000 100
+		dialog `Your passengers thank you for returning them to <planet>, and you collect your payment of <payment>.`
+
+
+overwrite
+mission "Food Convoy [0]"
+	name `食品运输船队前往<planet>`
+	job
+	repeat
+	deadline
+	description `由<npc>舰长率领的小型食品运输船队，愿向你支付<payment>，以换取你在<date>前护送他们抵达<destination>。`
+	to offer
+		random < 30
+		"combat rating" > 30
+	source
+		attributes "dirt belt"
+	destination
+		distance 2 8
+		attributes "near earth" "paradise" "core"
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+			confusion 20
+		system destination
+		fleet "Small Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+			confusion 20
+		system destination
+		fleet "Small Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis entering harvests plunders
+			confusion 20
+		system destination
+		fleet "Small Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis staying harvests plunders
+			confusion 20
+		system destination
+		fleet "Small Northern Pirates" 2
+	
+	npc accompany save
+		government "Merchant"
+		personality escort timid
+		"cargo settings"
+			commodities "Food"
+		fleet
+			names "civilian"
+			variant
+				"Freighter" 3
+	on complete
+		payment 100000
+		dialog "The captain of the <npc> thanks you for escorting their ships safely, and pays you <payment>."
+	on visit
+		dialog phrase "generic arrived-without-npc dialog"
+
+
+overwrite
+mission "Food Convoy [1]"
+	name `Food convoy to <planet>`
+	job
+	repeat
+	deadline
+	description `由<npc>舰长率领的食品运输船队，愿向你支付<payment>，以换取你在<date>前护送他们抵达<destination>。`
+	to offer
+		random < 25
+		"combat rating" > 60
+	source
+		attributes "dirt belt"
+	destination
+		distance 3 9
+		attributes "near earth" "paradise" "core"
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+		system destination
+		fleet "Large Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis entering harvests plunders
+		system destination
+		fleet "Small Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis staying harvests plunders
+		system destination
+		fleet "Large Northern Pirates"
+	
+	npc accompany save
+		government "Merchant"
+		personality escort timid
+		"cargo settings"
+			commodities "Food"
+		fleet
+			names "civilian"
+			variant
+				"Behemoth"
+				"Freighter" 2
+	on complete
+		payment 160000
+		dialog "The captain of the <npc> thanks you for escorting their ships safely, and pays you <payment>."
+	on visit
+		dialog phrase "generic arrived-without-npc dialog"
+
+
+overwrite
+mission "Food Convoy [2]"
+	name `Food convoy to <planet>`
+	job
+	repeat
+	deadline
+	description `由<npc>舰长率领的大型食品运输船队，愿向你支付<payment>，以换取你在<date>前护送他们抵达<destination>。`
+	to offer
+		random < 15
+		"combat rating" > 90
+	source
+		attributes "dirt belt"
+	destination
+		distance 4 10
+		attributes "near earth" "paradise" "core"
+	npc
+		government "Pirate"
+		personality nemesis harvests plunders
+		system destination
+		fleet "Small Northern Pirates"
+		fleet "Large Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis entering harvests plunders
+		system destination
+		fleet "Large Northern Pirates"
+	npc
+		government "Pirate"
+		personality nemesis staying harvests plunders
+		system destination
+		fleet "Small Northern Pirates"
+		fleet "Large Northern Pirates"
+	
+	npc accompany save
+		government "Merchant"
+		personality escort timid
+		"cargo settings"
+			commodities "Food"
+		fleet
+			names "civilian"
+			variant
+				"Behemoth" 2
+	on complete
+		payment 220000
+		dialog "The captain of the <npc> thanks you for escorting their ships safely, and pays you <payment>."
+	on visit
+		dialog phrase "generic arrived-without-npc dialog"

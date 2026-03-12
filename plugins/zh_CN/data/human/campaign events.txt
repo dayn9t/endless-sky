@@ -1,0 +1,3383 @@
+# Copyright (c) 2014 by Michael Zahniser
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+event "remembrance day"
+	date 19 2 3014
+
+
+
+overwrite
+mission "remembrance day"
+	landing
+	non-blocking
+	source
+		government "Republic"
+		attributes "spaceport"
+	to offer
+		has "event: remembrance day"
+	on offer
+		log "Factions" "Alphas" `阿尔法战士是数百年前设计的基因改造超级士兵，天生缺乏同情心与共情能力。他们逃离了创造者，奴役了整颗行星，并指挥着规模庞大的舰队。最终，他们被击败，或被歼灭，或隐匿于世。其显著特征是绿色的、具备光合作用能力的皮肤。`
+			`阿尔法人可存活数百年，其中许多人很可能已幸存下来，隐匿于无政府主义行星或人类疆域之外的某处。幸运的是，他们的繁殖速度远低于普通人类。`
+		conversation
+			`今天是人类疆域全境的“追思日”，纪念五百多年前爆发的阿尔法战争。阿尔法人是基因工程制造的士兵，拥有超人的敏捷性与智力，却完全缺乏同情心与共情能力。战争最激烈时，数十颗行星已被阿尔法人奴役。`
+			`	纪念日并非纪念战争结束，而是纪念战争爆发，以此作为永恒警示：战争尚未终结——尽管阿尔法人已被击败，但其中一些人成功逃脱并转入地下；他们及其后代至今仍被认为潜藏在银河系中。`
+			`	自阿尔法战争以来，基因重测序技术一直受到极为严格的管控。由于阿尔法人系经实验性基因改造而非自然演化而来，其基因被认为不如真正的人类强健，若无特殊技术辅助，几乎无法繁育出可存活的后代。因此，战争结束后所发现的绝大多数阿尔法聚居地人口都极为稀少，通常仅数十人而已。`
+			`	如今，海军维系着银河系大部分区域的和平，因此在许多世界上，阿尔法人早已沦为吓唬孩童的传说怪物。由于阿尔法人最显著的生理特征是其光合作用皮肤，某些世界甚至在纪念日让孩子们涂上绿色油彩扮成阿尔法人四处奔跑，试图吓唬他人。但在其他世界——尤其是海军极少巡逻的边疆星域——人们提起阿尔法人时，仍充满恐惧。`
+				decline
+
+
+
+event "war begins"
+	date 4 7 3014
+	system "Gamma Corvi"
+		government "Free Worlds"
+		fleet "Small Southern Merchants" 600
+		fleet "Large Southern Merchants" 1400
+		fleet "Small Free Worlds" 600
+		fleet "Large Free Worlds" 1300
+	system "Spica"
+		government "Free Worlds"
+	system "Minkar"
+		government "Free Worlds"
+	system "Acrux"
+		government "Free Worlds"
+	system "Mimosa"
+		government "Free Worlds"
+	system "Kraz"
+		government "Free Worlds"
+	system "Izar"
+		government "Free Worlds"
+	system "Zeta Centauri"
+		government "Free Worlds"
+	system "Hadar"
+		government "Free Worlds"
+	system "Alkaid"
+		government "Free Worlds"
+	system "Zubeneschamali"
+		government "Free Worlds"
+	system "Kochab"
+		government "Free Worlds"
+	system "Ildaria"
+		government "Free Worlds"
+	system "Zubenelgenubi"
+		government "Free Worlds"
+	system "Sabik"
+		government "Free Worlds"
+	system "Unukalhai"
+		government "Free Worlds"
+	system "Kornephoros"
+		government "Free Worlds"
+	system "Sargas"
+		government "Free Worlds"
+	system "Lesath"
+		government "Free Worlds"
+	system "Aldhibain"
+		government "Free Worlds"
+	system "Dschubba"
+		government "Free Worlds"
+	system "Atria"
+		government "Free Worlds"
+	system "Alniyat"
+		government "Free Worlds"
+	system "Han"
+		government "Free Worlds"
+	system "Pherkad"
+		government "Free Worlds"
+	system "Yed Prior"
+		government "Free Worlds"
+	system "Beta Lupi"
+		government "Free Worlds"
+	system "Kappa Centauri"
+		government "Free Worlds"
+	system "Castor"
+		fleet "Small Northern Merchants" 800
+		fleet "Large Northern Merchants" 1100
+		fleet "Small Republic" 800
+		fleet "Large Republic" 400
+		fleet "Republic Logistics" 1000
+	system "Pollux"
+		fleet "Small Northern Merchants" 700
+		fleet "Large Northern Merchants" 1100
+		fleet "Small Republic" 700
+		fleet "Large Republic" 900
+		fleet "Republic Logistics" 1200
+	system "Vega"
+		fleet "Small Northern Merchants" 1000
+		fleet "Large Northern Merchants" 4000
+		fleet "Small Republic" 900
+		fleet "Large Republic" 1000
+		fleet "Republic Logistics" 6000
+	system "Denebola"
+		fleet "Small Northern Merchants" 1000
+		fleet "Large Northern Merchants" 3000
+		fleet "Small Republic" 700
+		fleet "Large Republic" 900
+		fleet "Republic Logistics" 2500
+	system "Merak"
+		fleet "Small Northern Merchants" 1500
+		fleet "Large Northern Merchants" 4000
+		fleet "Small Republic" 1100
+		fleet "Large Republic" 1300
+		fleet "Republic Logistics" 3000
+	planet "Geminus"
+		description `直到不久前，双子星（Geminus）还坐落着共和国海军船坞——人类疆域内规模最大的船坞。而今，船坞已荡然无存，仅余一处因近期恐怖袭击爆炸而形成的巨大陨坑。`
+		spaceport `幸运的是，太空港与居民区在轰炸中幸存下来；此次袭击仅针对海军船坞，且发生于清晨，当时几乎无人在岗。`
+		spaceport `此处负责的海军军官无暇顾及任何未加入海军、且未参与当前调查的人员。`
+		shipyard clear
+		outfitter clear
+		"required reputation" 100
+	planet "Martini"
+		description `马提尼是一颗拥有异域风情海滩与宜人气候的星球。共和国中央银行与银河证券交易所曾将总部设于此地，但在一次恐怖袭击中，这两处机构连同首都城市的大片区域一同被摧毁。`
+		description `	目前，一场大规模救援与疏散行动正在首都及其周边展开，旨在搜寻幸存者、实施救治并控制辐射扩散。不出所料，这颗行星的物资储备已濒临枯竭，而马蒂尼政府残余力量已向民间飞船发出呼吁，请求协助运送物资与补给，支援此次行动。`
+		spaceport `这座临时太空港，早已不复马尔蒂尼昔日那座一尘不染的宏伟设施之貌；取而代之的是随机散布的简易着陆区，旨在支援大量参与救援与撤离行动的海军及民用飞船。`
+		"required reputation" 100
+		security .9
+	planet "Bourne"
+		description `Bourne is a well-developed industrial world that was first settled four centuries ago. Its cities are home to some of the richest individuals in this section of the galaxy, but also home to tens of thousands of homeless people, and many others whose factory jobs are barely providing enough to make ends meet.`
+		description `	Outside the cities, the climate is somewhat dry, but the deep valleys and some coastal regions are suitable for farming. Very little of the planet remains that is untouched by human hands.`
+		description `	伯恩同时也是新成立的自由世界政府所在地。`
+
+overwrite
+mission "event: war begins"
+	landing
+	non-blocking
+	source
+		government "Republic" "Syndicate" "Free Worlds"
+		attributes "spaceport"
+	to offer
+		has "event: war begins"
+	on offer
+		log "Factions" "Free Worlds" `自由世界是银河系南部旋臂一带宣布脱离共和国独立的一系列地方政权联盟——起因是共和国议会拒绝回应其关于贸易关税、税收政策及政治代表权等问题的诉求。近期海军船坞与银河证券交易所接连发生的恐怖袭击事件，可能与其存在关联，但自由世界方面坚决否认对此负有责任。`
+		conversation
+			branch geminus
+				has "flagship planet: Geminus"
+			
+			branch martini
+				has "flagship planet: Martini"
+
+			`你刚走下飞船，便立刻察觉到情况极不寻常。太空港异常寂静，而当地酒吧内，一大群人正围着一块视频屏幕聚拢着。`
+			`	你询问发生了什么，有人向你解释：近期，银河系南部旋臂的一批行星政府向共和国发出了一份近乎最后通牒的声明——除非改革行星代表的选举制度，否则将拒绝缴纳赋税。这一自称‘自由世界’的集团，还要求立即重新审议所有现行贸易关税及飞行员注册相关法规。议会断然拒绝考虑其中任何一项要求。`
+			`	随后，在清晨时分，双子星（Geminus）和马丁尼（Martini）上发生的核爆炸摧毁了共和国海军船坞与银河证券交易所，重创了共和国的军事与经济中心。“自由世界”虽拒不承认对此次袭击负有任何责任，但袭击发生的时间点，以及其恰好完美契合“自由世界”自身利益的事实，却令人难以信服。`
+			`	除非抓获恐怖分子，或他们主动自首，否则内战已迫在眉睫。距离你购入这艘飞船尚不足一年，而整个银河系已在你眼前分崩离析。`
+				decline
+			
+			label geminus
+			action
+				set "bombing witness"
+			`	你刚踏出飞船，便立刻察觉到情况大为不妙。太空港建筑出口两侧站满了全副武装的海军人员，更多士兵正在港口内巡逻。一名联络官正驱赶一群平民，走向附近起降坪旁一座低矮的掩体。起降坪上，士兵们正奋力架设一门安装在防空炮塔上的重型等离子炮。`
+			`	平民已安全进入掩体，联络官转身面向你："抱歉，船长，但我必须请您离开这颗行星。一支航母编队即将抵达，我们需要腾出所有停机坪。"`
+			choice
+				`	"Of course."`
+					goto summary
+				`	"What's happening?"`
+				`	“这是一次训练演习吗？”`
+				`	“你凭什么觉得能直接命令我离开？”`
+					goto noncompliance
+
+			`	联络官叹了口气："船长，恐怕这颗行星已进入紧急状态。昨天，南方几个叛离的行星宣布要脱离共和国独立——向议会递交了最后通牒，要求进行选举与税收改革、实行自由贸易，全都是他们多年来反复抱怨的老问题，本不足为奇。但三小时前，杰米努斯星的海军船坞与马尔蒂尼星的银河证券交易所同时遭到了轰炸。我们尚无法确认是否系‘自由世界’叛军所为，也无法保证后续不会再发生袭击。我唯一能确定的是，袭击者动用了核武器，因此我们眼下有三千名伤员亟需立即送往行星外接受医疗救治。"`
+			choice
+				`	“那我就先让开。”`
+					goto end
+				`	"抱歉，我不知道。我一能起飞就会立刻离开，绝不再打扰您。"`
+					goto end
+				`	"我有什么办法能帮忙吗？"`
+					goto help
+
+			label martini
+			action
+				set "bombing witness"
+
+			`	当你朝马蒂尼（Martini）地表下降时，迎面而来的是异常厚重的云层，外观近乎烟雾状。这些云团完全遮蔽了马蒂尼的主太空港，以及首都城市的其余部分。或许正因如此，着陆管制员指示你前往距城市边界约十公里处的一座辅助太空港降落。`
+			`	你刚踏出飞船，便立刻察觉到情况大为不妙。太空港建筑出口两侧站满了全副武装的海军人员，更多士兵正在港口内巡逻。通往城市的主干道上警笛长鸣；一名联络官正驱赶一群平民，走向附近田野中一辆险险停驻的军用运输车；更多伤者则躺在太空港中央临时搭建的野战医院担架上。`
+			`	最后一名流动平民安全登上运输船后，联络官随即转身面向你："抱歉，船长，我必须请您离开这颗行星。我们还有另一支运输舰队即将抵达，所有停泊平台都必须腾空。"`
+			choice
+				`	"Of course."`
+					goto summary
+				`	"What's happening?"`
+				`	"What makes you think you can just order me to leave?"`
+					goto noncompliance
+
+			`	联络官叹了口气："船长，恐怕这颗行星已进入紧急状态。昨天，南方几个叛离的行星宣布要脱离共和国独立——向议会递交了最后通牒，要求进行选举与税收改革、实行自由贸易，全都是他们多年来反复抱怨的老问题，本不足为奇。但三小时前，有人——极有可能正是这个‘自由世界’组织——在马尔蒂尼星的银河证券交易所投下了一枚核弹。至少我们推测交易所是其目标，因为爆炸不仅摧毁了约四分之一的城市，还夷平了主太空港，并损毁了该行星半数的医疗资源。目前我们已有逾百万人受伤，另有五百万人亟待疏散。更糟的是，恐怖分子还轰炸了杰米努斯星的海军船坞，导致我们既无人手执行疏散任务，也无法兼顾其他平民的安置工作。"`
+			choice
+				`	"I'll get out of the way, then."`
+					goto end
+				`	"Sorry, I didn't know. I'll be out of your hair as soon as I can lift off."`
+					goto end
+				`	"Is there any way I can help?"`
+					goto help
+
+			label noncompliance
+			`	"听着，船长。<planet>行星上的政府已宣布进入紧急状态，这意味着太空港正处于军事管制之下。我不清楚您是如何获得着陆许可的，但您本不该出现在这里。我们正要紧急撤离数千名伤员，更别提还可能遭遇大规模后续袭击。若您拒绝配合，我将命令宪兵队将您逮捕，您的飞船也将被扣押。倘若您的船员拒绝接受新的船长任命，海军预备司令部的部队将立即接管飞船。您爱怎么想都行，但眼下我们必须拯救人类的生命——绝不会因为某个自以为是的船长而停下脚步。听明白了吗？"`
+			choice
+				`	"是的，这很明确。"`
+					goto summary
+				`	"抱歉，我不知道。您完全不必担心我会给您添麻烦。"`
+					goto summary
+				`	"哼，说得倒轻巧。你休想夺走我的飞船。"`
+			
+			`	联络官怒视着你，随后转身向另一名士兵打了个手势。全副战斗装备的军事警察突然出现在你身后，一把抓住你的手臂，迅速将你牢牢铐住。当你被强行押往一座待命掩体时，眼睁睁看着那艘<ship>腾空而起，抛下你独自留在原地。在掩体内，当初逮捕你的士兵之一对你进行搜身，收走了你的飞行员执照，并将其交给一名士官——士官在执照上重重盖下‘永久吊销’四个大字。仅凭这短短两词，你便永远失去了遨游太空的权利。距离你购入这艘飞船尚不足一年，而整个银河系正分崩离析，你却已失去驾驶它的资格。`
+				die
+
+			label summary
+			`	“很高兴听到这个消息。”他们答道，随即转身去安抚一群歇斯底里的帕拉迪西亚人。`
+			`	你重新登上<ship>，启动飞船升空驶向轨道，险之又险地避开了联络官提及的航母编队。此时你才发觉，自己竟一直没关掉飞船内的视频屏幕，屏幕上正播放着一段影像——画面内容几乎与不久前你在地面上所见一模一样。据新闻播报员称，这场混乱始于昨日：银河系南部的一群行星向共和国议会发出最后通牒，要求暂停缴纳赋税，直至改革行星代表选举制度；该联盟自称为“自由世界”，同时还要求立即全面重新评估所有现行贸易关税及飞行员注册相关法规。议会断然拒绝考虑任何一项诉求。”`
+			`	随后，就在你着陆仅数小时前，双子星（Geminus）和马丁尼（Martini）上发生的核爆炸摧毁了共和国海军船坞与银河证券交易所，重创了共和国的军事与经济中心。“自由世界”虽拒不承认对此次袭击负有任何责任，但袭击发生的时间点，以及其恰好完美契合“自由世界”自身利益的事实，却令人难以信服。`
+			`	Unless the terrorists can be found or turn themselves in, civil war is imminent. It has been less than a year since you bought your ship, and already the galaxy is falling apart on you.`
+				flee
+
+			label end
+			`	联络官简短地道了声谢，随即转身去安抚一名歇斯底里的帕拉迪西亚人。你重新登上<ship>，准备起飞。距离你购入这艘飞船还不到一年，银河系却已开始在你眼前分崩离析。`
+				flee
+			
+			label help
+			`	“是的，你可以按我刚才要求的那样起飞。”军官稍作停顿。“抱歉，船长，我相信您的初衷是好的，但事实的确如此。海军有专门受训应对核灾难的人员，而您在此处只会白白占据额外空间。”军官转过身去，却被一名惊慌失措的帕拉迪西安人的尖叫声打断。你重新登上<ship>，准备起飞。`
+				flee
+
+event "initial deployment 1"
+	date 24 7 3014
+	system "Spica"
+		fleet "Small Southern Merchants" 1200
+		fleet "Large Southern Merchants" 1700
+		fleet "Small Free Worlds" 800
+		fleet "Large Free Worlds" 1500
+	system "Minkar"
+		fleet "Small Southern Merchants" 700
+		fleet "Large Southern Merchants" 1500
+		fleet "Small Free Worlds" 700
+		fleet "Large Free Worlds" 1200
+	system "Mimosa"
+		fleet "Small Southern Merchants" 1200
+		fleet "Large Southern Merchants" 2300
+		fleet "Small Free Worlds" 1200
+		fleet "Large Free Worlds" 1900
+	system "Kraz"
+		fleet "Small Southern Merchants" 900
+		fleet "Large Southern Merchants" 1600
+		fleet "Small Free Worlds" 700
+		fleet "Large Free Worlds" 900
+	system "Acrux"
+		fleet "Small Southern Merchants" 500
+		fleet "Large Southern Merchants" 800
+		fleet "Small Free Worlds" 700
+		fleet "Large Free Worlds" 1100
+		fleet "Human Miners" 5000
+	
+	system "Tania Australis"
+		fleet "Small Northern Merchants" 1400
+		fleet "Large Northern Merchants" 2900
+		fleet "Small Republic" 600
+		fleet "Large Republic" 400
+		fleet "Navy Surveillance" 2000
+		fleet "Republic Logistics" 4000
+	planet "Ingot"
+		description `英格特（Ingot）是一颗火山活动频繁的卫星，完全不适宜生命生存，但富含金属资源。在此工作的矿工必须始终待在加压建筑内部。`
+		description `由于英格特几乎不存在可供减速的大气层，陨石始终对殖民者构成持续威胁。建筑外壳采用多层结构设计，除遭遇极大冲击外，均可自动密封。大部分采矿作业由遥控机器人车辆完成，但仍需人员现场操控，并在设备故障时及时维修。`
+		description `英格特如今还建起了一座蓬勃发展的海军基地；但由于该天体极度不宜居，大部分驻军只能长期生活在轨道上的飞船中。`
+	system "Fala"
+		fleet "Small Northern Merchants" 1900
+		fleet "Large Northern Merchants" 3500
+		fleet "Small Republic" 600
+		fleet "Large Republic" 400
+		fleet "Small Northern Pirates" 4000
+		fleet "Large Northern Pirates" 8000
+		fleet "Derelict Northern" 30000
+		fleet "Navy Surveillance" 2000
+	system "Phecda"
+		fleet "Small Northern Merchants" 900
+		fleet "Small Southern Merchants" 1100
+		fleet "Small Republic" 900
+		fleet "Large Republic" 1100
+		fleet "Navy Surveillance" 2000
+		fleet "Republic Logistics" 3500
+	system "Algorel"
+		fleet "Small Southern Merchants" 800
+		fleet "Large Southern Merchants" 1200
+		fleet "Small Republic" 700
+		fleet "Large Republic" 500
+		fleet "Small Southern Pirates" 2500
+		fleet "Large Southern Pirates" 8000
+		fleet "Navy Surveillance" 2000
+		fleet "Republic Logistics" 4000
+	planet "New Wales"
+		description `新威尔士拥有数座采矿前哨站，负责开采并精炼稀土矿物与重金属。这是一项危险的工作：矿井深埋地下，易积聚有毒气体并发生塌方；而精炼厂则需处理熔融态放射性物质及强腐蚀性化学品。`
+		description `由于恒星阿尔戈雷尔光芒较暗，加之大气层常年多云，此星球并不适宜农耕，人口规模一直十分稀少。`
+		description `共和国海军已在新威尔士星建立了一处基地。目前，该基地仅由密集排列的预制兵营与医务室建筑组成，位于某座采矿殖民地的边缘地带。`
+	system "Porrima"
+		fleet "Small Southern Merchants" 1400
+		fleet "Large Southern Merchants" 4000
+		fleet "Small Republic" 1200
+		fleet "Large Republic" 1800
+		fleet "Small Southern Pirates" 9000
+		fleet "Navy Surveillance" 2000
+	system "Ipsing"
+		fleet "Small Southern Merchants" 2800
+		fleet "Large Southern Merchants" 7000
+		fleet "Small Republic" 2500
+		fleet "Large Republic" 4000
+		fleet "Small Southern Pirates" 5000
+		fleet "Derelict Northern" 10000
+		fleet "Navy Surveillance" 2000
+	system "Mizar"
+		fleet "Small Southern Merchants" 1400
+		fleet "Large Southern Merchants" 4500
+		fleet "Small Republic" 1000
+		fleet "Large Republic" 1400
+		fleet "Small Southern Pirates" 9000
+		fleet "Derelict Northern" 30000
+		fleet "Navy Surveillance" 2000
+	system "Muphrid"
+		fleet "Small Southern Merchants" 1200
+		fleet "Large Southern Merchants" 4800
+		fleet "Small Republic" 1100
+		fleet "Large Republic" 1900
+		fleet "Small Southern Pirates" 9000
+		fleet "Derelict Northern" 30000
+		fleet "Navy Surveillance" 2000
+	system "Menkent"
+		fleet "Small Southern Merchants" 700
+		fleet "Large Southern Merchants" 1900
+		fleet "Small Republic" 500
+		fleet "Large Republic" 600
+		fleet "Navy Surveillance" 2000
+		fleet "Republic Logistics" 10000
+		fleet "Human Miners" 2000
+	planet "New Austria"
+		description `新奥地利是一颗崎岖多山的星球，遍布积雪覆盖的峰顶，以及深邃陡峭的山谷——这些山谷常年难见阳光。`
+		description `	此处建立的少数定居点专为开采蓝宝石与红宝石而设。这些蓝宝石色泽多样，从蓝色、黄色、黑色到无色不等，广泛应用于工业研磨材料与珠宝制作。`
+		description `	数个世纪以来，当地居民始终在努力寻找钻石矿藏，而当地民间传说亦围绕着一个主题：倘若有朝一日发现钻石，这颗星球将迎来空前繁荣。`
+		description `	海军最近征用了其中一座废弃的采矿小镇，并开始将其改造为一座安全的军事基地，采矿隧道则被用作深入地下的掩体。`
+
+event "initial deployment 2"
+	date 14 8 3014
+	planet "Martini"
+		"required reputation" 10
+	system "Izar"
+		fleet "Small Southern Merchants" 500
+		fleet "Large Southern Merchants" 1500
+		fleet "Small Free Worlds" 700
+		fleet "Large Free Worlds" 1000
+	system "Zeta Centauri"
+		fleet "Small Southern Merchants" 700
+		fleet "Large Southern Merchants" 1700
+		fleet "Small Free Worlds" 1200
+		fleet "Large Free Worlds" 2000
+		fleet "Small Southern Pirates" 6000
+		fleet "Large Southern Pirates" 9000
+	system "Hadar"
+		fleet "Small Southern Merchants" 400
+		fleet "Large Southern Merchants" 600
+		fleet "Small Free Worlds" 600
+		fleet "Large Free Worlds" 1100
+	system "Alkaid"
+		fleet "Small Southern Merchants" 1200
+		fleet "Large Southern Merchants" 4000
+		fleet "Small Free Worlds" 6000
+		fleet "Large Free Worlds" 10000
+		fleet "Small Southern Pirates" 4000
+		fleet "Large Southern Pirates" 8000
+	system "Zubeneschamali"
+		fleet "Small Southern Merchants" 500
+		fleet "Large Southern Merchants" 1000
+		fleet "Small Free Worlds" 1400
+		fleet "Large Free Worlds" 2400
+		fleet "Small Southern Pirates" 4000
+		fleet "Large Southern Pirates" 5000
+	system "Kochab"
+		fleet "Small Southern Merchants" 1800
+		fleet "Large Southern Merchants" 5000
+		fleet "Small Southern Pirates" 6000
+		fleet "Small Free Worlds" 5000
+	system "Ildaria"
+		fleet "Small Southern Merchants" 900
+		fleet "Large Southern Merchants" 1800
+		fleet "Small Free Worlds" 2200
+		fleet "Large Free Worlds" 3600
+		fleet "Derelict Southern" 25000
+	
+	system "Mora"
+		fleet "Small Southern Merchants" 2800
+		fleet "Large Southern Merchants" 5000
+		fleet "Small Southern Pirates" 3000
+		fleet "Large Southern Pirates" 4000
+		fleet "Small Republic" 1000
+		fleet "Large Republic" 2000
+		fleet "Derelict Northern" 30000
+		fleet "Navy Surveillance" 1600
+	system "Delta Velorum"
+		fleet "Small Southern Merchants" 1000
+		fleet "Large Southern Merchants" 3000
+		fleet "Small Southern Pirates" 2000
+		fleet "Large Southern Pirates" 5000
+		fleet "Small Republic" 1600
+		fleet "Large Republic" 2400
+		fleet "Navy Surveillance" 1600
+	system "Turais"
+		fleet "Small Southern Merchants" 2000
+		fleet "Large Southern Merchants" 6000
+		fleet "Small Southern Pirates" 3000
+		fleet "Large Southern Pirates" 7000
+		fleet "Small Republic" 1000
+		fleet "Large Republic" 1800
+		fleet "Navy Surveillance" 1600
+	system "Gacrux"
+		fleet "Small Southern Merchants" 2000
+		fleet "Large Southern Merchants" 5000
+		fleet "Small Southern Pirates" 2000
+		fleet "Large Southern Pirates" 4000
+		fleet "Small Republic" 2000
+		fleet "Large Republic" 3000
+		fleet "Derelict Northern" 30000
+		fleet "Navy Surveillance" 1600
+	system "Cor Caroli"
+		fleet "Small Southern Merchants" 700
+		fleet "Large Southern Merchants" 1300
+		fleet "Small Southern Pirates" 2000
+		fleet "Small Republic" 1200
+		fleet "Large Republic" 1800
+		fleet "Navy Surveillance" 1600
+	system "Muhlifain"
+		fleet "Small Southern Merchants" 1000
+		fleet "Large Southern Merchants" 3500
+		fleet "Small Southern Pirates" 6000
+		fleet "Small Republic" 3000
+		fleet "Large Republic" 4000
+		fleet "Navy Surveillance" 1600
+	system "Vindemiatrix"
+		fleet "Small Southern Merchants" 600
+		fleet "Large Southern Merchants" 3000
+		fleet "Small Southern Pirates" 2000
+		fleet "Large Southern Pirates" 4000
+		fleet "Small Republic" 2000
+		fleet "Large Republic" 3000
+		fleet "Navy Surveillance" 1600
+	system "Sarin"
+		fleet "Small Southern Merchants" 1000
+		fleet "Large Southern Merchants" 3000
+		fleet "Small Southern Pirates" 2000
+		fleet "Large Southern Pirates" 6000
+		fleet "Small Republic" 8000
+		fleet "Large Republic" 15000
+		fleet "Navy Surveillance" 1600
+	system "Alioth"
+		fleet "Small Southern Merchants" 400
+		fleet "Large Northern Merchants" 600
+		fleet "Small Southern Pirates" 1200
+		fleet "Large Southern Pirates" 2400
+		fleet "Small Republic" 3000
+		fleet "Large Republic" 4000
+		fleet "Navy Surveillance" 1600
+	system "Holeb"
+		fleet "Small Southern Merchants" 1000
+		fleet "Large Southern Merchants" 3000
+		fleet "Small Southern Pirates" 5000
+		fleet "Small Republic" 2000
+		fleet "Large Republic" 3000
+		fleet "Derelict Southern" 30000
+		fleet "Navy Surveillance" 1600
+	system "Arcturus"
+		fleet "Small Southern Merchants" 700
+		fleet "Large Southern Merchants" 3000
+		fleet "Small Southern Pirates" 4000
+		fleet "Small Republic" 2000
+		fleet "Large Republic" 3000
+		fleet "Navy Surveillance" 1600
+	system "Rutilicus"
+		fleet "Small Southern Merchants" 600
+		fleet "Large Southern Merchants" 2000
+		fleet "Small Southern Pirates" 8000
+		fleet "Small Republic" 1000
+		fleet "Large Republic" 2000
+		fleet "Navy Surveillance" 1600
+	system "Alphecca"
+		fleet "Small Southern Merchants" 2000
+		fleet "Large Northern Merchants" 3500
+		fleet "Small Southern Pirates" 3000
+		fleet "Small Republic" 3000
+		fleet "Large Republic" 4000
+		fleet "Navy Surveillance" 1600
+	system "Boral"
+		fleet "Small Southern Merchants" 3000
+		fleet "Large Northern Merchants" 8000
+		fleet "Small Southern Pirates" 1500
+		fleet "Small Republic" 7000
+		fleet "Large Republic" 12000
+		fleet "Derelict Southern" 10000
+		fleet "Navy Surveillance" 1600
+	system "Cebalrai"
+		fleet "Small Southern Merchants" 600
+		fleet "Large Southern Merchants" 2000
+		fleet "Small Southern Pirates" 4000
+		fleet "Small Republic" 1000
+		fleet "Large Republic" 2000
+		fleet "Navy Surveillance" 1600
+	system "Rasalhague"
+		fleet "Small Southern Merchants" 1500
+		fleet "Large Southern Merchants" 2000
+		fleet "Small Southern Pirates" 4000
+		fleet "Large Southern Pirates" 8000
+		fleet "Small Republic" 3000
+		fleet "Large Republic" 4000
+		fleet "Navy Surveillance" 1600
+
+# Compatibility patch event in case the pirates were added by the second deployment, pre-0.10.7
+event "remove pirates from Ildaria"
+	system Ildaria
+		remove fleet "Small Southern Pirates"
+		remove fleet "Large Southern Pirates"
+
+overwrite
+mission "Ildaria Pirates Compatibility"
+	invisible
+	non-blocking
+	landing
+	to offer
+		has "event: initial deployment 2"
+	on offer
+		event "remove pirates from Ildaria"
+		fail
+
+event "initial deployment 3"
+	date 29 8 3014
+	system "Zubenelgenubi"
+		fleet "Small Southern Merchants" 500
+		fleet "Large Southern Merchants" 900
+		fleet "Small Free Worlds" 800
+		fleet "Large Free Worlds" 1000
+		fleet "Small Southern Pirates" 5000
+		fleet "Large Southern Pirates" 8000
+		fleet "Derelict Southern" 30000
+	system "Unukalhai"
+		fleet "Small Southern Merchants" 900
+		fleet "Large Southern Merchants" 3000
+		fleet "Small Southern Pirates" 3000
+		fleet "Small Free Worlds" 3000
+		fleet "Large Free Worlds" 6000
+	system "Sabik"
+		fleet "Small Southern Merchants" 400
+		fleet "Large Southern Merchants" 600
+		fleet "Small Free Worlds" 1000
+		fleet "Large Free Worlds" 1600
+	system "Aldhibain"
+		fleet "Small Southern Merchants" 400
+		fleet "Large Southern Merchants" 500
+		fleet "Small Free Worlds" 600
+		fleet "Large Free Worlds" 700
+		fleet "Small Southern Pirates" 1400
+		fleet "Large Southern Pirates" 3000
+	system "Kornephoros"
+		fleet "Small Southern Merchants" 600
+		fleet "Large Southern Merchants" 700
+		fleet "Small Southern Pirates" 5000
+		fleet "Small Free Worlds" 1000
+		fleet "Large Free Worlds" 2000
+		fleet "Human Miners" 3000
+	
+	system "Wei"
+		fleet "Small Southern Merchants" 800
+		fleet "Large Southern Merchants" 2500
+		fleet "Small Southern Pirates" 6000
+		fleet "Small Republic" 800
+		fleet "Large Republic" 700
+		fleet "Derelict Southern" 30000
+		fleet "Navy Surveillance" 1200
+	system "Seginus"
+		fleet "Small Southern Merchants" 1200
+		fleet "Large Southern Merchants" 2700
+		fleet "Small Southern Pirates" 8000
+		fleet "Small Republic" 1200
+		fleet "Large Republic" 1400
+		fleet "Navy Surveillance" 1200
+	system "Alnasl"
+		fleet "Small Southern Merchants" 1300
+		fleet "Large Southern Merchants" 2500
+		fleet "Small Southern Pirates" 6000
+		fleet "Small Republic" 900
+		fleet "Large Republic" 1100
+		fleet "Derelict Southern" 30000
+		fleet "Navy Surveillance" 1200
+	system "Eber"
+		fleet "Small Southern Merchants" 1900
+		fleet "Large Southern Merchants" 2900
+		fleet "Small Southern Pirates" 3000
+		fleet "Small Republic" 1000
+		fleet "Large Republic" 1500
+		fleet "Derelict Southern" 10000
+		fleet "Navy Surveillance" 1200
+	system "Alpha Arae"
+		fleet "Small Southern Merchants" 2100
+		fleet "Large Southern Merchants" 8000
+		fleet "Small Southern Pirates" 6000
+		fleet "Large Southern Pirates" 13000
+		fleet "Small Republic" 900
+		fleet "Large Republic" 800
+		fleet "Derelict Southern" 30000
+		fleet "Navy Surveillance" 1200
+	system "Kaus Borealis"
+		fleet "Small Southern Merchants" 900
+		fleet "Large Southern Merchants" 4000
+		fleet "Small Southern Pirates" 8000
+		fleet "Small Republic" 1100
+		fleet "Large Republic" 800
+		fleet "Navy Surveillance" 1200
+
+
+
+overwrite
+mission "Central Outfitters Expansion Trigger"
+	landing
+	invisible
+	non-blocking
+	to offer
+		has "event: initial deployment 2"
+	on offer
+		event "central outfitters expansion" 45
+		fail
+
+event "central outfitters expansion"
+	planet "Earth"
+		add outfitter "Central Outfits Expansion"
+	planet "Luna"
+		add outfitter "Central Outfits Expansion"
+	planet "New China"
+		add outfitter "Central Outfits Expansion"
+	planet "New Wales"
+		add outfitter "Central Outfits Expansion"
+	planet "Heartland"
+		add outfitter "Central Outfits Expansion"
+
+overwrite
+mission "Central Outfitters Expansion"
+	outfitter
+	source
+		planet "Earth" "Heartland" "Luna" "New China" "New Wales"
+	to offer
+		has "event: central outfitters expansion"
+		not "event: start of hostilities"
+	on offer
+		conversation
+			`当你走进<origin>的装备店时，发现店内新增了一大批待售装备：散热设备、加力燃烧器，甚至还有新型发电机。奇怪的是，几乎所有新品都来自克拉兹赛博格公司和德尔塔V公司——这两家通常只在南方星缘带活动，极少出现在共和国腹地如此靠近中心的位置。更令人费解的是，这两家公司向来是自由世界独立运动的公开支持者。`
+			choice
+				`	(向店主咨询新装备的情况。)`
+				`	（继续前进。）`
+					decline
+
+			`	店主正忙于装备店狭小办公室内的书桌前，但当你走近时，他起身向你致意：“你好，今天有什么可以帮您的？”`
+			choice
+				`	“你们怎么会在这种地方卖克拉斯和德尔塔V型装备？”`
+				`	"看来你们进了新货。"`
+					goto "new stock"
+				`	(Move on.)`
+					decline
+
+			`	“你可不是第一个这么问的！”店主过于热情地答道，“随着海盗活动日益猖獗、各方紧张局势不断升级——还有大家心照不宣却避而不谈的一点：南方边缘带那些热衷核武的分裂主义者，恐怕即将与我们爆发冲突——我们已收到大量增购一些……特殊装备的请求。”`
+			`	他带你走到一箱标枪导弹旁。“这批货大多来自辛迪加，你知道吧。据说他们原本就在量产这种导弹，而如今克雷兹和德尔塔V已不再是共和国境内运营的公司，他们便迅速买断了这些产品的全部制造权！”他轻笑一声，“这对那些依赖德尔塔V装备、却无法前往南缘星域补给的船长们来说，可真是件好事。”`
+				goto end
+
+			label "new stock"
+			`	“当然有！我们这儿什么都有！”他朝你走来，“氮气冷却器、重型火箭、雷达干扰器——用来对付那些烦人的洛夫莱斯响尾蛇战机，还有高功率加力燃烧引擎，您想要的应有尽有。最近南方星缘地带局势紧张，生意难做，因此我们收到大量订单，要求补货来自南方星缘的装备。”`
+			`	店主微微向你倾身，压低声音说道：“但你知道，向那些发动轰炸、杀害数万民众的人获取补给，是错误的。这在道德上和商业上，都完全错误。”`
+			`	“不过，多亏了辛迪加系统公司，您在此地就能买到南方制式装备，而无需支持那些分裂分子！他们看准了机会，一举拿下了德尔塔V型与克拉兹装备的授权，而您也将从中受益。”他轻笑着说道。`
+
+			label end
+			`	他从马甲口袋中取出一份宣传册递给你："现在，如果你对我们新上架的任何装备感兴趣，只需招手示意一名工作人员，我们便会迅速为你准备好并安装到你的飞船上。"`
+			`	“祝你旅途平安。”他说完便返回了自己的办公室。`
+				decline
+
+
+
+overwrite
+mission "Southern Carriers Trigger"
+	landing
+	invisible
+	non-blocking
+	to offer
+		has "event: initial deployment 3"
+	on offer
+		event "southern carriers 1" 90
+		event "southern carriers 2" 180
+		event "southern carriers 3" 270
+		event "southern carriers 4" 360
+		fail
+
+event "southern carriers 1"
+	shipyard "Syndicate Basics"
+		"Barb"
+	shipyard "Southbound Basics"
+		"Finch"
+	shipyard "Southbound Advanced"
+		"Nest"
+	outfitter "Syndicate Advanced"
+		"X1050 Ion Engines"
+	fleet "Small Free Worlds"
+		fighters
+			names "free worlds fighters"
+		add variant 1
+			"Nest"
+			"Finch" 2
+
+event "southern carriers 2"
+	shipyard "Southbound Basics"
+		"Boxwing"
+	shipyard "Southbound Advanced"
+		"Roost"
+		"Skein"
+	outfitter "Syndicate Basics"
+		"X1050 Ion Engines"
+	fleet "Large Southern Merchants"
+		fighters
+			names "free worlds fighter"
+		add variant 15
+			"Hauler III"
+			"Nest"
+			"Finch" 2
+		add variant 15
+			"Argosy"
+			"Hauler II"
+			"Nest"
+			"Finch" 2
+		add variant 5
+			"Hauler III" 3
+			"Roost"
+			"Finch" 4
+		add variant 5
+			"Roost" 3
+			"Finch" 6
+			"Boxwing" 6
+
+	fleet "Small Independent"
+		fighters
+			names "free worlds fighter"
+		add variant 1
+			"Nest"
+			"Barb" 2
+		add variant 1
+			"Nest"
+			"Barb"
+			"Boxwing"
+
+event "southern carriers 3"
+	shipyard "Tarazed Basics"
+		"Finch"
+		"Barb"
+	shipyard "Tarazed Advanced"
+		"Nest"
+		"Roost"
+		"Skein"
+	fleet "Large Free Worlds"
+		fighters
+			names "free worlds fighters"
+		add variant 2
+			"Roost"
+			"Finch" 4
+		add variant 2
+			"Skein"
+			"Finch" 6
+		add variant 1
+			"Roost" 2
+			"Finch" 6
+			"Boxwing" 2
+		add variant 1
+			"Skein" 2
+			"Finch" 8
+			"Boxwing" 4
+
+	fleet "Small Southern Pirates"
+		add variant 1
+			"Nest"
+			"Barb" 2
+		add variant 1
+			"Nest"
+			"Barb (Gatling)" 2
+
+event "southern carriers 4"
+	fleet "Large Northern Merchants"
+		fighters
+			names "free worlds fighter"
+		add variant 2
+			"Hauler III"
+			"Hauler II"
+			"Roost (Sidewinder)"
+			"Dagger" 2
+			"Lance" 2
+		add variant 2
+			"Hauler III"
+			"Hauler II"
+			"Roost (Sidewinder)"
+			"Lance (Gatling)" 2
+			"Lance" 2
+		add variant 2
+			"Roost" 3
+			"Dagger" 4
+			"Lance" 4
+			"Boxwing" 4
+		add variant 2
+			"Roost" 3
+			"Lance (Gatling)" 4
+			"Lance" 4
+			"Boxwing" 4
+
+	fleet "Large Southern Pirates"
+		add variant 1
+			"Roost"
+			"Barb" 4
+		add variant 1
+			"Roost"
+			"Barb (Gatling)" 4
+
+	fleet "Large Independent"
+		fighters
+			names "free worlds fighter"
+		add variant 2
+			"Roost"
+			"Barb" 4
+		add variant 2
+			"Roost"
+			"Barb" 2
+			"Boxwing" 2
+
+	fleet "Small Northern Pirates"
+		add variant 1
+			"Nest"
+			"Lance" 2
+
+	fleet "Large Northern Pirates"
+		add variant 1
+			"Roost"
+			"Lance" 4
+		add variant 1
+			"Roost"
+			"Lance (Gatling)" 4
+
+	fleet "Human Miners"
+		add variant 1
+			"Nest (Miner)"
+			"Barb (Miner)" 2
+
+event "initial deployment 4"
+	date 17 9 3014
+	planet "Geminus"
+		"required reputation" 10
+	system "Sargas"
+		fleet "Small Southern Merchants" 600
+		fleet "Large Southern Merchants" 2500
+		fleet "Small Southern Pirates" 3000
+		fleet "Large Southern Pirates" 5000
+		fleet "Small Free Worlds" 1000
+		fleet "Large Free Worlds" 1500
+		fleet "Navy Surveillance" 2000
+	system "Dschubba"
+		fleet "Small Southern Merchants" 800
+		fleet "Large Southern Merchants" 2600
+		fleet "Small Southern Pirates" 3000
+		fleet "Large Southern Pirates" 6000
+		fleet "Small Free Worlds" 2000
+		fleet "Large Free Worlds" 3000
+		fleet "Navy Surveillance" 2000
+	system "Lesath"
+		fleet "Small Southern Merchants" 800
+		fleet "Large Southern Merchants" 1600
+		fleet "Small Southern Pirates" 3000
+		fleet "Large Southern Pirates" 7000
+		fleet "Small Free Worlds" 800
+		fleet "Large Free Worlds" 1100
+		fleet "Derelict Southern" 30000
+		fleet "Navy Surveillance" 2000
+	system "Atria"
+		fleet "Small Southern Merchants" 700
+		fleet "Large Southern Merchants" 2600
+		fleet "Small Southern Pirates" 5000
+		fleet "Large Southern Pirates" 8000
+		fleet "Small Free Worlds" 1000
+		fleet "Large Free Worlds" 2100
+	system "Alniyat"
+		fleet "Small Southern Merchants" 500
+		fleet "Large Southern Merchants" 600
+		fleet "Small Southern Pirates" 2000
+		fleet "Large Southern Pirates" 4000
+		fleet "Small Free Worlds" 1500
+		fleet "Large Free Worlds" 4000
+	system "Han"
+		fleet "Small Southern Merchants" 800
+		fleet "Large Southern Merchants" 4000
+		fleet "Small Southern Pirates" 2000
+		fleet "Large Southern Pirates" 9000
+		fleet "Small Free Worlds" 3000
+		fleet "Large Free Worlds" 8000
+	system "Pherkad"
+		fleet "Small Southern Merchants" 500
+		fleet "Large Southern Merchants" 700
+		fleet "Small Free Worlds" 900
+		fleet "Large Free Worlds" 1700
+		fleet "Small Southern Pirates" 1000
+		fleet "Large Southern Pirates" 1900
+	system "Beta Lupi"
+		fleet "Small Southern Merchants" 800
+		fleet "Small Southern Pirates" 1100
+		fleet "Large Southern Pirates" 1600
+		fleet "Small Free Worlds" 4000
+		fleet "Large Free Worlds" 8000
+		fleet "Derelict Southern" 30000
+	system "Yed Prior"
+		fleet "Small Northern Merchants" 800
+		fleet "Large Northern Merchants" 1100
+		fleet "Small Southern Pirates" 1000
+		fleet "Large Southern Pirates" 2000
+		fleet "Small Free Worlds" 5000
+		fleet "Large Free Worlds" 8000
+	system "Kappa Centauri"
+		fleet "Small Southern Merchants" 900
+		fleet "Large Southern Merchants" 2700
+		fleet "Small Southern Pirates" 1600
+		fleet "Large Southern Pirates" 2000
+		fleet "Small Free Worlds" 3000
+		fleet "Large Free Worlds" 5000
+	
+	system "Rastaban"
+		fleet "Small Southern Merchants" 1000
+		fleet "Large Southern Merchants" 1900
+		fleet "Small Southern Pirates" 4000
+		fleet "Large Southern Pirates" 8000
+		fleet "Small Republic" 900
+		fleet "Large Republic" 700
+		fleet "Navy Surveillance" 3000
+	system "Sabik"
+		fleet "Small Southern Merchants" 600
+		fleet "Large Southern Merchants" 800
+		fleet "Small Free Worlds" 800
+		fleet "Large Free Worlds" 1200
+		fleet "Navy Surveillance" 2000
+	system "Aldhibain"
+		fleet "Small Southern Merchants" 600
+		fleet "Large Southern Merchants" 800
+		fleet "Small Free Worlds" 600
+		fleet "Large Free Worlds" 600
+		fleet "Small Southern Pirates" 1400
+		fleet "Large Southern Pirates" 3000
+		fleet "Navy Surveillance" 2000
+	system "Kornephoros"
+		fleet "Small Southern Merchants" 800
+		fleet "Large Southern Merchants" 1000
+		fleet "Small Southern Pirates" 5000
+		fleet "Small Free Worlds" 900
+		fleet "Large Free Worlds" 1700
+		fleet "Navy Surveillance" 2000
+		fleet "Human Miners" 3000
+
+
+
+event "fw zug expansion underway"
+	planet Zug
+		spaceport `祖格太空港历经数个世纪的兼并扩张而持续壮大。其核心是‘老港’——一组古朴而简陋的商铺与仓库。老港的起降平台早已被拆除，取而代之的是当地人所称的‘新港’：一座建于百年前的建筑群，设计更为大胆，风格也更加现代。`
+		spaceport `	不远处是“新港”，一座高耸入云的建筑，配备机械式货运升降机和供昂贵飞船停靠的大型机库。与此同时，“新港”正在进行新一轮扩建。你不禁好奇：这次扩建会叫什么名字？`
+
+
+
+event "fw zug expansion complete"
+	planet Zug
+		add shipyard "Tarazed Advanced"
+		spaceport `The spaceport of Zug has been growing by amalgamation for centuries. At its core is the "Old Port," a set of quaint and rudimentary shops and warehouses. The landing pads for the Old Port were torn up to make room for what the locals call "The Port," a set of buildings that were constructed a century ago, with bolder architecture and more modern design.`
+		spaceport `	不远处是“新港”，一座高耸入云的建筑，配备机械式货运升降机和供昂贵飞船停靠的大型机库。它最近刚刚扩建，以满足自由世界日益增长的活动需求，使祖格成为银河系南部首屈一指的飞船铸造中心。因此，“新港”的扩建部分很快被人们戏称为“扩建区”，倒也不足为奇。`
+
+
+
+event "capture of Kornephoros"
+	system "Kornephoros"
+		government "Republic"
+		fleet "Small Southern Merchants" 1200
+		fleet "Large Southern Merchants" 1400
+		fleet "Small Republic" 300
+		fleet "Large Republic" 500
+		fleet "Navy Surveillance" 800
+	system "Sabik"
+		fleet "Small Southern Merchants" 800
+		fleet "Large Southern Merchants" 1000
+		fleet "Small Free Worlds" 400
+		fleet "Large Free Worlds" 600
+	planet "Clink"
+		description `这座采矿前哨站遍布海军守卫；他们似乎已将这颗卫星临时改造为作战基地。矿场已关闭，任何人不得进出采矿前哨站。目前尚不清楚矿工们是被拘禁的囚犯，还是仅仅处于极其严密的监视之下。`
+		security 1
+	planet "Deep"
+		spaceport `The spaceport is built on a large island, a now-extinct volcano with an elevation of several kilometers at its center. Most of the large-scale fishing here is done by a single company, Poseidon Industries, which also built and maintains the spaceport. Steep winding roads and sturdy concrete homes and warehouses line the mountain slopes, and below you in the harbor several massive trawling vessels are moored. On the outskirts of the spaceport are the ramshackle houses and open-air marketplace used by the smaller, independent fishing families.`
+		spaceport `	数百名海军军官正在这座小型太空港内巡逻，搜寻当地抵抗势力的任何蛛丝马迹。`
+		security 1
+	system "Altair"
+		remove fleet "Republic Logistics"
+	system "Fomalhaut"
+		remove fleet "Republic Logistics"
+	system "Markab"
+		remove fleet "Republic Logistics"
+	system "Scheat"
+		remove fleet "Republic Logistics"
+	system "Al Dhanab"
+		remove fleet "Republic Logistics"
+	system "Achernar"
+		remove fleet "Republic Logistics"
+
+
+
+event "start of hostilities"
+	government "Republic"
+		"attitude toward"
+			"Free Worlds" -.2
+			"Merchant" .01
+			"Pirate" -.01
+	government "Free Worlds"
+		"attitude toward"
+			"Republic" -.2
+
+
+
+event "joined the free worlds"
+	government "Escort"
+		swizzle 2
+
+
+
+event "temporary ceasefire"
+	government "Republic"
+		"attitude toward"
+			"Free Worlds" 0
+	government "Free Worlds"
+		"attitude toward"
+			"Republic" 0
+
+
+
+event "recapture of Kornephoros"
+	system "Aldhibain"
+		fleet "Small Southern Merchants" 600
+		fleet "Large Southern Merchants" 800
+		fleet "Small Free Worlds" 600
+		fleet "Large Free Worlds" 600
+	system "Kornephoros"
+		government "Free Worlds"
+		fleet "Small Southern Merchants" 800
+		fleet "Large Southern Merchants" 1000
+		fleet "Small Free Worlds" 900
+		fleet "Large Free Worlds" 1700
+		fleet "Human Miners" 3000
+	planet "Clink"
+		description `About a decade ago, a mining corporation from Zug planted a colony on Clink for harvesting some rare earth minerals that are present in this moon's crust due to its unusually high rate of asteroid impacts. The atmosphere here is too thin to breathe without a respirator, and because of the low gravity, the dust raised by the mining operations hangs perpetually in the air.`
+		description `在此工作的矿工们关系十分紧密，因为他们中的大多数都曾是最初殖民队的成员。他们对外来者并不特别开放，且此处设施极为简陋，甚至不为来访飞船储备燃料。`
+		security .5
+	planet "Deep"
+		spaceport `The spaceport is built on a large island, a now-extinct volcano with an elevation of several kilometers at its center. Most of the large-scale fishing here is done by a single company, Poseidon Industries, which also built and maintains the spaceport. Steep winding roads and sturdy concrete homes and warehouses line the mountain slopes, and below you in the harbor several massive trawling vessels are moored. On the outskirts of the spaceport are the ramshackle houses and open-air marketplace used by the smaller, independent fishing families.`
+		security .5
+
+	fleet "Small Republic"
+		add variant 10
+			"Protector"
+
+
+
+event "oathkeepers founded"
+	system "Canopus"
+		fleet "Small Northern Merchants" 900
+		fleet "Large Northern Merchants" 700
+		fleet "Small Oathkeeper" 1000
+		fleet "Large Oathkeeper" 2000
+	system "Alheka"
+		fleet "Small Northern Merchants" 1000
+		fleet "Large Northern Merchants" 3000
+		fleet "Small Oathkeeper" 1200
+		fleet "Large Oathkeeper" 4000
+		fleet "Small Northern Pirates" 2000
+		fleet "Large Northern Pirates" 2000
+	system "Mirzam"
+		fleet "Small Northern Merchants" 2000
+		fleet "Large Northern Merchants" 2000
+		fleet "Small Oathkeeper" 3000
+		fleet "Large Oathkeeper" 4000
+		fleet "Small Northern Pirates" 5000
+		fleet "Large Northern Pirates" 8000
+	system "Mebsuta"
+		fleet "Small Northern Merchants" 3000
+		fleet "Large Northern Merchants" 5000
+		fleet "Small Northern Pirates" 4000
+		fleet "Large Northern Pirates" 8000
+		fleet "Small Oathkeeper" 12000
+	system "Betelgeuse"
+		fleet "Small Northern Merchants" 2000
+		fleet "Large Northern Merchants" 800
+		fleet "Small Oathkeeper" 1000
+		fleet "Large Oathkeeper" 2000
+		fleet "Republic Logistics" 4900
+		fleet "Large Northern Pirates" 4000
+	system "Rigel"
+		fleet "Small Northern Merchants" 2000
+		fleet "Large Northern Merchants" 4000
+		fleet "Small Oathkeeper" 1000
+		fleet "Large Oathkeeper" 2000
+		fleet "Republic Logistics" 5400
+		fleet "Small Northern Pirates" 3000
+		fleet "Large Northern Pirates" 5000
+		fleet "Derelict Northern" 30000
+	system "Alnitak"
+		fleet "Small Northern Pirates" 3000
+		fleet "Large Northern Pirates" 5000
+		fleet "Small Oathkeeper" 500
+		fleet "Large Oathkeeper" 1000
+		fleet "Republic Logistics" 6000
+	system "Saiph"
+		fleet "Small Northern Merchants" 1200
+		fleet "Large Northern Merchants" 2000
+		fleet "Small Northern Pirates" 2000
+		fleet "Large Northern Pirates" 3000
+		fleet "Small Oathkeeper" 1000
+		fleet "Large Oathkeeper" 2000
+	system "Mintaka"
+		fleet "Small Northern Pirates" 2000
+		fleet "Large Northern Pirates" 2000
+		fleet "Large Oathkeeper" 2000
+		fleet "Small Northern Merchants" 4000
+		fleet "Derelict Pirate" 30000
+	system "Almaaz"
+		fleet "Small Northern Pirates" 500
+		fleet "Large Northern Pirates" 600
+		fleet "Large Oathkeeper" 4000
+	system "Gorvi"
+		fleet "Small Northern Pirates" 1000
+		fleet "Large Northern Pirates" 1000
+		fleet "Large Oathkeeper" 4000
+		fleet "Small Northern Merchants" 8000
+		fleet "Derelict Pirate" 10000
+	system "Tortor"
+		fleet "Small Northern Pirates" 1000
+		fleet "Large Northern Pirates" 1000
+		fleet "Large Oathkeeper" 6000
+		fleet "Small Northern Merchants" 6000
+		fleet "Derelict Pirate" 10000
+	planet "Farpoint"
+		description `远点星位于人类疆域最北端，是一颗遍布岩石的沙漠行星，仅有一座共和国海军基地，别无他物。农业仅能在温室中进行，且该星系距离银河中心过远，既不适合贸易，也不适合工业发展。`
+		description `	近来，远点星海军基地规模持续扩大。这里已成为海军誓约者的新驻地——一支规模较小的海军分支，宣誓不介入与自由世界的冲突。`
+
+
+
+# TODO: Expand this event to other Dirt Belt systems.
+# TODO: Create Syndicate freighter fleets.
+event "syndicate convoys to Tarazed"
+
+
+
+event "Tarazed neutrality"
+	system "Tarazed"
+		government "Neutral"
+	system "Dabih"
+		government "Neutral"
+	system "Albireo"
+		government "Neutral"
+	system "Girtab"
+		government "Neutral"
+	system "Umbral"
+		government "Neutral"
+	system "Sadr"
+		government "Neutral"
+	system "Lurata"
+		government "Neutral"
+	planet "Wayfarer"
+		outfitter "Syndicate Assistance"
+
+
+
+# TODO: Expand this event to other Dirt Belt systems.
+# TODO: Create specific patrol fleets.
+event "fw dirt belt patrols"
+
+
+
+event "syndicate assistance"
+	planet "Bourne"
+		outfitter "Syndicate Assistance"
+	planet "Glaze"
+		outfitter "Syndicate Assistance"
+	planet "Rust"
+		outfitter "Syndicate Assistance"
+	planet "Solace"
+		outfitter "Syndicate Assistance"
+	planet "Zug"
+		outfitter "Syndicate Assistance"
+
+
+
+event "tarazed assistance"
+	planet "Glaze"
+		shipyard "Tarazed Basics"
+	planet "Rust"
+		shipyard "Tarazed Basics"
+	planet "Zug"
+		shipyard "Tarazed Basics"
+
+
+
+# TODO: Expand this event to other Dirt Belt systems.
+# TODO: Create Republic fleets neutral to FW patrols.
+event "unofficial ceasefire"
+
+
+
+event "plasma turret available"
+	outfitter "Kraz Advanced"
+		"Plasma Turret"
+	fleet "Large Free Worlds"
+		add variant 3
+			"Falcon (Plasma)"
+
+
+
+event "fw conservatory founded"
+	system "Yed Prior"
+		fleet "Small Northern Merchants" 500
+		fleet "Large Northern Merchants" 800
+		fleet "Small Southern Pirates" 1200
+		fleet "Large Southern Pirates" 2400
+		fleet "Small Free Worlds" 1000
+		fleet "Large Free Worlds" 1500
+		fleet "Human Miners" 1600
+	planet "Winter"
+		add attributes "education"
+		description `冬季星浓密的云层遮蔽了大部分阳光，在地表形成一片严寒荒原。这颗行星直到约一个世纪前才迎来首批定居者——一群来自飞马座γ星（Pherkad）的投资者。他们选择在此建立制造中心，而非在早已人满为患的慰藉星（Solace）上苦苦寻求更多土地。他们宣称，工业排放的二氧化碳及其他温室气体终将使行星升温，将其转变为热带天堂；这一论断成功吸引了足够多的移民，维持了工厂的持续运转。`
+		description `	温特尔是自由世界学院的所在地——这是一所新兴大学，致力于以合理价格提供行星改造技术与专业知识，同时也专注于生态保护与修复。`
+		security .4
+
+
+
+event "Thule becomes independent"
+	system "Men"
+		government "Independent"
+		fleet "Small Independent" 400
+		fleet "Large Independent" 600
+		fleet "Small Southern Merchants" 2000
+		fleet "Large Southern Merchants" 4000
+		fleet "Small Southern Pirates" 2500
+		fleet "Large Southern Pirates" 5000
+		fleet "Large Free Worlds" 1500
+	planet "Thule"
+		add attributes "ex-pirate"
+		description `图勒是一颗多山的星球，人口近十亿，早在太空探索初期便已建立殖民地。殖民地初建之时，地球政府尚无实力控制自身星系以外的任何区域。因此，共和国成立时，图勒拒绝加入，并在此后成功击退了所有强迫其加入的企图。`
+		description `	直到最近，图勒还是一处臭名昭著的海盗巢穴；但各大部落当局如今已公开宣布放弃海盗行径，以阻止自由世界进一步干涉其内政。不过，这里私下里很可能仍在进行各种非法活动。`
+	planet "Smuggler's Den"
+		description `走私者巢穴站此前名为格伦德尔空间站，那时它还是一座正常运转的精炼厂。此后该站被海盗占据，成为各类走私者与私掠船员的庇护所。如今，至少在名义上，它已成为一座独立空间站，不再与海盗结盟。但事实上，你怀疑这里仍在暗中进行大量海盗活动。`
+		description `此处的维修店可为你提供多种合法或非法的飞船改装服务；而在船坞中，你还能购得翻新过的星际飞船……只要你并不介意思索这些飞船前任主人可能遭遇的命运。`
+		spaceport `无政府主义者比普通人类体味更重——这虽看似怪异，却无可辩驳。在当今时代，就连最廉价的穿梭艇至少也配备了声波淋浴系统，因此这种现象根本无法用常理解释，唯一的可能便是无政府主义倾向与排斥社会卫生规范的习性之间存在某种必然关联。而在此处空间站中，人们只能呼吸循环利用的空气，这种气味便显得格外浓烈刺鼻。`
+
+
+
+# These two events are no longer used but preserved in case a now deleted mission calling these events is already active.
+event "fw suppressed Bloodsea"
+	system Antares
+		government "Free Worlds"
+		fleet "Small Free Worlds" 800
+		fleet "Large Free Worlds" 1600
+		fleet "Small Southern Pirates" 4000
+		fleet "Large Southern Pirates" 8000
+
+
+
+event "fw abandoned Bloodsea"
+	system Antares
+		government "Pirate"
+		fleet "Small Southern Pirates" 1000
+		fleet "Large Southern Pirates" 2000
+		fleet "Large Militia" 5000
+
+
+
+# TODO: Update event to reduce piracy in various systems.
+event "fw suppressed Greenrock"
+	system "Shaula"
+		government "Free Worlds"
+		fleet "Small Free Worlds" 500
+		fleet "Large Free Worlds" 800
+		fleet "Small Southern Pirates" 3000
+		fleet "Large Southern Pirates" 5000
+		fleet "Old Southern Pirates" 10000
+	planet "Greenrock"
+		description `格林罗克曾是人类南部星域海盗事实上的政府中心——至少在自由世界占领它之前一直如此。当敌对海盗团伙寻求在中立地带展开谈判时，便会选择此处会面。这里几乎出售一切物品：非法武器、专为海盗活动定制的飞船，甚至还有奴隶。`
+		description `	如今自由世界已占领该星系，格林罗克已成为一个略具体面的世界。尽管海盗仍在星球荒野肆意横行，但自由世界正积极在人口聚居中心逮捕罪犯、解放奴隶。`
+		spaceport `你早已听闻这座太空港的恶名，因此见到昔日奴隶市场的残迹时并不意外——如今它们已空空如也，这是自由世界占领后所致。那些平日里见不得光的场所，如今挤满了民兵，偶尔还能见到一两名商船船长，正趁着该行星尚在自由世界控制之下，抓紧时间前来探索。`
+		spaceport `	尽管自由世界势力在此驻扎，阴暗的小巷仍须避开。其中一条小巷里，你看见一家名为‘迈克的鼬鼠店’的废弃店铺，如今已被当年囚禁于此的黄鼠狼、雪貂和貂熊所占据。`
+
+
+
+# TODO: Update event to increase piracy in systems where it was reduced.
+event "fw abandoned Greenrock"
+	system "Shaula"
+		government "Pirate"
+		fleet "Small Southern Pirates" 500
+		fleet "Large Southern Pirates" 800
+		fleet "Small Core Pirates" 4000
+		fleet "Large Core Pirates" 7000
+		fleet "Small Northern Pirates" 5000
+		fleet "Large Northern Pirates" 9000
+		fleet "Old Southern Pirates" 7000
+		fleet "Large Free Worlds" 9000
+	planet "Greenrock"
+		description `Greenrock was the closest thing that the pirates in southern human space had to a center of government, at least until the Free Worlds occupied it. When rival pirate bands sought to negotiate on neutral territory, this is where they met. Nearly everything was for sale here: illegal weapons, ships customized for pirating, and even slaves.`
+		description `	这种情况一直持续到自由世界占领该星系，并清除了许多主要人口中心。随着自由世界的撤离，这颗行星正逐渐回归其原本的犯罪与邪恶状态。`
+		spaceport `你早已听闻这座太空港的恶名，因此见到昔日奴隶市场的残迹时并不意外——如今它们已空空如也，这是自由世界占领后所致。太空港中那些见不得光的场所，正逐渐恢复往日的顾客与服务。`
+		spaceport `	随着‘自由世界’已然覆灭，幽暗的小巷绝对不可涉足。你瞥见其中一条小巷里有家名为‘迈克的鼬科动物店’的店铺，店内宛如丛林。各种异域动物的嚎叫与嘶吼从店内传出，而这条小巷里则游荡着不少显然已逃逸的雪貂、白鼬和貂熊。`
+
+
+
+event "Greenrock recovered"
+	planet "Greenrock"
+		description `格林罗克是人类南部星域海盗事实上的政府中心，不过其形式并非民选官员，而是规模庞大、实力雄厚的巨型公司。当敌对海盗团伙需要在中立地带展开谈判时，便会选择此处会面。这里几乎出售一切物品：非法武器、专为海盗活动定制的飞船，甚至还有奴隶。`
+		description `	自由世界曾于久远之前短暂占领过这颗行星，试图肃清这个犯罪枢纽，但如今行星上几乎已找不到任何自由世界影响的痕迹。`
+		spaceport `你早已听闻这座太空港的恶名，因此见到那些戒备森严的奴隶市场时毫不惊讶——以防任何来访者偶然萌生良知；你同样不为那些迎合各种低俗欲望的阴暗场所感到震惊。毕竟，这是一座海盗港口，此处一切皆可买卖。`
+		spaceport `	事实上，一切皆有可能，甚至包括那些极为怪异之事。你发现一条幽暗小巷，被完全围栏隔绝于太空港其余区域之外，围栏后传来阵阵野兽嚎叫。小巷旁立着一块招牌，写着商店名‘迈克的鼬科宠物店’，宣称出售‘绿岩都市太空港丛林中的珍稀异域动物’。”`
+
+
+
+event "memorial on Deep"
+	planet "Deep"
+		spaceport `The spaceport is built on a large island, a now-extinct volcano with an elevation of several kilometers at its center. Most of the large-scale fishing here is done by a single company, Poseidon Industries, which also built and maintains the spaceport. Steep winding roads and sturdy concrete homes and warehouses line the mountain slopes, and below you in the harbor several massive trawling vessels are moored. On the outskirts of the spaceport are the ramshackle houses and open-air marketplace used by the smaller, independent fishing families.`
+		spaceport `	太空港北侧坐落着自由世界战争纪念碑——一组刻有阵亡者姓名的花岗岩墙壁。已建成的九面墙壁两面均已刻满；其余十四面墙壁恐怕难以撑过这场战争。`
+
+
+
+event "flamethrower available"
+	outfitter "Kraz Advanced"
+		"Flamethrower"
+
+
+
+event "navy occupying the south"
+	system "Rastaban"
+		fleet "Small Southern Merchants" 1200
+		fleet "Large Southern Merchants" 2400
+		fleet "Small Republic" 500
+		fleet "Large Republic" 700
+	system "Girtab"
+		fleet "Small Southern Merchants" 900
+		fleet "Large Southern Merchants" 2000
+		fleet "Small Republic" 500
+		fleet "Large Republic" 700
+	system "Albaldah"
+		fleet "Small Southern Merchants" 1000
+		fleet "Large Southern Merchants" 1200
+		fleet "Small Republic" 500
+		fleet "Large Republic" 700
+	system "Delta Sagittarii"
+		fleet "Small Southern Merchants" 1200
+		fleet "Large Southern Merchants" 4000
+		fleet "Small Republic" 500
+		fleet "Large Republic" 700
+		fleet "Human Miners" 3000
+
+
+
+event "catalytic ramscoop available"
+	outfitter "Deep Sky Basics"
+		"Catalytic Ramscoop"
+	fleet "Republic Logistics"
+		add variant 19
+			"Auxiliary (Mark II)"
+			"Dropship" 2
+			"Lance" 2
+			"Cruiser"
+			"Combat Drone" 4
+			"Frigate"
+			"Gunboat" 2
+		add variant 19
+			"Auxiliary (Cargo Mark II)"
+			"Dropship" 2
+			"Lance" 2
+			"Cruiser"
+			"Combat Drone" 4
+			"Frigate"
+			"Gunboat" 2
+		add variant 19
+			"Auxiliary (Transport Mark II)"
+			"Dropship" 2
+			"Lance" 2
+			"Cruiser"
+			"Combat Drone" 4
+			"Frigate"
+			"Gunboat" 2
+		add variant 1
+			"Auxiliary (Cargo Mark II)" 3
+			"Dropship" 3
+			"Lance" 9
+			"Cruiser" 2
+			"Combat Drone" 8
+		add variant 1
+			"Auxiliary (Transport Mark II)"
+			"Auxiliary (Cargo Mark II)"
+			"Auxiliary (Mark II)"
+			"Dropship" 6
+			"Lance" 6
+			"Cruiser" 2
+			"Combat Drone" 8
+		add variant 1
+			"Auxiliary (Transport Mark II)" 3
+			"Dropship" 9
+			"Lance" 3
+			"Cruiser" 2
+			"Combat Drone" 8
+		remove variant
+			"Auxiliary"
+			"Dropship" 2
+			"Lance" 2
+			"Cruiser"
+			"Combat Drone" 4
+			"Frigate"
+			"Gunboat" 2
+		remove variant
+			"Auxiliary (Cargo)"
+			"Dropship" 2
+			"Lance" 2
+			"Cruiser"
+			"Combat Drone" 4
+			"Frigate"
+			"Gunboat" 2
+		remove variant
+			"Auxiliary (Transport)"
+			"Dropship" 2
+			"Lance" 2
+			"Cruiser"
+			"Combat Drone" 4
+			"Frigate"
+			"Gunboat" 2
+		remove variant
+			"Auxiliary (Cargo)" 3
+			"Dropship" 3
+			"Lance" 9
+			"Cruiser" 2
+			"Combat Drone" 8
+		remove variant
+			"Auxiliary (Transport)"
+			"Auxiliary (Cargo)"
+			"Auxiliary"
+			"Dropship" 6
+			"Lance" 6
+			"Cruiser" 2
+			"Combat Drone" 8
+		remove variant
+			"Auxiliary (Transport)" 3
+			"Dropship" 9
+			"Lance" 3
+			"Cruiser" 2
+			"Combat Drone" 8
+
+
+
+event "fw gets catalytic ramscoop"
+	outfitter "Delta V Advanced"
+		"Catalytic Ramscoop"
+
+
+
+event "fw safe passage starts"
+	"reputation: Republic" = 5
+
+
+
+event "fw safe passage ends"
+	"reputation: Republic" <?= -1000
+
+
+
+event "navy using mark ii ships"
+	fleet "Small Republic"
+		add variant 12
+			"Rainmaker (Mark II)" 2
+		add variant 12
+			"Gunboat (Mark II)"
+			"Rainmaker (Mark II)"
+		add variant 9
+			"Frigate (Mark II)"
+		add variant 6
+			"Gunboat (Mark II)" 2
+		add variant 3
+			"Rainmaker (Mark II)" 3
+		add variant 12
+			"Gunboat (Mark II)"
+		remove variant
+			"Protector"
+	
+	fleet "Large Republic"
+		add variant 12
+			"Frigate (Mark II)" 2
+			"Rainmaker (Mark II)"
+			"Gunboat (Mark II)"
+		add variant 6
+			"Cruiser (Mark II)"
+			"Combat Drone" 4
+		add variant 6
+			"Cruiser (Mark II)"
+			"Combat Drone" 4
+			"Frigate (Mark II)"
+			"Rainmaker (Mark II)"
+		add variant 6
+			"Carrier (Mark II)"
+			"Lance" 8
+			"Combat Drone" 6
+		add variant 3
+			"Carrier (Mark II)"
+			"Lance" 8
+			"Combat Drone" 6
+			"Cruiser (Mark II)"
+			"Combat Drone" 4
+			"Frigate (Mark II)" 2
+			"Rainmaker (Mark II)" 2
+			"Gunboat (Mark II)" 2
+		add variant 3
+			"Cruiser (Mark II)"
+			"Combat Drone" 4
+			"Frigate (Mark II)" 2
+		add variant 3
+			"Frigate (Mark II)"
+			"Rainmaker (Mark II)" 2
+			"Gunboat (Mark II)"
+
+	fleet "Small Oathkeeper"
+		add variant 12
+			"Rainmaker (Mark II)" 2
+		add variant 12
+			"Gunboat (Mark II)"
+			"Rainmaker (Mark II)"
+		add variant 9
+			"Frigate (Mark II)"
+		add variant 6
+			"Gunboat (Mark II)" 2
+		add variant 3
+			"Rainmaker (Mark II)" 3
+		add variant 12
+			"Gunboat (Mark II)"
+
+	fleet "Large Oathkeeper"
+		add variant 12
+			"Frigate (Mark II)" 2
+			"Rainmaker (Mark II)"
+			"Gunboat (Mark II)"
+		add variant 6
+			"Cruiser (Mark II)"
+			"Combat Drone" 4
+		add variant 6
+			"Cruiser (Mark II)"
+			"Combat Drone" 4
+			"Frigate (Mark II)"
+			"Rainmaker (Mark II)"
+		add variant 6
+			"Carrier (Mark II)"
+			"Lance" 8
+			"Combat Drone" 6
+		add variant 3
+			"Carrier (Mark II)"
+			"Lance" 8
+			"Combat Drone" 6
+			"Cruiser (Mark II)"
+			"Combat Drone" 4
+			"Frigate (Mark II)" 2
+			"Rainmaker (Mark II)" 2
+			"Gunboat (Mark II)" 2
+		add variant 3
+			"Cruiser (Mark II)"
+			"Combat Drone" 4
+			"Frigate (Mark II)" 2
+		add variant 3
+			"Frigate (Mark II)"
+			"Rainmaker (Mark II)" 2
+			"Gunboat (Mark II)"
+
+fleet "gunboat only"
+	government "Republic"
+	names "republic small"
+	cargo 0
+	personality
+		heroic
+	variant
+		"Gunboat (Mark II)"
+
+event "gunboats in Alnasl"
+	system "Alnasl"
+		fleet "Small Southern Merchants" 1300
+		fleet "Large Southern Merchants" 2500
+		fleet "gunboat only" 2400
+	system "Wei"
+		remove fleet "Large Republic"
+
+event "normal in Alnasl"
+	system "Alnasl"
+		fleet "Small Southern Merchants" 1300
+		fleet "Large Southern Merchants" 2500
+		fleet "Small Southern Pirates" 6000
+		fleet "Small Republic" 900
+		fleet "Large Republic" 1100
+		fleet "Derelict Southern" 30000
+		fleet "Navy Surveillance" 1200
+	system "Wei"
+		add fleet "Large Republic" 700
+
+
+
+event "fw southern expansion"
+	system "Lesath"
+		fleet "Small Southern Merchants" 800
+		fleet "Large Southern Merchants" 1600
+		fleet "Small Free Worlds" 800
+		fleet "Large Free Worlds" 1100
+		fleet "Small Southern Pirates" 2000
+		fleet "Large Southern Pirates" 5000
+		fleet "Derelict Southern" 30000
+		fleet "Navy Surveillance" 4000
+	system "Sargas"
+		fleet "Small Southern Merchants" 600
+		fleet "Large Southern Merchants" 2500
+		fleet "Small Free Worlds" 1000
+		fleet "Large Free Worlds" 1500
+		fleet "Small Southern Pirates" 3000
+		fleet "Large Southern Pirates" 7000
+		fleet "Navy Surveillance" 5000
+	system "Rastaban"
+		government "Free Worlds"
+		fleet "Small Southern Merchants" 1200
+		fleet "Large Southern Merchants" 2400
+		fleet "Small Free Worlds" 500
+		fleet "Large Free Worlds" 700
+		fleet "Small Southern Pirates" 3000
+		fleet "Large Southern Pirates" 7000
+		fleet "Navy Surveillance" 2000
+	system "Girtab"
+		government "Free Worlds"
+		fleet "Small Southern Merchants" 900
+		fleet "Large Southern Merchants" 2000
+		fleet "Small Free Worlds" 1000
+		fleet "Large Free Worlds" 1700
+		fleet "Small Southern Pirates" 3000
+		fleet "Large Southern Pirates" 7000
+		fleet "Navy Surveillance" 5000
+	system "Albaldah"
+		government "Free Worlds"
+		fleet "Small Southern Merchants" 1000
+		fleet "Large Southern Merchants" 1200
+		fleet "Small Free Worlds" 900
+		fleet "Large Free Worlds" 1900
+		fleet "Small Southern Pirates" 3000
+		fleet "Large Southern Pirates" 7000
+		fleet "Navy Surveillance" 5000
+	system "Delta Sagittarii"
+		government "Free Worlds"
+		fleet "Small Southern Merchants" 1200
+		fleet "Large Southern Merchants" 4000
+		fleet "Small Free Worlds" 600
+		fleet "Large Free Worlds" 900
+		fleet "Small Southern Pirates" 3000
+		fleet "Large Southern Pirates" 7000
+		fleet "Navy Surveillance" 3000
+	system "Eltanin"
+		government "Free Worlds"
+	system "Vega"
+		remove fleet "Republic Logistics"
+		add fleet "Republic Logistics" 2500
+	system "Menkent"
+		remove fleet "Republic Logistics"
+		add fleet "Republic Logistics" 3000
+	system "Cebalrai"
+		remove fleet "Republic Logistics"
+		add fleet "Republic Logistics" 3500
+	system "Kaus Borealis"
+		fleet "Small Southern Merchants" 900
+		fleet "Large Southern Merchants" 4000
+		fleet "Small Republic" 400
+		fleet "Large Republic" 500
+		fleet "Republic Logistics" 4000
+	planet "New Iceland"
+		description `新冰岛是一颗终年笼罩薄雾的火山星球，大气略带腐蚀性，但蕴藏着充足的金属与石化资源，因而吸引了大量殖民者。其中部分殖民者以务农为生；另有几座发展成熟的工矿城镇，生产出口至其他星球的商品。`
+		description `	当地许多居民佩戴防尘口罩，以防火山喷发产生的颗粒物积聚于肺部。`
+		description `	海军在南方战败后，已开始在新冰岛星上建立一座庞大的新基地，以确保其在此星域继续保持强大存在。`
+
+
+
+event "Deep memorial expansion 1"
+	planet "Deep"
+		spaceport `The spaceport is built on a large island, a now-extinct volcano with an elevation of several kilometers at its center. Most of the large-scale fishing here is done by a single company, Poseidon Industries, which also built and maintains the spaceport. Steep winding roads and sturdy concrete homes and warehouses line the mountain slopes, and below you in the harbor several massive trawling vessels are moored. On the outskirts of the spaceport are the ramshackle houses and open-air marketplace used by the smaller, independent fishing families.`
+		spaceport `	太空港北侧坐落着自由世界战争纪念碑——一组刻有阵亡者姓名的花岗岩墙壁。该纪念地已超出最初规划规模，外围新增了一圈环形结构，可容纳额外五十面刻名墙。`
+
+
+
+event "fw occupying the north"
+	system "Alioth"
+		fleet "Small Southern Merchants" 400
+		fleet "Large Northern Merchants" 600
+		fleet "Small Free Worlds" 500
+		fleet "Large Free Worlds" 800
+		fleet "Small Republic" 5000
+		fleet "Large Republic" 6000
+		fleet "Navy Surveillance" 4000
+	system "Alphecca"
+		fleet "Small Southern Merchants" 2000
+		fleet "Large Northern Merchants" 3500
+		fleet "Small Free Worlds" 1200
+		fleet "Large Free Worlds" 2000
+		fleet "Navy Surveillance" 6000
+	system "Boral"
+		fleet "Small Southern Merchants" 3000
+		fleet "Large Northern Merchants" 8000
+		fleet "Small Free Worlds" 1500
+		fleet "Large Free Worlds" 3800
+		fleet "Derelict Southern" 10000
+	system "Seginus"
+		fleet "Small Southern Merchants" 1200
+		fleet "Large Southern Merchants" 2700
+		fleet "Small Free Worlds" 700
+		fleet "Large Free Worlds" 1100
+		fleet "Small Republic" 5000
+		fleet "Large Republic" 6000
+		fleet "Navy Surveillance" 4000
+	system "Wei"
+		fleet "Small Southern Merchants" 800
+		fleet "Large Southern Merchants" 2500
+		fleet "Small Free Worlds" 800
+		fleet "Large Free Worlds" 1000
+		fleet "Derelict Southern" 30000
+		fleet "Navy Surveillance" 4000
+
+
+
+event "fw northern expansion"
+	system "Alioth"
+		government "Free Worlds"
+	system "Alphecca"
+		government "Free Worlds"
+	system "Boral"
+		government "Free Worlds"
+	system "Seginus"
+		government "Free Worlds"
+	system "Wei"
+		government "Free Worlds"
+	system "Alpha Arae"
+		government "Free Worlds"
+	system "Alnasl"
+		government "Free Worlds"
+	system "Eber"
+		government "Free Worlds"
+
+
+
+event "fw prison on Clink"
+	planet "Clink"
+		add description `近来，自由世界已将克林克（Clink）改造为一座监狱殖民地，用以关押在拉斯塔班（Rastaban）星系战役中被俘的海军军官及支援人员。`
+
+event "fw prison on Clink closes"
+	planet "Clink"
+		description `About a decade ago, a mining corporation from Zug planted a colony on Clink for harvesting some rare earth minerals that are present in this moon's crust due to its unusually high rate of asteroid impacts. The atmosphere here is too thin to breathe without a respirator, and because of the low gravity, the dust raised by the mining operations hangs perpetually in the air.`
+
+overwrite
+mission "FW Clink Prison Closes"
+	landing
+	invisible
+	non-blocking
+	to offer
+		has "event: fw prison on Clink"
+		or
+			has "event: fw armistice"
+			has "event: fwc peace with the navy"
+	on offer
+		event "fw prison on Clink closes"
+		fail
+
+
+
+event "alphas capture Poisonwood"
+	system "Graffias"
+		government "Pirate"
+		fleet "Small Free Worlds" 10000
+
+event "liberation of Poisonwood"
+	system "Graffias"
+		government "Neutral"
+		fleet "Small Southern Merchants" 1000
+		fleet "Large Southern Merchants" 4000
+		fleet "Small Southern Pirates" 6000
+		fleet "Small Free Worlds" 700
+		fleet "Small Free Worlds" 1200
+		fleet "Human Miners" 2000
+	planet "Poisonwood"
+		spaceport `这座太空港由众多小型金属结构拼凑而成，建材取自曾为争夺此星球控制权而激战的海军与海盗飞船残骸。当地居民热情地欢迎你来到他们的行星。`
+		spaceport `	港口中央的酒馆名为“离别之杯”。墙上挂满了战后拍摄的照片，全部摄于毒木星：获释奴隶登上海军舰船，离开这片曾带给他们无尽苦难的星球；海军军官卸下戎装，踏上他们亲手解放的这颗星球安度余生；远行的朋友；留下的朋友。墙上也有更新近的照片：一艘巡洋舰与两架猎鹰战机并排停驻；身着装甲的部队正阔步离开一座工厂；一位熟悉的船长正与你所知的阮指挥官交谈。置身于这群历史英雄之中，而你自己对这段历史的影响却微乎其微——这种感觉十分奇特。`
+
+event "Poisonwood reverts to Republic"
+	system "Graffias"
+		government "Republic"
+		fleet "Small Southern Merchants" 1000
+		fleet "Large Southern Merchants" 4000
+		fleet "Small Southern Pirates" 4000
+		fleet "Small Free Worlds" 1500
+		fleet "Small Free Worlds" 2600
+		fleet "Human Miners" 2000
+	planet "Poisonwood"
+		spaceport `这座星港由众多小型金属结构拼凑而成，建材均取自曾为争夺此星球控制权而交战的海军与海盗飞船残骸。当地居民对绝大多数降落于此的船长都异常礼貌友善，唯独对你例外。`
+		spaceport `	港口中央的酒馆名为“离别之杯”。当你踏入建筑时，发现酒馆内渐渐安静下来，最终你只能听见空调的嗡嗡声和玻璃杯轻碰的清脆响声。与此同时，你感到数十道目光灼灼地直盯着你。你决定在事态进一步升级前尽快离开。`
+
+event "death of nguyen"
+
+
+
+event "dreadnoughts for sale"
+	shipyard "Southbound Advanced"
+		"Dreadnought"
+
+
+
+event "dreadnought deployment"
+	fleet "Large Free Worlds"
+		government "Free Worlds"
+		names "free worlds capital"
+		cargo 1
+		personality
+			heroic
+		add variant 4
+			"Dreadnought"
+		add variant 2
+			"Dreadnought"
+			"Bastion"
+		add variant 2
+			"Dreadnought"
+			"Argosy"
+			"Fury"
+
+
+
+event "bloodsea joins free worlds"
+	planet "Bloodsea"
+		add attributes "ex-pirate"
+		description `血海星几乎无人居住，仅有几处小型前哨站。其名称源于星球上的海洋——因红藻（rhodophyte algae）大量繁殖而呈现血红色。尽管气候温和、遍布洁白沙滩，却无人会专程前来游泳。`
+		description `	此地不久前还是一座海盗星球，但随着自由世界的持续扩张，当地势力审时度势，决定转型为文明世界。自由世界正在此处兴建一座新太空港，但工程需耗时数月；在此期间，旧太空港仍在继续使用。`
+	system "Antares"
+		government "Free Worlds"
+		fleet "Small Southern Merchants" 700
+		fleet "Large Southern Merchants" 1400
+		fleet "Small Free Worlds" 500
+		fleet "Large Free Worlds" 3000
+		fleet "Small Southern Pirates" 2000
+		fleet "Large Southern Pirates" 5000
+
+
+
+event "bloodsea spaceport completed"
+	planet "Bloodsea"
+		description `Bloodsea is nearly uninhabited, except for a few small outposts. Its name comes from the planet's oceans, which are blood-red due to rhodophyte algae. Although the climate is temperate and there are many white sand beaches, no one comes here hoping to go swimming.`
+		description `	近日，在自由世界的协助下，此处新建了一座太空港。血海星（Bloodsea）此前曾是海盗据点，而新太空港的落成为其增添了几分体面气息，目前已陆续有少量移民与好奇的游客前来定居或探访。`
+		spaceport `这座新建的太空港设计极为出色：防波堤与起降平台均由崭新浇筑、棱角分明的混凝土建成，尚未被风雨或霉菌侵蚀留下任何痕迹。但其规模却远超当前驻留人口与飞船数量所需，除了一处热闹的市场外，整座太空港显得异常空旷。`
+		spaceport `	有些事自海盗时代起便未曾改变。当地俚语中充斥着极端暴力的威胁，却仿佛只是毫无意义的口头习惯。“嘿，你要是不买个肉饼，我就一根一根地剁掉你的手指！”你路过时，摊主兴高采烈地朝你吆喝道。“第一个免费，要是你不喜欢，我就给你脊椎打个死结！”`
+
+
+
+event "battle for bloodsea"
+	system "Antares"
+		fleet "Small Free Worlds" 4000
+
+
+
+event "bloodsea independent"
+	system "Antares"
+		government "Independent"
+		fleet "Small Independent" 800
+		fleet "Large Independent" 1500
+		fleet "Small Southern Merchants" 2000
+		fleet "Large Southern Merchants" 2000
+		fleet "Small Southern Pirates" 1600
+		fleet "Large Southern Pirates" 3000
+		fleet "Small Free Worlds" 800
+		fleet "Large Free Worlds" 1500
+	planet "Bloodsea"
+		description `Bloodsea is nearly uninhabited, except for a few small outposts. Its name comes from the planet's oceans, which are blood-red due to rhodophyte algae. Although the climate is temperate and there are many white sand beaches, no one comes here hoping to go swimming.`
+		description `	直到最近，这还是一颗海盗行星，但如今它已正式宣布“独立”，并在自由世界民兵的控制下，公开宣誓摒弃对海盗行为及其他犯罪活动的支持。然而，你感觉当地大多数居民其实并不怎么喜欢自由世界。`
+
+
+
+event "albatross joins free worlds"
+	planet "Albatross"
+		add attributes "ex-pirate"
+		description `Albatross is a cold ocean world orbiting a small, cold sun. The first settlers on Albatross were anarchists who believed that in a society free from unnatural laws and constraints, everyone would happily and freely work for the common good. The next settlers were pirates who believed that a planet free from laws and constraints would be a great base of operations.`
+		description `	近日，自由世界已从海盗压迫者手中解放了信天翁星（Albatross），但许多当地居民仍持怀疑态度，认为自由世界与其他长期盘踞此地的保护费团伙并无本质区别。`
+	system "Nunki"
+		government "Free Worlds"
+		fleet "Small Southern Merchants" 700
+		fleet "Large Southern Merchants" 1400
+		fleet "Small Free Worlds" 500
+		fleet "Large Free Worlds" 3000
+		fleet "Small Southern Pirates" 2000
+		fleet "Large Southern Pirates" 5000
+		fleet "Old Southern Pirates" 11000
+
+
+
+event "fw expanded and cut"
+	system "Rasalhague"
+		government "Free Worlds"
+	system "Zeta Aquilae"
+		government "Free Worlds"
+	system "Ascella"
+		government "Free Worlds"
+	system "Peacock"
+		government "Free Worlds"
+	system "Kaus Australis"
+		government "Free Worlds"
+	system "Orvala"
+		government "Free Worlds"
+	system "Tais"
+		government "Free Worlds"
+	system "Naper"
+		government "Free Worlds"
+	system "Delta Sagittarii"
+		government "Republic"
+		fleet "Small Southern Merchants" 2000
+		fleet "Large Southern Merchants" 6000
+		fleet "Small Republic" 500
+		fleet "Large Republic" 700
+		fleet "Large Free Worlds" 3000
+	system "Rastaban"
+		government "Republic"
+		fleet "Small Southern Merchants" 1000
+		fleet "Large Southern Merchants" 4000
+		fleet "Small Republic" 700
+		fleet "Large Republic" 900
+		fleet "Large Free Worlds" 2000
+	system "Girtab"
+		government "Republic"
+		fleet "Small Southern Merchants" 1000
+		fleet "Large Southern Merchants" 3000
+		fleet "Small Republic" 900
+		fleet "Large Republic" 1200
+		fleet "Large Free Worlds" 1800
+	system "Lesath"
+		fleet "Small Southern Merchants" 6000
+		fleet "Large Southern Merchants" 9000
+		fleet "Small Republic" 1000
+		fleet "Large Republic" 1000
+		fleet "Large Free Worlds" 800
+		fleet "Derelict Southern" 30000
+	system "Alpha Arae"
+		fleet "Small Southern Merchants" 5000
+		fleet "Large Southern Merchants" 6000
+		fleet "Small Republic" 800
+		fleet "Large Republic" 1000
+		fleet "Large Free Worlds" 3000
+		fleet "Derelict Southern" 30000
+
+
+
+event "fw at war with Syndicate"
+	government Syndicate
+		"attitude toward"
+			"Free Worlds" -.3
+			"Pirate" -.01
+			"Korath" -.01
+		bribe 0
+	system "Rutilicus"
+		fleet "Small Southern Merchants" 600
+		fleet "Large Southern Merchants" 2000
+	system "Cebalrai"
+		fleet "Small Southern Merchants" 600
+		fleet "Large Southern Merchants" 2000
+	system "Holeb"
+		fleet "Small Southern Merchants" 1000
+		fleet "Large Southern Merchants" 3000
+
+
+
+event "fw armistice"
+	government "Republic"
+		"attitude toward"
+			"Free Worlds" 0
+			"Merchant" .25
+			"Pirate" -.3
+	government "Free Worlds"
+		"attitude toward"
+			Republic 0
+	system "Graffias"
+		government "Republic"
+	planet "Martini"
+		"required reputation" 80
+	planet "Thrall"
+		"required reputation" 30
+	planet "Geminus"
+		"required reputation" 80
+	planet "Hestia"
+		"required reputation" 40
+	planet "Vinci"
+		"required reputation" 50
+	planet "Vail"
+		"required reputation" 40
+	planet "Calda"
+		"required reputation" 40
+	planet "Pearl"
+		"required reputation" 50
+	planet "Glory"
+		"required reputation" 60
+	planet "Farseer"
+		"required reputation" 50
+	planet "Pilot"
+		"required reputation" 100
+	planet "Ada"
+		"required reputation" 60
+	planet "Hermes"
+		"required reputation" 70
+	planet "Mainsail"
+		"required reputation" 40
+	system "Rutilicus"
+		fleet "Small Southern Merchants" 600
+		fleet "Large Southern Merchants" 2000
+		fleet "Small Southern Pirates" 8000
+		fleet "Small Republic" 1000
+	system "Cebalrai"
+		fleet "Small Southern Merchants" 600
+		fleet "Large Southern Merchants" 2000
+		fleet "Small Southern Pirates" 4000
+		fleet "Small Republic" 1000
+	system "Holeb"
+		fleet "Small Southern Merchants" 1000
+		fleet "Large Southern Merchants" 3000
+		fleet "Small Southern Pirates" 5000
+		fleet "Small Republic" 2000
+		fleet "Large Republic" 3000
+		fleet "Derelict Southern" 30000
+		fleet "Navy Surveillance" 1600
+	system "Kaus Borealis"
+		remove fleet "Republic Logistics"
+
+
+
+event "fw tarazed joins"
+	system "Tarazed"
+		government "Free Worlds"
+	system "Dabih"
+		government "Free Worlds"
+	system "Albireo"
+		government "Free Worlds"
+	system "Umbral"
+		government "Free Worlds"
+	system "Sadr"
+		government "Free Worlds"
+	system "Lurata"
+		government "Free Worlds"
+
+
+
+event "fw tarazed republic"
+	system "Tarazed"
+		government "Republic"
+	system "Dabih"
+		government "Republic"
+	system "Albireo"
+		government "Republic"
+	system "Umbral"
+		government "Republic"
+	system "Sadr"
+		government "Republic"
+	system "Lurata"
+		government "Republic"
+
+
+
+event "deep sky tech available"
+	outfitter "Deep Sky Basics"
+		"Catalytic Ramscoop"
+		"Typhoon Torpedo"
+		"Electron Beam"
+	outfitter "Deep Sky Advanced"
+		"Catalytic Ramscoop"
+		"Typhoon Torpedo"
+		"Electron Beam"
+		"Typhoon Launcher"
+		"Typhoon Pod"
+		"Typhoon Storage Tube"
+		"Electron Turret"
+
+event "navy expand typhoon sales"
+	outfitter "Lovelace Advanced"
+		"Typhoon Torpedo"
+		"Typhoon Launcher"
+		"Typhoon Pod"
+		"Typhoon Storage Tube"
+
+overwrite
+mission "Navy expands typhoon sales"
+	invisible
+	non-blocking
+	landing
+	to offer
+		has "event: deep sky tech available"
+	on offer
+		event "navy expand typhoon sales" 120
+		fail
+
+
+
+event "navy out of rastaban"
+	system "Rastaban"
+		government "Free Worlds"
+		fleet "Small Southern Merchants" 1200
+		fleet "Large Southern Merchants" 2400
+		fleet "Small Free Worlds" 500
+		fleet "Large Free Worlds" 700
+		fleet "Small Southern Pirates" 3000
+		fleet "Large Southern Pirates" 7000
+		fleet "Navy Surveillance" 2000
+	system "Girtab"
+		government "Free Worlds"
+		fleet "Small Southern Merchants" 900
+		fleet "Large Southern Merchants" 2000
+		fleet "Small Free Worlds" 1000
+		fleet "Large Free Worlds" 1700
+		fleet "Small Southern Pirates" 3000
+		fleet "Large Southern Pirates" 7000
+		fleet "Navy Surveillance" 5000
+	system "Delta Sagittarii"
+		government "Free Worlds"
+		fleet "Small Southern Merchants" 1200
+		fleet "Large Southern Merchants" 4000
+		fleet "Small Free Worlds" 600
+		fleet "Large Free Worlds" 900
+		fleet "Small Southern Pirates" 3000
+		fleet "Large Southern Pirates" 7000
+		fleet "Navy Surveillance" 3000
+	system "Lesath"
+		fleet "Small Southern Merchants" 800
+		fleet "Large Southern Merchants" 1600
+		fleet "Small Free Worlds" 800
+		fleet "Large Free Worlds" 1100
+		fleet "Small Southern Pirates" 2000
+		fleet "Large Southern Pirates" 5000
+		fleet "Derelict Southern" 30000
+		fleet "Navy Surveillance" 4000
+	system "Alpha Arae"
+		fleet "Small Southern Merchants" 2100
+		fleet "Large Southern Merchants" 8000
+		fleet "Small Southern Pirates" 6000
+		fleet "Large Southern Pirates" 13000
+		fleet "Small Republic" 900
+		fleet "Large Republic" 800
+		fleet "Derelict Southern" 30000
+		fleet "Navy Surveillance" 1200
+
+
+
+event "stack core for sale"
+	planet "Solace"
+		outfitter "Stack Core"
+	planet "Zug"
+		outfitter "Stack Core"
+	planet "Wayfarer"
+		outfitter "Stack Core"
+
+
+
+event "syndicate occupies sol"
+	system "Sol"
+		fleet "Small Northern Merchants" 500
+		fleet "Large Northern Merchants" 700
+		fleet "Small Republic" 800
+		fleet "Large Republic" 1200
+		fleet "Small Core Merchants" 900
+		fleet "Large Core Merchants" 1400
+		fleet "Small Syndicate" 400
+		fleet "Large Syndicate" 600
+
+
+
+event "pug invasion"
+	unlink "Zeta Aquilae" "Ascella"
+	unlink "Rasalhague" "Cebalrai"
+	unlink "Rasalhague" "Ascella"
+	link "Deneb" "Zeta Aquilae"
+	link "Deneb" "Rasalhague"
+	unvisit "Zeta Aquilae"
+	unvisit "Rasalhague"
+	unvisit "Orvala"
+	unvisit "Deneb"
+	unvisit "Cebalrai"
+	unvisit "Ascella"
+	unvisit "Peacock"
+	"tribute: Rand" /= 500
+	"tribute: Oblivion" /= 500
+	system "Zeta Aquilae"
+		government "Pug"
+		fleet "Small Southern Merchants" 1000
+		fleet "Large Southern Merchants" 3000
+		fleet "Small Pug" 1000
+		fleet "Large Pug" 2000
+	system "Rasalhague"
+		government "Pug"
+		fleet "Small Southern Merchants" 1500
+		fleet "Large Southern Merchants" 2000
+		fleet "Small Pug" 800
+		fleet "Large Pug" 2000
+	system "Orvala"
+		government "Pug"
+		fleet "Small Southern Merchants" 3000
+		fleet "Large Southern Merchants" 6000
+		fleet "Small Pug" 5000
+		fleet "Large Pug" 9000
+	planet "Rand"
+		security 0
+		tribute 1
+			threshold 3000
+			fleet "Small Pug" 15
+			fleet "Large Pug" 3
+	planet "Oblivion"
+		security 0
+		tribute 1
+			threshold 3000
+			fleet "Small Pug" 15
+			fleet "Large Pug" 3
+
+
+
+event "pug invasion 2"
+	unlink "Vega" "Menkent"
+	unlink "Vega" "Sol"
+	unlink "Altair" "Sol"
+	unlink "Fomalhaut" "Markab"
+	link "Deneb" "Vega"
+	link "Deneb" "Altair"
+	unvisit "Vega"
+	unvisit "Altair"
+	unvisit "Nocte"
+	unvisit "Fomalhaut"
+	unvisit "Markab"
+	"tribute: Silver" /= 700
+	"tribute: Shiver" /= 300
+	"tribute: Millrace" /= 1400
+	system "Menkent"
+		remove fleet "Republic Logistics"
+	system "Vega"
+		government "Pug"
+		fleet "Small Northern Merchants" 800
+		fleet "Large Northern Merchants" 3000
+		fleet "Small Pug" 800
+		fleet "Large Pug" 1200
+	system "Altair"
+		government "Pug"
+		fleet "Small Core Merchants" 400
+		fleet "Large Core Merchants" 600
+		fleet "Small Northern Merchants" 1000
+		fleet "Large Northern Merchants" 3000
+		fleet "Small Pug" 700
+		fleet "Large Pug" 900
+	system "Fomalhaut"
+		government "Pug"
+		fleet "Small Core Merchants" 1000
+		fleet "Large Core Merchants" 1200
+		fleet "Small Pug" 1400
+		fleet "Large Pug" 2000
+	system "Nocte"
+		government "Pug"
+		fleet "Small Northern Merchants" 1500
+		fleet "Large Northern Merchants" 5000
+		fleet "Small Pug" 3000
+		fleet "Large Pug" 7000
+		fleet "Human Miners" 1600
+	planet "Silver"
+		security 0
+		tribute 1
+			threshold 3000
+			fleet "Small Pug" 15
+			fleet "Large Pug" 3
+	planet "Shiver"
+		security 0
+		tribute 1
+			threshold 3000
+			fleet "Small Pug" 15
+			fleet "Large Pug" 3
+	planet "Millrace"
+		security 0
+		tribute 1
+			threshold 3000
+			fleet "Small Pug" 15
+			fleet "Large Pug" 3
+
+
+
+event "pug invasion 3"
+	unlink "Delta Capricorni" "Markab"
+	unlink "Delta Capricorni" "Scheat"
+	unlink "Alderamin" "Alnair"
+	link "Deneb" "Delta Capricorni"
+	link "Deneb" "Alderamin"
+	unvisit "Delta Capricorni"
+	unvisit "Alderamin"
+	unvisit "Scheat"
+	unvisit "Alnair"
+	"tribute: Maker" /= 1700
+	"tribute: Furnace" /= 1200
+	system "Delta Capricorni"
+		government "Pug"
+		fleet "Small Core Merchants" 700
+		fleet "Large Core Merchants" 800
+		fleet "Small Pug" 800
+		fleet "Large Pug" 1100
+	system "Alderamin"
+		government "Pug"
+		fleet "Small Core Merchants" 2000
+		fleet "Large Core Merchants" 3200
+		fleet "Small Pug" 1200
+		fleet "Large Pug" 2500
+	planet "Maker"
+		security 0
+		tribute 1
+			threshold 3000
+			fleet "Small Pug" 15
+			fleet "Large Pug" 3
+	planet "Furnace"
+		security 0
+		tribute 1
+			threshold 3000
+			fleet "Small Pug" 15
+			fleet "Large Pug" 3
+
+
+
+event "pug invasion 4"
+	unlink "Caph" "Sol"
+	unlink "Caph" "Eteron"
+	unlink "Diphda" "Acamar"
+	unlink "Diphda" "Ankaa"
+	link "Fomalhaut" "Caph"
+	unvisit "Caph"
+	unvisit "Diphda"
+	unvisit "Ankaa"
+	"tribute: Reunion" /= 2900
+	"tribute: Kraken Station" /= 500
+	"tribute: Tinker" /= 1100
+	system "Sol"
+		fleet "Small Northern Merchants" 300
+		fleet "Large Northern Merchants" 500
+		fleet "Small Republic" 600
+		fleet "Large Republic" 900
+		fleet "Republic Logistics" 2000
+		fleet "Small Core Merchants" 1000
+		fleet "Large Core Merchants" 2000
+	system "Diphda"
+		government "Pug"
+		fleet "Small Core Merchants" 2000
+		fleet "Large Core Merchants" 600
+		fleet "Small Pug" 1000
+		fleet "Large Pug" 1500
+	system "Caph"
+		government "Pug"
+		fleet "Small Core Merchants" 500
+		fleet "Large Core Merchants" 600
+		fleet "Small Pug" 700
+		fleet "Large Pug" 1000
+		fleet "Human Miners" 2000
+	planet "Reunion"
+		security 0
+		tribute 1
+			threshold 3000
+			fleet "Small Pug" 15
+			fleet "Large Pug" 3
+	planet "Kraken Station"
+		security 0
+		tribute 1
+			threshold 3000
+			fleet "Small Pug" 15
+			fleet "Large Pug" 3
+	planet "Tinker"
+		security 0
+		tribute 1
+			threshold 4000
+			fleet "Small Pug" 15
+			fleet "Large Pug" 3
+
+
+
+event "fw syndicate welcoming"
+	government "Syndicate"
+		"attitude toward"
+			"Free Worlds" 0
+			"Republic" 0
+			"Navy (Oathkeeper)" 0
+			"Pirate" -.4
+			"Korath" -.5
+		bribe .08
+	system "Algenib"
+		government "Syndicate (Extremist)"
+		fleet "Small Core Pirates" 1500
+		fleet "Large Core Pirates" 2000
+		fleet "Syndicate Extremists" 200
+
+
+
+event "at war with the pug"
+	"reputation: Pug" <?= -1000
+	government "Pug"
+		"attitude toward"
+			"Free Worlds" -.01
+			"Republic" -.01
+			"Syndicate" -.01
+			"Syndicate (Extremist)" -.01
+	system "Delta Capricorni"
+		fleet "Small Core Merchants" 1500
+
+
+
+event "battle for delta capricorni"
+	system "Delta Capricorni"
+		government Syndicate
+	"tribute: Maker" *= 1700
+	planet "Maker"
+		security 0.4
+		tribute 1700
+			threshold 4500
+			fleet "Large Syndicate" 12
+
+
+
+event "reconnected delta capricorni"
+	link "Delta Capricorni" "Markab"
+	system "Delta Capricorni"
+		fleet "Small Core Merchants" 1500
+		fleet "Large Core Merchants" 3000
+		fleet "Small Pug" 2000
+		fleet "Large Syndicate" 400
+		fleet "Human Miners" 3000
+
+
+
+event "battle for altair"
+	system "Altair"
+		fleet "Small Core Merchants" 1500
+
+
+
+event "liberation of altair"
+	"tribute: Shiver" *= 300
+	system "Altair"
+		government "Republic"
+		fleet "Small Core Merchants" 1000
+		fleet "Large Core Merchants" 2000
+		fleet "Small Pug" 2000
+		fleet "Large Syndicate" 800
+	planet "Shiver"
+		security 0.1
+		tribute 300
+			threshold 2000
+			fleet "Small Republic" 10
+			fleet "Large Republic" 2
+
+
+
+event "reconnected altair"
+	link "Altair" "Sol"
+	system "Altair"
+		government "Republic"
+		fleet "Small Core Merchants" 800
+		fleet "Large Core Merchants" 1200
+
+
+
+event "pug flee"
+	unvisit "Deneb"
+	system "Zeta Aquilae"
+		fleet "Small Southern Merchants" 1000
+		fleet "Large Southern Merchants" 3000
+		fleet "Small Southern Pirates" 2000
+		fleet "Large Southern Pirates" 5000
+	system "Rasalhague"
+		fleet "Small Southern Merchants" 1500
+		fleet "Large Southern Merchants" 2000
+		fleet "Small Southern Pirates" 4000
+		fleet "Large Southern Pirates" 8000
+	system "Vega"
+		fleet "Small Northern Merchants" 800
+		fleet "Large Northern Merchants" 3000
+		fleet "Small Republic" 1600
+		fleet "Large Republic" 5000
+		fleet "Human Miners" 5000
+	system "Altair"
+		fleet "Small Core Merchants" 400
+		fleet "Large Core Merchants" 600
+		fleet "Small Northern Merchants" 1000
+		fleet "Large Northern Merchants" 3000
+		fleet "Small Republic" 3000
+		fleet "Large Republic" 6000
+		fleet "Republic Logistics" 6000
+		fleet "Small Syndicate" 9000
+	system "Fomalhaut"
+		fleet "Small Core Merchants" 1000
+		fleet "Large Core Merchants" 1200
+		fleet "Small Syndicate" 5000
+		fleet "Large Syndicate" 10000
+		fleet "Republic Logistics" 3300
+	system "Delta Capricorni"
+		fleet "Small Core Merchants" 700
+		fleet "Large Core Merchants" 800
+		fleet "Small Syndicate" 2000
+		fleet "Small Core Pirates" 4000
+		fleet "Human Miners" 3000
+	system "Alderamin"
+		fleet "Small Core Merchants" 2000
+		fleet "Large Core Merchants" 3200
+		fleet "Small Syndicate" 800
+		fleet "Large Syndicate" 800
+		fleet "Small Core Pirates" 1000
+		fleet "Large Core Pirates" 1200
+	system "Diphda"
+		fleet "Small Core Merchants" 2000
+		fleet "Large Core Merchants" 600
+		fleet "Small Syndicate" 3000
+	system "Caph"
+		fleet "Small Core Merchants" 500
+		fleet "Large Core Merchants" 600
+		fleet "Small Syndicate" 1600
+		fleet "Human Miners" 2000
+	system "Nocte"
+		fleet "Small Northern Merchants" 1500
+		fleet "Small Republic" 3000
+		fleet "Large Republic" 7000
+		fleet "Small Northern Pirates" 2500
+		fleet "Derelict Northern" 10000
+		fleet "Human Miners" 1600
+	system "Orvala"
+		fleet "Small Southern Merchants" 3000
+		fleet "Small Southern Pirates" 1000
+		fleet "Large Southern Pirates" 3000
+		fleet "Derelict Southern" 10000
+	system "Deneb"
+		fleet "Small Core Merchants" 5000
+		add object "Pug Wormhole"
+			sprite planet/wormhole
+			distance 2320.29
+			period 1788.27
+	planet "Pugglemug"
+		attributes uninhabited
+	planet "Pugglequat"
+		attributes uninhabited
+
+
+
+event "pug territory liberated"
+	system "Orvala"
+		government "Free Worlds"
+	system "Nocte"
+		government Republic
+	system "Zeta Aquilae"
+		government "Free Worlds"
+	system "Rasalhague"
+		government "Free Worlds"
+	system "Vega"
+		government Republic
+	system "Altair"
+		government Republic
+	system "Fomalhaut"
+		government Syndicate
+	system "Delta Capricorni"
+		government Syndicate
+	system "Alderamin"
+		government Syndicate
+	system "Diphda"
+		government Syndicate
+	system "Caph"
+		government Syndicate
+	"tribute: Rand" *= 500
+	"tribute: Oblivion" *= 500
+	"tribute: Silver" *= 700
+	"tribute: Millrace" *= 1400
+	"tribute: Furnace" *= 1200
+	"tribute: Reunion" *= 2900
+	"tribute: Kraken Station" *= 500
+	"tribute: Tinker" *= 1100
+	system "Deneb"
+		government "Neutral"
+		fleet "Small Core Merchants" 400
+		fleet "Large Core Merchants" 600
+		fleet "Small Northern Merchants" 1000
+		fleet "Large Northern Merchants" 3000
+		fleet "Small Republic" 700
+		fleet "Large Republic" 900
+		fleet "Small Syndicate" 1200
+		fleet "Large Syndicate" 2000
+	planet "Pugglemug"
+		remove attributes
+		"bribe" 0.01
+	planet "Pugglequat"
+		remove attributes
+		"bribe" 0.01
+	planet "Rand"
+		security 0.05
+		tribute 500
+			threshold 3000
+			fleet "Large Militia" 10
+	planet "Oblivion"
+		security 0.05
+		tribute 500
+			threshold 3000
+			fleet "Large Militia" 10
+	planet "Silver"
+		security 0.1
+		tribute 700
+			threshold 4000
+			fleet "Small Republic" 25
+			fleet "Large Republic" 2
+	planet "Millrace"
+		security 0.2
+		tribute 1400
+			threshold 4000
+			fleet "Large Syndicate" 10
+	planet "Furnace"
+		security 0.1
+		tribute 1200
+			threshold 3500
+			fleet "Large Syndicate" 9
+	planet "Reunion"
+		security 0.3
+		tribute 2900
+			threshold 5000
+			fleet "Large Syndicate" 19
+	planet "Kraken Station"
+		security 0.3
+		tribute 500
+			threshold 3500
+			fleet "Small Syndicate" 7
+			fleet "Large Syndicate" 2
+	planet "Tinker"
+		security 0.4
+		tribute 1100
+			threshold 4000
+			fleet "Large Syndicate" 9
+
+
+
+event "pug link restoration 1"
+	link "Rasalhague" "Cebalrai"
+	link "Alderamin" "Alnair"
+	link "Vega" "Sol"
+
+
+
+event "pug link restoration 2"
+	link "Zeta Aquilae" "Ascella"
+	link "Caph" "Sol"
+	link "Vega" "Menkent"
+
+
+
+event "pug link restoration 3"
+	link "Diphda" "Ankaa"
+	link "Fomalhaut" "Markab"
+	link "Rasalhague" "Ascella"
+
+
+
+event "pug link restoration 4"
+	link "Delta Capricorni" "Scheat"
+	link "Caph" "Eteron"
+	link "Diphda" "Acamar"
+
+
+
+event "battle of algenib"
+	government "Republic"
+		"attitude toward"
+			"Syndicate (Extremist)" -.1
+	government "Navy (Oathkeeper)"
+		"attitude toward"
+			"Syndicate (Extremist)" -.1
+	system "Algenib"
+		fleet "Small Syndicate" 5000
+
+
+
+event "navy occupies algenib"
+	system "Algenib"
+		government "Republic"
+		fleet "Small Republic" 500
+		fleet "Large Republic" 800
+		fleet "Large Syndicate" 800
+	system "Gienah"
+		government "Republic"
+		fleet "Small Republic" 800
+		fleet "Large Republic" 1200
+		fleet "Large Syndicate" 1000
+	planet "Covert"
+		description `科弗特是强大采矿卡特尔的所在地，名义上受共和国法律管辖，实则几乎不受约束。据传，这里是人类疆域内极少数开采并提纯武器级铀和钚的行星之一。此处出售的任何货物极可能由奴隶劳工生产，其中许多人是遭海盗劫持飞船后的幸存者。一支海盗舰队潜伏在太空港外围，警告所有私掠飞行员：切勿试图欺骗或对抗该卡特尔。`
+
+
+
+event "navy done with algenib"
+	system "Algenib"
+		government "Pirate"
+		fleet "Small Core Pirates" 300
+		fleet "Large Core Pirates" 500
+		fleet "Large Syndicate" 800
+		fleet "Small Core Merchants" 600
+	system "Gienah"
+		government "Pirate"
+		fleet "Small Core Pirates" 500
+		fleet "Large Core Pirates" 800
+		fleet "Large Syndicate" 5000
+	planet "Covert"
+		description `Covert is home to a powerful mining cartel, operating outside the control of Republic law or any other external authority. It is rumored to be one of the few planets in human space where weapons-grade uranium and plutonium is mined and enriched. Any goods for sale here were most likely produced by slave labor, often by survivors of ships that have been captured by pirates. A massive pirate fleet is docked on the outskirts of the spaceport, a warning to any private pilot who might think of cheating or opposing the cartel.`
+
+
+
+event "fwc southern battle"
+	system "Delta Sagittarii"
+		fleet "Large Free Worlds" 4000
+	system "Rastaban"
+		fleet "Small Southern Merchants" 1000
+		fleet "Large Southern Merchants" 4000
+	system "Girtab"
+		fleet "Small Southern Merchants" 1000
+		fleet "Large Southern Merchants" 3000
+
+
+
+event "fwc southern liberation"
+	system "Delta Sagittarii"
+		government "Free Worlds"
+		fleet "Small Southern Merchants" 1200
+		fleet "Large Southern Merchants" 4000
+		fleet "Small Free Worlds" 600
+		fleet "Large Free Worlds" 900
+		fleet "Small Southern Pirates" 3000
+		fleet "Large Southern Pirates" 7000
+		fleet "Large Republic" 3000
+	system "Rastaban"
+		government "Free Worlds"
+		fleet "Small Southern Merchants" 1200
+		fleet "Large Southern Merchants" 2400
+		fleet "Small Free Worlds" 500
+		fleet "Large Free Worlds" 700
+		fleet "Small Southern Pirates" 3000
+		fleet "Large Southern Pirates" 7000
+		fleet "Large Republic" 3000
+	system "Girtab"
+		government "Free Worlds"
+		fleet "Small Southern Merchants" 900
+		fleet "Large Southern Merchants" 2000
+		fleet "Small Free Worlds" 1000
+		fleet "Large Free Worlds" 1700
+		fleet "Small Southern Pirates" 3000
+		fleet "Large Southern Pirates" 7000
+	system "Lesath"
+		fleet "Small Southern Merchants" 800
+		fleet "Large Southern Merchants" 1600
+		fleet "Small Free Worlds" 800
+		fleet "Large Free Worlds" 1100
+		fleet "Small Southern Pirates" 2000
+		fleet "Large Southern Pirates" 5000
+		fleet "Derelict Southern" 30000
+		fleet "Navy Surveillance" 4000
+
+
+
+event "fwc attack kaus borealis"
+	system "Alpha Arae"
+		fleet "Small Southern Merchants" 5000
+		fleet "Large Southern Merchants" 6000
+	system "Kaus Borealis"
+		fleet "Large Southern Merchants" 4000
+		fleet "Large Free Worlds" 3000
+
+
+
+event "fwc capture kaus borealis"
+	system "Alpha Arae"
+		fleet "Small Southern Merchants" 5000
+		fleet "Large Southern Merchants" 6000
+		fleet "Small Free Worlds" 1000
+		fleet "Large Free Worlds" 1000
+	system "Kaus Borealis"
+		government "Free Worlds"
+		fleet "Small Southern Merchants" 2000
+		fleet "Large Southern Merchants" 4000
+		fleet "Small Free Worlds" 400
+		fleet "Large Free Worlds" 400
+		fleet "Large Republic" 2000
+	planet "New Iceland"
+		description `New Iceland is a perpetually hazy volcanic world, with a slightly caustic atmosphere but enough reserves of metal and petrochemicals to draw a large number of settlers. Some of those settlers also make a living as farmers, and a few well-developed factory towns produce goods for export to other worlds.`
+		description `	Many of the inhabitants wear dust masks to avoid letting the particulate matter from the volcanoes accumulate in their lungs.`
+		description `	海军在被迫撤出南方边缘星域后，曾在新冰岛开始建造一座庞大的军事基地；然而，他们在本星系遭自由世界击败，致使该基地尚未完工便被仓促废弃。`
+
+
+
+event "fwc attack cebalrai"
+	system "Cebalrai"
+		fleet "Small Southern Merchants" 5000
+		fleet "Large Southern Merchants" 6000
+
+
+
+event "fwc capture cebalrai"
+	system "Cebalrai"
+		government "Free Worlds"
+		fleet "Small Southern Merchants" 1000
+		fleet "Large Southern Merchants" 1500
+		fleet "Small Free Worlds" 400
+		fleet "Large Free Worlds" 400
+		fleet "Large Republic" 2000
+	system "Kaus Borealis"
+		government "Free Worlds"
+		fleet "Small Southern Merchants" 2000
+		fleet "Large Southern Merchants" 4000
+		fleet "Small Free Worlds" 600
+		fleet "Large Free Worlds" 700
+
+
+
+event "fwc solace has nukes"
+	planet "Solace"
+		outfitter "Nuke"
+
+
+
+event "fwc defend cebalrai"
+	system "Cebalrai"
+		fleet "Large Free Worlds" 6000
+
+
+
+event "fwc defended cebalrai"
+	system "Cebalrai"
+		fleet "Small Southern Merchants" 1000
+		fleet "Large Southern Merchants" 1500
+		fleet "Small Free Worlds" 500
+		fleet "Large Free Worlds" 600
+		fleet "Large Republic" 5000
+	system "Sargas"
+		fleet "Small Southern Merchants" 600
+		fleet "Large Southern Merchants" 2500
+		fleet "Small Free Worlds" 1000
+		fleet "Large Free Worlds" 1500
+		fleet "Small Southern Pirates" 3000
+		fleet "Large Southern Pirates" 7000
+	system "Lesath"
+		fleet "Small Southern Merchants" 6000
+		fleet "Large Southern Merchants" 9000
+		fleet "Large Free Worlds" 800
+	system "Dschubba"
+		fleet "Small Southern Merchants" 800
+		fleet "Large Southern Merchants" 2600
+		fleet "Small Southern Pirates" 3000
+		fleet "Large Southern Pirates" 6000
+		fleet "Small Free Worlds" 2000
+		fleet "Large Free Worlds" 3000
+	system "Seginus"
+		fleet "Small Southern Merchants" 1200
+		fleet "Large Southern Merchants" 2700
+		fleet "Small Free Worlds" 700
+		fleet "Large Free Worlds" 1100
+	system "Alnasl"
+		fleet "Small Southern Merchants" 1300
+		fleet "Large Southern Merchants" 2500
+		fleet "Small Southern Pirates" 6000
+		fleet "Small Free Worlds" 2000
+		fleet "Large Free Worlds" 3000
+	system "Eber"
+		fleet "Small Southern Merchants" 1900
+		fleet "Large Southern Merchants" 2900
+		fleet "Small Southern Pirates" 3000
+		fleet "Small Free Worlds" 2000
+		fleet "Large Free Worlds" 3000
+	system "Delta Sagittarii"
+		government "Free Worlds"
+		fleet "Small Southern Merchants" 1200
+		fleet "Large Southern Merchants" 4000
+		fleet "Small Free Worlds" 600
+		fleet "Large Free Worlds" 900
+		fleet "Small Southern Pirates" 3000
+		fleet "Large Southern Pirates" 7000
+	system "Rastaban"
+		government "Free Worlds"
+		fleet "Small Southern Merchants" 1200
+		fleet "Large Southern Merchants" 2400
+		fleet "Small Free Worlds" 500
+		fleet "Large Free Worlds" 700
+		fleet "Small Southern Pirates" 3000
+		fleet "Large Southern Pirates" 7000
+	system "Albaldah"
+		government "Free Worlds"
+		fleet "Small Southern Merchants" 1000
+		fleet "Large Southern Merchants" 1200
+		fleet "Small Free Worlds" 900
+		fleet "Large Free Worlds" 1900
+		fleet "Small Southern Pirates" 3000
+		fleet "Large Southern Pirates" 7000
+		fleet "Human Miners" 3000
+
+
+
+event "fwc attack menkent"
+	system "Menkent"
+		fleet "Small Southern Merchants" 5000
+
+
+
+event "fwc capture menkent"
+	system "Menkent"
+		government "Free Worlds"
+		fleet "Small Southern Merchants" 700
+		fleet "Large Southern Merchants" 1900
+		fleet "Small Free Worlds" 300
+		fleet "Large Free Worlds" 400
+		fleet "Large Republic" 2000
+		fleet "Human Miners" 2000
+	planet "New Austria"
+		description `New Austria is a rugged mountain world, full of snow-capped peaks and valleys so deep and so steep that they rarely see sunlight.`
+		description `	此处建立的少数定居点专为开采蓝宝石与红宝石而设。新奥地利出产的蓝宝石颜色丰富，涵盖蓝色、黄色、黑色乃至无色，既用于工业研磨材料，也用于珠宝制造。`
+		description `	数个世纪以来，当地居民一直在寻找钻石矿藏——钻石售价远高于蓝宝石。当地民间传说也围绕着一个主题：倘若有朝一日发现钻石，这颗星球将迎来空前繁荣。`
+		description `	海军曾在此处设有一座军事基地，但当自由世界势力在‘将死’计划中攻占该星系后，海军便撤离了此地。`
+
+
+
+event "fwc attack vega"
+	system "Vega"
+		fleet "Small Southern Merchants" 50000
+
+
+
+event "fwc pug invasion"
+	unlink "Vega" "Sol"
+	unlink "Altair" "Sol"
+	unlink "Altair" "Fomalhaut"
+	unlink "Delta Capricorni" "Markab"
+	unlink "Delta Capricorni" "Scheat"
+	unlink "Alderamin" "Alnair"
+	unlink "Zeta Aquilae" "Ascella"
+	unlink "Rasalhague" "Ascella"
+	unlink "Rasalhague" "Cebalrai"
+	unlink "Vega" "Menkent"
+	link "Vega" "Deneb"
+	link "Altair" "Deneb"
+	link "Delta Capricorni" "Deneb"
+	link "Alderamin" "Deneb"
+	link "Zeta Aquilae" "Deneb"
+	link "Rasalhague" "Deneb"
+	"reputation: Pug" <?= -1000
+	"tribute: Rand" /= 500
+	"tribute: Oblivion" /= 500
+	"tribute: Shiver" /= 300
+	"tribute: Maker" /= 1700
+	"tribute: Furnace" /= 1200
+	government "Pug"
+		"attitude toward"
+			"Free Worlds" -.01
+	system "Zeta Aquilae"
+		government "Pug"
+		fleet "Small Southern Merchants" 1000
+		fleet "Large Southern Merchants" 3000
+		fleet "Small Pug" 1000
+		fleet "Large Pug" 2000
+	system "Rasalhague"
+		government "Pug"
+		fleet "Small Southern Merchants" 1500
+		fleet "Large Southern Merchants" 2000
+		fleet "Small Pug" 800
+		fleet "Large Pug" 2000
+	system "Orvala"
+		government "Pug"
+		fleet "Small Southern Merchants" 3000
+		fleet "Large Southern Merchants" 6000
+		fleet "Small Pug" 5000
+		fleet "Large Pug" 9000
+	system "Altair"
+		government "Pug"
+		fleet "Small Core Merchants" 400
+		fleet "Large Core Merchants" 600
+		fleet "Small Northern Merchants" 1000
+		fleet "Large Northern Merchants" 3000
+		fleet "Small Pug" 700
+		fleet "Large Pug" 900
+	system "Vega"
+		government "Free Worlds"
+	system "Delta Capricorni"
+		government "Pug"
+		fleet "Small Core Merchants" 700
+		fleet "Large Core Merchants" 800
+		fleet "Small Pug" 800
+		fleet "Large Pug" 1100
+	system "Alderamin"
+		government "Pug"
+		fleet "Small Core Merchants" 2000
+		fleet "Large Core Merchants" 3200
+		fleet "Small Pug" 1200
+		fleet "Large Pug" 2500
+	system "Nocte"
+		government "Pug"
+		fleet "Small Northern Merchants" 1500
+		fleet "Large Northern Merchants" 5000
+		fleet "Small Pug" 3000
+		fleet "Large Pug" 7000
+		fleet "Human Miners" 1600
+	planet "Rand"
+		security 0
+		tribute 1
+			threshold 3000
+			fleet "Small Pug" 15
+			fleet "Large Pug" 3
+	planet "Oblivion"
+		security 0
+		tribute 1
+			threshold 3000
+			fleet "Small Pug" 15
+			fleet "Large Pug" 3
+	planet "Shiver"
+		security 0
+		tribute 1
+			threshold 3000
+			fleet "Small Pug" 15
+			fleet "Large Pug" 3
+	planet "Maker"
+		security 0
+		tribute 1
+			threshold 3000
+			fleet "Small Pug" 15
+			fleet "Large Pug" 3
+	planet "Furnace"
+		security 0
+		tribute 1
+			threshold 3000
+			fleet "Small Pug" 15
+			fleet "Large Pug" 3
+
+
+
+event "fwc pug peaceful"
+	"reputation: Pug" = 1
+	government "Pug"
+		"attitude toward"
+			"Free Worlds" 0
+
+
+
+event "fwc navy retakes cebalrai"
+	unvisit "Cebalrai"
+	unvisit "Menkent"
+	system "Cebalrai"
+		government "Republic"
+		fleet "Small Southern Merchants" 1000
+		fleet "Large Southern Merchants" 1500
+		fleet "Small Republic" 500
+		fleet "Large Republic" 600
+		fleet "Large Free Worlds" 5000
+	system "Menkent"
+		government "Republic"
+		fleet "Small Southern Merchants" 700
+		fleet "Large Southern Merchants" 1900
+		fleet "Small Republic" 300
+		fleet "Large Republic" 400
+		fleet "Large Free Worlds" 2000
+		fleet "Human Miners" 2000
+
+
+
+event "fwc peace with the navy"
+	"reputation: Republic" = 1
+	government "Republic"
+		"attitude toward"
+			"Free Worlds" 0
+			"Merchant" .25
+			"Pirate" -.3
+	government "Free Worlds"
+		"attitude toward"
+			"Republic" 0
+	"tribute: Silver" /= 700
+	planet "Silver"
+		security 0
+		tribute 1
+			threshold 3000
+			fleet "Small Pug" 15
+			fleet "Large Pug" 3
+	planet "Martini"
+		"required reputation" 80
+	planet "Thrall"
+		"required reputation" 30
+	planet "Geminus"
+		"required reputation" 80
+	planet "Hestia"
+		"required reputation" 40
+	planet "Vinci"
+		"required reputation" 50
+	planet "Vail"
+		"required reputation" 40
+	planet "Calda"
+		"required reputation" 40
+	planet "Pearl"
+		"required reputation" 50
+	planet "Glory"
+		"required reputation" 60
+	planet "Farseer"
+		"required reputation" 50
+	planet "Pilot"
+		"required reputation" 100
+	planet "Ada"
+		"required reputation" 60
+	planet "Hermes"
+		"required reputation" 70
+	planet "Mainsail"
+		"required reputation" 40
+	system "Vega"
+		government "Pug"
+		fleet "Small Northern Merchants" 800
+		fleet "Large Northern Merchants" 3000
+		fleet "Small Pug" 800
+		fleet "Large Pug" 1200
+		fleet "Human Miners" 5000
+
+
+
+event "fwc defend oblivion"
+	"reputation: Pug" <?= -10
+	government "Pug"
+		"attitude toward"
+			"Free Worlds" -.01
+
+
+
+event "fwc battle for rasalhague"
+	link "Rasalhague" "Cebalrai"
+	system "Rasalhague"
+		fleet "Small Southern Merchants" 10000
+	government "Pug"
+		"attitude toward"
+			"Republic" -.01
+			"Navy (Oathkeeper)" -.01
+
+
+
+event "fwc liberation of rasalhague"
+	"tribute: Oblivion" *= 500
+	system "Rasalhague"
+		government "Free Worlds"
+		fleet "Small Southern Merchants" 1500
+		fleet "Large Southern Merchants" 2000
+		fleet "Small Republic" 400
+		fleet "Large Republic" 600
+		fleet "Small Free Worlds" 400
+		fleet "Large Free Worlds" 600
+	system "Zeta Aquilae"
+		fleet "Small Southern Merchants" 1000
+		fleet "Large Southern Merchants" 3000
+	system "Vega"
+		fleet "Small Southern Merchants" 1500
+		fleet "Large Southern Merchants" 2000
+	system "Altair"
+		fleet "Small Core Merchants" 400
+		fleet "Large Core Merchants" 600
+	system "Delta Capricorni"
+		fleet "Small Core Merchants" 700
+		fleet "Large Core Merchants" 800
+	system "Alderamin"
+		fleet "Small Core Merchants" 2000
+		fleet "Large Core Merchants" 3200
+	system "Deneb"
+		fleet "Small Core Merchants" 10000
+		fleet "Small Pug" 100
+		fleet "Large Pug" 100
+	planet "Oblivion"
+		security 0.05
+		tribute 500
+			threshold 3000
+			fleet "Large Militia" 10
+
+
+
+event "fwc reconnect ascella"
+	link "Rasalhague" "Ascella"
+
+
+
+event "fwc reconnect zeta aquilae"
+	link "Zeta Aquilae" Ascella
+	"tribute: Rand" *= 500
+	system "Zeta Aquilae"
+		government "Free Worlds"
+		fleet "Small Southern Merchants" 1500
+		fleet "Large Southern Merchants" 2000
+		fleet "Small Republic" 400
+		fleet "Large Republic" 600
+		fleet "Small Free Worlds" 600
+		fleet "Large Free Worlds" 800
+	system "Orvala"
+		government "Free Worlds"
+	planet "Rand"
+		security 0.05
+		tribute 500
+			threshold 3000
+			fleet "Large Militia" 10
+
+
+
+event "fwc liberation of vega"
+	"tribute: Silver" *= 700
+	system "Vega"
+		government "Republic"
+	planet "Silver"
+		security 0.1
+		tribute 700
+			threshold 4000
+			fleet "Small Republic" 25
+			fleet "Large Republic" 2
+
+
+
+event "fwc reconnect vega"
+	link "Sol" "Vega"
+	system "Vega"
+		government "Republic"
+		fleet "Small Southern Merchants" 1500
+		fleet "Large Southern Merchants" 2000
+		fleet "Small Republic" 500
+		fleet "Large Republic" 700
+		fleet "Human Miners" 5000
+
+
+
+event "fwc pug defeated"
+	"tribute: Shiver" *= 300
+	"tribute: Maker" *= 1700
+	"tribute: Furnace" *= 1200
+	system "Altair"
+		government "Republic"
+	system "Delta Capricorni"
+		government "Syndicate"
+	system "Alderamin"
+		government "Syndicate"
+	system "Deneb"
+		government "Neutral"
+		fleet "Small Core Merchants" 400
+		fleet "Large Core Merchants" 600
+		fleet "Small Northern Merchants" 1000
+		fleet "Large Northern Merchants" 3000
+		fleet "Small Republic" 700
+		fleet "Large Republic" 900
+		fleet "Small Syndicate" 1200
+		fleet "Large Syndicate" 2000
+	system "Nocte"
+		government "Republic"
+	planet "Pugglemug"
+		remove attributes
+		"bribe" 0.01
+	planet "Pugglequat"
+		remove attributes
+		"bribe" 0.01
+	planet "Shiver"
+		security 0.1
+		tribute 300
+			threshold 2000
+			fleet "Small Republic" 10
+			fleet "Large Republic" 2
+	planet "Maker"
+		security 0.4
+		tribute 1700
+			threshold 4500
+			fleet "Large Syndicate" 12
+	planet "Furnace"
+		security 0.1
+		tribute 1200
+			threshold 3500
+			fleet "Large Syndicate" 9
+
+
+
+event "fwc kaus borealis ceded back"
+	system "Kaus Borealis"
+		government "Republic"
+
+
+
+event "fwc link restoration 1"
+	link "Vega" "Menkent"
+	link "Altair" "Sol"
+
+
+
+event "fwc link restoration 2"
+	link "Delta Capricorni" "Markab"
+	link "Alderamin" "Alnair"
+
+
+
+event "fwc link restoration 3"
+	link "Altair" "Fomalhaut"
+	link "Delta Capricorni" "Scheat"
+
+
+
+event "syndicate tech available"
+	outfitter "Syndicate Basics"
+		"Ionic Afterburner"
+		"S-270 Regenerator"
+	outfitter "Syndicate Advanced"
+		"Ionic Afterburner"
+		"S-270 Regenerator"
+		"S-970 Regenerator"
+
+
+
+event "Deep memorial completed"
+	planet "Deep"
+		spaceport `The spaceport is built on a large island, a now-extinct volcano with an elevation of several kilometers at its center. Most of the large-scale fishing here is done by a single company, Poseidon Industries, which also built and maintains the spaceport. Steep winding roads and sturdy concrete homes and warehouses line the mountain slopes, and below you in the harbor several massive trawling vessels are moored. On the outskirts of the spaceport are the ramshackle houses and open-air marketplace used by the smaller, independent fishing families.`
+		spaceport `	太空港北侧坐落着自由世界战争纪念碑——一组刻有阵亡者姓名的花岗岩墙壁。除最初的二十三面墙壁外，原有外环的五十面刻名墙周围又增建了两圈新的环形墙体。`
+
+overwrite
+mission "Deep Memorial Finished"
+	landing
+	invisible
+	non-blocking
+	to offer
+		has "main plot completed"
+	on offer
+		event "Deep memorial completed"
+		fail
+
+
+
+event "geminus rebuilt"
+	planet "Geminus"
+		description `双子星（Geminus）虽非宜居世界，却是一颗相当年轻的行星，其地表附近蕴藏着大量易于开采的铁、钛及其他金属。持续不断的火山活动使整颗行星常年笼罩在灰烬与雾气交织的暮色薄霭之中。`
+		description `	旧海军船坞的残骸仍被遗弃在此，正于这颗行星极具腐蚀性的大气中缓缓锈蚀；但共和国已在原址附近新建了一座船坞，取代了轰炸中损毁的旧设施，吉米纳斯由此再度成为科技与工业的核心枢纽。`
+		spaceport `和金牛座上的其他一切一样，这座太空港外观并不出众，但功能完备、运转高效。每条宽阔的走廊都如道路般标示清晰：中央区域供运送货物的电动运输车通行，行人则被安排在两侧边缘。每个路口均设有摄像头与传感器，而飞船建造设施的出入则受到严格管控。`
+		spaceport `	太空港的核心区域是一座美食广场：中央环绕着一圈商铺，外围则是座位区；透过落地玻璃窗，你能眺望外面的熔岩原野与破火山口。入夜后，地平线四周皆可见火山散发出的幽光。`
+		shipyard "Basic Ships"
+		shipyard "Navy Basics"
+		shipyard "Navy Advanced"
+		shipyard "Betelgeuse Basics"
+		shipyard "Lionheart Basics"
+		outfitter "Common Outfits"
+		outfitter "Ammo North"
+		outfitter "Lovelace Advanced"
+		outfitter "Syndicate Basics"
+
+overwrite
+mission "Geminus Rebuilt"
+	landing
+	invisible
+	non-blocking
+	to offer
+		has "main plot completed"
+	on offer
+		event "geminus rebuilt" 90
+		fail
+
+event "martini recovers"
+	planet "Martini"
+		description `马提尼是一颗拥有异域风情海滩与宜人气候的星球。共和国中央银行与银河证券交易所曾将总部设于此地，但在一次恐怖袭击中，这两处机构连同旧都的大片区域一同被摧毁。`
+		description `	新首都位于主大陆另一侧，远离残留辐射区，因而不会影响其余人口。它虽不如旧都宏伟，但因受辐射地区居民的大规模迁入，人口迅速膨胀，正快速显现出大都市的气象。当地居民中许多是核爆幸存者，他们凝聚起一种唯有经历如此惨烈浩劫之后才会诞生的‘迎难而上’精神。`
+		spaceport `目前，这座新指定的行星太空港尚不具备作为马尔蒂尼主太空港所需的基础设施。此前救援行动中搭建的大型临时太空港仍在使用；此后虽已建成永久性着陆平台，但如今已有计划将其拆除，并对新建的行星太空港进行迫切需要的扩建。`
+		spaceport `	马丁尼的老太空港依然存在——它原本就位于爆炸冲击波范围之外，而其偏转护盾则承受了冲击波的主要威力；但灾后数日内，太空港的塔楼部分坍塌。如今从远处望去，它只剩几座高低不齐的黑色尖塔，矗立在弥漫烟尘与废墟残骸的城市背景之前，再不复昔日熠熠生辉之貌。`
+
+overwrite
+mission "Martini Recovers"
+	landing
+	invisible
+	non-blocking
+	to offer
+		has "main plot completed"
+	on offer
+		event "martini recovers" 45
+		fail

@@ -1,0 +1,178 @@
+# Copyright (c) 2022 by Saugia
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+
+# Previous iterations of first two missions are failed on offer to ensure save compatibility.
+overwrite
+mission "Relic of Pasts"
+	invisible
+	non-blocking
+	transition
+	source
+		system "Kanguwa"
+	destination "Earth"
+	to complete
+		never
+	npc save
+		government "Rulei"
+		personality heroic vindictive staying mute unconstrained frugal
+		system "Kanguwa"
+		ship "vyu-Ir" "Solemnity"
+
+overwrite
+mission "First Contact: Rulei"
+	invisible
+	entering
+	source
+		system "Kanguwa"
+	destination "Earth"
+	on offer
+		log "Factions" "Rulei" `鲁莱人很可能是远古时代一个科技高度发达的文明，但如今仅存的遗迹仅有一艘奇异的飞船和两颗伤痕累累的行星。`
+			`他们通过某种侵入式精神能力进行交流，同时以千种声音齐声说话。长时间接触似乎会对健康造成危害。`
+		conversation
+			`进入星系片刻后，你被一种强烈的空虚感所淹没。当你试图理解这种感觉时，开始听到身后传来低语声。`
+			choice
+				`	（缓慢转身。）`
+				`	（拔出我的配枪并迅速转身。）`
+			`	你转过身，却只见到飞船内部熟悉的舱壁结构，别无他物。那些低语声仍萦绕在你脑后，如同一个挠不到的痒处。那是一种你完全陌生的语言，甚至无法辨识出丝毫含义。随着你不断环顾四周，耳中低语声愈发密集，渐渐化作数百个截然不同的声音，同时从四面八方拉扯你的意识，感官几近过载。就在你觉得自己再也无法承受之际，一切骤然陷入彻底的寂静。`
+			choice
+				`	"你好？"`
+				`	“那里有人吗？”`
+				`	“现身吧！”`
+			scene "scene/rulei"
+			`	"人类。"`
+			`	你感到数以百万计的眼睛正从宇宙边界之外凝视着你，脑海中骤然闪过一幅影像。你再次环顾四周，发现前方稍远处有一艘外形奇异的航天器，正面向你静止悬浮。那些声音仍持续萦绕于你脑海，强度仅略微减弱。`
+			choice
+				`	"Who are you?"`
+				`	"我在哪儿？"`
+					goto where
+			`	无数声音同时响起，但它们并未变得更大声，反而在你脑海中来回回荡，仿佛正在展开一场讨论。几秒钟后，声音归于沉寂，随即以嘈杂而一致的齐声说出一个词。`
+			`	"先驱者。"`
+			choice
+				`	"What is this place?"`
+				`	"什么的先驱？"`
+			label where
+			`	低语声以更强的势头重新响起。无尽的吟唱声漩涡猛烈冲击着你的脑海，每一刻都比前一刻更加痛苦。最终，声音戛然而止，四周陷入一片寂静。`
+			`	"终结。"`
+			choice
+				`	"终结什么？"`
+				`	“你这话是什么意思？”`
+			`	那些声音再度响起，但你察觉到其中多了一丝前所未有的沉郁。你再次尝试与那艘飞船建立通讯，然而尽管背景中始终有持续不断的低语，它却再未回应。`
+			`	你再次打量这艘飞船，它似乎源自某种高度发达的文明。其表面流淌着诡异如星辰般的纹路，且未见任何常规推进装置。船体尾部悬浮着一道环状结构，环上物体正以一种奇特的方式缓缓旋转。`
+			`	该星系中的行星呈现出异常的外观，与星舰相似；但不知为何，仅仅是注视它们就会令你头痛欲裂。很久以前，此地一定发生了某种异乎寻常的事件。`
+				decline
+
+# Fail the old versions of the above two missions.
+overwrite
+mission "Rulei Patch"
+	invisible
+	landing
+	to offer
+		or
+			has "Ira Contact: active"
+			has "Relic of the Past: active"
+	on offer
+		fail "Relic of the Past"
+		fail "Ira Contact"
+		fail
+
+overwrite
+mission "Rulei Planet"
+	invisible
+	landing
+	source
+		attributes "rulei"
+	on offer
+		conversation
+			`当你造访这颗星球时，仿佛有巨大的精神重压笼罩心头。天空中那艘外星飞船所散发的紫罗兰色星光，在地表各处奇异的地貌中亦有呈现。与此前听到的低语不同，此处的声音令人痛苦难忍，且越靠近地表，这种不适感就越发强烈。`
+			`	你几乎听不见自己思考的声音。`
+			`											足以令任何生物发狂。`
+			`	此处最令人不安的感觉，是一种持续不断的、仿佛你的意识正从脚下被悄然拉扯的异样感。`
+			`	仿佛有什么东西正试图将它拖走`
+			`												你的`
+			`																							意识沉入下方的行星。`
+			``
+			``
+			``
+			`	你最好别在此地久留。`
+				decline
+
+overwrite
+mission "Rulei: You Are (Not) Alone: L-118"
+	invisible
+	entering
+	source
+		system "L-118"
+	destination "Earth"
+	# Don't offer if the old version of this mission from prior to v0.11.0 was already offered.
+	to offer
+		not "Rulei: You Are (Not) Alone: offered"
+	on offer
+		log `在星系核心以东发现一片空旷区域，其中的星系被一片广袤而诡异的黑暗所笼罩。除微弱的恒星和寥寥数颗行星外，别无他物。`
+		conversation
+			`抵达该星系时，你发现远方星辰被一层诡异的浑浊遮蔽，扫描仪也难以解析其本质。视野中寥寥几颗天体，皆被一片广袤而朦胧的暗影彻底吞噬。除此之外，此地仿佛空无一物——就连那暗影本身，也不过是纯粹的虚空，其中既无人迹，亦无他物。`
+				decline
+
+overwrite
+mission "Rulei: You Are (Not) Alone: L-6181"
+	invisible
+	transition
+	source
+		system "L-6181"
+	destination "Earth"
+	# Don't offer if the old version of this mission from prior to v0.11.0 was already offered.
+	to offer
+		not "Rulei: You Are (Not) Alone: offered"
+	on enter
+		conversation
+			`当你继续穿行于这片虚无空间时，所见唯有黯淡的星辰与死寂的行星。然而一进入该星系，你却遭遇了一个看似生物的存在。奇怪的是，扫描仪并未将其识别为任何已知生命形式，仅将其归类为一团普通的“物质集合”。它与太空融为一体，宛如黑暗深渊投下的一道倒影。`
+				decline
+	npc
+		government "Indigenous Lifeform (Acheron)"
+		personality mute timid unconstrained uninterested
+		system "L-6181"
+		ship "Jje" ""
+
+overwrite
+mission "Rulei: Umbral Reach"
+	invisible
+	entering
+	source
+		system "Kanguwa"
+	destination "Earth"
+	to offer
+		has "First Contact: Rulei: offered"
+		has "visited system: L-118"
+	on offer
+		event "umbral reach label"
+		log "Factions" "Rulei" `鲁莱人似乎将核心以东星系的虚空区域称为“幽影疆域”，并对该区域表现出某种情感联结。除告诫人们‘须加警惕’外，他们拒绝进一步谈论此地。`
+		conversation
+			`毫无征兆地，鲁莱人的神秘低语再度渗入你的脑海。起初它们缓缓呢喃，但随即从那艘远古飞船的方向变得越来越快、越来越响，最终汇聚成一句清晰的话语。`
+			`	“当心……”`
+			`	“……幽影疆域……”`
+			`	这句低语仿佛承载着千钧重压，震颤着你的意识本身。仿佛所有情绪——悲伤、愤怒、喜悦、厌恶，甚至一些你无法理解的情感——瞬间涌进你的脑海。你还未来得及回应，那些声音便迅速消散，只留下令人不安的寂静，将你独自包围。`
+			`	你脑海中唯一浮现的，是附近那片荒芜星系的虚空。结合你此前与鲁莱人的接触经历，他们或许已通过某种心灵感应，悄然连接上了你造访时的记忆。然而，正如那些荒芜星系一般，他们依旧保持着毫不间断的沉默。`
+				decline
+
+event "umbral reach label"
+	galaxy "label umbral"
+		sprite "label/umbral"
+
+
+overwrite
+phrase "rulei hostile"
+	word
+		"Concede."
+		"End."
+		"Join."
+		"Fall."

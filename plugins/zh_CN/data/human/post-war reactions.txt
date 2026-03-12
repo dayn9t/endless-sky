@@ -1,0 +1,263 @@
+# Copyright (c) 2022-2023 by an anonymous author
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+overwrite
+mission "Main Plot Completed Date"
+	landing
+	invisible
+	non-blocking
+	to offer
+		has "main plot completed"
+	on offer
+		"main plot completed date" = "days since start"
+		fail
+
+
+
+overwrite
+mission "War Reactions: Asteroid Miners"
+	minor
+	landing
+	source
+		government "Republic"
+		attributes "deep" "paradise" "north"
+		attributes "spaceport"
+	to offer
+		has "main plot completed date"
+		"days since start" - "main plot completed date" > 30
+		random < 30
+	on offer
+		"war reactions" ++
+		conversation
+			`当你走下飞船时，看见一群人正围着离你着陆点不远的一块视频屏幕观看。画面在一场小组讨论与议会质询丹佛斯上将的影像之间来回切换。等你抵达时，播放已结束，多数围观者早已散去，忙自己的事情了。不过仍有两位船长留了下来——听声音，他们正就刚才那段视频展开一场激烈的辩论。`
+			choice
+				`	"嘿，刚才那个视频讲的是什么？"`
+				`	(Leave them be.)`
+					decline
+			`	你正惊讶时，两名舰长却同时转向了你——这对双胞胎蓄着夸张的鬓角和鼠须般的八字胡。他们脸上似笑非笑，仿佛就站在恐怖谷的正中央，令人难以分辨其真实情绪。`
+			`	左侧的双胞胎问道：“你能相信吗？都过去好几周了，大家还在疯狂关注‘斗牛犬’入侵事件。一开始新闻全是专家和官员的评论，可现在全变成那些侃侃而谈的评论员和阴谋论者了。”`
+			`	右胞胎难以置信地回应道：“这不过是辛迪加为提振销量而策划的宣传噱头罢了。就算那些神出鬼没的‘拳击手’真存在，只要这个故事能提升公众对辛迪加的好感度，我们就永远别想听到它收场。”`
+			choice
+				`	“这或许是本世纪最重大的事件。人们当然会持续热议不休。”`
+				`	“哦，普格人可是货真价实的。我见过他们，也跟他们打过仗。”`
+					goto nobody
+				`	“我觉得你们俩都该刮刮胡子了。”`
+					goto scowl
+			`	其中一名双胞胎翻了个白眼，另一名则尴尬地抽动着自己的小胡子。他将视频倒回到议会辩论片段，画面中丹佛斯正在向议员们保证海军有能力巡逻人类疆域的边缘地带。`
+			`	左侧的双胞胎说道：“快看这个蠢货！悬赏通缉令上的议会议员马杜埃纳·卡比鲁，他一直在痛斥那个海军军官，呃……那位上将……”他一边说着一边 snapping 手指，努力回想对方的名字。`
+			`	"丹佛斯上将，"右侧的双胞胎说道。`
+			`	“没错。丹佛斯。这位议员希望丹佛斯能抵御‘人类疆域边缘的未知威胁’。我们眼前的问题还不够多吗？何苦还要凭空想象新的恐怖？”`
+			`	“简直就像恐怖分子对我们发动核打击一样。”右侧的双胞胎说道。`
+			choice
+				`	“海军技艺精湛、品格高尚。我相信他们能保护我们。”`
+					goto eyes
+				`	"不，别担心那个，我已经解除了炸弹威胁。"`
+					to display
+						has "free worlds reconciliation"
+				`	“也许你是对的。”`
+					goto shrug
+				`	“我们能做的，就是继续过自己的日子，对吧？”`
+					goto shrug
+				`	“如果你再不刮胡子，别人会以为你戴着面具呢。”`
+					goto scowl
+			label nobody
+			`	两人同时发出响亮的腹式大笑，呼出的气流震得他们的小胡子微微颤动。`
+			`	左侧的双胞胎问道：“你又是谁？丹福特斯上将？”`
+			`他的双胞胎兄弟纠正他：“丹佛斯。丹佛斯将军。海军是把你开除了，还是你来这儿度假？”`
+			choice
+				`	“整个战争期间你都躲在石头底下吗？我是<first> <last>舰长！”`
+				`	"算了。"`
+					goto shrug
+				`	“至少我的上嘴唇上没粘着一只蓬头垢面的仓鼠。”`
+					goto scowl
+			`	双胞胎二人面露困惑，左侧那位开口答道：“整场战争期间，我们一直在小行星带采矿。战争固然影响巨大，但大多数人仍得照常过日子。你觉得我们有闲工夫去关注每一位交战船长的动向吗？”`
+			`	右边那人略带歉意地说：“感谢您的服役，<last>船长。”`
+			`	两人略显笨拙却满怀诚意地向你敬礼，随后返回各自的飞船。`
+				decline
+			label eyes
+			`	左侧的双胞胎笑着说道：“请原谅我们保持警惕，并只信任自己的枪。”两名双胞胎点点头，随即各自登上飞船离去。`
+				decline
+			label shrug
+			`	双胞胎耸了耸肩，转身朝各自的飞船走去。`
+				decline
+			label scowl
+			`	双胞胎两人的脸都扭曲了一下，这表情可能表示尴尬或恼怒。但由于他们浓密的胡须遮挡，实在难以分辨。随后，他们朝自己的飞船方向走开了。`
+				decline
+
+
+
+overwrite
+mission "War Reactions: Navy and Free Worlds Captains"
+	minor
+	source
+		government "Republic" "Syndicate" "Free Worlds"
+		attributes "spaceport"
+		near "Sirius" 5 100
+	to offer
+		has "main plot completed date"
+		"days since start" - "main plot completed date" > 30
+		random < 30
+	on offer
+		"war reactions" ++
+		conversation
+			`你的飞船正在咖啡馆旁补给燃料，你正惬意休憩，一对中年船长走近你的桌边。其中一位隶属海军，另一位来自自由世界，两人相貌惊人地相似。`
+			`	"雷恩船长，共和国海军星舰‘卡穆伊号’，"其中一人说道，"<ship>号近况如何，<last>船长？"`
+			`	"菲奥娜船长，联邦星舰‘猴面包树号’，"另一人说道，"我们都曾目睹您与普格族交战。您是这场战争中最杰出的船长！"`
+			`	“我们一直在联合巡逻，途中发现了你的飞船，所以特地过来打个招呼。”`
+			label questions
+			action
+				"WR: Captains: question" ++
+			choice
+				`	“为什么海军和自由世界舰长会一同行动？”`
+					goto navy
+					to display
+						not "WR: Captains: navy"
+				`	“你们发现过其他外星种族吗？”`
+					goto aliens
+					to display
+						not "WR: Captains: aliens"
+						has "WR: Captains: navy"
+				`	"你们在战争中曾站在敌对阵营吗？"`
+					goto sister
+					to display
+						not "WR: Captains: sister"
+				`	"你们俩作为姐妹却站在对立阵营？！"`
+					goto opposite
+					to display
+						has "WR: Captains: sister"
+						not "WR: Captains: opposite"
+				`	"很荣幸与二位相识，不过我现在得回去忙我的正事了。"`
+					decline
+					to display
+						"WR: Captains: question" > 1
+				`	"你好，抱歉，我没太多时间交谈。"`
+					to display
+						"WR: Captains: question" <= 1
+			`	“哦，我们早该想到您太忙了，没空聊天。”雷恩船长说道。`
+			`	“战争或许已经结束，但我相信像您这样的船长，依然有大量工作可做。”菲奥娜船长说道，“嗯，至少很高兴认识您。愿您一切安好。”`
+				decline
+			
+			label navy
+			action
+				set "WR: Captains: navy"
+			`	"联合警务行动，"雷恩船长说道，"这种情况比你想象中要常见得多。"`
+			`	菲奥娜船长点点头：“我们正在取缔一项横跨银河系的‘蜘蛛疯克’走私行动。这是一种非法致幻剂，虽不具成瘾性，但仍十分危险。运营该组织的势力规模庞大、资金雄厚且装备精良。”`
+			`	“虽然还比不上一艘无畏舰加一艘辅助舰的组合，”雷恩得意地吹嘘道。`
+			`	“我们必须在共和国和自由世界的空间内四处飞行，因此我们与两国各派出一艘飞船组成联合巡逻队。”`
+			`	"当然，我们还有另一项任务，"菲奥娜说道，"无论我们前往何处，都要留意任何新的外星活动迹象。"`
+				goto questions
+			
+			label aliens
+			action
+				set "WR: Captains: aliens"
+			`	“不过是些老掉牙的骗局罢了。”蕾恩说道。两人闻言都笑了起来。`
+			`	“不过说真的，自由世界参议院和共和国议会都因对外星人的恐惧而群情激愤，”菲奥娜说道。雷恩补充道：“这次只是打个比方——他们可没真拿起武器。”`
+			`	“如果我们发现新的外星种族，会尽快通知相关主管部门。你也应如此：务必谨慎行事，避免冲突，必要时及时寻求援助。”`
+				goto questions
+			
+			label sister
+			action
+				set "WR: Captains: sister"
+			`	“没错，”菲奥娜说道，“就算她是我的亲姐姐，也没能阻止我炸毁她的巡洋舰！不过我们倒是救下了她飞船的逃生舱——那些逃生舱正危险地朝一颗恒星偏航呢。”`
+			`	雷恩继续说道：“你能想象我醒来时发现自己竟躺在妹妹崭新的‘恐惧舰’上时有多惊讶吗？”`
+			`	"嘿，战后你可是拿到了新的辅助舰队委任状呢，"菲奥娜一边说一边戳了戳蕾恩，"而且你整支船员都平安无事。现在我们调查期间还互相护航呢！"`
+				goto questions
+			
+			label opposite
+			action
+				set "WR: Captains: opposite"
+			`	“嗯，蕾恩多年前就动身前往地球，加入海军学院了。”菲奥娜船长说道。`
+			`	“菲奥娜留在了朗跃星，并在自由世界成立前加入了当地民兵组织。”雷恩舰长说道，“我们并非有意彼此交战，只是各自坚信自己所代表的一方。”`
+				goto questions
+
+
+
+overwrite
+mission "War Reactions: Syndicate Orphan"
+	minor
+	landing
+	source
+		government "Syndicate"
+		attributes "spaceport"
+		not attributes "station"
+	to offer
+		has "main plot completed date"
+		"days since start" - "main plot completed date" > 20
+		random < 30
+	on offer
+		"war reactions" ++
+		conversation
+			`当你离开着陆区时，听到拳头击打皮肉的声音，以及一个孩子高声呼救。转过街角，只见三个衣衫邋遢的男孩正围殴第四个人——那人刚摔倒在地。他们是否会停止攻击，目前尚不明确。`
+			choice
+				`	"都散开，孩子们。"`
+				`	（无视他们，继续前行。）`
+					decline
+			`	三名袭击者猛然转身，满脸怒容。他们瞥见你枪套中的武器，随即仓皇逃窜。`
+			`	地上那个男孩缓缓站起身来。他看上去约莫十二岁。他花了数秒钟才缓过神来。“谢谢！这附近可没多少人会这样帮忙。我叫古斯。”他面露忧色，问道：“您能陪我去修理店吗？我已经上班迟到了，而且担心他们还会再次袭击我。”`
+			label questions
+			choice
+				`	“那些男孩为什么要攻击你？”`
+					goto attacking
+					to display
+						not "WR: Orphan: attacking"
+				`	“你年纪是不是有点小，就来修理店工作了？”`
+					goto young
+				`	"我赶时间，你自己看着办吧。"`
+					decline
+			label attacking
+			action
+				set "WR: Orphan: attacking"
+			`	"我哥哥是辛迪加附属安全部队的一名三等列兵。"他自豪地咧嘴一笑，显然已反复练习过这句话。"他负责监管辛迪加各处的工作场所，上周还举报了几个在岗吸烟的家伙。我想他们终于被调去修理厂轮休，便转头来找我麻烦——毕竟他们动不了我哥哥。"`
+				goto questions
+			label young
+			`	你刚迈开脚步，他便答道：“不，我是个孤儿。”见你面露困惑，他进一步解释：“辛迪加允许部分孤儿进入工业部门工作；作为回报，他们为我们提供更优质的教育、更舒适的住所，以及定期的医疗检查。”他挺起胸膛，颇为自豪：“只有我们当中最聪慧的那批人才能获得这份工作。而且所有孤儿岗位都很安全——我们绝不会操作大型危险设备，只使用普通工具，比如锤子、电烙铁或缝纫机。”`
+			`	“等一下！”他突然睁大双眼望着你，“你是一名船长，对吧？你参加过那些大规模战役吗？我在‘造物主号’上，曾透过学校大型教育屏幕看到几艘普格飞船与我们的飞船交战。”`
+			choice
+				`	"是的，我是<first> <last>船长。"`
+					goto me
+				`	“我炸毁过不少普格人的飞船。”`
+					goto blew
+				`	“事实上，那场战役是由我指挥的。”`
+			`	“哦，稍等一下，”他说道，掏出一块看上去十分坚固的数据板，上面标着“辛迪加儿童看护设备”。经过一番敲击和滑动操作后，他高声宣布：“您就是<first> <last>船长！哇！能见到您真是莫大的荣幸！我能跟您握个手吗？”他伸出手来，你与他握了手。`
+				goto next
+			label me
+			`	“哦，稍等一下，”他说道，掏出一块看上去十分坚固的数据板，上面标着“辛迪加儿童看护设备”。经过一番敲击和滑动操作后，他高声宣布：“您就是那次进攻行动的指挥官！哇！能见到您真是莫大的荣幸！我能跟您握个手吗？”他伸出手来，你与他握了手。`
+				goto next
+			label blew
+			`	“我敢说你确实参加了！真希望我当时也在我们的战舰上，英勇地保卫所有人——炸飞普格人，还能领薪水。听起来太棒了！”`
+			label next
+			`	"跟那些可恶又邪恶的‘猪猡’作战，感觉如何？"`
+			choice
+				`	“战争就是地狱，小子。我可不会替它涂脂抹粉。”`
+					goto hell
+				`	"实际上，他们并不邪恶。他们的‘战争’只是一场计谋，目的是迫使我们停止彼此内斗。许多普格人自愿牺牲生命，只为将我们从自我毁灭中拯救出来。"`
+				`	"指挥一场战役就像用枪炮和引擎下棋，这是我有生以来最令人兴奋的感觉。"`
+					goto chess
+				`	"保护人类免受敌人的攻击，是我的无上荣光。"`
+					goto honor
+			`	“哇哦，你听起来真聪明！就像那些视频里靠谱的专家一样！不过，要是没有你这样的人，帕格的计划根本不可能成功。我始终觉得，你才是最棒的，船长！”`
+				goto salute
+			label hell
+			`	"你为我们经历了地狱般的磨难，是吗？听起来可没我原先想的那么有趣……也许我该继续上学，当个工程师，而不是飞行员。我也不知道。"`
+				goto salute
+			label chess
+			`	“辛迪加正在训练我进行装备维护，等我再长大些，甚至还要教我驾驶他们的战斗飞船！总有一天，我也要像你一样，与外星人作战。”`
+				goto salute
+			label honor
+			`	“荣誉……与奉献。辛迪加会训练像我这样的年轻人，但我一直犹豫要不要加入海军。虽然没那么赚钱，但听起来更崇高些。”`
+			label salute
+			`	你来到修理铺，一名年约十七岁的少年迎上你们两人。古斯立正站好，向你行了一个训练有素的军礼。你礼貌地回敬他一个军礼。`
+			`	就在古斯结束敬礼之际，那男孩从背后猛然扑向他，将他锁喉制住。但显然，他动作极为谨慎克制。“你又从儿童照护区溜出来了？这次是跑到太空港着陆区去了？我一眼就看见你身上全是擦伤和淤青。”古斯答道：“对不起，卡尔文！我只是有点好奇。”`
+			`	卡尔文打开货舱放他出来，然后对你说道：“感谢你救了我的弟弟。他是我仅存的亲人了，我希望——”他捏了捏弟弟的脸，“他能别再因为好奇心而拿自己的性命冒险了。”他温和地看着古斯，“来吧，我们带你去找医官。”`
+			`	卡尔文搀着弟弟离开时，朝你挥了挥手告别。`
+				decline

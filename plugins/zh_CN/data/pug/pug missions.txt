@@ -1,0 +1,80 @@
+# Copyright (c) 2015 by Michael Zahniser
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+overwrite
+mission "Ruin: Landing"
+	landing
+	source Ruin
+	
+	on offer
+		conversation
+			`你扫描这颗行星的地表，仅探测到一个微弱的能量源。你谨慎地靠近，发现了一座废弃的燃料补给站：一圈着陆平台环绕着一组形状大小各异的储罐。其中一些储罐显然是低温罐，表面覆盖着冰层。几台行动迟缓的昆虫型机器人正忙着清除冰层并清洁储罐，但它们似乎并未配备武器，你也未发现任何其他生物或防御系统的迹象。`
+			`	你降落飞船。传感器显示空气可安全呼吸，但你仍戴上呼吸器以防万一，随后走下飞船并开始探索这座补给站。蜘蛛机器人对你毫不理会。从部分储罐表面覆盖着霜、而另一些则没有的现象推断，每个储罐中储存的燃料种类各不相同；且每个储罐都延伸出数十种不同规格的接口。令你惊喜的是，其中一种接口竟与人类疆域通用的标准一致，你因此得以借此为飞船补充燃料。`
+			`	除了下方山谷中盘旋的机器人与雾气，此处不见任何生命迹象或活动痕迹；尽管附近地面上几处喷口正蒸腾着灼热蒸汽，空气却令人不适地湿冷。`
+				decline
+
+overwrite
+mission "Pug Cease Hostilities"
+	landing
+	invisible
+	non-blocking
+	to offer
+		has "main plot completed"
+	on offer
+		"reputation: Pug" >?= 1
+		fail
+
+overwrite
+mission "Pug in Wanderer Space"
+	landing
+	to offer
+		has "main plot completed"
+		not "Wanderers Invaded 3C: offered"
+	source "Vara Pug"
+	on offer
+		conversation
+			`这颗行星由普格族（Pug）居住——他们正是不久前入侵人类疆域、却又在未向你们阐明任何明确动机的情况下悄然撤离的那个神秘种族。在此地，他们看似和平无害，却完全无视你的存在。你是否想尝试与其中一名普格族人交谈？`
+			choice
+				`	(Yes.)`
+				`	（不，别冒险了。）`
+					goto ship
+			`	You try to talk to several of the Pug who are walking by, but they do not respond or even look at you. If you stand to block their path, they step around you, and you determine by intentionally bumping into one of them that they are real and not just a holographic projection. From the brief eye contact that a few of them make before looking away from you, you get the feeling that they are intentionally ignoring you.`
+			`	噗格人并不十分强壮。你大概可以直接抓住其中一个，逼它回答你的问题，而几乎不必担心它会伤害到你。`
+			choice
+				`	（抓住其中一个。）`
+				`	（放弃任务，离开。）`
+					goto ship
+			`	You grab one of the Pug by the arm. "You need to give me some answers," you say. It begins to babble in a language you do not know, and a crowd of Pug gather around you. Eventually a few more of them arrive holding some sort of staff that they point at you menacingly, while shouting commands at you, again in their own language. It is possible that none of the Pug here actually speak the human language, in which case trying to communicate with them will be fruitless.`
+			choice
+				`	（放走那只巴哥犬，然后离开。）`
+					goto ship
+				`	(Threaten to shoot them.)`
+			`	就在你伸手去掏枪的瞬间，一名持械的普格人用其权杖射出一道光芒，一股温暖而愉悦的感觉顿时席卷全身——这是你此生体验过的最美好的感觉。你恍惚失神，不由自主地朝自己的飞船走去，途中不时驻足，惊叹于那些此前从未留意过的景象：阳光在水面上闪烁的微光、海沼草尖悬垂的晶莹浪花、以及那片蓝得无与伦比、胜过你所见过一切蓝色的天空。这一切美得令你潸然泪下。抵达飞船后，你坐在驾驶舱内，着迷地凝视着控制面板上闪烁的指示灯，却已全然想不起其中任何一个的功能。`
+			`	数小时后，那种美妙的感觉被一阵恶心和剧烈头痛所取代。`
+				decline
+			
+			label ship
+			`	You decide to play it safe and return to your ship. The Pug remain as enigmatic as ever.`
+				decline
+
+overwrite
+mission "Pug Angry at Being Farmed"
+	landing
+	invisible
+	to offer
+		"reputation: Pug (Wanderer)" < -100
+	npc kill
+		government "Pug (Wanderer)"
+		personality nemesis unconstrained staying
+		system "Pug Iyik"
+		ship "Pug Arfecta" "Ayee Eee Eek"

@@ -1,0 +1,967 @@
+# Copyright (c) 2022 by Saugia
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+
+overwrite
+mission "First Contact: Gegno Vi"
+	landing
+	name `<外星> 运输船`
+	description `将你在<origin>协助过的<alien>运送至地图上标定的地点。`
+	substitutions
+		"<alien>" "alien"
+		"<alien>" "Gegno"
+			has "Giaru Gegno: Quarg Contact: offered"
+		"<Alien>" "Alien"
+		"<Alien>" "Gegno"
+			has "Giaru Gegno: Quarg Contact: offered"
+	source "Var Oti"
+	destination "Dueyu Eitch"
+	clearance
+	passengers 1
+	to offer
+		not "Gegno Genocide Defense: offered"
+		has "First Contact: Quarg: offered"
+	on offer
+		conversation
+			branch "second encounter"
+				has "Giaru Gegno: Quarg Contact: offered"
+			branch "return encounter"
+				has "First Contact: Gegno Vi: deferred"
+			
+			`当你驾驶飞船朝这颗看似无人居住的星球表面降落时，你启动了飞船的雷达系统，扫描地表以寻找任何值得关注的目标。在等待扫描结果出现之际，你抬头望向远方右侧的地平线，瞥见一团尘埃正从地面猛然喷涌而出。你迅速低头查看雷达上该方向的地表扫描图像，却一无所获。你继续飞行数分钟后，远处又突然腾起另一团尘云，但雷达上依然毫无反应。你决定将飞船保持在距地表数千米的高度，耐心细致地环顾四周——然而除了一道道龟裂的岩层与沙砾遍布的峡谷之外，似乎再无其他值得注意之物。`
+			`	突然间，你的雷达系统在地平线上捕捉到一个更强的信号，你看到一座粗笨如岩石般的巨大结构。当你靠近后，这结构渐渐显露出飞船的轮廓——与你在附近星系中见过的那些飞船颇为相似，只不过它已有一半沉入沙中。`
+			choice
+				`	（在飞船附近着陆并调查。）`
+				`	（继续搜索地表。）`
+					goto search
+			`	你谨慎地将飞船降落在附近，身着环境防护服、手握随身武器，朝那艘外星飞船走去。这艘飞船比你预想的略大一些——约相当于一只火鸟级飞船的尺寸。深褐色的船体似乎由某种未知材料制成，表面既有嵌入缝隙中的金属部件，也有向外凸出的金属结构。奇怪的是，这艘战舰看似完好无损，但其斜插于沙地中的姿态却表明它已在此处停留了相当长时间。此外，周围也未见任何活动迹象。你决定先返回自己的飞船，再对周边区域进行一次更全面的勘察。`
+			`	当你继续飞行时，雷达边缘显示出地表上一个不稳定的信号。远处显现出一座巨大的拱形结构，但很快便消失了。你将飞船降落在该信号位置附近，走出舱门展开调查。`
+				goto skip
+			label search
+			`	当你继续飞行时，雷达边缘显示出地表上一个不稳定的信号。远处显现出一座巨大的拱形结构，但很快便消失了。你将飞船降落在该信号位置附近，穿上环境防护服并佩好副武器，走出舱门展开调查。`
+			label skip
+			`	令你惊讶的是，信号源所在位置竟站着一名高大的人形生物。雷达显示的信号轮廓远不如人形清晰，可眼前站立的却是一个魁梧健硕、身披疑似金属装甲的巨物，手持一柄长矛状武器。它警觉地来回移动，仿佛全神戒备周遭环境，却似乎完全无视你的存在。这场遭遇令人格外怪异——双方既无即时互动，也毫无对你存在的任何确认或回应。`
+			choice
+				`	（接近外星飞船。）`
+				`	（返回我的飞船。）`
+			`	突然，地面开始剧烈震动。你惊慌地拔出随身武器，但当你再次抬头望向那个外星身影时，却发现对方也同样摆出了防御姿态——但并非针对你。你左侧的沙地中猛然裂开一张巨口，一头体型是你的数百倍的庞然巨兽破沙而出，浑身布满尖刺与鳞甲。它轰然坠落在你右侧的沙地上，你几乎来不及反应，却瞥见那外星生物正骑乘在这头巨兽背上，用武器将其刺穿。`
+			choice
+				`	（立即离开该行星。）`
+					goto leave
+				`	（远离现场，但继续监视。）`
+					goto watch
+				`	（试着帮助外星人击败那头野兽。）`
+			label help
+			`	你将副武器对准那头野兽，准备开火。那野兽并未如预期般重新钻回地底，反而继续在原地疯狂挣扎，而外星人则用长矛状武器持续猛击它。你小心避开误伤外星人，屏住呼吸，耐心等待最佳时机——瞄准野兽头部。那狂舞的怪物逐渐逼近，你的心跳随之加速。一阵沙暴猛然朝你袭来，待沙尘散去，你果断扣动扳机，一发子弹精准命中野兽面部。`
+			`	令你大为沮丧的是，那发子弹几乎立刻从它身上弹开。你眼睁睁看着这头庞然巨兽翻滚着朝你压来，千钧一发之际才勉强跃至半空。巨兽轰然砸入你身后的大地，而你也被震得仰面摔倒，一时喘不过气。你再次举起随身武器。那怪物猛然破土而出，血盆大口朝天张开。你双手颤抖，再次瞄准、扣动扳机。`
+			`	一声响亮如火炮般的巨响紧随其后，但这绝非来自你的武器。你面前的巨兽裹挟着一团黑烟轰然坠地，震得沙砾与碎石四处飞溅。待你回过神来，只见那名外星人正从那怪物口中大步走出。`
+			choice
+				`	(Approach the alien.)`
+				`	（站起来，快跑向我的飞船。）`
+			`	你还没来得及稳住心神，便发觉那名外星人已逼近到你近前。转瞬之间，那名外星人已立于你面前，让你得以更清晰地打量其全貌：他比你高大得多，体格异常魁梧，身形略显佝偻；厚重的金属装甲包裹全身，裸露在外的皮肤与毛发则粗糙不堪；浓密的胡须覆满面庞，而一双酷似人类的眼睛上方，则生有一对向内弯曲、直指你的犄角。`
+			`	一阵尴尬的沉默随之而来，那名外星人兴致缺缺地上下打量着你。它发出一声低沉的咕噜声，接着重重地喷了下鼻息，伸手探入装甲缝隙中取出某样东西。它拿出的似乎是一张星图，用手指点向图上某处位置，又指了指自己，最后缓缓将装置递向你。看来它希望你载它前往其所属种族的一颗行星。`
+			choice
+				`	（接受他们的请求。）`
+				`	（询问他们的请求。）`
+					goto about
+				`	（拒绝他们的请求。）`
+					goto deny
+			`	你迟疑地接过装置，转身朝自己的飞船走去。临行前，你最后回望了一眼背景中那庞然巨物：它的头颅形似巨龙，却生着无数只眼睛与一簇尖刺组成的鬃毛；颈部还伸出几条细小的附肢，令它整体呈现出覆满鳞片、类似蝾螈的外形。先前雷达上探测到的多个信号，想必正是它们同类的身影。那名外星人先是狠狠瞪了你一眼，又瞥向那巨兽，随后再次转向你，继续随你一同走向飞船。`
+				accept
+			label about
+			`	你试图向那名外星人询问这次航行的事，但他们只是面无表情地盯着你几秒钟，随后猛地将星图塞进你怀里，随即松开手。你下意识地接住星图，差点被撞得一个趔趄，接着又回头最后瞥了一眼背景中那个庞然大物——它长着一副近乎龙类的爬行动物头颅，布满复眼，头顶还耸立着一排尖刺状鬃毛；身体两端各生出几条细小附肢，活像一只披着鳞片的蝾螈。你转过身，发现那名外星人早已远远走在前方，只得急忙追上去，以免对方先抵达你的飞船。`
+				accept
+			label deny
+			`	你摇了摇头，拒绝了这位外星人的请求——毕竟你已处理完眼前所有突发状况。你转身朝自己的飞船走去，准备离开，却突然脸朝下重重摔倒在地，呛得直咳沙尘；耳边还传来那装置砸落在身旁地面的声响。你懊恼地迅速爬起，环顾四周寻找那名外星人，却发现它早已迈着大步，朝远处的你的飞船行去。或许，刚得罪一个体型比你大数倍、且刚刚徒手击倒一头体形是其数百倍巨兽的存在，就转身背对它，实在不是个明智之举。你最后回头望了一眼那庞然巨物：它的头颅极具爬行类特征，近乎龙形，布满复眼，头顶还耸立着一排尖刺状鬃毛——毫无疑问，单论陆上威胁，它远比赤手空拳的你可怕得多。`
+				accept
+			
+			label watch
+			`	你谨慎地向自己的飞船撤退，双眼与双耳高度警觉，时刻提防那怪物再度现身——它究竟会从何处冒出来？仿佛在回应你的疑虑，大地开始震颤，左侧沙尘与碎石猛然喷涌升空，那巨兽正于地表扭曲翻腾、疾速奔袭。一声震耳欲聋的咆哮过后，怪物发出短促尖锐的嘶鸣，宛如鸟鸣，却远比鸟类的鸣叫更为低沉浑厚。待部分尘雾散去，你看见那名外星人正剧烈喘息着，继续与巨兽殊死搏斗。`
+			choice
+				`	（帮助那位外星人。）`
+					goto help
+				`	(Leave.)`
+					goto leave
+			label leave
+			`	局势正逐渐失控，你迅速转身奔向自己的飞船，并尽快起飞。你不禁思索那个外星人的命运——尽管他们显然属于附近星系的原住民种族，但短期内似乎不太可能有人来援救他们。`
+				depart
+			
+			label "second encounter"
+			`As you descend towards the surface of this seemingly uninhabited world, you activate your ship's radar system to scan the surface for anything of interest. While waiting for something to appear, you look up and catch a glimpse of a cloud of dust bursting from the ground far off to your right. Peering back down to your radar, you check the surface scans of that direction, but nothing appears. As you continue your flight, another sudden dust cloud appears several minutes later, but still nothing on the radar. You decide to keep your ship a few thousand meters above the surface and take the time to carefully look around, but there still doesn't seem to be anything of note besides the cracked rock formations and valleys of sand.`
+			`	突然，你的雷达系统在地平线上探测到一个更大的信号，你看到一座庞大、形似岩石的结构。当你靠近后，认出这是一艘 Gegno 的战舰，尽管它已有一半沉入沙中。`
+			choice
+				`	（调查格诺飞船。）`
+					goto investigate
+				`	（继续搜寻地表。）`
+					goto resume
+			label investigate
+			`	你谨慎地将飞船降落在附近。此前探测到的微弱雷达信号大多已超出探测范围而消失。你身着环境防护服、手握随身武器，朝 Gegno 飞船走去。`
+			`	这艘飞船看上去比预想中略大——约相当于一只火鸟级飞船的尺寸。深褐色的船体由某种未知材料制成，表面多处嵌有金属质感部件：有的藏于缝隙之中，有的则向外凸出，充分彰显了格诺维人粗犷硬朗的设计美学。奇怪的是，这艘战舰竟完好无损，但其斜插于沙地中的姿态却表明它已在此静卧多年。周围不见任何活动迹象，你的探测器也未发现附近存在生命信号。你决定先返回自己的飞船，再对这片区域进行一次更全面的勘察。`
+			label resume
+			`	当你继续飞行时，雷达边缘出现一个不稳定的信号。远处显现出一座巨大的拱形结构，但很快便消失了。你将飞船降落在该信号起源处附近，穿上环境防护服并手持副武器，走出舱门展开调查。`
+			`	令你惊讶的是，一名高大的人形生物正站在你面前。它与你在附近夸格环形世界所见的 Gegno 截然不同：体型庞大粗壮，全身覆盖金属装甲；其中一只手中握着一柄长矛状武器。单凭其外形，你推测它应是 Gegno Vi。这名 Vi 警觉地环顾四周，看似全神贯注于环境，却似乎对你毫无兴趣。`
+			choice
+				`	（靠近维战士。）`
+				`	(Turn back to my ship.)`
+			`	突然，地面开始剧烈震动。你惊慌地拔出随身武器，但当你再次抬头望向维人时，却发现他们也摆出了防御姿态——但并非针对你。你左侧的沙地中猛然裂开一张巨口，一头体型是你们数百倍的庞然巨兽破沙而出，浑身布满尖刺与鳞甲。它轰然坠落在你右侧的沙地上，你几乎来不及反应，却瞥见维人正骑乘在这头巨兽背上，用武器将其刺穿。`
+			choice
+				`	（在远处观察局势。）`
+					goto observe
+				`	（协助维人击败那头巨兽。）`
+			label assist
+			`	你迅速拔出随身武器，摆好射击姿势，静待那头野兽现身。它再次以惊人的爆发力从沙中跃出——但这一次，它并未重新钻回沙下，而是原地疯狂挣扎，维人则持续用长矛武器猛击它。你屏住呼吸，谨慎瞄准野兽头部，避免误伤维人，耐心等待最佳时机。那头翻腾的怪物逐渐逼近，你的心跳随之加速。一阵沙暴迎面扑来，待沙尘散去，你果断开火——一发子弹精准命中野兽面部。`
+			`	Much to your dismay, the shot almost immediately ricochets off of it. You watch as the massive monster tumbles over you, just barely leaping into the air above. The monster plunges into the earth behind you, and you fall to your back with the wind knocked out of you. You raise your sidearm once more. The creature explodes out of the ground with its gaping mouth pointed upward to the sky. With shaking hands, you take aim once again and pull the trigger.`
+			`	一声响亮如火炮般的巨响紧随其后，但这绝非来自你的武器。你面前的巨兽裹挟着一团黑烟轰然坠地，震得沙砾与碎石四处飞溅。待你回过神来，只见维人正从那怪物口中大步走出。`
+			choice
+				`	（接近维伊飞船。）`
+				`	(Get up and run to my ship.)`
+			`	你还没来得及稳住心神，便发觉那位维族战士已逼近到你近前。转瞬之间，那名外星人已立于你面前，让你得以更清晰地打量其全貌：他比你和此前所见的其他格诺人都高大得多，体格异常魁梧，身形略显佝偻；厚重的金属装甲包裹全身，裸露在外的皮肤与毛发则粗糙不堪；浓密的胡须覆满面庞，而一双酷似人类的眼睛上方，则生有一对向内弯曲、直指你的犄角。`
+			`	尽管 Gegno 族素来厌恶外来者，但眼前这位 Gegno 至少似乎认可了你的存在。在一段尴尬且仿佛充满审视意味的沉默之后，这位 Vi 族人无精打采地上下打量了你一番。随后，他发出一声低沉的咕哝，又响亮地喷了下鼻息，伸手探入装甲缝隙中取出某物——一张看似星图的装置。他先指向图上某处位置，再指指自己，最后缓缓将装置递向你。看来，他是想让你载他前往某颗 Gegno 行星。`
+			choice
+				`	(Accept their request.)`
+				`	(Ask about their request.)`
+					goto ask
+				`	(Reject their request.)`
+					goto reject
+			`	你迟疑地接过装置，转身朝自己的飞船走去。临行前，你最后回望了一眼背景中那庞然巨物：它的头颅形似巨龙，却生着无数只眼睛与一簇尖刺组成的鬃毛；颈部还伸出几条细小的附肢，令它整体呈现出覆满鳞片、类似蝾螈的外形。先前雷达上探测到的多个信号，想必正是它们同类的身影。那位维族战士先是狠狠瞪了你一眼，又瞥向那巨兽，随后再次转向你，继续随你一同走向飞船。`
+				accept
+			label ask
+			`	你试着向格诺人询问此次行程详情，但他们只是面无表情地盯了你几秒，便猛地将星图塞进你怀里，随即松开手。你本能地伸手接住，差点被撞得踉跄摔倒；随后忍不住回头望了一眼背景中那庞然巨物——它长着酷似龙类的爬行动物头颅，布满复眼，头顶覆盖着一排尖刺状鬃毛；身体两端还生有数条细小附肢，形如覆鳞的蝾螈。当你转过身时，发现那格诺人早已远远走在前方，你急忙追去，唯恐对方抢先抵达你的飞船。`
+				accept
+			label reject
+			`	你摇摇头，拒绝了格诺人的请求——在刚刚经历了一切之后，你已无意再应承此事。你转身朝飞船走去，准备离开，却突然面朝下重重摔倒在地，呛出满口沙尘；耳边同时传来那装置砸在地面的闷响。你懊恼地迅速爬起，四下寻找格诺人，却发现他已在远处大步流星地朝你的飞船走去。或许，拒绝请求后背对他这个体型是你数倍、且刚刚徒手击倒一头体积为其数百倍巨兽的存在，并非明智之举。你最后望了一眼那庞然巨物：它长着一副高度蜥蜴化的头颅，近乎龙首，布满复眼，头顶还耸立着一丛尖刺——毫无疑问，仅凭血肉之躯徒步面对它，你绝无半分胜算。”`
+				accept
+			
+			label observe
+			`	你谨慎地后撤至更安全的距离，双眼警觉扫视、双耳仔细聆听，揣测那怪物是否会再度现身、又会在何处现身。仿佛回应你的疑虑，大地开始震颤；左侧远处，沙尘与碎石猛然腾空而起——那巨兽正于地表翻腾扭转。伴随一声响亮的咆哮，它发出短促尖锐的嘶鸣，宛如鸟鸣，却深沉得多。待部分尘雾散去，你看见维伊族人正剧烈喘息，持续与这巨兽鏖战。`
+			choice
+				`	（协助维人。）`
+					goto assist
+			
+			label "return encounter"
+			`你再次接近这颗沙漠星球，心中不禁疑惑：先前遭遇的那位外星人究竟发生了什么？你深知此地栖息着一种危险的本土生物，因此对降落心存犹豫，谨慎避开任何类似此前所见生物的踪迹。`
+			choice
+				`	（去寻找那个外星人。）`
+					goto "search again"
+				`	（继续前进。）`
+					defer
+			
+			label "search again"
+			`	你飞船电脑的历史记录中仍保存着那艘外星飞船的坐标，于是你再次启程搜寻它。飞行途中，雷达突然探测到另一艘飞船正接近；你抬头望去，只见一艘与先前所见同型号的飞船正从更高空处朝相反方向飞过。这艘飞船的驾驶员必定也属于该外星种族。`
+			choice
+				`	（尝试与该飞船建立通讯。）`
+				`	（规避该飞船。）`
+			`	那艘飞船持续向后方飞离，直至消失不见。看来它的驾驶员并不关心地表上那位外星人的安危。不久后，你熟悉的那艘沉没飞船终于出现在地平线上，你随即开始在周边空域盘旋搜索生命迹象，希望那位外星人依然存活。然而雷达上除边缘处几处沙兽发出的微弱信号外，一无所获——你决定转而追踪这些信号。`
+			`	那些信号不断随机消失又在别处重现，最终却只指向一片空无。在检查了其中几处后，你的雷达边缘突然出现一阵异常扰动——与你初次到访时所见如出一辙。你迅速靠近该位置，认出了正于地表狂舞挥击的巨兽，同时瞥见先前那位外星人仍在与它激烈搏斗。`
+			choice
+				`	（协助外星人击败该生物。）`
+					goto help
+	
+	on defer
+		set "First Contact: Gegno Vi: deferred"
+
+	on abort
+
+	to fail
+		"reputation: Gegno" < -100
+
+	on fail
+		conversation
+			`尽管明知自己正运送其中一名外星人，你仍主动向<alien>飞船开火——此后的航程便变得异常尴尬。那名<alien>乘客并未去卧铺休息，而是全程站在你驾驶舱后方紧贴着你。你曾数次回头观察其举动，甚至尝试与之交流，但他们却连一眼都不愿朝你方向看。`
+			`	奇怪的是，他们似乎完全不生气——至少从你能判断出的表现来看是如此。尽管如此，现场气氛仍变得极度尴尬；而如今你已将飞船降落，或许可以就此展开沟通。`
+			choice
+				`	（尝试与<alien>进行通讯。）`
+			`	你还没来得及转身与他们说话，一股巨大的力量便贯穿你的躯干，身体缓缓浮起。你想开口，却发不出任何声音；挣扎着扭动头部，你看见那名<alien>正用其长矛武器刺穿了你的胸膛。随着视野逐渐模糊，你最后看到的并非憎恨，而是一种失望。`
+				die
+
+overwrite
+mission "Visit Quarg in Gegno Space"
+	landing
+	name `前往<designated system>。`
+	description `按指示前往<designated system>星系。`
+	substitutions
+		"<alien>" "alien"
+		"<alien>" "Gegno"
+			has "Giaru Gegno: Quarg Contact: offered"
+		"<Alien>" "Alien"
+		"<Alien>" "Gegno"
+			has "Giaru Gegno: Quarg Contact: offered"
+		"<aliens>" "aliens"
+		"<aliens>" "Gegno"
+			has "Giaru Gegno: Quarg Contact: offered"
+		"<designated system>" "designated system"
+		"<designated system>" "Giaru Gegno"
+			has "Giaru Gegno: Quarg Contact: offered"
+	source "Dueyu Eitch"
+	destination "Giaru Gegno"
+	to offer
+		has "First Contact: Gegno Vi: done"
+		not "First Contact: Gegno Vi: failed"
+	on offer
+		conversation
+			`你此行一路紧张压抑，毫无愉悦可言。那名<alien>并未如常就座，而是在你驾驶舱内紧贴你身后站立，双臂交叉，几乎像一块岿然不动的巨石。途中你曾数次试图再次与它交流以缓解压力，但它最多只略略瞥你一眼，或发出一声低沉的咕哝。`
+			`	当你降落进入大气层时，层层浓重的暗色烟雾逐渐散开，显露出一座座宏伟的城市——无数灯火在摩天楼宇间熠熠生辉，直插云霄。此处的飞船色调也与你此前所见不同，呈浅褐色而非深棕色，且数量远为庞大。密集的空中交通与令人震撼的庞大城市基础设施共同表明：这里正是<alien>的母星。正当你沉浸于眼前这奇幻景象而几乎忘我之际，<alien>大步走到你身旁，抬起一只手臂，指向远处一座巨大如工厂般的建筑——它在众多高塔中格外醒目。你谨慎操控飞船飞向该建筑，并在<alien>的协助下，找到了一处合适的停泊港以完成着陆。`
+			`	着陆后，数名外貌与你身旁那位 <aliens> 相似的个体迅速列队，面向你的飞船排开阵型，每人手持形似权杖的不同武器。但他们并未显露敌意，仅以整齐划一的姿态展示力量。站在你身旁的那位 <alien> 则示意你取出此前赠予你的罗盘装置。`
+			choice
+				`	（把设备交给他们。）`
+				
+			branch "has met quarg"
+				has "Giaru Gegno: Quarg Contact: offered"
+			branch "hostile quarg"
+				"reputation: Quarg (Gegno)" < 0
+				has "visited system: Aleit"
+			`	摆弄一番后，<alien>标记了一个新位置并将坐标交予你。‘奥克格，’他们说道，并以急迫的姿态示意你立即启程。随后，他们离开你的飞船，走向其他同族，进行了一场简短的交谈。片刻之后，另一支体型更小、更纤瘦的<aliens>队伍抵达，携带着某种类似补给设备的装置；经过约一分钟的调试，他们成功将其接入你的飞船。这些<aliens>比先前所见者更为矮小瘦削，穿着也以皮革状材质为主，而非厚重金属护甲——但他们的举止同样严肃僵硬。待你的飞船燃料加满后，一直引导你的<alien>朝天空方向做了个手势。看来，你对这颗神秘<alien>母星的造访，不得不提前结束了。`
+				launch
+			
+			label "has met quarg"
+			`	经过一番摆弄后，维（Vi）标记了一个新坐标，并将它展示给你。“欧克格（Oukeug）。”他们说道，同时急切地示意你立即启程。你查看该坐标，发现正是你此前造访过的夸格环形世界。随后，他们离开你的飞船，走向其他 Gegno，进行了一场简短的交谈。几分钟后，另一支体型更矮小、更瘦削的 Gegno 小队抵达，携带着某种类似补给设备的装置；他们在设备上鼓捣了一两分钟，便成功将其接入你的飞船。这些 Gegno 穿着皮革质感的服饰，而非厚重的金属装甲，但神情同样严肃而 rigid。待你的飞船燃料加满后，一直引导你的 Gegno 维指向天空——看来你对这座神秘 Gegno 母星的访问，不得不提前结束了。`
+				launch
+			
+			label "hostile quarg"
+			`	经过一番摆弄后，那位<alien>标记了一个新坐标，并将它展示给你。“欧克格（Oukeug）。”他们说道，同时急切地示意你立即启程。你查看该坐标，发现竟是附近的夸格环形世界。鉴于你与夸格族过往的恩怨，他们几乎肯定不会张开双臂欢迎你。那名<alien>突然用肘部猛撞你一下，再次催促你赶快起飞。`
+			`	你开始为飞船离港做准备，那位<alien>离开了你的飞船。他走向其他同伴，简短交谈几句后，又有一小群<aliens>抵达，携带着某种类似燃料补给装置的设备。经过约一分钟的调试，他们成功将装置接入你的飞船。这些<aliens>比先前那些更矮、更瘦，穿着也更偏向皮革质感而非厚重金属——但神情同样刻板 rigid。待你的飞船燃料加满后，一直引导你的那位<alien>指向天空。目前拜访夸格人并非可行之选，因此在可预见的未来，与这些<aliens>建立关联的可能性微乎其微。`
+				flee
+
+	npc
+		government "Gegno Vi (Neutral)"
+		personality entering staying
+		system "Heutesl"
+		fleet
+			names "gegno vi"
+			variant
+				"Eclogite" 3
+				"Hornfel" 2
+				"Gneiss" 2
+	npc
+		government "Gegno Scin (Neutral)"
+		personality entering staying
+		system "Heutesl"
+		fleet
+			names "gegno scin"
+			variant
+				"Coesite" 3
+				"Felsic"
+				"Feldspar"
+				"Halite" 6
+	npc
+		government "Gegno Vi (Neutral)"
+		personality staying
+		system "Heutesl"
+		fleet "Vi Warfleet"
+	npc
+		government "Gegno Scin (Neutral)"
+		personality staying
+		system "Heutesl"
+		fleet "Scin Warfleet"
+
+
+overwrite
+mission "Discover Hostile Quarg"
+	invisible
+	non-blocking
+	landing
+	source "Dueyu Eitch"
+	to offer
+		"reputation: Quarg (Gegno)" < 0
+		has "First Contact: Gegno Vi: done"
+		not "First Contact: Gegno Vi: failed"
+	on enter "Aleit"
+		fail
+		fail "Visit Quarg in Gegno Space"
+		log "Factions" "Gegno" `Gegno 是一个位于银河系核心以东的人形种族。据夸格人所述，他们分为 Vi 与 Scin 两支，且对与其他外星种族接触毫无兴趣。`
+		conversation
+			`你一进入该星系，眼前便出现了一幅熟悉的景象——一座夸格环形世界。不久后，夸格人主动向你开启通讯频道：“入侵者，此地不欢迎你。若非为暴力而来，你究竟意欲何为？”`
+			choice
+				`	“附近星球上的外星人派我来找你。”`
+					goto sent
+				`	"我希望得到帮助，以便与附近的外星人交流。"`
+			`	夸格人迅速回应：“你不会从我们这里得到任何援助。最明智的做法，是莫要与这些自称为‘格诺’的外星人产生关联。并非我们不愿接触，而是格诺本身排斥接触。至于你对维人或西恩人的所作所为——尤其是暴力行径——其潜在影响之深远，远非你所能理解。” 稍作停顿后，对方又道：“现在，立刻离开我们的星系。我们将持续监视。”`
+			`	若无夸格族的帮助，可预见的未来内，与这些所谓‘Gegno’进行交流似乎毫无可能。`
+				decline
+			
+			label "sent"
+			`	在长久的沉默之后，夸格人终于回应：“我们无意协助一名煽动者。你所提及的外星种族——即所谓‘格诺’——是一个脆弱的物种。他们自身并不渴望接触外界，因其全部注意力都集中在斯金族与维族之间激烈而持久的内斗上。在此情形下，格诺人与星际战争贩子建立关系毫无益处；我们郑重警告你，切勿与之产生任何关联。现在，立刻离开我们的星系！我们将持续监视你。”`
+			`	Without the Quarg's help, interaction with these so-called "Gegno" seems unlikely for the foreseeable future.`
+
+overwrite
+mission "Giaru Gegno: Quarg Contact"
+	landing
+	source "Giaru Gegno"
+	to offer
+		not "Gegno Genocide Defense: offered"
+	on offer
+		log "Factions" "Gegno" `Gegno 是一个位于银河系核心以东的人形种族，内部派系林立。其中一支为 Gegno Vi，以强悍凶猛、蛮横霸道著称；另一支为 Gegno Scin，以科研与技术进步见长。除此之外，Gegno 的大多数人口是安于现状的普通平民。`
+		log `从夸格族处得知， Gegno 族对外来种族的互动毫无兴趣。`
+		event "gegno space label"
+		conversation
+			branch "has met gegno"
+				has "Visit Quarg in Gegno Space: offered"
+
+			"After jumping through several systems of many alien ships, a Quarg ringworld is a surprisingly familiar sight. From the looks of it, this is a fully complete ringworld, a true sight to behold. Trillions of Quarg probably inhabit this ring, but what's more interesting is that other aliens are also present. They too are humanoid, and the most common figures you come across are either slightly above or below an average human's height. Their skin is a smooth, light gray, and adorned with different sorts of leather that remind you of medieval human clothing."
+			`	此处的夸格行动异常安静而诡异。他们对周围走动的其他种族漠然无视，而那些种族也同样对你视若无睹。这奇异的氛围最终被几名夸格打破——他们突然加快速度朝你逼近。经过一番难以辨识的交谈与彼此间的肢体示意后，其中一名夸格朝你做了个手势，示意你跟上他们。`
+				goto walking
+			
+			label "has met gegno"
+			action
+				set "gegno: met gegno before quarg"
+
+			`完整的夸格环形世界在视觉上与你此前所处的外星母星截然不同。如此洁净而先进的结构，与先前那混乱无序的工业文明形成了鲜明对比。此处夸格人口高达万亿级别，远超此前那颗外星母星的总人口。更令人感兴趣的是，你此前曾接触过的那种外星人也出现在环形世界上。夸格族与他们之间必然存在某种关系——或许是贸易、维护，抑或其他服务合作。尽管双方共存于此，彼此却似乎互不关心、漠然以对。不过，仍有少数外星人偶尔会带着某种好奇的目光朝你瞥上一眼。`
+
+			action
+				"gegno: left quarg" = "days since start"
+			`	很快，几名夸格人比其他同伴更快地向你冲来，并彼此交谈起来。你无法确定他们使用的是何种语言，但仅凭语调与发音判断，这听起来与此前你听过的外星人语言颇为相似。片刻之后，其中一名夸格人向你示意，让你跟他们走。`
+			
+			label "walking"
+			`	你与夸格人并肩而行，偶尔难以跟上他们无声却迅捷的步伐，朝着一片似乎不见其他外星人的区域前进。最终，你被带入一间较小的房间，房间尽头静坐着另外两名夸格人。他们开始交谈，这次你听到了几个熟悉的词，其中之一是“胡玛”。尽管他们彼此交谈了数分钟，夸格人仍互相对视着——在你看来，那神情仿佛带着某种困惑。`
+			`	房间里等候的一名夸格终于转向你，并示意你坐下。当它再次将目光投向你时，脸上困惑的神情消失了。与此同时，原本坐着的另一名夸格已离开房间，最初带你前来的那些夸格也一同离开了。`
+			choice
+				`	"出什么问题了吗？"`
+			`	夸格继续注视着你，并略略低下头，姿态似是致歉——看来它，乃至这座环形世界上的其他任何夸格，都无法说你们的语言。你耐着性子，在令人不安的沉默中持续等待，强压下心中诸多疑问，时间几乎过去了半个小时。`
+			`	终于，先前出现过的第二只夸格再次走进房间，打破了沉默。这一次，它更加咄咄逼人地瞪着你，你开始怀疑自己的存在是否真的成了问题。`
+			
+			branch "intrigued quarg"
+				has "Visit Quarg in Gegno Space: offered"
+			
+			`	你提前起身，却突然被打断——只见第二名夸格双臂向外展开，做出一个你绝没想到会在夸格身上看到的手势。“对年轻的漫游者而言，这想必是令人振奋的一天。我强烈怀疑，这对我们双方而言都是头一遭。”此刻你已清楚意识到，这名夸格并非先前见过的那一位；你开始注意到它在服饰与体型上的一些细微差异。而它言语中那种轻快的节奏，更是你从未预料到会出现在夸格身上的特质。`
+			choice
+				`	"Where am I?"`
+			`	夸格在你对面坐下，双臂仍以一种奇异的方式挥动着，只是这次动作慢了许多。「你已置身于 mighty Gegno 的居所——这个坚韧不拔的帝国，扎根于浩瀚银河之东。」`
+				goto "the gegno"
+			
+			label "intrigued quarg"
+			`	“你竟奇迹般地完成了一项非凡壮举，勇敢的旅者！”夸格说着，双手合十。看来夸格早已知晓你在那颗外星母星上的遭遇。事实上，回想起来，此前其他外星人投来的饶有兴趣的目光，正说明这消息已迅速传开。随后，它在你对面坐下，双臂向外展开——这个动作，你从未想过会出现在夸格身上。“ mighty Gegno（强大的格格诺）与无畏的外来者互动，实属罕见。”`
+			
+			label "the gegno"
+			choice
+				`	"格诺人？"`
+					goto gegno
+				`	“我周围看到的那些飞船属于这些格诺人吗？”`
+					goto ships
+			label gegno
+			`	“没错，正是那高傲自大的格诺人。他们是一个尚处稚龄的种族，比你们人类年轻数十年。他们并不像其他种族那样深陷于领导权的争夺之中；相反，他们彼此间热衷于追寻指引，以共同缔造一个崇高的未来。”你不禁怀疑，夸格人使用这些夸张的形容词，究竟是因为翻译存在缺漏，还是刻意如此表达。它的声音依旧带着夸格语特有的低沉音调，却与此刻激动急促的语速形成鲜明反差。`
+			choice
+				`	“他们所追寻的指引究竟是什么？”`
+					goto guidance
+			label ships
+			`	“的确，此类庞然巨舰正彰显着 Gegno 族的强盛。他们并非为哀伤而前行，而是为伟大而奋进——将牺牲结出的果实，作为荣耀的勋章铭刻于自身之名。”`
+			choice
+				`	“牺牲？”`
+					goto sacrifice
+			label guidance
+			`	"格诺人坚信，唯有执着追求自己认定的必然之路，方能构想出属于自身的宏伟未来。因此，他们分裂为两个不同分支：一支自诩为尊贵的维族（Vi）——最强悍的战士、最坚韧的族群。他们崇尚武力，将力量视为决定自身道路的唯一标准；另一支则是科技更先进的辛族（Scin），坚信格诺人的繁荣只能依靠科学的进步与探索的深化。"`
+				goto next
+			label sacrifice
+			`	“ Gegno人坚信，唯有不惜一切代价做出压倒性牺牲，才能为自身构想一个未来。因此，他们分裂为两个不同分支：一支自诩为高贵的‘维族’（Vi）——最勇猛的战士、最坚韧的族群，他们是崇尚蛮力的 brute，认定力量强弱是决定自身道路的唯一变量；另一支则是科技更发达的‘辛族’（Scin），他们相信Gegno唯有依靠科学进步与持续探索，方能繁荣昌盛。”`
+			label next
+			choice
+				`	“维人说得对，生存之力，比任何事物都更重要。”`
+					goto vi
+				`	“斯金人说得没错，技术进步确实开辟了无数可能性。”`
+					goto scin
+				`	"他们为何不携手合作，共同开创更美好的未来？"`
+					goto together
+			label vi
+			`	"虽具典型性，但对一个蓬勃发展的物种而言，如此宏大的命题却显得颇为乏味。话虽如此，你们人类仍奉行这一严苛信条——尽管程度远不及维族人。"`
+				goto "wrap up"
+			label scin
+			`	"对技术的追逐，往往遗弃了许多对一个辉煌种族成长至关重要的价值——而我们已屡见不鲜。"`
+				goto "wrap up"
+			label together
+			`	“遗憾的是，大多数格诺人缺乏追求其核心未来的动力，反而在停滞不前的当下不断消磨自我。追随者的分化，曾是少数几种能超越现实、激发动力的方式之一。”`
+			label "wrap up"
+			choice
+				`	"感谢您提供的信息。"`
+					goto end
+				`	“看来你并不认同他们所选择的道路。”`
+			`	夸格站起身来，但就在它起身之际，你注意到它原本灰暗的皮肤上几处斑纹悄然转为蓝色，边缘泛着微弱的紫晕，不过这些色彩很快便消退了。"劝服 Gegno 并不在我们繁荣昌盛的掌控范围之内——我们曾尝试过，却未果。若我们加以干涉，他们便以战争相威胁；而我们亦无意再度目睹此类危及存亡的叛乱重演。"它长久地停顿片刻，随后示意你也起身。`
+			
+			branch "interacted with outsider"
+				has "Visit Quarg in Gegno Space: offered"
+			
+			`	“同样，格诺人也不愿与胆大妄为的外来者接触。遗憾的是，我们对他们的了解极为有限，只能简述其历史梗概。我们无法向你推荐任何与格诺人交往的得体礼节，不过倘若你再次来到这座环形空间站，我们仍欢迎你的到来。请务必尽量避免与格诺人发生接触。”`
+				goto end
+			
+			label "interacted with outsider"
+			`	“然而， Gegno 竟会与像您这般大胆的外来者产生互动，这依然令人震惊。”夸格再次短暂停顿，随后比平时更长地深吸了一口气。“请务必在与 Gegno 接触时格外谨慎。遗憾的是，我们无法向您推荐任何善意友好的交往方式。关于他们的历史，我们仅能提供极为简略的介绍。不过，若您日后再度造访此环带，我们诚挚欢迎您光临。”`
+			
+			label end
+			`	夸格向你微微鞠躬，先前那名夸格则护送你离开房间。看来与这些所谓“格诺”建立联系将十分困难，而你在可预见的未来都不得不应对他们的排外情绪。`
+				decline
+
+
+overwrite
+mission "Gegno Quarg Direction to Ringworld"
+	name `前往夸格环形世界`
+	landing
+	source
+		near "Aleit" 1 2
+	destination "Giaru Gegno"
+	to offer
+		has "First Contact: Quarg: offered"
+		not "Giaru Gegno: Quarg Contact: offered"
+	on offer
+		conversation
+			`你刚在这颗夸格行星着陆，几名夸格便迅速向你的飞船走来。其中一名夸格站在其余人前方，向你招手示意；其余夸格则用你从未听过的语言低声交谈。那名夸格微微躬身与你对话，从它的眼神来看，似乎颇为困惑。“Sdii veebyi keies Gegnion？”它问道——这正是方才其他人所用的语言。随后，它耐心等待你的回应。`
+			choice
+				`	（试着与夸格人交谈。）`
+			`	你向夸格人做了自我介绍，随后解释道自己听不懂他们的语言。它缓缓直起身，似乎在思索当前状况，接着转向其他夸格人。又经过几句简短交流后，其中一名夸格人离开片刻，取来某种装置并交到你手中——看起来是一台全息星图仪。夸格人指向附近一个星系，星图随即投射出一座夸格环形世界 hologram。它说道：“艾斯维特·杜比尤尔·吉亚鲁，艾赫曼”，随后向你深深鞠了一躬。`
+			`	你或许该去环形世界拜访一番。`
+				accept
+
+
+overwrite
+mission "Giaru Gegno: Revisit"
+	invisible
+	landing
+	source "Giaru Gegno"
+	to offer
+		has "Giaru Gegno: Quarg Contact: offered"
+		has "Visit Quarg in Gegno Space: offered"
+		not "gegno: met gegno before quarg"
+	on offer
+		conversation
+			`你再次抵达吉亚鲁·格诺，希望找到另一位会说你语言的夸格人。但这一次，你注意到环形世界上的几名格诺人在路过时偶尔会饶有兴趣地打量你。约一分钟后，两名夸格人走近你，并示意你跟他们走。你被带回到之前熟悉的房间，先前与你交谈过的那名夸格人已平静地坐在桌子另一端。`
+			`	“你竟奇迹般地完成了一项非凡壮举，勇敢的旅者！”夸格说着，双手合十。看来夸格早已知晓你在那颗外星母星上的遭遇。事实上，回想起来，此前你所收到的那些饶有兴趣的目光，正说明这消息已迅速传开。“强大的格格诺与无畏的外来者互动，实属罕见。”`
+			choice
+				`	“这只是个巧合。”`
+				`	"我找到他们时，他们似乎陷入了困境，所以我帮了他们。"`
+					goto trouble
+			`	“确实如此，离奇的巧合往往诡异地发生。许多巧合不过是转瞬即逝、微妙异常的片刻。”夸格随后露出一丝柔和的苦笑，“但有时，某个巧合却可能宏大而强大力量，并带来深远影响。 Gegno 已多次领教过这一点。”`
+			label "trouble"
+			`	“你的确十分勇敢。多数人面对如此令人生畏的未知，恐怕都不敢轻易跃入。”夸格短暂沉思片刻，继续道：“不过，正如 Gegno 族在其整个历史中所展现的那样，有些个体纵然面临再大的犹豫，亦能毅然做出影响深远的跨越。”`
+			
+			action
+				"gegno: left quarg" = "days since start"
+			`	夸格从座位上站起身，你也随之起身。「与 Gegno 会面时，请务必格外谨慎。若您有意再次来访，我们定当欣然欢迎。」当你被引导离开房间时，回头看见那名夸格正向你鞠躬。你不禁思索它在谈话期间心中所想，但或许从今往后更加谨慎，反而是最好的选择。`
+				decline
+
+overwrite
+mission "Nosy Scin"
+	invisible
+	landing
+	non-blocking
+	source "Giaru Gegno"
+	to offer
+		has "Visit Quarg in Gegno Space: offered"
+		not "First Contact: Gegno Scin: offered"
+		not "Gegno Genocide Defense: offered"
+	to complete
+		never
+	on enter "Aleit"
+		fail
+
+	npc
+		government "Gegno Scin (Neutral)"
+		personality launching mute uninterested
+		system "Aleit"
+		ship "Mica" "Eichpys"
+
+overwrite
+mission "Suspicious Scin"
+	entering
+	name `奇异装置`
+	description `一件奇异的格诺装置突然出现在你的飞船上，显示着格诺领空内某颗行星的坐标。前往该行星或许能获得一些答案，又或引发其他变故。`
+	destination "Yiia Iyr"
+	to offer
+		"days since start" - "gegno: left quarg" > 4
+		or
+			and
+				has "gegno: met gegno before quarg"
+				has "Giaru Gegno: Quarg Contact: offered"
+			has "Giaru Gegno: Revisit: offered"
+		not "First Contact: Gegno Scin: offered"
+		not "Gegno Genocide Defense: offered"
+	on offer
+		conversation
+			`当你正忙于自己的事务时，飞船内部某处突然传来一阵微弱信号。你无法确定其来源，因为它似乎并非发自飞船本身，于是决定一探究竟。经过几分钟的搜寻，你在飞船基础设施的一处角落里发现了一个小型装置——它与你在瓦尔·奥提星上遇见的格诺人赠予你的那个装置颇为相似，却不知何时、以何种方式被随意塞进了这里。你不清楚它是如何或何时出现的，但目前看来并无危险。`
+			`	除持续发射一种奇异信号外，该装置似乎仅在指向格诺空间内某颗行星的位置。除置之不理外，你唯一的选择便是前往这颗行星，探寻这一奇异事件背后的真相。`
+				accept
+
+	npc
+		government "Gegno Scin (Neutral)"
+		personality staying mute uninterested
+		system "Ilirco"
+		fleet
+			names "gegno scin"
+			variant
+				"Tridymite"
+	on complete
+		clear "gegno: left quarg"
+
+
+overwrite
+mission "First Contact: Gegno Scin"
+	invisible
+	landing
+	deadline 1
+	source "Yiia Iyr"
+	to offer
+		has "Suspicious Scin: offered"
+		not "Gegno Genocide Defense: offered"
+	on offer
+		conversation
+			`受你飞船上的神秘装置指引，你降落至这颗星球表面，穿越数层厚重云层。突破云层、准备着陆时，你注意到附近地面上停泊着几艘 Gegno Scin 飞船——其各异的绿色涂装极易辨认。其中两艘形似你在邻近星系所见的军用舰艇，而夹在它们之间的第三艘则是一架小型穿梭机。Scin 族显然与该装置有关；此时，一艘 Scin 战舰已腾空而起，径直朝你飞来，仿佛早已预料到你的到来。`
+			choice
+				`	（离开这颗行星。）`
+					goto leave
+				`	（静观其动。）`
+					goto wait
+				`	（准备战斗。）`
+			`	你启动武器系统，严阵以待，准备应对一场敌对遭遇。斯金飞船朝你驶来，随后缓缓停在你前方。他们未发射任何武器，也未表现出任何攻击性行为，因此或许并不寻求冲突。那艘战舰极其轻微地倒车后退，再次停下。你决定也让自己飞船停止航行，并暗自揣测这究竟是怎么回事。紧接着，斯金飞船再度倒车，缓慢地远离你——看来他们是想让你跟随他们。`
+				goto interaction
+			
+			label wait
+			`	你将飞船停稳，决定静观其变，看看那艘斯金飞船靠近时会如何行动。它缓缓逼近，速度逐渐减慢，最终短暂停下。紧接着，这艘战舰极其轻微地开始倒退，一边面朝你，一边继续向后漂移远离。他们似乎并不对你抱有戒心，反倒更像是在示意你跟上他们。`
+				goto interaction
+
+			label interaction
+			choice
+				`	(Follow them.)`
+					goto follow
+				`	(Leave.)`
+					goto leave
+			label "leave"
+			action
+				set "gegno: left scin"
+			`	你警惕地注视着斯金战舰，随即转身，开始重新升空返航。那艘斯金飞船向你的飞船靠近，但随着距离拉近，它却逐渐调整姿态，转为护航编队，一路跟随你驶离行星大气层。你不清楚他们在该行星上究竟在做什么，也不明白自己为何会被引向他们；但或许，保持谨慎、避免卷入其中才是更明智的选择。`
+				accept
+
+			label "follow"
+			action
+				set "scin: approached epidote"
+			`	你略向前推进飞船以示回应。突然间，停在地面的第二艘战舰腾空而起，编队跟在你身后；而前方那艘战舰则调转方向，朝远方飞去。你心怀好奇，跟随它们而去，想看看它们究竟要带你前往何方。在你后方，剩下的那架穿梭机也升空起飞，但它并未跟随你，而是径直飞向了上方的大气层中。`
+			`	尽管这颗行星最初因多层厚重云层而显得黯淡无光，但地表仍不时显露出生命的迹象——例如广袤的草原或干涸的河床；而其他区域则被片片低雾笼罩。随着飞行继续，两艘辛舰缓缓移动，一左一右将你夹在中间。前方远处，另一堵浓雾之后，一座庞大的建筑逐渐显露轮廓。再靠近一些后，你认出了如今与你并肩飞行的飞船那熟悉的绿色涂装。两艘战舰开始下降，目标正是你推测停驻于一片广阔沙地中的、一艘体型可观的辛族货船。`
+			`	你此前与维战士的遭遇混乱而不可预测，因此在此情境下格外谨慎或许最为妥当。当你将飞船降落在该舰附近时，此前引导你前来的两艘战舰也随即在附近着陆并关闭动力。除你正前方的 Gegno 飞船外，雷达目前未探测到任何异常活动。外部环境读数令人意外地显示——当前环境对人类而言是安全的；但宁可谨慎过度，也不愿疏忽大意。你穿上了环境防护服，并随身配好了手枪以备不测。`
+			choice
+				`	（靠近斯金人。）`
+					goto approach
+				`	（待在我的飞船旁。）`
+			`	你向前迈出一两步，但仍停留在飞船附近，保持警觉。这艘货船确实庞大——体积约是运货船的四倍，或接近巨兽级飞船的两倍。一架升降梯从其底部缓缓降下，一群斯金人走出飞船，朝你走来。他们的装束与维人截然不同：多数人身着分段式装甲，层层叠叠的护甲板使其外观宛如鳞片；但其中一人却身着轻便得多的护甲，主要覆盖肩部，其下是一袭橙色长袍般的服饰，身形也比其他斯金人略显纤细。尽管他们远不如维人那般魁梧，却仍明显高于任何人类。更重要的是，他们显然更热衷于与你互动——毕竟，他们竟主动离开自己的飞船前来迎接你。`
+			`	那名身着重型护甲的斯金人停在距你约四米处，单膝跪地。而身披长袍者则又向前走了几步，在你面前盘腿坐到地上。`
+			choice
+				`	（坐下。）`
+					goto sit
+				`	（伸手去拿我的手枪。）`
+					goto reach
+			label "sit"
+			`	你坐下来，仔细打量着他们。他们的皮肤近乎骨质，泛着极淡的浅绿色光泽。与维人不同，他们头生三只细小的角，几乎完全不长头发。他们似乎同样对你外貌颇感兴趣，上下打量着你。此时，货船上的另一名斯金人走了过来，手持某种装置，跪坐在那位身着长袍者身旁；后者接过装置，将它放在你与他之间——看上去像是一块平板或绘图工具。`
+			`	斯金人随即摊开手掌，在显示屏的一半区域上画下一道标记，然后将屏幕转向你。`
+			choice
+				`	（将手放在该装置上。）`
+				`	（什么也不做。）`
+					goto imagery
+			`	你将手掌按在装置上，感到它微微震动。装置另一半随即显示出你手掌的精细线框图。辛族人将装置移开，随后伸出一条手臂，掌心朝上。`
+			choice
+				`	（也将我的手臂伸出去。）`
+				`	(Do nothing.)`
+					goto imagery
+			action
+				set "scin: gestures"
+			`	斯金人伸出右手，身体前倾，仔细检查一番，随后在设备上又记下一笔。待记录完几项内容后，他们从地上起身，朝你做出一个奇怪的手势：双臂交叉于身前，左手方向形成一个加号。其余那些装甲更厚重的斯金人也纷纷收起警戒姿态，转身朝自己的飞船走去，站在你面前的那名斯金人则紧随其后离开。`
+			`	您在经历这场令人困惑的遭遇后返回自己的飞船，心中思索着此事的含义，而斯金人并未继续追击。`
+				accept
+
+			label "imagery"
+			`	斯金人将设备转回正面，在上面输入某种笔记，随后清空屏幕。接着，他们用一根手指开始绘制一幅图像。完成后的画面看起来是他们自己的肖像。“杜耶乌·斯金。”他们以低沉的语调说道。清除图像后，他们又画了一个看似你的简笔画——尽管比例略显失调——然后静待你的回应。`
+			choice
+				`	"杜耶乌……人类？"`
+				`	“我是人类。”`
+				`	(Say nothing.)`
+					goto quiet
+			`	斯金人望着你，你猜测那眼神中流露出的是着迷。他们接过装置，又画了一幅画。放下装置后，你认出了那幅熟悉的格格诺维战士画像。`
+			choice
+				`	"格诺·维？"`
+				`	"杜耶乌·维？"`
+			action
+				set "scin: imagery"
+			`	他们困惑地望着你，又在设备上画出另一幅肖像——看起来像是他们母星上那位身材较矮、身着皮衣的格诺人；接着将这幅画像与先前画出的维人和辛人画像并排摆放。“格诺，”他们说道，随后陷入沉思。片刻之后，他们再次在设备上作画。待他们将设备转回给你时，你看到两个色块：一块绿色、一块棕色。“维，”辛人指着棕色色块说道。“辛，”他们又指向绿色色块。随后，他们指向那三幅格诺人肖像组成的群体，“格诺。”`
+			`	待他们又记下几条笔记后，便从地上起身，开始返回自己的飞船。那些装甲更厚重的斯金人也随即收起警戒姿态，跟在他们身后。`
+			`	突然间，一阵沙尘从你身后呼啸而过；你转身一看，只见又有三名身披重甲的辛族战士正从沙中升起，其中一人离你已相当接近。他们的装甲与先前所见大不相同：色调更深、棱角更锐利，还装配着多种装置；但最引人注目的，是他们手持镰刀状的锋利刃器。看来辛族对局势的掌控远超你的预期——倘若你在先前的遭遇中做出错误抉择，此刻恐怕早已成为那寒光凛冽的利刃之下亡魂。`
+			`	你返回飞船，从行星表面起飞，但斯金人并未继续追击。`
+				accept
+			
+			label "quiet"
+			`	他们凝视着你数秒，随后取回了自己的设备。斯金人坐得更加挺直，深深打量着你，接着将头微微向右倾斜，随之而来是一阵尴尬的沉默。`
+			choice
+				`	（也将我的头向右倾斜。）`
+				`	（将我的头向左倾斜。）`
+				`	(Do nothing.)`
+					goto "no thoughts"
+			`	当你歪头时，他们用设备记录下你的行为。随后，他们从地上起身，开始返回自己的飞船。装甲更厚重的斯金人也从警戒姿态中站起，跟在他们身后。`
+			`	All of a sudden, a gust of sand rushes past from behind you, and you turn around to see three more armored Scin rising from the sand, one of them fairly close to you. Their armor is much different than that of the others, characterized by darker shades, sharper edges, and several gadgets, but what is most notable is their possession of sickle-like blade weapons. It appears the Scin had more control of the situation than you thought, and had you made the wrong choice in the encounter, it's possible you would be on the receiving end of one of those blades.`
+			`	You return to your ship and take off from the planet, but the Scin do not follow you any further.`
+				accept
+				
+			label "no thoughts"
+			`	斯金人盯着你看了许久，令你颇感不适，随后叹了口气。他们伸手探入装甲内，掏出一把小型枪械，将枪口对准了你。`
+			choice
+				`	（伸手去拿我的武器。）`
+				`	（举起双臂。）`
+			action
+				set "scin: provocative"
+			`你刚试图移动，第一感觉便是颈间横着一柄弧形刀刃，同时一阵沙浪从你身旁掠过。一名斯金人漫不经心地在设备上又记下一笔，随即起身，径直朝自己的飞船走去。你缓缓转头，迎上另一名斯金人冰冷而毫无表情的面孔——对方随即示意你返回自己的飞船。他们紧随你身后，始终将刀刃抵在你的咽喉处。途中，又有两名斯金人突然从沙地中现身；而最初遇见的其他斯金人则仍驻守原地。护送你的斯金人所穿装甲明显不同于其余人员：色调更深、棱角更锐利，且配备多个装置。`
+			`	抵达您的飞船后，他们将刀刃从您颈边移开。您仔细一看，发现那刀刃呈镰刀状而非剑形——倘若他们真想动手，您几乎不可能避开斩首一击。您匆忙登船，准备立即起飞。显然，您已逗留过久，不受欢迎了。`
+				launch
+			
+			label "reach"
+			action
+				set "scin: provocative"
+			`	斯金人竟如此随意地靠近你，实在令人心惊；再联想到此前与维人遭遇时的情形，接下来任何事都可能发生。你决定伸手去掏手枪，可刚一动作，便立刻感到一柄弯刀已抵住你的脖颈，同时一股沙浪从你身侧呼啸掠过。你缓缓转头，迎上另一名斯金人冰冷而毫无表情的面孔——对方随即示意你返回飞船。他紧贴着你前行，始终将刀锋压在你的咽喉处。途中，又有两名斯金人猝然自沙地中现身；而最初遇见的那几名斯金人则仍驻守原地。护送你的这名斯金人身上的装甲明显有别于其余人：色调更深沉、棱角更锐利，且装配着数种精巧装置。`
+			`	抵达您的飞船后，他们将刀刃从您颈边移开。您仔细一看，发现那刀刃呈镰刀状而非剑形——倘若他们真想动手，您几乎不可能避开斩首一击。您匆忙登上飞船，立即准备起飞，同时注意到另一艘辛族战舰也已启动引擎。显然，您已逗留过久，不受欢迎了。`
+				launch
+
+
+			label "approach"
+			action
+				set "scin: entered epidote"
+			`	你朝斯金人的飞船走去，发现这艘货船确实庞大——体积约为运载船的四倍，或接近巨兽级飞船的两倍。靠近时，飞船腹下垂下一架升降梯，数名斯金人已在梯口静候你的到来。他们的装束与维人截然不同：多数人身着分段式多层装甲，层层叠叠，形似鳞甲；唯有一人肩部护甲明显轻便，其下则披着橙色袍状服饰，身形也比其他斯金人略显纤细。尽管他们远不如维人魁梧，但所有人身高均略高于人类。更重要的是，他们显然更乐于与你互动——毕竟，他们对你靠近自家飞船一事毫不介怀。`
+			`	当你抵达电梯处时，装甲更厚重的斯金人护送你登船。电梯升回飞船内部，进入一个颇为宽敞的舱内停泊区。身着长袍的斯金人走向一旁，拿起某种装置，将其移至你所站立的位置，并示意你过去。`
+			choice
+				`	（加入他们。）`
+				`	(Reach for my pistol.)`
+					goto pistol
+			`	你走向那台装置，得以仔细端详那位身披长袍的辛族人。其皮肤近乎骨质，泛着极淡的浅绿色微光。与维族不同，他们生有三只细小的角，且几乎完全不长头发。他们似乎同样对你外貌颇感兴趣，上下打量着你。在又摆弄了一阵装置后，这位辛族人取出某种平板或绘图工具。`
+			`	The Scin then reaches their palm out and makes a mark on one half of the display, then turns it to you.`
+			choice
+				`	(Place my hand on the device.)`
+				`	(Do nothing.)`
+					goto images
+			`	Placing your own palm on the device, you feel it vibrate a little. A detailed wireframe of your hand appears on the other half of the device. The Scin moves the device aside, then extends one arm out showing the top of their hand.`
+			choice
+				`	(Extend my arm as well.)`
+				`	(Do nothing.)`
+					goto images
+			action
+				set "scin: gestures"
+			`	当你伸出右手时，斯金人向前倾身，仔细检查你的手掌，随后在手持设备上又记下一笔。待其写完几项内容后，转向你，做出一个奇特的手势：双臂交叉于胸前，呈‘+’字形，方向朝向左侧。其余几名重甲斯金人则靠近过来，护送你返回电梯，并一路将你送回飞船。途中，你注意到几名此前未曾见过的斯金人——他们的装甲明显不同：色调更深、棱角更锐利，还装配了多种装置；而最引人注目的，是他们手持的镰刀状刃器。`
+			`	当你返回自己的飞船后，斯金人也回到他们的飞船，但仍留在该行星上。尽管同样古怪，但这次遭遇远比与维人那次顺利得多。`
+				accept
+
+			label "images"
+			`	Turning the device back around, the Scin types some sort of note on it then clears the display. They then begin to draw some sort of picture with one of their fingers. The finished image appears to be a portrait of themselves. "Dueyu Scin," they speak in a low tone. Clearing the image, they draw something that looks like you, albeit a bit out of proportion, then await some sort of answer.`
+			choice
+				`	"Dueyu human..?"`
+				`	"I am human."`
+				`	(Say nothing.)`
+					goto silence
+			`	The Scin looks at you in what you guess to be fascination. They grab the device and draw yet another picture. After setting it down, you recognize the familiar image of a Gegno Vi warrior.`
+			choice
+				`	"Gegno Vi?"`
+				`	"Dueyu Vi?"`
+			action
+				set "scin: imagery"
+			`	他们困惑地望着你，又在设备上画出另一幅肖像——看起来像是他们母星上那位身材较矮、身着皮衣的格诺人；接着将这幅画像与先前画出的维人和辛人画像并排摆放。“格诺，”他们说道，随后陷入沉思。片刻之后，他们再次在设备上作画。待他们将设备转回给你时，你看到两个色块：一块绿色、一块棕色。“维，”辛人指着棕色色块说道。“辛，”他们又指向绿色色块。随后，他们指向那三幅格诺人肖像组成的群体，“格诺。”`
+			`	待他们又记下几条笔记后，便低下头来；其余斯金人则引导你回到电梯，并启动电梯将你送回地表。你被护送回自己的飞船，在途中还遇见了几名此前未曾见过的斯金人。他们的装甲与其他人截然不同：色调更深、棱角更锐利，且配备多种装置；而最引人注目的是，他们手持镰刀状的刃类武器。`
+			`	Once you return to your ship, the Scin return to theirs, but remain on the planet. Although just as strange, this encounter went far better than the one with the Vi.`
+				accept
+
+			label "pistol"
+			action
+				set "scin: provocative"
+			`	你所处的境况十分险峻——身处外星种族的飞船内部，四周环绕着陌生的装置——接下来任何事都可能发生。你决定伸手去掏手枪，但刚一动作，便立刻感到一柄弧形刀刃已抵住你的脖颈。你缓缓转过头，映入眼帘的是另一张斯金人冷峻而毫无表情的面孔——此前你竟未曾察觉他的存在。他继续用刀锋紧贴你的咽喉，同时再次启动电梯，将你缓缓降回地表。他的装甲明显有别于其他斯金人：色调更深沉、棱角更锐利，且配有数种精巧装置。`
+			`	他们护送你返回飞船，途中又有数名斯钦战士身着相同装甲沿途警戒。抵达飞船后，架在你颈侧的刀刃被移开。当你得以更清楚地观察它时，才发现这把刀刃呈镰刀状而非剑形——这意味着，倘若他们真想动手，你几乎毫无生还可能，必被当场斩首。你匆忙登上飞船并准备起飞，同时注意到另一艘斯钦战舰也已启动引擎。显然，你已逗留过久，不受欢迎。`
+				launch
+			
+			label "silence"
+			`	The Scin stares at you for an uncomfortable length of time, then sighs. They reach into their armor and pull out a small firearm, raising it at you.`
+			choice
+				`	(Reach for my firearm.)`
+				`	(Raise my arms.)`
+			action
+				set "scin: provocative"
+			`你刚试图移动，第一感觉便是颈间横着一柄弧形刀刃。一名斯金人漫不经心地在设备上又记下一笔，随即离开现场，向舰船深处行去。你缓缓转头，迎上另一名此前未曾见过的斯金人冰冷而毫无表情的面孔。对方一边继续用刀刃抵住你的咽喉，一边再次启动电梯，将你缓缓降回地表。其装甲明显不同于其余人员：色调更深、棱角更锐利，且配备多个装置。`
+			`	他们护送你回到你的飞船，途中还有数名斯金人持相同装甲站岗戒备。当你抵达飞船时，架在你脖颈上的刀刃被移开。你仔细一看，发现那把刀呈镰刀状而非剑形——倘若他们真想动手，你几乎不可能躲过斩首之厄。你急忙登上飞船，准备立即起飞。显然，你已逗留过久，不受欢迎了。`
+				launch
+
+	npc
+		to spawn
+			not "scin: gestures"
+			not "scin: provocative"
+		government "Gegno Scin"
+		personality launching uninterested
+		system "Ilirco"
+		fleet
+			names "gegno scin"
+			variant
+				"Coesite"
+	npc
+		to spawn
+			not "scin: gestures"
+			has "scin: provocative"
+		government "Gegno Scin (Combative)"
+		personality launching
+		system "Ilirco"
+		fleet
+			names "gegno scin"
+			variant
+				"Coesite" 2
+
+
+overwrite
+mission "Gegno Exploration Nudge"
+	landing
+	name `寻找与格诺人互动的方式`
+	description `尽管 Gegno 整体上似乎对你不感兴趣，但你仍可能在他们的领空内再次遭遇他们，从而进一步了解这个种族。`
+	source "Yiia Iyr"
+	to offer
+		has "Suspicious Scin: offered"
+		not "Gegno Genocide Defense: offered"
+	to complete
+		never
+	to fail
+		has "Gegno Exploration Nudge Remover: done"
+	on enter
+		conversation
+			branch provocative
+				has "scin: provocative"
+			`当你离开行星大气层时，斯金飞船脱离编队，独自驶向别处。尽管格诺人整体上似乎对你并无结交兴趣，但此前遇到的少数斯金人却表现出某种程度的关注。未来你或许还有机会在他们的领空其他区域再次遭遇格诺人，并进一步了解他们。`
+			`	不过，或许还是听从夸格人的警告、在接下来的行动中保持谨慎为好。`
+				accept
+			
+			label provocative
+			`尾随你离开行星的辛舰船几乎毫不迟疑便向你开火，很可能是对你此前遭遇中所采取的行动感到挑衅。不过，若非对你有所图谋，它们也不会主动将你引向自己——这意味着，在吉格诺势力范围内的其他地点，你或许还有机会以别的方式与吉格诺产生交集。`
+			`	况且， Gegno人本就对外来者心存疑虑。听从夸格人关于谨慎行事的建议或许是明智之举，尤其是当疏忽可能招致敌对遭遇时。`
+				accept
+
+# Fails above mission once the proper conditions are met so that it doesn't float in the mission panel.
+overwrite
+mission "Gegno Exploration Nudge Remover"
+	invisible
+	landing
+	non-blocking
+	source "Yiia Iyr"
+	destination "Giaru Gegno"
+	to offer
+		has "Suspicious Scin: offered"
+		not "Gegno Genocide Defense: offered"
+	to complete
+		has "gegno: encounters"
+
+
+# Gegno Superheavy Missions
+
+overwrite
+mission "Vi Augen"
+	invisible
+	non-blocking
+	transition
+	source
+		system "Kiluit"
+	destination "Earth"
+	on offer
+		# Fail the old version of this mission from prior to v0.10.1.
+		fail "Stationed Augen"
+	npc save
+		on kill
+			set "dead augen"
+		government "Gegno Vi"
+		personality heroic vindictive staying
+		system "Kiluit"
+		ship "Augen" "Vytii Yrrlausei"
+	to complete
+		never
+
+
+# Gegno Genocide Trigger
+
+overwrite
+mission "Gegno Genocide Defense"
+	invisible
+	landing
+	to offer
+		"reputation: Gegno" < -10
+	to complete
+		never
+	on offer
+		fail "First Contact: Gegno Vi"
+		fail "Visit Quarg in Gegno Space"
+		fail "Vi Augen"
+		fail "Gegno Anticipation"
+		fail "Gegno Intervention"
+		fail "Acquiescence"
+		"reputation: Gegno" = -1000
+		"reputation: Gegno Vi" = -1000
+		"reputation: Gegno Scin" = -1000
+		event "gegno: unified defense"
+		conversation
+			branch "corroboration provocation"
+				or
+					has "Gegno Anticipation: failed"
+					has "Gegno Intervention: failed"
+
+			`你刚让飞船着陆，便突然收到一条呼叫：“对非己方物种之非战斗人员实施不必要的摧毁，实属极不明智之举。”你认出这是夸格的声音，但语气明显充满不满。“一个仍在自我学习中的物种，极易受外界影响；而你们针对 Gegno 平民采取的激进行动，已引发一连串本可避免的事件。”`
+			choice
+				`	"It was an accident!"`
+				`	"你指的是什么？"`
+					goto what
+				`	"我才不在乎。"`
+					goto care
+			`	"对毫无武装的受害者施加暴力，绝非偶然。无论起因为何，后果已然发生。 Gegno人已团结于同一旗帜之下，以阻止任何进一步的外部干涉。你们不再被允许进入他们的领空，我们亦建议你们切勿再度造访——否则Gegno人将向你们展示，与你们施加于其公民身上的敌对行径如出一辙的态度。"`
+				accept
+			label "what"
+			`	"你的行为已迫使 Gegno 人集结舰队，以阻止任何外部势力进一步进入其领空。这真是莫大的遗憾。本应用于解决内部冲突的宝贵时间，如今却因你的失职而白白耗费在对外来者的敌意之上。你已被禁止进入 Gegno 领域；若胆敢再度造访，Gegno 人必将以你加诸其公民身上的同样方式予以回敬。"`
+				accept
+			label "care"
+			`	夸格发出一声令人不适的声响——这声音你此前从未在任何夸格身上听过。“倘若你再被发现现身于格诺空域，将面临同样的敌意。”`
+				accept
+
+			label "corroboration provocation"
+			branch "corroboration provocation homeworld"
+				has "flagship planet: Dueyu Eitch"
+			`你刚一降落飞船，便突然收到一条 incoming hail（呼叫）：“向 Gegno 母星的守卫者开火，此举实在愚蠢至极。”声音来自一名夸格人，语气中满是不悦。“他们仅是驻守于此，以平息你们这些外来者介入所引发的不安；而你却在他们最神圣的行星上选择了敌对。今后，你将不再被欢迎进入 Gegno 星域，同时也已触达我们耐心的尽头。”`
+			choice
+				`	“我担心他们会出动舰队攻击我！”`
+				`	"I do not care."`
+					goto care
+			`	"与整个物种的关切相比，你的顾虑根本无足轻重。正因如此行径，Gegno 人已联合起来，集结舰队以威慑一切外来者。这真是莫大的遗憾。本应用于解决内部冲突的宝贵时间，如今却因你的失职而白白耗费在对外来者的敌意之上。立刻离开 Gegno 领域——你已再无理由滞留于此。"`
+				accept
+
+			label "corroboration provocation homeworld"
+			`在你突袭 Gegno 舰队之后，你仍试图登陆 Gegno 母星，但此时已有大量敌对飞船严守行星地表。突然，你收到一条呼入通讯——但发送方并非 Gegno。`
+			`	“向 Gegno 母星的守卫者开火，此举极其愚蠢。”这冰冷的声音来自一名夸格人，听来颇为不悦。“他们仅是驻守于此，以平息你们这些外来者干涉所引发的不安；而你们却偏偏选择在最神圣的行星上，对他们展现敌意。”话音未落，一艘夸格飞船便从地平线处现身，迅速飞抵你的飞船旁，随即你又收到一次呼叫：“你们将不再被允许进入 Gegno 星域——同时，也已耗尽了我们的全部耐心。”`
+			`	夸格飞船毫不迟疑地护送你重新进入大气层，而 Gegno 飞船则暂时犹豫着缓缓后撤。当你离开该行星时，他们最后一次向你发起呼叫：‘你的行动势必已在 Gegno 内部引发动荡。你最明智的选择是即刻离开这片空域——我们将持续监视你。’说完，那艘飞船便消失了。`
+				launch
+
+	npc
+		government "Gegno Vi"
+		to spawn
+			has "event: gegno: unified defense"
+		to despawn
+			has "dead augen"
+		personality heroic vindictive staying
+		system "Heutesl"
+		ship "Augen" "Vytii Yrrlausei"
+
+
+# Mission for if the player has clearance on a Gegno world despite having provoked civilians.
+
+overwrite
+mission "Gegno Unwelcoming"
+	landing
+	invisible
+	source
+		government "Gegno" "Gegno Vi" "Gegno Scin"
+	to offer
+		"reputation: Gegno" < 0
+	on offer
+		conversation
+			`你一抵达行星表面，便遭到一大群外星人的迎击——但他们显然并不欢迎你造访此地。事实上，数支规模难以快速判断的作战小队已全速向你冲来，装备着外观先进的战斗装具与武器。与此同时，天空之上，无数飞船正以编队形式陆续降落。`
+				to display
+					not "Giaru Gegno: Quarg Contact: offered"
+			`你一抵达行星表面，便遭到一大群格诺人（Gegno）的迎击——但他们显然并不欢迎你造访此地。事实上，数支规模难以快速判断的作战小队已全速向你冲来，装备着外观先进的战斗装具与武器。与此同时，天空之上，维族（Vi）与斯金族（Scin）双方的无数飞船正以编队形式陆续降落。`
+				to display
+					has "Giaru Gegno: Quarg Contact: offered"
+			`	在袭击平民后刻意降落在这里，恐怕并非明智之举。对方毫不留情，立即展开攻击，你竭尽全力击退尽可能多的敌人。尽管你用手枪成功击退数人，最终仍寡不敌众——你感受到的最后一丝知觉，是贯穿上半身的冰冷而尖锐的剧痛。`
+				die
+
+
+# Gegno Hunter Fleets
+
+overwrite
+mission "Gegno Hunter Fleets"
+	landing
+	invisible
+	non-blocking
+	repeat
+	to offer
+		has "Gegno Genocide Defense: offered"
+		not "Gegno Hunter Fleets: active"
+	to complete
+		never
+	npc save
+		government "Gegno"
+		personality nemesis heroic vindictive
+		system
+			government "Gegno"
+		fleet
+			names "gegno united"
+			variant
+				"Gneiss" 3
+				"Hornfel" 2
+				"Hornfel (Heavy Weapons)" 2
+				"Eclogite" 5
+				"Feldspar" 3
+				"Halite" 18
+				"Felsic" 3
+				"Coesite" 5
+	npc save
+		government "Gegno"
+		personality nemesis heroic vindictive
+		system
+			government "Gegno"
+		fleet
+			names "gegno united"
+			variant
+				"Feldspar" 2
+				"Halite" 12
+				"Gneiss" 4
+				"Felsic" 4
+				"Coesite" 4
+				"Eclogite" 3
+	npc save
+		government "Gegno"
+		personality nemesis heroic vindictive
+		system
+			government "Gegno"
+		fleet
+			names "gegno united"
+			variant
+				"Feldspar" 3
+				"Halite" 18
+				"Gneiss" 2
+				"Hornfel" 3
+				"Hornfel (Heavy Weapons)"
+				"Eclogite" 3
+				"Coesite" 6
+
+
+# Gegno Vi Duels
+
+overwrite
+mission "Gegno Vi Duels"
+	minor
+	landing
+	invisible
+	repeat
+	deadline 9
+	source
+		near "Ookmya" 100
+	to offer
+		random < 60
+	to complete
+		never
+	npc provoke
+		system "Ookmya"
+		government "Gegno Vi (Duelist A)"
+		personality heroic unconstrained uninterested staying ramming
+		fleet
+			names "gegno vi"
+			variant
+				"Dunite"
+		conversation "interfered with duel"
+	npc provoke
+		system "Ookmya"
+		government "Gegno Vi (Duelist B)"
+		personality heroic unconstrained uninterested staying ramming
+		fleet
+			names "gegno vi"
+			variant
+				"Dunite"
+		conversation "interfered with duel"
+
+conversation "interfered with duel"
+	action
+		"reputation: Gegno Vi" -= 1
+		"reputation: Gegno Vi (Duelist A)" -= 0.1
+		"reputation: Gegno Vi (Duelist B)" -= 0.1
+	`你开始接连收到格诺维（Gegno Vi）飞船发来的多次呼叫，语气极为恼怒。看来你无意间打断了对他们而言极其重要的某种传统——毕竟此刻你的雷达上，他们的飞船已全部转为敌对状态。`

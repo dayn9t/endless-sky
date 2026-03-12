@@ -1,0 +1,909 @@
+# Copyright (c) 2014 by Michael Zahniser
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+
+
+overwrite
+mission "FW Zug Expansion: Assisted"
+	minor
+	name "Convoy to Zug"
+	description "护送一支货运飞船编队前往<destination>，执行一项重要任务。需警惕海盗袭击。"
+	source
+		government "Free Worlds"
+		near Zubeneschamali 2 4
+	destination "Zug"
+	to offer
+		has "event: tarazed assistance"
+		not "FW Diplomacy 1: done"
+	on offer
+		conversation
+			`你在<origin>太空港内散步返回途中，看见太空港的军需官正在检查你的飞船。他注意到你的到来，随即上前向你致意。`
+			`	“您就是<first> <last>船长，对吧？我们正寻找一艘可靠的飞船，护送这批货船前往<planet>。”他指向停机坪对面、与你飞船相对位置上的五艘辛迪加货船——它们均涂装自由世界标志，其中几艘舰体损伤严重，此刻正进行紧急维修。”`
+			`	"他们上一位护航者刚被海盗击毁，而我们需要一位经验丰富、足以击退或规避海盗的飞行员。你一定很有名气——我们几位民兵队长都认出了你。这次任务事关<planet>上一个极为重要的项目，报酬为<payment>。"`
+			choice
+				`	"这个项目是什么？看起来规模不小。"`
+				`	“那可有不少货船。我是不是还得提防更多海盗？”`
+					goto pirates
+				`	"抱歉，我并不打算往那个方向航行。"`
+					decline
+			`	“这些货船正运送建筑物资及专用于造船的设备，用于扩建久格新港——这项工程早已提上日程。此举将极大助力自由世界的建设。我想，这正是海盗屡次企图劫掠这些飞船的原因：对它们而言，这批设备堪称一笔丰厚的战利品。”`
+				goto meet
+			label pirates
+			`	"是的，我预计会遭遇更多海盗，因为如此多货船的频繁往来对海盗而言无疑是极具诱惑力的目标；更何况，这些货船还装载着用于战舰制造的贵重设备。我当然建议尽可能避免战斗。在当前这般艰难时期，若这些飞船有所损失……那将极不理想。"`
+			label meet
+			`	“那么，你们愿意帮我们护送这些货船吗？”`
+			choice
+				`	"当然，我会确保这些货船安全抵达<planet>。"`
+				`	"不，抱歉，我做不到。"`
+					decline
+			`	“太棒了！我相信这些飞船将极大造福自由世界。”说完，他便离开去会见那些货船的船长们。`
+				accept
+	npc accompany save
+		government "Free Worlds"
+		personality escort timid
+		ship "Freighter" "F.S. Pohutukawa"
+		ship "Freighter" "F.S. Totara"
+		ship "Freighter" "F.S. Kauri"
+		ship "Freighter" "F.S. Rimu"
+		ship "Freighter" "F.S. Kanuka"
+	npc
+		government "Pirate"
+		personality plunders staying
+		system "Zubenelgenubi"
+		fleet "Large Southern Pirates" 3
+	npc
+		government "Pirate"
+		personality plunders staying
+		system "Sabik"
+		fleet "Large Southern Pirates" 2
+	npc
+		government "Pirate"
+		personality plunders staying
+		system "Hadar"
+		fleet "Large Southern Pirates" 3
+	npc
+		government "Pirate"
+		personality plunders staying
+		system "Zeta Centauri"
+		fleet "Large Southern Pirates" 2
+	npc
+		government "Pirate"
+		personality plunders staying
+		system "Izar"
+		fleet "Large Southern Pirates" 2
+	on visit
+		dialog `你已抵达<planet>，但将护航舰队的一部分抛在了后面！最好立即离开，等待他们抵达本星系。`
+	on complete
+		payment 600000
+		event "fw zug expansion underway"
+		event "fw zug expansion complete" 120
+		conversation
+			`五艘货船均已完好抵达，你被指示将它们停靠在 zug 久候多时的新港扩建区旁的一大片预留空地上。不久之后，zug 港口管理局便向你支付了 <payment>。`
+			`	看来带这么多货船是明智之举，因为此次扩建还包括大幅升级南向航运公司的造船设施，使其具备建造塔拉泽德猎鹰级重型战舰的能力。不过，从目前情况来看，所有这些设备足以建造一艘海军巡洋舰了。`
+
+
+
+overwrite
+mission "FW Zug Expansion: Unassisted"
+	landing
+	invisible
+	non-blocking
+	to offer
+		has "FW Diplomacy 1: done"
+		not "FW Zug Expansion: Assisted: done"
+	on offer
+		event "fw zug expansion underway"
+		event "fw zug expansion complete" 120
+		fail
+
+
+
+overwrite
+mission "FW Pirates: Harmony"
+	landing
+	source "Harmony"
+	to offer
+		has "FW Pirates 1: active"
+	
+	on offer
+		conversation
+			`当你在<planet>着陆时，你想起居住在此地的僧侣们正开展一项面向充当海盗船员的儿童的援助计划。他们或许能就如何应对海盗威胁提供最佳建议。你是否想前去拜访他们？`
+			choice
+				`	(Yes.)`
+				`	(No.)`
+					decline
+			`	从太空港步行到修道院路程很短。抵达后，你遇见一位正在花园劳作的修士。他抬头瞥了一眼，认出了你。“欢迎回来，”他说，“你是卡佳的朋友，对吧？我是大卫。我忘了你的名字。”`
+			`	"<first>，"你说道。`
+			`	他拂去手上的些许尘土，随后与你握手。“近来可好？”他问道，“卡佳娅和伊杰斯呢？”你向他说明自己如今已成为自由世界的正式成员，而卡佳娅则已被共和国俘获。他显然对此消息感到震惊与悲伤。在向你追问所有细节后，他问道：“那你呢？是什么风把你吹到和谐星（Harmony）来的？”`
+			choice
+				`	“自由世界正希望肃清本星区的海盗活动，而我想请教您：我们该优先打击哪些目标？”`
+				`	“自由世界正考虑对海盗发动进攻，但我一直在思考格雷格兄弟的话：那些海盗船员其实都只是些孩子。”`
+					goto kids
+			`	"如果你想听些军事建议，"他说，"那我告诉你：暴力永远无法缔造和平。海盗世界上的大多数人并非海盗，而只是生来不幸的普通人；又或是那些在别处都感到不受欢迎的人。"`
+				goto advice
+			label kids
+			`	“的确如此，”他说道，“如果你与海盗交战，无辜的生命将因此丧生。”`
+			label advice
+			`	"那你建议我们该怎么办？"你问道。`
+			`	“嗯，”他说，“值得再次强调的是，那些被称作‘海盗’的世界上的大多数人其实并非海盗，他们只是无政府主义者。作为一名僧侣，我感觉自己与他们有种天然的亲近感。”`
+			choice
+				`	"怎么会这样？"`
+				`	“理所当然。”`
+					goto continue
+			`	"首先，我们俩总是穿着一身黑，"他咧嘴一笑，"更重要的是，我们都在依循各自的理念，努力构建一种替代性的社群。从历史上看，隐修制度实际上可被视为一种乌托邦式无政府主义——所谓‘唯敬上帝，不惧他人’，便是此理。"`
+			choice
+				`	"Of course."`
+				`	"这简直毫无逻辑可言。你是在跟我开玩笑吗？"`
+			label continue
+			`	他咧嘴一笑：“嗯，这话题倒是跑偏了。我真正的建议是：先弄清楚那些海盗行星上的居民想要什么，再设法满足他们。摆脱政府干预的自由，便是个不错的起点。但这意味着自由世界不得吞并他们的领土；取而代之，你可以与他们缔结某种协定：他们停止支援海盗舰队，而你则承诺永不侵犯他们的行星。”`
+			choice
+				`	"谢谢你的建议。我会看看我们能否安排类似的事情。"`
+				`	"绝无可能。我们必须使用他们能听懂的语言——压倒性的武力。"`
+					goto force
+			`	他祝你一切顺利，你随即返回港口。`
+				decline
+			label force
+			`	“这不会结束，”他说，“除非你将那些行星上的每一个人彻底消灭。但我无法左右你所做的选择。祝你好运。”他重新回到园艺工作中，而你则走回太空港。`
+				decline
+
+
+
+overwrite
+mission "FW Conservatory 1"
+	name "Take Ijs to <planet>"
+	description "将“眼睛先生”与安德森一家运送至<destination>，他将在当地协助筹建一所公立大学。"
+	source "Bourne"
+	destination "Winter"
+	passengers 3
+	blocked "You meet up with Ijs in the spaceport, but he tells you that you will need three bunks for him and some friends. Return here once you have space available."
+	to offer
+		has "FW Senate 1B: done"
+		not "fw conservatory founded"
+		not "fw bloodsea done"
+	
+	on offer
+		conversation
+			branch introduce
+				not "FW Katya 1: done"
+			
+			`你在太空港见到艾杰斯时，林恩与亨利·安德森正陪在他身边——这两位是卡佳的朋友，当初你加入自由世界之前，曾将他们从荣耀星护送回乡。艾杰斯满脸喜色，显然会谈十分顺利。“猜怎么着，船长？”他说道，“我们已为学院找到了落址！温特政府愿提供一座社区中心供我们使用。”`
+				goto continue
+			
+			label introduce
+			`当你在太空港见到伊杰斯时，他身边跟着一男一女，他向你介绍道：这两位是琳恩与亨利·安德森——一位顶尖的行星科学家，以及一名曾效力于共和国海军情报部门、在自由世界成立后不久便叛逃的前军官。伊杰斯满脸喜色，显然会谈进行得非常顺利。“猜猜怎么着，船长？”他说道，“我们已为‘学院’找到了落脚点！温特政府已同意将一座社区中心供我们使用。”`
+			
+			label continue
+			`	“一座略显破旧的社区中心，”亨利补充道。`
+			`	伊杰斯笑了起来。“没错。总之，我们希望你能顺路载我们过去，或许还能帮我们确保一些设备的安全。”`
+			choice
+				`	"当然，我非常希望能助您将此事变为现实！"`
+					accept
+				`	"抱歉，我还有更重要的事情要处理。"`
+			`	伊杰斯显得十分沮丧。“你确定吗？”他问道，“这对自由世界而言意义重大，其重要性不亚于任何一场军事胜利。我们可以先跟着你去处理你那些‘更重要的事务’，等你方便的时候再把我们送过去就行。”`
+			choice
+				`	"好的，我来帮您。"`
+					accept
+				`	"Sorry, I'm just not interested."`
+					decline
+	
+	on visit
+		dialog `你降落在<planet>，但意识到“眼镜先生”与安德森一家仍在你的某艘护航舰上，而该舰尚未进入本星系。最好立即离港，等待它抵达。`
+	on complete
+		payment 50000
+		dialog `伊杰斯感谢你提供运输协助，并递给你一枚面值为<payment>积分的信用芯片。他说：“接下来，我们还需从塔拉泽德公司取一批设备。如果你愿意担任护航，就在太空港与我碰面吧。”`
+
+
+
+overwrite
+mission "FW Conservatory 2"
+	name "Escort to <planet>"
+	description "护送这支自由世界船队前往<destination>，以换取由塔拉泽德与辛迪加提供的行星改造设备。"
+	source "Winter"
+	destination "Wayfarer"
+	to offer
+		has "FW Conservatory 1: done"
+		not "fw bloodsea done"
+	
+	on offer
+		conversation
+			branch deferred
+				has "FW Conservatory 2: deferred"
+			`在太空港里，你很快便找到了伊杰斯；他正在监督一支船员队伍，将贸易货物装上数艘自由世界飞船。“很高兴见到你，<first>，”他说，“这三艘飞船需往返塔拉泽德，途中既不能被海盗击毁……也不能被共和国击毁。它们将从塔拉泽德运回一批 terraforming 设备——令人难以置信的是，其中一部分设备甚至由辛迪加提供！我几乎可以肯定他们已察觉我参与了此事，所以我不禁怀疑：这是否只是战后让他们眼不见心不烦的一种策略？不过，既然有帮手，我也不会抱怨。”`
+			`	“你愿意随行护送这些货船吗？”`
+			choice
+				`“没问题！”`
+					accept
+				`	“我还有另一项紧急任务在身。能否稍后再来完成此事？”`
+			`	“当然，”他说道，“但我们等待的时间越长， Conservatory（学院）正式运行的时间也就越晚，所以请尽快回来。”`
+				defer
+			
+			label deferred
+			`看来伊杰斯仍需护送货船，将 Conservatory（植物保育馆）所需设备从<planet>运往<origin>。你是否愿意提供协助？`
+			choice
+				`	(Yes.)`
+				`	（不，我还有事要忙。）`
+					defer
+			
+			`	你联系了伊杰斯，告诉他你已准备好护送这些飞船。他向你展示了三艘阿戈西级货船组成的货运编队，并祝你旅途顺利。`
+				accept
+	
+	on defer
+		set "FW Conservatory 2: deferred"
+	
+	npc accompany save
+		government "Merchant"
+		personality escort timid
+		ship "Argosy" "F.S. Daybreak"
+		ship "Argosy" "F.S. Monsoon"
+		ship "Argosy" "F.S. Summer"
+	npc
+		government "Pirate"
+		personality plunders
+		system Tarazed
+		fleet "Small Southern Pirates"
+		fleet "Large Southern Pirates"
+	
+	on visit
+		dialog "You have reached <planet>, but you left part of your convoy behind! Better depart and wait for them to arrive in this star system."
+	on complete
+		dialog `你的三艘护航飞船安全降落在塔拉泽德星。货物迅速卸下，并与生态改造设备完成交换——这正是植物园所需之物。`
+
+
+
+overwrite
+mission "FW Conservatory 2B"
+	landing
+	name "Escort to <planet>"
+	description "护送这支自由世界舰队——装载着行星改造设备——返回<destination>。"
+	source "Wayfarer"
+	destination "Winter"
+	to offer
+		has "FW Conservatory 2: done"
+		not "fw bloodsea done"
+	
+	npc accompany save
+		government "Merchant"
+		personality escort timid
+		ship "Argosy" "F.S. Daybreak"
+		ship "Argosy" "F.S. Monsoon"
+		ship "Argosy" "F.S. Summer"
+	npc
+		government "Pirate"
+		personality plunders
+		system "Yed Prior"
+		fleet "Small Southern Pirates" 2
+		fleet "Large Southern Pirates" 2
+	npc
+		government "Pirate"
+		personality plunders
+		system "Pherkad"
+		fleet "Small Southern Pirates" 2
+		fleet "Large Southern Pirates" 2
+	
+	on visit
+		dialog "You have reached <planet>, but you left part of your convoy behind! Better depart and wait for them to arrive in this star system."
+	on complete
+		payment 300000
+		event "fw conservatory founded" 30
+		log "Helped to transport some items for building a public university and terraforming research center on Winter. Ijs Springborn will be one of the professors. Surprisingly, the Syndicate helped supply some of the equipment for the Conservatory."
+		conversation
+			`伊杰斯在你的船队着陆时前来迎接，并在货物卸载时逐一核对清单上的每一项。琳恩与他同行，正在检查各类机器，确保它们全部运转正常。“希望你们一路上没遇到什么麻烦。”伊杰斯一边说着，一边将<payment>积分的酬金交到你手中。`
+			choice
+				`	“不，一个也没有。”`
+				`	"几个海盗而已，没什么我应付不了的。"`
+				`	"实际上，我们能活着回来已经很幸运了。"`
+					goto lucky
+			`	"很高兴听到这个消息，"他说道。`
+				goto next
+			label lucky
+			`	“那可太糟糕了，”他说，“这场战争一定让尘带比往常更加动荡不安了。希望我们很快就能采取措施解决这个问题。”`
+			label next
+			`	“还有其他需要我做的吗？”你问道。`
+			`	“目前还没有，”他说道，“等我们有进展时，会马上给你发消息。感谢你的帮助；另外，如果你听到任何关于卡佳娅的新消息，请务必告诉我。”`
+
+
+
+overwrite
+mission "FW Deep Memorial"
+	landing
+	source "Deep"
+	to offer
+		has "event: memorial on Deep"
+		not "event: navy occupying the south"
+	on offer
+		conversation
+			`当你下船时，耳边传来<planet>太空港边缘传来的警报声与重型机械的轰鸣。你很快便找到了噪音的源头：数台大型工程机械正在一处悬崖边缘开辟一片宽阔空地。空地中央矗立着九面刻满文字的高墙，尚预留了十四面墙体的位置。其中最大的一面墙上赫然镌刻着‘自由世界战争纪念碑’。此刻，已有亲友纷纷前来，在这座不断扩增的英烈纪念墙前肃立致哀。`
+			branch "brower death" end
+				has "FW Pirates: Attack 2: done"
+				has "Care Package to South 1: done"
+			label "brower death"
+			`	当你检查墙壁时，你认出了其中一个名字：`
+			``
+			`		军士长艾琳·布朗尔`
+			`			在格林洛克袭击事件中阵亡`
+			``
+			label end
+			`	你返回主太空港时，施工的声响依然不绝于耳。`
+				decline
+
+
+
+
+overwrite
+mission "FW Flamethrower 1"
+	landing
+	name "Weapon Testing"
+	description "得空时，请前往<destination>向巴米·爱德华报到，他又有新武器希望你协助测试。"
+	source
+		near "Kraz" 1 100
+	destination "Rust"
+	to offer
+		has "plasma turret available: offered"
+		random < 15
+	
+	on offer
+		conversation
+			`你刚一降落，便很快收到一条消息。发信人是克拉斯赛博尼克斯公司的武器工程师——疯子爱德华。他写道：“船长，又见面啦！我正在研发一款新型武器，可不知为何，其他人都不愿帮忙测试。如果你有兴趣亲手体验一下这尖端新技术，欢迎随时来锈带，到我们的工厂坐坐。”`
+				accept
+
+
+
+overwrite
+mission "FW Flamethrower 2"
+	landing
+	name "Weapon Testing"
+	description "A test ship with new weaponry is in orbit around <planet>. Fight and disable it (but do not board or destroy it!) and then land to give Barmy Edward feedback on its performance."
+	source "Rust"
+	to offer
+		has "FW Flamethrower 1: done"
+	
+	on offer
+		conversation
+			`你最近收到了疯子爱德华发来的一条消息，邀请你前往克拉斯赛博尼克斯公司设施，协助测试一款新型武器。你是否现在就去拜访他们？`
+			choice
+				`	(Yes.)`
+				`	(No.)`
+					defer
+			scene "scene/loc5"
+			`	你向接待员报上姓名，她随即指引你前往武器组进行设计与原型制作的机库。疯子爱德华热情地与你握手，说道：“事情是这样的：我们研制出了一款新型武器，有点与众不同。我们尤其希望它能在对抗海盗时大显身手。你有兴趣帮我们测试一下吗？”`
+			`	"Of course," you say.`
+			`	“太好了！”他说道，“具体细节我暂不透露，因为我想让你充分感受这份惊喜。不过，轨道上已有一艘名为‘杜姆巴特号’的飞船，装配了几件这种新型武器。你的任务是与它交战、将其击毁，然后告诉我们你对这些武器的实际感受。”`
+			`	他用手指着你的脸，说道：“听着，我们只要求你让‘杜姆巴特’号瘫痪，而不是摧毁它。这艘船是我们从废料场买来的，几乎连太空航行都勉强，但无论如何，我仍希望今后能继续用它做测试。明白了吗？”`
+			choice
+				`	“好的，我保证既不摧毁它，也不偷走它。”`
+				`	“抱歉，这听起来风险太大了。我宁愿不参与这类测试。”`
+					decline
+			`	"Great," he says, rubbing his hands together with a gleeful expression on his face. He's clearly looking forward to hearing what you think of his latest invention.`
+				accept
+	
+	npc disable save
+		personality disables heroic staying
+		government "Test Dummy"
+		ship "Doombat" "Doombat"
+	
+	on visit
+		dialog `You've landed on <planet>, but you have not disabled the <npc> yet. Disable it before returning.`
+	on complete
+		event "flamethrower available" 30
+		log "Assisted Barmy Edward with another weapon test: this time, a flamethrower weapon that works by overheating and disabling its target rather than dealing lots of damage to it. It may or may not be useful in actual combat."
+		conversation
+			scene "outfit/flamethrower"
+			`你前往机库与疯癫爱德华会合，发现他正摆弄着一门你从未见过的大型武器。这想必就是刚才在轨道上攻击你的火焰喷射器。“它靠超空间燃料驱动，”他说，“那么，你觉得怎么样？”`
+			choice
+				`	“这是一种令人胆寒的武器。”`
+					goto terrifying
+				`	“看起来挺唬人，但实际造成的伤害并不大。”`
+					goto damage
+				`	“你的火焰喷射器似乎效果不太理想。”`
+					goto bad
+			label terrifying
+			`	“难道不是吗？”他说道，“当然，它主要用来对付小型飞船，或者那些热负荷已逼近临界阈值的飞船。而且，你必须几乎贴到目标身上，才能发挥全部效果。不过，在某些战术情境下，无需先击破护盾就能暂时瘫痪敌舰，这确实相当有用。”`
+			`	"When will it be available for sale?" you ask.`
+				goto available
+			label damage
+			`	“不，造成伤害并非它的设计目的，”他解释道，“它的核心思路是将目标加热至触发紧急热力关机的程度——本质上，是一种即使面对开启全护盾的飞船也能实现暂时瘫痪的手段。当然，大型飞船热容极高，温度不易明显上升，所以我推测它对小型目标最为有效。而要达成最佳加热效果，你必须靠得极近，若对手是海军那种大型战舰，这可绝非易事。”`
+			`	“这倒是个有趣的想法，”你说，“它们现在有售吗？”`
+				goto available
+			label bad
+			`	“哦。”他显得有些沮丧。“嗯，如果你驾驶的是一艘更小的飞船，想法或许会不一样；或者你的飞船冷却系统不够完善；又或者‘杜姆巴特’离你太远，没能让你充分体验它的全部威力。我原本的设想，是用它来对付那些非法改装、发热量高于常规的‘改良型爆能炮’海盗飞船。”`
+			`	“这么说倒也有道理，”你说，“不过我可不想意外耗尽跳跃燃料。你打算把这些装备投入市场销售吗？”`
+				goto available
+			label available
+			`	“嗯，大概一个月后，我就能推出首批可供销售的型号了，”他说，“我很期待看看你或其他人会如何使用它们。总之，感谢你的帮助。”你与他道别，随后返回自己的飞船。`
+
+ship "Fury" "Doombat"
+	add attributes
+		"self destruct" 1
+	outfits
+		"Flamethrower" 4
+		"nGVF-BB Fuel Cell"
+		"Supercapacitor"
+		"D14-RN Shield Generator"
+		"Ramscoop"
+		"X2700 Ion Thruster"
+		"X2200 Ion Steering"
+		"Hyperdrive"
+
+
+
+overwrite
+mission "FW Wolf Pack 1"
+	minor
+	name "Ramscoop Technology"
+	description "前往深空区域的<planet>，自由世界支持者将向你透露一种新型冲压式采集引擎技术的详细信息。（途中你可能需要向沿途行星行贿，以获得补给许可。）"
+	source
+		government "Free Worlds"
+	destination "Memory"
+	clearance
+	to offer
+		has "event: catalytic ramscoop available"
+		random < 30
+		not "event: fw armistice"
+	to fail
+		has "event: fw armistice"
+	
+	on offer
+		conversation
+			`当你在太空港酒吧稍作停留时，一名你从未见过的民兵军官向你招手，示意你过去。“<last>船长！”他说道，“若您允许我请您喝一杯，我将深感荣幸。”`
+			choice
+				`	“谢谢！”`
+					goto drink
+				`	“抱歉，我不喝酒。”`
+			`	“那你怎么会来酒吧？”他问道，“算了，别回答。我猜你是来找值钱活干的——如果真是这样，我确实非常需要你的帮助。”`
+				goto mission
+			label drink
+			`	他为你买了一杯酒，你坐到了他的桌旁。寒暄了几分钟后，他说：“顺便提一句，我正需要你帮忙执行一项自由世界的任务。”`
+			label mission
+			`	“好啊，”你说，“详细说说。”`
+			`	他说：“你大概知道，我们在共和国境内许多地方都设有自由世界同情者网络。最近，其中一名联络人向我们透露：深空地区正出售一项新技术，对我们极具价值。但他们无法将它运送到我们这里，所以我需要一位能前往深空取回该技术的人。”`
+			choice
+				`	“你的联络人还能沿途为我提供可供补给的行星吗？”`
+				`	“深空区离我太远了，我的燃料箱根本撑不到那里。”`
+			`	“你得向一些尘带世界行贿，才能获准降落补给，才可能抵达那里，”他说，“或者，你也可以等下一次停火期到来。但最棒的是：如果这次行动成功，返程时你就完全不用行贿了——因为我们追寻的新技术正是一种超高效率的冲压式集气引擎。你怎么看？”`
+			choice
+				`	“好吧，我愿意试试。”`
+					accept
+				`	“抱歉，这听起来风险太大了，我不能接受。”`
+					decline
+
+
+
+overwrite
+mission "FW Wolf Pack 1B"
+	landing
+	name "Ramscoop Technology"
+	description "携新型高效冲压引擎的设计图纸返回自由空间，并将其交付给<destination>的德尔塔V公司。"
+	destination "Solace"
+	cargo "Ramscoop Data Card" 0
+	to offer
+		has "FW Wolf Pack 1: done"
+		not "event: fw armistice"
+	to fail
+		has "event: fw armistice"
+	
+	on offer
+		conversation
+			`你在夜间将飞船降落在一座私人机库中，你推测这座机库应属于<origin>上的某个权贵家族。你的联络人脸上戴着一副黑色面具。在你看来这似乎毫无必要，但他或许只是格外享受参与非法活动所带来的刺激感。他递给你一张数据卡，说道：“这张卡内含建造您专属催化式冲压引擎所需的全部资料。另外，在您离开前，还可前往我们的私人装备店，自行选购一台。”`
+			choice
+				`	"Thank you."`
+					goto leave
+				`	“请问您是谁？又为何同情我们？”`
+			`	“您可以称呼我……法尔科特工。至于我的真实身份，您自然能理解——我无法透露。”`
+			`	"Of course," you say.`
+			label leave
+			`	“愿你对抗那些邪恶财阀的斗争一切顺利！”他说道，“愿我们有生之年，终能见证人人安居乐业、自由自在的那一天。再见了，勇敢的起义者。”这番话过于戏剧化，听起来像是他早已反复排练多时。你以自认为恰到好处的优雅敬礼作为回应，他随即离去。`
+				accept
+	
+	on complete
+		payment 250000
+		event "fw gets catalytic ramscoop" 24
+		log "Helped the Free Worlds gain access to new ramscoop technology that has been developed in the Deep. This should make it significantly easier to travel long distances through unfriendly systems."
+		dialog `你将载有催化式冲压引擎详细资料的数据卡，交给了你在德尔塔V公司接洽的联络人。“太棒了！”她说道，“我们已尝试复刻他们的成果数月之久，而这份资料将使工作轻松许多。”她递给你一枚价值<payment>积分的信用芯片，并补充道：“待我们启动新型冲压引擎的大规模生产后，会立即与你联系。希望这些新引擎能在即将到来的冲突中派上用场。”`
+
+
+
+overwrite
+mission "FW Wolf Pack 2"
+	landing
+	name `“狼群”招募行动`
+	description `一个自称“自由世界狼群”的组织请求你前往<planet>，以协助他们对抗共和国。`
+	source
+		government "Free Worlds"
+	destination "Solace"
+	to offer
+		has "FW Wolf Pack 1B: done"
+		has "event: fw gets catalytic ramscoop"
+		not "event: fw armistice"
+	to fail
+		has "event: fw armistice"
+	
+	on offer
+		conversation
+			`你刚在<origin>着陆不久，便收到一条匿名消息，内容如下：`
+			``
+			`Dear Captain <last>,`
+			`	多亏你的援助，德尔塔V号的工程师已成功复制了深空公司（Deep Sky）最新研发的冲压式集气引擎（ramscoop）技术。该引擎是我们更大战略中的一环——旨在扭转当前战局，助自由世界占据优势，并加速终结这场战争。如你有意了解更多详情，请前往<planet>，我们的代表将尽快与你联系。`
+			`	Sincerely,`
+			`		自由世界狼群`
+			``
+			`你此前从未听说过这个组织，但你知道“狼群”是海盗圈内的黑话，指为共同袭击某个单个海盗团伙无力单独应对的目标而临时结成的联盟。`
+				accept
+
+
+
+overwrite
+mission "FW Wolf Pack 2A"
+	landing
+	name "Attack Food Convoy"
+	description "在<waypoints>星系中摧毁三艘运载食物的共和国货船，然后返回<planet>领取报酬。"
+	source "Solace"
+	waypoint "Sarin"
+	to offer
+		has "FW Wolf Pack 2: done"
+		not "event: fw armistice"
+	to fail
+		has "event: fw armistice"
+	
+	on offer
+		conversation
+			`你刚一着陆，两名身着民兵制服的男子便走近你的飞船，声称自己代表“狼群”。他们自称雷克斯和菲多——你几乎可以肯定，这绝不是他们的真名。`
+			`	进入飞船内一间私密舱室后，较年轻的雷克斯开口说道：“借助冲压式聚变引擎技术，我们的飞船将能深入‘尘带’腹地。那么船长，您觉得共和国为何如此执意死守尘带，甚至不惜发动血腥战争？显然，仅靠税收收入根本不足以支撑这场消耗。”`
+			choice
+				`	“或许只是出于‘不战而让领土’有违原则罢了。”`
+				`	“又或许，他们真正觊觎的是尘带所产出的资源？”`
+					goto resources
+				`	“或许是为了在我们的领土与他们真正重视的世界（比如地球和天堂星系）之间建立一道缓冲区？”`
+			`	“这可能是一部分原因，”雷克斯说道，“但还有更深层的原因。”`
+				goto map
+			label resources
+			`	“完全正确，”雷克斯说道，“而其中某一种资源，对他们而言比其余所有资源加起来都更重要。”`
+			label map
+			`	名叫菲多的男子——一位留着浓密胡须的长者——将一张地图铺在桌上。你认出这是一张人类疆域内各地粮食价格分布图。“粮食，”雷克斯说道，“尘带是银河系的粮仓。而共和国境内则遍布人口稠密、过度拥挤的世界，它们根本无法自给自足。如果我们切断粮食供应，共和国将被迫向我们求和。”`
+			`	菲多说道：“我们提议集中力量摧毁运粮船队——那些向共和国最富裕、人口最密集的世界输送粮食的货船编队。当他们的公民发现自己连基本物资都严重短缺时，便会要求政府结束这场战争。”`
+			choice
+				`	“我很乐意加入你们。这听起来确实比参议院和议会目前支持的政策要快得多。”`
+					goto join
+				`	“你们想通过封锁让共和国屈服？这难道不会让本就太过血腥的战争再添更多暴行吗？”`
+			`	“短期内或许如此，”雷克斯说道，“但想想看，若能迫使他们迅速结束这场战争，而非任其延续数年，将有多少生命得以保全——多少惨烈的战役得以避免。”`
+			choice
+				`	“我并不认同你的说法。如果我们用如此可耻的手段来建立新社会，那么我们所建成的社会，也将与旧社会一样腐败。”`
+				`	“好吧，你说服我了。你希望我做什么？”`
+					goto join
+			`	“好吧。”雷克斯说道，“抱歉浪费了你的时间。”他们随即离开。`
+				decline
+			label join
+			`	“首先，如果你还没有的话，你应该在此处购买一台冲压式集气器。”雷克斯说道，“接着，你的首个目标是即将从萨林星系‘大天空’空间站出发的一支由三艘货船组成的运输队。这支运输队可能配有护航舰，但你只需摧毁货船本身即可。”`
+				accept
+	
+	npc kill
+		government "Republic"
+		system "Sarin"
+		personality timid staying target
+		"cargo settings"
+			commodities "Food"
+		ship "Freighter" "Horn of Plenty"
+		ship "Freighter" "Autumn Twilight"
+		ship "Freighter" "Bounty Harvest"
+		dialog "You have destroyed all the target freighters. Time to report back to the Wolf Pack on Solace."
+	npc
+		government "Republic"
+		system "Sarin"
+		personality heroic staying
+		ship "Gunboat (Mark II)" "R.N.S. Atherstone"
+		ship "Gunboat (Mark II)" "R.N.S. Tyndale"
+	
+	on visit
+		dialog `你已降落在<planet>，但那些货船尚未被消灭。请前往萨林星系搜寻并摧毁它们，之后再返回。`
+	on complete
+		karma --
+		event "wolf pack 3 ready" 10
+		payment 200000
+		log "Destroyed a convoy of Republic freighters that was carrying food from the Dirt Belt. The Paradise Worlds cannot grow all the food that they need to feed their populations, so cutting off the flow of supplies from the Dirt Belt will put pressure on them to make peace with the Free Worlds."
+		dialog `此前与你交谈过的‘狼群’成员之一雷克斯在太空港迎接你，并交给你一枚面值为<payment>的积分芯片。“干得漂亮。”他说，“等我们选定下一个目标后，会再联系你。”`
+
+
+
+event "wolf pack 3 ready"
+
+event "wolf pack gacrux start"
+	system "Gacrux"
+		fleet "Small Southern Merchants" 2000
+		fleet "Large Southern Merchants" 5000
+		fleet "Small Southern Pirates" 2000
+		fleet "Large Southern Pirates" 4000
+		fleet "Small Republic" 8000
+
+event "wolf pack gacrux end"
+	system "Gacrux"
+		fleet "Small Southern Merchants" 2000
+		fleet "Large Southern Merchants" 5000
+		fleet "Small Southern Pirates" 2000
+		fleet "Large Southern Pirates" 4000
+		fleet "Small Republic" 2000
+		fleet "Large Republic" 3000
+		fleet "Navy Surveillance" 1600
+
+
+
+overwrite
+mission "FW Wolf Pack 3"
+	landing
+	name "Attack Food Convoy"
+	description "在Gacrux星系中摧毁两艘运载食物的共和国大型货船，然后返回<planet>领取报酬。"
+	source
+		government "Free Worlds"
+	destination "Solace"
+	waypoint "Gacrux"
+	to offer
+		has "FW Wolf Pack 2A: done"
+		has "event: wolf pack 3 ready"
+		not "event: fw armistice"
+	to fail
+		has "event: fw armistice"
+	
+	on offer
+		dialog
+			`你收到‘狼群’发来的另一条消息：“那些货船处理得非常出色，船长！我们又为你物色了一个新目标——一对大型货船，你应当能在加克鲁斯星系将其拦截。该星系无人居住，因此海军干扰极少。和之前一样，你只需摧毁货船，无需攻击途中遭遇的其他飞船。”`
+			`	你完成的每一项任务都会加剧共和国与自由世界之间的敌意。但另一方面，他们或许说得没错——这确实是结束这场战争最快的方式。`
+	
+	on accept
+		event "wolf pack gacrux start"
+	on fail
+		event "wolf pack gacrux end"
+
+	npc kill
+		government "Republic"
+		system "Gacrux"
+		personality timid staying target
+		"cargo settings"
+			commodities "Food"
+		ship "Bulk Freighter" "Dew of the Morning"
+		ship "Bulk Freighter" "Heaven's Blessing"
+		dialog "The food convoy has been destroyed. You can now return to Solace."
+	npc
+		government "Republic"
+		system "Gacrux"
+		personality heroic staying
+		ship "Protector (Laser)" "R.N.S. Bulwark"
+		ship "Protector" "R.N.S. Citadel"
+		ship "Protector" "R.N.S. Rampart"
+	
+	on visit
+		dialog `你已降落在<planet>，但货船尚未被清除。请前往Gacrux星系搜寻并摧毁它们，再返回。`
+	on complete
+		karma --
+		event "wolf pack gacrux end"
+		event "wolf pack 4 ready" 20
+		payment 300000
+		log "Destroyed an even larger Republic food convoy. They are probably beginning to feel the pressure now, because they have clearly started to divert warships from the front to defend these convoys."
+		dialog `狼群组织的雷克斯再次于你的飞船着陆后不久与你接洽。这次他付给你<payment>。“希望他们没给你添什么麻烦，”他说，“等有下一个打击目标时，我们会再联系你。”`
+
+
+
+event "wolf pack 4 ready"
+
+event "wolf pack mizar start"
+	system "Mizar"
+		fleet "Small Southern Merchants" 1400
+		fleet "Large Southern Merchants" 4500
+		fleet "Small Republic" 5000
+		fleet "Small Southern Pirates" 9000
+
+event "wolf pack mizar end"
+	system "Mizar"
+		fleet "Small Southern Merchants" 1400
+		fleet "Large Southern Merchants" 4500
+		fleet "Small Republic" 1000
+		fleet "Large Republic" 1400
+		fleet "Small Southern Pirates" 9000
+		fleet "Navy Surveillance" 2000
+
+
+
+overwrite
+mission "FW Wolf Pack 4"
+	landing
+	name "Attack Food Convoy"
+	description "在<waypoints>星系摧毁一艘运送粮食的共和国辅助货运飞船，然后返回<planet>行星领取报酬。"
+	source
+		government "Free Worlds"
+	destination "Solace"
+	waypoint "Mizar"
+	to offer
+		has "FW Wolf Pack 3: done"
+		has "event: wolf pack 4 ready"
+		not "event: fw armistice"
+	to fail
+		has "event: fw armistice"
+	
+	on offer
+		dialog `你收到狼群组织的另一条消息：“你好，船长。无论如何，我们至少成功迫使海军部分舰船从前线调离，转而担任护航任务！如果你愿意继续协助我们，下一个目标将更具挑战性：一艘辅助型货船，很可能配有海军护航舰。该货船正途经<waypoints>星系。有兴趣吗？”`
+	
+	on accept
+		event "wolf pack mizar start"
+	on fail
+		event "wolf pack mizar end"
+
+	npc kill
+		government "Republic"
+		system "Mizar"
+		personality timid staying target
+		"cargo settings"
+			commodities "Food"
+		ship "Auxiliary (Cargo Mark II)" "R.N.S. Golden Fleece"
+		dialog "You have eliminated the Auxiliary that was carrying food to the Republic. Time to report back to the Wolf Pack and receive your reward."
+	npc
+		government "Republic"
+		system "Mizar"
+		personality heroic staying
+		fleet
+			names "republic capital"
+			fighters
+				names "republic fighter"
+			cargo 0
+			variant
+				"Carrier"
+				"Lance" 8
+				"Combat Drone" 6
+	
+	on visit
+		dialog `你已降落在<planet>，但货船尚未被清除。请前往Mizar星系搜寻并摧毁它，再返回。`
+	on complete
+		karma --
+		event "wolf pack mizar end"
+		log "Destroyed a third food convoy. These attacks seem to have succeeded in forcing the Navy to assign capital ships to defend their supply convoys."
+		payment 400000
+		dialog
+			`雷克斯与你汇合，并感谢你持续为自由世界效力。“如果我们有十几位像你一样勇敢的船长，”他说，“战争明天就能结束。”他递给你<payment>，随后转身离去。你至今仍不知道他的真名，也不清楚狼群组织的领导者是谁，但你很高兴能为战争努力额外出一份力。`
+
+
+
+overwrite
+mission "FW Stack Core 1"
+	landing
+	name "Escort convoy from Rand"
+	description "弗蕾亚请你若途经兰德星系，务必顺道停留，协助护送一支运输船队——船上载有建造某种令人振奋的新装备所需的宝贵物资。"
+	destination "Rand"
+	to offer
+		has "FW Reconciliation Break: offered"
+	to fail
+		has "event: pug invasion"
+	
+	on offer
+		conversation
+			`你收到弗蕾亚发来的一条简短加密信息：“你好啊，船长！如果你近期恰好途经<planet>，能否顺道过去协助护送一支货运船队？我们正在研发一些令人振奋的新装备，而这支船队正运送完成该项目所需的关键物资。”`
+				accept
+
+
+
+overwrite
+mission "FWC Stack Core 1"
+	landing
+	name "Escort convoy from Rand"
+	description "Freya asked you to stop by Rand if you are able, to help escort a freighter convoy carrying vital supplies for building some exciting new equipment."
+	destination "Rand"
+	to offer
+		has "FW Liberate Delta Sagittarii: done"
+	to fail
+		has "event: fwc pug invasion"
+	
+	on complete
+		set "FW Stack Core 1: done"
+
+
+
+overwrite
+mission "FW Stack Core 1B"
+	landing
+	name "Escort convoy from Rand"
+	description "弗蕾亚委托你护送这支运输船队，将建造某种令人振奋的新装备所需的宝贵物资运抵<destination>。"
+	source "Rand"
+	destination "Solace"
+	to offer
+		has "FW Stack Core 1: done"
+	
+	on offer
+		conversation
+			`你依照弗蕾亚的指示降落在<origin>，并向太空港军需官表明自己受命护送一支船队前往<planet>。“啊，没错，”他说，“他们最后一批货物昨天才刚准备就绪。”他带你来到一片停机坪区，三艘重型货船正停泊在那里。“最近海盗不太活跃，”他补充道，“但这批货物至关重要，所以他们还是坚持要安排护航。”他还未等你提问这批货船所载何物，便已离开。`
+				accept
+	
+	npc accompany save
+		government "Free Worlds"
+		personality escort disables
+		fleet
+			names "civilian"
+			cargo 3
+			variant
+				"Bulk Freighter" 3
+	npc
+		government "Republic"
+		system "Menkent"
+		personality surveillance
+		fleet
+			names "republic capital"
+			cargo 0
+			variant
+				"Gunboat" 2
+	
+	on visit
+		dialog "You have reached <planet>, but you left part of your convoy behind! Better depart and wait for them to arrive in this star system."
+	on complete
+		event "stack core for sale" 25
+		payment 200000
+		dialog `你已成功将船队护送至目的地。工人们开始卸下一批异常沉重的货箱，其中一艘货船的船长递给你<payment>，并感谢你提供的保护。`
+
+
+
+overwrite
+mission "FW Stack Core 1C"
+	minor
+	landing
+	source
+		near "Pherkad" 100
+	to offer
+		not "main plot completed"
+		has "event: stack core for sale"
+	
+	on offer
+		log "The Free Worlds now has a new reactor core of their own design available for sale, specifically for increasing the Dreadnought's energy performance."
+		conversation
+			`你收到弗蕾亚发来的一条消息：“再次你好，船长！感谢你协助将物资护送至索拉斯。自从无畏舰问世以来，大家一直在讨论我们急需一种能满足其能源需求的发电机——而这正是德尔塔V公司正在攻关的方向。因此，下次你抵达索拉斯或我们其他主要制造中心时，不妨留意一下相关进展。对于货物内容此前一直保持神秘，我们深表歉意；但坦白说，我们可不想大张旗鼓地宣布：一批巨量裂变材料正运往自由世界领空。”`
+				decline
+
+overwrite
+mission "FW Greenrock Lost Announcement"
+	invisible
+	landing
+	source
+		government "Free Worlds"
+	to offer
+		has "event: fw abandoned Greenrock"
+	on offer
+		conversation
+			`你在<planet>太空港等待飞船补给燃料时，听到一个看不见的扬声器传来广播：“注意！自由世界已撤出格林罗克。请知悉：此后前往肖拉星系的任何航行均可能遭遇海盗袭击。”广播突然中断，数分钟后又重复播放。`
+			`	一位驻足旁听广播的民兵队长摇摇头，随后认出了你。“唉，这可真是糟透了，不是吗？”`
+			choice
+				`	“是啊，我可是拿自己的性命和职位冒险才拿下格林罗克的。”`
+					goto risked
+					to display
+						has "FW Pirates: Attack 3: done"
+				`	“这事迟早都会发生的。”`
+				`	“我们压根就不该在那儿浪费资源。”`
+			`	“我猜是吧，但事情本该有不同的发展。自由世界——以及更早前的《公约》——成立之初，就是为了肃清南方星域的海盗，所以我当时觉得这么做是对的。”`
+			choice
+				`	“嗯，对自由世界主权最明显的威胁，其实是共和国海军。袭击格林罗克非但无助于维护主权，反而适得其反。”`
+					goto challenge
+				`	“不过托梅克的计划并未奏效。当格林罗克沦陷时，其他海盗行星并未如他所愿投降。”`
+			`	“这倒是实话。但我们同样不能忘记自己的初心。海盗是南方边缘带一道触目惊心的血痕；而我们每在伯恩与地球之间的这场琐碎战争中损失一艘飞船，就意味着少了一艘能守护索莱斯或长跃星上家人免遭海盗暴行侵害的飞船。”`
+			`	“可如今看来，未来相当长一段时间内我们都将疲于应付——海盗们肯定要趁此良机大肆扩张。最好尽快结束这场战争。”`
+				goto end
+
+			label risked
+			`	"那天我也在沙乌拉，不过指挥飞船的并不是我。当时我觉得我的老船长做了正确的决定，但参议院一插手我们的事务，他就为此背了黑锅。就连伯恩都承认，无视我们最能干的作战指挥官的命令是个严重误判，可他们却全然无视我们在沙乌拉付出的所有牺牲，把格林罗克重新丢给了群狼啃噬。"`
+			choice
+				`	"或许参议院这次做出了明智的决定。毕竟托梅克的计划依赖于其余海盗世界在格林罗克陷落后主动投降，而事实并非如此。"`
+				`	"如今我们已无能为力。当前真正的挑战来自海军，而非海盗。"`
+					goto challenge
+				`	(Stay silent.)`
+					goto silent
+			`	"你这么说倒也有道理。在当时的情况下，进攻格林罗克似乎真能为我们卸下不少重担……但话说回来，在魏事件之后战事一度陷入沉寂，参议院本该更妥善地处理格林罗克问题。"`
+				goto end
+
+			label challenge
+			`	"这或许没错，但我仍认为那是一次错失良机。自那以后，我们本有充足时间稳定沙乌拉局势，可参议院却毫无作为——仿佛就是要证明格林罗克占领纯属浪费资源。"`
+
+			label silent
+			`	民兵队长继续说道：“真是可惜啊，我们本已直捣黄龙，将海盗逼入绝境。但如今看来，未来很长一段时间内我们都将忙得不可开交，而海盗们肯定会充分利用这一局面。”`
+			label end
+			`	话音至此，你们二人各自返回岗位，继续履行职责。`
+				decline

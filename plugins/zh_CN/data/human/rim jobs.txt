@@ -1,0 +1,288 @@
+# Copyright (c) 2017 by Michael Zahniser
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+overwrite
+mission "Southbound Shipment [0]"
+	name "Shipment to <planet>"
+	job
+	repeat
+	description "将 <cargo> 运送至 <destination>——边缘地带最大船坞“南向船坞”的所在地。报酬为 <payment>。"
+	cargo "weapons" 5 2 .1
+	to offer
+		random < 10
+		has "landing access: Zug"
+	source
+		not government "Pirate"
+		near "Zubeneschamali" 2 10
+		attributes "rim" "south"
+	destination "Zug"
+	npc
+		government "Pirate"
+		personality heroic harvests plunders
+		fleet "Small Southern Pirates"
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		payment 0 160
+		dialog phrase "generic cargo delivery payment"
+
+overwrite
+mission "Southbound Shipment [1]"
+	name "Shipment to <planet>"
+	job
+	repeat
+	description "Deliver <cargo> to <destination>, the home of Southbound Shipyards, the largest ship foundry in the Rim. Payment is <payment>."
+	cargo "Ship Alloys" 5 2 .1
+	to offer
+		random < 10
+		has "landing access: Zug"
+	source
+		not government "Pirate"
+		near "Zubeneschamali" 2 10
+		attributes "rim" "south"
+	destination "Zug"
+	npc
+		government "Pirate"
+		personality heroic harvests plunders
+		fleet "Small Southern Pirates"
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		payment 0 160
+		dialog phrase "generic cargo delivery payment"
+
+
+overwrite
+mission "Kraz Shipment [0]"
+	name "Shipment to <planet>"
+	job
+	repeat
+	description "将 <cargo> 运送至 <destination>——克拉兹赛博技术公司所在地。该公司是边疆地区主要的武器与系统制造商。报酬为 <payment>。"
+	cargo "weapons parts" 5 2 .1
+	to offer
+		random < 10
+		has "landing access: Rust"
+	source
+		not government "Pirate"
+		near "Kraz" 2 10
+		attributes "rim" "south"
+	destination "Rust"
+	npc
+		government "Pirate"
+		personality heroic harvests plunders
+		fleet "Small Southern Pirates"
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		payment 0 160
+		dialog phrase "generic cargo delivery payment"
+
+overwrite
+mission "Kraz Shipment [1]"
+	name "Shipment to <planet>"
+	job
+	repeat
+	description "Deliver <cargo> to <destination>, the home of Kraz Cybernetics, a major weapons and systems manufacturer in the Rim. Payment is <payment>."
+	cargo Electronics 5 2 .1
+	to offer
+		random < 10
+		has "landing access: Rust"
+	source
+		not government "Pirate"
+		near "Kraz" 2 10
+		attributes "rim" "south"
+	destination "Rust"
+	npc
+		government "Pirate"
+		personality heroic harvests plunders
+		fleet "Small Southern Pirates"
+	on visit
+		dialog phrase "generic cargo on visit"
+	on complete
+		payment 0 160
+		dialog phrase "generic cargo delivery payment"
+
+
+overwrite
+mission "Han Sizer Month [0]"
+	name `韩·赛泽尔庆典`
+	job
+	repeat
+	description `为庆祝汉·赛泽月，请将<fare>运送至所有标出的星系，然后返回<destination>领取<payment>报酬。`
+	passengers 2 10 .9
+	substitutions
+		"<on Longjump>" "somewhere nearby"
+			has "flagship planet: Longjump"
+		"<on Longjump>" "on Longjump"
+			not "flagship planet: Longjump"
+	to offer
+		random < 30
+		month == 8
+	source
+		attributes "rim"
+	stopover
+		distance 2 4
+		attributes "rim"
+		not attributes "station"
+	stopover
+		distance 5 10
+		attributes "rim"
+		not attributes "station"
+	on complete
+		payment 10000 170
+		dialog `乘客们感谢你带他们环游边疆星域，并向你支付了<payment>。临别时，你听到他们议论着要在<on Longjump>举办一场派对来庆祝此次旅程。`
+
+
+overwrite
+mission "Han Sizer Month [1]"
+	name `Han Sizer celebration`
+	job
+	repeat
+	description `In celebration of Han Sizer month, bring <fare> to all the marked systems and return to <destination> for <payment>.`
+	passengers 2 10 .8
+	substitutions
+		"<on Longjump>" "near here"
+			has "flagship planet: Longjump"
+		"<on Longjump>" "on Longjump"
+			not "flagship planet: Longjump"
+	to offer
+		random < 20
+		month == 8
+	source
+		attributes "rim"
+	stopover
+		distance 2 3
+		attributes "rim"
+		not attributes "station"
+	stopover
+		distance 3 4
+		attributes "rim"
+		not attributes "station"
+	stopover
+		distance 5 10
+		attributes "rim"
+		not attributes "station"
+	on complete
+		payment 15000 170
+		dialog `你的乘客们为成功完成环“边缘星域”的旅程而兴奋不已，并如约支付了<payment>报酬。其中一人边走边已开始将旅行见闻上传至某位<on Longjump>的联系人。`
+
+
+overwrite
+mission "Han Sizer Month [2]"
+	name `Han Sizer celebration`
+	job
+	repeat
+	description `In celebration of Han Sizer month, bring <fare> to all the marked systems and return to <destination> for <payment>.`
+	passengers 2 10 .7
+	to offer
+		random < 10
+		month == 8
+	source
+		attributes "rim"
+	stopover
+		distance 2 3
+		attributes "rim"
+		not attributes "station"
+	stopover
+		distance 3 4
+		attributes "rim"
+		not attributes "station"
+	stopover
+		distance 4 5
+		attributes "rim"
+		not attributes "station"
+	stopover
+		distance 5 10
+		attributes "rim"
+		not attributes "station"
+	on complete
+		payment 20000 170
+		dialog `你的乘客感谢你带他们沿汉·赛泽尔的航迹旅行，并愉快地支付你 <payment>。你注意到其中一人离开时，手中星图正摊开在萨比克星的条目上。`
+
+
+overwrite
+mission "Han Sizer Month [3]"
+	name `Han Sizer celebration`
+	job
+	repeat
+	description `In celebration of Han Sizer month, bring <fare> to all the marked systems and return to <destination> for <payment>.`
+	passengers 25 4 .1
+	substitutions
+		"<on Longjump>" "near here"
+			has "flagship planet: Longjump"
+		"<on Longjump>" "on Longjump"
+			not "flagship planet: Longjump"
+	to offer
+		random < "passenger space" - 30
+		month == 8
+	source
+		attributes "rim"
+	stopover
+		distance 2 3
+		attributes "rim"
+		not attributes "station"
+	stopover
+		distance 3 4
+		attributes "rim"
+		not attributes "station"
+	stopover
+		distance 5 10
+		attributes "rim"
+		not attributes "station"
+	on complete
+		payment 150000 110
+		dialog `Your passengers are excited to have completed their journey around the Rim and pay you the agreed fee of <payment>. One is already uploading a travelogue to someone <on Longjump> as they start walking away.`
+
+overwrite
+mission "Delta V Hovercraft Racer Transport"
+	name "Transport racer to <planet>"
+	description "在<date>前将一名飞行员及其气垫车运送至<destination>，以参加一场赛车比赛。"
+	passengers 1
+	cargo "Delta V hovercraft" 1
+	job
+	repeat
+	deadline
+	deadline 8
+	to offer
+		random < 40
+		has "landing access: Sunracer"
+	source Solace
+	destination Sunracer
+	on visit
+		dialog phrase "generic cargo and passenger on visit"
+	on complete
+		payment
+		payment 11000
+		dialog `你将飞行员及其悬浮车送达目的地，并领取了<payment>的报酬。`
+
+overwrite
+mission "Delta V Hovercraft Large Racer Transport"
+	name "Transport team to <planet>"
+	description "将这支由<passengers>名成员组成的赛车队及其全套< cargo>运送到<destination>，以便在<date>前参加一场赛车比赛。"
+	passengers 50 100 .9
+	cargo "Delta V hovercraft" 50
+	job
+	repeat
+	deadline
+	deadline 8
+	to offer
+		random < 7
+		has "landing access: Sunracer"
+	source Solace
+	destination Sunracer
+	on visit
+		dialog phrase "generic cargo and passenger on visit"
+	on complete
+		payment
+		payment 23000
+		dialog `你将赛车队及其悬浮车送达目的地，并领取了{payment}的酬金。`

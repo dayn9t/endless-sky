@@ -1,0 +1,1129 @@
+# Copyright (c) 2024 by Daeridanii
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+
+
+ship "Aaulqra"
+	plural "Aaulqran"
+	sprite "ship/aaulqra"
+	thumbnail "thumbnail/aaulqra"
+	attributes
+		licenses
+			"High Houses"
+		category "Medium Warship"
+		"cost" 26000000
+		"shields" 10000
+		"hull" 55000
+		"required crew" 18
+		"bunks" 25
+		"mass" 650
+		"drag" 8.75
+		"heat dissipation" 0.49
+		"fuel capacity" 600
+		"cargo space" 15
+		"outfit space" 550
+		"weapon capacity" 240
+		"engine capacity" 120
+		"multimodal armor" 1
+		"hull repair rate" 2.75
+		# 0.0005 * max hull
+		"hull energy" 3.025
+		# 1.1 * hull repair rate
+		"hull heat" 3.025
+		weapon
+			"blast radius" 100
+			"shield damage" 1000
+			"hull damage" 500
+			"hit force" 1500
+	outfits
+		`"Ojet" Bimodal Coilgun` 6
+
+		`"Nnesa" Fusion Core`
+		`"Uoret" Fusion Core`
+		"Primary Power Reserve"
+
+		`"Jorv" Shield Cortex`
+
+		"Successor Cooling" 2
+		"Multimodal Armor: Regen"
+		"Kinetic Rail Rifle" 7
+
+		`"Chyyra" Inductive Thruster`
+		`"Veusa" Inductive Steering`
+		`"Chyyra" Inductive Reverser`
+		"Hyperdrive"
+
+	gun 0 -116 `"Ojet" Bimodal Coilgun`
+	gun 0 -109 `"Ojet" Bimodal Coilgun`
+	gun -14 -74 `"Ojet" Bimodal Coilgun`
+	gun 14 -74 `"Ojet" Bimodal Coilgun`
+	gun -12 -83 `"Ojet" Bimodal Coilgun`
+	gun 12 -83 `"Ojet" Bimodal Coilgun`
+	turret -17 4
+	turret 17 4
+	engine -17 50
+	engine 17 50
+	"reverse engine" -36 -20
+		zoom .8
+	"reverse engine" 36 -20
+		zoom .8
+	"steering engine" -41 55
+		zoom .5
+		angle 90
+		left
+	"steering engine" 41 55
+		zoom .5
+		angle 270
+		right
+	"steering engine" -9 -94
+		zoom .5
+		angle 90
+		right
+	"steering engine" 9 -94
+		zoom .5
+		angle 270
+		left
+	leak "leak" 50 50
+	leak "flame" 30 80
+	explode "tiny explosion" 18
+	explode "small explosion" 36
+	explode "medium explosion" 24
+	explode "large explosion" 8
+	"final explode" "final explosion medium"
+	description `奥尔奎拉号（Aaulqra）是继承者疆域内由高阶家族目前仍在生产的最古老战舰设计，其谱系可明确追溯至旧帝国早期，已有数千年历史。作为同级别舰船，它结构紧凑、航速迅捷、耐久性强，但内部空间相对有限，且不具备任何显著的货物或乘员搭载能力。驾驶此类舰船的舰长，往往是在高阶家族中崭露头角的继承者军官，他们希望通过展现对该舰的娴熟驾驭能力来赢得某一家族的认可；当然，多数人最终未能如愿，但该舰出色的适应性与广泛部署，使其成为成功者的绝佳起点。`
+
+
+ship "Aaulqra" "Aaulqra (Naive)"
+	description "这款中型战舰是继承者高屋家族最常部署的舰船设计之一。它体积紧凑、航速迅捷、同级别中耐久性出色；但受限于内部空间与燃料容量，主要执行短程巡逻任务。"
+
+
+
+ship "Ejniisde"
+	plural "Ejniisden"
+	sprite "ship/ejniisde"
+	thumbnail "thumbnail/ejniisde"
+	attributes
+		licenses
+			"Successor"
+		category "Space Liner"
+		"cost" 4100000
+		"shields" 2000
+		"hull" 9500
+		"required crew" 12
+		"bunks" 64
+		"mass" 350
+		"drag" 4.6
+		"heat dissipation" 0.67
+		"fuel capacity" 700
+		"cargo space" 50
+		"outfit space" 265
+		"weapon capacity" 85
+		"engine capacity" 100
+		weapon
+			"blast radius" 100
+			"shield damage" 1000
+			"hull damage" 500
+			"hit force" 1500
+	outfits
+		`6-"Ruuv" Betavoltaic Cell`
+		`"Ej" Shield Cortex`
+
+		"Successor Cooling"
+		"Successor Fuel Sail"
+
+		`"Veusa" Inductive Thruster`
+		`"Chyyra" Inductive Steering`
+		`"Chyyra" Inductive Reverser`
+		"Hyperdrive"
+
+	gun 0 -106
+	turret 22 10
+	turret -22 10
+	engine 25 67
+		zoom .8
+	engine -25 67
+		zoom .8
+	"steering engine" 7 -83
+		zoom .5
+		over
+		left
+		angle 270
+	"steering engine" -7 -83
+		zoom .5
+		over
+		right
+		angle 90
+	"steering engine" -6 99
+		zoom .5
+		left
+		angle 90
+	"steering engine" 6 99
+		zoom .5
+		right
+		angle 270
+	"reverse engine" 26 -22
+		zoom .8
+	"reverse engine" -26 -22
+		zoom .8
+	leak "leak" 50 50
+	leak "flame" 30 80
+	explode "tiny explosion" 18
+	explode "small explosion" 36
+	explode "medium explosion" 24
+	explode "large explosion" 8
+	"final explode" "final explosion medium"
+	description "继承者族人口相对稀少，因此对大型运输飞船需求不高。然而，全程依赖穿梭机运送乘客又缺乏足够的舒适性与安全性；故而在执行较长航程任务时，继承者族会启用此类专用运输船。该船默认未配备武器，但凭借出色的航速，足以摆脱大多数意图加害于它的敌舰。"
+
+
+
+ship "Kaskhorade"
+	plural "Kaskhoraden"
+	sprite "ship/kaskhorade"
+	thumbnail "thumbnail/kaskhorade"
+	attributes
+		licenses
+			"High Houses"
+		category "Utility"
+		"cost" 45250000
+		"shields" 7000
+		"hull" 44500
+		"required crew" 34
+		"bunks" 130
+		"mass" 990
+		"drag" 13.6
+		"heat dissipation" .5
+		"fuel capacity" 600
+		"cargo space" 140
+		"outfit space" 570
+		"weapon capacity" 280
+		"engine capacity" 110
+		"multimodal armor" 1
+		"hull repair rate" 2.225
+		"hull energy" 2.4475
+		"hull heat" 2.4475
+		weapon
+			"blast radius" 100
+			"shield damage" 1000
+			"hull damage" 500
+			"hit force" 1500
+	outfits
+		`"Ojet" Bimodal Coilgun` 2
+		`"Sjeja" Kinetic Lance` 2
+		"High-Velocity Spike" 40
+		"Bimodal Coilgun Turret"
+
+		`"Uoret" Fusion Core`
+		"Auxiliary Power Reserve"
+		`"Jaase" Shield Cortex`
+
+		"Successor Cooling"
+		"Multimodal Armor: Light"
+		"Kinetic Rail Rifle" 25
+
+		`"Veusa" Inductive Thruster`
+		`"Veusa" Inductive Steering`
+		`"Veusa" Inductive Reverser`
+		"Hyperdrive"
+
+	gun -3 -120 `"Sjeja" Kinetic Lance`
+	gun 3 -120 `"Sjeja" Kinetic Lance`
+	gun -19 -74 `"Ojet" Bimodal Coilgun`
+	gun 19 -74 `"Ojet" Bimodal Coilgun`
+	turret -31 6
+	turret 31 6
+	turret 0 -15 "Bimodal Coilgun Turret"
+	turret 0 30
+	engine -8 80
+		zoom .8
+	engine 8 80
+		zoom .8
+	"reverse engine" -40 -13
+		zoom .8
+	"reverse engine" 40 -13
+		zoom .8
+	"steering engine" -30 55
+		zoom .5
+		angle 90
+		left
+		over
+	"steering engine" 30 55
+		zoom .5
+		angle 270
+		right
+		over
+	"steering engine" -16 -90
+		zoom .5
+		angle 90
+		right
+		over
+	"steering engine" 16 -90
+		zoom .5
+		angle 270
+		left
+		over
+	leak "leak" 50 50
+	leak "flame" 30 80
+	explode "tiny explosion" 18
+	explode "small explosion" 36
+	explode "medium explosion" 24
+	explode "large explosion" 8
+	"final explode" "final explosion medium"
+	description `卡斯科拉德号作为各大高等世家舰队中的重型多用途主力舰，牺牲了部分小型同级舰的机动性，换来了更强的多功能性：它不仅是一艘性能出色的战舰，还提供了可观的空余货舱与船员铺位，因而能胜任种类繁多的任务。除担任护航舰与舰队主力战舰外，这些舰船也常被用于运送高等世家的高级成员——它们既能维持严密防护，又可配置为高速且舒适的豪华座舰。`
+
+
+
+ship "Kvelqde"
+	plural "Kvelqden"
+	sprite "ship/kvelqde"
+	thumbnail "thumbnail/kvelqde"
+	attributes
+		licenses
+			"Successor"
+		category "Transport"
+		"cost" 185000
+		"shields" 350
+		"hull" 2400
+		"required crew" 1
+		"bunks" 9
+		"mass" 110
+		"drag" 2.25
+		"heat dissipation" 0.82
+		"fuel capacity" 500
+		"cargo space" 25
+		"outfit space" 160
+		"weapon capacity" 55
+		"engine capacity" 45
+		weapon
+			"blast radius" 100
+			"shield damage" 1000
+			"hull damage" 500
+			"hit force" 1500
+	outfits
+		`1-"Uurau" Betavoltaic Cell` 2
+		`"Ej" Shield Cortex`
+
+		`"Aqra" Inductive Thruster`
+		`"Aqra" Inductive Steering`
+		`"Aqra" Inductive Reverser`
+		"Hyperdrive"
+
+	gun 0 -32
+	turret 0 0
+	engine -8 28
+	engine 8 28
+	"steering engine" 9 -20.5
+		zoom .5
+		over
+		left
+		angle 270
+	"steering engine" -9 -20.5
+		zoom .5
+		over
+		right
+		angle 90
+	"steering engine" 6.5 29
+		zoom .5
+		over
+		right
+		angle 270
+	"steering engine" -6.5 29
+		zoom .5
+		over
+		left
+		angle 90
+	"reverse engine" 12.5 -5
+		zoom .5
+		over
+	"reverse engine" -12.5 -5
+		zoom .5
+		over
+	leak "leak" 50 50
+	leak "flame" 30 80
+	explode "tiny explosion" 18
+	explode "small explosion" 36
+	explode "medium explosion" 24
+	explode "large explosion" 8
+	"final explode" "final explosion medium"
+	description "这艘微型穿梭机是继承者领空内现役最小的飞船，也是新晋继承者飞行员最早能够获得并驾驶的舰艇。尽管体积小巧，它却是性能可靠的多用途飞行器，常被用于运送乘客与货物，或执行短期科研探测任务。"
+	description "	克韦尔奎德号的设计，如同大多数继承者舰船一样，源自先驱者时代的设计原稿。尽管现代版本远不如原版先进，但在资源日益有限的情况下，历经多次迭代改进，该设计在成本效益与用户友好性方面得到了显著提升。"
+
+
+ship "Kvelqde" "Kvelqde (Naive)"
+	description "这艘微型穿梭机是继承者领空内现役最小的飞船，其功能与你所熟悉的民用人类穿梭机高度相似，主要用于在其领空内运送少量乘客及货物。尽管船体内部尚有空间可加装武器，但受限于狭小的内部容积以及民用继承者发电机较低的能量密度，这些挂点更适合用于采矿作业，而非战斗。"
+
+
+
+ship "Kvelqde-Khora"
+	plural "Kvelqden-Khora"
+	sprite "ship/kvelqde-khora"
+	thumbnail "thumbnail/kvelqde-khora"
+	attributes
+		licenses
+			"Successor"
+		category "Interceptor"
+		"cost" 240000
+		"shields" 785
+		"hull" 4625
+		"required crew" 1
+		"bunks" 6
+		"mass" 158
+		"drag" 2.95
+		"heat dissipation" 0.78
+		"fuel capacity" 500
+		"cargo space" 10
+		"outfit space" 197
+		"weapon capacity" 63
+		"engine capacity" 45
+		weapon
+			"blast radius" 100
+			"shield damage" 1000
+			"hull damage" 500
+			"hit force" 1500
+	outfits
+		"Overcharged Pulse Laser" 2
+		"Overcharged Laser Turret"
+
+		`3-"Kaska" Betavoltaic Cell`
+		"Auxiliary Power Reserve" 3
+		`"Ej" Shield Cortex`
+
+		`"Aqra" Inductive Thruster`
+		`"Aqra" Inductive Steering`
+		`"Aqra" Inductive Reverser`
+		"Hyperdrive"
+
+	gun -4 -30
+	gun 4 -30
+	turret 0 0
+	engine -8 28
+	engine 8 28
+	"steering engine" 9 -20.5
+		zoom .5
+		over
+		left
+		angle 270
+	"steering engine" -9 -20.5
+		zoom .5
+		over
+		right
+		angle 90
+	"steering engine" 6.5 29
+		zoom .5
+		over
+		right
+		angle 270
+	"steering engine" -6.5 29
+		zoom .5
+		over
+		left
+		angle 90
+	"reverse engine" 12.5 -5
+		zoom .5
+		over
+	"reverse engine" -12.5 -5
+		zoom .5
+		over
+	leak "leak" 50 50
+	leak "flame" 30 80
+	explode "tiny explosion" 18
+	explode "small explosion" 36
+	explode "medium explosion" 24
+	explode "large explosion" 8
+	"final explode" "final explosion medium"
+	description `人民议会中一位尤为勤勉的成员竭尽所能强化了这艘克维尔克德飞船：大部分外露船体加装了额外装甲，船腹下方增设了第二门炮口，护盾网格容量亦得到大幅提升。尽管尚不足以与高阶议会量产型拦截舰正面抗衡，但它已具备执行轻量级海盗行动的火力；而其显著增强的耐久性，更使其在继承者领地西南部日益衰败的空间站与敌对星球间穿行时大放异彩。`
+
+
+
+ship "Myaede"
+	plural "Myaeden"
+	sprite "ship/myaede"
+	thumbnail "thumbnail/myaede"
+	attributes
+		licenses
+			"Successor"
+		category "Light Freighter"
+		"cost" 3250000
+		"shields" 1500
+		"hull" 13000
+		"required crew" 6
+		"bunks" 20
+		"mass" 500
+		"drag" 7.1
+		"heat dissipation" 0.62
+		"fuel capacity" 500
+		"cargo space" 125
+		"outfit space" 275
+		"weapon capacity" 125
+		"engine capacity" 130
+		weapon
+			"blast radius" 100
+			"shield damage" 1000
+			"hull damage" 500
+			"hit force" 1500
+	outfits
+		"Pulse Laser Turret" 2
+
+		`3-"Kaska" Betavoltaic Cell` 2
+		`1-"Uurau" Betavoltaic Cell`
+		`"Ej" Shield Cortex`
+
+		`"Chyyra" Inductive Thruster`
+		`"Chyyra" Inductive Steering`
+		`"Aqra" Inductive Reverser`
+		"Hyperdrive"
+
+	gun -3 -60
+	gun 3 -60
+	turret -33 -11 "Pulse Laser Turret"
+	turret 33 -11 "Pulse Laser Turret"
+	engine -40 10
+	engine 40 10
+	"steering engine" 20 -50
+		zoom .5
+		over
+		left
+		angle 270
+	"steering engine" -20 -50
+		zoom .5
+		over
+		right
+		angle 90
+	"steering engine" 13 54
+		zoom .5
+		over
+		right
+		angle 270
+	"steering engine" -13 54
+		zoom .5
+		over
+		left
+		angle 90
+	"reverse engine" -40 -28
+		over
+	"reverse engine" 40 -28
+		over
+	leak "leak" 50 50
+	leak "flame" 30 80
+	explode "tiny explosion" 18
+	explode "small explosion" 36
+	explode "medium explosion" 24
+	explode "large explosion" 8
+	"final explode" "final explosion medium"
+	description `‘弥亚德号’既不优雅，也不迅捷，却自千余年前旧帝国崩溃之前起，便一直是继承者联盟商业运输的中流砥柱——它拥有宽敞的货舱、厚重的装甲，以及足够灵活的武器布局，足以在危急关头奋起还击。正如高阶贵族世家传承的宏伟遗宝，一艘家族世代相传的‘弥亚德号’，往往由出身平民的继承者航海家族代代承袭；而如今驾驶这些飞船的许多飞行员，童年时便已在祖辈的注视下初次执掌舵轮。`
+
+
+ship "Myaede" "Myaede (Naive)"
+	description `‘弥亚德号’既不优雅，也不迅捷，却凭借宽敞的货舱、厚重的装甲，以及足够灵活的武器布局（使其在危急时刻仍可自卫反击），稳稳奠定了自身作为继承者联盟商业运输中坚力量的地位。该设计坚固可靠；你所见的许多‘弥亚德号’看似老旧磨损，却仍能如新舰一般流畅进出太空港。`
+
+
+
+ship "Nnaatej"
+	plural "Nnaatejen"
+	sprite "ship/nnaatej"
+	thumbnail "thumbnail/nnaatej"
+	attributes
+		licenses
+			"Successor"
+		category "Transport"
+		"cost" 3825000
+		"shields" 3000
+		"hull" 15500
+		"required crew" 5
+		"bunks" 26
+		"mass" 570
+		"drag" 5.6
+		"heat dissipation" 0.61
+		"fuel capacity" 500
+		"cargo space" 35
+		"outfit space" 220
+		"weapon capacity" 54
+		"engine capacity" 82
+		"waterlining" 1
+		"corrosion resistance" 0.6
+		"slowing resistance" 0.6
+		"hull repair rate" 0.1
+		"hull heat" 0.11
+		"hull energy" 0.11
+		weapon
+			"blast radius" 100
+			"shield damage" 1000
+			"hull damage" 500
+			"hit force" 1500
+	outfits
+		`6-"Ruuv" Betavoltaic Cell`
+		`"Ej" Shield Cortex`
+
+		"Successor Fuel Sail"
+
+		`"Chyyra" Inductive Thruster`
+		`"Chyyra" Inductive Steering`
+		`"Aqra" Inductive Reverser`
+		"Hyperdrive"
+
+	turret 0 -10
+	engine 0 62
+	"steering engine" 5 -75
+		zoom .5
+		over
+		left
+		angle 270
+	"steering engine" -5 -75
+		zoom .5
+		over
+		right
+		angle 90
+	"steering engine" 8 49
+		zoom .5
+		over
+		right
+		angle 270
+	"steering engine" -8 49
+		zoom .5
+		over
+		left
+		angle 90
+	"reverse engine" -9 -56
+		zoom .6
+		over
+	"reverse engine" 9 -56
+		zoom .6
+		over
+	leak "leak" 50 50
+	leak "flame" 30 80
+	explode "tiny explosion" 18
+	explode "small explosion" 36
+	explode "medium explosion" 24
+	explode "large explosion" 8
+	"final explode" "final explosion medium"
+	description `由于继承者族具有两栖特性，其相当一部分人口生活在水下。因此，他们大多数飞船在设计时便已考虑这一因素，具备一定程度的水下作业能力。然而，‘纳阿特杰号’则是一艘专为此目的打造的特种舰艇，专门负责在深海与深空之间往返运送乘客。它采用密度更高、抗压性更强的船体结构，内置维护系统，并增强了抗腐蚀性以及对减速效应的抵抗能力。这些特性使其成为同尺寸飞船中极为沉重且昂贵的选择，但为保障乘客与货物的安全与舒适，这一切投入都被认为物有所值。`
+
+
+
+ship "Nnesaarau"
+	plural "Nnesaaraun"
+	sprite "ship/nnesaarau"
+	thumbnail "thumbnail/nnesaarau"
+	attributes
+		licenses
+			"Successor"
+		category "Transport"
+		"cost" 1225000
+		"shields" 1800
+		"hull" 2200
+		"required crew" 1
+		"bunks" 4
+		"mass" 90
+		"drag" 2.1
+		"heat dissipation" 0.86
+		"fuel capacity" 600
+		"cargo space" 8
+		"outfit space" 175
+		"weapon capacity" 30
+		"engine capacity" 60
+		weapon
+			"blast radius" 100
+			"shield damage" 1000
+			"hull damage" 500
+			"hit force" 1500
+	outfits
+		`3-"Kaska" Betavoltaic Cell`
+		`1-"Uurau" Betavoltaic Cell`
+		"Auxiliary Power Reserve"
+		`"Ej" Shield Cortex`
+
+		`"Chyyra" Inductive Thruster`
+		`"Aqra" Inductive Steering`
+		`"Aqra" Inductive Reverser`
+		"Scram Drive"
+
+	gun -7.5 -38
+	gun 0 -34
+	gun 7.5 -38
+	engine 0 34
+	"steering engine" -10 -29
+		zoom .5
+		right
+		over
+		angle 270
+	"steering engine" 10 -29
+		zoom .5
+		over
+		left
+		angle 90
+	"reverse engine" -20 -14
+		zoom .6
+		over
+	"reverse engine" 20 -14
+		zoom .6
+		over
+	leak "leak" 50 50
+	leak "flame" 30 80
+	explode "tiny explosion" 18
+	explode "small explosion" 36
+	explode "medium explosion" 24
+	explode "large explosion" 8
+	"final explode" "final explosion medium"
+	description "迅捷而舒适，‘恩内萨劳’号是继承者势力空间中最新投入使用的舰船设计之一，最早于不到二十年前由奇迪伊家族船坞推出。出于种种原因，它同时也是最不受欢迎的型号之一：它纯粹为豪华客运而设计，加之价格高昂、内部结构限制严格，因此极少用于其他用途。尽管如此，仍有一些技术高超的飞行员坚称，这类飞船非常适合竞速或担任高速信使任务。"
+
+
+ship "Nnesaarau" "Nnesaarau (Naive)"
+	description "这些极为轻巧的舰船几乎无法容纳多少乘客或货物，却能在继承者星域中迅捷而优雅地穿行。加之其高昂的价格与罕见的现身频率，表明它们很可能是某种奢侈品级载具——对绝大多数继承者而言都过于不实用。"
+
+
+
+ship "Ojde"
+	plural "Ojden"
+	sprite "ship/ojde"
+	thumbnail "thumbnail/ojde"
+	attributes
+		licenses
+			"Successor"
+		category "Heavy Freighter"
+		"cost" 8250000
+		"shields" 3000
+		"hull" 31500
+		"required crew" 8
+		"bunks" 24
+		"mass" 1190
+		"drag" 15.5
+		"heat dissipation" 0.5
+		"fuel capacity" 500
+		"cargo space" 450
+		"outfit space" 330
+		"weapon capacity" 180
+		"engine capacity" 150
+		weapon
+			"blast radius" 100
+			"shield damage" 1000
+			"hull damage" 500
+			"hit force" 1500
+	outfits
+		"Pulse Laser Turret" 2
+
+		`6-"Ruuv" Betavoltaic Cell`
+		"Auxiliary Power Reserve" 3
+		`"Ej" Shield Cortex`
+		"Successor Cooling"
+
+		`"Veusa" Inductive Thruster`
+		`"Veusa" Inductive Steering`
+		`"Chyyra" Inductive Reverser`
+		"Hyperdrive"
+
+	gun 28 -110
+	gun -28 -110
+	turret 34 37
+	turret -34 37
+	turret 0 32
+	engine 15 93
+	engine -15 93
+	"reverse engine" -19 -117
+		zoom .8
+	"reverse engine" 19 -117
+		zoom .8
+	"steering engine" 33 -99
+		zoom .5
+		angle 270
+		left
+	"steering engine" -33 -99
+		zoom .5
+		angle 90
+		right
+	"steering engine" 43 63
+		zoom .5
+		angle 270
+		right
+	"steering engine" -43 63
+		zoom .5
+		angle 90
+		left
+	leak "leak" 50 50
+	leak "flame" 30 80
+	explode "tiny explosion" 18
+	explode "small explosion" 36
+	explode "medium explosion" 24
+	explode "large explosion" 8
+	"final explode" "final explosion medium"
+	description `尽管‘奥杰德号’是继承者阵营所使用的最大型货船，但它仍明显小于人类大型货船（如散装货船和巨兽级货船）。虽然这限制了单艘飞船的货物运载能力，却也使这些舰船意外地迅捷灵活，并扩大了可有效维护它们的设施数量。`
+	description `	尽管奥杰德号在更传统的商人中不如久经考验的米亚德号受欢迎，但其更大的货物容量，使其几乎成为希望组建大规模运输船队者的必选之舰。`
+
+
+ship "Ojde" "Ojde (Naive)"
+	description `尽管‘奥杰德号’是继承者阵营所使用的最大型货船，但它仍明显小于人类大型货船（如散装货船和巨兽级货船）。虽然这限制了单艘飞船的货物运载能力，却也使这些舰船意外地迅捷灵活，并扩大了可有效维护它们的设施数量。`
+
+
+
+ship "Seiitej"
+	plural "Seiitejen"
+	sprite "ship/seiitej"
+	thumbnail "thumbnail/seiitej"
+	attributes
+		licenses
+			"High Houses"
+		category "Utility"
+		"cost" 9250000
+		"shields" 8000
+		"hull" 19000
+		"required crew" 8
+		"bunks" 36
+		"mass" 320
+		"drag" 5.2
+		"heat dissipation" .60
+		"fuel capacity" 800
+		"cargo space" 130
+		"outfit space" 370
+		"weapon capacity" 90
+		"engine capacity" 110
+		"multimodal armor" 1
+		"hull repair rate" 0.95
+		"hull energy" 1.045
+		"hull heat" 1.045
+		weapon
+			"blast radius" 100
+			"shield damage" 1000
+			"hull damage" 500
+			"hit force" 1500
+	outfits
+		`"Ojet" Bimodal Coilgun` 4
+
+		`"Ryuit" Fusion Core`
+		"Auxiliary Power Reserve" 3
+		`"Jaase" Shield Cortex`
+		"Successor Cooling"
+		"Multimodal Armor: Light"
+		"Kinetic Rail Rifle" 15
+
+		`"Veusa" Inductive Thruster`
+		`"Veusa" Inductive Steering`
+		"Hyperdrive"
+
+	gun -10 -78
+	gun -5 -86
+	gun 5 -86
+	gun 10 -78
+	turret 0 -29
+	engine -25 44
+	engine 25 44
+	"reverse engine" -25 -35
+		zoom .7
+	"reverse engine" 25 -35
+		zoom .7
+	"steering engine" -44 34
+		left
+		angle 90
+		zoom .5
+		over
+	"steering engine" 44 34
+		right
+		angle 270
+		zoom .5
+		over
+	"steering engine" -5 -89
+		right
+		angle 90
+		zoom .4
+	"steering engine" 5 -89
+		left
+		angle 270
+		zoom .4
+	leak "leak" 50 50
+	leak "flame" 30 80
+	explode "tiny explosion" 18
+	explode "small explosion" 36
+	explode "medium explosion" 24
+	explode "large explosion" 8
+	"final explode" "final explosion medium"
+	description `“Seiitej”号是高阶世家在继承者疆域内运输少量货物与乘客的首选飞船。虽然其内部空间不及专用的民用货船或运输船宽敞，却拥有更强的耐久性，同时保持了高速与高机动性。尽管该船搭载的武器系统相对轻量（以高阶世家的标准而言），但凭借其速度优势与灵活的内部配置，它也常被用作巡逻舰。`
+	description "	它们更轻的装甲和更小的作战系统，也使得其制造成本远低于高阶家族专门建造的战舰，这进一步推动了它们日益普及的趋势。"
+
+
+
+ship "Stolsaqra"
+	plural "Stolsaqran"
+	sprite "ship/stolsaqra"
+	thumbnail "thumbnail/stolsaqra"
+	attributes
+		licenses
+			"Successor"
+		category "Interceptor"
+		"cost" 450000
+		"shields" 850
+		"hull" 6100
+		"required crew" 1
+		"bunks" 2
+		"mass" 120
+		"drag" 2.75
+		"heat dissipation" 0.79
+		"fuel capacity" 300
+		"cargo space" 5
+		"outfit space" 212
+		"weapon capacity" 90
+		"engine capacity" 80
+		"multimodal armor" 1
+		"hull repair rate" 0.3
+		"hull energy" 0.33
+		"hull heat" 0.33
+		weapon
+			"blast radius" 100
+			"shield damage" 1000
+			"hull damage" 500
+			"hit force" 1500
+	outfits
+		"Successor Pulse Laser" 3
+
+		`3-"Kaska" Betavoltaic Cell`
+		`1-"Uurau" Betavoltaic Cell` 2
+		"Auxiliary Power Reserve" 2
+		`"Byiaa" Shield Cortex`
+
+		`"Aqra" Inductive Thruster` 2
+		`"Aqra" Inductive Steering`
+		`"Aqra" Inductive Reverser`
+		"Hyperdrive"
+
+	gun 0 -40 "Successor Pulse Laser"
+	gun -10.5 -20 "Successor Pulse Laser"
+	gun 10.5 -20 "Successor Pulse Laser"
+	engine -8 35
+	engine 8 35
+	"steering engine" 4 -41
+		zoom .4
+		over
+		left
+		angle 270
+	"steering engine" -4 -41
+		zoom .4
+		over
+		right
+		angle 90
+	"steering engine" 12 33
+		zoom .4
+		over
+		right
+		angle 270
+	"steering engine" -12 33
+		zoom .4
+		over
+		left
+		angle 90
+	"reverse engine" 15 -3
+		zoom .8
+		over
+	"reverse engine" -15 -3
+		zoom .8
+		over
+	leak "leak" 50 50
+	leak "flame" 30 80
+	explode "tiny explosion" 18
+	explode "small explosion" 36
+	explode "medium explosion" 24
+	explode "large explosion" 8
+	"final explode" "final explosion medium"
+	description "继承者族在建造如此小型的战舰方面经验有限。尽管他们研制的这款截击机结构坚固，且火力远超同尺寸飞船，却饱受能源供应与推进系统问题困扰——因其主流技术或体积过大、或动力不足，难以在此尺度上实现有效的作战性能。最终产物便是一艘令雄心勃勃的飞行员视为挑战、而谨慎的船长则直呼为‘死亡陷阱’的飞船；但凭借其高速度与重火力，它仍持续被用作巡逻与护航舰艇。"
+	description `	斯托尔萨奎拉号还有一项特别之处：它是高阶家族制造的唯一一款专为战争而设计、且向公众开放销售的战舰——当然，其系统性能相较仅供军方使用的型号已大幅削弱。`
+
+
+ship "Stolsaqra" "Stolsaqra (Naive)"
+	description `继承者族研制的拦截舰体型极为紧凑，却在同级别飞船中配备了出人意料的强大火力；然而受限于狭小的内部空间，若为其满配武器系统，便会陷入电力与推进力严重不足的困境。尽管该舰由高阶氏族（High Houses）制造，但‘斯托尔萨克拉号’（Stolsaqra）仍向全体继承者民众开放销售——只是相比仅限军方使用的型号，其各项系统性能均被大幅削弱。`
+
+
+
+ship "Veusade"
+	plural "Veusaden"
+	sprite "ship/veusade"
+	thumbnail "thumbnail/veusade"
+	attributes
+		licenses
+			"High Houses"
+		category "Light Warship"
+		"cost" 16500000
+		"shields" 8000
+		"hull" 29000
+		"required crew" 5
+		"bunks" 10
+		"mass" 360
+		"drag" 5.45
+		"heat dissipation" .62
+		"fuel capacity" 500
+		"cargo space" 15
+		"outfit space" 370
+		"weapon capacity" 96
+		"engine capacity" 120
+		"multimodal armor" 1
+		"hull repair rate" 1.45
+		"hull energy" 1.595
+		"hull heat" 1.595
+		weapon
+			"blast radius" 100
+			"shield damage" 1000
+			"hull damage" 500
+			"hit force" 1500
+	outfits
+		"Drag Cannon" 8
+
+		`"Ryuit" Fusion Core`
+		"Auxiliary Power Reserve" 2
+		`"Jaase" Shield Cortex`
+		"Successor Cooling"
+		"Multimodal Armor: Heavy"
+
+		"Kinetic Rail Rifle" 5
+
+		`"Veusa" Inductive Thruster`
+		`"Veusa" Inductive Steering`
+		"Hyperdrive"
+
+	gun -25 -32 "Drag Cannon"
+	gun -22 -34 "Drag Cannon"
+	gun -11 -64 "Drag Cannon"
+	gun -7 -72 "Drag Cannon"
+	gun 7 -72 "Drag Cannon"
+	gun 11 -64 "Drag Cannon"
+	gun 22 -34 "Drag Cannon"
+	gun 25 -32 "Drag Cannon"
+	engine -11 21
+		zoom .8
+	engine 11 21
+		zoom .8
+	"reverse engine" -27 -25
+		zoom .7
+	"reverse engine" 27 -25
+		zoom .7
+	"steering engine" -40 28
+		left
+		angle 90
+		zoom .5
+		over
+	"steering engine" 40 28
+		right
+		angle 270
+		zoom .5
+		over
+	"steering engine" -7 -71
+		right
+		angle 90
+		zoom .5
+	"steering engine" 7 -71
+		left
+		angle 270
+		zoom .5
+	leak "leak" 50 50
+	leak "flame" 30 80
+	explode "tiny explosion" 18
+	explode "small explosion" 36
+	explode "medium explosion" 24
+	explode "large explosion" 8
+	"final explode" "final explosion medium"
+	description `因被赐予‘继承者’语系中代表‘迅捷’一词的荣耀而得名，维萨德号飞船的设计目的只有一个：尽可能贴近敌舰船体，携带八门拖曳炮发动攻击。`
+	description "	该谱系舰船曾在先祖诸高庭间的多次冲突中声名远扬——它们能捕获并击毁数倍于自身尺寸的敌舰，并在援军抵达前迅速撤离。如今，此类高度特化的舰船已难以胜任多用途任务，但凭借其快速拦截与瘫痪逃逸飞船的能力，仍常被用作辅助舰或警备舰。"
+
+
+ship "Veusade" "Veusade (Naive)"
+	description `维萨德号舰体遍布炮口，但整体武器载荷却十分有限——实际上仅够在其全部硬点上安装拖曳炮。这种高度特化的定向设计使其难以胜任多用途任务，但凭借快速追击并瘫痪逃逸飞船的能力，它们常被用作辅助舰或治安巡逻舰。`
+
+
+
+ship "Vujlet"
+	plural "Vujleten"
+	sprite "ship/vujlet"
+	thumbnail "thumbnail/vujlet"
+	attributes
+		licenses
+			"High Houses"
+		category "Light Warship"
+		"cost" 8200000
+		"shields" 3000
+		"hull" 17500
+		"required crew" 2
+		"bunks" 6
+		"mass" 230
+		"drag" 3.8
+		"heat dissipation" .68
+		"fuel capacity" 600
+		"cargo space" 10
+		"outfit space" 280
+		"weapon capacity" 105
+		"engine capacity" 85
+		"exclusive: Vujlet" 1
+		"multimodal armor" 1
+		"hull repair rate" 0.875
+		"hull energy" 0.9625
+		"hull heat" 0.9625
+		weapon
+			"blast radius" 100
+			"shield damage" 1000
+			"hull damage" 500
+			"hit force" 1500
+	outfits
+		`"Ojet" Bimodal Coilgun` 2
+
+		`"Nnesa" Fusion Core`
+		`OC-"Mavra" Betavoltaic Cell`
+		"Auxiliary Power Reserve"
+		`"Jaase" Shield Cortex`
+		"Successor Cooling"
+		"Multimodal Armor: Heavy"
+		"Kinetic Rail Rifle" 4
+
+		`"Chyyra" Inductive Thruster`
+		`"Chyyra" Inductive Steering`
+		`"Chyyra" Inductive Reverser`
+		"Hyperdrive"
+
+	gun -6 -46 `"Ojet" Bimodal Coilgun`
+	gun 6 -46 `"Ojet" Bimodal Coilgun`
+	gun -9 -30
+	gun 9 -30
+	engine -16 49
+		zoom .9
+	engine 16 49
+		zoom .9
+	"reverse engine" -16 -6
+		zoom .9
+		over
+	"reverse engine" 16 -5
+		zoom .9
+		over
+	"steering engine" -4 -53
+		right
+		angle 90
+		zoom .5
+		over
+	"steering engine" 4 -53
+		left
+		angle 270
+		zoom .5
+		over
+	"steering engine" -28 34
+		left
+		angle 90
+		zoom .5
+		over
+	"steering engine" 28 34
+		right
+		angle 270
+		zoom .5
+		over
+	leak "leak" 50 50
+	leak "flame" 30 80
+	explode "tiny explosion" 18
+	explode "small explosion" 36
+	explode "medium explosion" 24
+	explode "large explosion" 8
+	"final explode" "final explosion medium"
+	description `维杰莱特舰身形紧凑，于群星间航行时宛如灵巧飞鸟。作为高庭家族量产的战舰，它具备高度灵活性，可胜任多种轻型作战任务。其尺寸足以独立执行任务，成为短程且相对脆弱的拦截机与体型更大、资源消耗更高、建造及运维成本也更为昂贵的主力战舰之间的重要衔接力量。`
+	description `	该设计最初由卡特里吉家族用作隐形侦察舰，利用了他们当时新近研发的隐形技术。随着新家族联盟日益巩固，武杰莱特号的设计图纸被分发至各大家族，这款轻型战舰迅速成为他们舰队的主力舰型。遗憾的是，由于缺乏先驱者领地内特有的材料，卡特里吉家族在现代已无法为武杰莱特号制造隐形设备。`
+
+
+ship "Vujlet" "Vujlet (Naive)"
+	description `紧凑型武杰特舰是高屋家族批量生产的战舰，具备高度灵活性，可胜任多种轻型作战任务。其尺寸足以作为独立作战单元运行，因而成为短航程、相对脆弱的截击机与更大、更耗资源且建造及运营成本高昂的主力战舰之间的重要衔接力量。`

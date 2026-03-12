@@ -1,0 +1,642 @@
+# Copyright (c) 2024 by Daeridanii
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+outfit "Successor License"
+	category "Licenses"
+	series "Licenses"
+	index 11010
+	thumbnail "outfit/successor license"
+	description "此枚蓝白相间的小徽章由高阶家族议会呈献，是继承者外交的象征。授予你这样一位外星人，代表着他们对你的信任与信心，同时也表明他们愿意向你出售其民用级科技。"
+
+outfit "High Houses License"
+	category "Licenses"
+	series "Licenses"
+	index 11020
+	thumbnail "outfit/successor license"
+	description "高等世家掌控着继承者疆域内绝大多数先进科技，并仅向支持其利益的个人与团体开放采购权限。通过效忠其中一家世家，你已获得购买此项专属技术的资格。"
+
+
+outfit `"Byiaa" Shield Cortex`
+	category "Systems"
+	series "Shields"
+	index 11010
+	licenses
+		"Successor"
+	cost 225000
+	thumbnail "outfit/tiny successor shield"
+	"mass" 13
+	"outfit space" -13
+	"shield generation" 1.9
+	"shield protection" -0.33
+	"shield energy" 2.53
+	"shield connection point" 1
+	description "鼎盛时期，先驱者令敌人畏惧的并非其击溃敌人的速度，而是其远超对手的持久作战能力。数代之后，这一理念仍体现在当代继承者的护盾皮层设计中：这类护盾单位体积下输出功率极为出色，但会略微削弱护盾对 incoming 火力的抗性。这使得继承者飞船即便在承受持续打击时略显脆弱，也能迅速恢复护盾强度。"
+
+outfit `"Ej" Shield Cortex`
+	category "Systems"
+	series "Shields"
+	index 11020
+	licenses
+		"Successor"
+	cost 565000
+	thumbnail "outfit/small successor shield"
+	"mass" 21
+	"outfit space" -21
+	"shield generation" 3.0
+	"shield protection" -0.33
+	"shield energy" 4.0
+	"shield connection point" 1
+	description "由于其双模引擎从飞船护盾矩阵中汲取能量，即便是非战斗型的继承者飞船，也能合理配备强力护盾发生器以提升机动性。这是高阶世家允许向公众出售的最大型号；即便如此，其护盾再生速度仍远超人类所制造的最大型护盾发生器。"
+
+outfit `"Jaase" Shield Cortex`
+	category "Systems"
+	series "Shields"
+	index 11030
+	licenses
+		"High Houses"
+	cost 3550000
+	thumbnail "outfit/medium successor shield"
+	"mass" 30
+	"outfit space" -30
+	"shield generation" 4.8
+	"shield protection" -0.33
+	"shield energy" 6.4
+	"shield connection point" 1
+	description "其先驱者的技术远不如现代继承者装备那般模块化——后者必须使用更有限的资源、并依托相对原始的制造工艺来建造。尽管如此，这款中型护盾皮层仍拥有足够强大的防护能力，足以轻松抵御数个较弱敌人的联合火力打击；因此，高等家族将其专用于私人舰队。"
+
+outfit `"Jorv" Shield Cortex`
+	category "Systems"
+	series "Shields"
+	index 11040
+	cost 8250000
+	thumbnail "outfit/large successor shield"
+	licenses
+		"High Houses"
+	"mass" 55
+	"outfit space" -55
+	"shield generation" 10.5
+	"shield protection" -0.33
+	"shield energy" 14.0
+	"shield connection point" 1
+	description "布满再生节点的大型继承者护盾皮层，其功耗预算甚至超过绝大多数人类战舰的总功耗。许多高屋家族中更为传统的成员都反对这种设计，认为如此强大的技术产物理应拥有更具艺术感的外形；但最终，人们也并不愿仅仅出于美学原因而投入时间与资金重新设计。"
+
+outfit "Shield Cortex Interface"
+	category "Systems"
+	cost 250000
+	thumbnail "outfit/shield cortex interface"
+	series "Shields"
+	index 11099
+	licenses
+		"Successor"
+	mass 3
+	"outfit space" -3
+	"shield protection" 0.33
+	"shield connection point" -2
+	description "这条紧凑的电纤维束可将两个继承者护盾皮层连接为单一单元，从而避免其中一个护盾发生器产生的护盾软化效应过度削弱飞船护盾的耐久性。该效果在连接超过两个发生器后会急剧衰减。"
+
+
+outfit `1-"Uurau" Betavoltaic Cell`
+	category "Power"
+	series "Generators"
+	index 11010
+	licenses
+		Successor
+	cost 120000
+	thumbnail "outfit/small betavoltaic"
+	"mass" 10
+	"outfit space" -10
+	"energy generation" 0.85
+	"heat generation" 0.65
+	"energy capacity" 1200
+	description "与大多数放射性同位素发电机不同，这种动力电池通过直接从放射性衰变产生的β粒子中提取电能来工作。虽然该过程单位材料产生的能量较少，但安全性更高，且废热极低。"
+
+outfit `OC-"Mavra" Betavoltaic Cell`
+	category "Power"
+	series "Generators"
+	index 11040
+	licenses
+		Successor
+	cost 540000
+	thumbnail "outfit/overcharged betavoltaic"
+	"mass" 17
+	"outfit space" -17
+	"energy generation" 2.25
+	"heat generation" 3.8
+	"energy capacity" 2000
+	description "为了制造出体积小于聚变反应堆的高密度能源，继承者族研发了这款过载型贝塔伏特电池。该电池内部装填了极高密度的放射性物质，且辐射屏蔽层远少于标准型号。尽管它在技术上已通过安全检测，但绝大多数继承者飞行员仍明智地选择始终用一道舱壁将自己与这些威力强劲的小型核心隔离开来。"
+
+outfit `3-"Kaska" Betavoltaic Cell`
+	category "Power"
+	series "Generators"
+	index 11020
+	licenses
+		Successor
+	cost 455000
+	thumbnail "outfit/medium betavoltaic"
+	"mass" 35
+	"outfit space" -35
+	"energy generation" 3.5
+	"heat generation" 2.6
+	"energy capacity" 3100
+	description "继承者族的β伏特电池诞生于其先驱者帝国崩溃后不久，彼时资源匮乏、生存维艰。这类发电机设计粗犷坚固，虽不符合传统审美中对美感、优雅或独特性的追求，却以卓越的可靠性赢得了当时挣扎求生者的广泛青睐。"
+
+outfit `6-"Ruuv" Betavoltaic Cell`
+	category "Power"
+	series "Generators"
+	index 11030
+	licenses
+		Successor
+	cost 950000
+	thumbnail "outfit/large betavoltaic"
+	"mass" 75
+	"outfit space" -75
+	"energy generation" 8.1
+	"heat generation" 5.3
+	"energy capacity" 8500
+	description "这款大型模块化β伏特电池发电机以高韧性与高可靠性为设计目标：若其中某个单元电池发生故障，它仍可继续运行，仅输出功率略微下降。继承者联盟因其能量密度较低，故不在战舰上采用该装置；但它被广泛应用于其商船、考古船及其他民用飞船。"
+
+
+outfit "Auxiliary Power Reserve"
+	category "Power"
+	series "Batteries"
+	index 11010
+	cost 60000
+	thumbnail "outfit/small successor battery"
+	licenses
+		"Successor"
+	"mass" 5
+	"outfit space" -5
+	"energy capacity" 3000
+	"hull energy" -0.16
+	description "继任者（Successors）的β伏特电池输出功率相对有限，这促使他们开发出高效率的储能电池以弥补这一不足。为在战舰上获得额外的功率冗余，这些电池专门预留了一部分容量，专供船体修复系统使用；当修复系统启动时，此举可有效降低其从飞船总能源池中汲取的功率。"
+
+outfit "Primary Power Reserve"
+	category "Power"
+	series "Batteries"
+	index 11010
+	cost 320000
+	thumbnail "outfit/large successor battery"
+	licenses
+		"Successor"
+	"mass" 20
+	"outfit space" -20
+	"energy capacity" 15000
+	"hull energy" -0.8
+	description "这款更大的继承者电池可储存海量能量，并能在战斗中显著降低飞船船体修复系统的有效功耗。高等家族将它与反应堆的功率分配系统协同使用，确保战舰即使搭载最耗能的装备，也能持续维持动力与功能。即便如此，他们并未限制该设备向公众销售。"
+
+
+outfit `"Nnesa" Fusion Core`
+	category "Power"
+	series "Generators"
+	index 11050
+	cost 4754000
+	thumbnail "outfit/small successor reactor"
+	licenses
+		"High Houses"
+	"mass" 56
+	"outfit space" -56
+	"energy generation" 9.6
+	"heat generation" 14.6
+	"shield energy multiplier" -0.08
+	"hull energy multiplier" -0.08
+	description "虽然放射性同位素电池足以满足民用需求，但高等家族所掌握的更先进技术却能耗巨大，必须依赖更强劲的发电机。高等家族并未一味追求单位空间内的最大功率输出，而是以效率与便携性为目标，专门设计了这类仿星器聚变反应堆：其发热量低、废料副产物极少。此外，它们还优化了能量输送路径，可更高效地为飞船防御系统供能，具体表现为相关装备的功耗显著降低。"
+
+outfit `"Ryuit" Fusion Core`
+	category "Power"
+	series "Generators"
+	index 11060
+	cost 12250000
+	thumbnail "outfit/medium successor reactor"
+	licenses
+		"High Houses"
+	"mass" 98
+	"outfit space" -98
+	"energy generation" 17.9
+	"heat generation" 23.5
+	"shield energy multiplier" -0.14
+	"hull energy multiplier" -0.14
+	description "与大多数继承者科技一样，他们现代的反应堆基于‘先驱者’帝国崩溃时期由各大世家秘密封存的同类反应堆设计。尽管当代产物在效能上尚无法完全媲美祖先的杰作，但其设计仍保有火焰般优雅盘绕的外形，并持续发出充满能量的嗡鸣。"
+	description "	人们也不禁会猜想：那些最初制造的少数反应堆，是否仍被锁在高阶世家的私人密室之中，完好无损地保存着，以备有朝一日再度启用之需？”"
+
+outfit `"Uoret" Fusion Core`
+	category "Power"
+	series "Generators"
+	index 11070
+	cost 17754000
+	thumbnail "outfit/large successor reactor"
+	licenses
+		"High Houses"
+	"mass" 145
+	"outfit space" -145
+	"energy generation" 28.5
+	"heat generation" 35.1
+	"shield energy multiplier" -0.22
+	"hull energy multiplier" -0.22
+	description "此装置由继承者（Successors）的高阶家族（High Houses）研制，外形仿照其祖先母星上的一种开花植物，是所有恒星发生器中体积最大、功率最强的一款，其核聚变技术远超人类水平。除功率强劲且出人意料地高效外，该装置还依托一套庞大而高度集成的电力分配网络，可大幅降低继承者那些高能耗防御装备的电力消耗。"
+
+
+outfit "Successor Cooling"
+	category "Systems"
+	series "Cooling"
+	index 11010
+	cost 94000
+	thumbnail "outfit/successor cooling"
+	licenses
+		"Successor"
+	"mass" 8
+	"outfit space" -8
+	"cooling" 4.5
+	"active cooling" 10.5
+	"cooling energy" 1.1
+	description "与他们的许多技术一样，继承者冷却系统采用双模设计：平时维持低流量冷却液循环，而在需要时可同时提升冷却液流量和散热能力。"
+
+
+outfit "Successor Fuel Sail"
+	category "Systems"
+	series "Ramscoops"
+	index 11010
+	cost 112000
+	thumbnail "outfit/fuel sail"
+	licenses
+		"Successor"
+	"mass" 4
+	"outfit space" -14
+	"ramscoop" 4.0
+	"solar heat" 6.0
+	"drag" 0.1
+	description "继承者族始终保持着与海洋传统的深厚联系，这款风格奇异而质朴的燃料收集器便是明证。当飞船靠近恒星日冕时，其帆面会大幅展开，轻柔地从中收集氢元素，并将其冷凝为飞船燃料储存起来——这种方式远比传统冲压式集气口那种粗暴的作业方式优雅得多。不过飞行员需注意：展开后的巨大帆面也会吸收大量热量。"
+
+
+outfit `"Veldt" Combat Scanner`
+	category "Systems"
+	series "Scanners"
+	index 11020
+	cost 220000
+	thumbnail "outfit/veldt combat scanner"
+	licenses
+		"High Houses"
+	"mass" 6
+	"outfit space" -6
+	"energy consumption" 0.12
+	"tactical scan power" 50
+	"cargo scan power" 50
+	"cargo scan efficiency" 15
+	description "高等世家倾向于对其领地实施严密监控，并长期致力于研发强大而高效的扫描设备。本扫描系统为其最新一代产物，既可识别违禁品，亦能在极远距离精准锁定潜在敌对目标。"
+	description "	尽管该扫描仪严禁向公众出售，但因产量巨大，仍有少量流入黑市；而这一持续存在的问题，正是高阶世家亟欲纠正的。"
+
+outfit `"Tuur" Scanning Suite`
+	category "Systems"
+	series "Scanners"
+	index 11010
+	cost 220000
+	thumbnail "outfit/tuur scanning suite"
+	licenses
+		"Successor"
+	"mass" 4
+	"outfit space" -4
+	"energy consumption" 0.10
+	"asteroid scan power" 35
+	"atmosphere scan" 100
+	description "该扫描系统诞生于先驱者文明崩溃后的最初几年——彼时新近迁徙而来的高阶氏族亟需寻找新的资源矿藏，以弥补他们所遗弃的旧有资源。尽管其效率不及人类扫描仪，但结构紧凑、性能强劲，既可用于小行星带探测，亦适用于行星表面的物质识别。"
+	description "	在当今时代，随着高阶家族领地基本趋于稳定，这些扫描仪主要被研究人员用作行星分析工具，或由依靠小行星采矿维生的独立飞行员使用。"
+
+
+outfit `"Niis" Inductive Engines`
+	plural `"Niis" Inductive Engines`
+	category "Engines"
+	series "Engines"
+	index 11010
+	"cost" 255000
+	thumbnail "outfit/successor engines tiny"
+	licenses
+		"Successor"
+	"mass" 28
+	"outfit space" -28
+	"engine capacity" -28
+	"thrust" 16.8
+	"thrusting energy" 0.9
+	"thrusting heat" 0.8
+	"afterburner thrust" 25.2
+	"afterburner shields" 3.0
+	"afterburner heat" 1.6
+	"afterburner effect" "tiny successor afterburner"
+	"flare sprite" "effect/successor flare/tiny"
+		"frame rate" 20
+	"flare sound" "ion tiny"
+	"turn" 405
+	"turning energy" 0.24
+	"turning heat" 0.4
+	"steering flare sprite" "effect/successor flare/tiny"
+		"frame rate" 20
+	"steering flare sound" "ion tiny"
+	description "这套微型感应式引擎推力虽小，却足以驱动一艘继承者穿梭机。它们保留了大型型号的双模运行能力，只是尺寸大幅缩小。"
+
+outfit `"Aqra" Inductive Thruster`
+	category "Engines"
+	series "Engines"
+	index 11021
+	"cost" 150000
+	thumbnail "outfit/small successor thruster"
+	licenses
+		"Successor"
+	"mass" 25
+	"outfit space" -25
+	"engine capacity" -25
+	"thrust" 27.0
+	"thrusting energy" 1.74
+	"thrusting heat" 1.1
+	"afterburner thrust" 40.5
+	"afterburner shields" 4.5
+	"afterburner heat" 2.2
+	"afterburner energy" 1.74
+	"afterburner effect" "small successor afterburner"
+	"flare sprite" "effect/successor flare/small"
+		"frame rate" 20
+	"flare sound" "ion small"
+	description "继承者级推进器采用双模设计：大多数时间，它们以节能的低功率状态运行；但当需要逃逸或战斗时，则可切换至效率较低却推力极强的高推力模式，此时将从飞船护盾汲取能量。"
+
+outfit `"Aqra" Inductive Steering`
+	category "Engines"
+	series "Engines"
+	index 11020
+	"cost" 120000
+	thumbnail "outfit/small successor steering"
+	licenses
+		"Successor"
+	"mass" 18
+	"outfit space" -18
+	"engine capacity" -18
+	"afterburner energy" -0.7
+	"turn" 684
+	"turning energy" 1.1
+	"turning heat" 0.8
+	"steering flare sprite" "effect/successor flare/small"
+		"frame rate" 20
+	"steering flare sound" "ion small"
+	description "由于后继者（Successors）的转向推进器缺乏线性推进系统所特有的模式切换标识，他们转而致力于提升这些推进器在体积受限前提下的推力与相对能效。此外，在加力燃烧模式下，转向推进器产生的周期性能量流会反馈至飞船的线性引擎，从而降低甚至抵消启用加力燃烧器所带来的额外能耗。"
+
+outfit `"Aqra" Inductive Reverser`
+	category "Engines"
+	series "Engines"
+	index 11022
+	"cost" 140000
+	thumbnail "outfit/small successor reverse"
+	licenses
+		"Successor"
+	"mass" 15
+	"outfit space" -15
+	"weapon capacity" -15
+	"reverse thrust" 15.8
+	"reverse thrusting energy" 0.9
+	"reverse thrusting heat" 0.7
+	"afterburner energy" -0.52
+	"reverse flare sprite" "effect/successor flare/small"
+		"frame rate" 20
+	"reverse flare sound" "ion small"
+	description "继承者所采用的感应推进器技术，与人类疆域内使用的离子推进器最为相似；但这些推进器所运用的磁场强度更高，因而能产生的推力远超任何同等级的人类离子推进器。"
+	description "	由于反向推进器必须朝前安装，因此它需装设于飞船的武器舱，而非引擎舱。"
+
+outfit `"Chyyra" Inductive Thruster`
+	category "Engines"
+	series "Engines"
+	index 11031
+	"cost" 680000
+	thumbnail "outfit/medium successor thruster"
+	licenses
+		"Successor"
+	"mass" 40
+	"outfit space" -40
+	"engine capacity" -40
+	"thrust" 48.0
+	"thrusting energy" 2.7
+	"thrusting heat" 1.8
+	"afterburner thrust" 72.0
+	"afterburner shields" 8.0
+	"afterburner heat" 4.0
+	"afterburner energy" 2.7
+	"afterburner effect" "medium successor afterburner"
+	"flare sprite" "effect/successor flare/medium"
+		"frame rate" 20
+	"flare sound" "ion medium"
+	description "这套更大尺寸的感应式推进器在低功率下表现出色地高效，而在高功率模式下则可产生同样惊人的推力。借助它们，即便是庞大而看似笨重的继承者飞船，也能在遭遇威胁时突然变得敏捷得多。"
+
+outfit `"Chyyra" Inductive Steering`
+	category "Engines"
+	series "Engines"
+	index 11030
+	"cost" 560000
+	thumbnail "outfit/medium successor steering"
+	licenses
+		"Successor"
+	"mass" 32
+	"outfit space" -32
+	"engine capacity" -32
+	"afterburner energy" -1.4
+	"turn" 1357.5
+	"turning energy" 2.3
+	"turning heat" 1.7
+	"steering flare sprite" "effect/successor flare/medium"
+		"frame rate" 20
+	"steering flare sound" "ion medium"
+	description "这套感应式转向引擎虽就其尺寸而言推力并不突出，却具备极高的能效，使大型继承者飞船即使仅配备极小型发电机，仍能保持相对灵活的机动性。"
+
+outfit `"Chyyra" Inductive Reverser`
+	category "Engines"
+	series "Engines"
+	index 11032
+	"cost" 590000
+	thumbnail "outfit/medium successor reverse"
+	licenses
+		"Successor"
+	"mass" 24
+	"outfit space" -24
+	"weapon capacity" -24
+	"reverse thrust" 33.0
+	"reverse thrusting energy" 2.1
+	"reverse thrusting heat" 1.6
+	"afterburner energy" -1.2
+	"reverse flare sprite" "effect/successor flare/medium"
+		"frame rate" 20
+	"reverse flare sound" "ion medium"
+	description "这款大型反向推进器在商贸与战争中均有应用：前者可加快货船穿越贸易航线的速度，后者则能提升战舰在战斗中的机动性。"
+	description "	Because a reverse thruster must be facing forwards, it must be installed in the weapon section of your ship instead of the engine section."
+
+outfit `"Veusa" Inductive Thruster`
+	category "Engines"
+	series "Engines"
+	index 11041
+	"cost" 3550000
+	thumbnail "outfit/large successor thruster"
+	licenses
+		"Successor"
+	"mass" 65
+	"outfit space" -65
+	"engine capacity" -65
+	"thrust" 82.0
+	"thrusting energy" 4.8
+	"thrusting heat" 3.15
+	"afterburner thrust" 123.0
+	"afterburner shields" 12.2
+	"afterburner heat" 8.3
+	"afterburner energy" 4.8
+	"afterburner effect" "large successor afterburner"
+	"flare sprite" "effect/successor flare/large"
+		"frame rate" 20
+	"flare sound" "ion large"
+	description `维乌萨是继承者阵营所研发的最大型脉冲感应推进器，主要用于推动其大型战舰与货船。其高性能模式动力强劲，足以将体积最大的舰船加速至高速；但与此同时，它也会异常迅速地消耗护盾能量——这显然被设计为需与继承者阵营的快速充能护盾发生器协同使用。`
+
+outfit `"Veusa" Inductive Steering`
+	category "Engines"
+	series "Engines"
+	index 11040
+	"cost" 2925000
+	thumbnail "outfit/large successor steering"
+	licenses
+		"Successor"
+	"mass" 42
+	"outfit space" -42
+	"engine capacity" -42
+	"afterburner energy" -2.4
+	"turn" 1850
+	"turning energy" 3.15
+	"turning heat" 2.54
+	"steering flare sprite" "effect/successor flare/large"
+		"frame rate" 20
+	"steering flare sound" "ion large"
+	description `继承者系列Veusa型转向单元体积显著小于同类人类引擎，使继承者得以在大型飞船的引擎布局上获得更高灵活性。`
+
+outfit `"Veusa" Inductive Reverser`
+	category "Engines"
+	series "Engines"
+	index 11042
+	"cost" 3050000
+	thumbnail "outfit/large successor reverse"
+	licenses
+		"Successor"
+	"mass" 35
+	"outfit space" -35
+	"weapon capacity" -35
+	"afterburner energy" -2.1
+	"reverse thrust" 51.0
+	"reverse thrusting energy" 3.5
+	"reverse thrusting heat" 2.8
+	"reverse flare sprite" "effect/successor flare/large"
+		"frame rate" 20
+	"reverse flare sound" "ion large"
+	description "尽管无脊椎的继承者族对此影响甚微，人类飞行员在使用如此巨大的反推引擎时，仍须格外谨慎，以免身体承受危险的过载重力。"
+	description "	Because a reverse thruster must be facing forwards, it must be installed in the weapon section of your ship instead of the engine section."
+
+
+outfit "Multimodal Armor: Light"
+	category "Systems"
+	series "Special Systems"
+	index 11010
+	thumbnail "outfit/successor armor light"
+	licenses
+		"High Houses"
+	"hull protection" .1
+	"inertia reduction" .15
+	"multimodal armor" -1
+	"unplunderable" 1
+	description "继承者战舰所采用的超材料装甲，可在配备相应设施的太空港中调整其属性。"
+	description "	该配置在装甲结构中引入了排列有序的纳米级空隙，在不损害结构完整性的情况下减轻了战舰的质量。"
+
+outfit "Multimodal Armor: Heavy"
+	category "Systems"
+	series "Special Systems"
+	index 11020
+	thumbnail "outfit/successor armor heavy"
+	licenses
+		"High Houses"
+	"hull protection" .2
+	"multimodal armor" -1
+	"unplunderable" 1
+	description "The metamaterial armor of Successor warships can be altered in an appropriately equipped spaceport to change its attributes."
+	description "	该配置增强了构成护甲的原子之间的结合力，从而提升了其对直接伤害的抗性。"
+
+outfit "Multimodal Armor: Regen"
+	category "Systems"
+	series "Special Systems"
+	index 11030
+	thumbnail "outfit/successor armor regen"
+	licenses
+		"High Houses"
+	"hull repair multiplier" .75
+	"multimodal armor" -1
+	"unplunderable" 1
+	description "The metamaterial armor of Successor warships can be altered in an appropriately equipped spaceport to change its attributes."
+	description "	该配置提升了装甲的延展性，大幅增强战斗中维修作业的效果。"
+
+outfit "Multimodal Armor: Keystone"
+	category "Systems"
+	series "Special Systems"
+	index 11040
+	thumbnail "outfit/successor armor keystone"
+	licenses
+		"High Houses"
+	cost 10000000
+	"quantum keystone" 1
+	"scan interference" 3
+	"multimodal armor" -1
+	"unplunderable" 1
+	description "The metamaterial armor of Successor warships can be altered in an appropriately equipped spaceport to change its attributes."
+	description "	该配置使装备它的飞船能够安全穿越不稳定的虫洞。作为附带效果，它还会显著干扰外部对飞船货物或装备的扫描。"
+
+
+outfit "Kinetic Rail Rifle"
+	category "Hand to Hand"
+	series "H2H"
+	index 11010
+	thumbnail "outfit/railgun h2h"
+	licenses "High Houses"
+	cost 72000
+	"capture attack" 1.9
+	"capture defense" 3.2
+	"unplunderable" 1
+	description "尽管此类规模的实弹武器在人类空间已被视为过时——它们早已被激光武器所取代——但继承者们数代以来对高功率动能武器的深厚经验，使其成功研制出这款尤为骇人的轨道炮步枪：其发射的弹丸足以击穿人体护甲，甚至穿透舱壁隔板。该武器尤其擅长驱逐登舰敌人，并可与继承者飞船的计算机及监控系统对接，将目标信息实时传输至内置显示屏。"
+
+
+effect "tiny successor afterburner"
+	sprite "effect/successor flare/afterburner/afterburner"
+		"frame rate" 20
+		"scale" 0.20
+	zooms
+	sound "successor afterburner tiny"
+	"sound category" "afterburner"
+	lifetime 1
+
+effect "small successor afterburner"
+	sprite "effect/successor flare/afterburner/afterburner"
+		"frame rate" 20
+		"scale" 0.36
+	zooms
+	sound "successor afterburner small"
+	"sound category" "afterburner"
+	lifetime 1
+
+effect "medium successor afterburner"
+	sprite "effect/successor flare/afterburner/afterburner"
+		"frame rate" 20
+		"scale" 0.6
+	zooms
+	sound "successor afterburner medium"
+	"sound category" "afterburner"
+	lifetime 1
+
+effect "large successor afterburner"
+	sprite "effect/successor flare/afterburner/afterburner"
+		"frame rate" 20
+	zooms
+	sound "successor afterburner large"
+	"sound category" "afterburner"
+	lifetime 1

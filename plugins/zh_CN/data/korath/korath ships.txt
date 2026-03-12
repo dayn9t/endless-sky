@@ -1,0 +1,2331 @@
+# Copyright (c) 2014-2016 by Michael Zahniser
+# Copyright (c) 2022 by Lia Gerty, Saugia, and Zitchas
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+
+ship "Rano'erek"
+	sprite "ship/dredger"
+	thumbnail "thumbnail/dredger"
+	attributes
+		category "Utility"
+		"cost" 29370000
+		"shields" 32500
+		"hull" 16500
+		"required crew" 137
+		"bunks" 357
+		"mass" 3542
+		"drag" 32.5
+		"heat dissipation" .24
+		"fuel capacity" 900
+		"cargo space" 675
+		"outfit space" 763
+		"weapon capacity" 276
+		"engine capacity" 206
+		weapon
+			"blast radius" 300
+			"shield damage" 4600
+			"hull damage" 2300
+			"hit force" 5900
+	outfits
+		"Grab-Strike Turret" 2
+		"Banisher Grav-Turret"
+		"Warder Anti-Missile"
+		"Digger Mining Turret" 3
+		
+		"Systems Core (Large)"
+		"Triple Plasma Core"
+		"Large Heat Shunt" 2
+		"Small Heat Shunt"
+		"Fuel Processor"
+		"Thermal Repeater Rifle" 190
+		
+		"Reverser (Lunar Class)"
+		"Steering (Planetary Class)"
+		"Thruster (Planetary Class)"
+		"Scram Drive"
+		"Jump Drive"
+		
+	turret 0 -153 "Grab-Strike Turret"
+	turret -37.5 -152.5 "Digger Mining Turret"
+	turret 37.5 -152.5 "Grab-Strike Turret"
+	turret -45 -27.5 "Warder Anti-Missile"
+	turret 45 -27.5 "Digger Mining Turret"
+	turret -85.5 128 "Digger Mining Turret"
+	turret 85.5 128 "Banisher Grav-Turret"
+	engine 0 179
+	engine -32 164 .7
+	engine 32 164 .7
+	"reverse engine" -116 -68
+		zoom 0.6
+	"reverse engine" 116 -68
+		zoom 0.6
+	"reverse engine" -80.5 73
+		over
+		zoom 0.7
+	"reverse engine" 80.5 73
+		over
+		zoom 0.7
+	bay "Fighter" -93.5 -61
+		"launch effect" "korath internal"
+	bay "Fighter" 93.5 -61
+		"launch effect" "korath internal"
+	bay "Fighter" -84 174
+		back
+		"launch effect" "korath internal"
+	bay "Fighter" 84 174
+		back
+		"launch effect" "korath internal"
+	explode "tiny explosion" 120
+	explode "small explosion" 60
+	explode "medium explosion" 70
+	explode "large explosion" 50
+	explode "huge explosion" 15
+	"final explode" "final explosion large"
+	description "科拉斯人被逐出故土后，高效采集资源成为当务之急。世界飞船太过珍贵，不宜冒险投入危险远征；而掠袭舰又 cargo 载量不足。为此诞生了拉诺厄瑞克级小行星疏浚舰——该舰以一位备受尊敬的平民政治家兼经济学家命名。"
+	description "	这些笨重的飞船不仅拥有充足的货物与乘客空间，还配备了强大的防御性武装，还能为前线帕拉夫雷茨提供强力支援。"
+
+
+ship "Palavret"
+	sprite "ship/raider"
+	thumbnail "thumbnail/raider"
+	attributes
+		category "Utility"
+		"cost" 16570000
+		"shields" 27000
+		"hull" 9000
+		"required crew" 145
+		"bunks" 250
+		"mass" 1770
+		"drag" 20.4
+		"heat dissipation" .3
+		"fuel capacity" 600
+		"cargo space" 175
+		"outfit space" 777
+		"weapon capacity" 339
+		"engine capacity" 159
+		weapon
+			"blast radius" 250
+			"shield damage" 3600
+			"hull damage" 1800
+			"hit force" 5400
+	outfits
+		"Grab-Strike Turret" 4
+		"Banisher Grav-Turret"
+		"Warder Anti-Missile"
+		"Firelight Missile Bank" 2
+		"Firelight Storage Rack"
+		"Firelight Missile" 50
+		
+		"Double Plasma Core"
+		"Generator (Inferno Class)"
+		"Systems Core (Medium)"
+		"Large Heat Shunt"
+		"Small Heat Shunt" 3
+		"Fuel Processor"
+		"Thermal Repeater Rifle" 196
+		
+		"Thruster (Planetary Class)"
+		"Steering (Planetary Class)"
+		"Bow Drive (Meteor Class)"
+		"Jump Drive"
+	
+	engine -20 127
+	engine 20 127
+	"reverse engine" -9 -154
+		zoom 0.7
+	"reverse engine" 9 -154
+		zoom 0.7
+	gun 32.5 -1 "Firelight Missile Bank"
+		angle 60
+	gun -32.5 -1 "Firelight Missile Bank"
+		angle 300
+	turret -10 -143 "Grab-Strike Turret"
+	turret 10 -143 "Grab-Strike Turret"
+	turret -36 -141 "Grab-Strike Turret"
+	turret 36 -141 "Grab-Strike Turret"
+	turret 0 41 "Banisher Grav-Turret"
+	turret 0 94 "Warder Anti-Missile"
+	bay "Fighter" -80 151 back
+		"launch effect" "korath internal"
+	bay "Fighter" 80 151 back
+		"launch effect" "korath internal"
+	explode "tiny explosion" 20
+	explode "small explosion" 45
+	explode "medium explosion" 50
+	explode "large explosion" 40
+	explode "huge explosion" 10
+	"final explode" "final explosion large"
+	description "历代掠夺者级战舰数代以来一直是科拉斯人劫掠邻近种族的首选战舰。本级舰以一位备受赞誉的舰长命名——她牺牲自己，确保受损严重的座舰载着极度紧缺的偷来的鱼类货物返回港口。帕拉夫雷特级掠夺舰延续了这一残酷传统。"
+	description "	与所有流亡者飞船一样，帕拉夫雷特号经过改造，旨在尽可能舒适地容纳尽可能多的科拉斯人，因此其体积远超同级别武装战舰。该船采用的太空建造技术，使其易于快速更换部件，从而保障对邻近星系持续不断的劫掠行动。"
+
+
+ship "Tubfalet"
+	sprite "ship/tubfalet"
+	thumbnail "thumbnail/tubfalet"
+	attributes
+		category "Utility"
+		"cost" 22895000
+		"shields" 29500
+		"hull" 11000
+		"required crew" 157
+		"bunks" 250
+		"mass" 2228
+		"drag" 25.5
+		"heat dissipation" .36
+		"heat protection" 0.1
+		"hull protection" 0.1
+		"fuel capacity" 700
+		"cargo space" 163
+		"outfit space" 871
+		"weapon capacity" 377
+		"engine capacity" 212
+		weapon
+			"blast radius" 250
+			"shield damage" 3700
+			"hull damage" 1900
+			"hit force" 5500
+	outfits
+		"Grab-Strike Turret" 4
+		"Banisher Grav-Turret"
+		"Warder Anti-Missile"
+		"Fire-Lance"
+		"Firelight Missile Bank" 2
+		"Firelight Missile" 40
+		
+		"Triple Plasma Core"
+		"Systems Core (Medium)"
+		"Large Heat Shunt" 2
+		"Small Heat Shunt" 2
+		"Fuel Processor"
+		"Thermal Repeater Rifle" 196
+		
+		"Thruster (Planetary Class)"
+		"Thruster (Lunar Class)"
+		"Steering (Planetary Class)"
+		"Jump Drive"
+	
+	engine -20 132
+		over
+	engine 20 132
+		over
+	engine 0 142
+		over
+	"reverse engine" -9 -154
+		zoom 0.7
+	"reverse engine" 9 -154
+		zoom 0.7
+	"steering engine" -89 33.5
+		zoom 0.3
+		angle 126
+		left
+	"steering engine" 89 33.5
+		zoom 0.3
+		angle -126
+		right
+	"steering engine" -82.5 30
+		zoom 0.3
+		angle 126
+		left
+	"steering engine" 82.5 30
+		zoom 0.3
+		angle -126
+		right
+	"steering engine" -69.5 -103.5
+		zoom 0.3
+		angle 38
+		right
+	"steering engine" 69.5 -103.5
+		zoom 0.3
+		angle -38
+		left
+	"steering engine" -76 -106
+		zoom 0.3
+		angle 38
+		right
+	"steering engine" 76 -106
+		zoom 0.3
+		angle -38
+		left
+	gun -45 -150 "Fire-Lance"
+	gun 32.5 -1 "Firelight Missile Bank"
+		angle 60
+	gun -32.5 -1 "Firelight Missile Bank"
+		angle 300
+	turret -10 -143 "Grab-Strike Turret"
+	turret 10 -143 "Grab-Strike Turret"
+	turret -36 -141 "Grab-Strike Turret"
+	turret 36 -141 "Grab-Strike Turret"
+	turret 0 41 "Banisher Grav-Turret"
+	turret 0 94 "Warder Anti-Missile"
+	bay "Fighter" -80 151 back
+		"launch effect" "korath internal"
+	bay "Fighter" 80 151 back
+		"launch effect" "korath internal"
+	bay "Fighter" 28.5 145 back
+		"launch effect" "korath internal"
+	explode "tiny explosion" 20
+	explode "small explosion" 45
+	explode "medium explosion" 50
+	explode "large explosion" 40
+	explode "huge explosion" 10
+	"final explode" "final explosion large"
+	description "古老而备受尊崇的帕拉夫雷特号，长期以来一直是科拉斯劫掠舰队的中坚力量；其设计元素可追溯至流亡生涯所引发的物资短缺与困顿时代之前。数十代劫掠者数百年来持续肆虐邻近星系。"
+	description "	长期与周边外星势力交战，给科拉斯船坞施加了巨大压力，迫使其重拾古代荣光。如今，依托一套崭新的工业网络，科拉斯人打造出一款专为应对现代目标而生的新型突袭舰——图布法莱特级突袭舰。该舰以一位曾成功对抗此类敌人的海军上将命名：即便身负重伤，他仍坚守旗舰舰桥，在残余势力发动袭击时指挥舰队取得胜利。"
+
+
+ship "'nra'ret"
+	sprite "ship/-nra-ret"
+	thumbnail "thumbnail/-nra-ret"
+	attributes
+		category "Heavy Warship"
+		"cost" 24760000
+		"shields" 32700
+		"hull" 9850
+		"required crew" 193
+		"bunks" 221
+		"mass" 2228
+		"drag" 18.7
+		"heat dissipation" .39
+		"fuel capacity" 900
+		"cargo space" 50
+		"outfit space" 943
+		"weapon capacity" 407
+		"engine capacity" 177
+		weapon
+			"blast radius" 300
+			"shield damage" 4400
+			"hull damage" 2200
+			"hit force" 6600
+	outfits
+		"Langrage Hyper-Heaver" 2
+		"Warder Anti-Missile"
+		"Fire-Lance" 2
+		"Firelight Missile Bank" 6
+		"Firelight Missile" 190
+		"Firelight Storage Rack" 7
+
+		"Systems Core (Large)"
+		"Systems Core (Medium)"
+		"Fuel Processor" 3
+		"Triple Plasma Core"
+		"Liquid Sodium Cooler"
+		"Thermal Repeater Rifle" 219
+
+		"Afterburner (Planetary Class)"
+		"Steering (Lunar Class)"
+		"Thruster (Planetary Class)"
+		"Jump Drive"
+
+	engine -29 96
+	engine 29 96
+	engine 0 90 0.9
+	gun -28 -133.5 "Fire-Lance"
+	gun 28 -133.5 "Fire-Lance"
+	gun -48.5 -85.5 "Firelight Missile Bank"
+		angle 320
+	gun 48.5 -85.5 "Firelight Missile Bank"
+		angle 40
+	gun -145 14.5 "Firelight Missile Bank"
+		angle 250
+	gun 145 14.5 "Firelight Missile Bank"
+		angle 110
+	gun -98 75 "Firelight Missile Bank"
+		angle 190
+	gun 98 75 "Firelight Missile Bank"
+		angle 170
+	turret -32.5 -53.5 "Langrage Hyper-Heaver"
+	turret 32.5 -53.5 "Langrage Hyper-Heaver"
+	turret 0 -23 "Warder Anti-Missile"
+	explode "tiny explosion" 120
+	explode "small explosion" 60
+	explode "medium explosion" 70
+	explode "large explosion" 50
+	explode "huge explosion" 15
+	"final explode" "final explosion large"
+	description "尽管初看之下，'恩拉瑞特级'追猎者似乎只是放大版的‘奥洛菲兹级’随载追猎者，但它实为流亡者自大迁徙以来所部署的首款真正独创的战舰设计，更是首艘专为纯粹作战而生、无需兼顾居住或补给功能的战舰。其庞大体型与非模块化结构，意味着它必须在规模最大的科拉斯设施中整舰建造——此类产能此前通常仅保留给伊卡提拉杰巨舰与科尔什玛纳思·阿沃吉这类庞然大物。"
+	description "	‘恩拉瑞特级’追猎者飞船，为纪念一位杰出的武器工程师而命名——这位工程师为避免自身技术秘密落入敌对外星势力之手而选择自尽。该舰为流亡者提供了一种高速且强大的巡逻打击平台，既可支援大型劫掠舰队，亦可作为独立作战单位行动。为此，它配备了多座导弹发射口，可远距离对敌人倾泻火力；另搭载两门朗格重型投射器，用于持久作战；以及两具火焰长矛，专供紧急近战使用。"
+
+
+ship "'olofez"
+	plural "'olofezes"
+	sprite "ship/chaser"
+	thumbnail "thumbnail/chaser"
+	attributes
+		category "Fighter"
+		"cost" 671000
+		"shields" 2300
+		"hull" 900
+		"required crew" 1
+		"bunks" 1
+		"mass" 40
+		"drag" .9
+		"heat dissipation" .9
+		"outfit space" 92
+		"weapon capacity" 25
+		"engine capacity" 30
+		weapon
+			"blast radius" 48
+			"shield damage" 320
+			"hull damage" 160
+			"hit force" 480
+	outfits
+		"Fire-Lance"
+		
+		"Generator (Furnace Class)"
+		"Small Heat Shunt"
+		"Thermal Repeater Rifle"
+		
+		"Thruster (Asteroid Class)"
+		"Steering (Asteroid Class)"
+	
+	engine -13 23
+	engine 13 23
+	gun 0 -28 "Fire-Lance"
+	explode "tiny explosion" 20
+	description "‘奥洛菲兹级’护航追击机——得名于一位以描绘远古狩猎幻象而闻名的艺术家——是流亡者主力舰普遍搭载的一种战斗机。"
+	description "	Fighters do not come equipped with a hyperdrive. You cannot carry a fighter unless you have a ship in your fleet with a fighter bay."
+
+
+ship "Kas'ik Tek 7"
+	sprite "ship/kas-ik tek 7"
+	thumbnail "thumbnail/kas-ik tek 7"
+	attributes
+		category "Drone"
+		"cost" 210000
+		"shields" 1400
+		"hull" 800
+		"automaton" 1
+		"crew equivalent" 1
+		"mass" 21
+		"drag" 0.6
+		"heat dissipation" 1
+		"cargo space" 4
+		"outfit space" 48
+		"engine capacity" 18
+		"atmosphere scan" 100
+		"outfit scan power" 18
+		"outfit scan efficiency" 20
+		"cargo scan power" 6
+		"cargo scan efficiency" 10
+		"tactical scan power" 30
+		"asteroid scan power" 20
+		weapon
+			"blast radius" 6
+			"shield damage" 40
+			"hull damage" 30
+			"hit force" 80
+	outfits
+		"Generator (Candle Class)"
+		"Small Heat Shunt"
+		"Engine (Meteor Class)"
+	engine 0 22.5
+	engine -8.5 25
+	engine 8.5 25
+	explode "tiny explosion" 9
+	explode "small explosion" 6
+	description `这些小型探测器主要由大型科拉斯流亡者飞船部署，用于扫描入侵者、评估外国飞船以及分析星系天体。其次要功能是回收散落在科拉斯空间中的微小残骸及已停用的微型机器人——它们或是从母舰脱落，或是经由‘跃迁打击’发射而出，甚至可能是被刻意部署的。尽管单个微型机器人所观测并记录的数据极其有限，但批量处理后却能汇聚成极具价值的整体信息图谱。更重要的是，这些微型机器人可在回收后重新利用。`
+	description `	Drones do not come equipped with a hyperdrive. You cannot carry a drone unless you have a ship in your fleet with a drone bay.`
+
+
+ship "Rai'alorej"
+	sprite "ship/rai-alorej"
+	thumbnail "thumbnail/rai-alorej"
+	attributes
+		category "Utility"
+		cost 31970000
+		shields 43000
+		hull 27000
+		"required crew" 523
+		"bunks" 1433
+		"mass" 4050
+		"drag" 53.8
+		"heat dissipation" .19
+		"fuel capacity" 700
+
+		"cargo space" 351
+		"outfit space" 856
+		"weapon capacity" 237
+		"engine capacity" 195
+		weapon
+			"blast radius" 600
+			"shield damage" 9000
+			"hull damage" 4800
+			"hit force" 20000
+	outfits
+		"Banisher Grav-Turret"
+		"Warder Anti-Missile" 2
+		"Langrage Hyper-Heaver" 2
+		"Firelight Missile Bank"
+		"Firelight Missile" 20
+
+		"Double Plasma Core"
+		"Systems Core (Large)"
+		"Systems Core (Medium)"
+		"Liquid Sodium Cooler"
+		"Fuel Processor" 2
+		"Thermal Repeater Rifle" 526
+		"Microbot Defense Station" 25
+
+		"Afterburner (Planetary Class)"
+		"Reverser (Lunar Class)"
+		"Thruster (Planetary Class)"
+		"Steering (Planetary Class)"
+		"Scram Drive"
+		"Jump Drive"
+
+	"reverse engine" -79 -186
+		zoom 0.8
+	"reverse engine" 79 -186
+		zoom 0.8
+	engine -101 196
+		zoom 0.9
+	engine 101 196
+		zoom 0.9
+	engine -60 190 0.8
+	engine 60 190 0.8
+	engine -29 212
+	engine 29 212
+	gun -81.5 58 "Firelight Missile Bank"
+		angle 270
+	turret -96.5 -129.5 "Langrage Hyper-Heaver"
+	turret 96.5 -129.5 "Warder Anti-Missile"
+	turret 36.5 -55.5 "Banisher Grav-Turret"
+	turret -62.5 55 "Warder Anti-Missile"
+	turret 62.5 55 "Langrage Hyper-Heaver"
+	bay "Fighter" -115 -152
+		angle 30
+		"launch effect" "korath internal"
+	bay "Fighter" 115 -152
+		angle 330
+		"launch effect" "korath internal"
+	explode "tiny explosion" 30
+	explode "small explosion" 45
+	explode "medium explosion" 50
+	explode "large explosion" 40
+	explode "huge explosion" 50
+	"final explode" "final explosion large"
+	description "科拉斯人在战斗中虽勇猛无匹、极富适应性，却难以从伤势中迅速恢复。若缺乏外科医生协助，或没有超出标准逃生舱容纳能力的医疗设备，一名被困在外且身负重伤的科拉斯人，其生存几率将极为渺茫。因此，离开本土疆域的科拉斯人极为重视建造医院船——这类飞船能够快速定位、回收并救治失事飞船的幸存者。"
+	description "	“拉伊·阿洛雷杰级”避难舰以微机器人辅助外科手术领域的先驱者命名，全面配备了生命体扫描仪、定位信标接收器、医疗运输艇以及搜救小队。一旦幸存者登舰，便会立即接受流亡者所能提供的最先进医院设施、微机器人治疗及各类药品储备。甚至还有婴儿培养箱与托儿所，专门用于照料在舰上成长的幼童。"
+
+
+ship "Ikatila'ej"
+	sprite "ship/ikatila-ej"
+	thumbnail "thumbnail/ikatila-ej"
+	attributes
+		category "Superheavy"
+		"cost" 109375000
+		"shields" 72700
+		"hull" 93000
+		"required crew" 957
+		"bunks" 1933
+		"mass" 14082
+		"drag" 133.4
+		"heat dissipation" .13
+		"fuel capacity" 800
+		"cargo space" 845
+		"outfit space" 1314
+		"weapon capacity" 440
+		"engine capacity" 259
+		"spinal mount" 1
+		weapon
+			"blast radius" 600
+			"shield damage" 9000
+			"hull damage" 4800
+			"hit force" 20000
+	outfits
+		"Microbot Grinder"
+		"Shunt-Strike Turret" 3
+		"Grab-Strike Turret" 2
+		"Warder Anti-Missile" 3
+
+		"Triple Plasma Core"
+		"Double Plasma Core"
+		"Systems Core (Large)"
+		"Large Heat Shunt" 2
+		"Thermal Repeater Rifle" 986
+		"Microbot Defense Station" 26
+
+		"Afterburner (Lunar Class)"
+		"Reverser (Lunar Class)"
+		"Steering (Stellar Class)"
+		"Thruster (Stellar Class)"
+		"Scram Drive"
+
+	"reverse engine" -105 -190.5
+		zoom 0.8
+	"reverse engine" 105 -190.5
+		zoom 0.8
+	engine -84 231.5
+		zoom 0.8
+	engine 84 231.5
+		zoom 0.8
+	engine -61 262.5
+	engine 61 262.5
+	engine -27 249.5
+		zoom 0.8
+	engine 27 249.5
+		zoom 0.8
+	gun 0 -190 "Microbot Grinder"
+	turret 89 -168 "Grab-Strike Turret"
+	turret -89 -168 "Grab-Strike Turret"
+	turret -56 -96 "Shunt-Strike Turret"
+	turret 56 -96 "Warder Anti-Missile"
+	turret -146 83.5 "Warder Anti-Missile"
+	turret 146 83.5 "Shunt-Strike Turret"
+	turret -141.5 177 "Shunt-Strike Turret"
+	turret 141.5 177 "Warder Anti-Missile"
+	explode "tiny explosion" 180
+	explode "small explosion" 80
+	explode "medium explosion" 90
+	explode "large explosion" 60
+	explode "huge explosion" 25
+	"final explode" "final explosion large"
+	description "科拉斯人满足大部分制造需求所依赖的，是其空间站与小行星基础设施——这一点甚至与某些地表物种类似。然而，由于他们长期生活在太空中，设备故障或停机所容许的余地几乎为零。一旦空间站或世界飞船上的设备发生故障，便需立即召唤‘伊卡提拉艾杰’号——其名源自一位以跨领域卓越才能闻名的发明家——提供关键支援。该舰搭载由微机器人运作的工厂，可生产基础生活物资、机械零件及系统核心，并能在生产线停滞时协助恢复运转。"
+	description "	在未协助受损飞船或空间站、也未补给自身物资时，‘伊卡提拉厄杰’号便作为集回收、采矿、精炼与制造于一体的多功能舰船：它依靠微型机器人驱动的研磨器，将小行星与太空垃圾迅速转化为民用经济规划委员会认定最急需的各类产品。"
+
+
+ship "Lor'kas Ik 577"
+	"display name" "Karek A'awoj"
+	sprite "ship/world-ship a"
+	thumbnail "thumbnail/world-ship a"
+	attributes
+		category "Heavy Freighter"
+		cost 29650000
+		shields 32700
+		hull 29600
+		"required crew" 234
+		"bunks" 453
+		"mass" 4791
+		"drag" 39
+		"heat dissipation" .2
+		"fuel capacity" 1000
+		"cargo space" 1375
+		"outfit space" 883
+		"weapon capacity" 338
+		"engine capacity" 238
+		weapon
+			"blast radius" 400
+			"shield damage" 8000
+			"hull damage" 4000
+			"hit force" 12000
+	outfits
+		"Banisher Grav-Turret" 2
+		"Warder Anti-Missile" 4
+		"Grab-Strike Turret" 2
+		"Expeller Grav-Ray" 2
+		
+		"Triple Plasma Core"
+		"Systems Core (Medium)"
+		"Large Heat Shunt" 2
+		"Small Heat Shunt" 2
+		"Fuel Processor"
+		"Thermal Repeater Rifle" 238
+		"Microbot Defense Station" 15
+		
+		"Thruster (Stellar Class)"
+		"Steering (Planetary Class)"
+		"Scram Drive"
+	
+	engine -37 333 .8
+	engine 0 333 .8
+	engine 37 333 .8
+	"reverse engine" -19 -303 0.5
+		over
+	"reverse engine" 0 -303 0.5
+		over
+	"reverse engine" 19 -303 0.5
+		over
+	gun -47 -244 "Expeller Grav-Ray"
+	gun 47 -244 "Expeller Grav-Ray"
+	turret -73 -159 "Warder Anti-Missile"
+	turret 73 -159 "Grab-Strike Turret"
+	turret -56 -137 "Warder Anti-Missile"
+	turret 56 -137 "Warder Anti-Missile"
+	turret -58 -6 "Banisher Grav-Turret"
+	turret 58 -6 "Banisher Grav-Turret"
+	turret -58 25 "Grab-Strike Turret"
+	turret 58 25 "Warder Anti-Missile"
+	bay "Fighter" -72 294 back
+		"launch effect" "korath internal"
+	bay "Fighter" 0 294 back
+		"launch effect" "korath internal"
+	bay "Fighter" 72 294 back
+		"launch effect" "korath internal"
+	explode "tiny explosion" 30
+	explode "small explosion" 45
+	explode "medium explosion" 50
+	explode "large explosion" 40
+	explode "huge explosion" 50
+	"final explode" "final explosion large"
+	description "科拉斯族最大的量产飞船均基于一种通用而古老的船体框架。其中最基础的型号被改造为在精炼站与工厂站之间运输原料。恰如其分地，该船以一个埃弗雷蒂高产殖民地命名，以致敬其对和平工业的专注。"
+
+
+ship "Ra'gru Ik 618"
+	"display name" "Sapira A'awoj"
+	sprite "ship/world-ship b"
+	thumbnail "thumbnail/world-ship b"
+	attributes
+		category "Heavy Warship"
+		cost 49640000
+		shields 51000
+		hull 39500
+		"required crew" 619
+		"bunks" 794
+		"mass" 5070
+		"drag" 44.1
+		"heat dissipation" .23
+		"fuel capacity" 1000
+		"cargo space" 191
+		"outfit space" 1278
+		"weapon capacity" 633
+		"engine capacity" 263
+		weapon
+			"blast radius" 400
+			"shield damage" 8000
+			"hull damage" 4000
+			"hit force" 12000
+	outfits
+		"Grab-Strike Turret" 2
+		"Banisher Grav-Turret" 2
+		"Warder Anti-Missile" 2
+		"Fire-Lance" 3
+		"Korath Inferno" 2
+		"Blaze-Pike Turret" 2
+		"Firelight Missile Bank" 2
+		"Firelight Missile" 36
+		
+		"Triple Plasma Core"
+		"Plasma Core"
+		"Systems Core (Large)"
+		"Liquid Sodium Cooler"
+		"Small Heat Shunt" 3
+		"Fuel Processor"
+		"Brig"
+		"Microbot Defense Station" 13
+		"Thermal Repeater Rifle" 794
+		
+		"Thruster (Stellar Class)"
+		"Steering (Stellar Class)"
+		"Jump Drive"
+	
+	engine -37 333 .7
+	engine 0 333 .7
+	engine 37 333 .7
+	engine -55 323 .4
+	engine 55 323 .4
+	"reverse engine" -19 -303 0.5
+		over
+	"reverse engine" 0 -303 0.5
+		over
+	"reverse engine" 19 -303 0.5
+		over
+	gun -75 -112 "Fire-Lance"
+	gun 75 -112 "Fire-Lance"
+	gun 0 -112 "Fire-Lance"
+	gun 42 90 "Firelight Missile Bank"
+		angle 110
+	gun -42 90 "Firelight Missile Bank"
+		angle 250
+	turret -56 -254 "Warder Anti-Missile"
+	turret 56 -254 "Banisher Grav-Turret"
+	turret -73.5 -221 "Korath Inferno"
+	turret 73.5 -221 "Korath Inferno"
+	turret -56 -186.5 "Grab-Strike Turret"
+	turret 56 -186.5 "Grab-Strike Turret"
+	turret -83 163.5 "Blaze-Pike Turret"
+	turret 83 163.5 "Blaze-Pike Turret"
+	turret -68 195 "Banisher Grav-Turret"
+	turret 68 195 "Warder Anti-Missile"
+	explode "tiny explosion" 30
+	explode "small explosion" 45
+	explode "medium explosion" 50
+	explode "large explosion" 40
+	explode "huge explosion" 50
+	"final explode" "final explosion large"
+	description "科拉斯族最大的量产飞船均基于一种通用而古老的船体框架。这艘看似纤细修长的飞船实则遍布重型武器炮位，专为大规模劫掠行动或护卫其他飞船而设计。其名称取自梅雷蒂人的首都行星——他们曾在那里利用模块化组件建造出强大的战舰。"
+
+
+ship "Kas'lor Ik 582"
+	"display name" "Dathnak A'awoj"
+	sprite "ship/world-ship c"
+	thumbnail "thumbnail/world-ship c"
+	attributes
+		category "Heavy Freighter"
+		cost 28190000
+		shields 39750
+		hull 26100
+		"required crew" 314
+		"bunks" 551
+		"mass" 4778
+		"drag" 34.9
+		"heat dissipation" .18
+		"solar collection" 3.8
+		"fuel capacity" 32700
+		"cargo space" 734
+		"outfit space" 839
+		"weapon capacity" 321
+		"engine capacity" 241
+		weapon
+			"blast radius" 400
+			"shield damage" 8000
+			"hull damage" 4000
+			"hit force" 12000
+	outfits
+		"Langrage Hyper-Heaver" 2
+		"Banisher Grav-Turret" 3
+		"Warder Anti-Missile" 3
+		
+		"Triple Plasma Core"
+		"Systems Core (Large)"
+		"Liquid Sodium Cooler"
+		"Fuel Processor" 6
+		"Thermal Repeater Rifle" 317
+		"Microbot Defense Station" 4
+		
+		"Thruster (Planetary Class)"
+		"Steering (Planetary Class)"
+		"Scram Drive"
+	
+	engine -37 333 .8
+	engine 0 333 .8
+	engine 37 333 .8
+	"reverse engine" -19 -303 0.5
+		over
+	"reverse engine" 0 -303 0.5
+		over
+	"reverse engine" 19 -303 0.5
+		over
+	bay "Fighter" -70 51 back
+		"launch effect" "korath internal"
+	bay "Fighter" 0 51 back
+		"launch effect" "korath internal"
+	bay "Fighter" 70 51 back
+		"launch effect" "korath internal"
+	turret -52.5 -80.5 "Banisher Grav-Turret"
+	turret 52.5 -80.5 "Warder Anti-Missile"
+	turret -57 -50.5 "Warder Anti-Missile"
+	turret 57.5 -50.5 "Banisher Grav-Turret"
+	turret -56.5 55 "Langrage Hyper-Heaver"
+	turret 56.5 55 "Langrage Hyper-Heaver"
+	turret -80 283 "Banisher Grav-Turret"
+	turret 80 283 "Warder Anti-Missile"
+	explode "tiny explosion" 30
+	explode "small explosion" 45
+	explode "medium explosion" 50
+	explode "large explosion" 40
+	explode "huge explosion" 50
+	"final explode" "final explosion large"
+	description "科拉斯最大的量产舰船均源自一种通用而古老的舰体。这款相对流线型的飞船已被改造为用于采集、精炼及运输超空间燃料。其名称源于曾栖息于科拉斯气态巨行星中的美味鱿鱼，尤指德卡·达思纳克星上的品种。"
+
+
+ship "Lor'nag Ik 590"
+	"display name" "Spera A'awoj"
+	sprite "ship/world-ship d"
+	thumbnail "thumbnail/world-ship d"
+	attributes
+		category "Space Liner"
+		cost 33640000
+		shields 47000
+		hull 34800
+		"required crew" 538
+		"bunks" 1492
+		"mass" 4853
+		"drag" 36.9
+		"heat dissipation" .19
+		"solar collection" 5.6
+		"fuel capacity" 1000
+		"cargo space" 264
+		"outfit space" 856
+		"weapon capacity" 321
+		"engine capacity" 241
+		weapon
+			"blast radius" 400
+			"shield damage" 8000
+			"hull damage" 4000
+			"hit force" 12000
+	outfits
+		"Grab-Strike Turret" 1
+		"Banisher Grav-Turret" 3
+		"Warder Anti-Missile" 2
+		"Digger Mining Beam" 2
+		
+		"Triple Plasma Core"
+		"Systems Core (Large)"
+		"Large Heat Shunt" 2
+		"Small Heat Shunt" 2
+		"Fuel Processor"
+		"Brig"
+		"Microbot Defense Station" 17
+		"Thermal Repeater Rifle" 272
+		
+		"Thruster (Stellar Class)"
+		"Steering (Planetary Class)"
+		"Scram Drive"
+	
+	engine -37 333 .8
+	engine 0 333 .8
+	engine 37 333 .8
+	"reverse engine" -19 -303 0.5
+		over
+	"reverse engine" 0 -303 0.5
+		over
+	"reverse engine" 19 -303 0.5
+		over
+	bay "Fighter" -90 160 back
+		"launch effect" "korath internal"
+	bay "Fighter" 0 160 back
+		"launch effect" "korath internal"
+	bay "Fighter" 90 160 back
+		"launch effect" "korath internal"
+	gun -45 -253 "Digger Mining Beam"
+	gun 45 -253 "Digger Mining Beam"
+	turret -77 -116.5 "Grab-Strike Turret"
+	turret 77 -116.5 "Warder Anti-Missile"
+	turret -87 -83 "Banisher Grav-Turret"
+	turret 87 -83 "Banisher Grav-Turret"
+	turret -51 276.5 "Warder Anti-Missile"
+	turret 51 276.5 "Banisher Grav-Turret"
+	explode "tiny explosion" 30
+	explode "small explosion" 45
+	explode "medium explosion" 50
+	explode "large explosion" 40
+	explode "huge explosion" 50
+	"final explode" "final explosion large"
+	description "科拉斯族最大的量产飞船均基于一种通用而古老的船体框架。这艘圆润饱满的飞船经过专门改装，可用于在各太空站间运送乘客，或向敌方要塞投送登舰作战部队。其名称用以纪念发明跳跃引擎的安特拉思科尔族。"
+
+
+ship "Ra'at Ik 621"
+	"display name" "Ikfar A'awoj"
+	sprite "ship/world-ship e"
+	thumbnail "thumbnail/world-ship e"
+	attributes
+		category "Heavy Warship"
+		cost 43590000
+		shields 48000
+		hull 31400
+		"required crew" 794
+		"bunks" 1037
+		"mass" 4647
+		"drag" 55.4
+		"heat dissipation" .2
+		"fuel capacity" 1000
+		"cargo space" 228
+		"outfit space" 999
+		"weapon capacity" 407
+		"engine capacity" 277
+		weapon
+			"blast radius" 400
+			"shield damage" 8000
+			"hull damage" 4000
+			"hit force" 12000
+	outfits
+		"Grab-Strike Turret" 3
+		"Banisher Grav-Turret" 2
+		"Warder Anti-Missile" 2
+		"Fire-Lance" 3
+		
+		"Triple Plasma Core"
+		"Systems Core (Large)"
+		"Large Heat Shunt" 2
+		"Small Heat Shunt" 2
+		"Fuel Processor"
+		"Microbot Defense Station" 12
+		"Thermal Repeater Rifle" 799
+		
+		"Reverser (Lunar Class)"
+		"Thruster (Stellar Class)"
+		"Steering (Stellar Class)"
+		"Jump Drive"
+	
+	engine -42 343 .6
+	engine -22 343 .6
+	engine -22 343 .6
+	engine 22 343 .6
+	engine 22 343 .6
+	engine 42 343 .6
+	"reverse engine" -16 -336 0.9
+	"reverse engine" 16 -336 0.9
+	bay "Fighter" -100 -169
+		"launch effect" "korath internal"
+	bay "Fighter" 0 -169
+		"launch effect" "korath internal"
+	bay "Fighter" 100 -169
+		"launch effect" "korath internal"
+	bay "Fighter" -98 156 back
+		"launch effect" "korath internal"
+	bay "Fighter" 98 156 back
+		"launch effect" "korath internal"
+	bay "Fighter" -50 303 back
+		"launch effect" "korath internal"
+	bay "Fighter" -50 303 back
+		"launch effect" "korath internal"
+	bay "Fighter" 50 303 back
+		"launch effect" "korath internal"
+	bay "Fighter" 50 303 back
+		"launch effect" "korath internal"
+	gun -71 -209 "Fire-Lance"
+	gun 0 -209 "Fire-Lance"
+	gun 71 -209 "Fire-Lance"
+	turret -52 -295 "Grab-Strike Turret"
+	turret 52 -295 "Warder Anti-Missile"
+	turret -104 -13 "Banisher Grav-Turret"
+	turret 0 -13 "Grab-Strike Turret"
+	turret 104 -13 "Grab-Strike Turret"
+	turret -80.5 191.5 "Warder Anti-Missile"
+	turret 80.5 191.5 "Banisher Grav-Turret"
+	explode "tiny explosion" 30
+	explode "small explosion" 45
+	explode "medium explosion" 50
+	explode "large explosion" 40
+	explode "huge explosion" 50
+	"final explode" "final explosion large"
+	description "科拉斯最大的量产舰船均源自一种通用而古老的舰体。这种多瓣状飞船已被改造为可搭载战斗机执行大规模突袭任务，或携带采矿艇进入小行星带。其呈放射状布置的机库设计，使战斗机在战斗中能以最多样化的安全路径接近目标。曾极度偏爱航母与战斗机的塞斯托尔流亡者，在其首都世界之后，将此改型命名为‘塞斯托尔’。"
+
+
+ship "Kasichara A'awoj"
+	sprite "ship/world-ship f"
+	thumbnail "thumbnail/world-ship f"
+	attributes
+		category "Space Liner"
+		cost 42290000
+		shields 44000
+		hull 49600
+		"required crew" 543
+		"bunks" 1997
+		"mass" 5562
+		"drag" 50.4
+		"heat dissipation" .21
+		"solar collection" 12.7
+		"fuel capacity" 600
+		"cargo space" 532
+		"outfit space" 1038
+		"weapon capacity" 331
+		"engine capacity" 251
+		weapon
+			"blast radius" 400
+			"shield damage" 8000
+			"hull damage" 4000
+			"hit force" 12000
+	outfits
+		"Banisher Grav-Turret" 3
+		"Warder Anti-Missile" 3
+		"Grab-Strike Turret" 2
+		
+		"Triple Plasma Core"
+		"Systems Core (Large)"
+		"Systems Core (Small)"
+		"Large Heat Shunt" 2
+		"Small Heat Shunt" 3
+		"Fuel Processor" 2
+		"Luxury Accommodations"
+		"Microbot Defense Station" 23
+		"Thermal Repeater Rifle" 548
+		
+		"Afterburner (Comet Class)"
+		"Reverser (Lunar Class)"
+		"Thruster (Stellar Class)"
+		"Steering (Planetary Class)"
+		"Scram Drive"
+	
+	engine -37 343 .8
+	engine 0 343 .8
+	engine 37 343 .8
+	"reverse engine" -16 -336 0.9
+	"reverse engine" 16 -336 0.9
+	turret -78 -233.5 "Banisher Grav-Turret"
+	turret 78 -233.5 "Warder Anti-Missile"
+	turret -78 9.5 "Grab-Strike Turret"
+	turret 78 9.5 "Grab-Strike Turret"
+	turret -73.5 41 "Banisher Grav-Turret"
+	turret 73.5 41 "Warder Anti-Missile"
+	turret -78 231.5 "Warder Anti-Missile"
+	turret 78 231.5 "Banisher Grav-Turret"
+	explode "tiny explosion" 30
+	explode "small explosion" 45
+	explode "medium explosion" 50
+	explode "large explosion" 40
+	explode "huge explosion" 50
+	"final explode" "final explosion large"
+	description `这种飞船最初是为那些富有到足以逃离科拉斯世界被污染地表的人群而设计的豪华栖息地；当科拉斯人遭流放时，他们正是首先挤进这些庞然巨物般的“世界飞船”，仓皇逃向星系核心。出于怀旧之情，该舰级随后以科拉斯人的故土——那颗已化为废墟且如今被严令禁止踏足的母星“科尔什曼纳提”重新命名，以纪念所有科拉斯人的祖先——科尔什曼纳提人。`
+	description `	自从专用于城市功能的‘城舰’问世以来，这些古老舰船大多已被退役，或改建为空间站，或重新配置为更小型、更专业的特种舰只。然而仍有少数仍在星际航线上航行，由那些既不安于驻守空间站、又缺乏勇气参与劫掠行动的船员驾驶。`
+
+
+ship "Korsmanath A'awoj"
+	sprite "ship/korsmanath a-awoj"
+	thumbnail "thumbnail/korsmanath a-awoj"
+	"uncapturable"
+	attributes
+		category "Superheavy"
+		cost 276900000
+		shields 196420
+		hull 320690
+		"required crew" 1940
+		"bunks" 31920
+		"mass" 38565
+		"drag" 231
+		"heat dissipation" .08
+		"solar collection" 4.2
+		"fuel capacity" 1000
+		"cargo space" 1864
+		"outfit space" 3180
+		"weapon capacity" 1148
+		"engine capacity" 480
+		"atmosphere scan" 100
+		weapon
+			"blast radius" 800
+			"shield damage" 15000
+			"hull damage" 7500
+			"hit force" 22500
+	outfits
+		"Banisher Grav-Turret" 7
+		"Langrage Hyper-Heaver" 3
+		"Korath Inferno" 4
+		"Warder Anti-Missile" 7
+		"Firelight Missile Bank" 4
+		"Firelight Storage Rack" 4
+		"Firelight Missile" 108
+		"Firestorm Torpedo" 13
+		"Firestorm Battery" 1
+
+		"Triple Plasma Core" 3
+		"Systems Core (Large)" 2
+		"Liquid Sodium Cooler" 2
+		"Fuel Processor" 7
+		"Thermal Repeater Rifle" 1954
+		"Microbot Defense Station" 214
+		
+		"Afterburner (Stellar Class)"
+		"Reverser (Stellar Class)"
+		"Thruster (Stellar Class)"
+		"Thruster (Planetary Class)"
+		"Steering (Stellar Class)"
+		"Steering (Planetary Class)"
+		"Scram Drive"
+
+	"reverse engine" -90 -464 0.8
+	"reverse engine" 90 -464 0.8
+	"reverse engine" -115.5 -445.5 0.7
+	"reverse engine" 115.5 -445.5 0.7
+	"steering engine" -90 -464
+		zoom 0.7
+		left
+		angle 180
+	"steering engine" 90 -464
+		zoom 0.7
+		right
+		angle 180
+	"steering engine" -115.5 -445.5
+		zoom 0.6
+		left
+		angle 180
+	"steering engine" 115.5 -445.5
+		zoom 0.6
+		right
+		angle 180
+	"steering engine" -152.5 -270
+		angle 45
+		right
+		zoom 0.6
+	"steering engine" 152.5 -270
+		angle 315
+		left
+		zoom 0.6
+	"steering engine" -172 169
+		angle 135
+		left
+		zoom 0.6
+	"steering engine" 172 169
+		angle 225
+		right
+		zoom 0.6
+	"steering engine" -135.5 444
+		zoom 1.2
+		right
+	"steering engine" 135.5 444
+		zoom 1.2
+		left
+	engine 0 481.5
+		zoom 1.7
+	engine -135.5 444
+		zoom 1.6
+	engine 135.5 444
+		zoom 1.6
+	engine -88.5 430.5
+		zoom 0.7
+	engine 88.5 430.5
+		zoom 0.7
+	engine -77 436
+		zoom 0.7
+	engine 77 436
+		zoom 0.7
+	engine -46 454.5
+		zoom 0.8
+	engine 46 454.5
+		zoom 0.8
+	turret -19.5 -438.5 "Banisher Grav-Turret"
+	turret 19.5 -438.5 "Warder Anti-Missile"
+	turret -178 -332 "Warder Anti-Missile"
+	turret 178 -332 "Banisher Grav-Turret"
+	turret -186 -285.5 "Banisher Grav-Turret"
+	turret 186 -285.5 "Warder Anti-Missile"
+	turret -131.5 -173.5 "Langrage Hyper-Heaver"
+	turret 131.5 -173.5 "Korath Inferno"
+	turret -131.5 -156 "Korath Inferno"
+	turret 131.5 -156 "Warder Anti-Missile"
+	turret 46 -12 "Warder Anti-Missile"
+	turret -16.5 16 "Banisher Grav-Turret"
+	turret 62 128 "Langrage Hyper-Heaver"
+	turret -75.5 162.5 "Firestorm Battery"
+	turret -204.5 200 "Banisher Grav-Turret"
+	turret 204.5 200 "Warder Anti-Missile"
+	turret -192.5 257.5 "Warder Anti-Missile"
+	turret 192.5 257.5 "Banisher Grav-Turret"
+	turret -72.5 338.5 "Langrage Hyper-Heaver"
+	turret 72.5 338.5 "Korath Inferno"
+	turret -95.5 365.5 "Korath Inferno"
+	turret 95.5 365.5 "Banisher Grav-Turret"
+	gun -170 -104 "Firelight Missile Bank"
+		angle 315
+	gun 170 -104 "Firelight Missile Bank"
+		angle 45
+	gun -178 -84 "Firelight Missile Bank"
+		angle 290
+	gun 178 -84 "Firelight Missile Bank"
+		angle 70
+	bay "Fighter" -167.5 -420
+		angle 315
+		"launch effect" "korath internal"
+	bay "Fighter" 167.5 -420
+		angle 45
+		"launch effect" "korath internal"
+	bay "Fighter" -179.5 80
+		angle 45
+		back
+		"launch effect" "korath internal"
+	bay "Fighter" 179.5 80
+		angle 315
+		back
+		"launch effect" "korath internal"
+	bay "Fighter" -167.5 -420
+		angle 315
+		"launch effect" "korath internal"
+	bay "Fighter" 167.5 -420
+		angle 45
+		"launch effect" "korath internal"
+	bay "Fighter" -179.5 80
+		angle 45
+		back
+		"launch effect" "korath internal"
+	bay "Fighter" 179.5 80
+		angle 315
+		back
+		"launch effect" "korath internal"
+	bay "Fighter" -167.5 -420
+		angle 315
+		"launch effect" "korath internal"
+	bay "Fighter" 167.5 -420
+		angle 45
+		"launch effect" "korath internal"
+	bay "Fighter" -179.5 80
+		angle 45
+		back
+		"launch effect" "korath internal"
+	bay "Fighter" 179.5 80
+		angle 315
+		back
+		"launch effect" "korath internal"
+	bay "Fighter" -167.5 -420
+		angle 315
+		"launch effect" "korath internal"
+	bay "Fighter" 167.5 -420
+		angle 45
+		"launch effect" "korath internal"
+	bay "Fighter" -179.5 80
+		angle 45
+		back
+		"launch effect" "korath internal"
+	bay "Fighter" 179.5 80
+		angle 315
+		back
+		"launch effect" "korath internal"
+	bay "Fighter" -167.5 -420
+		angle 315
+		"launch effect" "korath internal"
+	bay "Fighter" 167.5 -420
+		angle 45
+		"launch effect" "korath internal"
+	bay "Fighter" -179.5 80
+		angle 45
+		back
+		"launch effect" "korath internal"
+	bay "Fighter" 179.5 80
+		angle 315
+		back
+		"launch effect" "korath internal"
+	bay "Fighter" -167.5 -420
+		angle 315
+		"launch effect" "korath internal"
+	bay "Fighter" 167.5 -420
+		angle 45
+		"launch effect" "korath internal"
+	bay "Fighter" -179.5 80
+		angle 45
+		back
+		"launch effect" "korath internal"
+	bay "Fighter" 179.5 80
+		angle 315
+		back
+		"launch effect" "korath internal"
+	explode "tiny explosion" 30
+	explode "small explosion" 45
+	explode "medium explosion" 50
+	explode "large explosion" 40
+	explode "huge explosion" 50
+	"final explode" "final explosion large"
+	description "科拉斯曼纳思·阿沃斯号，以科拉斯母星系命名，是庞大的游牧式栖息地，容纳了科拉斯族现存的大部分人口。这些真正的飞行城市本可成为自给自足的微型世界，却因配备重型防御武器系统，以及严重依赖不可持续的材料、工艺与能源而未能实现。"
+	description "	新建科斯曼纳特级‘阿沃杰’飞船是一项资源消耗巨大、劳动密集、耗时漫长且充斥政治倾轧的工程。海军统帅们与文官政府争夺资源和船坞工时——他们更愿将这些投入用于建造突袭舰队与防御舰队；平民彼此竞争，只为争取登上新舰的席位；规划委员会则与工程师就采用何种工艺与技术争执不休。其结果，最好的情况是工期延误、偷工减料及设计过度军事化，最坏的情况则是爆发暴力仇杀。"
+
+
+
+ship "Echo-Galleon"
+	sprite "ship/echo-galleon"
+	thumbnail "thumbnail/echo-galleon"
+	attributes
+		category "Utility"
+		cost 27690000
+		shields 39000
+		hull 27000
+		"required crew" 243
+		"bunks" 972
+		"mass" 3791
+		"drag" 42
+		"heat dissipation" .3
+		"fuel capacity" 600
+		"cargo space" 734
+		"outfit space" 721
+		"weapon capacity" 285
+		"engine capacity" 155
+		weapon
+			"blast radius" 360
+			"shield damage" 7200
+			"hull damage" 3600
+			"hit force" 10800
+	outfits
+		"Digger Mining Beam" 4
+		"Grab-Strike Turret" 2
+		"Banisher Grav-Turret"
+		"Warder Anti-Missile" 2
+		
+		"Double Plasma Core"
+		"Generator (Inferno Class)"
+		"Systems Core (Large)"
+		"Large Heat Shunt"
+		"Fuel Processor"
+		"Thermal Repeater Rifle" 246
+		
+		"Nelmeb GP Hybrid Thruster"
+		"Nelmeb GP Hybrid Steering"
+		"Scram Drive"
+
+	"reverse engine" -31 -290
+	"reverse engine" 31 -290
+	engine -69 230
+	engine 69 230
+	turret 0 -166 "Grab-Strike Turret"
+	turret -41 -69 "Grab-Strike Turret"
+	turret 41 -69 "Warder Anti-Missile"
+	turret -41.5 264 "Warder Anti-Missile"
+	turret 41.5 264 "Banisher Grav-Turret"
+	gun -75 -250 "Digger Mining Beam"
+	gun 75 -250 "Digger Mining Beam"
+	gun -60 -214.5 "Digger Mining Beam"
+	gun 60 -214.5 "Digger Mining Beam"
+	explode "tiny explosion" 30
+	explode "small explosion" 45
+	explode "medium explosion" 50
+	explode "large explosion" 40
+	explode "huge explosion" 50
+	"final explode" "final explosion large"
+	description `科拉斯族最大的量产飞船均基于一种通用而古老的船体框架，本艘大型埃弗雷蒂飞船亦不例外。面对截然不同的挑战，并部分借鉴了其夸格庇护者的理念，埃弗雷蒂人对古早‘世界飞船’的后裔进行了改良：新飞船更轻、更快、效率更高，但火力弱于流亡者阵营的对应型号。`
+
+
+ship "Arch-Carrack"
+	sprite "ship/arch-carrack"
+	thumbnail "thumbnail/arch-carrack"
+	attributes
+		category "Heavy Freighter"
+		"cost" 15815000
+		"shields" 21800
+		"hull" 19300
+		"required crew" 54
+		"bunks" 97
+		"mass" 1906
+		"drag" 22.3
+		"heat dissipation" .34
+		"fuel capacity" 600
+		"cargo space" 635
+		"outfit space" 582
+		"weapon capacity" 193
+		"engine capacity" 147
+		"disruption resistance" 0.24
+		"disruption resistance energy" 2.4
+		"disruption resistance heat" 2.4
+		weapon
+			"blast radius" 300
+			"shield damage" 4600
+			"hull damage" 2300
+			"hit force" 5900
+	outfits
+		"Banisher Grav-Turret" 1
+		"Digger Mining Beam" 2
+		"Warder Anti-Missile" 2
+		
+		"Double Plasma Core"
+		"Generator (Furnace Class)"
+		"Systems Core (Large)"
+		"Large Heat Shunt"
+		"Fuel Processor"
+		"Thermal Repeater Rifle" 55
+		
+		"Gaktem GP Hybrid Thruster"
+		"Farves GP Hybrid Thruster"
+		"Gaktem GP Hybrid Steering"
+		"Scram Drive"
+
+	engine 19.5 189.5
+	engine -19.5 189.5
+	engine 46 170 0.7
+	engine -46 170 0.7
+	"reverse engine" 14.5 -187.5
+	"reverse engine" -14.5 -187.5
+	turret 0 -119.5 "Warder Anti-Missile"
+	turret 0 42 "Banisher Grav-Turret"
+	turret 0 138.5 "Warder Anti-Missile"
+	gun -37.5 -187 "Digger Mining Beam"
+	gun 37.5 -187 "Digger Mining Beam"
+	explode "tiny explosion" 120
+	explode "small explosion" 60
+	explode "medium explosion" 70
+	explode "large explosion" 50
+	explode "huge explosion" 15
+	"final explode" "final explosion large"
+	description "尽管埃弗雷蒂人无法有效保障自身防御，他们仍负责日常的民用与货运运输任务。这款货船虽不如其他科拉斯舰船那般笨重或强大，但在往返于埃弗雷蒂人仅存的几颗行星之间时，速度却快得多；同时其防御配置也足以击退偶尔越过夸格防线的梅雷蒂无人机。"
+
+
+ship "Charm-Shallop"
+	sprite "ship/charm-shallop"
+	thumbnail "thumbnail/charm-shallop"
+	attributes
+		category "Utility"
+		"cost" 14070000
+		"shields" 19700
+		"hull" 15200
+		"required crew" 65
+		"bunks" 203
+		"mass" 882
+		"drag" 10.5
+		"heat dissipation" .5
+		"fuel capacity" 500
+		"cargo space" 194
+		"outfit space" 473
+		"weapon capacity" 158
+		"engine capacity" 129
+		"disruption resistance" 0.2
+		"disruption resistance energy" 2
+		"disruption resistance heat" 2
+		weapon
+			"blast radius" 250
+			"shield damage" 3600
+			"hull damage" 1800
+			"hit force" 5400
+	outfits
+		"Digger Mining Beam" 3
+		"Warder Anti-Missile"
+		"Banisher Grav-Turret"
+		
+		"Double Plasma Core"
+		"Generator (Candle Class)"
+		"Systems Core (Medium)"
+		"Large Heat Shunt"
+		"Fuel Processor"
+		"Thermal Repeater Rifle" 66
+		
+		"Gaktem GP Hybrid Thruster"
+		"Gaktem GP Hybrid Steering"
+		"Scram Drive"
+
+	engine -17.5 139.5
+	engine 17.5 139.5
+	turret 0 -35 "Warder Anti-Missile"
+	turret 0 97 "Banisher Grav-Turret"
+	gun 0 -118 "Digger Mining Beam"
+	gun -16.5 -114.5 "Digger Mining Beam"
+	gun 16.5 -114.5 "Digger Mining Beam"
+	explode "tiny explosion" 20
+	explode "small explosion" 45
+	explode "medium explosion" 50
+	explode "large explosion" 40
+	explode "huge explosion" 10
+	"final explode" "final explosion large"
+	description "这是一型近期设计的埃弗雷蒂多用途舰船，承担了许多原本由已退役的早期型号掠袭者舰队负责的任务。部分该型舰主要用于客运运输，而另一些则部署于本地采矿作业，以满足埃弗雷蒂族对矿石永无止境的需求。其结构融入了夸格风格的设计元素，轻量化舰体使其执行任务时比任何其他独立型科拉斯飞船都更加敏捷灵活。"
+
+
+
+ship "Kar Ik Vot 349"
+	sprite "ship/kar ik vot 349"
+	thumbnail "thumbnail/kar ik vot 349"
+	attributes
+		category "Heavy Warship"
+		"cost" 41280000
+		"shields" 57200
+		"hull" 65400
+		"automaton" 1
+		"crew equivalent" 150
+		"mass" 3754
+		"drag" 33.6
+		"heat dissipation" .25
+		"fuel capacity" 400
+		"cargo space" 87
+		"outfit space" 1054
+		"weapon capacity" 447
+		"engine capacity" 173
+		"self destruct" .8
+		"ramscoop" 3
+		weapon
+			"blast radius" 450
+			"shield damage" 6400
+			"hull damage" 3200
+			"hit force" 9600
+	outfits
+		"Korath Detainer" 2
+		"Piercer Missile Launcher" 2
+		"Piercer Missile" 94
+		"Piercer Missile Rack" 2
+		"Warder Anti-Missile" 2
+		"Thermal Repeater Turret" 6
+		
+		"Triple Plasma Core"
+		"Plasma Core"
+		"Systems Core (Large)"
+		"Large Heat Shunt" 4
+		"Small Heat Shunt" 2
+		"Control Transceiver"
+		
+		"Thruster (Planetary Class)"
+		"Steering (Stellar Class)"
+		Hyperdrive
+	
+	engine -24 237
+	engine 24 237
+	gun -8 -212 "Korath Detainer"
+	gun 8 -212 "Korath Detainer"
+	gun -16 -158 "Piercer Missile Launcher"
+	gun 16 -158 "Piercer Missile Launcher"
+	turret -37 -150 "Thermal Repeater Turret"
+	turret 37 -150 "Thermal Repeater Turret"
+	turret -38 -132 "Thermal Repeater Turret"
+	turret 38 -132 "Thermal Repeater Turret"
+	turret -40 -111 "Thermal Repeater Turret"
+	turret 40 -111 "Thermal Repeater Turret"
+	turret -102 188 "Warder Anti-Missile"
+	turret 102 188 "Warder Anti-Missile"
+	explode "tiny explosion" 120
+	explode "small explosion" 60
+	explode "medium explosion" 70
+	explode "large explosion" 50
+	explode "huge explosion" 15
+	"final explode" "final explosion large"
+	description "科拉斯塞斯托尔（Kor Sestor）制造的体积最大、威力最强的机器人战舰；单艘此类战列巡洋舰便足以抗衡一支由众多小型舰船组成的舰队。"
+
+
+ship "Tek Far 71 - Lek"
+	sprite "ship/tek far 71 lek"
+	thumbnail "thumbnail/tek far 71 lek"
+	attributes
+		category "Medium Warship"
+		"cost" 22870000
+		"shields" 25400
+		"hull" 29500
+		"automaton" 1
+		"crew equivalent" 50
+		"mass" 1240
+		"drag" 14.9
+		"heat dissipation" .39
+		"fuel capacity" 400
+		"cargo space" 36
+		"outfit space" 533
+		"weapon capacity" 235
+		"engine capacity" 102
+		"self destruct" .7
+		"ramscoop" 3
+		weapon
+			"blast radius" 320
+			"shield damage" 4000
+			"hull damage" 2000
+			"hit force" 6000
+	outfits
+		"Korath Detainer"
+		"Piercer Missile Launcher" 2
+		"Piercer Missile" 62
+		"Banisher Grav-Turret"
+		"Warder Anti-Missile" 2
+		
+		"Double Plasma Core"
+		"Generator (Furnace Class)"
+		"Systems Core (Medium)"
+		"Large Heat Shunt"
+		"Control Transceiver"
+		
+		"Thruster (Lunar Class)"
+		"Steering (Lunar Class)"
+		"Hyperdrive"
+	
+	engine -9 219
+	engine 9 219
+	gun 10 -180 "Korath Detainer"
+	gun 10 -180 "Piercer Missile Launcher"
+	gun 10 -180 "Piercer Missile Launcher"
+	turret -10 -85 "Warder Anti-Missile"
+	turret -13 -61
+	turret -14 -38 "Banisher Grav-Turret"
+	turret 14 177 "Warder Anti-Missile"
+	bay "Drone" 20.5 -65 over
+		"launch effect" "korath external"
+	bay "Drone" 44.5 -40 over
+		"launch effect" "korath external"
+	bay "Drone" 30 67 over
+		"launch effect" "korath external"
+	bay "Drone" 61.5 83 over
+		"launch effect" "korath external"
+	bay "Drone" 43 137 over
+		"launch effect" "korath external"
+	bay "Drone" 18 171.5 over
+		"launch effect" "korath external"
+	bay "Drone" 30 -106 under
+		"launch effect" "korath external"
+	bay "Drone" 24 -8 under
+		"launch effect" "korath external"
+	bay "Drone" 42 55 under
+		"launch effect" "korath external"
+	bay "Drone" 34 172 under
+		"launch effect" "korath external"
+	explode "tiny explosion" 80
+	explode "small explosion" 45
+	explode "medium explosion" 50
+	explode "large explosion" 40
+	explode "huge explosion" 10
+	"final explode" "final explosion large"
+	description "科拉斯塞斯托尔人的战舰舰队严重依赖小型而强大的战斗机与无人机。本舰最多可搭载十架其制式无人机，以夹具固定于舰体外部。"
+
+
+ship "Tek Far 78 - Osk"
+	sprite "ship/tek far 78 osk"
+	thumbnail "thumbnail/tek far 78 osk"
+	attributes
+		category "Medium Warship"
+		"cost" 25630000
+		"shields" 27600
+		"hull" 34100
+		"automaton" 1
+		"crew equivalent" 50
+		"mass" 1471
+		"drag" 16.3
+		"heat dissipation" .35
+		"fuel capacity" 400
+		"cargo space" 43
+		"outfit space" 611
+		"weapon capacity" 272
+		"engine capacity" 117
+		"self destruct" .7
+		"ramscoop" 3
+		weapon
+			"blast radius" 340
+			"shield damage" 4400
+			"hull damage" 2200
+			"hit force" 6600
+	outfits
+		"Korath Detainer"
+		"Piercer Missile Launcher" 3
+		"Piercer Missile" 93
+		"Banisher Grav-Turret"
+		"Warder Anti-Missile" 2
+		
+		"Double Plasma Core"
+		"Generator (Inferno Class)"
+		"Systems Core (Medium)"
+		"Large Heat Shunt"
+		"Control Transceiver"
+		
+		"Thruster (Lunar Class)"
+		"Steering (Planetary Class)"
+		Hyperdrive
+	
+	engine -9 245
+	engine 9 245
+	gun 0 -239 "Korath Detainer"
+	gun 0 -239 "Piercer Missile Launcher"
+	gun -9 -220 "Piercer Missile Launcher"
+	gun -9 -220 "Piercer Missile Launcher"
+	turret 17 -133 "Warder Anti-Missile"
+	turret 19 -110
+	turret 21 -87
+	turret 23 -64 "Banisher Grav-Turret"
+	turret 38 145 "Warder Anti-Missile"
+	bay "Fighter" -18.5 -163 over
+		"launch effect" "korath external"
+	bay "Fighter" -43.5 -103.5 over
+		"launch effect" "korath external"
+	bay "Fighter" -16.5 -32.5 over
+		"launch effect" "korath external"
+	bay "Fighter" -30 57 over
+		"launch effect" "korath external"
+	bay "Fighter" -55.5 96.5 over
+		"launch effect" "korath external"
+	bay "Fighter" -21.5 150.5 over
+		"launch effect" "korath external"
+	bay "Fighter" -32.5 -76.5 under
+		"launch effect" "korath external"
+	bay "Fighter" -14.5 43.5 under
+		"launch effect" "korath external"
+	bay "Fighter" -42.5 193.5 under
+		"launch effect" "korath external"
+	explode "tiny explosion" 90
+	explode "small explosion" 50
+	explode "medium explosion" 55
+	explode "large explosion" 45
+	explode "huge explosion" 12
+	"final explode" "final explosion large"
+	description "该航母配备最多九架战斗机的对接夹具。若满载威力强大的科爾塞斯托尔机器人战斗机，它将成为一名 formidable 的对手。"
+
+
+ship "Tek Far 109"
+	sprite "ship/tek far 109"
+	thumbnail "thumbnail/tek far 109"
+	attributes
+		category "Medium Warship"
+		"cost" 18290000
+		"shields" 17900
+		"hull" 15800
+		"automaton" 1
+		"crew equivalent" 100
+		"mass" 1056
+		"drag" 13.7
+		"heat dissipation" .44
+		"fuel capacity" 400
+		"cargo space" 31
+		"outfit space" 491
+		"weapon capacity" 217
+		"engine capacity" 98
+		"self destruct" .7
+		"ramscoop" 3
+		weapon
+			"blast radius" 280
+			"shield damage" 3200
+			"hull damage" 1600
+			"hit force" 4800
+	outfits
+		"Korath Detainer"
+		"Piercer Missile Launcher" 2
+		"Piercer Missile" 62
+		"Banisher Grav-Turret" 2
+		
+		"Double Plasma Core"
+		"Systems Core (Medium)"
+		"Small Heat Shunt" 2
+		"Control Transceiver"
+		
+		"Thruster (Lunar Class)"
+		"Steering (Planetary Class)"
+		Hyperdrive
+	
+	engine -9 205
+	engine 9 205
+	gun 0 -214 "Korath Detainer"
+	gun -14 -206 "Piercer Missile Launcher"
+	gun 14 -206 "Piercer Missile Launcher"
+	turret -89 32
+	turret 89 32
+	bay "Drone" 38.5 -115.5 over
+		"launch effect" "korath external"
+	bay "Drone" 25 -50.5 over
+		"launch effect" "korath external"
+	bay "Drone" 59 28 over
+		"launch effect" "korath external"
+	bay "Drone" 28 79 over
+		"launch effect" "korath external"
+	bay "Drone" 19.5 145.5 over
+		"launch effect" "korath external"
+	bay "Drone" 57.5 -56.5 under
+		"launch effect" "korath external"
+	bay "Drone" 40 19 under
+		"launch effect" "korath external"
+	bay "Drone" 60 58.5 under
+		"launch effect" "korath external"
+	bay "Drone" 45.5 135 under
+		"launch effect" "korath external"
+	bay "Fighter" -36.5 -130.5 over
+		"launch effect" "korath external"
+	bay "Fighter" -61.5 -68 over
+		"launch effect" "korath external"
+	bay "Fighter" -29.5 -17 over
+		"launch effect" "korath external"
+	bay "Fighter" -54.5 55 over
+		"launch effect" "korath external"
+	bay "Fighter" -62 24 under
+		"launch effect" "korath external"
+	bay "Fighter" -35 136.5 under
+		"launch effect" "korath external"
+	bay "Fighter" -22 -82 under
+		"launch effect" "korath external"
+	explode "tiny explosion" 70
+	explode "small explosion" 40
+	explode "medium explosion" 45
+	explode "large explosion" 30
+	explode "huge explosion" 8
+	"final explode" "final explosion medium"
+	description "TF109的设计几乎完全专注于搭载一支科拉斯-塞斯托尔战斗机与无人机编队。若缺乏这些战机与无人机构成的防护屏障，该舰自身将极为脆弱。"
+
+
+ship "Met Par Tek 53"
+	sprite "ship/met par tek 53"
+	thumbnail "thumbnail/met par tek 53"
+	attributes
+		category "Light Warship"
+		"cost" 14480000
+		"shields" 15100
+		"hull" 22200
+		"automaton" 1
+		"crew equivalent" 25
+		"mass" 935
+		"drag" 8.6
+		"heat dissipation" .54
+		"fuel capacity" 400
+		"cargo space" 26
+		"outfit space" 610
+		"weapon capacity" 213
+		"engine capacity" 110
+		"self destruct" .65
+		"ramscoop" 3
+		weapon
+			"blast radius" 250
+			"shield damage" 3200
+			"hull damage" 1600
+			"hit force" 4800
+	outfits
+		"Thermal Repeater" 3
+		"Thermal Repeater Turret" 6
+		
+		"Double Plasma Core"
+		"Generator (Inferno Class)"
+		"Systems Core (Medium)"
+		"Large Heat Shunt" 3
+		"Control Transceiver"
+		
+		"Thruster (Lunar Class)"
+		"Steering (Planetary Class)"
+		"Hyperdrive"
+	
+	engine -24 132
+	engine 24 132
+	gun 0 -92 "Thermal Repeater"
+	gun -10 -65 "Thermal Repeater"
+	gun 10 -65 "Thermal Repeater"
+	turret -36 -45 "Thermal Repeater Turret"
+	turret 36 -45 "Thermal Repeater Turret"
+	turret -38 -28 "Thermal Repeater Turret"
+	turret 38 -28 "Thermal Repeater Turret"
+	turret -40 -8 "Thermal Repeater Turret"
+	turret 40 -8 "Thermal Repeater Turret"
+	explode "tiny explosion" 60
+	explode "small explosion" 30
+	explode "medium explosion" 35
+	explode "large explosion" 20
+	explode "huge explosion" 6
+	"final explode" "final explosion medium"
+	description "尽管这是除科拉斯战斗机外最小的科拉斯·塞斯托尔舰船，但它仍比大多数人类主力舰更大，且战斗力显著更强。"
+
+
+ship "Far Lek 14"
+	sprite "ship/far lek 14"
+	thumbnail "thumbnail/far lek 14"
+	attributes
+		category "Drone"
+		"cost" 573000
+		"shields" 900
+		"hull" 1600
+		"automaton" 1
+		"crew equivalent" 1
+		"mass" 26
+		"drag" .8
+		"heat dissipation" 1.1
+		"outfit space" 65
+		"weapon capacity" 11
+		"engine capacity" 24
+		"self destruct" .6
+		weapon
+			"blast radius" 5
+			"shield damage" 50
+			"hull damage" 25
+			"hit force" 75
+	outfits
+		"Thermal Repeater"
+		
+		"Generator (Candle Class)"
+		"Small Heat Shunt"
+		
+		"Thruster (Asteroid Class)"
+		"Steering (Asteroid Class)"
+		
+	engine -2 28
+	engine 8 28
+	gun 0 -30
+	explode "tiny explosion" 20
+	explode "small explosion" 10
+	description "科拉斯近期内战的巅峰阶段，科尔斯托尔派系研制出这类全自动攻击无人机：易于量产，且外壳采用超致密材料制成，可承受大量伤害。"
+	description "	Drones do not come equipped with a hyperdrive. You cannot carry a drone unless you have a ship in your fleet with a drone bay."
+
+
+ship "Far Osk 27"
+	sprite "ship/far osk 27"
+	thumbnail "thumbnail/far osk 27"
+	attributes
+		category "Fighter"
+		"cost" 761000
+		"shields" 1500
+		"hull" 2400
+		"automaton" 1
+		"crew equivalent" 2
+		"mass" 34
+		"drag" 1.1
+		"heat dissipation" 1.0
+		"outfit space" 99
+		"weapon capacity" 22
+		"engine capacity" 24
+		"self destruct" .6
+		weapon
+			"blast radius" 12
+			"shield damage" 120
+			"hull damage" 60
+			"hit force" 180
+	outfits
+		"Thermal Repeater" 2
+		
+		"Generator (Furnace Class)"
+		"Small Heat Shunt" 2
+		
+		"Thruster (Asteroid Class)"
+		"Steering (Asteroid Class)"
+		
+	engine -4 37
+	engine 4 37
+	gun 7 -15
+	gun 13 -8
+	explode "tiny explosion" 25
+	explode "small explosion" 15
+	description "由于该飞船由计算机操控，无需驾驶舱或生命维持系统，FS27战斗机得以配备更厚实的船体、更强的护盾以及比任何同类人类飞船更强大的火炮。"
+	description "	Fighters do not come equipped with a hyperdrive. You cannot carry a fighter unless you have a ship in your fleet with a fighter bay."
+
+
+
+ship "Model 8"
+	sprite "ship/model 8"
+	thumbnail "thumbnail/model 8"
+	attributes
+		category "Interceptor"
+		"cost" 3725000
+		"shields" 5450
+		"hull" 3320
+		"automaton" 1
+		"crew equivalent" 5
+		"mass" 160
+		"drag" 3.7
+		"heat dissipation" 1.3
+		"fuel capacity" 200
+		"cargo space" 29
+		"outfit space" 220
+		"weapon capacity" 49
+		"engine capacity" 60
+		"self destruct" .60
+		"ramscoop" 3
+		weapon
+			"blast radius" 100
+			"shield damage" 1200
+			"hull damage" 600
+			"hit force" 1800
+	outfits
+		"Husk-Slice"
+		
+		"Generator (Furnace Class)"
+		"Generator (Candle Class)"
+		"Systems Core (Small)"
+		"Reasoning Node"
+		
+		"Thruster (Comet Class)"
+		"Steering (Lunar Class)"
+		Hyperdrive
+	
+	engine -11 49
+	engine 11 49
+	gun 9 -36 "Husk-Slice"
+	gun -11 -15
+	explode "tiny explosion" 30
+	explode "small explosion" 10
+	"final explode" "final explosion small"
+	description "最小的科拉斯梅雷蒂无人机主要执行小行星采矿任务，但其激光器在必要时也可作为进攻性武器使用。"
+
+
+ship "Model 16"
+	sprite "ship/model 16"
+	thumbnail "thumbnail/model 16"
+	attributes
+		category "Light Warship"
+		"cost" 8449000
+		"shields" 15700
+		"hull" 9800
+		"automaton" 1
+		"crew equivalent" 10
+		"mass" 390
+		"drag" 8.3
+		"heat dissipation" 1.09
+		"fuel capacity" 400
+		"cargo space" 7
+		"outfit space" 426
+		"weapon capacity" 149
+		"engine capacity" 107
+		"self destruct" .65
+		"ramscoop" 3
+		weapon
+			"blast radius" 200
+			"shield damage" 2200
+			"hull damage" 1100
+			"hit force" 3300
+	outfits
+		"Cluster Mine Layer"
+		"Cluster Mine" 17
+		"Shield Disruptor Turret"
+		"Husk-Slice Turret"
+		
+		"Plasma Core"
+		"Generator (Inferno Class)"
+		"Systems Core (Small)"
+		"Small Heat Shunt"
+		"Reasoning Node"
+		
+		"Thruster (Planetary Class)"
+		"Steering (Lunar Class)"
+		Hyperdrive
+	
+	engine -10 99
+	engine 10 99
+	gun 0 -99 "Cluster Mine Layer"
+	turret -18 -31 "Shield Disruptor Turret"
+	turret 19 49 "Husk-Slice Turret"
+	explode "tiny explosion" 60
+	explode "small explosion" 40
+	explode "medium explosion" 30
+	explode "large explosion" 10
+	"final explode" "final explosion small"
+	description "科拉斯梅雷蒂战斗无人机采用模块化结构建造，可随可用材料增多而持续成长。此机为近期制造，体型相对较小。"
+
+
+ship "Model 32"
+	sprite "ship/model 32"
+	thumbnail "thumbnail/model 32"
+	attributes
+		category "Light Warship"
+		"cost" 12765000
+		"shields" 27900
+		"hull" 13400
+		"automaton" 1
+		"crew equivalent" 25
+		"mass" 625
+		"drag" 11.7
+		"heat dissipation" 1.0
+		"fuel capacity" 400
+		"cargo space" 16
+		"outfit space" 481
+		"weapon capacity" 205
+		"engine capacity" 110
+		"self destruct" .70
+		"ramscoop" 3
+		weapon
+			"blast radius" 240
+			"shield damage" 3200
+			"hull damage" 1600
+			"hit force" 4800
+	outfits
+		"Cluster Mine Layer"
+		"Cluster Mine" 17
+		"Shield Disruptor Turret"
+		"Husk-Slice Turret" 2
+		
+		"Double Plasma Core"
+		"Generator (Candle Class)"
+		"Systems Core (Small)"
+		"Small Heat Shunt"
+		"Reasoning Node"
+		
+		"Thruster (Planetary Class)"
+		"Steering (Lunar Class)"
+		Hyperdrive
+
+	engine -10 128
+	engine 10 128
+	gun 0 -129 "Cluster Mine Layer"
+	turret 32 -24 "Shield Disruptor Turret"
+	turret -31 -9 "Husk-Slice Turret"
+	turret 24 19 "Husk-Slice Turret"
+	explode "tiny explosion" 80
+	explode "small explosion" 55
+	explode "medium explosion" 40
+	explode "large explosion" 15
+	"final explode" "final explosion medium"
+	description "科拉斯梅雷蒂人所制造的无人机旨在模拟生命：在其整个生命周期中具备生长与演化能力。其自动化工厂可通过增减模块，将无人机在不同构型间相互转换。"
+
+
+ship "Model 64"
+	sprite "ship/model 64"
+	thumbnail "thumbnail/model 64"
+	attributes
+		category "Medium Warship"
+		"cost" 19552000
+		"shields" 41700
+		"hull" 18000
+		"automaton" 1
+		"crew equivalent" 50
+		"mass" 1096
+		"drag" 16.1
+		"heat dissipation" .76
+		"fuel capacity" 400
+		"cargo space" 34
+		"outfit space" 567
+		"weapon capacity" 263
+		"engine capacity" 114
+		"self destruct" .74
+		"ramscoop" 3
+		weapon
+			"blast radius" 280
+			"shield damage" 4000
+			"hull damage" 2000
+			"hit force" 6000
+	outfits
+		"Cluster Mine Layer"
+		"Cluster Mine" 35
+		"Cluster Mine Rack" 2
+		"Shield Disruptor Turret" 2
+		"Husk-Slice Turret" 2
+		
+		"Double Plasma Core"
+		"Generator (Furnace Class)"
+		"Systems Core (Medium)"
+		"Reasoning Node" 2
+		
+		"Thruster (Lunar Class)"
+		"Thruster (Asteroid Class)"
+		"Steering (Planetary Class)"
+		Hyperdrive
+	
+	engine -19 159
+	engine 19 159
+	gun 0 -159 "Cluster Mine Layer"
+	turret 20 -74 "Husk-Slice Turret"
+	turret -35 -69 "Shield Disruptor Turret"
+	turret -29 71 "Husk-Slice Turret"
+	turret 34 77 "Shield Disruptor Turret"
+	explode "tiny explosion" 100
+	explode "small explosion" 70
+	explode "medium explosion" 50
+	explode "large explosion" 20
+	"final explode" "final explosion medium"
+	description "这款中型无人机在科拉斯梅雷蒂舰队中所起的作用，类似于人类的护卫舰；但在总火力方面，远超人类迄今建造的任何舰船。"
+
+
+ship "Model 128"
+	sprite "ship/model 128"
+	thumbnail "thumbnail/model 128"
+	attributes
+		category "Medium Warship"
+		"cost" 24073000
+		"shields" 57000
+		"hull" 23100
+		"automaton" 1
+		"crew equivalent" 75
+		"mass" 1601
+		"drag" 20.5
+		"heat dissipation" .65
+		"fuel capacity" 400
+		"cargo space" 53
+		"outfit space" 713
+		"weapon capacity" 344
+		"engine capacity" 132
+		"self destruct" .77
+		"ramscoop" 3
+		weapon
+			"blast radius" 320
+			"shield damage" 4600
+			"hull damage" 2300
+			"hit force" 6900
+	outfits
+		"Cluster Mine Layer" 2
+		"Cluster Mine" 34
+		"Shield Disruptor Turret" 2
+		"Husk-Slice Turret" 3
+		
+		"Double Plasma Core"
+		"Generator (Inferno Class)"
+		"Systems Core (Medium)"
+		"Reasoning Node" 2
+		
+		"Thruster (Planetary Class)"
+		"Steering (Planetary Class)"
+		"Steering (Asteroid Class)"
+		Hyperdrive
+
+	engine -14 178
+	engine 14 178
+	gun -11 -166 "Cluster Mine Layer"
+	gun 11 -166 "Cluster Mine Layer"
+	turret 29 -83 "Husk-Slice Turret"
+	turret -26 -53 "Shield Disruptor Turret"
+	turret 56 35 "Husk-Slice Turret"
+	turret 50 84 "Shield Disruptor Turret"
+	turret -24 115 "Husk-Slice Turret"
+	explode "tiny explosion" 120
+	explode "small explosion" 85
+	explode "medium explosion" 60
+	explode "large explosion" 25
+	"final explode" "final explosion large"
+	description "随着科拉斯·梅雷蒂无人机不断成长并发育至最终形态，它们会从中部裂开。与此同时，其护盾与武器系统也会持续增强。"
+
+
+ship "Model 256"
+	sprite "ship/model 256"
+	thumbnail "thumbnail/model 256"
+	attributes
+		category "Heavy Warship"
+		"cost" 34920000
+		"shields" 71700
+		"hull" 28700
+		"automaton" 1
+		"crew equivalent" 100
+		"mass" 2340
+		"drag" 26.8
+		"heat dissipation" .52
+		"fuel capacity" 400
+		"cargo space" 78
+		"outfit space" 857
+		"weapon capacity" 393
+		"engine capacity" 145
+		"self destruct" .79
+		"ramscoop" 3
+		weapon
+			"blast radius" 340
+			"shield damage" 5200
+			"hull damage" 2600
+			"hit force" 7800
+	outfits
+		"Cluster Mine Layer" 2
+		"Cluster Mine" 61
+		"Cluster Mine Rack" 3
+		"Shield Disruptor Turret" 3
+		"Husk-Slice Turret" 3
+		
+		"Triple Plasma Core"
+		"Systems Core (Large)"
+		"Large Heat Shunt"
+		"Reasoning Node" 3
+		
+		"Thruster (Planetary Class)"
+		"Steering (Planetary Class)"
+		"Steering (Comet Class)"
+		Hyperdrive
+
+	engine -60 147
+	engine 60 147
+	gun -22 -148 "Cluster Mine Layer"
+	gun 22 -148 "Cluster Mine Layer"
+	turret 36 -85 "Shield Disruptor Turret"
+	turret -56 -45 "Husk-Slice Turret"
+	turret 69 3 "Shield Disruptor Turret"
+	turret -73 38 "Husk-Slice Turret"
+	turret 66 64 "Husk-Slice Turret"
+	turret -56 101 "Shield Disruptor Turret"
+	explode "tiny explosion" 140
+	explode "small explosion" 100
+	explode "medium explosion" 70
+	explode "large explosion" 30
+	"final explode" "final explosion large"
+	description "夸格人有一句谚语：凡执着于研究战争的种族，终将制造出一种足以超越其创造者寿命的武器。对科拉斯人而言，他们的战争无人机几乎已做到了这一点。"
+
+
+ship "Model 512"
+	sprite "ship/model 512"
+	thumbnail "thumbnail/model 512"
+	attributes
+		category "Heavy Warship"
+		"cost" 40375000
+		"shields" 86400
+		"hull" 34200
+		"automaton" 1
+		"crew equivalent" 150
+		"mass" 3186
+		"drag" 33.9
+		"heat dissipation" .42
+		"fuel capacity" 400
+		"cargo space" 107
+		"outfit space" 994
+		"weapon capacity" 440
+		"engine capacity" 161
+		"self destruct" .80
+		"ramscoop" 3
+		weapon
+			"blast radius" 380
+			"shield damage" 5600
+			"hull damage" 2800
+			"hit force" 8400
+	outfits
+		"Cluster Mine Layer" 2
+		"Cluster Mine" 52
+		"Cluster Mine Rack" 2
+		"Shield Disruptor Turret" 3
+		"Husk-Slice Turret" 4
+		
+		"Triple Plasma Core"
+		"Plasma Core"
+		"Systems Core (Large)"
+		"Large Heat Shunt"
+		"Small Heat Shunt" 2
+		"Reasoning Node" 3
+		
+		"Thruster (Lunar Class)"
+		"Thruster (Planetary Class)"
+		"Steering (Planetary Class)"
+		Hyperdrive
+
+	engine -145 97
+	engine 145 97
+	gun -22 -143 "Cluster Mine Layer"
+	gun 22 -143 "Cluster Mine Layer"
+	turret -23 -134 "Husk-Slice Turret"
+	turret 91 -102 "Shield Disruptor Turret"
+	turret 124 -57 "Husk-Slice Turret"
+	turret -130 -33 "Shield Disruptor Turret"
+	turret 138 20 "Husk-Slice Turret"
+	turret -121 86 "Husk-Slice Turret"
+	turret 54 138 "Shield Disruptor Turret"
+	explode "tiny explosion" 160
+	explode "small explosion" 115
+	explode "medium explosion" 80
+	explode "large explosion" 35
+	"final explode" "final explosion large"
+	description "这是科拉斯·梅雷蒂战斗无人机演化的最终形态：一个完美的环形结构，配备极其强大的护盾，并在各个方向均装有炮塔。"

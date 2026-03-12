@@ -1,0 +1,3169 @@
+# Copyright (c) 2015 by Michael Zahniser
+#
+# Endless Sky is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# Endless Sky is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+overwrite
+mission "First Contact: Wanderer (Before Hai)"
+	landing
+	source
+		attributes "wanderer"
+	to offer
+		not "First Contact: Hai: offered"
+		not "First Contact: Unfettered: offered"
+	on offer
+		conversation
+			`该物种所属的其他世界此前均拒绝你着陆，但此处却给予你稍显友善的欢迎。当你接近行星时，一群体型小巧、机动性极强的巡逻飞船从地表升空，将你的飞船引导至指定降落平台；数分钟后，数名外星人主动走近你的飞船。`
+			`	该物种形似鸟类，但体型几乎与你相当，双翼展开时更远高于你的头顶。它们自天而降，俯冲而下，环绕你的飞船盘旋检查，随后降落在舱门附近，静候你开启舱门。它们似乎未携带武器，但爪子却长达八至九厘米。`
+			`	你迟疑地打开舱门，向他们致意。其中一名外星人对你开口说话：一阵叽喳与咔嗒声。你完全听不懂它在说什么。`
+			choice
+				`	"你好，我和平而来。"`
+				`	“我叫<first>，很高兴见到您。”`
+			`	那名外星人听你说话时身体前倾，仿佛正努力辨析你的言辞。“伊伊克·卡·阿克 卡瑞克 埃利克，埃克 卡鲁 卡莱 伽维特。”它说道。你摇摇头表示听不懂，又试着用自己的语言再次与它交谈。它又一次身体前倾，似乎正全神贯注地倾听你说的每一个字。`
+			`	站在它身旁的其他外星人也以同等的好奇心打量着你。终于，其中一名外星人对首领说道：“Ek kalek kiro suk i'hai, sek speru siyek ka'hai esek'ru fer'ek.” 首领以手势回应——双掌向上摊开；第二名外星人随即向前一步，用一种截然不同的语言对你说话，这种语言完全不似鸟鸣。事实上，从它发音时明显表现出的吃力程度判断，你怀疑这根本是另一个物种的语言。遗憾的是，这种语言对你而言，和那只鸟自己的语言一样无法理解。`
+			`	他们又尝试了几次与你沟通，但均未成功。最终，他们放弃了努力，除首领外的其他人都离开了。首领朝太空港其余区域做了个宽泛的手势，显然是邀请你自行探索。`
+				decline
+
+
+
+overwrite
+mission "First Contact: Wanderer"
+	landing
+	name "Hai Interpreter?"
+	description "海伊星域以北的外星人似乎讲海伊语。如果你能找到一位愿意为你翻译的海伊人，或许就能与他们沟通。"
+	source
+		attributes "wanderer"
+	to offer
+		or
+			has "First Contact: Hai: offered"
+			has "First Contact: Unfettered: offered"
+	to complete
+		has "Wanderers: Diplomacy: offered"
+	on offer
+		log "Discovered a birdlike alien species to the north of human space. They appear to speak the Hai language in addition to their own, so with the help of a Hai interpreter it might be possible to communicate with them."
+		conversation
+			branch revisit
+				has "First Contact: Wanderer (Before Hai): offered"
+			`All the other worlds belonging to this species have appeared unwilling to let you land, but here you find a slightly warmer welcome. A cloud of small, highly maneuverable patrol ships takes off from the planet as you approach and herds you onto one particular landing pad where, after a few minutes, several of the aliens approach your ship.`
+			`	This species is birdlike, but with bodies nearly as large as yours, and with wings that tower above you. They come swooping down from the sky, circle your ship to inspect it, and then land near the hatch and wait for you to open it. They do not appear to be armed, but their talons are eight or nine centimeters long.`
+			`	Hesitantly, you open your hatch and greet them. One of the aliens speaks to you: a chirping, clicking noise. You have no idea what it is saying.`
+			choice
+				`	"Hello. I come in peace."`
+				`	"My name is <first>. I am glad to meet you."`
+			`	The alien leans forward as you speak, as if trying to decipher your words. "Iyik'ka'ak kareek elik, ek karu karai kavet," it says. You shake your head to indicate that you do not understand, and again try to speak to it in your own language. Again it leans forward as if deeply focused on what you are saying.`
+				goto hai
+			
+			label revisit
+			`和之前一样，一群小型外星飞船将你护送至地面；其中几艘飞近你的飞船，悬停等待你出舱并与它们交谈。同样如前，你们彼此语言不通——你无法理解它们的语言，它们也听不懂你的话语；不过它们的首领似乎正全神贯注地试图理解你。`
+			
+			label hai
+			`	站在它身旁的其他外星人也以同等的好奇心打量着你。终于，其中一名外星人对首领说道：“Ek kalek kiro suk i'hai, sek speru siyek ka'hai esek'ru fer'ek.” 首领以手势回应——双掌向上摊开；第二名外星人随即向前一步，开始用一种截然不同的语言讲话。片刻之后，你惊讶地意识到，它说的竟是海伊语。尽管它发声十分吃力、带着浓重粗粝的口音，但几乎可以确定，它说的就是海伊语。`
+			`	“海伊人？你会说海伊语？”你问道，并将双手拢在耳侧，模仿海伊人那对硕大、形似啮齿动物的耳朵。`
+			`	"伊伊，卡海伊！"那名外星人说道，同时抖动着翅膀——你将其理解为兴奋的表示，"斯佩鲁埃克卡海伊？"然而就在此时，另一名外星人却后退了一步，并朝你亮出了利爪。你忽然意识到，海伊人在这里或许并不怎么受欢迎。`
+			choice
+				`	"抱歉，我听不懂他们的语言。"`
+				`	“这儿有海伊人吗？”`
+			`	同一名外星人再次开口，用手势比划你的飞船飞向天空又返回，随后指向你的气密舱，并模仿你先前对海伊人做的啮齿类动物耳朵手势。你推测他们是在告诉你：去寻找一位能担任翻译的海伊人，并带他回到此处。`
+				accept
+	on visit
+		dialog `你的飞船被一群鸟形外星人团团围住。当你踏上这颗行星时，其中一名外星人似乎认出了你。“卡海伊？”它仿佛在发问，再次用覆羽的肢体模仿海伊族那类啮齿动物般的耳朵。你摇了摇头——此行并未带上海伊族翻译。或许明智之举是先前往海伊族领地，确认是否有人愿随你一同返回。`
+
+
+
+overwrite
+mission "Discovered Wanderer Space"
+	landing
+	invisible
+	non-blocking
+	source
+		government "Wanderer"
+	on offer
+		event "label wanderer space"
+		fail
+
+event "label wanderer space"
+	galaxy "label wanderers"
+		sprite "label/wanderers"
+
+
+overwrite
+mission "Wanderers: Unfettered Diplomat"
+	landing
+	source
+		attributes "unfettered"
+	to offer
+		has "First Contact: Wanderer: offered"
+		has "First Contact: Unfettered: offered"
+		not "unfettered know of wanderers"
+		not "Wanderers: Hai Diplomat: offered"
+		not "Wanderers: Diplomacy: offered"
+	on offer
+		conversation
+			`海伊空间以北的外星人似乎讲海伊语。你是否想在此处寻找一名可担任翻译的人？`
+			branch hai
+				has "First Contact: Hai"
+			choice
+				`	(Yes.)`
+					goto try
+				`	(Not right now.)`
+					defer
+			label hai
+			choice
+				`	(Yes.)`
+				`	（不了；此处以南的其他海伊人更胜任此事。）`
+					decline
+			label try
+			`	你在太空港四处搜寻当地政权的踪迹。最终，一名海伊人主动向你走来："迷路了，猴子？你在找什么？"`
+			choice
+				`	“你知道我在哪儿能和一位官员交谈吗？”`
+				`	"你知道我在哪儿能找到一位翻译吗？"`
+					goto interpreter
+				`	"我很好，谢谢。"`
+					goto decline
+			`	那名海伊人说道：“如果你与我族长老交谈的理由足够重要，我便带你前去见他们。”`
+			`	"我在找一名海伊语翻译，"你说。`
+			label interpreter
+			`	她困惑地回头看着你。“翻译器有什么用？你明明能听懂我的话，不是吗？”`
+			choice
+				`	“我需要一人前往此地以北，与那些外星人交涉。”`
+				`	“我觉得我自己去找一位酋长会更稳妥些。”`
+					goto decline
+			`	那名海伊人皱起鼻子：“愚蠢的猴子。我们早已与那些外星人取得联系；再派一名使者来，对我们毫无用处。”`
+			choice
+				`	“不过，你还能提供翻译服务吗？”`
+				`	"I understand."`
+					goto end
+			`	“你无需翻译官。你只需明白一点：那些外星人根本不值得与之交谈。”`
+			label end
+			`	海伊转身离去，把你独自留在太空港中。`
+				decline
+			label decline
+			`	那名海伊人轻蔑地朝你嗤笑一声：“若你既不寻求帮助，也不愿施以援手，那你们便没有资格踏足我们的世界。”她转身离去，而你在太空港中又搜寻了一个小时，最终放弃，返回了自己的飞船。`
+				decline
+
+
+
+overwrite
+mission "Wanderers: Hai Diplomat"
+	landing
+	name "Hai Diplomat"
+	description "前往海伊母星，接载一名外交官，他能协助你与漫游者族沟通。"
+	source
+		not planet "Hai-home"
+		attributes "hai"
+	destination "Hai-home"
+	clearance
+	to offer
+		has "First Contact: Wanderer: offered"
+		has "First Contact: Hai: offered"
+		not "Wanderers: Diplomacy: offered"
+	on offer
+		conversation
+			`The aliens north of Hai space seem to speak the Hai language. Do you want to look for someone here who could serve as an interpreter?`
+			choice
+				`	(Yes.)`
+				`	(Not right now.)`
+					defer
+			`	你成功联系上了当地总督办公室，但与总督交谈时，他却说道：“首次接触？人类，这可不是随便哪位海伊都能承担的任务。你必须前往我们的母星，在那里，一名正式大使将加入你的队伍。我这就联络他们，告知他们你的到来。”`
+				accept
+	on accept
+		"reputation: Hai" >?= 20
+		"reputation: Hai (Wormhole Access)" >?= 20
+		"reputation: Hai Merchant" >?= 20
+		"reputation: Hai Merchant (Human)" >?= 20
+		"reputation: Hai Merchant (Sympathizers)" >?= 20
+		"reputation: Hai" += 30
+		"reputation: Hai (Wormhole Access)" += 30
+		"reputation: Hai Merchant" += 30
+		"reputation: Hai Merchant (Human)" += 30
+		"reputation: Hai Merchant (Sympathizers)" += 30
+
+
+
+overwrite
+mission "Wanderers: Diplomacy"
+	landing
+	name "Wanderer Diplomacy"
+	description "携一名海伊大使前往流浪者族母星，协助与他们沟通。"
+	source "Hai-home"
+	destination "Vara K'chrai"
+	clearance
+	passengers 1
+	to offer
+		has "First Contact: Wanderer: offered"
+	on offer
+		log "People" "Sayari" `海伊族大使萨亚里，一个世纪前曾担任海伊族派驻人类政府的特使（尽管人类疆域内并无此项公开记录）。如今，她已被海伊族正式委派为派驻流浪者（Wanderers）的外交官，并兼任翻译。`
+		conversation
+			`当你驶近海伊母星时，你联系海伊政府，询问他们是否愿意派出一名大使，协助你与北方那些似乎通晓海伊语的外星种族进行沟通。对方立即为你指明了一处私人政府机库，一位外交官在那里迎接你。她伸出一只爪子向你致意，并说道：“我是萨亚里。一个世纪前，我曾担任派驻人类政府的特使。”`
+			`	据你所知，共和国从未提及海伊族，也未曾公开承认曾接待过其使节。`
+				to display
+					not "hai space start"
+			choice
+				`	"等等，人类共和国已经知道海伊族的存在了？在我发现虫洞之前，只听说过关于你们存在的模糊传闻。"`
+					to display
+						not "hai space start"
+				`	"等等，人类共和国竟然知道海伊人的存在？"`
+					to display
+						has "hai space start"
+				`	"很高兴见到你。你愿意与我一同旅行吗？"`
+					goto travel
+			
+			`	她以海伊族的方式发出笑声：一连串急促的咔嗒声。“没错，人类与海伊双方都曾担忧，一旦人类得知我们这片和平乐土的存在，便会蜂拥而至、大规模移民。因此我们达成共识：海伊一族将保持隐秘——始终在此，静待勇于探索的旅人自行发现；但同时又极难寻觅，以此确保人类移民进程足够缓慢，让我们得以逐步适应。”`
+			`	“你就是将与我同行的翻译员吗？”你问道。`
+			label travel
+			`	“是的，”她说，“如果这些外星人愿意为我提供一个容身之所，我便打算永久定居于他们之中，成为他们与我们两个族群之间的使者。我已经老了，正需要这样一场巨大的新奇际遇，才能让我的生命再度焕发生机。”你注意到她脸上的毛发——尤其是吻部的毛发——已由棕色转为银灰色，这在地球生物中是年迈的标志，或许对海伊族也同样如此。”`
+			choice
+				`	"能与这样一位杰出的大使同行，我深感荣幸。我们这就立刻去拜访这些外星人吧！"`
+					accept
+				`	“如果人类希望我们向这些外星人派出自己的特使呢？”`
+			`	她说：“如果他们被证实是友好的，我将协助你找到一种直接与他们沟通的方式，这样你就无需再通过我来传话。但我们的第一步，必须是先与他们交谈。”你帮她登上你的飞船，并准备返回外星人的母星。`
+				accept
+	
+	on accept
+		fail "First Contact: Wanderer"
+	on visit
+		dialog `你的飞船被一群鸟形外星人团团围住。当你踏上这颗行星时，其中一名外星人似乎认出了你。“卡海伊？”它仿佛在发问，再次用覆羽的肢体模仿海伊族那类啮齿动物般的耳朵。你试图朝萨亚里比划示意，却尴尬地发觉自己将她留在了尚未进入该星系的一艘护航舰上。还是先行撤离，静待护航舰抵达为宜。`
+
+
+
+overwrite
+mission "Wanderers: Translation Machine"
+	landing
+	name "Translation Machine"
+	description "海伊大使萨亚里建议你前往<destination>，那里的海伊技术专家正在研制翻译设备。"
+	source "Vara K'chrai"
+	destination "Greenwater"
+	to offer
+		has "Wanderers: Diplomacy: done"
+	on offer
+		log `在一名海伊大使协助下，成功与类鸟生物“漫游者”进行了交流。结果发现，他们长期遭受“无羁海伊”的袭击，并通过俘获对方人员学会了海伊语。`
+		log "Factions" "Wanderers" `流浪者族是一种类鸟外星种族，栖居于毗邻海伊族领空的一小片星域。他们长期遭受“无羁者”海伊的攻击。流浪者族自称爱好和平，其绝大多数飞船均非为军事用途而设计。`
+		conversation
+			`流浪者们再次允许你降落，但一大群他们的轻型战舰已将你团团围住，引导你驶向指定着陆区。一小队流浪者代表前来迎接你和萨亚莉；他们用海伊语略带迟疑地向她致意。萨亚莉随即回应，双方随即展开一场激烈交锋。你完全听不懂他们在说些什么。`
+			choice
+				`	（问她在聊什么。）`
+				`	（等待对话出现间隙。）`
+			`	她一边朝他们举起一只爪子，一边又说了几句，随后说道：“他们说海伊人正在攻击他们，并想知道原因。一定是‘无羁者’在袭击他们。我正努力向他们解释：‘无羁者’并不能代表全体海伊人民。”`
+			`	他们继续交谈了一阵，随后游荡者向你提出一个问题。萨亚里为你翻译道：“他们想知道人类的诉求，以及你为何闯入他们的领地。”`
+			choice
+				`	"我只是一名独立探险者，不代表我的种族或其政府。"`
+					goto explorer
+				`	“我希望，我们的两个种族能通过商品与技术的贸易实现互利共赢。”`
+					goto trade
+				`	“我认为不同物种之间应当彼此交流，而非被迫隔绝。”`
+					goto communication
+			
+			label explorer
+			`	他们作出回应，萨亚里翻译道：“他们说，正如你们一样，他们也是旅者；这片空域并非他们的故乡，因此他们非常乐意在此欢迎其他漫游者。但他们也警告你：若辜负了他们的信任，便很难再次赢回。此外，他们还说……”她稍作停顿，倾听漫游者继续发言，随后接着翻译：“他们说，在漫长的旅途中，他们极少遇到真正有能力和平共处的物种，而他们衷心希望你们人类正是其中之一，因为……”她再次停顿，待漫游者说完后说道：“因为，他们不愿刚结交新朋友，旋即又失去他们。”`
+				goto end
+			
+			label trade
+			`	他们作出回应，萨亚里翻译道：“他们表示，或许愿意与你们开展贸易；但若要与人类缔结更广泛的贸易协定，则是一项重大决定，绝不可轻率做出。”她再次停顿倾听，接着说道：“他们还表示，将内部商议是否允许你们接触漫游者科技；但同样，这也不会是一个仓促的决定。”她又一次停顿，待漫游者发言完毕后继续翻译：“他们说，在漫长的旅途中，他们极少遇到真正有能力和平共处的物种，而他们衷心希望你们人类正是其中之一，因为……”她再次停顿，待漫游者说完后说道：“因为，他们不愿刚结交新朋友，旋即又失去他们。”`
+				goto end
+			
+			label communication
+			`	他们作出回应，萨亚里翻译道：“他们说，其种族在过去曾与许多其他物种相遇，且每次接触都被视为宝贵的经历。尽管……”她暂停倾听漫游者继续发言，“尽管，他们表示，在漫游途中，远比遇见活生生的智慧种族更常见的，是仅在废墟中翻检那些因战争或疏忽而自我毁灭的文明残骸。他们希望你们人类并非如此，因为……”她再次停顿，待漫游者说完后说道：“因为，他们不愿刚结交新朋友，旋即又失去他们。”`
+			
+			label end
+			`	你通过萨亚里向漫游者们传达善意，试图让他们相信你并无敌意。他们又与萨亚里交谈了一阵，随后她告诉你：‘他们表示，我可作为大使留在此地，同时也会允许你登陆他们大部分的星球。但他们绝不会欢迎其他任何海伊族人进入其领地。我担心他们因‘无羁者’的所作所为而对海伊族心存疑虑，而与我有所关联，反而可能损害你赢得他们好感的机会。为你的安危着想，我们应当另寻他法与他们沟通。’`
+			choice
+				`	“我们该怎么做？”`
+			`	她说：“海伊人在<planet>星球上设有科学家团队，专门研发‘语音机器’，以便那些不懂人类语言的海伊人能与人类交流。我将写一封信，请他们赠予你一台这样的语音机器，如此你便能直接与漫游者对话，不再需要我充当中介。”`
+				accept
+	on accept
+		"reputation: Wanderer" >?= 10
+
+
+
+conversation "eruk cultural data"
+	branch return
+		has "Human Cultural Archives: done"
+	`你降落在<origin>，前去寻找赛亚里嘱咐你联络的技术专家：一名名叫埃鲁克的海伊人。当你向他说明所需之物及其缘由时，他的双眼顿时亮了起来。“与一个全新物种接触！这实在太令人兴奋了！”他说道，“我很为赛亚里感到高兴，她竟获得了如此难得的机遇。不过，我们的语言翻译机极为珍贵。在我将它交给你之前，你是否愿意为我办一件小事？”`
+	choice
+		`	"当然。你需要什么？"`
+			goto need
+		`	“我不能直接付钱向你买一个吗？”`
+			goto money
+	
+	label need
+	`	他说：“据人类移民告知，你们所称‘深空’区域中有一座空间站——一座收藏人类文化遗存、并存有人类文学与历史数据库的图书馆。若你能为我带来该数据库的副本，我便赠你一台能言之器。”`
+		goto end
+	
+	label money
+	`	“金钱？”他轻蔑地挥了挥手，“金钱有什么用？不，我从你这里想要的，是远比金钱更宝贵的东西。那些人类移民告诉我，在你们星域被称作‘深空’的区域里，有一座空间站——一座收藏着人类文化文物、并存有人类文学与历史数据库的图书馆。只要你为我取来那份数据库的副本，我便送你一台会说话的机器。”`
+		goto end
+	
+	label end
+	branch data
+		has "human cultural data"
+	choice
+		`	“没问题，我尽快给你送一份数据库副本。”`
+			accept
+		`	“我该怎么说服他们把数据副本交给我？”`
+	`	你的问题似乎令他彻底困惑。“信息，”他说，“这不正是你们所说的‘非竞争性商品’吗？当我分享信息时，并不会因此失去它；传播信息对我而言毫无成本。图书管理员们，想必会理解这一点。无需担忧。”`
+		accept
+	
+	label data
+	choice
+		`	"那批数据我其实已经有一份了。"`
+	`	“你知道？快去把它取来！”他惊呼道。`
+	`	你回到自己的飞船上取回数据，返程后交给他。他兴奋得双眼放光，迅速复制了存储卡，随后将原卡完璧归还于你。`
+		goto give
+	
+	label return
+	`你回到埃鲁克的工坊，将数据卡交给他。他双眼因兴奋而闪亮，迅速复制了数据卡，并将原件归还给你。`
+	
+	label give
+	`	“我毕生都在研究人类文化，”他说，“这对我来说是一份无价之宝。而现在，这是你们的语音翻译器。”他递给你一个小型球形装置，表面装有扬声器和麦克风，还有几枚看起来像摄像头镜头的部件。“该设备已预装人类语和海伊语，”他解释道，“由于两种语言之间并非总能实现完美互译，但它会尽力向你呈现对方话语中含义的完整范围。”`
+	choice
+		`	"谢谢。我迫不及待想试试看！"`
+			accept
+		`	"还有什么我需要了解的吗？"`
+	`	他配合地向您演示这台机器的工作方式：与您展开对话时，他使用海伊语发言，机器则自动为您翻译；接着再将您的回应实时译成他的语言。该设备显然通过摄像头识别您正在与谁交谈或倾听谁说话。这是一项令人印象深刻且操作简便的技术。您感谢了他的帮助，随后返回自己的飞船。`
+		accept
+
+
+
+overwrite
+mission "Human Cultural Archives"
+	landing
+	description "你在<origin>结识的海伊（Hai）技术专家埃鲁克，同意赠予你一台翻译机，条件是你设法为他取得一份来自<destination>的人类文化数据。"
+	source "Greenwater"
+	destination "Alexandria"
+	to offer
+		has "Wanderers: Translation Machine: done"
+		not "human cultural data"
+	on offer
+		conversation "eruk cultural data"
+	on visit
+		dialog
+			`The station has a small museum gift shop that sells a copy of the entire archive on a data card. It only costs 40 credits, but because you have done a horrible job at managing your finances you do not have even that much cash on hand right now.`
+			`	Go earn some money, then return here.`
+	on complete
+		set "human cultural data"
+		payment -40
+
+
+
+overwrite
+mission "Cultural Data to Greenwater"
+	landing
+	description "将一份人类文化档案副本运送至<destination>，以换取一台翻译机。"
+	source "Alexandria"
+	destination "Greenwater"
+	to offer
+		has "Human Cultural Archives: done"
+	on offer
+		conversation
+			`你曾纳闷该如何获得整套文化档案的副本，结果发现比预想中简单得多。这座空间站设有一家小型博物馆纪念品商店，出售存有全部档案的数据卡。（“献给家中初露锋芒的历史学家的完美礼物！将整个人类文明史尽握掌中！现仅售39.99积分！”）考虑到一张廉价数据卡仅需不到1积分，这价格着实有些宰人，但你仍欣然买下一张，准备带回埃鲁克。`
+				accept
+
+
+
+overwrite
+mission "Visit Wanderers Again"
+	landing
+	description "携一件能让你更自如地与流浪者交流的装置，返回流浪者母星 <destination>。"
+	source "Greenwater"
+	destination "Vara K'chrai"
+	to offer
+		has "Wanderers: Translation Machine: done"
+		has "human cultural data"
+	on offer
+		set "language: Wanderer"
+		set "language: Hai"
+		event "wanderer technology available"
+		log "Received a device, created by a Hai scientist, which can translate between human language and the Hai language. Since the Wanderers speak the Hai language, that should make it possible to communicate with them directly."
+		conversation "eruk cultural data"
+
+event "wanderer technology available" # Name unchanged for compatibility
+	government "Wanderer"
+		"friendly hail" "friendly wanderer"
+		"friendly disabled hail" "friendly disabled wanderer"
+		"hostile hail" "hostile wanderer"
+		"hostile disabled hail" "hostile disabled wanderer"
+
+
+
+# Compatibility patch for saves before "language: Hai" variable was added.
+overwrite
+mission "Hai Language Patch"
+	landing
+	invisible
+	non-blocking
+	to offer
+		has "Visit Wanderers Again: offered"
+		not "language: Hai"
+	on offer
+		set "language: Hai"
+		fail
+
+
+
+# Compatibility patch for users pre-0.9.7 who don't have hostile Wanderer hails.
+overwrite
+mission "Wanderer Hail Patch"
+	landing
+	invisible
+	non-blocking
+	to offer
+		has "event: wanderer technology available"
+	on offer
+		event "wanderer technology available"
+		fail
+
+
+
+overwrite
+mission "Wanderers Conversation"
+	landing
+	source "Vara K'chrai"
+	to offer
+		has "Visit Wanderers Again: done"
+	on offer
+		set "license: Wanderer Outfits"
+		log "Spoke with a Wanderer ambassador named Iktat Rek, using the translation device. Received permission to purchase some of their technology, but not their ships."
+		log "Factions" "Wanderers" `漫游者相信，自己在宇宙中的使命是“修复”那些因其他物种管理不善或战乱而生态系统遭严重破坏的行星。他们通过一条自称为“瞳孔”的虫洞抵达如今的领地，并声称：待此地的修复工作完成，“瞳孔”便会再度开启，引领他们前往新的疆域与亟待守护的世界。`
+			`他们如今所栖居的世界，过去很可能曾属于海伊人的领地。这或许能解释为何无羁者坚信自己有权夺回那片领土。`
+		log "People" "Iktat Rek" `雷克是一名漫游者大使——这在漫游者种族中是一项崭新而罕见的职业。此前，该种族除偶遭不受约束的海伊人劫掠外，从未与其他外星文明有过接触。她的职责，是协助漫游者与人类建立更深层次的关系。`
+		event "wanderers: vara k'chrai facilities"
+		conversation
+			`在你新翻译设备的帮助下，你成功联系上了漫游者政府。他们欢迎你归来，并告诉你，一名名为“伊克塔特·雷克”的漫游者已被正式任命为人类访客事务特使，他很快就会抵达你的着陆平台。`
+			`	雷克体型略大于你此前所见的大多数流浪者，羽毛呈柔和的灰白色与褐色，举止沉静而庄重。“在我们的历史中，必须与其他物种打交道的情形实属罕见，”他说道，“而如今，我们却不得不同时应对两个种族。”他使用海伊语发言，翻译装置则尽力将他的言语转换为你所熟悉的语言。`
+			choice
+				`	"你是如何学会海伊语的？"`
+					goto language
+				`	"你们与无拘海伊作战有多久了？"`
+			
+			`	“距今已近二十[年，周期]了，”他说道，“起初只有一艘海伊飞船[造访，入侵]我们，但那时我们尚未建立任何防御措施来阻止它。多年来，那艘飞船仅在我们的边疆世界[收割，掠夺]食物，并刻意避开战斗。在我们的文化中，向[请求，索要]食物者分享食物是一种[义务，责任]，所以我们并未阻拦那艘海伊飞船。然而后来更多海伊飞船抵达，攻击并占领了我们的一个世界，还杀害了许多族人。我们建造了战舰，将他们击退，但他们的[劫掠，袭击]至今仍未停止。”`
+				goto food
+			
+			label language
+			`	“最近我们成功[俘获、捕获]了其中一些人作为囚犯，”他说道，“他们已[劫掠、造访]我们达二十[年、周期]之久。起初他们只偷取无人看守的食物储备，一旦我们靠近便立即逃逸。我们默许他们拿走食物，因为在我们的文化中，向那些[请求、索要]食物的人分享食物是一种[责任、义务]。但近来他们变得远为[激进、绝望]。他们攻占了我们的一个世界，并杀害了许多漫游者；我们遂建造战舰将其击退。其中一部分人试图在该行星上藏匿，我们便将他们收为[囚犯、客人]，并逐步学会了他们的语言。”`
+			label food
+			`	“你知道‘无羁者’想要什么吗？”你问道。`
+			`	"他们需要食物，以及[土地、生存空间]，"雷克说道，"我们第一次遭到他们袭击时就已猜到这一点；海伊人萨亚里也向我证实，无羁者已经[挥霍殆尽、耗尽]了自己的世界，如今发动战争只为夺取他人的家园。"`
+			choice
+				`	"你们种族的历史是怎样的？"`
+					goto history
+				`	"流浪者一族在这片太空区域活动多久了？"`
+			`	“自我们穿越‘瞳孔’、进入这片[区域，领地]以来，至今已近一万[年，周期]。”他说道。`
+				goto eye
+			label history
+			`	“我们是一个古老的民族，”他说，“这片[区域，领地]并非我们的故土。约一万[年，周期]前，我们经由‘瞳孔’抵达此处。”`
+			label eye
+			`	“天眼？”你问道。`
+			`	“一道虫洞，”他说道，“每隔[一亿年，一个纪元]，‘瞳’便会开启，游荡者便借此穿越至新的家园。自我们最古老的[历史，传说]以来，此例恒久不改。或百次，或千次，我族已屡次辞别故土、远赴新家。‘瞳’每次引领我们抵达的新家园，皆充斥着[废墟，毁灭]；而重建秩序，则需历经数代光阴。待‘瞳’再度召唤，我族便再次启程。且每一次穿越‘瞳’，我族皆蜕变为崭新之存在。”`
+			choice
+				`	“既然你正离开自己辛辛苦苦开发出的富饶世界，而虫洞另一端等待你的却只有废土般的残破星球，你又为何要穿越虫洞？”`
+					goto reason
+				`	“你说的‘你会变成某种全新的存在’是什么意思？”`
+			`	“首批穿越虫洞的漫游者将经历‘蜕变’，”伊克塔特·雷克说道，“他们的[存在，本质]将被改变，并成为[巨人，声名卓著之人]。而留在旧世界安全地带的漫游者则始终保持原本的自我，却会逐渐衰微。因此，所有拥有[勇气，雄心]的漫游者都渴望‘瞳孔’开启，以使我们的种族得以再度[成长，进化]。”`
+				goto molt
+			label reason
+			`	"我们穿越‘眼’而行，是因为那些[留守原地、安于定居]在无需再[疗愈、修复]的世界中享受安逸生活者，终将日渐衰微；而那些穿越‘眼’、直面新世界挑战者，则将经历‘蜕变’——其[存在、本质]将被重塑，进而化为[巨人、声名卓著之人]。因此，所有怀有[勇气、雄心]的漫游者，皆热切期盼‘眼’再度开启，以使我们的种族得以再度[成长、进化]。"`
+			label molt
+			choice
+				`	“是什么让虫洞开启？谁或什么在控制它？”`
+				`	"蜕皮现象为何会发生？其原理是什么？"`
+			`	“这些问题，我们从不追问。”他说道，“对我们而言，这是[禁忌？宗教？谜团？]。”`
+			`	你又问了几个其他问题，但未获得更多信息。他提到其他漫游者世界已同意向你们出售部分技术，且允许你们‘[观看、欣赏、艳羡]’他们的飞船，但不得购买。你感谢他拨冗相告，也感谢他愿意信任一个完全陌生的物种成员，随后返回自己的飞船。`
+				decline
+
+
+
+event "wanderers: vara k'chrai facilities"
+	planet "Vara K'chrai"
+		add port
+			recharges all
+			services all
+		add shipyard "Wanderer Advanced"
+		add outfitter "Wanderer Advanced"
+
+
+
+# Compatibility patch for pilots that did the above missions before 0.10.13.
+overwrite
+mission "Wanderers: Vara K'Chrai Facilities Patch"
+	landing
+	invisible
+	non-blocking
+	to offer
+		has "Wanderers Conversation: offered"
+	on offer
+		event "wanderers: vara k'chrai facilities"
+		fail
+
+
+
+# Compatibility patch for pilots that did the above missions before 0.9.7.
+overwrite
+mission "Wanderers: Outfit License Patch"
+	landing
+	invisible
+	non-blocking
+	to offer
+		has "Wanderers Conversation: offered"
+		not "license: Wanderer Outfits"
+	on offer
+		set "license: Wanderer Outfits"
+		fail
+
+
+
+overwrite
+mission "Tell Wanderers about the Pug"
+	landing
+	source "Vara K'chrai"
+	to offer
+		has "Wanderers Conversation: offered"
+		has "Pug in Wanderer Space: offered"
+	on offer
+		log "There is a Pug world close to Wanderer space. Given their ability to control wormholes, it is likely that they are the ones who have been controlling where the Wanderers go and when. But, the Wanderers are not particularly disturbed by this information."
+		conversation
+			`你已发现一处猪族前哨站位于漫游者势力范围以北。鉴于猪族素以操控虫洞能力著称，他们极有可能正是掌控漫游者前往新世界的时空坐标的幕后力量。你是否要将此事告知伊克塔特·雷克？`
+			choice
+				`	(Yes.)`
+				`	(No.)`
+					decline
+			`	你与雷克会面，并向他解释：普格族是一种以干涉他族事务闻名的物种，你怀疑正是他们开启了虫洞，才导致整个游荡者种族被迫迁徙。雷克对此信息似乎毫不在意。“我希望你不会做任何[激怒、冒犯]他们的事，”他说道。`
+			choice
+				`	"当然可以，但难道他们操控着你们整个种族这件事，不会让您感到困扰吗？"`
+				`	“它们正在操控你们整个物种，将你们当作行星清理队来使用。难道你不想摆脱它们的控制，重获自由吗？”`
+			`	他听了你的话，羽毛微微竖起，但只说道：“每当我们的族群变得[自满/无聊]时，‘眼’便会引领我们前往新的疆域、迎接新的挑战——这对我们的种族而言实乃一项伟大的[馈赠/恩赐]。倘若其他种族也能从我们的工作中获得某些[优势/益处]，那难道不该让我们更加[欣喜/热切]地投入这项工作，而非相反吗？”`
+			choice
+				`	“但你难道不想摆脱他们的控制，自由地留在这些你倾尽心血重建的世界之上吗？”`
+				`	"如果你们这个物种正被另一个势力暗中操控，这难道不令你困扰吗？"`
+				`	"好吧，我明白了。只是如果我的种族正以这种方式被操控，我会非常担忧。"`
+			`	"我们是被操控着，还是在开展一项合作关系？我们拥有让[荒废、腐化]的世界重焕新生的天赋。而他们则为我们提供可供施展这项天赋的[用武之地、价值所在]的世界。我们需要新的挑战，以推动本种族迈向更高层次的[蜕变、至臻之境]。他们为我们开启了全新的星系。"`
+			`	他稍作停顿，接着说道：“我们当然清楚，‘眼’的运作方式过于[便利、量身定制]，绝非随机现象。但它对我们而言是一份[恩赐、祝福]，你切不可做出任何驱逐他们的举动——否则我们将被[困住、滞留]在这几颗星球上，最终陷入停滞与衰落。”`
+				decline
+
+
+overwrite
+mission "Wanderers: Defend Vara Ke'sok Hint"
+	name "Wanderer supplies to <planet>"
+	description "将<cargo>运送到<destination>，当地因无羁者袭击而急需维修。"
+	passengers 1
+	cargo "building supplies" 10
+	source
+		near "Sich'ka'ara" 1 100
+	destination "Vara Ke'sok"
+	to offer
+		random < 60
+		has "Wanderers Conversation: offered"
+		not "Wanderers: Defend Vara Ke'sok: done"
+	on offer
+		conversation
+			`你在太空港中四处走动时，两名漫游者向你靠近。其中一人开始用海伊语说话，你的翻译器随即将其译出：“您好，[陌生人，好奇者]。我们听说您能够[提供，赠予]帮助。这是真的吗？”`
+			choice
+				`	“没错。你需要什么？”`
+					goto proposal
+				`	"这得看您愿意付多少积分。"`
+					goto jerk
+				`	"What do you mean?"`
+			branch hai
+				"reputation: Hai" > 100
+			branch war
+				has "main plot completed"
+			`	"萨亚里大使提到，人类在自己的星域中从事许多[工作、爱好]。不知我们是否理解有误？"`
+			choice
+				`	“的确如此。”`
+					goto proposal
+				`	“我们接这些活儿，只是为了赚钱。”`
+					goto jerk
+			label war
+			`	"萨亚里大使提到，您是人类星域中杰出的[英雄、探险家]，曾成功化解诸多[问题、灾难]。不知我们是否理解有误？"`
+				goto choice2
+			label hai
+			`	"萨亚里大使提到，您甚至在海伊星域也是一位杰出的[英雄、探险家]，曾成功化解诸多[问题、灾难]。不知我们是否理解有误？"`
+				goto choice2
+			label choice2
+			choice
+				`	“我想，我或许可以算得上是一位英雄。”`
+					goto proposal
+				`	"称我为‘伟大’的英雄，这评价还远远不够。"`
+					goto proposal
+				`	"没错，就是我，不过我也希望拿到一些报酬。"`
+					goto jerk
+			label jerk
+			`	说话的漫游者面无表情地看着你，只简单说道：“工作报酬可采用[补偿、安排]形式，金额为<payment>。”`
+			label proposal
+			`	“在名为瓦拉·凯索克的[行星]上，正发生着‘无羁者’发动的[袭击/征服]行动。在此期间，各类设施遭到[损毁/破坏]。我们希望你运送<吨>的[补给/物资]，协助[修复/重建]这些设施。”`
+			choice
+				`	"我很乐意这么做。"`
+				`	"抱歉，但我还有更重要的事情要处理。"`
+					defer
+			`	当流浪者听到你经翻译后的回应，便用流浪者语向同伴快速交谈几句；对方点头后随即奔向附近的一座仓库。“我们很快就会把货物装上飞船。我将[加入/陪同]你前往<planet>，负责指导[治疗/维修]工作。”`
+				accept
+	on visit
+		dialog phrase "generic cargo and passenger on visit"
+	on complete
+		payment 10000 20
+
+
+overwrite
+mission "Wanderers: Defend Vara Ke'sok"
+	landing
+	name "Defend <planet>"
+	description "击退或摧毁海伊飞船，保卫<planet>免遭‘无羁者’的袭击。"
+	source "Vara Ke'sok"
+	to offer
+		has "Wanderers Conversation: offered"
+		not "Wanderers: Defend Vara Ke'sok Hint: active"
+		or
+			random < 50
+			has "Wanderers: Defend Vara Ke'sok Hint: done"
+	on offer
+		conversation
+			branch hint
+				has "Wanderers: Defend Vara Ke'sok Hint: done"
+			`你刚在太空港着陆，便见一片繁忙景象：众多漫游者纷纷飞向自己的飞船，这些飞船随即陆续从行星表面升空。天空中不时闪过刺眼的亮光，或许是远处的武器开火，也可能是爆炸所致。`
+			`	一阵强风扑面而来，一名流浪者降落在你的飞船旁，用海伊语说道：“不受约束的[掠夺者、海盗]舰队正在逼近。我们已在货船上备好食物，希望他们收下[供品、礼物]后即刻离去。若他们[未被安抚、不满意]，还需你协助说服他们离开。可以吗？”`
+				goto choice
+			label hint
+			`飞船着陆行星表面，数名漫游者围拢至你的飞船旁，准备将货物搬出。然而，你刚刚运送至<planet>的那名漫游者尚未来得及开口，一声尖锐的鸟鸣便已响彻天空。`
+			`	你环顾四周，突然看见大量流浪者纷纷飞向自己的飞船，一艘接一艘从行星表面升空。天空中，不时闪过刺眼的亮光，那或许是远处的武器开火，也可能是爆炸所致。`
+			`	指派你运送建造材料的漫游者开口说道：“一支不受约束的[掠夺者，海盗]舰队正朝此而来。我们将把食物装上货船，希望他们收下这份[供奉，礼物]后便离去。若他们并未[平息怒火，感到满意]，你就协助我们说服他们离开。[明白吗，理解吗]？”`
+			choice
+				`	"我将协助驱逐‘无羁者’。"`
+					goto yes
+				`	"我为什么要帮忙？我只接了一个运输任务而已。"`
+			`	流浪者似乎对你的回应略感错愕。“迫在眉睫的[危险/侵略]！无羁者带来[毁灭/灾祸]！若你不施以援手，将造成大量[伤亡/作物歉收]。你愿即刻援助我们吗？”`
+			label choice
+			choice
+				`	"是的，我将协助驱逐‘无羁者’。"`
+					goto yes
+				`	"不，我不会帮你们与他们作战。"`
+			`	游荡者飞离，加入防御行动。数小时后，天空中的闪光停止了；无羁者要么已被摧毁，要么已达成目的并撤离。`
+				defer
+			label yes
+			`	那名流浪者离开，登上了其中一艘正在升空的飞船，而你迅速准备好自己的飞船，准备紧随其后……`
+				launch
+	on accept
+		"reputation: Hai (Unfettered)" <?= -1
+		event "Sich'ka'ara empty"
+	on visit
+		dialog "There are still Unfettered warships overhead. You should take off again and assist in the fight."
+	on complete
+		event "Sich'ka'ara restored"
+	
+	npc
+		government "Wanderer"
+		personality derelict fleeing uninterested waiting pacifist
+		fleet
+			names "wanderer"
+			variant
+				"Deep River"
+				"Deep River 4"
+				"Strong Wind" 2
+	npc evade
+		government "Hai (Unfettered)"
+		personality coward waiting disables plunders
+		fleet
+			names "hai"
+			variant
+				"Shield Beetle (Jump)" 4
+	npc
+		government "Wanderer"
+		personality waiting heroic uninterested
+		fleet
+			names "wanderer"
+			variant
+				"Strong Wind"
+				"Summer Leaf" 2
+	npc
+		government "Wanderer"
+		personality heroic uninterested
+		fleet
+			names "wanderer"
+			variant
+				"Summer Leaf" 4
+
+event "Sich'ka'ara empty"
+	system "Sich'ka'ara"
+		fleet "Wanderer Drones" 3000
+
+event "Sich'ka'ara restored"
+	system "Sich'ka'ara"
+		add fleet "Wanderer Freight" 600
+		add fleet "Wanderer Defense" 2000
+
+
+
+overwrite
+mission "Wanderers: Defended Vara Ke'sok"
+	name "Report to <planet>"
+	description "向<destination>的漫游者长老报告：无羁者部队的袭击正日趋频繁，并且已从前线进一步向内推进。"
+	landing
+	source "Vara Ke'sok"
+	destination "Vara K'chrai"
+	to offer
+		has "Wanderers: Defend Vara Ke'sok: done"
+	on offer
+		log "Helped to defend a Wanderer world against a raid by Unfettered Hai ships."
+		conversation
+			`一名漫游者感谢你的援助。“这些敌人正变得愈发[危险/好斗]，”它说道，“你须前往<planet>向[领袖/长老]汇报。他们必须决定我们的[行动/应对方案]。”`
+				accept
+
+
+
+overwrite
+mission "Wanderers: Unfettered Diplomacy 1"
+	name "Unfettered Diplomacy"
+	description "在漫游者行星 <destination> 接载一批食物，作为和平礼物交付给无羁者。"
+	landing
+	source "Vara K'chrai"
+	destination "Var' Kar'i'i"
+	passengers 1
+	to offer
+		has "Wanderers: Defended Vara Ke'sok: done"
+	on offer
+		conversation
+			`在<origin>，你与伊克塔特·雷克及海伊大使萨亚里会面，并告知他们，你刚刚协助击退了无羁者对漫游者水世界瓦拉·凯索克的一次突袭。“当前局势已难以为继，”雷克说道，“或许无羁者才是被[选中/注定]来[继承/接收]我们在此辛劳成果的一方；但只要‘眼’尚未召唤我们前往新的[家园/居所]，我们便别无去处。”`
+			choice
+				`	“你的意思是，在如此辛苦地重建这些世界之后，你竟要把它们交给‘无羁者’这种极具破坏性的势力？”`
+				`	“这不可能。无羁者曾亲手毁灭了自己的世界，他们同样也会毁掉你们的世界。”`
+			`	“这便是漫游者们的[道路，使命]，”雷克说道，“我们[修复，重建]世界，再将其交予他人，因为我们深知，这些新任[守护者，监管者]终将挥霍掉世界的财富。”`
+			`	"但为何如此？"你问道，"为何要为那些必将挥霍掉你心血成果的他人，付出如此巨大的努力？"`
+			`	“因为我们曾照看上百个失败物种的墓园，”雷克说道，“它们在领悟[智慧/平衡]之前，便已[耗尽/燃尽]全部资源。将任何生灵关进过小的牢笼，它终将[玷污/污染/亵渎]自己的家园并死去；而给予它更多[空间/机会]，它或许便能繁荣兴盛。”他转向萨亚里：“大使，怀抱这样的希望，我们是否太过[愚昧/单纯]？”`
+			`	萨亚里说道：“‘无羁者’直到最近才开始与你们、也与我们开战——那正是他们的三颗母星相继走向死亡之时。若为他们开辟一片新边疆，我们或可重获和平。”`
+			choice
+				`	"但我们该如何应对他们的攻击？"`
+					goto attacks
+				`	"与其帮忙扩建和清理那些‘牢笼’，为何不直接对付当初建造这些牢笼的人？"`
+			`	萨亚里说道：“放任所有种族彼此交战？这简直是愚蠢之举。战争青睐强者，而非智者。”`
+			`	伊克塔特·雷克点头表示赞同。“生命太过[繁盛、富于创造力]，”他说，“新物种诞生得太频繁，而新行星却诞生得太稀少——倘若每个物种都索取它所[要求、觊觎]的一切，那么，就必须设立[界限、分隔]。”`
+			`	"那我们该如何应对无羁者（Unfettered）？"你问道，“他们最终不会渴望更多吗？"`
+			label attacks
+			`	萨亚里说道：“为争取时间，你可以用食物换取和平。称其为‘贡品’而非‘施舍’，否则会冒犯他们的自尊。”`
+			`	雷克说道：“这是我迄今听过的最佳[方案，选择]。<last>，你能否载我前往<planet>，安排一批粮食运输？”`
+			choice
+				`	"Sure, I can do that."`
+					accept
+				`	"抱歉，我不想再协助漫游者了。"`
+					decline
+	on accept
+		log `自愿协助将一批食物运送给“无羁者”，作为“流浪者”一族献上的“贡品”，希望借此安抚无羁者，促使其达成和平。`
+	on visit
+		dialog `当你在<planet>着陆时，你向一名游荡者询问食物补给的位置。对方只是歪了歪头，用游荡者语回应你。你环顾四周寻找伊克塔特·雷克为你翻译，却突然意识到自己把他留在了尚未进入该星系的一艘护航舰上。你最好先行离开，等待护航舰抵达。`
+
+ship "Deep River" "Deep River (Jump, Unarmed)"
+	outfits
+		"White Sun Reactor"
+		"Dark Storm Shielding" 3
+		"Fuel Pod"
+		"Type 2 Radiant Thruster"
+		"Type 4 Radiant Steering"
+		"Jump Drive"
+
+
+
+overwrite
+mission "Wanderers: Unfettered Diplomacy 1A"
+	name "Unfettered Diplomacy"
+	description `护送一艘载有“贡品”的货船前往无拘世界 <destination>。你可能需要向无拘者行贿，以免他们攻击你。`
+	landing
+	source "Var' Kar'i'i"
+	destination "Firelode"
+	clearance
+	passengers 1
+	to offer
+		has "Wanderers: Unfettered Diplomacy 1: done"
+	on offer
+		conversation
+			`抵达<origin>后，伊克塔特·雷克解释道：“我们已[捕获/打捞]了几台无羁者使用的跳跃引擎，并将其安装在一艘货船上。为避免[激怒/威胁]无羁者，该货船未配备任何武器——若以漫游者武器攻击无羁者，将对我们双方的[外交/和平缔造]进程造成极坏的开端。”`
+			choice
+				`	"那是否意味着我也不该向他们开火？"`
+				`	“那如果他们主动攻击我们，我们该怎么办？”`
+			`	"我建议您尽量避免战斗，"他说道，"据说‘无羁者’若收到贿赂便会心满意足——若您愿意花钱换取和平的话；或者干脆不要还击，这艘货船的护盾十分坚固。"`
+			`	这艘庞大的漫游者货船装载完毕耗时数小时。雷克解释道，他们一直记录着“无羁者”偏爱偷窃的食物种类，因此清楚哪些食物对他们而言是可食用的。他说：“我们的目的地名为<planet>。萨亚里告诉我，所有海伊族人都遵循一项关于待客之道的[习俗/禁忌]，因此一旦我们在他们的行星着陆，我们便能[交谈/交涉]，且确保安全。”`
+				accept
+	on visit
+		dialog `你已降落在<planet>，但似乎遗漏了什么！要么是<npc>尚未进入本星系，要么是伊克塔特·雷克正乘坐你的一艘护航舰，而该舰尚未进入本星系。最好立即起飞，等待它抵达。`
+	npc accompany save
+		government "Wanderer"
+		personality timid escort
+		"cargo settings"
+			cargo 4
+			commodities "Food"
+		ship "Deep River (Jump, Unarmed)" "Ayi'i Ki'ak'var"
+
+
+
+overwrite
+mission "Wanderers: Unfettered Diplomacy 1B"
+	name "Unfettered Diplomacy"
+	description "安全护送这艘流浪者货船返回<destination>。"
+	landing
+	source "Firelode"
+	destination "Var' Kar'i'i"
+	passengers 1
+	to offer
+		has "Wanderers: Unfettered Diplomacy 1A: done"
+	on offer
+		conversation
+			`你降落在无羁者的行星上后，他们并未试图攻击你。流浪者船员开始将一箱箱食物卸载到着陆平台上；不久后，一小队无羁者领袖前来迎接。伊克塔特·雷克解释道，这批食物是一份和平赠礼。`
+			`	"这点补偿远远不够，"无羁者领袖说道，"远不足以弥补你们摧毁的飞船和掠夺的世界。在你们归还我们的世界之前，和平绝无可能。"`
+			choice
+				`	（让伊克塔特·雷克来说。）`
+					goto rek
+				`	“你是指那些在劫掠漫游者时被摧毁的飞船？你还指望他们为此赔钱？”`
+			`	“和平，人类。”伊克塔特·雷克说道，“我们此来并非为了裁决孰是孰非。”他示意你退后一步，让他能单独与海伊人交谈。”`
+			label rek
+			`	“这确实仅是一份[象征性赠礼、初步尝鲜]。”伊克塔特·雷克说道，“我们尚有更多可提供之物，你定然也明白——彼此交战实属浪费。”`
+			`	他们又继续交谈了一段时间。最终，海伊领袖敲定了协议：“我们将向你们派遣货船。每当货船抵达时，你们必须将其装满食物；若未照办，即视为开战；若你们攻击货船，亦视为开战。此外，你们必须允许我们收回我们的一颗母星。”`
+			`伊克塔特·雷克说道：“我们会给你食物，但我无权——也无法——给你一颗星球。我必须与我们的政府/长老商议。”海人同意了这一点，你随即准备将货船送回<planet>。`
+				accept
+	on accept
+		event "wanderer / unfettered peace"
+	on visit
+		dialog `You've landed on <planet>, but you're missing something! Either the <npc> hasn't entered the system yet, or Iktat Rek is on one of your escorts that hasn't entered the system yet. Better depart and wait for it.`
+	npc accompany save
+		government "Wanderer"
+		personality timid escort
+		ship "Deep River (Jump, Unarmed)" "Ayi'i Ki'ak'var"
+
+fleet "Unfettered Tribute"
+	government "Hai (Unfettered Wanderer Tribute)"
+	names "hai"
+	personality coward timid
+	cargo 3
+	variant
+		"Water Bug (Jump)"
+
+event "wanderer / unfettered peace"
+	"reputation: Hai (Unfettered)" >?= 1
+	system "Ehma Ti"
+		remove fleet "Unfettered Raid"
+		add fleet "Unfettered Tribute" 1000
+	system "Chy'chra"
+		remove fleet "Unfettered Raid"
+		add fleet "Unfettered Tribute" 2000
+	system "Prakacha'a"
+		remove fleet "Unfettered Raid"
+		add fleet "Unfettered Tribute" 2000
+
+
+
+overwrite
+mission "Wanderers: Unfettered Diplomacy 1C"
+	name "Unfettered Diplomacy"
+	description "将伊克塔特·雷克送回<destination>。"
+	landing
+	source "Var' Kar'i'i"
+	destination "Vara K'chrai"
+	passengers 1
+	to offer
+		has "Wanderers: Unfettered Diplomacy 1B: done"
+	on offer
+		conversation
+			`你安全地将货船交付至<origin>。伊克塔特·雷克说道：“现在我必须返回我们的家园，与长老们[商议，筹划]。我们无法信任无羁者在我们的星域内掌控一颗行星；他们会在那里建立一支[驻军，战斗舰队]并进攻我们。但或许这项[协定，和解]能为我们带来足够长久的和平，以寻得更优的解决方案。”`
+				accept
+	on visit
+		dialog `当你返回<planet>时，赛亚里与数位漫游者长老向你走来。“伊克塔特·雷克在哪儿？”赛亚里问道。你猛然想起，自己将他留在了一艘尚未进入该星系的护航舰上。最好立刻启航，等待那艘船抵达。`
+	on complete
+		"reputation: Wanderer" >?= 20
+		set "license: Wanderer"
+		log "Managed to broker a temporary ceasefire between the Unfettered Hai and the Wanderers. Was granted access to purchase the non-military Wanderer ships, as a reward."
+		conversation
+			`当你返回<planet>时，伊克塔特·雷克与萨亚里大使及数位漫游者长老一同会见了你。长老们感谢你在促成暂时和平的谈判中所发挥的作用；雷克则表示：“我们将以[嘉奖/礼遇]的方式，允许你购买我方现役的[民用/维和]飞船。此外，我们[请求/严正要求]：只要前来收取[贡品]的飞船保持[和平/合作]姿态，你便不得[攻击/袭击]它们。”`
+			`	长老们一致认为这只是权宜之计。‘无羁者’绝不能获准在漫游者领地内设立基地：他们将利用手中仅有的几台跳跃引擎，分批将战舰调往该基地，直至集结起一支足以压倒漫游者的强大舰队。迟早有一天，‘无羁者’会对反复索要基地失去耐心，转而再度发动全面战争。”`
+			`	与此同时，化解当前局势的唯一方法，便是将所有跳跃引擎从‘无羁者’手中夺回——而这意味着你必须查明并阻止向他们提供这些引擎的幕后黑手。`
+
+
+
+overwrite
+mission "Wanderers: Truce Timer"
+	landing
+	invisible
+	non-blocking
+	to offer
+		has "Wanderers: Unfettered Diplomacy 1C: done"
+	on offer
+		event "wanderers: truce timer" 40
+		fail
+
+event "wanderers: truce timer"
+
+overwrite
+mission "Wanderers: Truce Check"
+	landing
+	name "Check with Iktat Rek?"
+	description "在<planet>与伊克塔特·雷克会合，看看在漫游者与无拘者达成停火协议后，你是否还能为漫游者提供进一步帮助。"
+	to offer
+		has "main plot completed"
+		has "event: wanderers: truce timer"
+		not "Wanderers: Jump Drive Source: offered"
+	source
+		government "Wanderer"
+		near "Ka'ch'chrai" 1 100
+	destination "Vara K'chrai"
+	on offer
+		conversation
+			`你上次促成流浪者与无羁者之间的停火协议已过去了一段时间，目前休战状态似乎仍在持续。既然眼前的危机已得到控制，或许现在是时候与伊克塔特·雷克会面，商讨如何更永久性地应对无羁者的入侵了。`
+				accept
+
+
+
+overwrite
+mission "Wanderers: Jump Drive Source"
+	landing
+	name "Jump drive source?"
+	description "伊克塔特·雷克委托你购入一台备用跳跃引擎，并将其出售给‘无羁者’，以换取有关其跳跃引擎来源的情报。之后，返回<destination>。"
+	autosave
+	source "Vara K'chrai"
+	to offer
+		has "main plot completed"
+		has "event: wanderers: truce timer"
+	on offer
+		conversation
+			`当你抵达<origin>时，伊克塔特·雷克热情地迎接了你。“人类，”他说，“我们的领地内能享有[安宁，安全]，实乃[欣慰，欣喜]之事。但无羁者不会永远[满足，满意]。我已就此与大使萨亚里商议，双方一致认为：我们必须查明无羁者拥有哪些[盟友，同谋]、其实力[如何，究竟有多强]，以及他们究竟是如何获得跳跃引擎的。”`
+			branch naughty
+				has "Unfettered Jump Drive 3: offered"
+			choice
+				`	“同意了。我该如何帮您？”`
+					goto help
+			label naughty
+			choice
+				`	"Agreed. How can I help you?"`
+					goto help
+				`	“呃……那些跳跃引擎，说不定真有几台是我卖给他们的。”`
+			`	雷克显得颇为惊讶，但最终说道：“我明白了。你想要安抚他们，这[可以理解，情有可原]。因此，我不会为此[责备，谴责]你。事实上，你这么做反而可能对我们有利。我们[请求，希望]你向他们再出售一台跳跃引擎，但这次需找一个[借口，理由]，探询还有谁向他们供应跳跃引擎。既然你已[协助，支持]过他们，他们或许会愿意将这一信息透露给你。”`
+				goto end
+			label help
+			`	雷克说道：“我们[请求，希望]你购置一台跳跃引擎并转售给他们，以[赢得，博取]他们更多的好感。随后，再找一个[借口，理由]，探询还有谁向他们供应跳跃引擎。由于你曾[促成，斡旋]停火协议，他们或许会愿意将这一信息透露给你。”`
+			label end
+			choice
+				`	"Sure, I can do that."`
+					accept
+				`	"但，对无羁者而言，再获得一台跳跃引擎，长远来看不会伤害你们自身吗？"`
+			`	雷克说道：“过去几年中，已有上百艘他们的飞船[侵扰、侵犯]了我们的空域。有人正[装备、供应]他们大量跳跃引擎，再多一艘也无足轻重。我们必须[切断、铲除]这一源头。”`
+			`	你答应尽力从‘无羁者’口中套取情报，他则祝你马到成功。`
+				accept
+	on accept
+		log "Agreed to try to sell a jump drive to the Unfettered Hai, as a way to get more information from them about who else is providing them with jump drives and enabling their attacks on the Wanderers."
+	
+	to complete
+		has "Unfettered: Jump Drive Source: offered"
+	on visit
+		dialog `你尚未尝试向无羁之海伊族出售跳跃引擎。完成此事后请返回此处。`
+	on complete
+		conversation
+			`你向伊克塔特·雷克汇报。他说道：“此事[极为有趣，令人不安]。倘若你所述这些‘阿尔法人类’的情况属实且客观，那么他们实属危险之敌。而为换取如此多的跳跃引擎，无羁者无疑已向他们[提供、装备]了大量武器。”他沉思片刻，接着说：“你必须追踪他们。我们有一件漫游者[装置，技术]可助你一臂之力。但在授权你使用之前，我须先征得我族[长老，政府]的许可。我很快将在太空港与你再次会面。”`
+
+
+
+overwrite
+mission "Unfettered: Jump Drive Source"
+	landing
+	invisible
+	source
+		attributes "unfettered"
+	to offer
+		has "Wanderers: Jump Drive Source: active"
+	on offer
+		conversation
+			`根据伊克塔特·雷克的建议，你是否愿意向海伊出售一台跳跃引擎，并以此换取情报？`
+			choice
+				`	(Yes.)`
+				`	(Not now.)`
+					defer
+			`	你最终找到了一名能说你语言的“无羁者”。她指引你前往太空港“总督”（抑或军阀）的办公室。总督说道：“我向你提供的条件与其他人类相同：一百万积分，我们为你将跳跃引擎更换为跃迁引擎。这可以接受吗？”`
+			choice
+				`	"Yes."`
+				`	"抱歉，等我有多余的跳跃引擎时再来找你们吧。"`
+					defer
+			`	无羁者技术人员小心翼翼、近乎虔诚地将跳跃引擎从你的飞船上拆下。总督付清报酬后，站在一旁静静观望他们作业。也许你能从他那里获取更多情报。`
+			choice
+				`	"如果我想找到更多跳跃引擎送给你，该去哪找？"`
+				`	“你说过，‘其他人类’也在向你们出售跳跃引擎？”`
+					goto others
+			`	他说：“那些不受约束的人类不愿透露其来源，但我们怀疑他们窃取自我们昔日宿敌——科拉斯入侵者。那位不受约束的人类领袖曾讲过一个令我费解的故事：普罗米修斯因盗取神火而受罚，但无人因盗取普罗米修斯之物而受惩。普罗米修斯难道是一位人类英雄？”`
+				goto prometheus
+			label others
+			`	“是的，”他说，“那些无拘束的人类。他们向我们出售大量跳跃引擎。他们声称，助我们乃是他们的天职。那位无拘束人类的领袖曾讲过一个我未能理解的故事：普罗米修斯因盗取神火而受罚，却无人因盗取普罗米修斯之物而受惩。普罗米修斯是一位人类英雄吗？”`
+			label prometheus
+			`	你尽可能清楚地向他解释这个传说，然后问道：“你所说的‘无羁人类’是什么意思？”`
+			`	他对你竟不知他在说什么感到惊讶。“那些绿色的家伙，”他说。`
+			choice
+				`	"阿尔法人？你绝不能跟阿尔法人做交易！他们危险又无法无天，全是罪犯！"`
+				`	“哦，那当然。绿肤人类的地位，堪比普罗米修斯本人！您能告诉我他们在哪儿吗？好让我向他们致以应有的敬意。”`
+					goto honor
+			`	“那些被改造过的海伊人正是这样评价我们‘无羁者’的，”他说道，“他们之所以这么说，是因为他们软弱而恐惧。或许你同样软弱而恐惧——若真如此，那我此前与你打交道，恐怕是个错误。”`
+				goto end
+			label honor
+			`	他沉默不语，以警惕而审慎的目光打量着你。“他们并未说明自己来自何方，”他说，“还称会有其他人前来，企图诱捕他们。或许……我当初不该信任你。”`
+			label end
+			`	你无法从他那里获得更多信息，但目前已掌握的情报已极具价值。你应当立即返回向伊克塔特·雷克汇报，并听取他的指示。`
+				accept
+	on accept
+		log `从无羁海伊族处获悉，他们一直向阿尔法族（他们称之为“无羁人类”）采购跳跃引擎。`
+		outfit "Jump Drive" -1
+		outfit "Hyperdrive" 1
+		payment 1000000
+		"reputation: Hai (Unfettered)" >?= 10
+		fail
+
+
+
+overwrite
+mission "Wanderers: Alpha Surveillance A"
+	name "Alpha Surveillance"
+	description "在三个无羁种族的母星系部署监视微型卫星，随后前往<destination>，向海伊政府打听附近是否存在阿尔法据点。"
+	autosave
+	source "Vara K'chrai"
+	destination "Hai-home"
+	clearance
+	to offer
+		has "Wanderers: Jump Drive Source: done"
+	
+	waypoint "Ehma Ti"
+	on enter "Ehma Ti"
+		dialog "You cycle the airlock and dump a handful of the tiny Wanderer surveillance cubes into space. By the time they've drifted a few meters away, your ship's sensors are unable to detect them."
+	waypoint "Wah Yoot"
+	on enter "Wah Yoot"
+		dialog "You cycle the airlock and dump a handful of the tiny Wanderer surveillance cubes into space. By the time they've drifted a few meters away, your ship's sensors are unable to detect them."
+	waypoint "Hi Yahr"
+	on enter "Hi Yahr"
+		dialog "You cycle the airlock and dump a handful of the tiny Wanderer surveillance cubes into space. By the time they've drifted a few meters away, your ship's sensors are unable to detect them."
+	
+	on offer
+		conversation
+			`当你与伊克塔特·雷克会面时，他递给你一只小盒子，里面装着数枚约两厘米见方、炭黑色的小立方体。“这些是我们[通信？监视？信息？]网络的[眼睛，传感器]，”他说道，“在接收到[请求，查询]指令前，它们不发射任何[信号，电磁辐射]，几乎也不散发热量。但它们始终在观察，并且[记录，记忆]。请在每个‘无羁者’星系中[播撒，散布，部署]若干枚。随后，你应前往海伊人的[中心，母星]，探查他们是否知晓‘阿尔法’的[活动，存在]。”`
+			`	你将监控设备带回飞船。看起来雷克多给了你一些备用设备，大概是为确保每个星系都能部署足够数量的设备，以防其中部分设备失效。即使你自己留下一个，任务成功率应该也不会受到影响；而且根据雷克所说，这项技术可能极具价值。`
+			choice
+				`	（按指示，将它们全部用于此次任务。）`
+				`	（偷走一台设备据为己有。）`
+					goto steal
+			`	你将这些装置分成三组，分别从气闸舱发射至三个‘无羁者’星系。但愿‘无羁者’不会察觉你的举动。`
+				accept
+			label steal
+			action
+				set "stole a wanderer micro-sat"
+			`	你将这些设备分成三堆，每堆对应一个无羁系统，自己则悄悄留了一个，藏在飞船内一处十分隐秘的安全地点。`
+				accept
+	
+	on visit
+		dialog phrase "generic waypoint on visit"
+	on complete
+		log "Planted some surveillance devices, designed by the Wanderers, in Unfettered Hai space. A month from now, they will be done collecting data on ship movements in the area, and may provide a hint of where the Alphas who are selling jump drives to the Unfettered are coming from."
+		event "wanderers: alpha surveillance done" 30
+		conversation
+			`所有监控立方体均已部署完毕。在等待它们采集‘无拘束星系’内飞船交通影像期间，你顺访了海伊政府中心，并请求会见人类大使。当他们得知你正是与流浪者建立首次接触的人时，立刻为你安排了会面。`
+			`	这位大使是一位年迈的雄性海伊人，名叫比亚马哈鲁。“尊敬的人类，”他说道，“很荣幸与您会面。若您有任何需要，我定当竭诚相助。”`
+			choice
+				`	"谢谢。"（解释关于阿尔法人的信息。）`
+			`他说：“我们了解他们。事实上，两个世纪前，我们与人类的首次接触，就是与这些绿色人种进行的。他们企图欺骗并控制我们。他们可不仅仅是像‘无拘者’那样的异类；这些‘阿尔法’人类残忍而自私。他们以为我们因崇尚和平而愚钝，但我们既精明又强大，最终将他们驱逐出我们的领地。后来，和平的人类到来了，我们才明白，并非所有人类都像‘阿尔法’那样。”`
+			choice
+				`	"他们会不会在你们的某颗行星上设有秘密基地？"`
+				`	"你被驱逐出你们的空域后，你知道他们去了哪里吗？"`
+					goto where
+			`	“不，”他说，“已过去两百年，我们的世界人口繁盛，且一直受到严密而审慎的治理。除非他们已投奔无羁者，否则绝不可能出现在我们的星域内。”`
+			`	“那他们能去哪儿呢？”你问道。`
+			label where
+			`	“我们并不知晓，”他说，“追踪其他种族在我们领土之外的动向，并非我们的职责；况且在科拉斯劫掠时期，我们本也无力追踪他们。”`
+			`	你感谢他抽出时间与你交谈。现在你只需耐心等待足够长的时间，让监控立方体收集完数据，并祈祷它们能录下一些有用的信息。`
+
+event "wanderers: alpha surveillance done"
+
+
+
+overwrite
+mission "Wanderers: Alpha Surveillance B"
+	landing
+	name "Alpha Surveillance"
+	description "穿越三个无羁星系以取回监控录像，随后向<destination>的伊克塔特·雷克汇报。"
+	destination "Vara K'chrai"
+	to offer
+		has "event: wanderers: alpha surveillance done"
+	
+	waypoint "Ehma Ti"
+	on enter "Ehma Ti"
+		dialog "Using the transmitter that came with the surveillance cubes, you send out the signal and receive back the encrypted fleet activity recordings."
+		"reputation: Hai (Unfettered)" <?= -1
+	waypoint "Wah Yoot"
+	on enter "Wah Yoot"
+		dialog "Using the transmitter that came with the surveillance cubes, you send out the signal and receive back the encrypted fleet activity recordings."
+		"reputation: Hai (Unfettered)" <?= -1
+	waypoint "Hi Yahr"
+	on enter "Hi Yahr"
+		dialog "Using the transmitter that came with the surveillance cubes, you send out the signal and receive back the encrypted fleet activity recordings."
+		"reputation: Hai (Unfettered)" <?= -1
+	
+	on offer
+		conversation
+			`自你在无羁者母星系部署监控设备以来，已过去一个月。现在是时候返回原地取回这些设备所录制的全部影像资料了。随后，你可将这些影像带回<planet>交给伊克塔特·雷克进行解密与分析。`
+			`	希望你能在“无羁者”截获传输信号并意识到自己遭到监视之前，成功收集到这些数据。`
+				accept
+	
+	on visit
+		dialog phrase "generic waypoint on visit"
+	on complete
+		conversation
+			`当你抵达太空港时，你联系了伊克塔特·雷克，并向他发送了一份加密录音的副本。你还向他提及：在你发出数据检索信号后，无羁者便对你发动了攻击。“这真是[不幸，遗憾]，”雷克说道，“希望他们终将[平息怒火，冷静下来]。我怀疑，你只需再提供一台跳跃引擎，便能重新赢得他们的[友谊，青睐]；或者，你也可以暂时无视他们的[攻击，敌意]。”`
+			`	你询问接下来该做什么，雷克说道：“我们需要一点时间来[分析、检查]传感器日志。一小时后，太空港见。”`
+
+
+
+overwrite
+mission "Wanderers: Alpha Surveillance C"
+	name "Alpha Surveillance"
+	description "游荡者族尚无追踪启用跳跃引擎飞船的技术，但伊克塔特·雷克认为夸格人或许具备此能力，并建议你前往<destination>拜访他们。"
+	source "Vara K'chrai"
+	destination "Alta Hai"
+	to offer
+		has "Wanderers: Alpha Surveillance B: done"
+		not "stole a wanderer micro-sat"
+		not "Wanderers: Alpha Surveillance C (Naughty): offered"
+	on offer
+		conversation
+			`当你与伊克塔特·雷克会面时，他向你展示了一艘海军航母的照片。“传感器[观测到/探测到]这艘飞船通过跳跃引擎进入希亚尔星系，”他说。你告诉他，这是一艘人类军用舰船。“你们的军队是否可能[协助/纵容]‘无羁者’？”他问道。`
+			choice
+				`	"有可能，但也可能是艘被盗的飞船。我可不指望海军会站在‘无羁者’那边。"`
+					goto no
+				`	“我可不会排除这种可能——这说不定是某种旨在获取外星技术访问权限的隐藏程序。”`
+			`伊克塔特·雷克说道：“我明白了。所以，要么你们的{0}知晓这个秘密，要么这是一场{1}军事阴谋。无论哪种情况，都让我十分担忧。”`
+			`	“我们该怎么应对？”你问道。`
+				goto end
+			label no
+			`	“希望你是对的，”雷克说道，“我不愿我们与无羁者之间的[冲突、紧张关系]将我们拖入与人类的战争。我们必须进一步[调查、探索]此事。”`
+			`	“我们该怎么做？”你问道。`
+			label end
+			`	“你必须追踪这艘飞船，”雷克说道，“跳跃引擎会在太空中的两个[位置/区域]之间建立临时的[传送门？身份联结？一体性？]。能够[制造/生产]跳跃引擎的种族，或许有能力[追踪/探测]这些联结残留的痕迹。萨亚里告诉我，这样一个种族[生活在/毗邻于]海伊星域。他们或许会助你一臂之力。”`
+			`	你同意前往海伊空间的夸格环形世界进行访问，他祝你旅途顺利。`
+				accept
+	
+	on complete
+		conversation
+			`一如往常，你无法判断此处哪位夸格人掌权，或谁可能愿意帮你。你询问的前几位夸格人似乎都不太乐意将任何与跳跃引擎相关的技术交给一名人类；但最终，其中一位听完了你的故事，说道：“我知晓阿尔法族，也知晓无缚者。有一个人或许愿助你一臂之力。”随后，他通过通讯设备用夸格语简短交谈片刻，接着告诉你：“一小时后返回太空港，自会有人在那里会见你，听取你的请求。”`
+
+
+
+overwrite
+mission "Wanderers: Alpha Surveillance C (Naughty)"
+	name "Alpha Surveillance"
+	description "The Wanderers have no technology for tracking a ship that is using a jump drive, but Iktat Rek thinks the Quarg might be able to and suggested visiting them on <destination>."
+	source "Vara K'chrai"
+	destination "Alta Hai"
+	to offer
+		has "Wanderers: Alpha Surveillance B: done"
+		has "stole a wanderer micro-sat"
+		not "Wanderers: Alpha Surveillance C: offered"
+	on offer
+		conversation
+			`伊克塔特·雷克抵达时手持一台装有两条长天线的便携式设备。“请[见谅/原谅]我，”他说，“看来你们[遗失/弄丢]了一台追踪器。所幸我具备[手段/能力]，可定位它在你们飞船上的[具体位置/藏匿之处]。需要我协助你们寻找吗？”`
+			choice
+				`	“不，呃……我猜它大概是从我货舱里的箱子里掉出来的。我这就四处找找，看能不能找到它。”`
+				`	"抱歉，我留下了一个，想试着弄清楚它的工作原理。我这就去取来还给您。"`
+					goto apologized
+				`	（回到我的飞船并逃离。）`
+					goto fail
+			`	“我明白了。”雷克说道。你真希望自己能读懂漫游者族人的面部表情；你不确定他是否相信你。你登上自己的飞船，等待足够长的时间，以显得自己确实在搜寻，随后返回并将装置交还给他。`
+				goto carrier
+			label apologized
+			action
+				clear "stole a wanderer micro-sat"
+			`	“我很高兴你[承认了，坦白了]这一点，”雷克说道，“希望你今后能更加[诚实，服从]。”你取回隐藏的监控设备，并将其归还给他。`
+			label carrier
+			`	“谢谢您。”雷克说道，“现在，让我们告诉你我们的发现。”他向你展示了一张海军航母的照片。“传感器[观测到/探测到]该舰通过跳跃引擎驶入希亚赫星系。”他说道。你告诉他，这是一艘人类军方舰艇。“贵方军方是否可能正在[协助/包庇]无羁者？”他问道。`
+			choice
+				`	"It's possible, but it could also be a stolen ship. I wouldn't expect the Navy to side with the Unfettered."`
+					goto no
+				`	"I wouldn't put it past them. It could be some sort of hidden program to gain access to alien technology."`
+			`	Iktat Rek says, "I see. So either your [leadership, government] knows about this secret, or it is a [private, separate] military conspiracy. Either way, that worries me."`
+			`	"What should we do about it?" you ask.`
+				goto end
+			label no
+			`	"I hope you are right," says Rek. "I do not wish our [conflict, tension] with the Unfettered to place us at war with humans. We must [investigate, explore] this matter further."`
+			`	"How can we do that?" you ask.`
+			label end
+			`	"You must track this ship," says Rek. "A jump drive creates a temporary [portal? identity? oneness?] between two [locations, regions] in space. A species that [creates, manufactures] jump drives may be able to [track, detect] the residue of those links. Sayari tells me that such a species [lives in, borders on] Hai space. Perhaps they will aid you."`
+			`	You agree to make a visit to the Quarg ringworld in Hai space, and he wishes you luck on your journey.`
+				accept
+			label fail
+			`	当你的飞船正飞离大气层时，监控立方体突然变得通红滚烫，随即向内坍缩，最终熔化成一小堆金属残渣。你不仅背叛了漫游者，还一无所获。`
+				flee
+	on decline
+		event "robbed the wanderers"
+	
+	on complete
+		conversation
+			`一如往常，你无法判断此处哪位夸格人掌权，或谁可能愿意帮你。你询问的前几位夸格人似乎都不太乐意将任何与跳跃引擎相关的技术交给一名人类；但最终，其中一位听完了你的故事，说道：“我知晓阿尔法族，也知晓无缚者。有一个人或许愿助你一臂之力。”随后，他通过通讯设备用夸格语简短交谈片刻，接着告诉你：“前往太空港，自会有人在那里会见你，听取你的请求。”`
+
+event "robbed the wanderers"
+	"reputation: Wanderer" = 1
+	planet "Vara K'chrai"
+		"required reputation" 5
+
+
+
+overwrite
+mission "Wanderers: Alpha Surveillance C (Pug)"
+	landing
+	source "Vara Pug"
+	to offer
+		or
+			has "Wanderers: Alpha Surveillance C: active"
+			has "Wanderers: Alpha Surveillance C (Naughty): active"
+	on offer
+		log `游荡者星域的巴哥族对协助游荡者对抗阿尔法族毫无兴趣。他们声称，干涉海伊族与人类的事务超出了他们的“管辖范围”。`
+		conversation
+			`你曾听闻蛛犬族（Pug）曾在深空人类与阿尔法族的战争中提供过援助，因此他们很可能是你当前任务中天然的盟友。你是否想确认一下，此处是否有蛛犬族人愿意助你一臂之力？`
+			choice
+				`	(Yes.)`
+				`	(No.)`
+					decline
+			`	你试图与几名普格交谈，但大多数都刻意无视你。最终，或许因为你已明确表示不会离开，其中一名普格终于走近，手中托着一只小巧的黑色盒子。它用母语对盒子说了几句，盒子随即以单调、句间毫无停顿的语调说道：“你好你是人类你来自地球是吗。”看来这盒子是个简陋的翻译装置，听来略显突兀，但你完全能听懂它表达的意思。`
+			`	你说：‘是的，没错。’`
+			`	盒子似乎将你的话翻译了出来，而那只巴哥犬则对着盒子做出了回应。盒子说道：“人类并非我们的责任，你们来我们星球有何贵干？”`
+			choice
+				`	“阿尔法人又在惹麻烦了，我听说你们过去曾帮我们抗击过他们。”`
+				`	“阿尔法人已与入侵流浪者的势力结盟。您能帮我们追踪他们的行踪吗？”`
+			`	普格人再次开口："那些自称‘阿尔法’的种族，我们从未听闻其名。"`
+			`	你尽力解释。或许深空人类关于普格人知晓阿尔法人的说法是错的。普格人回应道：“我们可以保护流浪者，但海伊人和人类不在我们的管辖范围内，我们不会进入他们的领空。”`
+			choice
+				`	(Give up and leave.)`
+					decline
+				`	（尝试说服他们提供帮助。）`
+			`	你尽力尝试，但此处的普格人显然无意帮你。最终你只好放弃，返回自己的飞船。`
+				decline
+
+
+
+ship "Carrier" "Carrier (Alpha)"
+	"display name" "Modified Carrier"
+	sprite "ship/modified carrier"
+	thumbnail "thumbnail/modified carrier"
+	add attributes
+		"weapon capacity" 120
+	outfits
+		"Ion Cannon" 2
+		"Hai Tracker Pod" 4
+		"Hai Tracker" 224
+		"Shield Disruptor Turret" 2
+		"Husk-Slice Turret" 2
+		
+		"Triple Plasma Core"
+		"Systems Core (Large)"
+		"Large Heat Shunt" 3
+		"Small Heat Shunt"
+		"Wanderer Ramscoop"
+		"Outfits Expansion" 4
+		"Laser Rifle" 120
+		
+		`"Bondir" Atomic Thruster`
+		"Steering (Stellar Class)"
+		"Jump Drive"
+	
+	gun -17 -179 "Ion Cannon"
+	gun 17 -179 "Ion Cannon"
+	gun -25 -168 "Hai Tracker Pod"
+	gun 25 -168 "Hai Tracker Pod"
+	gun -32.5 -163.5 "Hai Tracker Pod"
+	gun 32.5 -163.5 "Hai Tracker Pod"
+	turret 0 -49 "Shield Disruptor Turret"
+	turret 0 14 "Husk-Slice Turret"
+	turret -22 22 "Shield Disruptor Turret"
+	turret 22 22 "Husk-Slice Turret"
+	bay "Fighter" -38.5 -64.5
+		"launch effect" "human internal"
+	bay "Fighter" 38.5 -64.5
+		"launch effect" "human internal"
+	bay "Fighter" -50 40.5
+		"launch effect" "human internal"
+	bay "Fighter" 50 40.5
+		"launch effect" "human internal"
+	bay "Drone" -71.5 -49.5
+		"launch effect" "human internal"
+	bay "Drone" 71.5 -49.5
+		"launch effect" "human internal"
+	bay "Drone" -115 55
+		"launch effect" "human internal"
+	bay "Drone" 115 55
+		"launch effect" "human internal"
+	bay "Drone" -85 55
+		"launch effect" "human internal"
+	bay "Drone" 85 55
+		"launch effect" "human internal"
+
+overwrite
+mission "Wanderers: Alpha Surveillance D"
+	name "Find the Alphas"
+	description "在以利亚斯·汉诺威及其追踪装置的帮助下，定位阿尔法基地，随后返回夸格环世界<planet>。"
+	autosave
+	source "Alta Hai"
+	to offer
+		or
+			has "Wanderers: Alpha Surveillance C: done"
+			has "Wanderers: Alpha Surveillance C (Naughty): done"
+	passengers 1
+	blocked "You need a bunk free in order to take on this mission."
+	
+	on offer
+		log "Met a human named Elias Hanover who is friends with the Quarg and who has been given permission to use Quarg technology to track the Alpha ship that is selling jump drives to the Unfettered."
+		log "People" "Elias Hanover" `伊莱亚斯长期生活在海伊星域的夸格人中间，双方已建立起足够信任，以至于夸格人允许他接触部分受限制的技术。`
+		"reputation: Alpha" <?= -1
+		conversation
+			`你在太空港受到一名蓄须的中年男性人类和一名皮肤异常褶皱的夸格人迎接。那名夸格人说道：“我听说你们需要帮助来对抗阿尔法人。我这位朋友伊莱亚斯长期生活在我们之中，向我详细讲述了阿尔法人的战争与暴行。”`
+			`	那人与你握手，并自我介绍道：‘我是伊莱亚斯·汉诺威。夸格人将当前局势视为人类内部冲突，因此极不愿意选边站队；他们同样不愿将自己的技术托付给像你这样的陌生人。但若阿尔法人正不断壮大势力、并大量搜集外星科技，就必须阻止他们。’`
+			`	夸格说道：「伊莱亚斯是我们信赖的朋友。我们已交予他一台用于追踪跃迁引擎航行飞船的装置，并预设了人类航母的参数。切勿试图从他手中夺走该装置。他将为你引路，助你找到目标；任务完成后，你须立即将装置归还予我族。」`
+			`	伊莱亚斯问道：“如果我们找到了它们，你准备好独自迎战一艘航母了吗？”`
+			choice
+				`	"是的，我的飞船比人类疆域内任何一艘都更强大。"`
+					goto end
+				`	"我不这么认为。您确定这真有必要吗？"`
+			`	“你觉得阿尔法人会不战而降吗？”他问道，“或许我们该在追击他们之前，先投资一艘海伊战舰。”`
+			label end
+			`	你感谢夸格人愿意协助你，随后你与伊莱亚斯返回自己的飞船。`
+				accept
+	
+	mark "Hi Yahr"
+	on enter "Hi Yahr"
+		dialog `当你进入该星系时，伊莱亚斯检查了一下他的追踪装置。“没错，我探测到了一艘具备跳跃能力的航母信号，”他说，“航迹向东，延伸至海伊势力范围之外。”`
+		unmark "Hi Yahr"
+		mark "Celeborim"
+	on enter "Celeborim"
+		dialog `伊莱亚斯再次查看追踪器。“在东南方向，从这里算起。”他说道。与此同时，你的飞船警报声骤然响起——此处有外星飞船，且它们似乎并不友好。`
+		unmark "Celeborim"
+		mark "Asikafarnut"
+	on enter "Asikafarnut"
+		dialog `伊莱亚斯检查着追踪器。“依然在正东南方向。”他说道，“希望那些科拉斯飞船与阿尔法舰队不在同一阵营。”`
+		unmark "Asikafarnut"
+		mark "Sobarati"
+		mark "Ferukistek"
+	on enter "Sobarati"
+		dialog `伊莱亚斯摆弄了一阵追踪装置，随后放弃了。“抱歉，我在这里收不到任何信号。也许他们直接跃迁跳过了这个星系？”`
+		unmark "Sobarati"
+	on enter "Ferukistek"
+		dialog `埃利亚斯说道：“发现他们的踪迹了。他们已转向，再次向东进发，或许还略微偏北。”`
+		unmark "Ferukistek"
+		unmark "Sobarati"
+		mark "Host"
+	on enter "Makferuti"
+		dialog `伊莱亚斯皱着眉审视追踪器的读数。“我觉得我们走错路了。这个星系内没有任何跃迁引擎启动的迹象。”他说道。`
+	on enter "Host"
+		dialog `当你进入该星系时，传感器探测到一艘海军航母正环绕一颗类地行星运行。看来你已找到了阿尔法基地。“就是他们，”汉诺威说道，“希望你有足够的实力将他们摧毁。”航母随即开始弹射战斗机——是科拉斯战机，而非人类舰载机。这场战斗恐怕会十分艰难……`
+	
+	npc
+		government "Kor Sestor"
+		system "Celeborim"
+		personality heroic nemesis staying vindictive
+		fleet
+			names "kor sestor"
+			variant
+				"Kar Ik Vot 349 (Trapper)"
+				"Met Par Tek 53"
+				"Met Par Tek 53 (Sniper)"
+	npc kill
+		government "Alpha"
+		system "Host"
+		personality heroic nemesis staying vindictive target
+		ship "Carrier (Alpha)" "Giftbringer"
+		on kill
+			unmark "Host"
+			dialog "The Alpha Carrier has been destroyed. You can now return to the Quarg ringworld and plan your next steps."
+	npc
+		government "Alpha"
+		system "Host"
+		personality heroic nemesis staying vindictive
+		ship "Far Osk 27" "Dasher"
+		ship "Far Osk 27" "Dancer"
+		ship "Far Osk 27" "Prancer"
+		ship "Far Osk 27" "Vixen"
+		ship "Far Lek 14" "Cupid"
+		ship "Far Lek 14" "Comet"
+		ship "Far Lek 14" "Donner"
+		ship "Far Lek 14" "Blitzen"
+		ship "Far Lek 14" "Rudolph"
+		ship "Far Lek 14" "Ralph"
+	
+	on visit
+		dialog `你已返回<planet>，却感觉自己的任务尚未完成。要么找出阿尔法人的藏身之处，要么重返他们藏匿的地点，将未竟之事彻底了结。`
+	on complete
+		log "Defeated a Navy Carrier, presumably being operated by the Alphas, that was equipped with Korath fighters and drones. Presumably there is an Alpha base hidden somewhere on the earth-like planet that the Carrier was guarding."
+		conversation
+			`当你重返<planet>着陆后，伊莱亚斯表示他需立即动身，将追踪装置归还给他的夸格朋友。“之后，”他说，“我们得设法找出谁能帮我们定位并攻破阿尔法基地。你准备好了就来太空港找我。”`
+
+
+
+overwrite
+mission "Wanderers: Alpha Surveillance D (Avalon)"
+	landing
+	source "Avalon"
+	to offer
+		has "Wanderers: Alpha Surveillance D: active"
+	on offer
+		conversation
+			`你将飞船停泊在一座高山高处，以便随时观察那些巨型爬行动物是否靠近。这里几乎可以肯定就是阿尔法族群的基地所在，但你的传感器无法精确定位；即便真能定位，你身边也没有配备地面作战部队。若要一劳永逸地解决这一威胁，你必须返回并率领一支入侵部队前来。`
+				decline
+
+
+
+overwrite
+mission "Wanderers: Alpha Surveillance E"
+	name "Visit Danforth"
+	description "前往<planet>拜访丹佛斯上将，看他能否为你提供一支攻击部队，以定位并摧毁阿尔法基地。"
+	source "Alta Hai"
+	destination "Farpoint"
+	passengers 1
+	to offer
+		has "Wanderers: Alpha Surveillance D: done"
+	
+	on offer
+		conversation
+			`当你在太空港与伊莱亚斯·汉诺威会面时，他说：“我想不出别的办法了：我们必须让海军介入此事。唯有他们才具备发动地面进攻的能力。”`
+			choice
+				`	“我们真能信任他们吗？毕竟那些阿尔法人当时可是在一艘海军飞船上。”`
+				`	“我们可以去找丹佛斯上将。他是一名海军军官，我信任他站在正义的一方。”`
+					goto danforth
+			`	“你还能想到其他办法吗？”他说。`
+			`	“海军中有一支名为‘誓约守护者’的分支，”你告诉他，“由丹佛斯上将领导。若海军之中尚有值得信赖之人，那必是他们。”`
+			label danforth
+			`	"丹福斯？"伊莱亚斯问道，"威廉·丹福斯？希望英雄？他还在服役？"你点点头。"那好，我们这就去找他。"伊莱亚斯说道。`
+			`	他返回你的飞船，你们随即准备启程前往<destination>上的丹佛斯（Danforth）基地。`
+				accept
+	
+	on visit
+		dialog `你已降落在<planet>，但意识到伊莱亚斯正乘坐一艘尚未进入该星系的护航舰。你最好立即出发，在与丹佛斯上将会面之前等待该舰抵达。`
+	on complete
+		conversation
+			`丹福斯上将见到你十分高兴，但当你说明来意后，他的表情立刻变得凝重。你刚一提到阿尔法人，他便急忙让你噤声：“我们在这大庭广众之下，还是不要谈论此事为好。”他接着说道，“倒不是我不信任我的部下，但谨慎些总归无错。我会召集一批我确信能够隐秘行动的部队，让他们随时待命，准备与我们一同执行远征任务。等你准备就绪，就到太空港我的私人办公室来找我。”`
+
+
+
+overwrite
+mission "Wanderers: Alpha Surveillance F"
+	name "Invade Avalon"
+	description "护送丹佛斯上将的海军<npc model>前往<destination>，并在该行星着陆。他们将尝试定位并摧毁阿尔法基地。"
+	autosave
+	source "Farpoint"
+	destination "Avalon"
+	passengers 1
+	to offer
+		has "Wanderers: Alpha Surveillance E: done"
+	
+	on offer
+		log "Admiral Danforth agreed to bring his Cruiser to the planet in Korath space where the Alphas seem to be hiding, with enough troops and equipment to launch an assault on the base."
+		log "Factions" "Oathkeepers" `然而，强大的誓约守护者舰队驻扎在北方的真正原因，不仅是为了遏制海盗，更是为了在海伊人决定入侵人类空间时，充当最后一道防线。显然，海军早已知晓海伊人的存在，以及连接其星域与人类星域的虫洞，但选择不向公众披露这一情报。`
+		conversation
+			`丹福斯将你们迎入他的私人办公室，并用一台设备对房间进行了窃听器扫描。“请原谅我的谨慎，”他完成扫描后说道，“现在，请告诉我这颗行星的位置。”`
+			`	你向他展示地图上的那颗行星。“那离人类疆域可远了，”丹佛斯说道，“几乎横跨了整个海伊领地。那些海伊叛军还在占领这些星系吗？”他指着无羁者居住的三个星系。`
+			choice
+				`	"Yes."`
+					goto jump
+				`	"等等，你了解海伊人？"`
+			`	丹福斯一脸困惑。“住在他们家门口？我当然住那儿。你以为海军最初为何要在法尔波因特设立如此庞大的基地？北方那些人类无政府主义者可没构成多大威胁。”`
+			label jump
+			`	“问题不仅在于距离，”伊莱亚斯说道，“抵达那里的唯一方式是使用跳跃引擎。幸运的是，<last>船长恰好配备了一台。”`
+			`	“我也一样。”丹佛斯略带得意地说道。见你面露惊讶，他随即补充道：“这玩意儿是从‘拳击手号’（Pug）上回收来的——当时不小心忘了提交失物招领的正式报告，你懂的。像我这样的老头子嘛，偶尔总会有点健忘。”他微笑着，“我的工程师们此刻正在为我的旗舰安装它呢。”`
+			choice
+				`	“所以你愿意跟我们一同前往？”`
+				`	“你确定要冒风险和我们一起航行吗？”`
+			`	“这等大事，我绝不会错过。”他说道，“如此重要的任务，若想万无一失，我必须亲自到场。现在咱们赶紧出发吧，免得风声走漏——毕竟，三个中队秘密备战，想不引人注目可不容易。”`
+				accept
+	
+	on visit
+		dialog "You have reached <planet>, but you left Danforth's ship behind. Wait for him to arrive (or go back and refuel him, if necessary) and then return here."
+	
+	npc accompany save
+		government "Navy (Oathkeeper)"
+		personality escort timid
+		ship "Cruiser (Jump)" "N.S. Peacemaker"
+
+
+
+overwrite
+mission "Wanderers: Alpha Surveillance G"
+	landing
+	name "Return to <planet>"
+	description "确保丹佛斯上将的飞船安全返回<destination>。"
+	source "Avalon"
+	destination "Farpoint"
+	passengers 1
+	to offer
+		has "Wanderers: Alpha Surveillance F: done"
+	
+	on offer
+		log "The Alphas have fled from the base on Avalon. The Oathkeepers destroyed what is left of the base, which will hopefully set the Alphas back quite a bit."
+		conversation
+			`丹佛斯小队很快便找到了深埋于石灰岩洞穴网络之下的阿尔法基地。你与丹佛斯驾驶飞船悬停在基地上空，以防有人试图起飞逃逸。丹佛斯持续向你通报部队的进展：「已突破外围防线。正在处理一些陷阱——炸药、毒气，相当棘手。未发现居民踪迹，但此处近期确有人活动。现场看起来已被彻底清空。基地规模庞大，包括机库、实验室和补给室等设施。建造恐怕耗时近一个世纪。」`
+			`他的部队花了一段时间探索基地，最终断定阿尔法人早在你摧毁航母后不久便收拾行装撤离了。待基地被彻底搜查完毕，且他们确信再也找不到任何线索后，丹福斯下令道：“好了，把这里炸掉。没必要给他们留下一座可供重返的基地。”`
+			choice
+				`	“所以这一切都白费了？”`
+				`	“真希望能把他们抓住。”`
+			`	“别太难过，”丹佛斯说道，“至少你击毁了他们的航母。如果你当时直接来找我、没有与他们交战，他们很可能还是会察觉行踪暴露而逃走。而现在他们正在逃亡，这将严重限制他们继续作乱的能力。”`
+			`	丹福斯的飞船收拢部队后升空。几秒后，他向你发出呼叫：“船长，有敌舰正从行星远端逼近！”他说道，“我的飞船不是它们的对手。我们快离开这里！”看来，这颗星球终究并非完全无人居住……`
+				launch
+	
+	npc accompany save
+		government "Navy (Oathkeeper)"
+		personality escort timid
+		ship "Cruiser (Jump)" "N.S. Peacemaker"
+	npc
+		government "Alpha"
+		personality heroic staying vindictive
+		fleet
+			names "kor sestor"
+			variant
+				"Kar Ik Vot 349 (Offense)"
+				"Met Par Tek 53 (Sniper)" 2
+	
+	on visit
+		dialog "You have reached <planet>, but you left Danforth's ship behind. Wait for him to arrive (or go back and refuel him, if necessary) and then return here."
+	
+	on complete
+		conversation
+			`你与伊莱亚斯返回丹佛斯的私人办公室进行汇报，但刚到几分钟后，门外便传来敲门声。丹佛斯调出视频监控查看来者何人，低声咒骂了一句，又迅速扫视房间一圈，仿佛在确认自己是否无意间将什么可疑之物暴露在了显眼处，随后才打开门。一名身着无标识制服的军官带着数名持械卫兵走了进来。“丹佛斯上将，”军官说道，“希望您的远征一切顺利？”`
+			`	丹福斯含糊地嘟囔了一句作为回应。“还有您，<last>船长，”军官说道，“总是身处风暴中心，是吧？”`
+			choice
+				`	“我想是这样。”`
+				`	“唯有当银河系亟需拯救之时。”`
+				`	“只是想做正确的事罢了。”`
+			`	军官转向伊莱亚斯：“汉诺威先生，”他说，“我要亲自感谢你再次协助我们对抗阿尔法舰队。”`
+			`	“不客气，”汉诺威谨慎地答道。`
+			`	“您可真不爱拍照啊，”军官说道，“2894年AD，您协助解放‘尘带’（Dirt Belt）那些世界后，都没多留片刻接受我们的感谢。当然，那时您用的名字是‘杰里米·汉诺威’（Jeremy Hanover）。”他递给汉诺威一张照片，上面是一群海军军官正与一名男子交谈——那名男子长得和汉诺威本人极为相似。`
+			`	“那是我祖父。”汉诺威说道。`
+			`	“我明白了。”那名军官说道，“当然，你更应得到感谢的，是你在第二次阿尔法战争期间提供的援助。这是你公元2461年的照片。”他展示出另一张照片——看起来又是汉诺威本人，身旁站着几名身着古老前共和国时代制服的男子。站在你身后的卫兵纷纷举起武器，将枪口对准了你和伊莱亚斯。`
+			choice
+				`	(Stay where I am.)`
+					goto stay
+				`	（尝试战斗。）`
+				`	（尝试逃跑。）`
+			`	你猛然从座位上跃起。守卫开火，随后一切陷入黑暗。`
+				accept
+			label stay
+			`	你高举双手表示投降。卫兵随即开火，眼前顿时一片漆黑。`
+				accept
+
+
+
+overwrite
+mission "Wanderers: Alpha Surveillance H"
+	name "Meet up with Danforth"
+	description "前往<origin>的太空港与丹佛斯上将见面，商讨下一步如何应对阿尔法舰队。"
+	landing
+	source "Farpoint"
+	"offer precedence" 100
+	to offer
+		has "Wanderers: Alpha Surveillance G: done"
+	
+	on offer
+		log "Was taken captive, along with Elias Hanover, by some nameless Republic officers who thought Elias was an Alpha. They discovered that he is not one, although he appears to have some of the same genetically engineered advantages that the Alphas have."
+		log "People" "Elias Hanover" `部分海军军官相信，伊莱亚斯（Elias）的实际年龄可能超过五百年，且他或许是一名基因改造个体——甚至可能是专门设计来拥有与阿尔法（Alphas）相似能力的战士，以便对抗他们。`
+		conversation
+			`你猛然惊醒，头痛欲裂，浑身昏沉迟钝，仿佛刚被军用级电击枪击中过。你被牢牢绑在一张金属椅上，头部和身体至少连着十几根电极。伊莱亚斯也坐在一张相似的椅子上，正面对着你。一名技师站在角落里的成排计算机显示屏后，而那位无名军官则在一旁静静注视。`
+			choice
+				`	"What's going on?"`
+					goto what
+				`	"我命令你们立刻放我走！"`
+					goto demand
+				`	(Say nothing.)`
+			`	见你们都已苏醒，那名军官踱步过来，面无表情、冷静审视地打量了你们片刻。随即，他毫无征兆地一拳击中你的面部。`
+				goto punched
+			label what
+			`	“这是标准操作流程。”军官一边说着，一边朝你走来。紧接着，他毫无预兆地一拳打在你的脸上。`
+				goto punched
+			label demand
+			`	军官走到你面前。“抱歉，现在还不能放你走。”他说完，毫无预兆地一拳打在你的脸上。`
+			label punched
+			`	你尚未从刚才那一击的冲击中缓过神来，那名军官便走到以利亚斯面前，同样狠狠揍了他一拳。随后他稍作停顿，调整了一下因挥拳而松动的一枚电极，接着又走回你身边，再次挥拳击打你。 technician（技术员）紧盯着电脑屏幕，眉头紧锁，神情凝重；与此同时，军官再度殴打以利亚斯，然后转身再次朝你走来。`
+			choice
+				`	“你到底在干什么？！”`
+					goto question
+				`	"求您直接告诉我，您到底想要什么。"`
+					goto question
+				`	（朝他脸上吐口水。）`
+					goto spit
+				`	(Do nothing.)`
+			`	军官瞥了一眼技术员，后者说道：“<last>的各项指标似乎均在人类正常参数范围内，长官。”`
+				goto human
+			label question
+			`	他无视了你的问题，转头望向那名技师。技师说道：“<last>的各项指标似乎完全符合人类标准，长官。”`
+				goto human
+			label spit
+			`	"有意思。"他一边说着，一边用袖子擦去脸上的唾沫，随后瞥向那名技术员，"你收到读数了吗？"`
+			`	"<last>完全符合人类参数标准，长官，"技术员说道。`
+			label human
+			`	军官点头表示认可，随后解开了你手臂上的束缚装置。“看来我得向你道个歉，船长，”他说，“你想打我一拳还回来吗？”他朝你凑近，将脸主动送到你伸手可及之处。`
+			choice
+				`	"不用了，谢谢。"`
+				`	（回击他一拳。）`
+					goto retaliate
+			`	"您真是太友善了，"他说道。接着他问技师："汉诺威那边情况如何？"`
+			`	技师说道：“汉诺威既不是人类，也不是阿尔法人。我从未见过这样的读数——除非……也许来自一名共情者。”`
+				goto hanover
+			label retaliate
+			`	你一拳打在他身上。他踉跄着向后退去，随后望向技师，技师报告道：“汉诺威先生感受到了，长官。这是共情反应。”`
+			label hanover
+			`	“什么？”那名军官说道。他走过来，盯着监控屏幕看了一分钟，然后说：“汉诺威先生，你的皮肤是人类的，体格却像阿尔法人。但你在看到别人挨打时所表现出的共情性痛觉，竟比你自己挨揍时还要强烈——这说明你的大脑与阿尔法人的完全相反。那么，你到底是什么？谁创造了你？又为何要创造你？”`
+			`	伊莱亚斯一言不发。`
+			`	“长官，”技师问道，“那些传闻……是真的吗？”他眼中流露出近乎敬畏的神色。`
+			`	“是啊，那些古老的传说确实存在。”军官若有所思地说道，“一种专门用来对抗阿尔法人族的秘密武器，由政府实验室利用禁忌技术制造而成。它在某些方面与阿尔法人相似，但被设计出来的目的却是服务，而非统治一切。难道……你就是那样的存在？你是一名贝塔人吗？”伊莱亚斯沉默不语。`
+			choice
+				`	“如果他并非阿尔法，你们便无权囚禁我们。”`
+				`	“倘若你已确信我们双方均非阿尔法个体，能否请你们放我们离开？”`
+			`	“我想是这样。”那名军官说道。当他们将你们从座椅上释放时，他对以利亚斯说：“如果你真是我所认为的那种存在，我们终将助你完成你的使命。召集你的兄弟姐妹，加入我们吧。唯有同心协力，方能终结阿尔法们。”然而，以利亚斯依旧一言不发。`
+			`	他们带你走出舱室，步入走廊，你这才意识到自己正身处一艘海军巡洋舰之上。离舰时，那名军官对伊莱亚斯说道：“好好想想我刚才说的话。”`
+			`	伊莱亚斯在你能听见飞船动静的距离内一直保持沉默，随后说道：“我们回太空港与丹福斯会合，看看他觉得接下来该怎么做。”`
+				accept
+
+
+
+overwrite
+mission "Wanderers: Alpha Surveillance I"
+	name "Return Elias to <planet>"
+	description "将伊莱亚斯·汉诺威送回<destination>，他有望在那里免遭阿尔法势力的报复——此前他将阿尔法势力驱逐出了他们在阿瓦隆星球的基地。"
+	autosave
+	source "Farpoint"
+	destination "Alta Hai"
+	to offer
+		has "Wanderers: Alpha Surveillance G: done"
+	passengers 1
+	blocked "You don't have enough passenger space to take on this mission. Return here when you have a bunk free."
+	
+	on offer
+		fail "Wanderers: Alpha Surveillance H"
+		conversation
+			`丹福斯见你们二人安然无恙，如释重负。“该死的共和国情报局，”他说道，“自诩凌驾于法律之上。可折腾了这么久，他们最后竟判定你们俩清白无罪？”他目光锐利地盯向伊莱亚斯。`
+			choice
+				`“是的，事实上，他们现在正试图拉拢我们，联手对抗阿尔法人。”`
+				`	"是的，而且他们认为伊莱亚斯能帮他们对抗阿尔法人。"`
+			`	“我明白了。”丹佛斯说道，“真希望我能告诉你，他们值得信赖。真希望我能告诉你，在阿尔法派的敌人中，没有比待在我这里更安全的地方了。”`
+			branch know
+				has "event: death of nguyen"
+			`	他稍作停顿，从桌面上取出一块数据板，调出一份文件。“最近，”丹佛斯说道，“我的一名军官曾协助剿灭了一处阿尔法据点，就像你们所做的那样。”说这话时，他特意望向伊莱亚斯。“一个月后，此人竟在本人的海军基地内遭暗杀。这是他的照片。”丹佛斯将数据板推过桌面。屏幕上显示的是一名你不认识的男子，但伊莱亚斯一看到此人面容，便强忍住一声惊愕的悲呼。丹佛斯说道：“我无法假装你们在此地会是安全的。我认为，对你们两人而言，最稳妥的选择是暂时离开人类疆域。”`
+				goto leave
+			label know
+			`	他稍作停顿，从桌面上取出一块数据板，调出一份文件。“最近，”丹佛斯说道，“我的一名军官曾协助剿灭了一处阿尔法据点，就像你们所做的那样。”说这话时，他特意望向伊莱亚斯。“一个月后，此人竟在本人的海军基地内遭暗杀。这是他的照片。”丹佛斯将数据板推过桌面。屏幕上显示的是阮指挥官的照片，令你惊讶的是，伊莱亚斯一看到此人面容，便强忍住一声惊愕的悲呼。丹佛斯说道：“我无法假装你们在此地会是安全的。我认为，对你们两人而言，最稳妥的选择是暂时离开人类疆域。”`
+				goto leave
+			label leave
+			`	你同意将伊莱亚斯送回阿尔塔海伊。无论伊莱亚斯究竟是什么，也无论谁可能想加害于他，你只能希望此刻夸格环世界是他最安全的所在。`
+				accept
+	on visit
+		dialog `你已降落在<planet>，但突然意识到埃利亚斯正乘坐你的一艘护航舰，而该舰尚未进入本星系。最好立即起飞，等待它抵达。`
+
+
+
+overwrite
+mission "Wanderers: Alpha Surveillance J"
+	name "Return to Iktat Rek on <planet>"
+	description "阿尔法基地已被摧毁，现在请前往<system>星系的<planet>行星，向伊克塔特·雷克报到。"
+	landing
+	source "Alta Hai"
+	destination "Vara K'chrai"
+	to offer
+		has "Wanderers: Alpha Surveillance I: done"
+	
+	on offer
+		event "wanderers: first tech increase"
+		conversation
+			`你将伊莱亚斯（Elias）送至<起源地>。他说道：“别担心我——夸格人早已在此保护我许久了。感谢你甘愿冒着生命危险对抗阿尔法人。”`
+			choice
+				`	"等等，你不会告诉我那位军官关于你的那些话是否属实吗？"`
+				`	（不逼问他更多信息，任他离去。）`
+					goto end
+			`	他说：“我确已六百岁高龄；我确实并非严格意义上的人类；我确实反对阿尔法人。除此之外，我不会再多透露半分——既为保全自身，也为保护你们。”`
+			label end
+			`	你祝伊莱亚斯好运，并告诉他希望有朝一日还能再相见。现在，你或许该返回流浪者空间，向伊克塔特·雷克报到。`
+				accept
+	
+	on complete
+		"reputation: Wanderer" >?= 30
+		event "wanderers: heavy gust mass production" 30
+		event "wanderers: unfettered invasion starts" 64
+		log "Reported to the Wanderers that the Alphas who had been selling jump drives to the Unfettered have been weakened and driven into hiding. The Wanderers are ramping up production of military ships to try to face the continuing Unfettered onslaught."
+		conversation
+			`虽难完全确定，但太空港周边的活动似乎比往常更加繁忙，流浪者们似乎也已开始量产一些新型飞船。当你向伊克塔特·雷克询问此事时，他说道：“当初‘无羁者’首次[入侵，占领]我们的领地时，我们几乎没有任何[战争，防御]武器。自那以后，我们找回了古老的[设计图，说明书]，并开始为即将到来的一切做准备——尽管那可能十分[不愉快，不幸]。”`
+			`	当你描述自己与阿尔法族（Alphas）交涉时取得的喜忧参半的结果时，他抖动双翼、蓬松羽毛——这看似是一种紧张而焦躁的姿态。‘这些阿尔法[生命体/生物]听起来比无羁者（Unfettered）更[危险/蛮横/冷酷]，’他说，‘任何[群居/社会性]物种在自然演化过程中都会发展出某些[限制/制约/约束]，而[人工/构造]出来的物种却未必具备。我们该如何最有效地[应对/处理]它们？’`
+			choice
+				`	"或许最明智的做法是任其自便。"`
+				`	“我认为唯一的办法就是让自己强大到足以让他们不敢招惹你。”`
+				`	“迟早我们都必须追捕并摧毁他们。”`
+			`	"你大概是对的，"他迟疑地说道。他心不在焉地仰望天空，用一只爪子挠着翅膀，几根羽毛随之飘落。"但愿‘眼’能睁开，"他说，"我感觉空气[紧绷、凝重]得如同风暴来临前的那一刻——仿佛我们正[等待、期盼]某件本该降临、却迟迟未至之事。纵然它可能带来[灾难、剧变、转变]，我也只盼这等待早日终结。"`
+			`	你们又聊了一会儿，但看来目前流浪者一族暂时无需你再提供任何帮助。伊克塔特·雷克（Iktat Rek）提醒你离开前务必去装备店看看——“我们的[阴沉、令人遗憾的]新型装置”，随后再次向你致谢，随即离去。`
+
+# Patching a mistake in 0.9.1:
+overwrite
+mission "Wanderers: Unfettered Invasion Patch"
+	landing
+	invisible
+	non-blocking
+	to offer
+		has "event: wanderers: unfettered invasion"
+	on offer
+		event "wanderers: unfettered invasion starts"
+		fail
+
+# Giving Heavy Gust to old saves:
+overwrite
+mission "Wanderers: Heavy Gust Patch"
+	landing
+	invisible
+	non-blocking
+	to offer
+		has "event: wanderers: unfettered invasion starts"
+		not "event: wanderers: heavy gust mass production"
+	on offer
+		event "wanderers: heavy gust mass production"
+		fail
+
+overwrite
+mission "Wanderers Invaded 0"
+	landing
+	name "Unfettered Invasion"
+	description `前往<destination>，向伊克塔特·雷克询问你是否可协助漫游者一族抵御无羁者入侵。`
+	source
+		government "Wanderer"
+		near "Ka'ch'chrai" 1 100
+	destination "Vara K'chrai"
+	to offer
+		has "event: wanderers: unfettered invasion starts"
+		not "Wanderers Invaded 1: offered"
+	on offer
+		conversation
+			`流浪者族群在<origin>陷入恐慌。据称，无羁者终于成功占领了一颗流浪者行星，并正在该行星上集结一支战争舰队。你最好联系伊克塔特·雷克，看看他是否需要你的帮助来将无羁者击退。`
+				accept
+
+
+
+overwrite
+mission "Wanderers Invaded 1"
+	landing
+	name "Evacuate <planet>"
+	description `护送一支经改装、用于运送难民的货运飞船舰队前往<destination>。`
+	autosave
+	source "Vara K'chrai"
+	destination "Varu Mer'ek"
+	to offer
+		has "event: wanderers: unfettered invasion starts"
+	on offer
+		log "The Unfettered have established a beachhead on one of the Wanderer worlds and are now apparently using what few jump drives they possess to shuttle more and more warships into Wanderer space. War has begun in earnest."
+		conversation
+			`伊克塔特·雷克看上去比你以往所见的任何时候都更加焦躁不安：他原本梳理得一丝不苟的羽毛，如今在面部与肩部零星地杂乱竖起；与你交谈时，他焦灼地来回踱步。“我们已开始建造战舰，”他说，“但目前尚不具备[实力/兵力]来抵御入侵者。我们必须撤退至一处更为[狭窄？易守难攻？]的位置。你愿意协助我们完成撤离行动吗？”`
+			choice
+				`	"I would be glad to."`
+					goto end
+				`	“为何不主动反击无拘者，趁他们尚未站稳脚跟之前就将他们驱逐出去？”`
+			`	"这并非我们的本质，"他说道，"你并非漫游者。你无法[理解，共情]。唯有当我们曾[照拂，守护]过的世界被[赠予，托付]给另一方，我们的使命才算真正完成。[艺术，创造]若无人[欣赏，体验]，便毫无生机。倘若无羁者正是那[注定，被选中]来享用我们[所创，所成]之物的存在，我们必将欣然将我们的[疆域，世界]交付于他们。"`
+			choice
+				`	"好的，我来协助你们撤离。"`
+			label end
+			`	“谢谢。”他说道，“我们已集结了一支由货船组成的舰队，并改装为运送[难民/撤离人员]之用。这些飞船并非理想选择，但目前暂可应付，待我们能制造专用的[运输/撤离]飞船后再作升级。请护送这支舰队前往<planet>。着陆后，你将收到进一步的[指令/指示]。”`
+				accept
+	npc accompany save
+		government "Wanderer"
+		personality timid escort
+		ship "Deep River Transport" "Espret Si'yakar"
+		ship "Deep River Transport" "Fel'tar Kor'meti'i"
+		ship "Deep River Transport" "Tok'tobar'tek La'a"
+		ship "Deep River Transport" "Eka'ta Turuk'ta"
+	on visit
+		dialog
+			`你已抵达<planet>，但漫游者运输船尚未全部到达。你应该起飞并等待它们追上你。`
+
+
+
+overwrite
+mission "Wanderers Invaded 1B"
+	landing
+	name "Evacuate <origin>"
+	description `Escort a fleet of freighters, refitted for carrying refugees, to <destination>.`
+	autosave
+	source "Varu Mer'ek"
+	destination "Var' Kar'i'i"
+	to offer
+		has "Wanderers Invaded 1: done"
+	on offer
+		conversation
+			`你驾驶货运舰队降落时，一名名叫埃梅卡·伊赛的女性漫游者前来迎接你。从其他人对她命令的服从程度来看，你推测她很可能是当地总督或地位相当的人物。“伊克塔特·雷克已告知我你会到来，”她说，“我们将优先撤离平民，其次撤离[守卫者、战士]，最后在时间允许的情况下转移我们的[物资、财产]。目前已有一支[平民小队、平民队伍]整装待发，请护送他们前往<planet>。”说完她便转身去与他人交谈——显然她太过忙碌，无暇向你提供更多细节。`
+			choice
+				`	（让她专心工作，准备护送货船。）`
+					accept
+				`	“我能否转而协助您战斗？”`
+			`	她略感惊讶，停下与其他人的交谈，转身面向你：「现在尚未到[恰当、战略性的]开战时机。他们如潮水般涌来；我们必须退守高地，令其浪潮在奋力攀爬中[拉长、耗尽]。」`
+			`	你为打断对方而致歉，并同意护送难民前往安全地带。`
+				accept
+	
+	npc evade
+		government "Hai (Unfettered)"
+		personality staying
+		system "Prakacha'a"
+		fleet
+			names "hai"
+			variant
+				"Shield Beetle"
+				"Shield Beetle (Tracker)"
+				"Shield Beetle (Pulse)"
+				"Water Bug" 3
+				"Water Bug (Pulse)" 4
+	
+	npc accompany save
+		government "Wanderer"
+		personality timid escort
+		ship "Deep River Transport" "Espret Si'yakar"
+		ship "Deep River Transport" "Fel'tar Kor'meti'i"
+		ship "Deep River Transport" "Tok'tobar'tek La'a"
+		ship "Deep River Transport" "Eka'ta Turuk'ta"
+	on visit
+		dialog
+			`You have reached <planet>, but the Wanderer transports have not all arrived yet. You should take off and wait for them to catch up with you.`
+	on complete
+		log "Helped to evacuate some Wanderers from one of their worlds that is closest to Unfettered space."
+		conversation
+			`你将流浪者难民送到了目的地。一位前来迎接他们的流浪者官员对你说：“我们非常感谢你的[援助，友谊]。如果你[有空，愿意]进一步帮助我们，请去找军事指挥官索巴里·泰莱克谈谈。”这位流浪者官员指向太空港的一个区域，那里有许多流浪者正忙碌地将补给装入几艘你前所未见的流浪者飞船。`
+
+
+
+event "battle for ik'kara'ka"
+	system "Ik'kara'ka"
+		fleet "Wanderer Flycatchers" 400
+
+overwrite
+mission "Wanderers Invaded 2"
+	name "Defend <planet>"
+	description `击退正在攻击<{system}>的无羁舰队，为漫游者争取更多时间，随后在<{planet}>降落。`
+	autosave
+	source "Var' Kar'i'i"
+	destination "Varu Mer'ek"
+	to offer
+		has "Wanderers Invaded 1B: done"
+	on offer
+		log "People" "Sobari Tele'ek" `泰勒克是一名流浪者军事指挥官。其具体军衔尚不明确——甚至无法确定流浪者军队是否已建立起足以授予个人正式军衔的组织体系——但他已被委以重任：在剩余的前线流浪者世界撤离期间，率部阻击海伊人。`
+		conversation
+			scene "scene/tempest"
+			`太空港这一区域的飞船确实采用了全新设计，比大多数流浪者飞船更为粗壮、流线型更弱。索巴里·泰勒克——此人竟是一位军事指挥官——向你致意，并说道：“一万年来，我们首次造出了专为战争而[设计/打造]的飞船。你对此作何[看法/评价]？”`
+			choice
+				`	"这设计真美。"`
+				`	“它们看起来是非常强大的飞船。”`
+			`他的瞳孔以某种难以理解的漫游者情绪忽大忽小。“这些船真丑，”他说，“[笨拙、粗陋、粗糙]，就像一切战争产物一样。一种[不幸的、令人遗憾的]必要之恶。”`
+			`	你们交谈之际，他的通讯器突然响起蜂鸣声，一个急促的声音用流浪者语对他说话。泰莱克转向你，说道：‘<planet> 正遭受海伊族攻击。我们必须[击退/遏制]他们，争取足够时间让更多的族人完成撤离。你愿意帮我们[作战/抵抗]吗？’”`
+			choice
+				`	“乐意之至。”`
+				`	"抱歉，我不想再协助漫游者了。"`
+					decline
+			`	"我很感激你的[帮助/陪伴]，"他说道，"尽管并不满意我们当前的处境。我的舰队将跟随你前往<system>星系。在那里，我们必须击退海伊人，直到下一支[护航队/舰队]准备就绪。"`
+				accept
+	on accept
+		event "battle for ik'kara'ka"
+	on visit
+		dialog "There are still Unfettered warships overhead. You should take off again and assist in the fight."
+	npc evade
+		personality staying
+		system "Ik'kara'ka"
+		government "Hai (Unfettered)"
+		fleet
+			names "hai"
+			variant
+				"Shield Beetle" 2
+				"Shield Beetle (Tracker)" 2
+				"Shield Beetle (Pulse)" 3
+				"Water Bug" 4
+				"Water Bug (Pulse)" 7
+	npc
+		personality heroic escort
+		government "Wanderer"
+		fleet
+			names "wanderer"
+			variant
+				"Tempest (Heavy)"
+				"Tempest"
+				"Tempest (Missile)"
+	npc
+		personality heroic staying
+		system "Ik'kara'ka"
+		government "Wanderer"
+		fleet
+			names "wanderer"
+			variant
+				"Heavy Gust" 1
+				"Autumn Leaf" 2
+				"Summer Leaf" 3
+	npc
+		personality staying derelict
+		system "Ik'kara'ka"
+		government "Wanderer"
+		fleet
+			names "wanderer"
+			variant
+				"Strong Wind" 1
+				"Autumn Leaf" 3
+				"Summer Leaf" 5
+
+
+
+event "capture of ik'kara'ka"
+	system "Ik'kara'ka"
+		government "Hai (Unfettered)"
+		fleet "Wanderer Defense" 1000
+		fleet "Small Unfettered" 600
+		fleet "Large Unfettered" 400
+	planet "Varu Mer'ek"
+		attributes "unfettered" "factory"
+		description `这颗流浪者族的工厂世界近期被无羁海伊族攻占。他们正全力改造流浪者族遗留下来的工厂与设备，以建造更多战舰充实己方舰队。流浪者族在失守前既未及时摧毁任何设备，也未能将其运离行星。因此，这场失利意外赋予了无羁海伊族在此地显著的技术优势。`
+		spaceport `无羁者似乎对流浪者遗弃的树屋居所十分适应；居住于此的无羁者青年们在树干间敏捷攀爬、纵身跃向邻树，肆意而狂放，尽情欢呼着他们所征服的这个崭新世界，并以愈发惊险的冒险举动彼此较量。`
+		shipyard clear
+		outfitter clear
+
+overwrite
+mission "Wanderers Invaded 3"
+	landing
+	name "Evacuate <origin>"
+	description `护送另一支流浪者难民运输舰队前往<destination>。`
+	autosave
+	source "Varu Mer'ek"
+	destination "Var' Kar'i'i"
+	passengers 1
+	blocked "You receive a message from Isai indicating that she would like to join you for the next mission, but you don't have space right now. Return when you have a bunk free."
+	to offer
+		has "Wanderers Invaded 2: done"
+	on offer
+		log "Helped to defend a Wanderer planet from an Unfettered attack. But, the Wanderers now plan to abandon that planet. The Wanderers seem very hesitant to actually stand their ground and fight back."
+		event "wanderers: varu mer'ek evacuated"
+		conversation
+			`最后一批平民似乎已准备好前往<planet>；一大群人聚集在太空港内，但几乎所有的建筑都已空置。令人意外的是，几名流浪者正忙着清扫人行道、浇灌植物，并做其他整理港口的工作，仿佛要尽力让港口以最体面的姿态迎接无拘者登陆。`
+			`	伊赛向你致意，并询问能否随你同行。“这些是最后一批平民，”她说，“[战士们，守卫者们] 将留守原地，直到所有人[安全，撤离]完毕，随后他们会前往<planet>与我们会合。但最重要的是，运输船必须完好无损地抵达<planet>。你愿意护送它们吗？”`
+			choice
+				`	"我会的。很抱歉，你不得不离开自己的家园。"`
+					goto end
+				`	"如果你希望，我很乐意留下来并肩作战。"`
+			`	"你真奇怪，"她说，"在此承受[损失、屈辱]的并非你。你既无[权利、理由]去渴望反击，难道战斗对你而言，比拯救生命更令你感到[愉悦、快意]吗？"`
+			choice
+				`	"好的，我来协助保护运输船。"`
+					goto end
+				`	"抱歉，我只是觉得，在协助作战方面我能为你提供更大帮助，而不是协助撤退。"`
+			`“在局势彻底解决之前，[预测/预见]你将有大量机会参与[战斗/暴力行动]，”她说道，“但眼下我们的目标是[避免/最小化]冲突，直至我们更深入地了解海伊族。”`
+			`	“好吧，”你说，“我来帮你们保护运输船。”`
+			label end
+			`	“谢谢您。”她说道，“和之前一样，请勿[等待/逗留]或参与战斗，只需将我们的人民安全护送至<planet>即可。”`
+				launch
+	on accept
+		event "capture of ik'kara'ka" 2
+	
+	npc accompany save
+		government "Wanderer"
+		personality timid escort
+		ship "Deep River Transport" "Espret Si'yakar"
+		ship "Deep River Transport" "Fel'tar Kor'meti'i"
+		ship "Deep River Transport" "Tok'tobar'tek La'a"
+		ship "Deep River Transport" "Eka'ta Turuk'ta"
+	on visit
+		dialog
+			`你已抵达<planet>，但漫游者运输船，或搭载伊赛的你的飞船，尚未全部到达。你应该起飞并等待它们追上你。`
+
+
+
+event "wanderers: varu mer'ek evacuated"
+	planet "Varu Mer'ek"
+		remove spaceport
+		remove shipyard
+		remove outfitter
+		remove "required reputation"
+		remove tribute
+
+
+
+overwrite
+mission "Wanderers Invaded 3B"
+	landing
+	name "Wanderer Meeting"
+	description `前往<planet>，与漫游者领袖会面，共同商讨对抗无羁者的战略。`
+	autosave
+	source "Var' Kar'i'i"
+	destination "Vara K'chrai"
+	passengers 1
+	to offer
+		has "Wanderers Invaded 3: done"
+	on offer
+		conversation
+			`当运输船陆续降落时，伊赛收到了一条信息，并转达给你：“我们的首都即将召开一次领袖议会，与会者已一致同意[允许/邀请]你加入我们，因为你已是这场冲突中的[利益相关方/关切方]。你能载我前往<planet>吗？”`
+			choice
+				`	"Sure."`
+				`	"抱歉，我不再想帮助漫游者了。"`
+					decline
+			`	“谢谢。”她说，“我们必须尽快赶往那里，以便在海伊人再次发动攻击前，确定下一步[战术/策略]。”`
+				accept
+	on visit
+		dialog `你降落在<planet>，但发现护送伊赛的飞船尚未进入该星系。最好立即离开，等待它抵达。`
+
+
+
+overwrite
+mission "Wanderers Invaded 3C"
+	landing
+	name "Waiting for the Eye"
+	description `弄清控制游荡者所称“瞳孔”的虫洞的机制，并设法获取有关其开启时间与位置的信息。`
+	autosave
+	source "Vara K'chrai"
+	to offer
+		has "Wanderers Invaded 3B: done"
+	to complete
+		has "Wanderers Invaded 3C (Pug): offered"
+	on offer
+		conversation
+			`你降落在<origin>，伊梅卡·阿萨伊带你前往正在召开战时议会的大楼。海伊外交官赛亚里、伊克塔特·雷克以及其他多位领袖也受邀出席。雷克看上去比之前更加狼狈不堪：双翼低垂，羽毛也比以往更凌乱散乱。`
+			`	你完全不清楚此次会议中谁的职位更高，甚至搞不清各位与会者各自担任什么角色。更糟糕的是，你尴尬地意识到自己的翻译器仅能理解海伊语。雷克和伊赛主要使用海伊语交谈，以便让你和萨亚莉也能参与其中；但一旦讨论变得激烈，他们便会全部切换回母语——一连串咔嗒声与哨音交织而成的嘈杂之音。`
+			`	他们正注视着流浪者领空的地图，从手势不难看出，讨论焦点在于：为构建更稳固的防御阵线，他们最多能向后撤退多远。雷克向你解释道：‘当‘眼’开启时，我们本就必须撤离这片[领土/空间]；因此，此刻主动后撤，只是让我们在时机到来时能更从容地[启程/踏上征程]。’`
+			choice
+				`	"但如果‘眼’并未开启，而你却被困在此地呢？"`
+					goto trapped
+				`	“你知道‘瞳’何时会开启吗？”`
+			`	“不，”伊赛说道，“我们不会这么做。它或许还要再过一百[年]才会开启。‘天眼’是[传说、谜团]之物，未必会回应我们的需求。正因如此，我才说：无论我们选择在何处[挺身而出、划下底线]，都必须[坚守、捍卫]那个地方，毫不动摇。”`
+				goto end
+			label trapped
+			`	"这也是我的担忧，"伊赛说道，"‘瞳孔’是充满[神话、神秘]色彩的存在，未必会回应我们的需求。我们承担不起将计划建立在它今年就会开启，甚至未来百年内就会开启的[假设、预期]之上。因此，我们必须决定当下可以[放弃、让渡、舍弃]的部分，并[坚守、捍卫]其余所有领土。"`
+			label end
+			`	流浪者领袖决定立即撤离另外四颗距离无羁者最近的母星，希望在撤离完成前不会遭到攻击。如有必要，他们将撤退至本星系正东方的阿帕拉克星系，并在那里作最后抵抗。`
+			`	与此同时，整个漫游者族群的战略都取决于传说中的‘瞳’将在何时、何地开启——那扇通往他们下一个家园的传送门。作为唯一拥有跳跃引擎使用权的漫游者盟友，或许你将能解答这一问题。`
+				accept
+	on accept
+		"reputation: Pug (Wanderer)" >?= 1
+	on visit
+		dialog `你返回<planet>，却仍未查明究竟是谁或什么在操控‘眼’。或许答案比你想象的更近。`
+	on complete
+		dialog
+			`你已收集到一些关于“瞳孔”本质的有用信息。你应当前往太空港，与伊克塔特·雷克会合。`
+
+
+
+overwrite
+mission "Wanderers Invaded 3C (Pug)"
+	landing
+	source "Vara Pug"
+	to offer
+		has "Wanderers Invaded 3C: active"
+	on offer
+		log "Visited the Pug planet adjacent to Wanderer space to see if they are willing to step in and help the Wanderers now that the Unfettered Hai pose such a threat and have captured several Wanderer worlds. But for whatever reason, the Pug insist on the Wanderers fighting for themselves."
+		conversation
+			branch revisiting
+				has "Pug in Wanderer Space: offered"
+			`这颗行星由普格族（Pug）居住——他们正是不久前入侵人类疆域、却又在未向你们阐明任何明确动机的情况下悄然撤离的那个神秘种族。你已知晓普格族具备操控虫洞的能力，因此他们极有可能与流浪者（Wanderers）所期盼即将开启的「眼」（Eye）虫洞存在某种关联。`
+				goto opening
+			label revisiting
+			`你重返这颗普格人星球，希望这次能获得比上次更多的答案。和之前一样，他们看起来相当和平，但大多数普格人都表现得仿佛你根本不存在。`
+			label opening
+			`	当你原地站立至少二十分钟后，一名普格人踱步走到你面前，说道：“此个体观察到，这位人类似乎并无礼节性返回其飞船并立即离开之意。此个体可否助人类加快启程？”`
+			choice
+				`	“我需要确认：你们是否掌控着游荡者一族所称的‘眼’——那处虫洞？”`
+				`	“流浪者正遭受攻击，他们正在死去。你真正在乎他们吗？”`
+					goto care
+			`	"我们记得，"它说道。`
+				goto second
+			label care
+			`	“我们极为重视，”它说道，“它们无可替代，且对我们极具价值。”`
+			label second
+			choice
+				`	“你必须开启‘圣眼’，让漫游者得以逃离‘无羁者’。”`
+				`	“能告诉我你们计划何时开启传送门吗？”`
+					goto when
+			`	“非得如此吗，人类？非得如此吗？”`
+			label when
+			`	你周围已渐渐聚起人群。又有两只普格走近：其中一只手持长棍；另一只则对你说道：“转告世界塑造者——传送门开启的时机尚未到来。他们必须做好战斗准备。现在，离开吧。”`
+			choice
+				`	(Return to my ship.)`
+					decline
+				`	"他们的实力还不足以应对，他们会丧命的。"`
+			`	“它们必须变得足够强大，”手持权杖的普格说道，“它们必须重新学会战斗。”`
+			choice
+				`	(Return to my ship.)`
+					decline
+				`	"不。他们是爱好和平的族群。不要逼迫他们发动战争，也不要逼迫他们杀戮。"`
+			`	普格人没有回应，而是转身离开。`
+			choice
+				`	(Return to my ship.)`
+					decline
+				`	"我要求你们认真听我说话！"`
+			`	当你试图跟上普格一行人时，为首者对其他人说道：“这人类怕是挺喜欢挨‘开心棒’揍的。”手持权杖者随即 menacingly（威胁性地）朝你挥舞了一下权杖。`
+			choice
+				`	(Return to my ship.)`
+					decline
+				`	（坚持要求他们听我说。）`
+			`	普格人略带轻蔑地将手杖指向你的脸，一道绚丽的彩虹光芒瞬间倾泻而下，将整个世界浸染成流光溢彩的幻境：七彩光点灵巧跃动于万物胡须之上，又如银鳞小鱼般闪烁着纯粹欢愉，轻轻钻入你心满意足的意识深处。你雀跃奔去追逐一串漂浮的肥皂泡，每触碰一个，泡泡便伴着风铃与远方号角的清越声响迸裂，空气中随之弥漫开熟透蜜桃的甜香——直到你踉跄穿过气密舱，在角落里干呕起来。`
+			`	或许该离开这颗行星了。`
+				decline
+
+
+
+overwrite
+mission "Wanderers Hai Assistance 1"
+	name "Hai Assistance"
+	description `与萨亚里大使一同前往<planet>，看看她能否说服海伊人协助遏制‘无羁者’对流浪者的袭击。`
+	autosave
+	source "Vara K'chrai"
+	destination "Hai-home"
+	clearance
+	passengers 1
+	blocked "To continue helping the Wanderers, you will need a bunk free for a passenger. Return here when you have space available."
+	to offer
+		has "Wanderers Invaded 3C: done"
+	on offer
+		conversation
+			`你与大使萨亚里和伊克塔特·雷克会合，并将那只普格说的话告诉了他们。“守眼者的话语[隐晦而谨慎]，”雷克说道，“他们总在话语的[细微差别、精妙之处]中隐藏真相。他们究竟说了什么？”`
+			choice
+				`	“时空之门开启的时机尚未到来。你必须做好战斗准备。”`
+			`	“我们必须[做好准备，严阵以待]投入战斗。”伊克塔特·雷克缓缓重复道。他用爪子拨弄着头顶蓬乱的羽毛，动作颇似人类困惑时抓挠头皮的样子——结果竟有好几根羽毛掉了下来。“我明白了。”他说着，双翼垂得比先前更低了。“我会通知[战酋、战略家]，让他们转告[建造者、设计师]：我们必须建造更多、更庞大的战舰。”`
+			choice
+				`	“那在这期间，我能做些什么来帮忙？”`
+			`	萨亚里说道：“我已主动提出与海伊总督们会谈，看看他们能否采取措施，约束‘无羁者’进一步侵入漫游者领空。你愿意护送我前往<planet>吗？”`
+			`	“当然，”你说。她离开去收拾一些旅行装备，并到你的飞船处与你会合。`
+				accept
+	on visit
+		dialog `你降落在<planet>，但发现护送萨亚里的护卫舰尚未进入该星系。最好立即起飞，等待其抵达。`
+
+
+
+overwrite
+mission "Wanderers Hai Assistance 2"
+	landing
+	name "Unfettered Negotiations"
+	description "前往无羁者军事行星<destination>，尝试说服他们同意给予游荡者一族时间，以撤离前线附近的母星。"
+	autosave
+	source "Hai-home"
+	destination "Darkcloak"
+	clearance "After a long and tense conversation, Ambassador Sayari convinces the Unfettered war chiefs to let you land and meet with them."
+	passengers 1
+	to offer
+		has "Wanderers Hai Assistance 1: done"
+	on offer
+		log "Traveled to the Hai homeworld with Ambassador Sayari to see if she can convince the Hai to take action to restrain the Unfettered from attacking the Wanderers. The most that the Hai were willing to do was to mass a large war fleet near Unfettered space so that the Unfettered have to divert warships there to defend their home worlds."
+		conversation
+			`海伊人由一个经选举产生的“长老议会”统治，议会同意与你及萨亚里会面。当你向他们说明漫游者的情况后，其中一位长老说道：“我们早已听闻相关传闻。无羁者通过编造故事，鼓吹有无数待探索与殖民的行星，以及一个懦弱而愚蠢的敌人可供击败，已招募了数千名新战士。”`
+			`	萨亚里说道：“我们绝不能容许‘无羁者’以海伊人民的名义实施种族灭绝。”`
+			`	另一位长老回应道：“但我们曾在《霜印协定》中承诺，绝不干涉‘无羁者’的领空。”`
+			`	“他们从未遵守过条约中属于他们的那部分义务，”又一位长老说道，“而阻止种族灭绝，无疑已足以成为我们单方面废止条约的充分理由。”`
+			choice
+				`	“您能否以切断援助为威胁，迫使无羁者停止其侵略行为？”`
+				`	"您能否对‘无羁者’发动一次攻击，迫使他们陷入两线作战的境地？"`
+					goto attack
+			`	"我担心这只会迫使他们采取更加绝望的行动，"萨亚里说道。`
+				goto threaten
+			label attack
+			`	“我不会批准对我们同族血脉发动先发制人的暴力行动，”一位长老说道，“我们仅在遭受攻击时自卫，绝不会主动发起进攻。”`
+			label threaten
+			`	“或许仅以威慑就已足够，”另一位长老说道，“我们可在云焰星上方集结一支庞大的战争舰队。无羁者则不得不在暗袍星上方集结一支规模相当的舰队，这将迫使他们抽调大量战舰离开外星领土。”`
+			`	又经过一个多小时的深入讨论，他们最终达成共识：这确实是目前最优的选择。当你离开会议时，萨亚里说道：“现在，我想亲自拜访‘无羁者’本体——或许我们能说服他们回心转意。”`
+				accept
+	on visit
+		dialog `You land on <planet>, but realize that your escort carrying Sayari hasn't entered the system yet. Better depart and wait for it to arrive.`
+
+overwrite
+mission "Wanderers Hai Assistance Fleet"
+	landing
+	invisible
+	non-blocking
+	to offer
+		has "Wanderers Hai Assistance 1: done"
+	on offer
+		event "hai blockade"
+	npc kill
+		government "Hai"
+		personality heroic staying uninterested frugal
+		system "Wah Ki"
+		fleet "Large Hai" 6
+
+# Unfettered raids no longer happen beyond Wah Ki.
+event "hai blockade"
+	system "Bore Fah"
+		remove raid
+	system "Bote Asu"
+		remove raid
+	system "Imo Dep"
+		remove raid
+	system "Zuba Zub"
+		remove raid
+
+# Compatibility mission for players who finished "Wanderers Hai Assistance Fleet" prior to 0.10.13.
+overwrite
+mission "Wanderers Hai Assistance Fleet patch"
+	landing
+	invisible
+	non-blocking
+	to offer
+		has "Wanderers Hai Assistance Fleet: offered"
+		not "event: hai blockade"
+	on offer
+		event "hai blockade"
+		fail
+
+
+overwrite
+mission "Wanderers Hai Assistance 3"
+	landing
+	name "Return to <planet>"
+	description "与萨亚里一同返回 <destination>，并告知伊克塔特·雷克：你已成功说服海伊族干预“无羁者”事务。"
+	autosave
+	source "Darkcloak"
+	destination "Vara K'chrai"
+	passengers 1
+	to offer
+		has "Wanderers Hai Assistance 2: done"
+	on offer
+		log "The Unfettered are unwilling to agree to even a temporary ceasefire with the Wanderers. They seem to think that they will win this war easily."
+		event "wanderers: tempest mass production"
+		conversation
+			`无羁者的战争酋长面带居高临下的微笑，听完了萨亚里的恳求。待她讲完，其中一人说道：“这是一场战争，不是一场彬彬有礼的晚宴。我们想拿什么、何时拿，全由我们自己决定。我们已厌倦等待他人的施舍。”`
+			`	“但人会死——死在你们一方，也死在漫游者一方，”萨亚里说道，“只要给他们一点时间，或许只需几个月甚至一年，他们就愿意将这些世界交予你们。既然不久之后这些世界终将属于你们，又何必为夺取它们而牺牲生命呢？”`
+			`	“宁可挺立而死，彰显自身力量；不可屈膝而生，伸手乞怜。”另一位酋长说道。`
+			`	你无法说服他们改变计划，谈话刚一结束，他们便坚持要求你离开他们的行星。“轨道上的战士们早已跃跃欲试，想测试一下这位人类的实力。”其中一位酋长笑着说道。`
+				launch
+	on visit
+		dialog `You land on <planet>, but realize that your escort carrying Sayari hasn't entered the system yet. Better depart and wait for it to arrive.`
+
+
+
+overwrite
+mission "Wanderers Solifuge Recon 1"
+	landing
+	name "Report to <planet>"
+	description "前往<destination>的漫游者军事基地，看看是否有你能协助的任务。"
+	autosave
+	source "Vara K'chrai"
+	destination "Vara Ke'sok"
+	passengers 1
+	to offer
+		has "Wanderers Hai Assistance 3: done"
+		not "Wanderers Pond Strider Recon 1: offered"
+	on offer
+		log `返回流浪者领空后发现，伊克塔特·雷克已开始“蜕壳”。他担心因“眼”尚未开启，此次蜕壳将不可持续，最终导致自身死亡。`
+		conversation
+			`你已离开数周，而伊克塔特·雷克的外貌在此期间发生了剧变：他近半颗头颅已完全秃顶，裸露出灰鳞状皮肤与零星散布的白色绒羽，取代了原本浓密的羽冠；身体其他部位亦出现多处羽毛脱落的斑块。这般模样令人震惊——若换作陆生动物，你或许会将其归因为疥癣……抑或换羽。`
+			choice
+				`	"你这是怎么了？你生病了吗？"`
+				`	“你在蜕皮吗？”`
+			`	雷克疲惫地说：“医生们认为这是一种你们所称的癌症，而我的族人则称之为[过早、不可存活的]蜕皮。若果真如此，它将夺走我的生命。但我仍希望这或许是真正的‘蜕皮’——只是比[传说、神话]中所言更早到来——毕竟‘眼’尚未开启。”`
+			choice
+				`	"你分不清癌症和蜕皮族？"`
+			`	"它们本质上是一回事，"他说道，"只是[结果]不同而已。蜕变症是一种极其[猖獗]的恶性疾病，会[吞噬]人体内的每一个细胞。但自从十年前首次出现‘无缚者’袭击以来，已有数百名漫游者经历了虚假蜕变，无一幸存。我或许太过愚蠢，竟还奢望自己能够活下来。"`
+			choice
+				`	"嗯，我希望你们的医生过于悲观了。"`
+					goto end
+				`	“你们的医生就一点办法都没有吗？”`
+			`	“他们或许会尝试杀死那些[变异、癌变]的细胞，”他说道，“但若这真是真正的蜕形，那么杀死它就等于扼杀我的未来，我的[真实形态？宿命？]。况且，此类治疗必将削弱我的力量，使我丧失[体力、专注力]，以致无法在这一危急时刻援助我的族人。因此，我目前选择既不加速、也不阻止这一[过程、进程]。”`
+			`	“嗯，”你说，“但愿对你而言，它真是一个真正的莫尔特（Molt）。”`
+			label end
+			`	“谢谢。”他说道，“另外，如果你愿意进一步帮助我的族人，他们已请求你在<planet>为他们提供[援助/专业支持]。不用担心我；无论未来如何，我都会[直面/应对]它到来的那一刻。”`
+			`	当你回到自己的飞船时，萨亚里走上前来，似乎刚刚听到了你与雷克的谈话。“我也接到通知，称我的出席已被<planet>方面所期待。”她稍作停顿，接着说道：“尽管这‘蜕壳’对我而言仍是个谜，但我希望它能为你朋友带来顺利的结果。”你向萨亚里道谢，感谢她的美好祝愿，并准备启程前往<planet>。`
+				accept
+	on visit
+		dialog `You land on <planet>, but realize that your escort carrying Sayari hasn't entered the system yet. Better depart and wait for it to arrive.`
+
+
+
+overwrite
+mission "Wanderers Solifuge Recon 2"
+	landing
+	name "New Unfettered ships"
+	description "在普拉卡恰星系已发现多艘设计未知、行动不受约束的飞船。摧毁它们，然后返回<destination>。"
+	autosave
+	source "Vara Ke'sok"
+	mark "Prakacha'a"
+	to offer
+		not "Wanderers Pond Strider Recon 2: offered"
+		or
+			has "Wanderers Solifuge Recon 1: done"
+			has "Wanderers Pond Strider Recon 1: done"
+	on offer
+		log "Received permission to purchase warships from the Wanderers, including a new one called the Tempest."
+		set "license: Wanderer Military"
+		conversation
+			`你降落之后，早前见过的军事指挥官索巴里·泰莱克向你和萨亚里致意。“这位热衷于投身战斗的人类！”他说道，“还有海伊大使。很高兴你们到来。人类，我们有两条好消息要告诉你：第一，我们已决定[允许？谨慎起见？]你购买我们的战舰。这也将包括那款新式战舰——‘风暴号’，尽管它看起来[丑陋，粗笨]。”`
+			`	“谢谢。”你说。`
+			`	“另一则消息更加振奋人心！”他说道，“我们已为你预留了一场战斗。在普拉卡查星系中，已发现数艘设计不明的‘无羁者’飞船。我命你摧毁所有这些飞船，随后向我汇报它们的‘作战能力’。你出发期间，我将与萨亚里共同商讨‘无羁者’所引发的‘局势’。”`
+			`	你告诉他，你会尽全力完成任务。如今你已能购买漫游者战舰，足以应对无羁者向你发起的任何挑战。`
+				accept
+	npc kill
+		personality staying heroic target
+		government "Hai (Unfettered)"
+		system "Prakacha'a"
+		fleet
+			names "hai"
+			variant
+				"Solifuge"
+				"Solifuge (Tracker)"
+				"Violin Spider" 6
+				"Violin Spider (Pulse)" 6
+		on kill
+			unmark "Prakacha'a"
+			dialog "That was the last of the new Unfettered ships. You can now report back to Tele'ek on <planet>."
+	on visit
+		dialog `你降落时，泰莱克主动走近你：“我已收到[报告，消息]，称无羁舰队仍[驻留，存活]于普拉卡恰星系内。请在返航前将其全部摧毁。”`
+
+
+
+overwrite
+mission "Wanderers Solifuge Recon 3"
+	landing
+	name "New Unfettered ships"
+	description "大使萨亚里担忧索利富格（Solifuge）的发展可能对海伊族构成威胁，因此委托你向<destination>的长老议会传递一则讯息。"
+	source "Vara Ke'sok"
+	destination "Hai-home"
+	clearance
+	to offer
+		not "Wanderers Evacuation 1: offered"
+		or
+			has "Wanderers Solifuge Recon 2: done"
+			has "Wanderers Pond Strider Recon 2: done"
+	on offer
+		conversation
+			`泰莱克与萨亚里仔细聆听你分析新型无羁 carriers 的优缺点。“我对那些小型战斗机并不十分[担忧，害怕]，”泰莱克说道，“真正对我们造成最大伤害的武器是它们的离子炮——如此小型的飞船根本无法[操控，搭载]。但还是感谢你的协助。”`
+			`	萨亚里对此信息显得更加担忧。“这些航母对漫游者而言或许并非威胁，但这一事态发展却可能给海伊人带来麻烦。我已撰写了一份说明当前局势的信息。”她递给你一枚数据芯片，“请将它转交至<planet>的长老议会。”`
+			`	“若你打算即刻送达此信息，请务必抓紧时间，”泰莱克说道，“眼下我们暂无其他[战斗、斗殴]任务交予你参与；但等你返回此处时，便会发现又有一支撤离舰队亟需一名[护航者、守护者]。”`
+				accept
+
+
+
+overwrite
+mission "Wanderers Solifuge Recon 4"
+	landing
+	name "Return to <planet>"
+	description "返回<destination>，那里有一支等待护航的撤离舰队。"
+	source "Hai-home"
+	destination "Vara Ke'sok"
+	to offer
+		has "Wanderers Solifuge Recon 3: done"
+	on offer
+		conversation "solifuge conversation"
+
+conversation "solifuge conversation"
+	branch "alt start"
+		has "Strider Alt Start: done"
+	`你将赛亚里交给你的信息转交太空港当局，由他们转呈长老议会。信息送达后，议会请求与你会面。`
+		goto start
+	label "alt start"
+	`	当你抵达<planet>时，很快便有专人从太空港护送你前往议会厅。`
+	label start
+	`	"再次向您问好，<first> <last>，"其中一位长老对你说，"我们得知，我们的无羁兄弟姐妹们已建造了一艘航母。您与它交战时难度如何？"`
+	choice
+		`	"这艘母舰虽然强大，但还不够强，很容易被击落。"`
+		`	"这对我来说轻而易举，但我不能保证你们的飞船也能同样应对这场战斗。"`
+		`	"那是一场艰难的战斗，因为航母非常强大。"`
+	`	长老们就这条信息彼此低声议论，不时低头看向那份必定来自萨亚里、详述索利富格人的讯息。`
+	`	“我们将在云焰星上方集结一支庞大的舰队，”一位长老说道，“随后不久，‘无羁者’便会展示这艘新飞船。或许，我们以己之船回敬，才真正合乎情理。”`
+	`	"我儿子是一名工程师，"另一位长老说道，"他协助设计了我们的‘蜈蚣’号和‘蝽象’号飞船——这两型飞船的诞生，都源于与我们共同生活的那些人类。或许他能帮我们设计一艘用于应对‘无羁者’的飞船。" 长老按下按钮，俯身靠近麦克风："请把奥森带到议会厅来。"`
+	`	不久之后，长老之子步入议事厅，向议会成员自我介绍。议会向他说明了‘无羁者’已建造一艘母舰，因此必须立即打造一艘新型飞船予以应对；奥森听后双眼圆睁。`
+	`	奥森开始以极快的速度用海伊语讲话，语速之快，以至于你的翻译装置似乎都难以跟上。`
+	`	"我已拥有[恰好，精确地]这艘飞船！我的团队已[研发，制造]这种飞船多年[年，周期]，它可搭载一支[舰队，中队]无人机。我们已有[运行中，功能完备的][原型机，模型]，但尚未[完工，完成]。我们仍在[研发，制造]一种能在飞行中修复飞船[船体，装甲]的技术，这将使该飞船及其无人机变得更为[高效，强大]。"`
+	`	奥斯恩停止说话后，该装置仍持续对你讲话近一分钟（此时所有人都盯着你看，场面略显尴尬）。奥斯恩不再使用海伊语说道：“抱歉，我之前并不知道你带有翻译装置。”`
+	choice
+		`	“没关系。”`
+			goto next
+		`	“你说话真的好快。”`
+	`	奥森耸了耸肩，朝你微笑道：“我一兴奋说话就快。”`
+	label next
+	`	“你们最早何时能向我们提供这些飞船？”奥森的父亲问道。`
+	`	"我们只需数周便可造出若干原型飞船，但我强烈建议我们暂缓行动，先研发出船体修复技术。倘若这些‘无羁索利弗吉’尚未掌握此类技术，那么我们率先拥有它，便能凭借受损无人机的快速再部署能力获得显著优势；不过，我们预计至少还需多年努力，才可能开发出真正具备实用价值的成熟技术。"`
+	`	长老们再次低声商议起来。他们继续向奥森询问有关这种新型母舰的一系列问题：建造难度如何？造价多少？无人机具备哪些能力？若无法修复无人机的船体，其实际效用又如何？`
+	`	在所有问题都得到解答后，长老们似乎对奥森的新飞船产生了兴趣。“这种船体修复技术确实十分必要，”一位长老说道，“我们将尽己所能提供资金，以加快其研发进度。”`
+	`	奥森的父亲转向你：“<first> <last>，你已航行过诸多星系。或许你能帮上忙——倘若银河系中真有其他种族掌握此类技术，你若知晓其下落，我们或可与之会面。”`
+	branch "alt end"
+		has "Strider Alt Start: done"
+	choice
+		`	"抱歉，我现在无法提供帮助。我必须返回流浪者那里。"`
+			goto busy
+		`	"我很乐意帮忙。我相信能找到掌握船体修复技术的人来协助你。"`
+	
+	`	"萨亚里的信息中提到，流浪者仍需要你的帮助，"奥森的父亲回应道，"或许你该回到最需要你的地方去。但当你有能力援助我们时，我们定将欣然接受。"众长老纷纷感谢你为他们带来了萨亚里的信息，并祝你一路平安，顺利返回<planet>。`
+		accept
+	
+	label busy
+	`	"这完全可以理解。" 奥森的父亲回应道，"请回到您被需要的地方去；而当您有能力施以援手时，我们定将欣然接受。" 众长老感谢您代为传达萨亚里的讯息，并祝您平安返航至<planet>。`
+		accept
+	
+	label "alt end"
+	choice
+		`	"I'd be glad to help. I'm sure I could find someone with hull repair technology that could help."`
+			goto glad
+		`	"I'm sorry, but I'm busy right now."`
+	`	"这完全可以理解。" 奥森的父亲回应道，"但我们愿意耐心等待。若您将来有时间提供帮助，只需返回<origin>，并向港口当局表明您已找到我们所寻求之物，我们自会再次与您会面。" 众长老感谢您为他们提供了更多关于‘无羁索利富格’的情报，并祝您旅途平安。`
+		accept
+	
+	label glad
+	`	“很好。”奥森的父亲回应道，“等你完成调查后，只需返回<planet>，向港口当局说明你已取得我们所寻之物，我们自会再次与你会面。”众长老纷纷感谢你为他们提供了更多关于无羁索利富格的情报，并祝你旅途平安。`
+		accept
+
+
+
+event "eastern evacuation"
+	planet "Vara Ke'stai"
+		add attributes "evacuation"
+	planet "Var' Kar'i'i"
+		add attributes "evacuation"
+	planet "Vara Ke'sok"
+		add attributes "evacuation"
+	planet "Kort Vek'kri"
+		add attributes "evacuation"
+
+# Patch mission for v0.9.13 to make sure that some Wanderer jobs don't offer
+# after the number of Wanderer systems has decreased.
+overwrite
+mission "eastern evacuation"
+	landing
+	invisible
+	non-blocking
+	to offer
+		or
+			has "Wanderers Solifuge Recon 2: done"
+			has "Wanderers Pond Strider Recon 2: done"
+	on offer
+		event "eastern evacuation"
+		fail
+
+overwrite
+mission "Wanderers Evacuation 1"
+	landing
+	name "Evacuate <planet>"
+	description `Escort another fleet of Wanderer refugee transports to <destination>.`
+	autosave
+	source "Vara Ke'sok"
+	destination "Vara Ke'stai"
+	to offer
+		has "Wanderers Solifuge Recon 4: done"
+	on offer
+		conversation
+			`当你返回漫游者领空时，发现四艘你从未见过的漫游者飞船正停泊在太空港附近——这想必就是伊克塔特·雷克提到的专用运输舰。其中一位舰长走近你，说道：“我们将撤离那些若‘无羁者’进一步扩张领土便将[被隔绝、被困住]的世界。你愿意护送我们前往<planet>，再从那里前往首都吗？”`
+			choice
+				`	"I would be glad to."`
+					accept
+				`	"现在不行——等我准备好了，我自会回来。"`
+					defer
+	npc accompany save
+		government "Wanderer"
+		personality timid escort
+		ship "Riptide" "Vek'sek Kach'ik"
+		ship "Riptide" "Fel'tar Kri'esei"
+		ship "Riptide" "Vori'yek'tek La'a"
+		ship "Riptide" "Iyik'ta Rei'ta"
+	npc
+		government "Hai (Unfettered)"
+		personality heroic staying
+		fleet "Large Unfettered" 2
+	on visit
+		dialog `你已降落在<planet>，但运载难民的潮汐号运输船并未全部抵达该星系。最好先离开并等待所有船只到齐。`
+
+
+
+# The Riptide was added after these missions, so it is triggered separately for backward compatibility.
+overwrite
+mission "Wanderers Riptide Patch"
+	invisible
+	non-blocking
+	landing
+	to offer
+		has "Wanderers Evacuation 1: offered"
+	on offer
+		event "wanderers: riptide mass production" 30
+		fail
+
+
+
+overwrite
+mission "Wanderers Evacuation 1B"
+	landing
+	name "Refugees to <planet>"
+	description `护送这些载有流浪者难民的运输船，返回他们的母星<destination>，希望他们能在那里获得安全。`
+	autosave
+	source "Vara Ke'stai"
+	destination "Vara K'chrai"
+	to offer
+		has "Wanderers Evacuation 1: done"
+	on offer
+		event "wanderers: vara ke'stai evacuated"
+		conversation
+			`流浪者运输船降落在太空港并开始搭载乘客。村庄看上去几乎空无一人；除最后几名掉队者外，其余居民均已撤离。正如此前瓦鲁·梅雷克被占领前的情形一样，他们竭力将村庄收拾得整洁有序。而在类似情况下，人类政府很可能会选择焚毁一切有价值之物，以免落入敌手。`
+				launch
+	npc accompany save
+		government "Wanderer"
+		personality timid escort
+		ship "Riptide" "Vek'sek Kach'ik"
+		ship "Riptide" "Fel'tar Kri'esei"
+		ship "Riptide" "Vori'yek'tek La'a"
+		ship "Riptide" "Iyik'ta Rei'ta"
+	npc
+		government "Hai (Unfettered)"
+		personality heroic staying
+		system "Sich'ka'ara"
+		fleet "Large Unfettered" 3
+	on visit
+		dialog `You've landed on <planet>, but not all of the Riptide transports carrying the refugees are in the system. Better depart and wait for them all to arrive.`
+
+event "wanderers: vara ke'stai evacuated"
+	planet "Vara Ke'stai"
+		remove spaceport
+		remove outfitter
+		remove "required reputation"
+		remove tribute
+
+
+overwrite
+mission "Wanderers Evacuation 1C"
+	landing
+	name "Escort to <planet>"
+	description `护送这些运输船返回<destination>。`
+	autosave
+	source "Vara K'chrai"
+	destination "Vara Ke'sok"
+	to offer
+		has "Wanderers Evacuation 1B: done"
+	on offer
+		conversation
+			`运输船卸下了难民，其中一位船长告诉你，他们需要返回<planet>。但如今你已得知伊克塔特·雷克可能正在垂死挣扎，或许你该趁此机会去探望他。`
+			choice
+				`	(去查看伊克塔特·雷克的情况。)`
+				`	（不，我下次来这儿时总能去探望他。）`
+					goto end
+			`	你联系了雷克，他邀请你前往他暂住的住所拜访——那是一座位于城市郊外的漫游者树屋。他看上去比之前更加疲惫，裸露的皮肤斑块正在不断扩散。在几处地方，似乎正长出一簇簇新的黑色油亮羽毛，但这些羽毛纤细如发，甚至不足以覆盖他的皮肤，更别提让他飞行了。`
+			`	你坐下来与他聊了一会儿。他的动作和言语都变得缓慢了，但你很高兴地发现他的思维依然敏锐如初；为了消磨时间，他向你提出了各种关于人类文化与历史的问题，你尽己所能一一作答。最后，你与他道别，返回太空港。`
+			label end
+			`	运输船卸下最后一批乘客，随后准备跟随你返回<planet>。`
+				accept
+	npc accompany save
+		government "Wanderer"
+		personality timid escort
+		ship "Riptide" "Vek'sek Kach'ik"
+		ship "Riptide" "Fel'tar Kri'esei"
+		ship "Riptide" "Vori'yek'tek La'a"
+		ship "Riptide" "Iyik'ta Rei'ta"
+	npc
+		government "Hai (Unfettered)"
+		personality heroic staying
+		system "Sich'ka'ara"
+		fleet "Large Unfettered" 4
+	on visit
+		dialog `You've landed on <planet>, but not all of the Riptide transports carrying the refugees are in the system. Better depart and wait for them all to arrive.`
+
+
+
+event "battle for sich'ka'ara begins"
+	system "Sich'ka'ara"
+		fleet "Wanderer Flycatchers" 300
+
+overwrite
+mission "Wanderers Defend Sich'ka'ara"
+	landing
+	name "Defend <planet>"
+	description `击退正在进攻<system>的无羁舰队，然后在<planet>降落。`
+	autosave
+	source "Vara Ke'sok"
+	to offer
+		has "Wanderers Evacuation 1C: done"
+	on offer
+		event "battle for sich'ka'ara begins"
+		conversation
+			`运输船刚一着陆，警报便骤然响起，你看到众多漫游者——尤其是其中的战士——正急速奔向各自的飞船。索巴里·泰莱克俯冲而下，降落在你的飞船旁，迅速解释道：“我们已探测到一支庞大的无羁舰队正在逼近！你愿加入防御作战吗？”`
+			`	你同意协助他们，并开始为飞船起飞做准备……`
+				launch
+	on visit
+		dialog "There are still Unfettered warships overhead. You should take off again and assist in the fight."
+	npc evade
+		personality staying coward
+		government "Hai (Unfettered)"
+		fleet
+			names "hai"
+			variant
+				"Shield Beetle" 2
+				"Shield Beetle (Tracker)" 1
+				"Shield Beetle (Pulse)" 2
+				"Water Bug" 3
+				"Water Bug (Pulse)" 4
+	npc evade
+		personality entering coward
+		government "Hai (Unfettered)"
+		fleet
+			names "hai"
+			variant
+				"Shield Beetle" 1
+				"Shield Beetle (Tracker)" 3
+				"Shield Beetle (Pulse)" 2
+				"Water Bug" 7
+				"Water Bug (Pulse)" 2
+	npc
+		personality heroic
+		government "Wanderer"
+		fleet
+			names "wanderer"
+			variant
+				"Tempest (Missile)" 2
+				"Autumn Leaf" 3
+				"Summer Leaf" 1
+	npc
+		personality heroic staying
+		government "Wanderer"
+		fleet
+			names "wanderer"
+			variant
+				"Tempest (Heavy)"
+				"Heavy Gust" 2
+				"Autumn Leaf" 2
+				"Summer Leaf" 3
+	on complete
+		log "Helped to defend a Wanderer world from yet another Unfettered attack. Meanwhile, the Wanderers are trying to move as many civilians as possible back to their home world, where they will be safe. But, their strategy seems to be based on the hope that sometime soon a wormhole will open and allow the Wanderer people to flee to a new territory and leave their old planets behind for the Unfettered to claim."
+		event "battle for sich'ka'ara ends"
+		event "solifuge deployment"
+		conversation
+			`无羁者舰队已被击退。泰莱克感谢你参与保卫此星球。“遗憾的是，”他说道，“我刚刚收到消息——此次进攻仅是无羁者[攻势/袭击]的一半。一支规模相当的舰队同时袭击了奇尔-阿亚凯星系，并以[迅雷不及掩耳/出其不意]之势击溃了当地防御力量，致使部分族人甚至来不及[撤离/逃生]，被迫转入隐蔽藏匿。若你愿协助营救他们，请在我完成对战士们的[战况汇报/情况通报]后，前往太空港与我汇合。”`
+
+# Compatibility patch for users who completed "Wanderers Defend Sich'ka'ara"
+# before 0.10.3 when the "solifuge deployment" event was added.
+overwrite
+mission "Solifuge Shipyards Patch"
+	landing
+	invisible
+	non-blocking
+	to offer
+		has "event: battle for sich'ka'ara ends"
+		not "event: solifuge deployment"
+	on offer
+		event "solifuge deployment"
+		fail
+
+event "battle for sich'ka'ara ends"
+	system "Sich'ka'ara"
+		add fleet "Wanderer Freight" 900
+		add fleet "Wanderer Defense" 400
+		add fleet "Large Unfettered" 400
+	system "Chirr'ay'akai"
+		government "Hai (Unfettered)"
+		fleet "Wanderer Defense" 800
+		fleet "Large Unfettered" 400
+		fleet "Small Unfettered" 400
+	system "Prakacha'a"
+		government "Hai (Unfettered)"
+		fleet "Wanderer Defense" 2000
+		fleet "Large Unfettered" 600
+		fleet "Small Unfettered" 600
+	planet "Kort Vek'kri"
+		attributes "unfettered"
+		spaceport `无羁海伊显然尚不清楚该如何处置他们最近占领的这座流浪者科研站。曾参与各类实验的动物如今四处游荡，而无羁海伊仅零星地尝试为它们提供食物。偶尔，某只动物因极度饥饿驱使，会试图撞开主着陆坪旁阴凉处堆叠的军用口粮货箱。`
+		remove tribute
+
+# Patch mission for players who got these missions before 0.10.11 and didn't get tribute from Kort Vek'kri cleared.
+overwrite
+mission "Wanderers: Kort Vek'kri Tribute Patch"
+	landing
+	invisible
+	non-blocking
+	to offer
+		has "event: battle for sich'ka'ara ends"
+	on offer
+		event "kort vek'kri tribute clear"
+		fail
+
+event "kort vek'kri tribute clear"
+	planet "Kort Vek'kri"
+		remove tribute
+	
+event "solifuge deployment"
+	shipyard "Mon Ki o'Uden Advanced"
+		add "Solifuge"
+		add "Violin Spider"
+	fleet "Large Unfettered"
+		add variant 3
+			"Solifuge"
+			"Violin Spider" 3
+			"Violin Spider (Pulse)" 3
+		add variant 1
+			"Solifuge (Pulse)"
+			"Solifuge (Tracker)"
+			"Violin Spider" 6
+			"Violin Spider (Pulse)" 6
+		add variant 2
+			"Shield Beetle (Pulse)"
+			"Solifuge"
+			"Violin Spider" 3
+			"Violin Spider (Pulse)" 3
+		add variant 1
+			"Shield Beetle"
+			"Solifuge (Tracker)"
+			"Violin Spider" 2
+			"Violin Spider (Pulse)" 4
+		add variant 2
+			"Solifuge (Pulse)"
+			"Violin Spider" 4
+			"Violin Spider (Pulse)" 2
+			"Lightning Bug" 2
+
+
+
+overwrite
+mission "Wanderers Rescue 1"
+	name "Wanderer Rescue"
+	description "当“无羁者”占领<planet>时，部分流浪者战士被遗留在该行星上。驾驶两艘流浪者战舰登陆该行星，营救他们。"
+	autosave
+	source "Vara Ke'sok"
+	destination "Kort Vek'kri"
+	clearance
+	infiltrating
+	to offer
+		has "Wanderers Defend Sich'ka'ara: done"
+	on offer
+		conversation
+			`索巴里·泰莱克向你说明当前局势：“<planet> 被占领时，地面上有近一百名战士。”他说道，“他们[四散奔逃，成功避开了俘获]，从太空港起飞撤离，随后在某片森林中秘密集结。我正派出两艘战舰登陆该行星，以[接回，营救]他们，也希望你[加入，随行]此次行动。你有什么问题吗？”`
+			choice
+				`	"No, I'm ready to go."`
+					accept
+				`	“你们为什么需要我参与这次任务？”`
+			`	他说：“对我们中的一些人而言，知晓有另一物种的成员正[协助我们、与我们同行]参与这场冲突，意义极为重大。这不仅关乎[士气？公共形象？]，更因你的[支持？接纳？]，赋予了我们的[自卫行动？抗争事业？][道义分量？正当性？]。”你的翻译器似乎难以精准还原他话语中细微的语义差别。`
+			`	你同意加入此次远征，他向你介绍了将与你同行的两艘飞船的船长。`
+				accept
+	npc accompany save
+		personality escort heroic
+		government "Wanderer"
+		ship "Tempest (Heavy)" "Ka'asildi"
+		ship "Tempest" "Eska'ata'ka"
+	npc
+		personality staying
+		government "Hai (Unfettered)"
+		system "Chirr'ay'akai"
+		fleet
+			names "hai"
+			variant
+				"Shield Beetle (Tracker)" 5
+	on visit
+		dialog
+			"You have reached <planet>, but you will need to take off again and wait for both the Wanderer warships to be in-system as well."
+
+
+
+overwrite
+mission "Wanderers Rescue 1B"
+	landing
+	name "Wanderer Rescue"
+	description "护送这两艘流浪者战舰，它们载有从<origin>营救出的战士，安全返回<destination>。"
+	source "Kort Vek'kri"
+	destination "Vara Ke'sok"
+	to offer
+		has "Wanderers Rescue 1: done"
+	on offer
+		log "Helped to rescue some Wanderers who were stranded and had to go into hiding in the forest when their planet was taken over by the Unfettered."
+		conversation
+			`流浪者战舰悬停于该行星上最大的森林之一上方。你看到树冠中跃出无数身披各色羽翼的流浪者战士，纷纷飞向战舰；战舰随即开启气密舱门接纳他们。不到五分钟，流浪者舰长便向你发出信号：全员已登舰，你可以返回<planet>了。`
+				launch
+	npc accompany save
+		personality escort heroic
+		government "Wanderer"
+		ship "Tempest (Heavy)" "Ka'asildi"
+		ship "Tempest" "Eska'ata'ka"
+	npc
+		personality staying
+		government "Hai (Unfettered)"
+		fleet
+			names "hai"
+			variant
+				"Lightning Bug" 12
+	on visit
+		dialog
+			"You have reached <planet>, but you will need to take off again and wait for both the Wanderer warships to be in-system as well."
+
+
+
+overwrite
+mission "Wanderers Rescue 1C"
+	landing
+	name "Visit Iktat Rek"
+	description "返回<destination>，伊克塔特·雷克的状况正持续恶化。"
+	autosave
+	source "Vara Ke'sok"
+	destination "Vara K'chrai"
+	to offer
+		has "Wanderers Rescue 1B: done"
+	on offer
+		"reputation: Wanderer" >?= 40
+		conversation
+			`流浪者族群对营救行动的成功欣喜若狂，其中许多人亲自向你道谢——尽管你觉得自身在此次任务中所起的作用其实微乎其微。庆祝活动仍在继续时，泰莱厄克将你拉到一旁，说道：“我们必须去一个[安静、私密]的地方谈谈。”`
+			`	他带你进入一间看似军官休息室的舱室，你坐到一张桌子旁。“被称作‘伊克塔特’的雷克，是你们的[指定联络人？文化向导？种族同伴？]，对吗？”他问道。你点点头，但显然你的翻译器并不完全理解这个词的确切含义。“雷克病得很重，需要[先进、强化]的医疗护理，”他说，“他希望由你护送他前往蒂克·克莱的[医院、医疗设施]。你必须返回<planet>与他汇合。”`
+			choice
+				`	"好，我立刻就去那里。"`
+					accept
+				`	“不过，那只是莫尔特而已，他没事的。”`
+			`	“对雷克（Rek）而言，维持这份希望或许是[有益的，鼓舞人心的]，”他说道，“但我们的[传说，神话]中记载：从未有过一次蜕壳（Molt）能在‘瞳’（Eye）未开启之时启动并取得[成功，可行]。”`
+			`	你承诺将尽快前往探望雷克，并护送他前往任何他需要去的地方。`
+				accept
+
+
+
+overwrite
+mission "Wanderers Rek 0"
+	landing
+	name "Bring Rek to <planet>"
+	description "将伊克塔特·雷克送往<destination>，那里有一座先进的医疗设施，或许能救治他。"
+	autosave
+	source "Vara K'chrai"
+	destination "Tik Klai"
+	passengers 1
+	blocked "You need a bunk free in order to carry Iktat Rek."
+	to offer
+		has "Wanderers Rescue 1C: done"
+	on offer
+		conversation
+			`雷克在太空港与你见面时，正坐在流浪者族特有的机动轮椅上。他原本棕灰色的羽毛已脱落得更加严重，仅余稀疏干枯的黑色羽毛，宛如病态皮肤上长出的黑毛。你不确定他是真的消瘦了，还是仅仅因羽毛脱落而显得愈发憔悴。“很高兴你来了，<first> <last>，”他说道。`
+			choice
+				`	"别担心，伊克塔特·雷克。你一定能挺过这一关。"`
+			`	你一说出他的名字，他便微微皱眉。“你不可再这样称呼我了，”他说，“‘伊克塔特’是我的职名，而我已无法再履行该职责。如今，我仅以本名‘雷克’或幼名称呼自己——雷克·德斯塔阿·伊·维鲁克。若我能成功经历蜕变，我将成为一个全新的人，并获得一个新的职名。”`
+			choice
+				`	“你很强。我相信你一定能活下来。”`
+				`	"你知道自己将会变成什么吗？"`
+					goto become
+			`	“我希望如此，”他说道，“但我无法避免听到周围人的窃窃私语。而医生们也表示，‘蜕变’正在重新排列并关闭我部分内脏器官。我如今最大的希望，仅仅是活得足够久，亲眼见证我的族人拥有未来。”`
+				goto end
+			label become
+			`	"这是无法预知的，"他说道，"莫尔特能赋予我们的，不仅是一个全新的个体，甚至近乎一个全新物种——拥有此前任何流浪者都不曾具备的新能力。我对体内正在发生的某些变化已有几分猜测，但我不愿将这些希望宣之于口，以免招致厄运。"`
+			label end
+			`	直到你将他沿着斜坡推上飞船一半路程时，才猛然意识到一件事：在整个对话过程中，雷克始终在用你的母语与你交谈，根本未借助翻译器。你此前全然不知流浪者族的发声器官竟能如此完美地模仿人类语音。`
+			choice
+				`	“雷克，你什么时候学会说我的语言的？”`
+			`	他发出一种介于笑声与咳嗽之间的声音，说道：“即便我的身体日渐衰朽，我的思维却愈发敏锐。我越听你那盒子对你说话，它的话语就越发令我理解。”`
+			`	他看起来太过疲惫，已无力回答更多问题。你确保雷克在你的一个卧舱内安顿舒适，随后准备启程前往<planet>。`
+				accept
+	on visit
+		dialog `你降落在<planet>，但发现护送伊克塔特·雷克的护卫舰尚未进入该星系。最好立即起飞，等待其抵达。`
+
+
+
+overwrite
+mission "Wanderers Rek 1"
+	landing
+	name "Visit Sko'karak"
+	description "雷克让你前往斯科卡拉克星系，然后返回<planet>向他汇报你在那里发现的情况。"
+	source "Tik Klai"
+	waypoint "Sko'karak"
+	to offer
+		has "Wanderers Rek 0: done"
+	on offer
+		log "Brought Iktat Rek to a Wanderer hospital facility. His illness, or molt, is progressing, and he has grown much weaker. But his mind is still as sharp as ever, and in fact he has somehow managed to pick up human language just by listening to the words of the translation machine."
+		conversation
+			`流浪者医院与人类医院并无太大差异。你站在角落里，尽量不碍事，看着他们将雷克转移到病床上，并为他接上各种导管和线路。失去羽毛后，他看起来异常脆弱，几乎形销骨立，但流浪者护士与医生们仍尽可能轻柔地照料着他。`
+			`	最终，你独自与他留在一起。起初，他似乎只是茫然地望向远方，眼神失焦；随后，他仿佛意识到你的存在，目光骤然变得深邃而警觉，并转向凝视着你。他再次用你的母语说道：“去斯科卡拉克星系看看，然后告诉我你在那里发现了什么。”说完，他便闭上双眼，沉沉睡去。`
+				accept
+	on enter "Sko'karak"
+		dialog
+			`你满怀希望地进入该星系，期盼着雷克——尽管他目前状态虚弱——已感知到此处正发生某种重大事件，并派你前来探查。然而，你的传感器并未探测到任何异常迹象。`
+	on visit
+		dialog `你已返回<planet>，但尚未进入斯科卡拉克星系展开调查。最好立即启程，确保在返航前造访该星系。`
+
+
+
+overwrite
+mission "Wanderers Rek 2"
+	landing
+	name "Visit Sko'karak again"
+	description "雷克让你再次前往斯科卡拉克星系，查看那里是否发生了变化。随后，返回<destination>。"
+	source "Tik Klai"
+	waypoint "Sko'karak"
+	to offer
+		has "Wanderers Rek 1: done"
+	on offer
+		event "wanderers: more systems lost"
+		conversation
+			`你抵达时便察觉当地居民情绪焦躁，似有要事发生。终于，其中一人切换为海伊语，向你解释当前局势：“我们刚刚得知，无羁者已[窃取/俘获]了我们另外三颗世界，”他说道，“但切勿将此消息告知雷克。”`
+			`	你前往伊克塔特·雷克处，告诉他你在斯科卡拉克星系中未发现任何异常。你说话时，他几乎连眼睛都懒得睁开。“回去再仔细搜一遍。”他说。`
+			choice
+				`	"好，我再去查看一遍。"`
+					accept
+				`	"你应当知道，又有三个星系沦陷于无羁者之手。"`
+			`	他叹了口气。“倘若‘眼’愿开启，一切便都不重要了。我不明白，为何这道传送门的守门者迟迟不肯开启它，好让我们逃离这场战争，进入一处安全之地。你再去一次斯科卡拉克，仔细探查。”`
+				accept
+	on enter "Sko'karak"
+		dialog
+			`你再次进入该星系，并展开更为详尽的传感器扫描，以防首次搜索时遗漏了什么。然而，你一无所获。`
+	on visit
+		dialog `You've returned to <planet>, but you haven't yet entered the Sko'karak system to investigate. Better depart and make sure you visit it before returning.`
+
+
+
+overwrite
+mission "Wanderers Rek 3"
+	landing
+	name "Visit Sko'karak"
+	description "第三次造访斯科卡拉克星系，查看当地是否已发生变化。随后返回<planet>向雷克汇报。"
+	source "Tik Klai"
+	waypoint "Sko'karak"
+	to offer
+		has "Wanderers Rek 2: done"
+	on offer
+		event "wanderers: the eye begins to open" 2
+		conversation
+			`当你进入太空港时，一位身披纯白羽饰、容貌与雷克惊人相似的流浪者从医院中走出迎接你。你一时困惑地怀疑：雷克是否真的已完成蜕变，此刻已痊愈站在你面前？但她随即自我介绍道：“我是梅拉卡·埃斯塔阿，雷克的母亲。”接着她说：“雷克正在休息。你带来的是好消息吗？”`
+			choice
+				`	"不，我什么也没发现。"`
+			`	她说：“雷克的身体正在自我摧毁——它正[对抗、抵抗]莫尔特。很快我们必须给他用药，以[抑制、清除]他的免疫系统，使新生细胞得以完成对身体的[接管、侵殖]。接受该治疗期间，他必须进入[静养、隔离]状态，以防感染。但他拒绝前往，除非你为他带来他翘首以盼的[消息、音讯]。”`
+			choice
+				`	"我再回去一次，看看情况是否有所改变。"`
+					accept
+				`	"我该骗他，说‘圣眼’已经开启了？"`
+			`	“不，”她说，“再回去仔细查看一次。若仍一无所获，我们再[决定、商议]下一步行动。”`
+				accept
+	on enter "Sko'karak"
+		dialog
+			`这一次，当你进入该星系时，传感器在最远行星轨道之外探测到某种奇异的天文现象——一缕如积雨云般聚拢的微光。它并非虫洞，却确是一场变化。或许，这已足以重燃雷克的希望。`
+	on visit
+		dialog `You've returned to <planet>, but you haven't yet entered the Sko'karak system to investigate. Better depart and make sure you visit it before returning.`
+
+
+
+overwrite
+mission "Wanderers Ap'arak 1"
+	landing
+	name "Help defend <planet>"
+	description "返回<destination>，流浪者一族已决定在此地集结，抵御无羁者入侵。"
+	autosave
+	source "Tik Klai"
+	destination "Varu Tev'kei"
+	to offer
+		has "Wanderers Rek 3: done"
+	on offer
+		log "Iktat Rek has been placed in protective quarantine in a germ-free room, where he will receive drugs that will suppress his immune system and allow the genetic change that is taking place in his body to be completed. Even if he survives the process, it may change him beyond recognition."
+		conversation
+			`你匆忙冲进病房。雷克的皮肤如今几乎完全裸露，仅剩几缕枯槁纤细的黑色羽毛取代了昔日丰茂的羽饰。你一进门，雷克的眼睛便猛然睁开。“你带来了消息，”雷克说道，“我从你的表情就能看出。你看到了什么？”鉴于外星人的面部表情极难解读，若雷克真能单凭观察你的脸就得出判断，那倒的确令人惊叹；不过，当面指出这点终究失礼。`
+			choice
+				`	“斯科卡拉克星系中已发生某种异象——一种连我的飞船传感器都无法识别的宇宙学现象。或许‘天眼’正开始开启。”`
+				`	"某种宇宙学现象确实存在，但它并非虫洞。我不想给你虚假的希望。"`
+			`	“是‘瞳’，”雷克说道，“我确信无疑。它来得太迟，已无法挽回我们业已蒙受的巨大损失，但或许尚未来得及太晚，仍可保全我族免于灭绝。因此，我的等待已然终结。”`
+			`	雷克呼唤一名护士。病床装有轮子，他们迅速将其从墙壁上的各种设备上拆下。雷克的母亲埃斯塔阿走进房间，向你解释道：“‘隔离室’位于地下更深处。他们会为雷克的身体进行清洗消毒，然后等待一周以检查是否存在任何残留污染，随后开始施用药物，阻止雷克的身体抗拒转化过程。即便一切顺利，我们也将长久无法再见到雷克，且永远无法再以这副身躯与他相见。”`
+			choice
+				`	“别担心，雷克足够强壮，足以挺过这一关。”`
+					goto hallway
+				`	"无论结果如何，你都会告诉我发生了什么吗？"`
+			`	"我会的，"她说，"除非——当然，某种重大[灾祸？剧变？]突然降临，令我们深陷其他[事务、要务]之中。"`
+			label hallway
+			`	三名漫游者护士推着雷克的病床出门，进入电梯。应雷克请求，你随同前往。电梯门开启，眼前是一条宽阔高耸的拱顶长廊，两侧肃立着身着黑衣的漫游者，前来向雷克致以最后的敬意。此景恍如梦境：幽深的地下通道中，漫游者官员们庄重的身影络绎不绝；漆黑斗篷与阴影，与病床素净的亚麻布单、以及紧随担架行至隔离舱门口的雷克母亲那雪白的羽翼形成鲜明对比。`
+			`	密室的门伴随着一声气动嘶鸣猛然闭合，你与其他访客一同返回太空港。其中一名访客是瓦鲁梅雷克前总督埃梅卡·阿伊萨伊。她将你拉到一旁，说道：“人类，你不该[停留，逗留]在此。他们正需要你在[前线，战线]上效力。而你的出现，或许会让一些正在此处悼念雷克的[哀悼者？同僚？]感到不悦。”`
+			choice
+				`	"好的，我这就前往{0}行星，协助防御。"`
+					accept
+				`	"等等，我做了这么多帮助大家的事，人们怎么还会生我的气？"`
+			`	“并非对你生气，”她说，“但有人说莫尔特会因接触[异族的，外来的]事物而[被激惹，被诱发]：正是你的到来，才导致雷克的身体过早开始了[转变，蜕变]。”她沉默片刻，接着说道：“请不必[担忧，悲伤]。雷克或许仍能存活，并作为新[一代，种族]的首位成员名扬四方。无论如何，那已是过去。现在，请即刻启程，助我们[开创，赢得]未来。”`
+				accept
+
+
+
+event "battle for ap'arak"
+	system "Ap'arak"
+		fleet "Wanderer Flycatchers" 400
+
+event "battle for ap'arak ends"
+	government "Wanderer"
+		"attitude toward"
+			"Pug (Wanderer)" .01
+	system "Ap'arak"
+		add fleet "Wanderer Freight" 2000
+		add fleet "Wanderer Drones" 4000
+		add fleet "Wanderer Defense" 600
+		add fleet "Large Unfettered" 700
+
+overwrite
+mission "pug defend wanderers"
+	invisible
+	non-blocking
+	landing
+	to offer
+		has "Wanderers Ap'arak 2: done"
+	on offer
+		event "pug defend wanderers"
+		fail
+
+event "pug defend wanderers"
+	government "Pug (Wanderer)"
+		"attitude toward"
+			"Wanderer" .01
+	government "Pug"
+		"attitude toward"
+			"Wanderer" .01
+
+overwrite
+mission "Wanderers Ap'arak 2"
+	landing
+	name "Help defend <planet>"
+	description "击退‘无羁者’入侵舰队对<planet>的进攻，随后返回该行星着陆。"
+	source "Varu Tev'kei"
+	to offer
+		has "Wanderers Ap'arak 1: done"
+	on offer
+		conversation
+			`当你正准备在此降落时，你似乎看到了几艘流浪者飞船——它们采用了另一种前所未见的设计，体积甚至比“风暴号”还要庞大。自‘无羁者’入侵开始以来，他们的军事科技水平以惊人的速度提升；即便事实是他们只是将古代的飞船与武器设计重新投入量产，而非从头发明全新技术。`
+			`	但这项新技术无法完全弥补一个事实：现存的漫游者中，没有任何人具备真正的军事经验。因此，此处数位漫游者领袖迫切希望与你交谈；你花了数小时，向他们讲述自己近期在人类疆域战争中的亲身经历。其中便包括军事指挥官索巴里·泰莱克。正当你们交谈时，太空港内突然警报大作。‘海伊人正在逼近！’泰莱克说道，‘请再与我们并肩作战一次。’`
+				launch
+	on accept
+		event "battle for ap'arak"
+	on complete
+		event "battle for ap'arak ends"
+	on visit
+		dialog "There are still Unfettered warships overhead. You should take off again and assist in the fight."
+	npc evade
+		personality staying heroic
+		government "Hai (Unfettered)"
+		fleet
+			names "hai"
+			variant
+				"Shield Beetle" 2
+				"Shield Beetle (Tracker)" 1
+				"Shield Beetle (Pulse)" 2
+				"Water Bug" 3
+				"Water Bug (Pulse)" 2
+	npc evade
+		personality heroic
+		system "Sich'ka'ara"
+		government "Hai (Unfettered)"
+		fleet
+			names "hai"
+			variant
+				"Solifuge" 2
+				"Solifuge (Pulse)" 2
+				"Solifuge (Tracker)" 1
+				"Violin Spider" 12
+				"Violin Spider (Pulse)" 18
+	npc evade
+		personality heroic
+		system "Chy'chra"
+		government "Hai (Unfettered)"
+		fleet
+			names "hai"
+			variant
+				"Shield Beetle" 1
+				"Shield Beetle (Tracker)" 1
+				"Shield Beetle (Pulse)" 2
+				"Water Bug" 4
+				"Water Bug (Pulse)" 2
+				"Solifuge" 1
+				"Solifuge (Pulse)" 1
+				"Solifuge (Tracker)" 1
+				"Violin Spider" 8
+				"Violin Spider (Pulse)" 10
+	npc
+		personality heroic
+		government "Wanderer"
+		fleet
+			names "wanderer"
+			variant
+				"Derecho (Tough)"
+				"Tempest"
+				"Tempest (Heavy)"
+				"Strong Wind" 1
+				"Autumn Leaf" 3
+				"Summer Leaf" 4
+	npc
+		personality heroic staying
+		government "Wanderer"
+		fleet
+			names "wanderer"
+			variant
+				"Derecho (Turret)"
+				"Derecho"
+				"Heavy Gust" 2
+				"Autumn Leaf" 4
+				"Summer Leaf" 3
+	npc
+		personality staying derelict
+		government "Wanderer"
+		fleet
+			names "wanderer"
+			variant
+				"Strong Wind" 1
+				"Autumn Leaf" 2
+
+
+
+# TODO: When "complete anywhere" functionality is available,
+# condense the following three missions into a single mission
+overwrite
+mission "Wanderers Ap'arak 3: Pug 1"
+	landing
+	invisible
+	non-blocking
+	source "Varu Tev'kei"
+	to offer
+		has "Wanderers Ap'arak 2: done"
+		not "Wanderers Ap'arak 3: Pug: offered"
+	npc save
+		personality staying unconstrained uninterested
+		government "Pug (Wanderer)"
+		ship "Pug Arfecta" "Hork Ekekek Ptui"
+	to complete
+		never
+
+overwrite
+mission "Wanderers Ap'arak 3: Pug 2"
+	landing
+	invisible
+	non-blocking
+	source "Varu Tev'kei"
+	to offer
+		has "Wanderers Ap'arak 2: done"
+		not "Wanderers Ap'arak 3: Pug: offered"
+	npc save
+		personality staying unconstrained uninterested
+		government "Pug (Wanderer)"
+		ship "Pug Arfecta" "Graak Sput Kchoo"
+	to complete
+		never
+
+overwrite
+mission "Wanderers Pug Hostile"
+	landing
+	source
+		government "Wanderer"
+	to offer
+		has "Wanderers Ap'arak 3: Pug 1: failed"
+		has "Wanderers Ap'arak 3: Pug 2: failed"
+	on offer
+		set "Wanderers Ap'arak 3: Pug: done"
+		"reputation: Wanderer" <?= -1
+		conversation
+			`你收到索巴里·泰勒克发来的一条消息：“我们[已知？震惊？]有关报道称，您已在阿帕拉克星系[剿灭、肃清]了我们的守护者。此举不可接受！即日起，您不再被允许进入我们的[领地、空域]。”`
+				flee
+
+overwrite
+mission "Wanderers Ap'arak 3"
+	landing
+	name "Report to <planet>"
+	description "返回流浪者首都星球 <destination>。"
+	autosave
+	source "Varu Tev'kei"
+	destination "Vara K'chrai"
+	to offer
+		has "Wanderers Ap'arak 2: done"
+	on offer
+		log `游荡者族已开始建造更为庞大的战舰，并再度成功击退了无羁者的一次进攻。此后，被游荡者族称为“守护者”的普格人终于派来了援助……仅两艘飞船，却声称其战力足以威慑整个无羁者舰队。`
+		log "Factions" "Unfettered Hai" `在获得足够数量的跳跃引擎后，‘无羁者’便向流浪者领空扩张，并在普格势力介入阻止其攻势前，成功从流浪者手中征服了六颗行星。`
+		conversation
+			`此处的游荡者族似乎难以置信——他们竟真能击退如此强大的无羁者进攻部队。当你穿行于太空港时，许多游荡者族人纷纷驻足，向你致谢，感谢你协助保卫他们的家园。`
+			`	正当您抵达军方领袖们聚集的凉亭时，一道阴影笼罩了您。您抬头望去，只见两艘船正迅速接近——那 unmistakable（ unmistakable）带角轮廓正是普格族战舰。整个太空港内，流浪者们的欢呼声此起彼伏，数百名流浪者腾空而起，簇拥着普格族飞船飞向降落平台。索巴里·泰莱克对您说道：“这是‘守护者’的[造访/现身]！在我们[危难/绝境]之际，他们终于向我们显明自身。”一小队普格族人自舰中下船，徒步朝凉亭走来。`
+			choice
+				`	“希望他们这次能比上次跟我交谈时给你提供更多帮助。”`
+				`	“普格人危险且难以预测，你绝不可信任他们。”`
+				`	“如果他们真正在乎你们，早该在如此众多的你们死于对抗‘无羁者’的战斗之前就出手干预了。”`
+				`	（听听普格人的说法。）`
+					goto pug
+			`	“守护者向来[隐秘、莫测]，”泰莱克说道，“但其每一次[干预、行动]，皆为我们的[福祉、利益]而行。此刻请保持静默，恭听其言。”`
+			label pug
+			`	噗格使团抵达凉亭，其中一名成员开始用流浪者语发言。你完全听不懂他们在说什么，而且他们似乎全都无视了你的存在。几名流浪者领袖作出回应，现场充斥着频繁的展翼、甩尾和理羽动作——这或许是流浪者试图留下良好印象的方式，又或者只是他们自我感觉良好；当然，也有可能是紧张所致，实在难以分辨。`
+			`	普格人结束了与漫游者的交谈，返回自己的飞船；此时索巴里·泰勒克才转向你说道：“好消息！他们表示，其两艘飞船将[巡逻/驻留]于本星系，并[阻击/牵制]海伊舰队。此外，”他一边自鸣得意地整理仪容，一边补充道，“他们对我们[日益壮大/迅速崛起]感到十分满意。而且，他们还说，我们今后无需再[与海伊作战？担忧海伊？]。”`
+			choice
+				`	“我曾与普格人的飞船交过战。两艘普格飞船绝无可能抵挡住整个‘无羁者’战争舰队。”`
+				`	“这是否意味着他们终于愿意为你开启虫洞了？”`
+					goto eye
+			`	“或许他们的实力也增强了，”泰莱克说道，“但无论如何，我们现在在此处很[安全，稳妥]，因此并不需要你们的[帮助，保护]。你们或许该返回我们的首都，看看那里是否更需要你们。”`
+				goto end
+			label eye
+			`	泰莱克的冠羽微微低垂。“我想他们对此并未作出任何[承诺/预言]，”他说道，“但无论如何，我们如今在此地已[安全/稳妥]，因此并不需要你们的[帮助/保护]。或许你们该返回我们的首都，看看那里是否更需要你们。”`
+			label end
+			choice
+				`	“好的，我这就去<planet>看看他们是否需要我。”`
+					accept
+				`	“就因为‘拳犬’已经抵达，你就真以为这儿绝不会出任何差错？”`
+			`	你试图说服泰莱克：那只普格（Pug）未必完全值得信赖，但显然无法动摇他的想法。在漫游者（Wanderers）眼中，普格俨然已是神明般的存在；质疑它们毫无意义。最终你放弃劝说，同意前往<planet>拜访。`
+				accept
+	
+	on complete
+		event "wanderers: the eye opens"
+		event "wanderers: derecho mass production" 16
+		event "wanderers: spera anatrusk colony" 40
+		conversation
+			`你在<planet>着陆数分钟后，太空港内的漫游者中突然爆发出一阵骚动。虽难以完全确认，但你感觉他们听起来兴奋多于惊恐。一艘接一艘飞船陆续升空，直至太空港几乎空无一人；而留下的少数人似乎对你毫无兴趣，既不愿与你交谈，也不愿解释究竟发生了什么。你大概只能返回自己的飞船，亲自去一探这场喧闹的缘由了。`
