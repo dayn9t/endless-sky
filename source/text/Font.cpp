@@ -30,6 +30,7 @@ this program. If not, see <https://www.gnu.org/licenses/>.
 #include <algorithm>
 #include <cmath>
 #include <cstring>
+#include <filesystem>
 #include <functional>
 #include <stdexcept>
 #include <vector>
@@ -39,7 +40,33 @@ using namespace std;
 namespace {
 	bool showUnderlines = false;
 	const int KERN = 1;
-	const char *FONT_PATH = "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc";
+
+	// Find a CJK-capable font on the current platform.
+	// Returns empty string if none found.
+	string FindCJKFont()
+	{
+		// Candidate paths in priority order.
+		static const char *candidates[] = {
+			// Linux: Noto CJK (most common)
+			"/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+			"/usr/share/fonts/noto-cjk/NotoSansCJK-Regular.ttc",
+			"/usr/share/fonts/noto/NotoSansCJK-Regular.ttc",
+			// Linux: WenQuanYi fallback
+			"/usr/share/fonts/truetype/wqy/wqy-microhei.ttc",
+			"/usr/share/fonts/wqy-microhei/wqy-microhei.ttc",
+			// macOS: system CJK fonts
+			"/System/Library/Fonts/PingFang.ttc",
+			"/Library/Fonts/Arial Unicode MS.ttf",
+			// Windows: system CJK fonts
+			"C:\\Windows\\Fonts\\msyh.ttc",
+			"C:\\Windows\\Fonts\\simsun.ttc",
+			nullptr
+		};
+		for(int i = 0; candidates[i]; ++i)
+			if(filesystem::exists(candidates[i]))
+				return candidates[i];
+		return {};
+	}
 }
 
 // Static members.
@@ -79,13 +106,18 @@ void Font::Load(const filesystem::path &)
 		throw runtime_error("FreeType init failed");
 	ftLibrary = lib;
 
+	string fontPath = FindCJKFont();
+	if(fontPath.empty())
+		throw runtime_error("No CJK-capable font found. Please install a Noto CJK font.");
+
 	FT_Face face;
-	if(FT_New_Face(lib, FONT_PATH, 0, &face))
-		throw runtime_error(string("Cannot load font: ") + FONT_PATH);
+	if(FT_New_Face(lib, fontPath.c_str(), 0, &face))
+		throw runtime_error("Cannot load font: " + fontPath);
 	ftFace = face;
 
-	FT_Set_Pixel_Sizes(face, 0, 28);  // 14 * 2 for HiDPI
-	height = static_cast<int>(face->size->metrics.height >> 6) / 2;
+	FT_Set_Pixel_Sizes(face, 0, 14);
+	height = static_cast<int>(face->size->metrics.height >> 6);
+	ascender = static_cast<int>(face->size->metrics.ascender >> 6);
 	space = height / 2;
 
 	// Create atlas texture (single-channel GL_R8).
@@ -108,8 +140,9 @@ void Font::Load(const filesystem::path &)
 void Font::SetPixelSize(int px)
 {
 	FT_Face face = static_cast<FT_Face>(ftFace);
-	FT_Set_Pixel_Sizes(face, 0, px * 2);  // 2x for HiDPI
-	height = static_cast<int>(face->size->metrics.height >> 6) / 2;
+	FT_Set_Pixel_Sizes(face, 0, px);
+	height = static_cast<int>(face->size->metrics.height >> 6);
+	ascender = static_cast<int>(face->size->metrics.ascender >> 6);
 	space = height / 2;
 	glyphCache.clear();
 	atlasX = atlasY = atlasRowH = 0;
@@ -186,7 +219,8 @@ void Font::DrawAliased(const string &str, double x, double y, const Color &color
 	glUniform2fv(scaleI, 1, scale);
 
 	GLfloat penX = static_cast<GLfloat>(x);
-	GLfloat penY = static_cast<GLfloat>(y);
+	// y is the top of the text line; convert to baseline for FreeType bearing math.
+	GLfloat penY = static_cast<GLfloat>(y) + ascender;
 
 	const char *p = str.c_str();
 	while(*p)
@@ -209,9 +243,8 @@ void Font::DrawAliased(const string &str, double x, double y, const Color &color
 
 		GLfloat gx = penX + static_cast<GLfloat>(g.bearingX);
 		GLfloat gy = penY - static_cast<GLfloat>(g.bearingY);
-		// Convert physical pixels to logical pixels for shader (HiDPI: /2).
-		GLfloat gw = static_cast<GLfloat>(g.bitmapW) / 2.f;
-		GLfloat gh = static_cast<GLfloat>(g.bitmapH) / 2.f;
+		GLfloat gw = static_cast<GLfloat>(g.bitmapW);
+		GLfloat gh = static_cast<GLfloat>(g.bitmapH);
 
 		glUniform2f(glyphSizeI, gw, gh);
 		GLfloat pos[2] = {gx, gy};
@@ -319,7 +352,7 @@ void Font::RenderGlyphToAtlas(uint32_t cp, GlyphInfo &info) const
 	if(bw == 0 || bh == 0)
 	{
 		// Whitespace or invisible glyph — store advance only.
-		info.advance = (slot->advance.x >> 6) / 2;
+		info.advance = (slot->advance.x >> 6);
 		info.loaded = true;
 		return;
 	}
@@ -358,13 +391,11 @@ void Font::RenderGlyphToAtlas(uint32_t cp, GlyphInfo &info) const
 
 	info.atlasX   = atlasX;
 	info.atlasY   = atlasY;
-	// Store physical pixel dimensions for UV calculation.
 	info.bitmapW  = bw;
 	info.bitmapH  = bh;
-	// Convert bearings and advance from physical to logical pixels (HiDPI: /2).
-	info.bearingX = slot->bitmap_left / 2;
-	info.bearingY = slot->bitmap_top / 2;
-	info.advance  = (slot->advance.x >> 6) / 2;
+	info.bearingX = slot->bitmap_left;
+	info.bearingY = slot->bitmap_top;
+	info.advance  = (slot->advance.x >> 6);
 	info.loaded   = true;
 
 	atlasX += bw + 1;

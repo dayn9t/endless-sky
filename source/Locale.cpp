@@ -319,9 +319,9 @@ string Locale::DetectSystemLanguage()
 
 	// Map common language codes to supported formats
 	// Chinese variants
-	if(detectedLang == "zh_cn" || detectedLang == "zh_hans" || detectedLang == "zh_sg")
+	if(detectedLang == "zh_CN" || detectedLang == "zh_cn" || detectedLang == "zh_hans" || detectedLang == "zh_sg")
 		return "zh_CN";
-	if(detectedLang == "zh_tw" || detectedLang == "zh_hant" || detectedLang == "zh_hk" || detectedLang == "zh_mo")
+	if(detectedLang == "zh_TW" || detectedLang == "zh_tw" || detectedLang == "zh_hant" || detectedLang == "zh_hk" || detectedLang == "zh_mo")
 		return "zh_TW";
 
 	// Normalize to lowercase for single-language codes

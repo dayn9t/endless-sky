@@ -25,7 +25,7 @@ in vec2 texCoord;
 // Output color.
 out vec4 finalColor;
 
-// Multiply the texture alpha (stored in .r for GL_R8 atlas) by the user-specified color.
+// Multiply the texture value (stored in .r for GL_R8 atlas) by the user-specified color (premultiplied alpha).
 void main() {
-	finalColor = vec4(color.rgb, color.a * texture(tex, texCoord).r);
+	finalColor = texture(tex, texCoord).r * color;
 }

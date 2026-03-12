@@ -99,6 +99,7 @@ private:
 
 	int height = 0;
 	int space = 0;
+	int ascender = 0;
 	mutable int screenWidth = 0;
 	mutable int screenHeight = 0;
 	mutable GLfloat scale[2]{0.f, 0.f};
