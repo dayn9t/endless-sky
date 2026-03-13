@@ -980,7 +980,7 @@ mission "Escort (Large, Core, Dangerous Origin)"
 overwrite
 mission "Escort (Extra Large, Core, Dangerous Destination)"
 	name "Escort to <planet>"
-	description "The captain of the <npc> will pay you <payment> to escort them safely into a dangerous region of space to reach <destination> by <date>."
+	description "《<npc>》的船长将支付你<payment>，以护送他们安全进入这片危险空域，并于<date>前抵达<destination>。"
 	repeat
 	job
 	deadline 10
@@ -1028,7 +1028,7 @@ mission "Escort (Extra Large, Core, Dangerous Destination)"
 overwrite
 mission "Escort (Extra Large, Core, Dangerous Origin)"
 	name "Escort to <planet>"
-	description "The captain of the <npc> will pay you <payment> to escort them safely out of this dangerous region of space to reach <destination> by <date>."
+	description "《<npc>》的船长将支付你<payment>，以护送他们安全离开这片危险空域，并于<date>前抵达<destination>。"
 	repeat
 	job
 	deadline 10
@@ -4461,7 +4461,7 @@ mission "Mineral Shortages (Tungsten)"
 	job
 	repeat
 	deadline 14
-	description "Factories on <planet> are suffering from a mineral shortage. Harvest <amount> tons of <mineral> and return to <destination> by <date>. Payment is <payment>."
+	description "<planet>上的工厂正面临矿物短缺。采集<amount>吨<mineral>，并于<date>前返回<destination>。报酬为<payment>。"
 	substitutions
 		"<mineral>" "Tungsten"
 		"<amount>" "60"
@@ -4798,7 +4798,7 @@ overwrite
 mission "Student field research (volcanic)"
 	job
 	repeat
-	name "Transport student to <planet>"
+	name "护送学生前往<planet>"
 	description "这名学生需要前往<destination>，在那里对<student research><planet>开展实地研究。他们将向你支付<payment>。"
 	to offer
 		random < 5

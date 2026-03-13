@@ -272,7 +272,7 @@ mission "Drug Running [3]"
 	infiltrating
 	description "将< cargo >运送至< destination >，途中不得被行星执法机构扫描或截获。报酬为< payment >。"
 	cargo "Illegal Substances" 5 2 .1
-	illegal 130000 `In addition to the fine, your illegal cargo is confiscated. The pirates won't be happy to hear about this.`
+	illegal 130000 `除罚款外，你所携带的非法货物亦将被没收。海盗们听到此事后绝不会高兴。`
 	stealth
 	to offer
 		random < 50
@@ -1123,7 +1123,7 @@ mission "Stealth Drug Running (Core) [0]"
 	job
 	repeat
 	infiltrating
-	description "Run <cargo> to <destination>. If you are scanned or caught by planetary law enforcement, the consequences may be severe. Payment is <payment>."
+	description "将 <cargo> 运送至 <destination>。若你被扫描或被行星执法部门抓获，后果可能十分严重。报酬为 <payment>。"
 	cargo "Highly Illegal Substances" 5 2 .1
 	illegal 350000 `In addition to the fine, your illegal cargo is confiscated. The pirates won't be happy to hear about this.`
 	stealth
@@ -2870,7 +2870,7 @@ mission "Eliminating Competition (South, Large)"
 
 overwrite
 mission "Eliminating Competition (Marauders, Small)"
-	name "Competition near <system>"
+	name "靠近<system>的市场竞争"
 	description "一支小型掠夺者团伙正在<system>星系附近制造麻烦。请将其清除，并于<day>前返回<planet>行星，领取<payment>报酬。"
 	repeat
 	job

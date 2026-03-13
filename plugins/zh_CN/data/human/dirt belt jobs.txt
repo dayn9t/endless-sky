@@ -140,7 +140,7 @@ mission "To 纪念日庆典 [2]"
 
 
 overwrite
-mission "To Remembrance Day celebration [3]"
+mission "To 纪念日庆典 [3]"
 	name `纪念日庆典`
 	job
 	repeat

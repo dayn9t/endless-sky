@@ -265,7 +265,7 @@ outfit "X3200 Ion Steering"
 		"frame rate" 1.0
 	"steering flare sound" "ion medium"
 	description "X3200转向系统专为小型战舰与货船设计。它能提供充足的转向力，足以让除最大型的人类飞船外的所有飞船保持敏捷性，且能耗显著低于等离子推进替代方案。"
-	description "	Ion engines consume less energy than plasma engines and produce less heat, but they also take up more space for the same amount of thrust."
+	description "	离子引擎比等离子引擎消耗更少的能量且产热更低，但要达到同等推力，其占用空间也更大。"
 
 outfit "X4200 Ion Steering"
 	category "Engines"
@@ -467,7 +467,7 @@ outfit "Impala Plasma Steering"
 		"frame rate" 7
 	"steering flare sound" "plasma medium"
 	description "羚羊级等离子转向系统适用于大多数货船及除最大型战舰外的所有战舰，且相比辛迪加生产的离子推进系统，其体积明显更为紧凑。"
-	description "	Plasma engines are a bit more powerful than ion engines of the same size, but they are less energy efficient and produce more heat."
+	description "	等离子引擎比同尺寸的离子引擎略强，但能源效率更低，且发热量更大。"
 
 outfit "Orca Plasma Steering"
 	category "Engines"
