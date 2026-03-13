@@ -202,7 +202,7 @@ mission "Drug Running [1]"
 	infiltrating
 	description "将 <cargo> 运送至 <destination>。若被执法部门抓获，将被罚款 46,000 积分。报酬为 <payment>。"
 	cargo "Illegal Substances" 5 2 .1
-	illegal 92000 `In addition to the fine, your illegal cargo is confiscated. The pirates won't be happy to hear about this.`
+	illegal 92000 `除罚款外，你非法运输的货物也将被没收。海盗们听到此事后绝不会高兴。`
 	stealth
 	to offer
 		random < 70
@@ -342,7 +342,7 @@ mission "Bulk Cargo Smuggling [1]"
 	job
 	repeat
 	infiltrating
-	description "Smuggle <cargo> to <destination> without being scanned or caught by planetary law enforcement. Payment is <payment>."
+	description "将 <cargo> 悄悄运送到 <destination>，不得被扫描或被行星执法部门抓获。报酬为 <payment>。"
 	cargo "Illegal Cargo" 25 2 .1
 	illegal 130000 `In addition to the fine, your illegal cargo is confiscated. The pirates won't be happy to hear about this.`
 	stealth
@@ -484,7 +484,7 @@ mission "Bulk Drug Running [2]"
 	job
 	repeat
 	infiltrating
-	description "Run <cargo> to <destination> without being scanned or caught by planetary law enforcement. Payment is <payment>."
+	description "将< cargo >运送至< destination >，途中不得被行星执法机构扫描或截获。报酬为< payment >。"
 	cargo "Illegal Substances" 25 2 .1
 	illegal 240000 `In addition to the fine, your illegal cargo is confiscated. The pirates won't be happy to hear about this.`
 	stealth
@@ -813,7 +813,7 @@ mission "Stealth Cargo Smuggling (Core) [1]"
 
 overwrite
 mission "Stealth Cargo Smuggling (South) [0]"
-	name "Highly illegal cargo to <planet>"
+	name "运往<planet>的违禁货物"
 	color selected "illegal job: selected"
 	color unselected "illegal job: unselected"
 	color unavailable "illegal job: unavailable"
@@ -974,7 +974,7 @@ mission "Stealth Drug Running (North) [0]"
 	job
 	repeat
 	infiltrating
-	description "Run <cargo> to <destination>. If you are scanned or caught by planetary law enforcement, the consequences may be severe. Payment is <payment>."
+	description "将 <cargo> 运送至 <destination>。若你被行星执法部门扫描或截获，后果可能十分严重。报酬为 <payment>。"
 	cargo "Highly Illegal Substances" 5 2 .1
 	illegal 350000 `In addition to the fine, your illegal cargo is confiscated. The pirates won't be happy to hear about this.`
 	stealth
@@ -1266,7 +1266,7 @@ mission "Stealth Drug Running (Core) [1]"
 
 overwrite
 mission "Stealth Drug Running (South) [0]"
-	name "Highly illegal drugs to <planet>"
+	name "运往<planet>的违禁药品"
 	color selected "illegal job: selected"
 	color unselected "illegal job: unselected"
 	color unavailable "illegal job: unavailable"
@@ -1993,7 +1993,7 @@ mission "Bulk Slave Transport [0]"
 
 overwrite
 mission "Bulk Slave Transport [1]"
-	name "Transfer slaves to <planet>"
+	name "将奴隶运送到<planet>"
 	color selected "illegal job: selected"
 	color unselected "illegal job: unselected"
 	color unavailable "illegal job: unavailable"
@@ -2815,7 +2815,7 @@ mission "Eliminating Competition (Core, Large)"
 
 overwrite
 mission "Eliminating Competition (South, Small)"
-	name "Competition near <system>"
+	name "靠近<system>的激烈竞争"
 	description "一支小型敌对帮派正在<system>星系附近制造麻烦。请将其歼灭，并于<day>前返回<planet>领取<payment>报酬。"
 	repeat
 	job
@@ -3644,7 +3644,7 @@ mission "Syndicate Assassination [2]"
 		
 overwrite
 mission "Republic Assassination [1]"
-	name "Assassinate a political target"
+	name "刺杀一名政治目标"
 	color selected "illegal job: selected"
 	color unselected "illegal job: unselected"
 	color unavailable "illegal job: unavailable"

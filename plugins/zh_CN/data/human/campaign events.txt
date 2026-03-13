@@ -3321,7 +3321,7 @@ event "syndicate tech available"
 
 event "Deep memorial completed"
 	planet "Deep"
-		spaceport `The spaceport is built on a large island, a now-extinct volcano with an elevation of several kilometers at its center. Most of the large-scale fishing here is done by a single company, Poseidon Industries, which also built and maintains the spaceport. Steep winding roads and sturdy concrete homes and warehouses line the mountain slopes, and below you in the harbor several massive trawling vessels are moored. On the outskirts of the spaceport are the ramshackle houses and open-air marketplace used by the smaller, independent fishing families.`
+		spaceport `太空港建在一座大型岛屿上——一座现已熄灭的火山，其中心海拔达数公里。此处大部分大规模捕捞作业均由一家名为波塞冬工业（Poseidon Industries）的公司承担，该公司同时也建造并维护着这座太空港。陡峭盘绕的公路、坚固的混凝土住宅与仓库沿山坡而建；而在你下方的港口中，数艘巨型拖网渔船正停泊着。太空港外围则是小型独立渔民家庭居住的简陋房屋与露天集市。`
 		spaceport `	太空港北侧坐落着自由世界战争纪念碑——一组刻有阵亡者姓名的花岗岩墙壁。除最初的二十三面墙壁外，原有外环的五十面刻名墙周围又增建了两圈新的环形墙体。`
 
 overwrite

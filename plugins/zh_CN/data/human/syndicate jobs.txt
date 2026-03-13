@@ -281,7 +281,7 @@ mission "辛迪加靶场训练 [1]"
 
 
 overwrite
-mission "Syndicate target practice [2]"
+mission "辛迪加靶场训练 [2]"
 	name "Syndicate target practice"
 	job
 	repeat
