@@ -1,0 +1,55 @@
+# UI Buttons and Labels Translation
+# Copyright (c) 2025
+
+# Main Menu Buttons
+button e "_进入飞船"
+button g "_游戏规则"
+button n "_新飞行员"
+button r "_重新加载"
+button m "_管理飞行员..."
+button q "_退出"
+button p "_偏好设置..."
+button b "_返回菜单"
+button s "_开始游戏"
+
+# Load Menu Buttons
+button d "_删除"
+button o "_打开存档"
+button a "_添加快照"
+button R "移除"
+button l "_载入游戏"
+
+# Settings Menu
+button c "_控制"
+button s "_设置"
+
+# Job/Mission Board
+button c "_取消订单"
+
+# Preferences
+button c "_取消"
+button s "_保存"
+button r "_重置"
+button a "_应用"
+
+# Dialog Buttons
+button y "_是"
+button n "_否"
+button o "_确定"
+button c "_取消"
+
+# Trade/Shop
+button b "_购买"
+button s "_出售"
+button i "_安装"
+button u "_卸载"
+button l "_离开"
+
+# Bank
+button p "_还款"
+button t "_取出"
+button d "_存款"
+
+# Hiring
+button h "_雇佣"
+button d "_解雇"
