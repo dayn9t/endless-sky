@@ -188,7 +188,7 @@ outfitter "Avgi Dissonance Smuggling"
 	"Heatsink Partition"
 	"Concealment Lamina"
 	"Diffuse Deflector"
-	`Z-333 "Spark" Fusion Torch`
+	`Z-333 "火花" 聚变火炬`
 	`Z-666 "电击" 聚变火炬`
 	"Inductive Extractor"
 	"Remass Injector"

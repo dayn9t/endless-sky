@@ -141,7 +141,7 @@ mission "To Remembrance Day celebration [2]"
 
 overwrite
 mission "To Remembrance Day celebration [3]"
-	name `Remembrance Day celebration`
+	name `纪念日庆典`
 	job
 	repeat
 	description `请于<date>前将<fare>运送至<destination>，以参加2月19日的纪念日庆典。报酬为<payment>。`

@@ -143,9 +143,9 @@ outfitter "Hai Advanced"
 	"Fuel Pod"
 	"Hai Corundum Regenerator"
 	"Hai Diamond Regenerator"
-	`"Basrem" Reverse Thruster`
-	`"Basrem" Atomic Thruster`
-	`"Basrem" Atomic Steering`
+	`“巴瑟姆”反向推进器`
+	`“巴瑟姆”原子推进器`
+	`“巴瑟姆”原子转向推进器`
 	`"本加"反向推进器`
 	`"本加"原子推进器`
 	`"本加"原子转向引擎`

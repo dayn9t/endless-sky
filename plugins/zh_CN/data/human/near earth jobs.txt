@@ -34,7 +34,7 @@ mission "Historical field trip to <planet>"
 
 
 overwrite
-mission "To Earth Day celebration [0]"
+mission "To 地球日庆典 [0]"
 	name `地球日庆典`
 	job
 	repeat

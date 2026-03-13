@@ -574,7 +574,7 @@ mission "Paradise Job: Pirate Retirees (Illegal)"
 
 overwrite
 mission "Paradise Job: Pirate Retirees (Legal)"
-	name "Wealthy retirees to <planet>"
+	name "富裕的退休人员前往<planet>"
 	job
 	repeat
 	description `这群< bunks >位富有的“退休人士”愿意支付< payment >，以换取时尚、无需盘问的运输服务，前往< destination >，同时运送他们最珍视的< tons >吨财物。`
@@ -1467,7 +1467,7 @@ mission "Martini Relief (People) [1]"
 
 overwrite
 mission "Martini Relief (People) [2]"
-	name "Relief workers to Martini"
+	name "前往马提尼的救援人员"
 	description "由于马蒂尼星近期遭受核打击，请将<bunks> <martini relief occupations>运抵<planet>，以支援灾民安置与重建工作。你需呼叫太空港管制员以获取行星着陆许可。报酬为<payment>。"
 	job
 	repeat

@@ -244,7 +244,7 @@ mission "辛迪加靶场训练 [0]"
 
 
 overwrite
-mission "Syndicate target practice [1]"
+mission "辛迪加靶场训练 [1]"
 	name "Syndicate target practice"
 	job
 	repeat
@@ -322,7 +322,7 @@ mission "Syndicate target practice [3]"
 	name "Syndicate target practice"
 	job
 	repeat
-	description "Disable the robotic target dummy ship in <system>, collect test data for Syndicate engineers by scanning its cargo, and land on <planet>. Warning: the target ship is programmed to engage in self-defense behaviors to ensure a realistic simulation. Payment is <payment>."
+	description "在<system>中瘫痪机器人靶船，通过扫描其货物为辛迪加工程师收集测试数据，并降落在<planet>。警告：该靶船已编程启用自卫行为，以确保模拟的真实性。报酬为<payment>。"
 	source
 		government Syndicate
 	destination

@@ -192,7 +192,7 @@ outfit "X4700 Ion Thruster"
 		"frame rate" 0.9
 	"flare sound" "ion large"
 	description "X4700离子推进器诞生于共和国海军开始建造超大型战舰之时，彼时X3700已无法满足其推进需求。该推进器可使主力舰也具备可观的航行速度。"
-	description "	Ion engines consume less energy than plasma engines and produce less heat, but they also take up more space for the same amount of thrust."
+	description "	离子引擎比等离子引擎消耗更少的能量且产热更低，但相同推力下所占空间更大。"
 
 outfit "X5700 Ion Thruster"
 	category "Engines"
@@ -394,7 +394,7 @@ outfit "Orca Plasma Thruster"
 		"frame rate" 8
 	"flare sound" "plasma large"
 	description "该引擎耗电量极大，除非飞船配备完整的核反应堆，否则几乎无法驱动；但其产生的推力极为惊人。"
-	description "	Plasma engines are a bit more powerful than ion engines of the same size, but they are less energy efficient and produce more heat."
+	description "	等离子引擎比同尺寸的离子引擎略强，但能源效率更低，且产热更多。"
 
 outfit "Tyrant Plasma Thruster"
 	category "Engines"

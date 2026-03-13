@@ -64,7 +64,7 @@ overwrite
 mission "Coalition: Ringworld Workers 3"
 	job
 	repeat
-	name "Workers to the <planet>"
+	name "工人前往<planet>"
 	description "将这支由<bunks>名工人组成的队伍运送至赫利阿克<planet>，他们将在环形世界的维护与扩建工作中提供协助。报酬为<payment>。"
 	passengers 5 3 .04
 	to offer
@@ -136,7 +136,7 @@ overwrite
 mission "Coalition: Ringworld Volunteers 3"
 	job
 	repeat
-	name "Volunteers to the <planet>"
+	name "前往<planet>担任志愿者"
 	description "政府将支付您<payment>，以将这些<bunks>名志愿者工人运送至<planet>。他们将在当地协助建设工作，以此换取食宿。"
 	passengers 5 4 .2
 	to offer
@@ -210,7 +210,7 @@ overwrite
 mission "Coalition: Ringworld Materials 3"
 	job
 	repeat
-	name "Materials to the <planet>"
+	name "运往<planet>的物资"
 	description "于<date>前将这些<tons>吨建筑材料运送至赫利阿克<planet>。报酬为<payment>。"
 	deadline
 	cargo "Construction" 10 5 .02
@@ -283,7 +283,7 @@ overwrite
 mission "Coalition: Ringworld Supplies 3"
 	job
 	repeat
-	name "Supplies to the <planet>"
+	name "运往<planet>的补给"
 	description "这批共计<tons>吨的物资，是由<origin>政府捐赠，用于支援赫利阿克<planet>。货物送达后，您将获得<payment>报酬。"
 	cargo random 5 10 .1
 	to offer
@@ -379,7 +379,7 @@ overwrite
 mission "Coalition: Interpreters 3"
 	job
 	repeat
-	name "Interpreters to <planet>"
+	name "前往<planet>的翻译人员"
 	description "将这<bunks>名赫利阿克特特工（受过翻译与调解训练）送往<destination>。报酬为<payment>。"
 	passengers 2 10 .5
 	to offer
@@ -524,7 +524,7 @@ mission "Coalition: Kimek Interspecies 2"
 	job
 	repeat
 	name "Kimek to <planet>"
-	description "As part of the Interspecies Exchange Program, these <bunks> volunteer settlers need transportation to <destination>. The government will pay their transport fee of <payment>."
+	description "作为跨物种交流计划的一部分，这些<bunks>志愿移民需要被运送至<destination>。政府将支付其运输费用<payment>。"
 	passengers 4 4 .1
 	to offer
 		has "known to the heliarchs"
@@ -643,7 +643,7 @@ overwrite
 mission "Coalition: Transfer 3"
 	job
 	repeat
-	name "Transfer to <planet>"
+	name "运送至<planet>"
 	description "作为充分就业计划的一部分，这些<bunks>工人需被运送至<destination>。政府将支付其运输费用<payment>。"
 	passengers 2 10 .1
 	to offer
@@ -889,7 +889,7 @@ overwrite
 mission "Coalition: Fast Courier 3"
 	job
 	repeat
-	name "Fast courier to <planet>"
+	name "快速信使任务：前往<planet>"
 	description "于<date>前将<cargo>运送至<destination>。报酬为<payment>。"
 	deadline 5 1
 	cargo random 2 40 .6
@@ -1153,7 +1153,7 @@ overwrite
 mission "Coalition: Rush 3"
 	job
 	repeat
-	name "Rush Delivery to <planet>"
+	name "向 <planet> 紧急投送"
 	description "<destination>需要在<date>前运送一批< cargo>。报酬为< payment>。"
 	deadline
 	cargo random 10 18 .2
@@ -1306,7 +1306,7 @@ overwrite
 mission "Coalition: To Games 3"
 	job
 	repeat
-	name "Spectators to <planet>"
+	name "前往<planet>的观众"
 	description "这< bunks >名乘客愿支付< payment >，以在联盟运动会（截止日期为< date >）前抵达< planet >。"
 	deadline 0 2
 	passengers 4 4 .05
@@ -1379,7 +1379,7 @@ overwrite
 mission "Coalition: From Games 3"
 	job
 	repeat
-	name "Passengers to <planet>"
+	name "前往<planet>的乘客"
 	description "将原在<origin>参加联盟运动会的<bunks>名乘客送回其母星<destination>。报酬为<payment>。"
 	passengers 4 4 .05
 	to offer
@@ -1665,7 +1665,7 @@ mission "Lunarium: 末日核心运送"
 	to offer
 		random < 4
 		has "Lunarium: Smuggling: Reactors: done"
-		not "Lunarium: Armageddon Core Delivery: active"
+		not "Lunarium: 末日核心运送: active"
 		not "Heliarch Investigation 2: active"
 		not "joined the heliarchs"
 	to fail
@@ -1693,7 +1693,7 @@ mission "Lunarium: 聚变反应堆运输任务"
 	to offer
 		random < 7
 		has "Lunarium: Smuggling: Reactors: done"
-		not "Lunarium: Fusion Reactor Delivery: active"
+		not "Lunarium: 聚变反应堆运送任务: active"
 		not "Heliarch Investigation 2: active"
 		not "joined the heliarchs"
 	to fail
@@ -1721,7 +1721,7 @@ mission "Lunarium: 繁殖反应堆运送任务"
 	to offer
 		random < 10
 		has "Lunarium: Smuggling: Reactors: done"
-		not "Lunarium: Breeder Reactor Delivery: active"
+		not "Lunarium: 繁殖反应堆运送任务: active"
 		not "Heliarch Investigation 2: active"
 		not "joined the heliarchs"
 	to fail
@@ -1828,7 +1828,7 @@ mission "Lunarium: 火焰喷射器投送任务"
 	to offer
 		random < 8
 		has "Lunarium: Smuggling: Heat: done"
-		not "Lunarium: Flamethrower Delivery: active"
+		not "Lunarium: 火焰喷射器运送任务: active"
 		not "Heliarch Investigation 2: active"
 		not "joined the heliarchs"
 	to fail
@@ -1878,7 +1878,7 @@ mission "Lunarium: 反导弹系统运送"
 	to offer
 		random < 10
 		has "Lunarium: Smuggling: AM: done"
-		not "Lunarium: Anti-Missile Delivery: active"
+		not "Lunarium: 反导弹系统运送: active"
 		not "Heliarch Investigation 2: active"
 		not "joined the heliarchs"
 	to fail

@@ -80,7 +80,7 @@ mission "Frontier delivery [1]"
 
 overwrite
 mission "Frontier delivery [2]"
-	name "Frontier delivery to <planet>"
+	name "边境货运至<planet>"
 	job
 	repeat
 	description `将 <cargo> 交付给边境世界 <destination>。边境星系海盗活动频繁，务必做好自卫准备。报酬为 <payment>。`
@@ -156,7 +156,7 @@ mission "Frontier Emigration [1]"
 
 overwrite
 mission "Frontier Emigration [2]"
-	name "Emigration to <planet>"
+	name "移居<planet>"
 	job
 	repeat
 	description "这<bunks>名乘客终于攒够了钱，准备在<destination>开启新生活，并愿意向你支付<payment>作为运输费用。"

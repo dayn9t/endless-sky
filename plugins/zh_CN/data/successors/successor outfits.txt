@@ -589,7 +589,7 @@ outfit "Multimodal Armor: Keystone"
 	"scan interference" 3
 	"multimodal armor" -1
 	"unplunderable" 1
-	description "The metamaterial armor of Successor warships can be altered in an appropriately equipped spaceport to change its attributes."
+	description "继承者战舰所采用的超材料装甲，可在配备相应设施的太空港中调整其属性。"
 	description "	该配置使装备它的飞船能够安全穿越不稳定的虫洞。作为附带效果，它还会显著干扰外部对飞船货物或装备的扫描。"
 
 

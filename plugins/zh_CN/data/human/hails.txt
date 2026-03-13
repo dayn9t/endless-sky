@@ -6154,7 +6154,7 @@ phrase "hostile navy"
 		"harmony"
 		"security"
 		"hope"
-		"peace among the stars"
+		“群星之间的和平”
 	word
 		". We regret that"
 		". It is unfortunate that"

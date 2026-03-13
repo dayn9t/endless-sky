@@ -542,7 +542,7 @@ mission "Remnant: Rescue 2B"
 			`你降落并怀着沉重的心情报告：<npc>已全员遇难。残余者听闻消息后深感悲痛，但仍向你致谢，并交付了价值<payment>的资源配额。`
 	on visit
 		dialog
-			`You have returned, yet the <npc> is still missing.`
+			`你已返回，但<npc>依然下落不明。`
 
 
 

@@ -120,7 +120,7 @@ overwrite
 mission "Avgi: Bulk Cargo 3 (Generic)"
 	job
 	repeat
-	name "Bulk cargo to <planet>"
+	name "大宗货物运往<planet>"
 	description "Deliver <cargo> to <destination>. Payment is <payment>."
 	source
 		attributes "avgi diaspora"
@@ -335,7 +335,7 @@ mission "Avgi: Rush Cargo 1 (Avgi Cargo)"
 	repeat
 	deadline
 	name "Rush delivery to <planet>"
-	description "<destination> urgently needs a shipment of <cargo> by <date>. Payment is <payment>."
+	description "<destination>急需在<date>前运送一批< cargo>。报酬为< payment>。"
 	source
 		attributes "avgi diaspora"
 	destination
@@ -685,7 +685,7 @@ overwrite
 mission "Avgi: Outpost Diplomats 3"
 	job
 	repeat
-	name "Diplomats to <planet>"
+	name "外交使团前往<planet>"
 	description "将这些<bunks>外交官送往<destination>，安抚不满的阿维吉人，报酬为<payment>。"
 	source "Peripheria"
 	destination
@@ -823,7 +823,7 @@ overwrite
 mission "Avgi: Cylinder Materials 3"
 	job
 	repeat
-	name "Construction materials to the <planet>"
+	name "向<planet>运送建筑材料"
 	description "将< cargo >从<origin>运送到<destination>，以支持<destination>的建设，换取<payment>。"
 	source
 		distance 1 30
@@ -845,7 +845,7 @@ mission "Avgi: Bulk Cylinder Materials 1"
 	job
 	repeat
 	name "大宗物资运往<planet>"
-	description "Bring <cargo> from <origin> to the <destination> to support the construction of the <destination> in exchange for <payment>."
+	description "将<cargo>从<origin>运送到<destination>，以支持<destination>的建设，作为交换，你将获得<payment>。"
 	source
 		distance 1 30
 		attributes "avgi diaspora"
@@ -886,7 +886,7 @@ overwrite
 mission "Avgi: Bulk Cylinder Materials 3"
 	job
 	repeat
-	name "Bulk materials to the <planet>"
+	name "大宗物资运往<planet>"
 	description "Bring <cargo> from <origin> to the <destination> to support the construction of the <destination> in exchange for <payment>."
 	source
 		distance 1 30
@@ -987,7 +987,7 @@ overwrite
 mission "Avgi: Special Nuclear Material Shipment 3"
 	job
 	repeat
-	name "Special nuclear materials to <planet>"
+	name "运往<planet>的特殊核材料"
 	description "在<date>前将< cargo>运送至<destination>，换取<payment>。请警惕海盗——他们正企图窃取这些核材料，以达成不可告人的目的。"
 	source
 		government "Avgi (Twilight Guard)"
@@ -1217,7 +1217,7 @@ overwrite
 mission "Avgi: Twilight Guard Relief 3"
 	job
 	repeat
-	name "Shore leave on <planet>"
+	name "在<planet>休整补给"
 	description "将这些<bunks>名暮光守卫送往<destination>，使其从前线轮值任务中休整恢复，换取<payment>。"
 	source "Feo Platform"
 	destination

@@ -337,7 +337,7 @@ outfit "Afterburner (Stellar Class)"
 	"cooling energy" 0.4
 	"heat capacity" 150
 	description "科拉斯最大的后燃器集成了主动冷却系统，其动力源自燃料等离子体爆炸，用以防止反应室因过热而熔毁。"
-	description "	Korath afterburners pump super-heated hyperspace fuel directly into a thruster's plasma stream, resulting in a phenomenal explosion that nearly melts the thruster."
+	description "	科拉斯后燃器将超高温的超空间燃料直接泵入推进器的等离子流中，从而引发一场近乎熔毁推进器的惊人爆炸。"
 
 effect "korath afterburner tiny"
 	sprite "effect/korath afterburner"
@@ -536,7 +536,7 @@ outfit "Reverser (Planetary Class)"
 		"frame rate" 6.5
 	"reverse flare sound" "plasma large"
 	description "该倒车引擎本质上只是行星级引擎的略微改进版，能为任何可安装它的飞船提供巨大的反向推力。"
-	description "	This Korath engine has been modified to be partially installed in a ship's weapon space, allowing it to push the ship in reverse."
+	description "	这款科拉斯引擎经过改装，可部分安装于飞船的武器位，使飞船获得倒车推进能力。"
 
 outfit "Reverser (Stellar Class)"
 	plural "Reversers (Stellar Class)"

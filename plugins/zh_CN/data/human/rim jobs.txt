@@ -212,10 +212,10 @@ mission "Han Sizer Month [2]"
 
 overwrite
 mission "Han Sizer Month [3]"
-	name `Han Sizer celebration`
+	name `韩·赛泽尔庆典`
 	job
 	repeat
-	description `In celebration of Han Sizer month, bring <fare> to all the marked systems and return to <destination> for <payment>.`
+	description `为庆祝汉·赛泽月，请将<fare>运送到所有标出的星系，并返回<destination>领取<payment>。`
 	passengers 25 4 .1
 	substitutions
 		"<on Longjump>" "near here"

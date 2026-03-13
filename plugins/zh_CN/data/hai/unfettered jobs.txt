@@ -76,7 +76,7 @@ mission "Unfettered Tribute 2"
 
 overwrite
 mission "Unfettered Tribute 3"
-	name "Hai Tribute from <planet stopovers>"
+	name "来自<planet stopovers>的海伊贡品"
 	job
 	repeat
 	clearance "After speaking with the Unfettered and explaining your presence, they give you permission to land with the tribute from the other Hai."

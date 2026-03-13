@@ -117,7 +117,7 @@ outfit "Large Graviton Thruster"
 		"frame rate" 5
 		"scale" 1.25
 	description "这套大型夸格推进器既强劲又隐蔽，不会留下明亮的尾迹，除微弱的紫光外也不释放任何可探测到的辐射。然而，这些引擎消耗的能量却极为惊人，足以驱动整座空间站。"
-	description "	They also have strange capabilities which seem to violate the laws of physics as humanity understands them. Ships with these engines accelerate faster under their own power than one would expect, while also taking less impact from external forces."
+	description "	它们还具备一些奇特能力，似乎违背了人类所认知的物理定律：搭载此类引擎的飞船依靠自身动力加速时远超预期，同时对外部作用力的承受冲击也显著降低。"
 
 
 outfit "Large Graviton Steering"

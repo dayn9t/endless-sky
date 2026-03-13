@@ -546,7 +546,7 @@ mission "Successors: Large Delivery Out 2"
 	job
 	repeat
 	name "大宗货物运往<planet>"
-	description "A courier is needed for <tons> of supplies from <origin> to <planet>. You will be paid <payment> on delivery."
+	description "需要一名信使，将<tons>吨补给品从<origin>运往<planet>。货到后支付<payment>。"
 	cargo random 50 70 .2
 	to offer
 		has "known to the successors"
@@ -747,7 +747,7 @@ overwrite
 mission "Successors: Home Researchers Out 1"
 	job
 	repeat
-	name "Researchers to <planet stopovers>"
+	name "前往<planet stopovers>的科研人员"
 	description "这些<bunks>正在研究<stopovers>的研究人员，愿向你支付<payment>，以运送他们前往当地开展研究，并在完成后将他们送返家园。"
 	passengers 2 5 .5
 	to offer

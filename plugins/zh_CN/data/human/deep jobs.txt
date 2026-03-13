@@ -132,7 +132,7 @@ overwrite
 mission "Mystery Cube Delivery Job [0]"
 	job
 	repeat
-	name "Mystery delivery to <planet>"
+	name "神秘货物运送至<planet>"
 	description "将一份包裹运送至<destination>。报酬为<payment>。"
 	source
 		attributes "deep"
@@ -166,7 +166,7 @@ mission "Mystery Cube Delivery Job [1]"
 	job
 	repeat
 	name "Mystery delivery to <planet>"
-	description "Deliver a package to <destination>. Payment is <payment>."
+	description "将一份包裹递送至<destination>。报酬为<payment>。"
 	source
 		attributes "deep"
 	destination
@@ -560,7 +560,7 @@ overwrite
 mission "Secure Transport Job (Secret) [2]"
 	job
 	repeat
-	name "Secure delivery to <planet>"
+	name "安全运送货物至<planet>"
 	description "将一份安全物资包裹运送至<destination>。报酬为<payment>。"
 	source
 		attributes "deep"
@@ -595,7 +595,7 @@ mission "Secure Transport Job (Secret) [3]"
 	job
 	repeat
 	name "Secure delivery to <planet>"
-	description "Deliver a secure package of supplies to <destination>. Payment is <payment>."
+	description "将一批安全封装的补给品运送至<destination>。报酬为<payment>。"
 	source
 		attributes "deep"
 		not attributes "station"
@@ -905,7 +905,7 @@ mission "Deep Consultants"
 			`	朱莉偷偷瞄了一眼附近的其他人。“嗯，我其实有几位雇主，但目前——间接地——是为深空安全部工作。”`
 			`	她微微前倾，压低了声音：“我们能接触到他们那份可信赖飞行员的紧急联络名单。报酬相当优厚。”`
 			choice
-				`	"Sure, I'd be glad to help."`
+				`	“当然，我很乐意帮忙。”`
 					goto sure
 				`	“抱歉，我现在实在帮不上忙。”`
 					decline
