@@ -581,7 +581,7 @@ mission "Remnant: Rescue 3"
 			`你的通讯器提示你已收到一笔资源分配，数额为<payment>，同时还有< npc >舰长发来的感谢。`
 	on visit
 		dialog
-			`You have returned, yet the <npc> is still missing.`
+			`你已返回，但<npc>依然下落不明。`
 
 
 

@@ -36,7 +36,7 @@ mission "Drought Relief"
 
 
 overwrite
-mission "To Remembrance Day celebration [0]"
+mission "To 纪念日庆典 [0]"
 	name `纪念日庆典`
 	job
 	repeat

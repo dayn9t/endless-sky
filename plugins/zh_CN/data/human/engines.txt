@@ -210,7 +210,7 @@ outfit "X5700 Ion Thruster"
 		"frame rate" 0.8
 	"flare sound" "ion huge"
 	description "X5700 推进器专为最大型的主力舰设计。辛迪加最初开始量产该推进器时，人们普遍认为它不过是一场宣传噱头——因为当时没有任何飞船大到足以搭载它。"
-	description "	Ion engines consume less energy than plasma engines and produce less heat, but they also take up more space for the same amount of thrust."
+	description "	离子引擎比等离子引擎消耗更少的能量且产热更低，但相同推力下所占空间更大。"
 
 
 outfit "X1200 Ion Steering"
@@ -412,7 +412,7 @@ outfit "Tyrant Plasma Thruster"
 		"frame rate" 9
 	"flare sound" "plasma huge"
 	description "这款推进器所售的巨大货箱上，印着一只咧嘴大笑的霸王龙图案，其牙齿数量多得令人难以置信。仅有极少数飞船体型庞大到需要如此尺寸的引擎……或具备安装这种引擎的承载能力。"
-	description "	Plasma engines are a bit more powerful than ion engines of the same size, but they are less energy efficient and produce more heat."
+	description "	等离子引擎比同尺寸的离子引擎功率略高，但能源效率更低，且发热量更大。"
 
 
 outfit "Chipmunk Plasma Steering"

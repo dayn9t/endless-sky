@@ -271,7 +271,7 @@ overwrite
 mission "Avgi: Bulk Cargo 1 (Avgi Cargo)"
 	job
 	repeat
-	name "Bulk cargo to <planet>"
+	name "大宗货物运往<planet>"
 	description "Deliver <cargo> to <destination>. Payment is <payment>."
 	source
 		attributes "avgi diaspora"
@@ -357,7 +357,7 @@ mission "Avgi: Rush Cargo 2 (Avgi Cargo)"
 	repeat
 	deadline
 	name "Rush delivery to <planet>"
-	description "<destination> urgently needs a shipment of <cargo> by <date>. Payment is <payment>."
+	description "<destination>急需在<date>前运送一批< cargo>。报酬为< payment>。"
 	source
 		attributes "avgi diaspora"
 	destination
@@ -866,7 +866,7 @@ mission "Avgi: Bulk Cylinder Materials 2"
 	job
 	repeat
 	name "大宗物资运往<planet>"
-	description "Bring <cargo> from <origin> to the <destination> to support the construction of the <destination> in exchange for <payment>."
+	description "将< cargo >从<origin>运送到<destination>，以支持<destination>的建设，作为交换，你将获得<payment>。"
 	source
 		distance 1 30
 		attributes "avgi diaspora"

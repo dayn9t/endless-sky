@@ -135,7 +135,7 @@ outfit "Large Graviton Steering"
 	"force protection" 0.2
 	"inertia reduction" 0.2
 	description "夸格飞船以转向迅捷精准而闻名，仿佛由神明之手引导，而非依赖人类飞船那闪烁不定的姿态控制推进器喷流。据某些关于其运作原理的推测，这种说法或许比人们想象的更接近真相。"
-	description "	They also have strange capabilities which seem to violate the laws of physics as humanity understands them. Ships with these engines accelerate faster under their own power than one would expect, while also taking less impact from external forces."
+	description "	它们还具备一些奇特能力，似乎违背了人类所理解的物理定律：装备此类引擎的飞船依靠自身动力加速时比预期更快，同时受外部作用力影响也更小。"
 
 # Power
 

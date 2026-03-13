@@ -165,7 +165,7 @@ overwrite
 mission "Mystery Cube Delivery Job [1]"
 	job
 	repeat
-	name "Mystery delivery to <planet>"
+	name "神秘货物运送至<planet>"
 	description "将一份包裹递送至<destination>。报酬为<payment>。"
 	source
 		attributes "deep"
@@ -199,7 +199,7 @@ mission "Mystery Cube Delivery Job [2]"
 	job
 	repeat
 	name "Mystery delivery to <planet>"
-	description "Deliver a package to <destination>. Payment is <payment>."
+	description "将一份包裹运送至<destination>。报酬为<payment>。"
 	source
 		attributes "deep"
 	destination
@@ -594,7 +594,7 @@ overwrite
 mission "Secure Transport Job (Secret) [3]"
 	job
 	repeat
-	name "Secure delivery to <planet>"
+	name "安全运送货物至<planet>"
 	description "将一批安全封装的补给品运送至<destination>。报酬为<payment>。"
 	source
 		attributes "deep"
@@ -629,7 +629,7 @@ mission "Secure Transport Job (Secret) [4]"
 	job
 	repeat
 	name "Secure delivery to <planet>"
-	description "Deliver a secure package of supplies to <destination>. Payment is <payment>."
+	description "将一批安全封装的补给品运送至<destination>。报酬为<payment>。"
 	source
 		attributes "deep"
 		not attributes "station"

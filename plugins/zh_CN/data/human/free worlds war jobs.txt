@@ -527,7 +527,7 @@ mission "FW Bulk Outfitter Resupply [2]"
 	job
 	repeat
 	name `Resupply <planet>`
-	description `The outfitter on <planet> is running low on supplies and needs to be restocked immediately. Deliver <tons> of disassembled <commodity> to <destination> by <date>. Payment is <payment>.`
+	description `位于<planet>的装备店物资告罄，急需立即补货。请于<date>前将<tons>吨拆解后的<commodity>运送至<destination>。报酬为<payment>。`
 	deadline 2 1
 	cargo "Free Worlds Outfits" 25 2 .05
 	to offer
@@ -672,7 +672,7 @@ mission "FW Bulk Frontline Resupply [0]"
 	job
 	repeat
 	name `Resupply <planet>`
-	description `The frontlines of the war are in need of a resupply. Immediately deliver <cargo> to <destination> by <date>. Payment is <payment>.`
+	description `战线急需补给。请于<date>前立即将<cargo>运送至<destination>。报酬为<payment>。`
 	deadline 2 1
 	cargo "Food" 25 2 .95
 	to offer

@@ -779,7 +779,7 @@ mission "Escort to Human Space (Large)"
 
 overwrite
 mission "Escort to Human Space (Extra Large)"
-	name "Special Escort to <planet>"
+	name "前往<planet>的特殊护航任务"
 	description "《npc》的船长将支付你<payment>，以换取你护送其抵达人类空间的<destination>，截止日期为<date>。"
 	repeat
 	job
@@ -1129,7 +1129,7 @@ mission "Hai Cargo [1]"
 
 overwrite
 mission "Hai Cargo [2]"
-	name "Delivery to <planet>"
+	name "运送到<planet>"
 	job
 	repeat
 	description "将 <cargo> 交付至 <destination>。报酬为 <payment>。"
@@ -1185,7 +1185,7 @@ mission "Hai Cargo [4]"
 	name "Delivery to <planet>"
 	job
 	repeat
-	description "Deliver <cargo> to <destination>. Payment is <payment>."
+	description "将< cargo >运送至< destination >。报酬为< payment >。"
 	cargo random 8 4 .1
 	to offer
 		random < 40
@@ -1443,7 +1443,7 @@ mission "Hai Rush Delivery [2]"
 
 overwrite
 mission "Hai Rush Delivery [3]"
-	name "Rush delivery to <planet>"
+	name "紧急送货至<planet>"
 	job
 	repeat
 	deadline
@@ -1471,7 +1471,7 @@ mission "Hai Large Rush Delivery [0]"
 	job
 	repeat
 	deadline
-	description "Deliver <cargo> to <destination> by <date>. Payment is <payment>."
+	description "在<date>前将< cargo>运送至<destination>。报酬为< payment>。"
 	cargo random 30 8 .1
 	to offer
 		random < 80
@@ -1540,7 +1540,7 @@ mission "Hai Large Rush Delivery [2]"
 
 overwrite
 mission "Hai Large Rush Delivery [3]"
-	name "Large rush delivery to <planet>"
+	name "向<planet>紧急运送大批量货物"
 	job
 	repeat
 	deadline
@@ -1902,7 +1902,7 @@ mission "Superstitious Hai [3]"
 
 overwrite
 mission "Superstitious Hai [4]"
-	name "Superstitious Hai to <planet>"
+	name "迷信的海伊人致<planet>"
 	job
 	repeat
 	description "这群<bunks>农场工人愿支付<payment>，搭乘配备基石装置的飞船，于<date>前抵达<destination>。 They have requested that their ship have an authentic Hai keystone installed."

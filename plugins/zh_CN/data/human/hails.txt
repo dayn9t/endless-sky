@@ -6377,7 +6377,7 @@ phrase "friendly deep"
 		"scientific progress"
 		"social cohesion"
 		"peace, prosperity, and progress"
-		"peace among the stars"
+		“群星之间的和平”
 		"freedoms"
 	word
 		"."

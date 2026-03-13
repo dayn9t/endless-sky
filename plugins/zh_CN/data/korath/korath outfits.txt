@@ -556,7 +556,7 @@ outfit "Reverser (Stellar Class)"
 		"frame rate" 6
 	"reverse flare sound" "plasma huge"
 	description "以科拉斯最大的引擎为蓝本设计，“恒星级”反向推进器提供的反向推力远超你所见过的任何同类装置。"
-	description "	This Korath engine has been modified to be partially installed in a ship's weapon space, allowing it to push the ship in reverse."
+	description "	这款科拉斯引擎经过改装，可部分安装于飞船的武器位，使飞船具备倒退推进能力。"
 
 
 outfit "Thruster (Asteroid Class)"
