@@ -366,10 +366,10 @@ phrase "remnant uncontacted"
 	word
 		"(They send you a hail consisting of a sign language you don't understand.)"
 		"(You hear a short song about how scanning them will be considered a hostile action.)"
-		`"If you value the continued survival of humanity, do not scan our ships," a strangely melodic voice says.`
-		`"If you value your continued survival, do not scan our ships." The voice speaks with a tone reminiscent of singing.`
-		`"We value our privacy, and will respond to scanning with deadly force." The voice is strangely melodic.`
-		`"Do not scan our ships," someone sings to you.`
+		`"若您珍视人类的持续存续，请勿扫描我方飞船。"一个音调奇异而优美的声音说道。`
+		`"若您珍视自身的持续存续，请勿扫描我方飞船。"那声音以类似歌唱的语调说道。`
+		`"我们重视隐私，对扫描行为将以致命武力回应。"那声音出奇地富有旋律感。`
+		`“请勿扫描我们的飞船。”有人对你唱道。`
 
 overwrite
 phrase "remnant uncontacted"

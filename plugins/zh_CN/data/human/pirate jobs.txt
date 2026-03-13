@@ -18,7 +18,7 @@ color "illegal job: unavailable" .625 .125 .125 0.
 
 overwrite
 mission "Cargo Smuggling [0]"
-	name "Smuggling to <planet>"
+	name "向<planet>走私"
 	color selected "illegal job: selected"
 	color unselected "illegal job: unselected"
 	color unavailable "illegal job: unavailable"
@@ -59,9 +59,9 @@ mission "Cargo Smuggling [1]"
 	job
 	repeat
 	infiltrating
-	description "Smuggle <cargo> to <destination> without being scanned or caught by planetary law enforcement. Payment is <payment>."
+	description "将 <cargo> 悄悄运送到 <destination>，途中不得被扫描或被行星执法部门抓获。报酬为 <payment>。"
 	cargo "Illegal Cargo" 5 2 .1
-	illegal 50000 `In addition to the fine, your illegal cargo is confiscated. The pirates won't be happy to hear about this.`
+	illegal 50000 `除罚款外，你所运载的违禁货物也将被没收。海盗们听到此事后恐怕不会高兴。`
 	stealth
 	to offer
 		random < 90
@@ -159,7 +159,7 @@ mission "Cargo Smuggling [3]"
 
 overwrite
 mission "Drug Running [0]"
-	name "Drug run to <planet>"
+	name "向<planet>运送毒品"
 	color selected "illegal job: selected"
 	color unselected "illegal job: unselected"
 	color unavailable "illegal job: unavailable"
@@ -235,7 +235,7 @@ mission "Drug Running [2]"
 	job
 	repeat
 	infiltrating
-	description "Run <cargo> to <destination> without being scanned or caught by planetary law enforcement. Payment is <payment>."
+	description "将< cargo >运送到<destination>，途中不得被行星执法机构扫描或截获。报酬为<payment>。"
 	cargo "Illegal Substances" 5 2 .1
 	illegal 110000 `In addition to the fine, your illegal cargo is confiscated. The pirates won't be happy to hear about this.`
 	stealth
@@ -300,7 +300,7 @@ mission "Drug Running [3]"
 
 overwrite
 mission "Bulk Cargo Smuggling [0]"
-	name "Bulk smuggling to <planet>"
+	name "向<planet>大规模走私货物"
 	color selected "illegal job: selected"
 	color unselected "illegal job: unselected"
 	color unavailable "illegal job: unavailable"
@@ -407,7 +407,7 @@ mission "Bulk Cargo Smuggling [2]"
 
 overwrite
 mission "Bulk Drug Running [0]"
-	name "Bulk drug run to <planet>"
+	name "大宗毒品运输至<planet>"
 	color selected "illegal job: selected"
 	color unselected "illegal job: unselected"
 	color unavailable "illegal job: unavailable"
@@ -514,7 +514,7 @@ mission "Bulk Drug Running [2]"
 
 overwrite
 mission "Stealth Cargo Smuggling (North) [0]"
-	name "Highly illegal cargo to <planet>"
+	name "运往<planet>的高度违禁货物"
 	color selected "illegal job: selected"
 	color unselected "illegal job: unselected"
 	color unavailable "illegal job: unavailable"
@@ -584,7 +584,7 @@ mission "Stealth Cargo Smuggling (North) [1]"
 	job
 	repeat
 	infiltrating
-	description "Run <cargo> to <destination>. If you are scanned or caught by planetary law enforcement, the consequences may be severe. Payment is <payment>."
+	description "将 <cargo> 运送至 <destination>。若被行星执法部门扫描或截获，后果可能十分严重。报酬为 <payment>。"
 	cargo "Highly Illegal Cargo" 5 2 .1
 	illegal 350000 `In addition to the fine, your illegal cargo is confiscated. The pirates won't be happy to hear about this.`
 	stealth
@@ -967,7 +967,7 @@ mission "Stealth Cargo Smuggling (South) [1]"
 
 overwrite
 mission "Stealth Drug Running (North) [0]"
-	name "Highly illegal drugs to <planet>"
+	name "运往<planet>的高度违禁药品"
 	color selected "illegal job: selected"
 	color unselected "illegal job: unselected"
 	color unavailable "illegal job: unavailable"
@@ -1420,7 +1420,7 @@ mission "Stealth Drug Running (South) [1]"
 
 overwrite
 mission "Wanted Passenger [0]"
-	name "Wanted individual to <planet>"
+	name "通缉人员，目标地点为<planet>"
 	color selected "illegal job: selected"
 	color unselected "illegal job: unselected"
 	color unavailable "illegal job: unavailable"
@@ -1455,7 +1455,7 @@ mission "Wanted Passenger [0]"
 
 overwrite
 mission "Wanted Passengers [1]"
-	name "Wanted individuals to <planet>"
+	name "通缉人员，目标地点为<planet>"
 	color selected "illegal job: selected"
 	color unselected "illegal job: unselected"
 	color unavailable "illegal job: unavailable"
@@ -1497,7 +1497,7 @@ mission "Wanted Passengers [2]"
 	job
 	repeat
 	infiltrating
-	description "These <bunks> wanted individuals wish to reach <destination> without being caught by local law enforcement. They also wish to bring with them <cargo>. Payment is <payment>."
+	description "这< bunks >名被通缉人员希望抵达< destination >，同时不被当地执法部门抓获。他们还希望随身携带< cargo >货物。报酬为< payment >。"
 	passengers 2 10 .9
 	cargo "customized weapons" 1
 	illegal 75000 `执法部门扫描你的飞船时，发现了你船上搭载的那些罪犯。他们登船实施拘捕，罪犯却立刻用定制武器在走廊内开火。执法人员迅速施放催泪瓦斯，罪犯几乎未作抵抗便被制服。执法人员将罪犯全部带走，并对你处以中等额度的罚款，同时你的飞船走廊里也留下了数道激光灼痕。此举无助于树立你作为可靠、不问缘由的运输船长的声誉。`
@@ -1562,7 +1562,7 @@ mission "Wanted Passengers [3]"
 
 overwrite
 mission "Highly Wanted Passenger (North)"
-	name "Galactic criminal to <planet>"
+	name "押送银河系罪犯至<planet>"
 	color selected "illegal job: selected"
 	color unselected "illegal job: unselected"
 	color unavailable "illegal job: unavailable"
@@ -1663,10 +1663,10 @@ mission "Highly Wanted Passenger (Core)"
 	job
 	repeat
 	infiltrating
-	description "This criminal is wanted by every law enforcement agency in the galaxy and needs safe transport to <destination> with their <cargo>. The payment is high at an amazing <payment>, but transporting such a person could lead to a lot of trouble."
+	description "该罪犯遭银河系内所有执法机构通缉，急需安全运送至< destination >，并携带其< cargo >。酬金高达惊人的< payment >，但运送此类人员可能招致诸多麻烦。"
 	passengers 1
 	cargo "stolen banking records" 1
-	illegal 300000 `Law enforcement rush their way onto your ship through the airlocks, suited head to toe in armor and armed to the teeth. Your passenger is quickly made to surrender and is hauled off in cuffs. The officers consider detaining you as well, but eventually decide to minimize their paperwork by only issuing a fine. This doesn't help to establish your reputation as a reliable, no-questions-asked transporter.`
+	illegal 300000 `执法人员全副武装、头盔覆面、身披重甲，迅速通过气密舱涌入你的飞船，个个武装到牙齿。你的乘客很快被迫投降，并被戴着手铐押走。军官们一度考虑将你也一并拘留，但最终为减少文书工作，仅对你处以罚款。此举无助于树立你作为可靠、绝不盘问的运输船长的声誉。`
 	stealth
 	to offer
 		random < 15
@@ -1851,7 +1851,7 @@ mission "Highly Wanted Passenger (South)"
 
 overwrite
 mission "Slave Transport [0]"
-	name "Transfer slaves to <planet>"
+	name "将奴隶转运至<planet>"
 	color selected "illegal job: selected"
 	color unselected "illegal job: unselected"
 	color unavailable "illegal job: unavailable"
@@ -1893,7 +1893,7 @@ mission "Slave Transport [1]"
 	job
 	repeat
 	infiltrating
-	description "A pirate on <planet> has bought slaves from a local warlord. Transfer these <bunks> slaves in secure cells to <destination> for <payment>. Slavery is punishable by death throughout the galaxy, so this may be a dangerous job to take."
+	description "一名海盗在<planet>从当地军阀手中购买了奴隶。请将这<bunks>名奴隶关押在安全舱室内，运送至<destination>，报酬为<payment>。在整个银河系，奴隶制均属死罪，因此这项任务可能十分危险。"
 	passengers 2 10 .9
 	illegal -1
 	to offer
@@ -2030,7 +2030,7 @@ mission "Bulk Slave Transport [1]"
 
 overwrite
 mission "Mercenary Job (Medium, North, Dangerous Origin)"
-	name "Protection to <planet>"
+	name "护航至<planet>"
 	color selected "illegal job: selected"
 	color unselected "illegal job: unselected"
 	color unavailable "illegal job: unavailable"
@@ -2087,7 +2087,7 @@ mission "Mercenary Job (Medium, North, Dangerous Origin)"
 
 overwrite
 mission "Escort Illegal Cargo (Large, North, Dangerous Path)"
-	name "Protect cargo to <planet>"
+	name "护送货物至<planet>"
 	color selected "illegal job: selected"
 	color unselected "illegal job: unselected"
 	color unavailable "illegal job: unavailable"
@@ -2140,7 +2140,7 @@ mission "Escort Illegal Cargo (Large, North, Dangerous Path)"
 
 overwrite
 mission "Escort Stolen Vessel (Extra Large, North, Dangerous Path)"
-	name "Protect ship to <planet>"
+	name "护送飞船至<planet>"
 	color selected "illegal job: selected"
 	color unselected "illegal job: unselected"
 	color unavailable "illegal job: unavailable"
@@ -2196,7 +2196,7 @@ mission "Mercenary Job (Medium, Core, Dangerous Origin)"
 	color unavailable "illegal job: unavailable"
 	job
 	repeat
-	description "The captain of the <npc> will pay you <payment> to help them escape local law enforcement and reach <destination> by <date>."
+	description "《<npc>》的船长将支付你<payment>，以协助他们摆脱当地执法力量的追捕，并于<date>前抵达<destination>。"
 	deadline 10
 	to offer
 		random < 40
@@ -2247,7 +2247,7 @@ mission "Escort Illegal Cargo (Large, Core, Dangerous Path)"
 	color unavailable "illegal job: unavailable"
 	job
 	repeat
-	description "The captain of the <npc> will pay you <payment> to escort them and their illegal cargo safely through law-enforced space to reach <destination> by <date>."
+	description "《<npc>》号飞船的船长将支付你<payment>，以护送其及非法货物安全穿越执法严格的空间，于<date>前抵达<destination>。"
 	deadline 12
 	to offer
 		random < 30
@@ -2296,7 +2296,7 @@ mission "Escort Stolen Vessel (Extra Large, Core, Dangerous Path)"
 	color unavailable "illegal job: unavailable"
 	job
 	repeat
-	description "The captain of the <npc> will pay you <payment> to escort them and their stolen vessel safely through law-enforced space to reach <destination> by <date>."
+	description "《<npc>》号飞船的船长将支付你<payment>，以护送其及被盗飞船安全穿越执法严格的空间，于<date>前抵达<destination>。"
 	deadline 12
 	to offer
 		random < 15
@@ -2573,7 +2573,7 @@ mission "Eliminating Law Enforcement (North, Large)"
 
 overwrite
 mission "Eliminating Law Enforcement (Core, Small)"
-	name "Syndicate near <system>"
+	name "靠近<system>的辛迪加势力"
 	color selected "illegal job: selected"
 	color unselected "illegal job: unselected"
 	color unavailable "illegal job: unavailable"
@@ -2636,7 +2636,7 @@ mission "Eliminating Law Enforcement (Core, Large)"
 
 overwrite
 mission "Eliminating Law Enforcement (South, Small)"
-	name "Militia near <system>"
+	name "靠近<system>的民兵"
 	color selected "illegal job: selected"
 	color unselected "illegal job: unselected"
 	color unavailable "illegal job: unavailable"
@@ -2705,7 +2705,7 @@ mission "Eliminating Law Enforcement (South, Large)"
 
 overwrite
 mission "Eliminating Competition (North, Small)"
-	name "Competition near <system>"
+	name "靠近<system>的市场竞争"
 	description "一支小型敌对帮派正在<system>星系附近制造麻烦。请将其歼灭，并于<day>前返回<planet>领取<payment>酬金。"
 	repeat
 	job
@@ -2761,7 +2761,7 @@ mission "Eliminating Competition (North, Large)"
 overwrite
 mission "Eliminating Competition (Core, Small)"
 	name "Competition near <system>"
-	description "A small rival gang is causing trouble near the <system> system. Take them out and return to <planet> by <day> for a payment of <payment>."
+	description "一支小型敌对帮派正在<system>星系附近制造麻烦。请将其清除，并于<day>前返回<planet>领取<payment>酬金。"
 	repeat
 	job
 	deadline 20
@@ -2788,7 +2788,7 @@ mission "Eliminating Competition (Core, Small)"
 overwrite
 mission "Eliminating Competition (Core, Large)"
 	name "Competition near <system>"
-	description "A large rival gang is gaining too much power. Their leader is currently near the <system> system. Take them and their escorts out and return to <planet> by <day> for a payment of <payment>."
+	description "一个大型敌对帮派正迅速崛起，其首领目前位于<system>星系附近。击毙此人及其护卫，并于<day>前返回<planet>，即可获得<payment>的报酬。"
 	repeat
 	job
 	deadline 20
@@ -2922,7 +2922,7 @@ mission "Eliminating Competition (Marauders, Medium)"
 
 overwrite
 mission "Eliminating Competition (Marauders, Large)"
-	name "Marauder Elimination"
+	name "清剿掠夺者"
 	description "《<system>》星系的海盗已对掌权的掠夺者帮派所作所为深感不满。击溃他们，并于<day>前返回<planet>，即可获得<payment>积分酬金。"
 	repeat
 	job
@@ -2950,7 +2950,7 @@ mission "Eliminating Competition (Marauders, Large)"
 
 overwrite
 mission "Raid on Merchants (North)"
-	name "Merchants near <system>"
+	name "靠近<system>的商人"
 	color selected "illegal job: selected"
 	color unselected "illegal job: unselected"
 	color unavailable "illegal job: unavailable"
@@ -3095,7 +3095,7 @@ mission "Northern Pirate Defense [Unpaid]"
 	color unavailable "illegal job: unavailable"
 	repeat
 	minor
-	description "Local Navy forces are attacking <destination>! Defeat them to defend anarchy!"
+	description "当地海军部队正在进攻<destination>！击溃他们，捍卫无政府状态！"
 	to offer
 		random < 5
 		"reputation: Pirate" >= 0
@@ -3107,7 +3107,7 @@ mission "Northern Pirate Defense [Unpaid]"
 		personality heroic staying waiting
 		fleet "Large Republic"
 		fleet "Small Republic"
-		dialog `The Navy fleets have been defeated. Return to <destination>.`
+		dialog `海军舰队已被击败。请返回<destination>。`
 	npc
 		government "Pirate"
 		personality plunders staying
@@ -3122,9 +3122,9 @@ mission "Northern Pirate Defense [Unpaid]"
 conversation "northern pirate defense"
 	`突然，你听到外面传来高声喧哗与呼喊：“我们正遭受攻击！<planet> 遭到海军袭击！我们需要所有具备作战能力的飞船立即加入防御！”这很可能让你轻易丢掉性命，而且你甚至无法保证自己能拿到报酬。`
 	choice
-		`	(Stay here until the fight is over.)`
+		`	(留在这里，直到战斗结束。)`
 			decline
-		`	(Join the defense fleet.)`
+		`	(加入防御舰队。)`
 	`	当地海盗势力正准备抵御海军进攻。你加入他们，一同升空……`
 		launch
 
@@ -3169,7 +3169,7 @@ mission "Core Pirate Defense [Unpaid]"
 	color unavailable "illegal job: unavailable"
 	repeat
 	minor
-	description "Local Syndicate forces are attacking <destination>! Defeat them to defend anarchy!"
+	description "当地辛迪加部队正在进攻<destination>！击溃他们，捍卫无政府状态！"
 	to offer
 		random < 5
 		"reputation: Pirate" >= 0
@@ -3181,7 +3181,7 @@ mission "Core Pirate Defense [Unpaid]"
 		personality heroic staying waiting
 		fleet "Small Syndicate" 2
 		fleet "Large Syndicate"
-		dialog `The Syndicate fleets have been defeated. Return to <destination>.`
+		dialog `辛迪加舰队已被击败。返回<destination>。`
 	npc
 		government "Pirate"
 		personality plunders staying
@@ -3244,7 +3244,7 @@ mission "Southern Pirate Defense [Unpaid]"
 	color unavailable "illegal job: unavailable"
 	repeat
 	minor
-	description "Local militia forces are attacking <destination>! Defeat them to defend anarchy!"
+	description "当地民兵部队正在进攻<destination>！击溃他们，捍卫无政府状态！"
 	to offer
 		random < 5
 		"reputation: Pirate" >= 0
@@ -3258,7 +3258,7 @@ mission "Southern Pirate Defense [Unpaid]"
 		personality heroic staying waiting
 		fleet "Small Militia" 2
 		fleet "Large Militia"
-		dialog `The militia fleets have been defeated. Return to <destination>.`
+		dialog `民兵舰队已被击溃。返回<destination>。`
 	npc
 		government "Pirate"
 		personality plunders staying
@@ -3289,7 +3289,7 @@ outfit "Secret Cargo"
 
 overwrite
 mission "Cargo Theft (North)"
-	name "Convoy near <system>"
+	name "在<system>附近护航"
 	color selected "illegal job: selected"
 	color unselected "illegal job: unselected"
 	color unavailable "illegal job: unavailable"
@@ -3416,7 +3416,7 @@ mission "Cargo Theft (South)"
 
 overwrite
 mission "FW Assassination [1]"
-	name "Assassinate a political target"
+	name "刺杀一名政治目标"
 	color selected "illegal job: selected"
 	color unselected "illegal job: unselected"
 	color unavailable "illegal job: unavailable"

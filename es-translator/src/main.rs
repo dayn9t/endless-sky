@@ -3,6 +3,7 @@ mod extractor;
 mod translator;
 mod generator;
 mod batch_splitter;
+mod scanner;
 
 use clap::{Parser, Subcommand};
 
@@ -79,6 +80,21 @@ enum Commands {
         #[arg(short, long)]
         source: String,
     },
+    /// Scan for untranslated content by comparing data/ with plugin
+    Scan {
+        /// Original data directory
+        #[arg(long, default_value = "../data")]
+        data_dir: String,
+        /// Plugin data directory
+        #[arg(long, default_value = "../plugins/zh_CN/data")]
+        plugin_dir: String,
+        /// Output pending JSON file
+        #[arg(short, long, default_value = "pending_scan.json")]
+        output: String,
+        /// Print human-readable report to stdout
+        #[arg(long)]
+        report: bool,
+    },
 }
 
 #[tokio::main]
@@ -116,6 +132,14 @@ async fn main() -> anyhow::Result<()> {
                 .filter_map(|e| e.path().to_str().map(String::from))
                 .collect();
             batch_splitter::merge_translated_chunks(&chunk_files, &output, &source)?;
+        }
+        Commands::Scan { data_dir, plugin_dir, output, report } => {
+            scanner::scan(scanner::ScanOptions {
+                data_dir: std::path::PathBuf::from(data_dir),
+                plugin_dir: std::path::PathBuf::from(plugin_dir),
+                output,
+                report,
+            })?;
         }
     }
 

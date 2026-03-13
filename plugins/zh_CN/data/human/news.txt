@@ -658,7 +658,7 @@ news "painter"
 			"Painter"
 	message
 		word
-			`"He who can, creates; he who cannot, transports. Sorry, no offense meant to you."`
+			`“会者创造，不会者运输。抱歉，此话并无冒犯你的意思。”`
 
 
 
@@ -819,15 +819,15 @@ news "hyperspace relay engineer"
 			"Hyperspace relay engineer"
 	message
 		word
-			`"All of human space is linked into a single communications network by relay beacons. It's something that most people just take for granted."`
-			`"Hyperspace links don't just allow faster-than-light travel. They also allow near-instantaneous communication, if you have the right sort of relay on both ends."`
-			`"The hyperspace communications network is a marvel of public infrastructure, but most people just take it for granted."`
-			`"Hyperspace relays are so integral to society that even pirates don't dare to touch them. They'd easily become the number one enemy of the Republic if they did."`
-			`"I'm surprised at how many people on Earth are still using the old IPv4 protocol. None of the off-Earth websites are reachable for them."`
-			`"Have you ever set up a TCP/IP connection from Bourne to a server on Farpoint? I have. It's a little slow, but it works!"`
-			`"Do you know the DRQ of the HSBE for the hyperlanes around here? You don't understand? Sorry, a hyperlane can be thought of as a corridor through space..." The engineer gives a long-winded and confusing explanation of hyperlanes.`
-			`"It might take hours to get a message a few systems away going through the hyperspace relays, but it sure beats taking multiple days to send a ship or multiple centuries to send a message at light speed."`
-			`"Someone with more money than sense asked me to refill the hyperspace relays, because their signal was low."`
+			`"整个已知人类疆域都通过中继信标连接成单一通信网络。这早已成为人们习以为常之事。"`
+			`“超空间链接不仅能实现超光速航行，若两端均配备合适类型的中继器，还可实现近乎瞬时的通信。”`
+			`“超空间通信网络是公共基础设施的一大奇迹，但大多数人只是习以为常罢了。”`
+			`“超空间中继器对社会至关重要，以至于连海盗都不敢染指。一旦他们胆敢破坏，便会立刻成为共和国头号公敌。”`
+			`“真没想到地球上还有这么多人仍在使用老旧的IPv4协议——他们根本无法访问任何地外网站。”`
+			`“你有没有从伯恩向远点的服务器建立过 TCP/IP 连接？我试过！速度有点慢，但确实能用！”`
+			`“你知道本地超空间航道的DRQ值和HSBE值吗？你不明白？抱歉，超空间航道可以被理解为穿越太空的一条走廊……”工程师对超空间航道作了一番冗长而令人困惑的解释。`
+			`"通过超空间中继站发送一条消息到邻近几个星系可能需要数小时，但这总比派飞船花上好几天，或者以光速发送消息耗时数个世纪要强得多。"`
+			`“有个钱多得没数的家伙让我去给超空间中继站重新充能，因为他的信号太弱了。”`
 
 
 
@@ -1804,7 +1804,7 @@ news "republic soldier"
 			"I hope I don't get posted to fighter duty next week. Those things are deathtraps. By the time you get close enough to fire your lasers, you've already lost half your shields!"
 			"Nobody thinks about the Alphas anymore, but don't forget that they just disappeared. They could return at any time. If that happens, I'm going to kill every last one of 'em."
 			"While it seems pointless to have the Bactrian locked behind a license, don't forget that it's one of the oldest designs in human space. It was the Navy Carrier of its time - and it's still comparable to one."
-			`We recently went to full alert, because somebody screamed "It's scrambled!" Turns out some rookie in the galley was enthusiastic about making scrambled eggs.`
+			`我们最近拉响了全面警报，因为有人喊道“它被搅乱了！”结果发现是厨房里一名新兵对制作炒蛋热情高涨。`
 			"Curiosity killed the cat. Yes, the R.N.S. Curiosity landed right on top of the poor creature."
 			"We arrested a fortune teller yesterday; they didn't see it coming."
 			"Pirates were entering the ship port-side. So I took an EVA suit, flew around both ships and captured their ship."
@@ -2204,9 +2204,9 @@ news "goods handling"
 			"Cargo unloading"
 	message
 		word
-			`You see a box with a label "Safe for transport" that seems to cover another label saying "Warning: Explosive".`
-			`A stack of large labels saying "finest quality meat" are near food-containers with smaller labels saying "not for human consumption".`
-			`A box with a label saying "this side up" is placed upside down on a cart.`
+			`你看到一个标有“适合运输”的箱子，其标签似乎覆盖了另一行字：“警告：易爆物品”。`
+			`一叠印有“顶级品质肉类”字样的大标签，贴在若干食品容器旁；这些容器上还贴着较小的标签，写着“非人类食用”。`
+			`一个标有“此面朝上”的箱子被倒置放在手推车上。`
 			"A group of cargo handlers seems annoyed that a captain is unloading his ship using built-in cranes instead of using their services."
 
 
@@ -2219,10 +2219,10 @@ news "spaceport video advertisement"
 			"Spaceport video screen"
 	message
 		word
-			`You see a video of stuntmen making a jump from the edge of space. The "do not try this at home," "illegal on many planets," and "high risk/deadly" warnings at the end of the video suggest that this might become quite a popular sport.`
+			`你看到一段特技演员从近地轨道边缘跳下的视频。视频结尾处的“切勿在家尝试”、“在多颗行星属违法行为”以及“高风险/致命”等警告表明，这项运动或许将迅速风靡一时。`
 			"A video of fast spaceships racing around a three dimensional course in space is shown on the screen, interwoven with clips of very luxurious ships where people appear to be watching the race."
 			"An action-packed advertisement about joining the Navy is playing on the screen. It shows impressive video-fragments of carriers, gunships, dropships and heroic marines."
-			`Some video is showing Syndicate equipment. The video ends with the slogan, "Just what's needed to get the job done."`
+			`一段视频展示了辛迪加装备。视频结尾打出标语：“恰是你完成任务所需的一切。”`
 			"Take a cruise of six days to hunt pirates, shoot real pirates for 2,000 credits a day. 400 bullets included, for free."
 			"Buy local, buy Southbound Haulers. There is always a dealer close to you."
 
@@ -2476,19 +2476,19 @@ overwrite
 phrase "republic motto graffiti"
 	word
 		`` 2
-		`Underneath are the words "PEACE AMONG THE STARS."` 2
-		`Underneath are the words "DEATH AMONG THE STARS."`
-		`Underneath are the words "TYRANNY AMONG THE STARS."`
-		`Underneath are the words "POVERTY AMONG THE STARS."`
-		`Underneath are the words "PEACE AMONG THE PARADISE WORLDS."`
+		`下方写着：“群星之间的和平。”` 2
+		`下方印有文字"群星之间的死亡。"`
+		`下方写着“群星之中的暴政。”`
+		`下方写着：“群星之间的贫困。”`
+		`下方写着：“天堂世界间的和平。”`
 
 overwrite
 phrase "deep motto graffiti"
 	word
 		`` 2
-		`Underneath are the words "Peace, Prosperity, Progress."` 2
-		`Underneath are the words "Power, Poverty, Pride."`
-		`Underneath are the words "Peace, Prosperity, Progress, for those who are born lucky."`
+		`下方写着：“和平、繁荣、进步。”` 2
+		`下方写着“力量、贫穷、骄傲。”`
+		`下方写着：“和平、繁荣、进步——仅属于生来幸运者。”`
 
 news "republic navy advisory system [alphas]"
 	location
@@ -2568,7 +2568,7 @@ news "graffiti on spaceport wall"
 			"There once was a man from New Boston / To fly's a dream he'd had often / He purchased a shuttle / Brought folks in to huddle / Why do merchants call this a coffin? - Lake"
 			"There once was a man from New Boston / He picked the ugliest of options / He purchased a star barge / Mission cargo's too large / This shipment's starting to smell rotten... - Lake"
 			"There once was a man from New Boston / His loan officer advised caution / He purchased a sparrow / Took off like an arrow- / That sparrow soon turned up at auction. - Lake"
-			`A captain with a troubled past / Passed through this system very fast / Was playing a game / Had no proper name / The captain was called "First Last."`
+			`一位背负沉重过往的船长 / 飞速穿过了本星系 / 当时正在玩游戏 / 没有正式姓名 / 船长的名字是“名 姓。”`
 			"Haikus are easy, / but sometimes they don't make sense. / Refrigerator."
 			"Haikus are easy. / I can't think of a good line. / It's snowing on Mount Fuji."
 			"A long time ago / I was respected by all, / but now I sit here."
@@ -2633,14 +2633,14 @@ overwrite
 phrase "ccor crest graffiti"
 	word
 		`"` 2
-		`Underneath are the words "`
+		`下方印有文字"`
 	word
-		`BELENOS SHINES ACROSS THE GALAXY`
-		`THE CONFEDERATED COUNCILS WILL RETURN`
-		`RESIST THE FOREIGN OCCUPIERS`
-		`THE CCOR WILL RISE AGAIN`
-		`LIBERATE THE OUTER RIM`
-		`DISMANTLE THE SYNDICATE OLIGARCHY`
+		`贝莱诺斯闪耀银河`
+		`邦联议会必将回归`
+		`抵抗外国占领者`
+		`CCOR必将再度崛起`
+		`解放外环星域`
+		`瓦解辛迪加寡头统治`
 	word
 		`!"`
 		`."`
@@ -2682,7 +2682,7 @@ news "ccor gendarme"
 			`"`
 	message
 		word
-			`You notice a spaceport guard eying you suspiciously as you pass through the corridor.`
+			`当你穿过走廊时，注意到一名太空港卫兵正怀疑地打量着你。`
 
 news "high tension situation"
 	location
@@ -2881,7 +2881,7 @@ news "betelgeuse stolen ship advisory"
 			"Televised message"
 	message
 		word
-			`"How do you know that your Betelgeuse ship`
+			`"你们怎么知道你们那艘参宿四飞船`
 		word
 			" "
 		word
@@ -2920,4 +2920,4 @@ news "betelgeuse stolen ship advisory"
 			"bootleggers. "
 			"criminals. "
 		word
-			`Buy a genuine Betelgeuse ship today!"`
+			`今天就购买正宗的参宿四飞船吧！"`

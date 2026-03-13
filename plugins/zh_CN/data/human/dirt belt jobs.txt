@@ -72,7 +72,7 @@ mission "To Remembrance Day celebration [0]"
 
 overwrite
 mission "To Remembrance Day celebration [1]"
-	name `Remembrance Day celebration`
+	name `纪念日庆典`
 	job
 	repeat
 	description `在<date>前将<cargo>运送至<destination>，为2月19日纪念日庆典做准备。报酬为<payment>。`
@@ -109,7 +109,7 @@ mission "To Remembrance Day celebration [2]"
 	name `Remembrance Day celebration`
 	job
 	repeat
-	description `Deliver <cargo> to <destination> by <date> in preparation for the Remembrance Day celebration on February 19th. Payment is <payment>.`
+	description `在2月19日纪念日庆典前，于<date>之前将<cargo>运送至<destination>。报酬为<payment>。`
 	cargo random 5 2 .1
 	deadline
 	to offer
@@ -136,7 +136,7 @@ mission "To Remembrance Day celebration [2]"
 		dialog phrase "generic cargo on visit"
 	on complete
 		payment 1000 180
-		dialog `Spaceport workers already festively dressed for Remembrance Day remove the cargo of <commodity> from your ship and hand you your payment of <payment>.`
+		dialog `太空港工人早已为纪念日盛装打扮，他们卸下了你飞船上的<cargo>货物，并将<payment>的报酬交予你。`
 
 
 overwrite
@@ -144,7 +144,7 @@ mission "To Remembrance Day celebration [3]"
 	name `Remembrance Day celebration`
 	job
 	repeat
-	description `Bring <fare> to <destination> by <date> for the Remembrance Day celebration on February 19th. Payment is <payment>.`
+	description `请于<date>前将<fare>运送至<destination>，以参加2月19日的纪念日庆典。报酬为<payment>。`
 	passengers 20 4 .15
 	deadline
 	to offer
@@ -210,10 +210,10 @@ mission "From Remembrance Day celebration [0]"
 
 overwrite
 mission "From Remembrance Day celebration [1]"
-	name `Return from Remembrance Day`
+	name `纪念日返程任务`
 	job
 	repeat
-	description `Bring <fare> home to <destination> after the Remembrance Day celebration. Payment is <payment>.`
+	description `纪念日庆典结束后，将<fare>送回<destination>。报酬为<payment>。`
 	passengers 4 4 .3
 	to offer
 		or
@@ -332,7 +332,7 @@ mission "Food Convoy [0]"
 
 overwrite
 mission "Food Convoy [1]"
-	name `Food convoy to <planet>`
+	name `运粮车队前往<planet>`
 	job
 	repeat
 	deadline

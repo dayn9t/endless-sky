@@ -75,7 +75,7 @@ outfit "Medium Graviton Thruster"
 	"flare sprite" "effect/graviton flare/graviton flare"
 		"frame rate" 5
 	description "夸格推进器体积虽小却推力强劲，且产热极低，但代价是能耗巨大。其产生推力的具体机制尚属未知，不过有传言称：一艘夸格飞船经过时，会令整个星系内所有引力波天线陷入混乱。"
-	description "	They also have strange capabilities which seem to violate the laws of physics as humanity understands them. Ships with these engines accelerate faster under their own power than one would expect, while also taking less impact from external forces."
+	description "	它们还具备一些奇特能力，似乎违背了人类所认知的物理定律。装配此类引擎的飞船，依靠自身动力加速时比预期更快，同时受外部作用力影响也更小。"
 
 
 outfit "Medium Graviton Steering"

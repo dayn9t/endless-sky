@@ -35,6 +35,8 @@ pub struct TranslatedItem {
     pub id: String,
     pub original: String,
     pub translated: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub source: Option<String>,
 }
 
 /// Qwen API request

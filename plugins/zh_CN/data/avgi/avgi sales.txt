@@ -125,7 +125,7 @@ outfitter "Avgi Superconductors"
 outfitter "Avgi Propulsion"
 	"Magnetoplasma Drive"
 	"Vapor Nuclear Rocket"
-	`Z-333 "Spark" Fusion Torch`
+	`Z-333 “火花” 聚变火炬`
 	"R-180 RCS Thrusters"
 	"R-360 RCS Thrusters"
 	"Inductive Extractor"
@@ -133,7 +133,7 @@ outfitter "Avgi Propulsion"
 
 outfitter "Avgi Torches"
 	`Z-333 "Spark" Fusion Torch`
-	`Z-666 "Zap" Fusion Torch`
+	`Z-666 “电击” 聚变火炬`
 	"R-360 RCS Thrusters"
 	"R-720 RCS Thrusters"
 	"Inductive Extractor"
@@ -169,7 +169,7 @@ outfitter "Avgi Twilight Guard"
 	"Specular Deflector"
 
 outfitter "Avgi Atomics"
-	`"Ophrys" Nuclear Torpedo`
+	`"奥弗里斯"核鱼雷`
 	"Ophrys Stockpile"
 	`"Orchid" Nuclear Missile`
 

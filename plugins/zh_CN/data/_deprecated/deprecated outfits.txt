@@ -79,7 +79,7 @@ outfit "Korath Ark'parat Steering"
 	"turn" 360
 	"turning energy" .6
 	"turning heat" .7
-	description "This engine is used by Korath fighters."
+	description "该引擎被科拉斯战斗机所采用。"
 
 outfit "Korath Jak'torbal Thruster"
 	category "Engines"
@@ -106,7 +106,7 @@ outfit "Korath Jak'parat Steering"
 	"turn" 2520
 	"turning energy" 3.1
 	"turning heat" 7.9
-	description "This engine is used in the Korath capital ships."
+	description "该引擎被用于科拉斯主力舰。"
 
 
 # Deprecated in favor of the Outfits Expansion, which has a cooling penalty that
@@ -189,13 +189,13 @@ effect "big explosion"
 outfit "Cruiser License"
 	category "Special"
 	thumbnail "outfit/navy cruiser license"
-	description "It is a very rare privilege to be permitted to purchase a Navy capital ship for private use - not just because of a Cruiser's firepower, but because it is a potent symbol of the Republic's strength."
+	description "获准私人购买海军主力舰，是一项极为罕见的特权——这不仅源于巡洋舰的强大火力，更因其本身即是共和国实力的有力象征。"
 
 # Deprecated to clarify their name as being part of the Navy, and not a general purpose license for carrier type ships.
 outfit "Carrier License"
 	category "Special"
 	thumbnail "outfit/navy carrier license"
-	description "Only a handful of people in the past century have been given permission to purchase a Navy Carrier, even a decommissioned one, for private use."
+	description "过去一个世纪里，仅有极少数人获准为私人用途购买一艘海军航母——哪怕只是已退役的型号。"
 
 # Compatibility patch for those who use plug-ins that give all the licenses.
 # Each one checks for the presence of one of the two licenses, then replaces it.
@@ -733,10 +733,10 @@ outfit "Orchid Magazine"
 	"mass" 3
 	"outfit space" -12
 	"orchid capacity" 3
-	ammo `"Orchid" Nuclear Missile`
+	ammo `"兰花"核导弹`
 	description "这种大型弹药储存舱仅需几根电缆、执行器和电磁阀，即可将新型兰花导弹自动装填至发射管中。其设计力求极简，但每枚兰花导弹体积庞大，致使该弹舱在载弹量方面显得颇为笨重。"
 
-outfit `Z-3600 "Beam" Amat Torch`
+outfit `Z-3600 “光束” 反物质火炬`
 	category "Engines"
 	series "Engines"
 	index 07080

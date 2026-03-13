@@ -37,7 +37,7 @@ mission "Transport executive to <planet>"
 
 
 overwrite
-mission "Corporate retreat to <planet stopovers>"
+mission "企业度假地：途经<planet stopovers>"
 	job
 	repeat
 	deadline
@@ -67,7 +67,7 @@ mission "Large Corporate retreat"
 	job
 	repeat
 	deadline
-	description "A team of <bunks> engineers needs transport to a corporate retreat on <stopovers>, after which they must return back to <origin> by <date>. They want a comfortable journey, so your ship must be outfitted suitably. Payment is <payment>."
+	description "一支由<bunks>名工程师组成的团队需要搭乘飞船前往<stopovers>参加企业静修活动，之后须于<date>前返回<origin>。他们希望旅途舒适，因此你的飞船必须配备相应设施。报酬为<payment>。"
 	passengers 20 6 .15
 	to offer
 		random < 20
@@ -161,7 +161,7 @@ mission "Waste recycling on <planet>"
 
 overwrite
 mission "Rush fuel Delivery"
-	name "Rush fuel delivery to <planet>"
+	name "紧急燃料运送至<planet>"
 	job
 	repeat
 	deadline
@@ -185,7 +185,7 @@ mission "Rush fuel Delivery"
 
 overwrite
 mission "Rush equipment Delivery"
-	name "Rush equipment delivery to <planet>"
+	name "紧急装备运送至<planet>"
 	job
 	repeat
 	deadline
@@ -207,7 +207,7 @@ mission "Rush equipment Delivery"
 
 
 overwrite
-mission "Syndicate target practice [0]"
+mission "辛迪加靶场训练 [0]"
 	name "Syndicate target practice"
 	job
 	repeat
@@ -248,7 +248,7 @@ mission "Syndicate target practice [1]"
 	name "Syndicate target practice"
 	job
 	repeat
-	description "Disable the robotic target dummy ship in <system>, collect test data for Syndicate engineers by scanning its cargo, and land on <planet>. Warning: the target ship is programmed to engage in self-defense behaviors to ensure a realistic simulation. Payment is <payment>."
+	description "在<system>中使机器人靶船失效，通过扫描其货物为辛迪加工程师收集测试数据，并降落在<planet>上。警告：该靶船已编程启用自卫行为，以确保模拟的真实性。报酬为<payment>。"
 	source
 		government Syndicate
 	destination
@@ -375,7 +375,7 @@ ship "Vanguard" "Vanguard Test Dummy"
 
 overwrite
 mission "Syndicate Prisoner Transport [0]"
-	name "Transport executive to house arrest"
+	name "运送高管前往软禁住所"
 	job
 	repeat
 	description `将一名已被起诉的白领罪犯及其助理、律师，以及其收藏的<cargo>运送至<planet>，他将在该地以“居家监禁”形式等待审判。他要求飞船必须具备足够舒适的航行条件。酬金为<payment>。`
@@ -402,7 +402,7 @@ mission "Syndicate Prisoner Transport [0]"
 
 overwrite
 mission "Syndicate Prisoner Transport [1]"
-	name "Transport convicted saboteur"
+	name "运送已被定罪的破坏分子"
 	job
 	repeat
 	description `将一名被判刑的工业破坏分子押送至<planet>服刑。途中须将其关押在专为罪犯转运设计的合适设施内。报酬为<payment>。`
@@ -427,7 +427,7 @@ mission "Syndicate Prisoner Transport [1]"
 
 overwrite
 mission "Syndicate Prisoner Transport [2]"
-	name "Transport convicted corporate spies"
+	name "运送已被定罪的企业间谍"
 	job
 	repeat
 	description `将<bunks>名被判刑的企业间谍押送至<planet>服刑。途中须将其关押在专为罪犯转运设计的合适设施内。报酬为<payment>。`
@@ -452,7 +452,7 @@ mission "Syndicate Prisoner Transport [2]"
 
 overwrite
 mission "Syndicate Prisoner Transport [3]"
-	name "Transport detained protesters"
+	name "运送被拘禁的抗议者"
 	job
 	repeat
 	description `将< bunks >名被拘押的示威者运送到< planet >，他们将在该地等待煽动骚乱罪的审判。他们必须被关押在专为押送罪犯设计的合适设施内。报酬为< payment >。`
@@ -478,7 +478,7 @@ mission "Syndicate Prisoner Transport [3]"
 
 overwrite
 mission "Syndicate Prisoner Transport [4]"
-	name "Transport detained labor organizers"
+	name "运送被拘禁的劳工组织者"
 	job
 	repeat
 	description `将< bunks >名被拘押的劳工组织者运送到< planet >，以“处理”其涉嫌恐怖主义罪名。他们必须被关押在专为押送罪犯设计的合适设施内。报酬为< payment >。`
@@ -504,7 +504,7 @@ mission "Syndicate Prisoner Transport [4]"
 
 overwrite
 mission "Return Syndicate Prisoners [0]"
-	name "Return executive back from house arrest"
+	name "将高管从软禁中护送返回"
 	job
 	repeat
 	description `将一名已获无罪判决的白领罪犯及其助理、律师，以及其收藏的<cargo>运送回<planet>。他要求飞船必须具备足够舒适的航行条件。酬金为<payment>。`
@@ -531,7 +531,7 @@ mission "Return Syndicate Prisoners [0]"
 
 overwrite
 mission "Return Syndicate Prisoners [1]"
-	name "Return detained protesters home"
+	name "将被扣留的抗议者送返家园"
 	job
 	repeat
 	description `将< bunks >名示威者从< origin >的拘押地运送回其家乡行星< planet >。报酬为< payment >。`
@@ -555,7 +555,7 @@ mission "Return Syndicate Prisoners [1]"
 
 overwrite
 mission "Return Syndicate Prisoners [2]"
-	name "Return detained labor organizers home"
+	name "将被扣留的劳工组织者送返家园"
 	job
 	repeat
 	description `将< bunks >名劳工组织者从< origin >的监禁地运送回其家乡行星< planet >。报酬为< payment >。`
@@ -605,7 +605,7 @@ mission "Syndicated Shipyards Shipment [0]"
 overwrite
 mission "Syndicated Shipyards Shipment [1]"
 	name "Shipment to <planet>"
-	description "Syndicated Shipyards, one of the largest shipyards in human space, requests an independent captain to deliver <cargo> to <destination> to ensure sufficient stocks. Payment is <payment>."
+	description "辛迪加船坞——人类疆域内规模最大的船坞之一——诚邀独立船长将<cargo>运送至<destination>，以确保库存充足。报酬为<payment>。"
 	cargo "Ship Alloys" 5 2 .1
 	job
 	repeat
@@ -705,7 +705,7 @@ mission "Syndicated Systems Shipment [0]"
 overwrite
 mission "Syndicated Systems Shipment [1]"
 	name "Shipment to <planet>"
-	description "Deliver <cargo> to <destination>, the home of Syndicated Systems, the largest ship systems and outfits manufacturer in human space. Payment is <payment>."
+	description "将 <cargo> 交付至 <destination>——辛迪加系统公司（Syndicated Systems）总部所在地，这是人类疆域内规模最大的飞船系统与装备制造商。报酬为 <payment>。"
 	cargo Metal 5 2 .1
 	job
 	repeat
@@ -755,7 +755,7 @@ mission "Megaparsec Shipment [0]"
 overwrite
 mission "Megaparsec Shipment [1]"
 	name "Shipment to <planet>"
-	description "Deliver <cargo> to <destination>, the home of Megaparsec Inc., a shipyard known for their lightweight designs. Payment is <payment>."
+	description "将 <cargo> 交付至 <destination>——兆秒差距公司（Megaparsec Inc.）总部所在地，这是一家以轻量化飞船设计著称的船坞。报酬为 <payment>。"
 	cargo "Ship Alloys" 5 2 .1
 	job
 	repeat

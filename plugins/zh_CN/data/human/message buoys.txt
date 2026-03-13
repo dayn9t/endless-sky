@@ -71,7 +71,7 @@ phrase "entering republic space from free worlds (hostile)"
 	word
 		". All ships flying unauthorized markings are to comply with Navy personnel or be deemed valid targets."
 		". Under the Planetary Militias (Restructuring) Act 3014, green markings may only be flown by authorized Militia ships. All ships unlawfully flying Militia green are to comply with Navy personnel or be deemed valid targets."
-		`. All ships affiliated with the so-called "Free Worlds" are to heave to and comply with Navy personnel or be deemed valid targets.`
+		`所有隶属于所谓“自由世界”的飞船必须立即停船，服从海军人员指令，否则将被视为合法攻击目标。`
 
 overwrite
 mission "Message Buoy: Entering Republic space from Free Worlds"

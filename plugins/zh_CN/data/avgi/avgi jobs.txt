@@ -80,7 +80,7 @@ overwrite
 mission "Avgi: Bulk Cargo 1 (Generic)"
 	job
 	repeat
-	name "Bulk cargo to <planet>"
+	name "大宗货物运往<planet>"
 	description "Deliver <cargo> to <destination>. Payment is <payment>."
 	source
 		attributes "avgi diaspora"
@@ -166,7 +166,7 @@ mission "Avgi: Rush Cargo 2 (Generic)"
 	repeat
 	deadline
 	name "Rush delivery to <planet>"
-	description "<destination> urgently needs a shipment of <cargo> by <date>. Payment is <payment>."
+	description "<destination> 急需在 <date> 前收到一批 <cargo> 货物。报酬为 <payment>。"
 	source
 		attributes "avgi diaspora"
 	destination
@@ -548,7 +548,7 @@ overwrite
 mission "Avgi: Specialized Workers 1"
 	job
 	repeat
-	name "Specialists to <planet>"
+	name "前往<planet>的专家"
 	description "将这< bunks >名专家送往< destination >，为其提供专业领域知识支持，酬金为< payment >。"
 	source
 		attributes "avgi diaspora"
@@ -569,7 +569,7 @@ mission "Avgi: Specialized Workers 2"
 	job
 	repeat
 	name "Specialists to <planet>"
-	description "Take these <bunks> specialists to <destination> to provide subject matter expertise in exchange for <payment>."
+	description "将这< bunks >名专家运送至<destination>，提供专业领域知识支持，报酬为<payment>。"
 	source
 		attributes "avgi diaspora"
 	destination
@@ -589,7 +589,7 @@ overwrite
 mission "Avgi: Ergastirio Researchers 1"
 	job
 	repeat
-	name "Researchers to <planet>"
+	name "前往<planet>的科研人员"
 	description "将这< bunks >名研究人员送往< destination >，在实验室空间站工作一段任期，酬金为< payment >。"
 	source
 		attributes "avgi diaspora"
@@ -610,7 +610,7 @@ mission "Avgi: Ergastirio Researchers 2"
 	job
 	repeat
 	name "Researchers to <planet>"
-	description "Take these <bunks> researchers to <destination> to work for a term on the laboratory station in exchange for <payment>."
+	description "将这< bunks >名研究人员运送至<destination>，在实验室空间站工作一个任期，报酬为<payment>。"
 	source
 		attributes "avgi diaspora"
 		near "Symphony" 1 30
@@ -647,7 +647,7 @@ overwrite
 mission "Avgi: Outpost Diplomats 1"
 	job
 	repeat
-	name "Diplomats to <planet>"
+	name "外交官前往<planet>"
 	description "将这<bunks>名外交官护送至<destination>，与不满的工人展开谈判，酬金为<payment>。"
 	source "Peripheria"
 	destination
@@ -686,7 +686,7 @@ mission "Avgi: Outpost Diplomats 3"
 	job
 	repeat
 	name "Diplomats to <planet>"
-	description "Take these <bunks> diplomats to <destination> to soothe dissatisfied Avgi in exchange for <payment>."
+	description "将这些<bunks>外交官送往<destination>，安抚不满的阿维吉人，报酬为<payment>。"
 	source "Peripheria"
 	destination
 		attributes "dissonance sympathies"
@@ -736,7 +736,7 @@ mission "Avgi: Doctors 2"
 	job
 	repeat
 	name "Doctors to <planet>"
-	description "Take these <bunks> doctors to <destination> to provide treatment and medical services in exchange for <payment>."
+	description "将这些<bunks>医生送往<destination>，提供治疗与医疗服务，报酬为<payment>。"
 	source "Peripheria"
 	destination
 		distance 1 30
@@ -781,7 +781,7 @@ overwrite
 mission "Avgi: Cylinder Materials 1"
 	job
 	repeat
-	name "Construction materials to the <planet>"
+	name "建筑物资运往<planet>"
 	description "将<cargo>从<origin>运送到<destination>，以支持<destination>的建设，报酬为<payment>。"
 	source
 		distance 1 30
@@ -803,7 +803,7 @@ mission "Avgi: Cylinder Materials 2"
 	job
 	repeat
 	name "Construction materials to the <planet>"
-	description "Bring <cargo> from <origin> to the <destination> to support the construction of the <destination> in exchange for <payment>."
+	description "将< cargo >从< origin >运送到< destination >，以支持< destination >的建设，换取< payment >。"
 	source
 		distance 1 30
 		attributes "avgi diaspora"
@@ -844,7 +844,7 @@ overwrite
 mission "Avgi: Bulk Cylinder Materials 1"
 	job
 	repeat
-	name "Bulk materials to the <planet>"
+	name "大宗物资运往<planet>"
 	description "Bring <cargo> from <origin> to the <destination> to support the construction of the <destination> in exchange for <payment>."
 	source
 		distance 1 30
@@ -913,7 +913,7 @@ overwrite
 mission "Avgi: Special Nuclear Material Shipment 1"
 	job
 	repeat
-	name "Special nuclear materials to <planet>"
+	name "特殊核材料运往<planet>"
 	description "在<date>前将<cargo>运送至<destination>，换取<payment>。需警惕海盗——他们正企图劫夺这批核材料，以达成不可告人的目的。"
 	source
 		government "Avgi (Twilight Guard)"
@@ -951,7 +951,7 @@ mission "Avgi: Special Nuclear Material Shipment 2"
 	job
 	repeat
 	name "Special nuclear materials to <planet>"
-	description "Deliver <cargo> to <destination> by <date> in exchange for <payment>. Be on the lookout for pirates looking to steal the nuclear material for nefarious purposes."
+	description "在<date>前将< cargo >运送至<destination>，换取<payment>。请警惕海盗——他们正企图窃取这些核材料，以达成不可告人的目的。"
 	source
 		government "Avgi (Twilight Guard)"
 	destination
@@ -1040,7 +1040,7 @@ overwrite
 mission "Avgi: Information Courier"
 	job
 	repeat
-	name "Information courier to <planet>"
+	name "情报信使任务，目的地：<planet>"
 	description "在<date>前将<cargo>存储介质运送至<destination>，以更新<planet>本地网络，报酬为<payment>。"
 	source
 		government "Avgi (Consonance)" "Avgi (Twilight Guard)"
@@ -1063,7 +1063,7 @@ mission "Avgi: Information Courier Rush"
 	job
 	repeat
 	name "Information courier to <planet>"
-	description "Bring <cargo> storage media to <destination> to update <planet>'s local network by <date> in exchange for <payment>."
+	description "在<date>前将<cargo>存储介质运送到<destination>，以更新<planet>的本地网络，报酬为<payment>。"
 	source
 		government "Avgi (Consonance)" "Avgi (Twilight Guard)"
 	destination
@@ -1088,7 +1088,7 @@ phrase "avgi twilight guards dropoff"
 
 overwrite
 mission "Avgi: Twilight Guardsmen Transport"
-	name "Twilight Guardsmen to <planet>"
+	name "暮光卫队士兵前往<planet>"
 	job
 	repeat
 	description "这些<bunks>暮光卫队士兵需要前往<destination>。他们愿以<payment>作为酬劳。"
@@ -1110,7 +1110,7 @@ mission "Avgi: Twilight Guardsmen Transport"
 
 overwrite
 mission "Avgi: Twilight Guard Officers Transport"
-	name "Twilight Guard Officers to <planet>"
+	name "暮光卫队军官前往<planet>"
 	job
 	repeat
 	description "这些<bunks>暮光卫队军官需要舒适地前往<destination>。他们愿以<payment>作为酬劳。"
@@ -1132,7 +1132,7 @@ mission "Avgi: Twilight Guard Officers Transport"
 
 overwrite
 mission "Avgi: Twilight Guard Flag Officers Transport"
-	name "Twilight Guard Flag Officers to <planet>"
+	name "暮光卫队将官前往<planet>"
 	job
 	repeat
 	description "这些<bunks>名暮光守卫高级军官需要舒适可靠的运输服务前往<destination>，并愿为此向你支付<payment>。"
@@ -1177,7 +1177,7 @@ overwrite
 mission "Avgi: Twilight Guard Relief 1"
 	job
 	repeat
-	name "Shore leave on <planet>"
+	name "<planet>岸上休假"
 	description "将这<bunks>名暮光守卫护送至<destination>，使其从前线轮值后得以休整，酬金为<payment>。"
 	source "Feo Platform"
 	destination
@@ -1198,7 +1198,7 @@ mission "Avgi: Twilight Guard Relief 2"
 	job
 	repeat
 	name "Shore leave on <planet>"
-	description "Take these <bunks> Twilight Guards to <destination> to recover from their rotation on the front lines in exchange for <payment>."
+	description "将这些<bunks>暮光守卫送往<destination>，让他们从前线轮值后休整，报酬为<payment>。"
 	source "Feo Platform"
 	destination
 		distance 1 30

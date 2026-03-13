@@ -297,7 +297,7 @@ outfit "Afterburner (Lunar Class)"
 	"afterburner fuel" 0.45
 	"afterburner effect" "korath afterburner medium"
 	description "尽管这些加力燃烧器在单位燃料消耗下能产生惊人的推力，但为其安装所引发的安全隐患却令人忧心忡忡。"
-	description "	Korath afterburners pump super-heated hyperspace fuel directly into a thruster's plasma stream, resulting in a phenomenal explosion that nearly melts the thruster."
+	description "	科拉斯后燃器将超高温的超空间燃料直接泵入推进器的等离子流中，从而引发一场惊人的爆炸，几乎熔毁推进器本身。"
 
 outfit "Afterburner (Planetary Class)"
 	plural "Afterburners (Planetary Class)"
@@ -496,7 +496,7 @@ outfit "Reverser (Comet Class)"
 		"frame rate" 7.5
 	"reverse flare sound" "plasma small"
 	description "彗星级反向推进器在科拉斯舰长中并不受欢迎——他们认为它与行星级引擎搭配时略显孱弱，却又体积过大，不值得为此牺牲宝贵的武器安装空间。"
-	description "	This Korath engine has been modified to be partially installed in a ship's weapon space, allowing it to push the ship in reverse."
+	description "	这款科拉斯引擎经过改装，可部分安装在飞船的武器空间内，使其具备倒退推进能力。"
 
 outfit "Reverser (Lunar Class)"
 	plural "Reversers (Lunar Class)"

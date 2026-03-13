@@ -978,7 +978,7 @@ outfit "Meteor Missile Pod"
 		"hull damage" 220
 		"hit force" 330
 		"missile strength" 6
-	description "The Meteor Missile is the cheapest and simplest homing weapon available in human space. Meteors are quickly destroyed by anti-missile systems, and their infrared tracking systems have trouble homing in on targets with low heat levels. Nevertheless, their large warheads can spell doom for poorly-defended targets when the missiles are fired in great numbers."
+	description "流星导弹是人类疆域内最廉价、结构最简单的制导武器。流星导弹极易被反导系统摧毁，且其红外追踪系统难以锁定低热量目标。然而，当大量齐射时，其巨大的战斗部仍足以令防御薄弱的目标陷入毁灭之境。"
 	description "	发射舱使战斗机及其他轻型飞船能在保留足够空间安装其他武器的同时，携带少量导弹投入战斗。大型飞船则更适合配备全尺寸导弹发射器。"
 	description "	Ammunition for this weapon can be restocked at any outfitter."
 		to display
@@ -1110,9 +1110,9 @@ outfit "Sidewinder Missile Pod"
 		"hull damage" 180
 		"hit force" 255
 		"missile strength" 18
-	description "The Sidewinder Missile is designed by Lovelace Labs, which is ironically also the designer of the Anti-Missile Turret. Rumors say that the two engineering teams at Lovelace who make the missiles and the anti-missiles are locked in furious competition with each other: the result has been generation after generation of smarter missiles and then smarter turrets to fend them off."
-	description "	Although not as powerful or cheap as the popular Meteor Missiles, Sidewinders have several advantages, including their superior maneuverability, better tracking systems, and protective casings that make them much harder for anti-missile systems to destroy."
-	description "	Pods enable fighters and other light craft to carry small quantities of missiles into battle while retaining enough space for other weapons. Large ships are better off with full-size launchers."
+	description "响尾蛇导弹由洛夫莱斯实验室设计——颇具讽刺意味的是，该实验室同时也是反导炮塔的设计方。传闻称，洛夫莱斯实验室内负责导弹与反导系统研发的两支工程团队正激烈竞争：其结果便是新一代更智能的导弹不断问世，随之而来的是更智能的反导炮塔，以抵御这些新式导弹。"
+	description "	虽然不如广受欢迎的流星导弹那样威力强大或成本低廉，但响尾蛇导弹拥有多项优势，包括更优异的机动性、更先进的追踪系统，以及具备防护功能的外壳，使其更难被反导系统摧毁。"
+	description "	弹舱使战斗机及其他轻型载具能在保留足够空间搭载其他武器的同时，携带少量导弹投入战斗。大型飞船则更适合配备全尺寸导弹发射器。"
 	description "	Ammunition for this weapon can be restocked at any outfitter."
 		to display
 			has "gamerule: universal ammo restocking"
@@ -1222,8 +1222,8 @@ outfit "Javelin Mini Pod"
 		"hull damage" 26
 		"hit force" 75
 		"missile strength" 3
-	description "The Javelin Pod fires a rapid stream of unguided missiles. A Javelin Pod does far more damage than any gun of a comparable size, and has a longer range as well, but once a ship has expended all of its ammunition it must leave combat and find a planet where it can buy more, which makes Javelins less useful in protracted battles."
-	description "	The weapon's high rate of fire also makes it useful for saturating well-protected ships' anti-missile defenses so that more dangerous projectiles fired by allied ships can sneak through."
+	description "标枪发射舱可快速连续发射多枚无制导导弹。相比尺寸相近的任何火炮，标枪发射舱造成的伤害更高、射程更远；但一旦耗尽弹药，飞船就必须脱离战斗，前往某颗行星补给新弹药，因此标枪发射舱在持久战中实用性较低。"
+	description "	该武器的高射速还可用于饱和打击防护严密的飞船反导系统，以便友军发射的更具威胁性的弹药能趁机突破防御。"
 	description "	微型发射舱使战斗机及其他轻型载具能在保留足够空间搭载其他武器的同时，携带少量标枪导弹投入战斗。大型飞船则更适合使用全尺寸发射舱。"
 	description "	Ammunition for this weapon can be restocked at any outfitter."
 		to display
@@ -1385,7 +1385,7 @@ outfit "Torpedo Pod"
 		"hull damage" 820
 		"hit force" 450
 		"missile strength" 30
-	description "Torpedoes are the most powerful homing weapon, but they move slowly enough that fast ships can simply outrun them, making them most useful against large targets or against small ships at times when they are too distracted to dodge."
+	description "鱼雷是最强大的制导武器，但其飞行速度较慢，高速飞船可轻易摆脱其追击，因此最适合攻击大型目标，或在小型飞船因分心而无法及时闪避时使用。"
 	description "	发射舱使战斗机及其他轻型飞船能在保留足够空间搭载其他武器的同时，携带少量鱼雷投入战斗。大型飞船则更适合配备全尺寸鱼雷发射器。"
 	description "	Ammunition for this weapon can be restocked at any outfitter."
 		to display
@@ -1516,7 +1516,7 @@ outfit "Typhoon Pod"
 		"hull damage" 1050
 		"hit force" 675
 		"missile strength" 40
-	description "Typhoon Torpedoes are an improved torpedo technology; they do considerably more damage than ordinary torpedoes. However, they are also much slower, because they are intended mostly for use against large and slow-moving capital ships. As a result, sufficiently skilled pilots can often dodge around them."
+	description "台风鱼雷是一种改进型鱼雷技术，其伤害远超普通鱼雷。然而，它们的速度也慢得多，因为主要设计用于攻击大型且移动缓慢的主力舰。因此，技术足够娴熟的飞行员往往能够成功规避它们。"
 	description "	发射舱使战斗机及其他轻型飞船能在保留足够空间搭载其他武器的同时，携带少量台风鱼雷投入战斗。大型飞船则更适合配备全尺寸鱼雷发射器。"
 	description "	Ammunition for this weapon can be restocked at any outfitter."
 		to display
@@ -1637,7 +1637,7 @@ outfit "Heavy Rocket Pod"
 		"hull damage" 670
 		"hit force" 900
 		"missile strength" 24
-	description "Heavy Rockets are one of the most powerful missile weapons available, but at a price: instead of having a homing system, they simply fire straight forward and rely on a proximity trigger to set them off. Once triggered, however, they damage all ships within their blast radius, making them highly effective against clusters of fighters."
+	description "重型火箭是目前最强大的导弹武器之一，但代价是：它没有制导系统，仅沿直线向前发射，并依靠近炸引信引爆。一旦引爆，其爆炸范围内的所有飞船均会受损，因此对战斗机集群极为有效。"
 	description "	发射舱使战斗机及其他轻型飞船能在保留足够空间安装其他武器的同时，携带少量火箭弹投入战斗。大型飞船则更适合配备全尺寸火箭发射器。"
 	description "	Ammunition for this weapon can be restocked at any outfitter."
 		to display

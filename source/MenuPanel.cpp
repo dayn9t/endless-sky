@@ -70,6 +70,9 @@ MenuPanel::MenuPanel(PlayerInfo &player, UI &gamePanels)
 			auto credit = Format::Split(Files::Read(source / "credits.txt"), "\n");
 			if((credit.size() > 1) || !credit.front().empty())
 			{
+				// A plugin's credits.txt replaces the previous one rather than appending,
+				// allowing localization plugins to substitute the entire credits text.
+				credits.clear();
 				credits.insert(credits.end(), credit.begin(), credit.end());
 				credits.insert(credits.end(), 15, "");
 			}

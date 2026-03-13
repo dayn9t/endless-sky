@@ -16,7 +16,7 @@ overwrite
 mission "Gegno Asteroid Mining - Aluminum"
 	job
 	repeat
-	name "Gather 10 tons of aluminum"
+	name "收集10吨铝"
 	description "开采并收集10吨铝，然后将矿石运回<origin>的格诺人。"
 	source "Tschyss"
 	to offer
@@ -37,7 +37,7 @@ overwrite
 mission "Gegno Asteroid Mining - Copper"
 	job
 	repeat
-	name "Gather 10 tons of copper"
+	name "收集10吨铜"
 	description "开采并收集10吨铜，然后将矿石运回<origin>的格诺人。"
 	source "Tschyss"
 	to offer
@@ -58,7 +58,7 @@ overwrite
 mission "Gegno Asteroid Mining - Iron"
 	job
 	repeat
-	name "Gather 10 tons of iron"
+	name "收集10吨铁"
 	description "开采并收集10吨铁，然后将矿石运回<origin>的格诺人。"
 	source "Tschyss"
 	to offer
@@ -79,7 +79,7 @@ overwrite
 mission "Gegno Asteroid Mining - Lead"
 	job
 	repeat
-	name "Gather 10 tons of lead"
+	name "收集10吨铅"
 	description "开采并收集10吨铅，然后将矿石运回<origin>的格诺人。"
 	source "Tschyss"
 	to offer
@@ -100,7 +100,7 @@ overwrite
 mission "Gegno Asteroid Mining - Silicon"
 	job
 	repeat
-	name "Gather 10 tons of silicon"
+	name "收集10吨硅"
 	description "开采并收集10吨硅，然后将矿石运回<origin>的格诺人。"
 	source "Tschyss"
 	to offer
@@ -121,7 +121,7 @@ overwrite
 mission "Gegno Asteroid Mining - Titanium"
 	job
 	repeat
-	name "Gather 10 tons of titanium"
+	name "收集10吨钛"
 	description "开采并收集10吨钛矿，然后将矿物运回<origin>的格诺人。"
 	source "Tschyss"
 	to offer

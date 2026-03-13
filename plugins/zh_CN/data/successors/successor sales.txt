@@ -52,12 +52,12 @@ shipyard "People's Houses"
 	"Kvelqde-Khora"
 
 outfitter "Successor Basics"
-	`"Aqra" Inductive Reverser`
-	`"Aqra" Inductive Steering`
-	`"Aqra" Inductive Thruster`
-	`1-"Uurau" Betavoltaic Cell`
+	`“阿克拉”感应逆变器`
+	`“阿克拉”感应转向系统`
+	`"阿克拉"感应推进器`
+	`1-“乌劳”β伏特电池`
 	"Auxiliary Power Reserve"
-	`"Byiaa" Shield Cortex`
+	`"拜亚"护盾皮层`
 	"Hyperdrive"
 	"Local Map"
 
@@ -79,11 +79,11 @@ outfitter "Successor Civilian"
 	"Hyperdrive"
 	"Local Map"
 
-	`"Chyyra" Inductive Reverser`
-	`"Chyyra" Inductive Steering`
-	`"Chyyra" Inductive Thruster`
+	`"奇拉"感应逆变器`
+	`"奇拉"感应式转向系统`
+	`"奇拉"感应式推进器`
 
-	`3-"Kaska" Betavoltaic Cell`
+	`3-“卡斯卡”β伏特电池`
 	`"Ej" Shield Cortex`
 	"Primary Power Reserve"
 	"Bunk Room"
@@ -95,28 +95,28 @@ outfitter "Successor Civilian"
 	"Successor Cooling"
 
 outfitter "Successor Heavy"
-	`6-"Ruuv" Betavoltaic Cell`
-	`"Tuur" Scanning Suite`
-	`"Veusa" Inductive Reverser`
-	`"Veusa" Inductive Steering`
-	`"Veusa" Inductive Thruster`
+	`6-“鲁夫”β伏特电池`
+	`“图尔”扫描套件`
+	`"韦乌萨"感应式逆变器`
+	`"韦乌萨"感应式转向系统`
+	`"韦乌萨"感应式推进器`
 
 outfitter "Successor High Tech"
-	`OC-"Mavra" Betavoltaic Cell`
+	`OC-“玛芙拉”贝塔伏特电池`
 	`"Tuur" Scanning Suite`
-	`"Niis" Inductive Engines`
+	`“尼伊斯”感应引擎`
 
 outfitter "High Houses Light"
 	"Auxiliary Power Reserve"
 	`"Nnesa" Fusion Core`
-	`"Ojet" Bimodal Coilgun`
+	`"奥杰特"双模线圈炮`
 	"Drag Cannon"
 	"High-Velocity Spike"
 	"High-Velocity Spike Rack"
-	`"Jaase" Shield Cortex`
+	`"贾斯"护盾皮层`
 	"Shield Cortex Interface"
 	"Kinetic Rail Rifle"
-	`"Veldt" Combat Scanner`
+	`“菲尔特”战斗扫描仪`
 
 outfitter "High Houses Heavy"
 	"Primary Power Reserve"
@@ -124,13 +124,13 @@ outfitter "High Houses Heavy"
 	`"Uoret" Fusion Core`
 	"High-Velocity Spike"
 	"High-Velocity Spike Rack"
-	`"Sjeja" Kinetic Lance`
+	`“斯杰亚”动能长矛`
 	"Bimodal Coilgun Turret"
 	"Multimodal Armor: Heavy"
 	"Multimodal Armor: Light"
 	"Multimodal Armor: Keystone"
 	"Multimodal Armor: Regen"
-	`"Jorv" Shield Cortex`
+	`“乔尔夫”护盾核心`
 
 outfitter "People's Houses"
 	"Overcharged Pulse Laser"

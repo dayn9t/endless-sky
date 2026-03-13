@@ -71,7 +71,7 @@ mission "To Earth Day celebration [0]"
 
 overwrite
 mission "To Earth Day celebration [1]"
-	name `Earth Day celebration`
+	name `地球日庆典`
 	job
 	repeat
 	description `在<date>前将<cargo>运送至<destination>，为4月22日地球日庆典做准备。报酬为<payment>。`
@@ -110,7 +110,7 @@ mission "To Earth Day celebration [2]"
 	name `Earth Day celebration`
 	job
 	repeat
-	description `Bring <fare> to <destination> by <date> for the Earth Day celebration on April 22nd. Payment is <payment>.`
+	description `请于<date>前将<fare>运送至<destination>，以参加4月22日的地球日庆典。报酬为<payment>。`
 	passengers 15 5 .1
 	deadline 0 2
 	to offer
@@ -176,10 +176,10 @@ mission "From Earth Day celebration [0]"
 
 overwrite
 mission "From Earth Day celebration [1]"
-	name `Return from Earth Day`
+	name `地球日返程任务`
 	job
 	repeat
-	description `Bring <fare> home to <destination> after the Earth Day celebration. Payment is <payment>.`
+	description `地球日庆典结束后，将<fare>送回<destination>。报酬为<payment>。`
 	passengers 4 4 .3
 	to offer
 		or
@@ -203,7 +203,7 @@ mission "From Earth Day celebration [1]"
 	on complete
 		payment
 		payment 1000
-		dialog `Your passengers thank you for returning them to <planet>, and you collect your payment of <payment>.`
+		dialog `你的乘客感谢你将他们送回<planet>，并支付了<payment>作为酬金。`
 
 
 overwrite
@@ -316,7 +316,7 @@ mission "Tycho Crater Shipyards Shipment [0]"
 overwrite
 mission "Tycho Crater Shipyards Shipment [1]"
 	name "Shipment to <planet>"
-	description "Deliver <cargo> to <destination>, the home of Tycho Crater Shipyards, a constituent of the Republic Navy Yard. Payment is <payment>."
+	description "将 <cargo> 交付至 <destination>——第谷环形山船坞（Tycho Crater Shipyards）所在地，该船坞隶属于共和国海军船厂。报酬为 <payment>。"
 	cargo "Ship Alloys" 5 2 .1
 	job
 	repeat

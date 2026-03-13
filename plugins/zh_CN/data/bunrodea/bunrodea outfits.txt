@@ -68,7 +68,7 @@ outfit "Large Shield Relay"
 #	ammo "Shield Relay Booster"
 #	ammo "Shield Relay Limiter"
 	description "部分邦罗迪安军方舰长认为，以护盾生成能力换取能量效率是一种愚蠢的取舍；而商船舰长则希望最大限度发挥反应堆效能，主张提升能量效率。因此，护盾中继器可通过外部组件按所有者偏好进行定制。"
-	description "	Shield relays are able to be upgraded by installing shield boosters or limiters, which alter the performance of the shield relay. Each relay only has a limited number of slots for these upgrades, though."
+	description "	护盾继电器可通过安装护盾增强器或限幅器进行升级，从而改变护盾继电器的性能。不过，每个继电器仅提供有限数量的此类升级插槽。"
 
 
 
@@ -218,7 +218,7 @@ outfit "Electroweak Reactor"
 #	ammo "Reactor Overclocker"
 #	ammo "Reactor Limiter"
 	description "人类至今仍不清楚这种布恩罗迪安反应堆所命名的奇异恒星是否真实存在。电弱星是一种假想的奇异恒星，其核心内夸克向轻子转化时产生的电弱力可阻止恒星进一步坍缩。"
-	description "	Bunrodean reactors are able to be upgraded by installing Reactor Overclockers or Limiters, which alter the performance of the reactor. Each reactor only has a limited number of slots for these upgrades, though."
+	description "	布恩罗迪安反应堆可通过安装反应堆超频器或限频器进行升级，从而改变反应堆性能。不过每台反应堆仅提供有限数量的此类升级插槽。"
 
 outfit "Dark Reactor"
 	category "Power"

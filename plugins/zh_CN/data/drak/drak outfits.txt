@@ -102,7 +102,7 @@ outfit "Drak Draining Field (Augmented)"
 		"scrambling damage" 1
 		"disruption damage" 2
 		"safe"
-	description "This device is the Archon's primary defensive tool: not only does it disrupt the shields and energy supplies of all hostile ships within it, it also exerts a powerful repelling force that keeps ships from closing in with the Archon."
+	description "该装置是仲裁者号的主防御工具：它不仅能干扰范围内所有敌方飞船的护盾与能量供应，还会施加一股强大的排斥力，阻止敌舰靠近仲裁者号。"
 	description "	拱卫者力场通常维持在最低强度，但面对严重威胁时，拱卫者已展现出将力场强度大幅提升的能力。"
 
 
@@ -146,7 +146,7 @@ outfit "Drak Anti-Missile Field (Augmented)"
 		"firing energy" 10
 		"firing heat" 1
 		"anti-missile" 500
-	description "This device produces a field that destroys any missiles that come within it."
+	description "该装置生成一个力场，可摧毁进入其范围内的所有导弹。"
 	description "	唯有面对最强大的威胁时，才需要如此级别的反导弹效能。"
 
 
@@ -206,7 +206,7 @@ outfit "Drak Turret (Augmented)"
 		"shield damage" 2560
 		"hull damage" 2560
 		"hit force" 180
-	description "This is a turret-based cannon with significant range and accuracy."
+	description "这是一款基于炮塔的火炮，射程远、精度高。"
 	description "	面对大多数威胁时，执政官们会将武器设定在极低输出等级予以回应；但一旦局势需要，他们完全有能力造成远为严重的伤害。"
 
 effect "drak bolt impact"

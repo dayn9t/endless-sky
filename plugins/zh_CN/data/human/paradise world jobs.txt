@@ -14,7 +14,7 @@
 
 overwrite
 mission "Paradise Job: Care Package"
-	name "Care package to <planet>"
+	name "送往<planet>的关怀包裹"
 	job
 	repeat
 	deadline
@@ -38,7 +38,7 @@ mission "Paradise Job: Care Package"
 
 overwrite
 mission "Paradise Job: Birthday Supplies"
-	name "Birthday supplies to <planet>"
+	name "生日用品运往<planet>"
 	job
 	repeat
 	deadline
@@ -62,7 +62,7 @@ mission "Paradise Job: Birthday Supplies"
 
 overwrite
 mission "Paradise Job: Art Delivery"
-	name "Art delivery to <planet>"
+	name "艺术品运送至<planet>"
 	job
 	repeat
 	deadline
@@ -86,7 +86,7 @@ mission "Paradise Job: Art Delivery"
 
 overwrite
 mission "Paradise Job: Newlyweds"
-	name "Newlyweds to <planet>"
+	name "新婚夫妇前往<planet>"
 	job
 	repeat
 	deadline
@@ -112,7 +112,7 @@ mission "Paradise Job: Newlyweds"
 
 overwrite
 mission "Paradise Job: Theater Props"
-	name "Theater props to <planet>"
+	name "剧院道具运往<planet>"
 	job
 	repeat
 	deadline
@@ -136,7 +136,7 @@ mission "Paradise Job: Theater Props"
 
 overwrite
 mission "Paradise Job: Fine Food"
-	name "Fine food to <planet>"
+	name "优质食品运往<planet>"
 	job
 	repeat
 	deadline
@@ -160,7 +160,7 @@ mission "Paradise Job: Fine Food"
 
 overwrite
 mission "Transport partiers [1]"
-	name "Party-goers to <planet>"
+	name "前往<planet>的派对参与者"
 	job
 	repeat
 	description "这批共<bunks>人的大学生愿支付<payment>，搭乘豪华飞船前往<destination>参加一场盛大的派对，并随行携带<tons>吨完全合法的药品。"
@@ -211,7 +211,7 @@ mission "Transport partiers [2]"
 
 overwrite
 mission "Paradise Job: Food Donations"
-	name "Food donations to <planet>"
+	name "粮食捐赠至<planet>"
 	job
 	repeat
 	description "来自{origin}的优秀公民们，正在寻找一位富有同情心的船长，执行一项仁慈任务：向{destination}那些营养不良的民众捐赠{cargo}。报酬为{payment}。"
@@ -232,7 +232,7 @@ mission "Paradise Job: Food Donations"
 
 overwrite
 mission "Paradise Job: Clothing Donations"
-	name "Clothing donations to <planet>"
+	name "服装捐赠至<planet>"
 	job
 	repeat
 	description "<origin>的优秀市民诚邀一位富有同情心的船长执行一项仁爱任务：向<destination>那些衣着寒酸、时尚严重匮乏的民众捐赠<cargo>。酬金为<payment>。"
@@ -253,7 +253,7 @@ mission "Paradise Job: Clothing Donations"
 
 overwrite
 mission "Paradise Job: Medical Aid"
-	name "Medical aid to <planet>"
+	name "向<planet>提供医疗援助"
 	job
 	repeat
 	description "<origin>的优秀市民诚邀一位富有同情心的船长执行一项仁爱任务：向<destination>那些饱受苦难的民众捐赠<cargo>。酬金为<payment>。"
@@ -274,7 +274,7 @@ mission "Paradise Job: Medical Aid"
 
 overwrite
 mission "Paradise Job: Charity"
-	name "Charity goods to <planet>"
+	name "运往<planet>的慈善物资"
 	job
 	repeat
 	description "<origin>的优秀市民诚邀一位富有同情心的船长执行一项仁爱任务：向<destination>那些天真单纯、文化接触匮乏的民众捐赠<cargo>。酬金为<payment>。"
@@ -295,7 +295,7 @@ mission "Paradise Job: Charity"
 
 overwrite
 mission "Paradise Job: Party Goods"
-	name "Party goods from <planet stopovers>"
+	name "来自<planet stopovers>的派对用品"
 	job
 	repeat
 	deadline
@@ -322,7 +322,7 @@ mission "Paradise Job: Party Goods"
 
 overwrite
 mission "Paradise Job: Estate Assets"
-	name "Estate assets to <planet>"
+	name "地产资产至<planet>"
 	job
 	repeat
 	description "受托人正在招募愿意承接运输任务的星舰船长，将一位刚去世的杰出公民遗产中的一部分——<cargo>——运往<destination>即将举行的遗产拍卖会。酬金为<payment>。"
@@ -344,7 +344,7 @@ mission "Paradise Job: Estate Assets"
 
 overwrite
 mission "Paradise Jobs: Contract Laborers"
-	name "Contract laborers from <planet stopovers>"
+	name "来自<planet stopovers>的合同劳工"
 	job
 	repeat
 	description "在<stopovers>接上<bunks>名合同劳工后，返回<destination>。这些劳工渴望体验天堂世界的奢华生活。报酬为<payment>。"
@@ -369,7 +369,7 @@ mission "Paradise Jobs: Contract Laborers"
 
 overwrite
 mission "Paradise Job: Waste Disposal"
-	name "Waste disposal on <planet>"
+	name "<planet>上的废物处理任务"
 	job
 	repeat
 	description "急需处理废弃物。请将<cargo>运至<destination>，以防止地产价值下跌。酬金为<payment>。"
@@ -412,7 +412,7 @@ mission "Transport high-class tourists"
 
 overwrite
 mission "Transport high-class tourist group"
-	description "Bring <bunks> outrageously wealthy tourists on a fabulous journey to the wild and exotic world of <destination>. They'll only consider thinking about your ship if you have the 'appropriate facilities' for a comfortable journey. Payment is <payment>."
+	description "护送<bunks>名极度富有的游客，开启一场前往<destination>这颗狂野而异域风情星球的奇妙旅程。只有当你的飞船配备了舒适旅行所需的“适当设施”时，他们才会考虑搭乘你的飞船。报酬为<payment>。"
 	job
 	repeat
 	passengers 15 5 .15
@@ -470,7 +470,7 @@ mission "Pleasure cruise security"
 
 overwrite
 mission "Paradise Job: Parolees"
-	name "Parolees to <planet>"
+	name "运送假释人员至<planet>"
 	job
 	repeat
 	description `这批<bunks>非暴力惯犯已同意接受更长的社区服务刑期，以换取在<destination>天堂世界服刑。他们必须由一艘安全防护飞船运送。报酬为<payment>。`
@@ -519,7 +519,7 @@ mission "Paradise Job: Debtors"
 
 overwrite
 mission "Paradise Job: Retirees"
-	name "Wealthy retirees to <planet>"
+	name "富裕的退休人员前往<planet>"
 	job
 	repeat
 	description "这群<bunks>位富有的退休人士愿支付<payment>积分，享受豪华运输服务前往<destination>，并随行携带<tons>吨他们最珍视的财物。"
@@ -577,7 +577,7 @@ mission "Paradise Job: Pirate Retirees (Legal)"
 	name "Wealthy retirees to <planet>"
 	job
 	repeat
-	description `This coterie of <bunks> wealthy "retirees" is willing to pay <payment> for stylish, no-questions-asked transport to <destination>, along with <tons> of their most treasured possessions.`
+	description `这群< bunks >位富有的“退休人士”愿意支付< payment >，以换取时尚、无需盘问的运输服务，前往< destination >，同时运送他们最珍视的< tons >吨财物。`
 	passengers 4 10 .6
 	cargo "treasured possessions" 4 10 .2
 	to offer
@@ -600,7 +600,7 @@ mission "Paradise Job: Pirate Retirees (Legal)"
 
 overwrite
 mission "Paradise Job: Wilderness Retreat"
-	name "Wilderness Retreat to <planet>"
+	name "荒野度假地前往<planet>"
 	job
 	repeat
 	description `将<bunks>名伪名人和富裕游客运送至未开发的蛮荒世界<destination>，参加一场“荒野静修之旅”。只有当你能确保他们拥有舒适的旅程时，他们才会考虑搭乘你的飞船。报酬为<payment>。`
@@ -650,7 +650,7 @@ mission "Gemini Shipyards Shipment [0]"
 overwrite
 mission "Gemini Shipyards Shipment [1]"
 	name "Shipment to <planet>"
-	description "Deliver <cargo> to <destination>, the home of Gemini Shipyards, a constituent of the Republic Navy Yard and one of the most advanced shipyards in human space. Payment is <payment>."
+	description "将 <cargo> 运送至 <destination>——双子座船坞（Gemini Shipyards）的总部所在地。该船坞隶属于共和国海军造船厂，是人类疆域内最先进的船坞之一。报酬为 <payment>。"
 	cargo "Ship Systems" 5 2 .1
 	job
 	repeat
@@ -717,7 +717,7 @@ mission "Polymath Nanoinstruments Shipment [0]"
 
 overwrite
 mission "Martini Evacuation (Resident Family)"
-	name "Evacuate Martini family to <planet>"
+	name "将马尔蒂尼一家撤离至<planet>"
 	description "这户来自马蒂尼的< bunks >人家庭，其< martini house >在核轰炸中被摧毁，迫切希望立即撤离。请将他们及其< cargo >运送至< planet >——他们在当地已有住所。他们将支付你< payment >。"
 	job
 	repeat
@@ -747,7 +747,7 @@ mission "Martini Evacuation (Resident Family)"
 
 overwrite
 mission "Martini Evacuation (Resident Group)"
-	name "Evacuate Martini residents to <planet>"
+	name "将马尔蒂尼居民撤离至<planet>"
 	description "这批<bunks>来自马提尼的居民，其<martini house>在核轰炸中被摧毁，迫切希望立即撤离。请将他们及其< cargo>运送至<planet>——他们已在当地安排好住所。作为酬劳，他们将支付你< payment>。"
 	job
 	repeat
@@ -777,7 +777,7 @@ mission "Martini Evacuation (Resident Group)"
 
 overwrite
 mission "Martini Evacuation (Resident)"
-	name "Evacuate Martini resident to <planet>"
+	name "将马尔蒂尼居民撤离至<planet>"
 	description "这位来自马提尼的居民，其<martini house>在核轰炸中被摧毁，迫切希望立即撤离。请将其本人及<cargo>运送至<planet>，他们在当地已有住所。作为报酬，他们将支付你<payment>。"
 	job
 	repeat
@@ -871,7 +871,7 @@ mission "Martini Evacuation (Singular, Luxury)"
 
 overwrite
 mission "Martini Evacuation (Tourist)"
-	name "Evacuate tourist to <planet>"
+	name "将一名游客撤离至<planet>"
 	description "这位来自<planet>的游客，本在马提尼星观光，却恰逢核爆事件，迫切希望立刻离开。请将其送回母星<planet>，他将支付你<payment>。"
 	job
 	repeat
@@ -893,7 +893,7 @@ mission "Martini Evacuation (Tourist)"
 
 overwrite
 mission "Martini Evacuation (Tourist Couple)"
-	name "Evacuate tourist couple to <planet>"
+	name "将一对游客撤离至<planet>"
 	description "这对来自<planet>的游客夫妇，原计划在马提尼星观光，却恰逢核爆事件发生，现迫切希望立即离开。请将他们送回位于<planet>的家乡，他们将向你支付<payment>。"
 	job
 	repeat
@@ -915,7 +915,7 @@ mission "Martini Evacuation (Tourist Couple)"
 
 overwrite
 mission "Martini Evacuation (Tourist Family)"
-	name "Evacuate tourist family to <planet>"
+	name "将一个游客家庭撤离至<planet>"
 	description "这支来自<planet>、共<bunks>人的游客家庭，原在马提尼星观光游览，不料遭遇核爆，现迫切希望立即撤离。请将他们送回故乡<planet>，抵达后他们将向你支付<payment>积分。"
 	job
 	repeat
@@ -936,7 +936,7 @@ mission "Martini Evacuation (Tourist Family)"
 
 overwrite
 mission "Martini Evacuation (Tourist Group)"
-	name "Evacuate tourist group to <planet>"
+	name "将一支游客团体撤离至<planet>"
 	description "这批共<bunks>人的<planet>游客，原在马提尼星观光，恰逢核爆事件爆发，现迫切希望立即撤离。请将他们运送回<planet>的家乡，他们将向你支付<payment>。"
 	job
 	repeat
@@ -958,7 +958,7 @@ mission "Martini Evacuation (Tourist Group)"
 
 overwrite
 mission "Martini Evacuation (Businessman Group)"
-	name "Evacuate group of businessmen from Martini to <planet>"
+	name "将一群商人从马尔蒂尼撤离至<planet>"
 	description "这群<bunks>商人原在马提尼星执行商务考察，恰逢核爆事件爆发，现迫切希望立即撤离。请将他们运送回位于<planet>的家园，他们将支付你<payment>。"
 	job
 	repeat
@@ -981,7 +981,7 @@ mission "Martini Evacuation (Businessman Group)"
 
 overwrite
 mission "Martini Evacuation (Businessman)"
-	name "Evacuate businessman to <planet>"
+	name "将商人撤离至<planet>"
 	description "这位商人原在马提尼星执行商务旅行，恰逢核轰炸事件爆发，现迫切希望立即撤离。请将他送回其家乡<planet>，他将在抵达后向你支付<payment>。"
 	job
 	repeat
@@ -1003,7 +1003,7 @@ mission "Martini Evacuation (Businessman)"
 
 overwrite
 mission "Martini Evacuation (Exhausted Doctors)"
-	name "Transport discharged doctors to <planet>"
+	name "运送被解职的医生前往<planet>"
 	description "这批<bunks>医生在马提尼星遭受轰炸后持续救治伤患，现已获准退役。请将他们运送回其家乡<planet>，他们将向你支付<payment>。"
 	job
 	repeat
@@ -1025,7 +1025,7 @@ mission "Martini Evacuation (Exhausted Doctors)"
 
 overwrite
 mission "Martini Evacuation (Exhausted Search and Rescue Team)"
-	name "Transport discharged search and rescue team to <planet>"
+	name "运送被解职的搜救队前往<planet>"
 	description "这批<bunks>搜救人员一直在马提尼首都城市搜寻核轰炸受害者，现已正式结束任务并解除勤务。请将他们送回位于<planet>的家园，他们将向你支付< payment>。"
 	job
 	repeat
@@ -1277,7 +1277,7 @@ phrase "insults for southerners"
 
 overwrite
 mission "Martini Relief (Medical) [0]"
-	name "Disaster relief to Martini"
+	name "向马提尼提供灾难救援"
 	description "由于近期发生的核爆炸，需将 <cargo> 运送至 <planet>，以救助伤员。你必须呼叫太空港管制员，获取进入该行星的通行许可。报酬为 <payment>。"
 	job
 	repeat
@@ -1300,7 +1300,7 @@ mission "Martini Relief (Medical) [0]"
 overwrite
 mission "Martini Relief (Medical) [1]"
 	name "Disaster relief to Martini"
-	description "Due to the recent nuclear bombings, bring <cargo> to <planet> to help treat the wounded. You will need to hail the spaceport controller to gain clearance to the planet. Payment is <payment>."
+	description "由于近日核打击事件，请将< cargo>运抵<planet>，以协助救治伤员。您需呼叫太空港管制员以获取行星着陆许可。报酬为<payment>。"
 	job
 	repeat
 	cargo Medical 1 2 .2
@@ -1321,7 +1321,7 @@ mission "Martini Relief (Medical) [1]"
 
 overwrite
 mission "Martini Relief (Reconstruction)"
-	name "Construction supplies to Martini"
+	name "建筑物资运往马蒂尼"
 	description "由于近期发生的核爆炸，需将 <cargo> 运送至 <planet>，以支援当地重建工作。你必须呼叫太空港管制员，获取进入该行星的通行许可。报酬为 <payment>。"
 	job
 	repeat
@@ -1343,7 +1343,7 @@ mission "Martini Relief (Reconstruction)"
 
 overwrite
 mission "Martini Relief (Food)"
-	name "Food packages to Martini"
+	name "运送到马提尼的食物包裹"
 	description "由于近期核打击事件，请将< cargo >运抵< planet >，以保障物资供应。你需呼叫太空港管制员以获取行星着陆许可。报酬为< payment >。"
 	job
 	repeat
@@ -1365,8 +1365,8 @@ mission "Martini Relief (Food)"
 
 overwrite
 mission "Martini Relief (Water Tablets)"
-	name "Water purification tablets to Martini"
-	description "Due to the recent nuclear bombings, bring <cargo> to <planet> to help keep up supply. You will need to hail the spaceport controller to gain clearance to the planet. Payment is <payment>."
+	name "净水药片运往马蒂尼"
+	description "由于近日核打击事件，请将< cargo>运抵<planet>，以维持物资供应。您需呼叫太空港管制员以获取行星着陆许可。报酬为<payment>。"
 	job
 	repeat
 	cargo "water purification tablets" 1 2 .2
@@ -1387,7 +1387,7 @@ mission "Martini Relief (Water Tablets)"
 
 overwrite
 mission "Martini Relief (Fire Retardant)"
-	name "Fire retardant to Martini"
+	name "阻燃剂运往马丁尼"
 	description "Due to the recent nuclear bombings, bring <cargo> to <planet> to help keep up supply. You will need to hail the spaceport controller to gain clearance to the planet. Payment is <payment>."
 	job
 	repeat
@@ -1409,7 +1409,7 @@ mission "Martini Relief (Fire Retardant)"
 
 overwrite
 mission "Martini Relief (People) [0]"
-	name "Relief workers to Martini"
+	name "救援人员前往马蒂尼"
 	description "由于马蒂尼星近期遭受核打击，请将<bunks> <martini relief occupations>运抵<planet>，以缓解医院超负荷运转的压力。你需呼叫太空港管制员以获取行星着陆许可。报酬为<payment>。"
 	job
 	repeat

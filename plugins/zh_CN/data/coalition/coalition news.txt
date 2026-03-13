@@ -273,9 +273,9 @@ news "kimek civilian"
 			"Local Kimek"
 	message
 		word
-			`"Arrested close to where my cousins work, the terrorists on the news were. Notice anything wrong with them, they never did."`
-			`"Always rising, the sun in these broadcasts is, but a night shift I work, so see it for myself, I never can..."`
-			`"To Ring of Wisdom, a researcher friend of mine has gone. Always there, our wisest mingle, but remain here, few do. Difficult for us, sometimes it is."`
+			`"新闻里那些恐怖分子，就在我的表亲们工作地点附近被捕了。他们身上有什么不对劲的地方，可从来没人注意到。"`
+			`“这些广播里太阳总是高高升起，可我值的是夜班，所以从来没法亲眼看见……”`
+			`“前往智慧之环，我一位研究员朋友已前往。那里向来是智者汇聚之所，但真正留驻于此的却寥寥无几。对我们而言，有时确实颇为艰难。”`
 			`“我姐姐受够了故障频发的翻译器，于是开始学习说阿拉奇语。”`
 			`“萨瑞德人比我们内敛得多。他们寿命极长，以至于理解其习性都十分困难。”`
 

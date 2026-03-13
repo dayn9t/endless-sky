@@ -653,7 +653,7 @@ outfit "Small VLS"
 		"missile strength" 9
 		"submunition" "Nettle Active"
 	description "这种小型垂直发射系统采用矩形阵列布局，内置18个独立发射单元。设计注重灵活性，可适配多种小型或中型导弹。由于其占据较大的表面空间，必须安装在炮塔基座上才能安全发射导弹。"
-	description "	Vertical launch systems enable rapid and versatile missile deployment, but as dual launchers and magazines, no separate missile storage is available."
+	description "	垂直发射系统可实现导弹的快速、灵活部署，但由于采用双发射器与共用弹舱设计，无法提供独立的导弹储存空间。"
 	description "	Ammunition for this weapon can be restocked at any outfitter."
 
 outfit "Medium VLS"

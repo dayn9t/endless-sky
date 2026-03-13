@@ -48,23 +48,23 @@ mission "Pug in Wanderer Space"
 				`	(Yes.)`
 				`	（不，别冒险了。）`
 					goto ship
-			`	You try to talk to several of the Pug who are walking by, but they do not respond or even look at you. If you stand to block their path, they step around you, and you determine by intentionally bumping into one of them that they are real and not just a holographic projection. From the brief eye contact that a few of them make before looking away from you, you get the feeling that they are intentionally ignoring you.`
+			`	你试图与几位路过的小狗族人（Pug）交谈，但他们既不回应，也不正眼看你。若你故意挡在他们行进路线上，他们只会绕开你继续前行；你甚至故意撞上其中一人，确认了他们确为实体，而非全息投影。仅有的几次短暂目光接触，也都在他们迅速移开视线前便已结束——你由此断定，他们是在刻意无视你。`
 			`	噗格人并不十分强壮。你大概可以直接抓住其中一个，逼它回答你的问题，而几乎不必担心它会伤害到你。`
 			choice
 				`	（抓住其中一个。）`
 				`	（放弃任务，离开。）`
 					goto ship
-			`	You grab one of the Pug by the arm. "You need to give me some answers," you say. It begins to babble in a language you do not know, and a crowd of Pug gather around you. Eventually a few more of them arrive holding some sort of staff that they point at you menacingly, while shouting commands at you, again in their own language. It is possible that none of the Pug here actually speak the human language, in which case trying to communicate with them will be fruitless.`
+			`	你一把抓住一只普格的手臂，说道：“你得给我一些答案。”它开始用你听不懂的语言语无伦次地叽里呱啦起来，一群普格随即围拢过来。很快又有几只普格赶到，手持某种权杖般的东西，恶狠狠地指向你，并用它们自己的语言对你大声发号施令。此处的普格很可能根本没人会说人类语言，因此试图与它们沟通恐怕徒劳无功。`
 			choice
 				`	（放走那只巴哥犬，然后离开。）`
 					goto ship
-				`	(Threaten to shoot them.)`
+				`	(威胁要射击他们。)`
 			`	就在你伸手去掏枪的瞬间，一名持械的普格人用其权杖射出一道光芒，一股温暖而愉悦的感觉顿时席卷全身——这是你此生体验过的最美好的感觉。你恍惚失神，不由自主地朝自己的飞船走去，途中不时驻足，惊叹于那些此前从未留意过的景象：阳光在水面上闪烁的微光、海沼草尖悬垂的晶莹浪花、以及那片蓝得无与伦比、胜过你所见过一切蓝色的天空。这一切美得令你潸然泪下。抵达飞船后，你坐在驾驶舱内，着迷地凝视着控制面板上闪烁的指示灯，却已全然想不起其中任何一个的功能。`
 			`	数小时后，那种美妙的感觉被一阵恶心和剧烈头痛所取代。`
 				decline
 			
 			label ship
-			`	You decide to play it safe and return to your ship. The Pug remain as enigmatic as ever.`
+			`	你决定谨慎行事，返回自己的飞船。普格人依旧如往常一样神秘莫测。`
 				decline
 
 overwrite

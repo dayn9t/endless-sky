@@ -143,8 +143,8 @@ event "war begins"
 		"required reputation" 100
 		security .9
 	planet "Bourne"
-		description `Bourne is a well-developed industrial world that was first settled four centuries ago. Its cities are home to some of the richest individuals in this section of the galaxy, but also home to tens of thousands of homeless people, and many others whose factory jobs are barely providing enough to make ends meet.`
-		description `	Outside the cities, the climate is somewhat dry, but the deep valleys and some coastal regions are suitable for farming. Very little of the planet remains that is untouched by human hands.`
+		description `伯恩是一颗高度发达的工业世界，四百年前首次有人定居。其城市中既居住着银河系这一区域最富有的人，也居住着数以万计的无家可归者，以及更多仅靠工厂工作勉强维持生计的人。`
+		description `	城市之外，气候略显干燥，但深谷及部分沿海地区仍适宜农耕。整颗行星上几乎已无未受人类活动影响的原始区域。`
 		description `	伯恩同时也是新成立的自由世界政府所在地。`
 
 overwrite
@@ -204,16 +204,16 @@ mission "event: war begins"
 				`	"Of course."`
 					goto summary
 				`	"What's happening?"`
-				`	"What makes you think you can just order me to leave?"`
+				`	"你凭什么觉得可以随意命令我离开？"`
 					goto noncompliance
 
 			`	联络官叹了口气："船长，恐怕这颗行星已进入紧急状态。昨天，南方几个叛离的行星宣布要脱离共和国独立——向议会递交了最后通牒，要求进行选举与税收改革、实行自由贸易，全都是他们多年来反复抱怨的老问题，本不足为奇。但三小时前，有人——极有可能正是这个‘自由世界’组织——在马尔蒂尼星的银河证券交易所投下了一枚核弹。至少我们推测交易所是其目标，因为爆炸不仅摧毁了约四分之一的城市，还夷平了主太空港，并损毁了该行星半数的医疗资源。目前我们已有逾百万人受伤，另有五百万人亟待疏散。更糟的是，恐怖分子还轰炸了杰米努斯星的海军船坞，导致我们既无人手执行疏散任务，也无法兼顾其他平民的安置工作。"`
 			choice
-				`	"I'll get out of the way, then."`
+				`	"那我这就让开。"`
 					goto end
-				`	"Sorry, I didn't know. I'll be out of your hair as soon as I can lift off."`
+				`	"抱歉，我不知道。我一能起飞就立刻离开，绝不再打扰。"`
 					goto end
-				`	"Is there any way I can help?"`
+				`	“有什么我能帮上忙的吗？”`
 					goto help
 
 			label noncompliance
@@ -232,7 +232,7 @@ mission "event: war begins"
 			`	“很高兴听到这个消息。”他们答道，随即转身去安抚一群歇斯底里的帕拉迪西亚人。`
 			`	你重新登上<ship>，启动飞船升空驶向轨道，险之又险地避开了联络官提及的航母编队。此时你才发觉，自己竟一直没关掉飞船内的视频屏幕，屏幕上正播放着一段影像——画面内容几乎与不久前你在地面上所见一模一样。据新闻播报员称，这场混乱始于昨日：银河系南部的一群行星向共和国议会发出最后通牒，要求暂停缴纳赋税，直至改革行星代表选举制度；该联盟自称为“自由世界”，同时还要求立即全面重新评估所有现行贸易关税及飞行员注册相关法规。议会断然拒绝考虑任何一项诉求。”`
 			`	随后，就在你着陆仅数小时前，双子星（Geminus）和马丁尼（Martini）上发生的核爆炸摧毁了共和国海军船坞与银河证券交易所，重创了共和国的军事与经济中心。“自由世界”虽拒不承认对此次袭击负有任何责任，但袭击发生的时间点，以及其恰好完美契合“自由世界”自身利益的事实，却令人难以信服。`
-			`	Unless the terrorists can be found or turn themselves in, civil war is imminent. It has been less than a year since you bought your ship, and already the galaxy is falling apart on you.`
+			`	除非恐怖分子被抓获或主动自首，否则内战迫在眉睫。距离你购入飞船尚不足一年，银河系却已在你眼前分崩离析。`
 				flee
 
 			label end
@@ -985,7 +985,7 @@ event "fw zug expansion underway"
 event "fw zug expansion complete"
 	planet Zug
 		add shipyard "Tarazed Advanced"
-		spaceport `The spaceport of Zug has been growing by amalgamation for centuries. At its core is the "Old Port," a set of quaint and rudimentary shops and warehouses. The landing pads for the Old Port were torn up to make room for what the locals call "The Port," a set of buildings that were constructed a century ago, with bolder architecture and more modern design.`
+		spaceport `祖格太空港数百年来通过不断兼并而持续扩张。其核心是名为“老港”的区域，那里分布着一些建筑古朴、设施简陋的店铺和仓库。老港的着陆平台早已被拆除，腾出空间建起了当地人所称的“新港”——一组建于百年前的建筑群，设计更为大胆，风格也更趋现代。`
 		spaceport `	不远处是“新港”，一座高耸入云的建筑，配备机械式货运升降机和供昂贵飞船停靠的大型机库。它最近刚刚扩建，以满足自由世界日益增长的活动需求，使祖格成为银河系南部首屈一指的飞船铸造中心。因此，“新港”的扩建部分很快被人们戏称为“扩建区”，倒也不足为奇。`
 
 
@@ -1007,7 +1007,7 @@ event "capture of Kornephoros"
 		description `这座采矿前哨站遍布海军守卫；他们似乎已将这颗卫星临时改造为作战基地。矿场已关闭，任何人不得进出采矿前哨站。目前尚不清楚矿工们是被拘禁的囚犯，还是仅仅处于极其严密的监视之下。`
 		security 1
 	planet "Deep"
-		spaceport `The spaceport is built on a large island, a now-extinct volcano with an elevation of several kilometers at its center. Most of the large-scale fishing here is done by a single company, Poseidon Industries, which also built and maintains the spaceport. Steep winding roads and sturdy concrete homes and warehouses line the mountain slopes, and below you in the harbor several massive trawling vessels are moored. On the outskirts of the spaceport are the ramshackle houses and open-air marketplace used by the smaller, independent fishing families.`
+		spaceport `太空港建在一座大型岛屿上，该岛是一座现已熄灭的火山，其中心海拔达数公里。当地大规模渔业主要由一家公司——波塞冬工业（Poseidon Industries）——垄断经营，该公司同时也建造并维护着这座太空港。陡峭盘旋的公路以及坚固的混凝土住宅和仓库沿山坡而建；而在你下方的港口中，数艘巨型拖网渔船正停泊在港湾里。太空港外围则分布着小型独立渔民家庭所居住的简陋房屋与露天集市。`
 		spaceport `	数百名海军军官正在这座小型太空港内巡逻，搜寻当地抵抗势力的任何蛛丝马迹。`
 		security 1
 	system "Altair"
@@ -1067,7 +1067,7 @@ event "recapture of Kornephoros"
 		fleet "Large Free Worlds" 1700
 		fleet "Human Miners" 3000
 	planet "Clink"
-		description `About a decade ago, a mining corporation from Zug planted a colony on Clink for harvesting some rare earth minerals that are present in this moon's crust due to its unusually high rate of asteroid impacts. The atmosphere here is too thin to breathe without a respirator, and because of the low gravity, the dust raised by the mining operations hangs perpetually in the air.`
+		description `大约十年前，来自祖格的一家矿业公司于克林克星建立了一处殖民地，旨在开采月球地壳中富含的稀土矿物——这些矿物因该卫星异常频繁的陨石撞击而大量富集。此处大气过于稀薄，不借助呼吸器便无法呼吸；加之重力较低，采矿作业扬起的尘埃会长期悬浮于空中。`
 		description `在此工作的矿工们关系十分紧密，因为他们中的大多数都曾是最初殖民队的成员。他们对外来者并不特别开放，且此处设施极为简陋，甚至不为来访飞船储备燃料。`
 		security .5
 	planet "Deep"
@@ -1322,7 +1322,7 @@ event "fw abandoned Greenrock"
 		fleet "Old Southern Pirates" 7000
 		fleet "Large Free Worlds" 9000
 	planet "Greenrock"
-		description `Greenrock was the closest thing that the pirates in southern human space had to a center of government, at least until the Free Worlds occupied it. When rival pirate bands sought to negotiate on neutral territory, this is where they met. Nearly everything was for sale here: illegal weapons, ships customized for pirating, and even slaves.`
+		description `格林罗克曾是人类南部星域海盗们最接近政府中心的所在，至少在自由世界占领它之前一直如此。当敌对海盗团伙寻求在中立领土上谈判时，便会选择此处会面。这里几乎什么都曾出售：非法武器、专为海盗活动定制的飞船，甚至还有奴隶。`
 		description `	这种情况一直持续到自由世界占领该星系，并清除了许多主要人口中心。随着自由世界的撤离，这颗行星正逐渐回归其原本的犯罪与邪恶状态。`
 		spaceport `你早已听闻这座太空港的恶名，因此见到昔日奴隶市场的残迹时并不意外——如今它们已空空如也，这是自由世界占领后所致。太空港中那些见不得光的场所，正逐渐恢复往日的顾客与服务。`
 		spaceport `	随着‘自由世界’已然覆灭，幽暗的小巷绝对不可涉足。你瞥见其中一条小巷里有家名为‘迈克的鼬科动物店’的店铺，店内宛如丛林。各种异域动物的嚎叫与嘶吼从店内传出，而这条小巷里则游荡着不少显然已逃逸的雪貂、白鼬和貂熊。`
@@ -1867,7 +1867,7 @@ event "bloodsea joins free worlds"
 
 event "bloodsea spaceport completed"
 	planet "Bloodsea"
-		description `Bloodsea is nearly uninhabited, except for a few small outposts. Its name comes from the planet's oceans, which are blood-red due to rhodophyte algae. Although the climate is temperate and there are many white sand beaches, no one comes here hoping to go swimming.`
+		description `血海星几乎无人居住，仅有几处小型前哨站。其名称源于该行星的海洋——因红藻（rhodophyte algae）而呈现血红色。尽管气候温和、遍布洁白沙滩，却无人来此期待游泳。`
 		description `	近日，在自由世界的协助下，此处新建了一座太空港。血海星（Bloodsea）此前曾是海盗据点，而新太空港的落成为其增添了几分体面气息，目前已陆续有少量移民与好奇的游客前来定居或探访。`
 		spaceport `这座新建的太空港设计极为出色：防波堤与起降平台均由崭新浇筑、棱角分明的混凝土建成，尚未被风雨或霉菌侵蚀留下任何痕迹。但其规模却远超当前驻留人口与飞船数量所需，除了一处热闹的市场外，整座太空港显得异常空旷。`
 		spaceport `	有些事自海盗时代起便未曾改变。当地俚语中充斥着极端暴力的威胁，却仿佛只是毫无意义的口头习惯。“嘿，你要是不买个肉饼，我就一根一根地剁掉你的手指！”你路过时，摊主兴高采烈地朝你吆喝道。“第一个免费，要是你不喜欢，我就给你脊椎打个死结！”`
@@ -1900,7 +1900,7 @@ event "bloodsea independent"
 event "albatross joins free worlds"
 	planet "Albatross"
 		add attributes "ex-pirate"
-		description `Albatross is a cold ocean world orbiting a small, cold sun. The first settlers on Albatross were anarchists who believed that in a society free from unnatural laws and constraints, everyone would happily and freely work for the common good. The next settlers were pirates who believed that a planet free from laws and constraints would be a great base of operations.`
+		description `信天翁星是一颗寒冷的海洋行星，围绕一颗微小而寒冷的恒星运行。首批定居信天翁星的是无政府主义者，他们相信，在一个摆脱了非自然法律与约束的社会中，每个人都会心甘情愿、自由自在地为共同福祉而工作。随后抵达的定居者则是海盗，他们认为，一颗毫无法律与约束的行星将是绝佳的行动基地。`
 		description `	近日，自由世界已从海盗压迫者手中解放了信天翁星（Albatross），但许多当地居民仍持怀疑态度，认为自由世界与其他长期盘踞此地的保护费团伙并无本质区别。`
 	system "Nunki"
 		government "Free Worlds"
@@ -2720,7 +2720,7 @@ event "navy done with algenib"
 		fleet "Large Core Pirates" 800
 		fleet "Large Syndicate" 5000
 	planet "Covert"
-		description `Covert is home to a powerful mining cartel, operating outside the control of Republic law or any other external authority. It is rumored to be one of the few planets in human space where weapons-grade uranium and plutonium is mined and enriched. Any goods for sale here were most likely produced by slave labor, often by survivors of ships that have been captured by pirates. A massive pirate fleet is docked on the outskirts of the spaceport, a warning to any private pilot who might think of cheating or opposing the cartel.`
+		description `科弗特是某强大采矿卡特尔的总部，完全不受共和国法律或任何其他外部势力管辖。据传，这里是人类疆域内少数几颗开采并提纯武器级铀与钚的行星之一。此处出售的所有商品极可能由奴隶劳工生产，其中许多劳工是遭海盗劫持飞船后的幸存者。一支庞大的海盗舰队停泊在太空港外围，以此警告任何企图欺骗或对抗该卡特尔的私人飞行员。`
 
 
 
@@ -2799,8 +2799,8 @@ event "fwc capture kaus borealis"
 		fleet "Large Free Worlds" 400
 		fleet "Large Republic" 2000
 	planet "New Iceland"
-		description `New Iceland is a perpetually hazy volcanic world, with a slightly caustic atmosphere but enough reserves of metal and petrochemicals to draw a large number of settlers. Some of those settlers also make a living as farmers, and a few well-developed factory towns produce goods for export to other worlds.`
-		description `	Many of the inhabitants wear dust masks to avoid letting the particulate matter from the volcanoes accumulate in their lungs.`
+		description `新冰岛是一颗常年笼罩在薄雾中的火山世界，大气略带腐蚀性，但蕴藏着充足的金属与石化资源，吸引了大量移民。部分移民以务农为生，少数发展成熟的工业城镇则生产出口至其他世界的商品。`
+		description `	许多居民佩戴防尘口罩，以免火山喷发的颗粒物在肺部积聚。`
 		description `	海军在被迫撤出南方边缘星域后，曾在新冰岛开始建造一座庞大的军事基地；然而，他们在本星系遭自由世界击败，致使该基地尚未完工便被仓促废弃。`
 
 
@@ -2927,7 +2927,7 @@ event "fwc capture menkent"
 		fleet "Large Republic" 2000
 		fleet "Human Miners" 2000
 	planet "New Austria"
-		description `New Austria is a rugged mountain world, full of snow-capped peaks and valleys so deep and so steep that they rarely see sunlight.`
+		description `新奥地利是一颗崎岖多山的星球，遍布白雪皑皑的峰顶，以及幽深陡峭的峡谷——这些峡谷常年不见阳光。`
 		description `	此处建立的少数定居点专为开采蓝宝石与红宝石而设。新奥地利出产的蓝宝石颜色丰富，涵盖蓝色、黄色、黑色乃至无色，既用于工业研磨材料，也用于珠宝制造。`
 		description `	数个世纪以来，当地居民一直在寻找钻石矿藏——钻石售价远高于蓝宝石。当地民间传说也围绕着一个主题：倘若有朝一日发现钻石，这颗星球将迎来空前繁荣。`
 		description `	海军曾在此处设有一座军事基地，但当自由世界势力在‘将死’计划中攻占该星系后，海军便撤离了此地。`

@@ -37,7 +37,7 @@ mission "Kor Efreti: Cargo [1]"
 	name "Delivery to <planet>"
 	job
 	repeat
-	description "Deliver <cargo> to <destination> for the Kor Efreti. Payment is <payment>."
+	description "为科拉斯·埃弗雷蒂（Kor Efreti）将<cargo>运送至<destination>。报酬为<payment>。"
 	cargo random 10 2 .14
 	to offer
 		has "wanderers sestor done"
@@ -80,7 +80,7 @@ mission "Kor Efreti: Food Cargo [1]"
 	name "Food to <planet>"
 	job
 	repeat
-	description "The Kor Efreti need some food supplies moved to another planet. Deliver <cargo> to <destination>. Payment is <payment>."
+	description "科拉斯·埃弗雷蒂族需要将一些食物补给运送至另一颗行星。将< cargo>运送到< destination>。报酬为< payment>。"
 	cargo "Food" 5 3 .14
 	to offer
 		has "wanderers sestor done"
@@ -169,7 +169,7 @@ mission "Kor Efreti: Rush Delivery Food"
 
 overwrite
 mission "Kor Efreti: Passengers [0]"
-	name "Korath passengers to <planet>"
+	name "运送科拉斯乘客至<planet>"
 	job
 	repeat
 	description "将这批<bunks>名科拉斯·埃弗雷蒂成员运送至<destination>。酬金为<payment>。"
@@ -192,7 +192,7 @@ mission "Kor Efreti: Passengers [1]"
 	name "Korath passengers to <planet>"
 	job
 	repeat
-	description "Bring this group of <bunks> Kor Efreti to <destination>. Payment is <payment>."
+	description "将这<bunks>名科拉斯·埃弗雷蒂成员送往<destination>。报酬为<payment>。"
 	passengers 3 2 .1
 	to offer
 		has "wanderers sestor done"
@@ -212,7 +212,7 @@ mission "Kor Efreti: Passengers [1]"
 
 overwrite
 mission "Kor Efreti: Settlers"
-	name "Korath settlers to <planet>"
+	name "科拉斯殖民者前往<planet>"
 	job
 	repeat
 	description "将这< bunks >名迁徙的科拉夫雷蒂人及其< cargo >货物运送至< destination >上的新游荡者-科拉斯定居点，酬金为< payment >。"
@@ -234,7 +234,7 @@ mission "Kor Efreti: Settlers"
 
 overwrite
 mission "Kor Efreti to Wanderers: Farming"
-	name "Teaching Wanderer farming methods"
+	name "传授流浪者农耕技术"
 	job
 	repeat
 	description "护送<bunks>名科·埃弗雷蒂前往<stopovers>，学习漫游者族的农耕技术，之后将他们送回<planet>。报酬为<payment>。"

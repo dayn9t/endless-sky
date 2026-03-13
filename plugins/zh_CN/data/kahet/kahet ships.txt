@@ -581,7 +581,7 @@ ship "Fetri'sei"
 	explode "medium explosion" 18
 	explode "large explosion" 10
 	"final explode" "final explosion small"
-	description "The Fetri is a self replicating probe, built to harvest iridium away from the Graveyard and transport it back to the Builders."
+	description "费特里号是一种自我复制探测器，专为从墓场采集铱元素并运回建造者母星而设计。"
 
 ship "Fetri'sei" "Fetri'sei (Disable-able)"
 	"uncapturable"

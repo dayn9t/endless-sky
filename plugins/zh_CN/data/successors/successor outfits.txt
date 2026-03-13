@@ -469,7 +469,7 @@ outfit `"Chyyra" Inductive Reverser`
 		"frame rate" 20
 	"reverse flare sound" "ion medium"
 	description "这款大型反向推进器在商贸与战争中均有应用：前者可加快货船穿越贸易航线的速度，后者则能提升战舰在战斗中的机动性。"
-	description "	Because a reverse thruster must be facing forwards, it must be installed in the weapon section of your ship instead of the engine section."
+	description "	由于反向推进器必须朝前安装，因此它必须装在飞船的武器区而非引擎区。"
 
 outfit `"Veusa" Inductive Thruster`
 	category "Engines"
@@ -561,7 +561,7 @@ outfit "Multimodal Armor: Heavy"
 	"hull protection" .2
 	"multimodal armor" -1
 	"unplunderable" 1
-	description "The metamaterial armor of Successor warships can be altered in an appropriately equipped spaceport to change its attributes."
+	description "继承者战舰所使用的超材料装甲，可在配备相应设施的太空港中进行调整，以改变其属性。"
 	description "	该配置增强了构成护甲的原子之间的结合力，从而提升了其对直接伤害的抗性。"
 
 outfit "Multimodal Armor: Regen"

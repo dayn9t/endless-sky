@@ -413,7 +413,7 @@ outfit "Hai Tracker Pod"
 		"hit force" 525
 		"missile strength" 16
 	description "追踪导弹是一种高速且精准的制导武器。尽管其威力不及多数人类导弹，但追踪导弹拥有极强的命中冲击力，能有效阻止任何不幸成为目标者的逃脱。其唯一弱点是转向半径过大：一旦追踪导弹未能命中目标，将需要很长时间才能掉头追击。"
-	description "	Ammunition for this weapon can be restocked at any outfitter."
+	description "	该武器的弹药可在任意装备店补给。"
 		to display
 			has "gamerule: universal ammo restocking"
 

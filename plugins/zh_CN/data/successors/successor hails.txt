@@ -16,8 +16,8 @@
 overwrite
 phrase "successor friendly hail" # Wary
 	word
-		`Art thou the "noble visitor" of whom the Houses speak?`
-		`Art thou the "honored guest" the Houses do parade?`
+		`汝可是诸世家所言之“高贵访客”？`
+		`汝可是诸世家所炫耀的“尊贵宾客”？`
 		"Art thou the eerie creature that hails from distant lands?"
 		"Art thou the strange-ish traveler that hails from distant stars?"
 		"Art thou the alien visitor within our noble lands?"
@@ -377,7 +377,7 @@ phrase "successor friendly disabled hail"
 	word
 		"A prompt assist would honor thee,"
 		"Alas, our vessel's lay'en low,"
-		`"Help!" we ask, fair visitor,`
+		`“救命！”我们恳求道，公正的访客，`
 		"Our valiant craft's been stricken, friend,"
 	word
 		" / "
@@ -411,9 +411,9 @@ phrase "high houses friendly hail"
 		"We welcome thee to join us in our space"
 		"Thy presence in our lovely space is welcome"
 		"We note thy visitation and accept"
-		`"Noble friend," thou art by our decree`
-		`"Honored guest," within our skies thou art`
-		`"Regal sojourner," thy name shall be with us`
+		`“尊贵的朋友，”汝依吾等敕令`
+		`"尊贵的客人，"您已莅临我方空域`
+		`“尊贵的旅者”，汝之名将永存于我等心中`
 	word
 		", / "
 	word
@@ -1142,14 +1142,14 @@ phrase "aqrabe friendly hail"
 	word
 		": / "
 	word
-		`"Feed not the yawning maw of idleness."`
-		`"Prosperity enacts its own virtues."`
-		`"Strength is the enabler of virtue."`
-		`"Resilience is the egg of success."`
-		`"Ostentation is the skin of the false."`
-		`"Security enables prosperity."`
-		`"Betterment is not wrought without well-built tools."`
-		`"Let thy gold be thread, not statue."`
+		`“切勿滋养怠惰那张饥渴大口。”`
+		`“繁荣自会践行其美德。”`
+		`“力量是德行的基石。”`
+		`“坚韧乃成功之卵。”`
+		`"浮华是虚伪的表皮。"`
+		`“安全铸就繁荣。”`
+		`"进步离不开精良的工具。"`
+		`“愿汝之黄金为丝线，而非塑像。”`
 
 
 overwrite

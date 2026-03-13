@@ -574,6 +574,6 @@ trade
 		"phantasmic glass amulets"
 		"polychromatic canvases"
 		`"red gold" armlets`
-		`"red gold" piercings`
+		`“赤金”穿孔`
 		"transparent ceramic goblets"
 		"unfilled reliquaries"

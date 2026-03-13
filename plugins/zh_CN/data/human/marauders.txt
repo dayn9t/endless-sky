@@ -848,7 +848,7 @@ ship "Marauder Quicksilver" "Marauder Quicksilver (Engines) (Safe)"
 	engine -16 52
 	engine 0 52
 	engine 16 52
-	description "This Quicksilver has even more space available for engine use - and even another thruster port! It's also got a few extra shield projectors, more hull plating, and another bunk. This aftermarket model also features a turret mount, perhaps in response to Lionheart's Headhunter. Whoever modified this ship wanted to chase their prey down with vicious speed."
+	description "这艘‘水银号’为引擎预留了更充裕的空间——甚至还多出一个推进器接口！此外，它还加装了若干额外护盾投射器、更厚实的船体装甲以及一张额外铺位。这款售后改装型号同样配备了一座炮塔基座，或许是针对‘狮心’系列‘猎首者’所作的回应。改装此舰之人，显然渴望以凶悍的速度追猎目标。"
 
 
 ship "Marauder Quicksilver" "Marauder Quicksilver (Weapons)"
@@ -900,7 +900,7 @@ ship "Marauder Quicksilver" "Marauder Quicksilver (Weapons) (Safe)"
 	
 	engine -17 54
 	engine 17 54
-	description "This Quicksilver has even bigger gun ports. It's also got a few extra shield emitters, more hull plating, and an extra bunk. Outfitted right, this aftermarket model could be even faster than a stock model, bringing a couple of extra cannons and a turret to a fight in more menacing mimicry of Lionheart's Headhunter."
+	description "这艘‘水银号’配备了尺寸更大的武器射口，还加装了若干额外护盾发射器、更厚实的船体装甲以及一张额外铺位。若进行恰当的装备配置，这款售后改装型号甚至可能比原厂标准型号更快，并在战斗中多搭载数门火炮与一座炮塔，以更具威慑力的姿态效仿‘狮心’系列‘猎首者’。"
 
 
 

@@ -469,7 +469,7 @@ ship "Modified Dromedary" "Modified Dromedary Wreck"
 	turret "Quad Blaster Turret"
 	turret "Laser Turret"
 	turret "Anti-Missile Turret"
-	description `The Tycho Crater Cooperative's Dromedary was one of the foremost colonization ships during the early era before piracy became rampant and triggered the necessity for city-ships to be more combat-oriented. These ships incorporate extensive hydroponics, large construction equipment installations, and hundreds of densely packed "dream cells" built to transport people in bulk.`
+	description `第谷环形山合作社的单峰驼号是海盗活动猖獗、迫使城市飞船转向更强战斗导向之前早期最顶尖的殖民飞船之一。这类飞船配备了大规模水培系统、大型建造设备安装模块，以及数百个高度密集排列的“梦想舱”，专为大批量运送人员而建造。`
 	description "	这是一艘残骸。一艘昔日可容纳数百人的飞船，如今环境维生系统已完全失效，曾经郁郁葱葱的水培穹顶尽数碎裂，船体大部分区域也已损毁。船体上遍布灼烧痕迹、诡异的刮擦伤痕以及结构部件的扭曲变形。仅有零星几台自律无人机仍在坚持执行任务，勉强维持着极有限的功能性。"
 
 

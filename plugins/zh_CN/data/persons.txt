@@ -385,8 +385,8 @@ person "Captain Nate"
 		word
 			"When you need to make your point, stick to Pointedstick Communications Inc.!"
 			"Pointedstick Communications: making the galaxy a more verbose place, one commit at a time!"
-			`Pointedstick Inc.: "Sharpen your communication skills!"`
-			`Pointedstick Inc.: "Our products are simply so good that no one feels the need to compete with us!"`
+			`尖棍公司：“提升您的沟通技巧！”`
+			`尖棍公司：“我们的产品如此出色，以至于根本无人愿意与我们竞争！”`
 			"Did you know that you can hail a ship over and over again and you'll get a different reply each time?"
 			"Don't you have a cargo of antique grandfather clocks or something to deliver somewhere?"
 			"Need as well as greed have followed us to the stars, and the rewards of wealth still await those wise enough to recognize this deep thrumming of our common pulse."
@@ -631,21 +631,21 @@ person "Power of the People"
 		word
 			", "
 		word
-			`"I was out of bullets."`
-			`"There's safety in sandwiches."`
-			`"Welcome to the party, pal!"`
+			`"我的子弹打光了。"`
+			`“三明治里才有安全感。”`
+			`"欢迎加入派对，伙计！"`
 			`"Punch it!"`
-			`"Here's where the fun begins!"`
-			`"I'm just a guy with a starship for hire."`
-			`"I'm going to grow a beard, just in case."`
-			`"Want a breath mint?"`
-			`"Sorry about the mess."`
-			`"I happen to like to shoot first."`
-			`"Laugh it up, fuzzball."`
-			`"This isn't a combat probe."`
-			`"Negative. I am a meat popsicle."`
-			`"How 'bout a bumper sandwich, Boogerlips?"`
-			`"I recommend the lobster."`
+			`"好戏现在开场！"`
+			`"我不过是个靠飞船接活儿的普通人罢了。"`
+			`"我打算留个胡子，以防万一。"`
+			`"来颗薄荷糖吗？"`
+			`"抱歉，弄乱了。"`
+			`"我恰好喜欢先开火。"`
+			`“笑吧，毛球。”`
+			`“这不是一枚战斗探测器。”`
+			`“否定。我是一根肉制冰棒。”`
+			`"来个加量三明治怎么样，鼻涕泡？"`
+			`"我推荐龙虾。"`
 	ship "Modified Osprey" "Power of the People"
 		"never disabled"
 
@@ -1189,7 +1189,7 @@ person "Rais Iris XVIII"
 			"I'm basically a computer gynecologist."
 			"Your ship looks like it came out of a liquidizer!"
 			"Look at me. I am the Captain now."
-			`Pronounce "Wrzlprnft." You have 5 seconds.`
+			`请念出“Wrzlprnft.”——你有5秒钟时间。`
 			"Everything you see here has been created by volunteers. You can join us if you want!"
 
 			"To this day, I can still hear the Teeworlds title music."
@@ -1211,7 +1211,7 @@ person "Rais Iris XVIII"
 
 			# SovietWomble
 			"Get the doomsday rounds."
-			`I wouldn't recommend shooting at me, because your gun goes "pew pew," but my gun goes BBBRRRRRRR!`
+			`我劝你别朝我开枪——你的枪只会发出‘噗噗’声，而我的枪可是‘嘣————！！！’`
 			"Ramming speed!"
 
 			# videogamedonkey
@@ -1789,7 +1789,7 @@ person "MasterOfGrey"
 			"I have questions. Questions that do not yet need answers."
 			"There are no bugs in my code, only Xapleaux precursors."
 			"If I were green I would photosynthesize."
-			`"Trust the process" isn't a joke for no reason.`
+			`“相信流程”可不是一句空话。`
 			"Have you reviewed Hai Reveal yet?"
 			"I gotta go get ready for work. Play nice and don't @ me."
 			"I don't even like yellow."

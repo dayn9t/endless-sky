@@ -14,13 +14,13 @@
 overwrite
 phrase "coalition ringworld workers"
 	word
-		`You drop off the workers on the <planet>. A few minutes later you receive a transfer of <payment>.`
+		`你将工人送达<planet>。几分钟后，你收到了一笔<payment>的转账。`
 
 overwrite
 mission "Coalition: Ringworld Workers 1"
 	job
 	repeat
-	name "Workers to the <planet>"
+	name "前往<planet>的工人"
 	description "将这支< bunks >人的工作队运送至赫利阿克< planet >，协助开展环形世界的维护与扩建工作。酬金为< payment >。"
 	passengers 5 8 .2
 	to offer
@@ -43,7 +43,7 @@ mission "Coalition: Ringworld Workers 2"
 	job
 	repeat
 	name "Workers to the <planet>"
-	description "Transport this crew of <bunks> workers to the Heliarch <planet>, where they will help in the efforts to maintain and expand the ringworld. Payment will be <payment>."
+	description "将这支< bunks >人的工人队伍运送至赫利阿克< planet >，他们将在环形世界的维护与扩建工作中提供协助。报酬为< payment >。"
 	passengers 5 5 .1
 	to offer
 		has "known to the heliarchs"
@@ -86,13 +86,13 @@ mission "Coalition: Ringworld Workers 3"
 overwrite
 phrase "coalition ringworld volunteers"
 	word
-		`You drop off the volunteers on the <planet>, where they are met by a Heliarch agent. A few minutes later you receive a transfer of <payment>.`
+		`你将志愿者送达<planet>，一名赫利阿克特工在那里迎接他们。几分钟后，你收到了一笔<payment>的转账。`
 
 overwrite
 mission "Coalition: Ringworld Volunteers 1"
 	job
 	repeat
-	name "Volunteers to the <planet>"
+	name "志愿前往<planet>"
 	description "政府将向你支付{payment}，以运送这{bunks}名志愿者前往{planet}；他们将在当地参与建设工作，并以此换取食宿。"
 	passengers 5 3 .3
 	to offer
@@ -115,7 +115,7 @@ mission "Coalition: Ringworld Volunteers 2"
 	job
 	repeat
 	name "Volunteers to the <planet>"
-	description "The government will pay you <payment> to bring these <bunks> volunteer workers to the <planet>, where they will assist in the construction effort in return for room and board."
+	description "政府将向你支付< payment>，以运送这批< bunks>名志愿工人前往< planet>，他们将在那里参与建设工作，以换取食宿。"
 	passengers 5 10 .5
 	to offer
 		has "known to the heliarchs"
@@ -158,13 +158,13 @@ mission "Coalition: Ringworld Volunteers 3"
 overwrite
 phrase "coalition ringworld materials"
 	word
-		`You drop off the construction materials and receive <payment> in payment.`
+		`你交付了建筑物资，并获得<payment>作为报酬。`
 
 overwrite
 mission "Coalition: Ringworld Materials 1"
 	job
 	repeat
-	name "Materials to the <planet>"
+	name "向<planet>运送物资"
 	description "在<date>前将这些<tons>吨建筑材料运送至赫利阿克<planet>。报酬为<payment>。"
 	deadline
 	cargo "Construction" 10 3 .02
@@ -188,7 +188,7 @@ mission "Coalition: Ringworld Materials 2"
 	job
 	repeat
 	name "Materials to the <planet>"
-	description "Deliver these <tons> of construction materials to the Heliarch <planet> by <date>. Payment will be <payment>."
+	description "于<date>前将这些<tons>吨建筑材料运送至赫利阿克<planet>。报酬为<payment>。"
 	deadline
 	cargo "Construction" 10 4 .02
 	to offer
@@ -233,13 +233,13 @@ mission "Coalition: Ringworld Materials 3"
 overwrite
 phrase "coalition ringworld supplies"
 	word
-		`You drop off the donation of <commodity> and receive <payment> in payment.`
+		`你交付了<commodity>捐赠物资，并获得<payment>作为报酬。`
 
 overwrite
 mission "Coalition: Ringworld Supplies 1"
 	job
 	repeat
-	name "Supplies to the <planet>"
+	name "运往<planet>的补给"
 	description "这批共计<tons>吨的物资，是由<origin>政府捐赠给赫利阿克<planet>的援助物资。货物送达后，你将获得<payment>报酬。"
 	cargo random 5 10 .2
 	to offer
@@ -262,7 +262,7 @@ mission "Coalition: Ringworld Supplies 2"
 	job
 	repeat
 	name "Supplies to the <planet>"
-	description "This shipment of <tons> of supplies is a donation from the government of <origin> to help support the Heliarch <planet>. You will be paid <payment> on delivery."
+	description "此批货物共<tons>吨补给，系<origin>政府向赫利阿克<planet>提供的援助捐赠。交付完成后，你将获得<payment>报酬。"
 	cargo random 5 10 .15
 	to offer
 		has "known to the heliarchs"
@@ -306,7 +306,7 @@ overwrite
 mission "Coalition: Heliarch Candidate"
 	job
 	repeat
-	name "Candidate to the <planet>"
+	name "前往<planet>的候选人"
 	description "你将在<date>前，把这位晋升为赫利阿克的候选人运送至<planet>，酬金为<payment>。"
 	passengers 1
 	deadline 5 1
@@ -329,13 +329,13 @@ mission "Coalition: Heliarch Candidate"
 overwrite
 phrase "coalition interpreters dialog"
 	word
-		`You drop off the interpreters on <planet>. A few minutes later you receive a transfer of <payment>.`
+		`你将翻译人员送达<planet>。几分钟后，你收到一笔<payment>的转账。`
 
 overwrite
 mission "Coalition: Interpreters 1"
 	job
 	repeat
-	name "Interpreters to <planet>"
+	name "前往{0}行星担任翻译人员"
 	description "将这<bunks>名赫利阿克特工（经培训担任翻译与调解员）运送至<destination>。酬金为<payment>。"
 	passengers 2 3 .5
 	to offer
@@ -358,7 +358,7 @@ mission "Coalition: Interpreters 2"
 	job
 	repeat
 	name "Interpreters to <planet>"
-	description "Bring these <bunks> Heliarch agents, trained as interpreters and mediators, to <destination>. Payment is <payment>."
+	description "将这<bunks>名赫利阿克特特工（受过翻译与调解训练）送往<destination>。报酬为<payment>。"
 	passengers 2 5 .5
 	to offer
 		has "known to the heliarchs"
@@ -401,13 +401,13 @@ mission "Coalition: Interpreters 3"
 overwrite
 phrase "coalition peacekeepers dialog"
 	word
-		`You drop off the peacekeepers on <planet>. A few minutes later you receive a transfer of <payment>.`
+		`你将维和部队送至<planet>。几分钟后，你收到了一笔<payment>的转账。`
 
 overwrite
 mission "Coalition: Peacekeepers 1"
 	job
 	repeat
-	name "Peacekeepers to <planet>"
+	name "前往<planet>的维和人员"
 	description "将这支< bunks >人的维和部队运送至< destination >，调查有关卢纳里乌姆活动的报告。酬金为< payment >。"
 	passengers 10 10 .2
 	to offer
@@ -430,7 +430,7 @@ mission "Coalition: Peacekeepers 2"
 	job
 	repeat
 	name "Peacekeepers to <planet>"
-	description "Transport this corps of <bunks> peacekeepers to <destination> to investigate reports of Lunarium activity. Payment is <payment>."
+	description "将这支< bunks >人的维和部队运送到< destination >，调查有关卢纳瑞姆活动的报告。报酬为< payment >。"
 	passengers 10 5 .1
 	to offer
 		has "known to the heliarchs"
@@ -451,7 +451,7 @@ mission "Coalition: Peacekeepers 2"
 overwrite
 phrase "coalition interspecies settlers"
 	word
-		`You drop off the settlers on <planet>. A few minutes later you receive a transfer of <payment>.`
+		`你将殖民者送至<planet>。几分钟后，你收到了一笔<payment>的转账。`
 
 overwrite
 mission "Coalition: Saryd Interspecies 1"
@@ -480,7 +480,7 @@ mission "Coalition: Saryd Interspecies 2"
 	job
 	repeat
 	name "Saryds to <planet>"
-	description "As part of the Interspecies Exchange Program, these <bunks> volunteer settlers need transportation to <destination>. The government will pay their transport fee of <payment>."
+	description "作为跨物种交流计划的一部分，这些<bunks>志愿移民需要被运送至<destination>。政府将支付其运输费用<payment>。"
 	passengers 4 4 .1
 	to offer
 		has "known to the heliarchs"
@@ -589,13 +589,13 @@ mission "Coalition: Arach Interspecies 2"
 overwrite
 phrase "coalition transfer dialog"
 	word
-		`You drop off the workers on <planet>. A few minutes later you receive a transfer of <payment>.`
+		`你将工人送达<planet>。几分钟后，你收到了一笔<payment>的转账。`
 
 overwrite
 mission "Coalition: Transfer 1"
 	job
 	repeat
-	name "Transfer to <planet>"
+	name "转移至<planet>"
 	description "作为充分就业计划的一部分，这些<bunks>工人需要被运送至<destination>。政府将支付每人<payment>的运输费用。"
 	passengers 2 10 .3
 	to offer
@@ -620,7 +620,7 @@ mission "Coalition: Transfer 2"
 	job
 	repeat
 	name "Transfer to <planet>"
-	description "As a part of the Full Employment Program, these <bunks> workers need transportation to <destination>. The government will pay their transport fee of <payment>."
+	description "作为充分就业计划的一部分，这些<bunks>工人需被运送至<destination>。政府将支付其运输费用<payment>。"
 	passengers 2 10 .2
 	to offer
 		has "known to the heliarchs"
@@ -700,7 +700,7 @@ mission "Coalition: Tourists Out 2"
 	job
 	repeat
 	name "Vacationers to <planet>"
-	description "These <bunks> tourists will pay you <payment> to bring them to <destination> and desire to travel in a very comfortable ship. Payment is void if they do not arrive by <date>."
+	description "这< bunks >名游客将支付您< payment >积分，以搭乘您的飞船前往< destination >，且要求乘坐极为舒适的飞船。若未能在< date >前抵达，报酬作废。"
 	deadline
 	passengers 2 5 .4
 	to offer
@@ -751,7 +751,7 @@ mission "Coalition: Tourists Out 3"
 overwrite
 phrase "coalition tourists homebound"
 	word
-		`The tourists thank you for bringing them home and pay you <payment>.`
+		`游客们感谢你将他们平安送回家，并支付给你<payment>。`
 
 overwrite
 mission "Coalition: Tourists Home 1"
@@ -784,7 +784,7 @@ mission "Coalition: Tourists Home 2"
 	job
 	repeat
 	name "Vacationers to <planet>"
-	description "These <bunks> tourists will pay you <payment> to bring them home to <destination> and desire to travel in a very comfortable ship. Payment is void if they do not arrive by <date>."
+	description "这< bunks >名游客将支付您< payment >积分，以搭乘您的飞船返回< destination >，且要求乘坐极为舒适的飞船。若未能在< date >前抵达，报酬作废。"
 	deadline
 	passengers 2 5 .4
 	to offer
@@ -835,13 +835,13 @@ mission "Coalition: Tourists Home 3"
 overwrite
 phrase "coalition fast courier"
 	word
-		`The recipient thanks you for bringing the <commodity> here so quickly, and pays you <payment>.`
+		`收货人感谢你如此迅速地将<commodity>运抵此处，并向你支付<payment>。`
 
 overwrite
 mission "Coalition: Fast Courier 1"
 	job
 	repeat
-	name "Fast courier to <planet>"
+	name "紧急快递任务：前往<planet>"
 	description "在<date>前将< cargo >运送至< destination >。报酬为< payment >。"
 	deadline 5 1
 	cargo random 2 20 .6
@@ -866,7 +866,7 @@ mission "Coalition: Fast Courier 2"
 	job
 	repeat
 	name "Fast courier to <planet>"
-	description "Deliver <cargo> to <destination> by <date>. The payment is <payment>."
+	description "于<date>之前将<cargo>运送至<destination>。报酬为<payment>。"
 	deadline 5 1
 	cargo random 2 30 .6
 	to offer
@@ -913,7 +913,7 @@ mission "Coalition: Fast Courier 3"
 overwrite
 phrase "coalition commodity delivery"
 	word
-		`You drop off the <commodity> on <planet>, and receive <payment> in payment.`
+		`你在<planet>卸下了<commodity>，并收到了<payment>作为报酬。`
 
 overwrite
 mission "Coalition: Cargo 1"
@@ -1105,7 +1105,7 @@ overwrite
 mission "Coalition: Rush 1"
 	job
 	repeat
-	name "Rush Delivery to <planet>"
+	name "紧急运送至<planet>"
 	description "<destination> 需要在 <date> 前收到一批 <cargo> 货物。报酬为 <payment>。"
 	deadline
 	cargo random 10 8 .2
@@ -1130,7 +1130,7 @@ mission "Coalition: Rush 2"
 	job
 	repeat
 	name "Rush Delivery to <planet>"
-	description "<destination> needs a shipment of <cargo> by <date>. Payment will be <payment>."
+	description "<destination> 需要在 <date> 前收到一批 <cargo> 货物。报酬为 <payment>。"
 	deadline
 	cargo random 10 12 .2
 	to offer
@@ -1202,7 +1202,7 @@ mission "Coalition: Doctors"
 overwrite
 phrase "coalition cadets dialog"
 	word
-		`You drop off the cadets on <planet>. A few minutes later you receive a transfer of <payment>.`
+		`你将学员送达<planet>。几分钟后，你收到一笔<payment>的转账。`
 
 overwrite
 mission "Coalition: Cadets 1"
@@ -1231,7 +1231,7 @@ mission "Coalition: Cadets 2"
 	job
 	repeat
 	name "Cadets to <planet>"
-	description "These <bunks> new recruits need transport to the Academy on <destination>. Payment is <payment>."
+	description "这<bunks>名新兵需被运送至<destination>的学院，报酬为<payment>。"
 	passengers 10 10 .4
 	to offer
 		has "known to the heliarchs"
@@ -1252,13 +1252,13 @@ mission "Coalition: Cadets 2"
 overwrite
 phrase "coalition games dialog"
 	word
-		`The passengers thank you for bringing them to <planet> and pay you <payment>.`
+		`乘客们感谢你将他们送达<planet>，并支付给你<payment>。`
 
 overwrite
 mission "Coalition: To Games 1"
 	job
 	repeat
-	name "Spectators to <planet>"
+	name "前往<planet>的观众"
 	description "这<bunks>名乘客愿支付<payment>，以确保在<date>前抵达<planet>，参加联盟运动会。"
 	deadline 0 2
 	passengers 4 4 .2
@@ -1283,7 +1283,7 @@ mission "Coalition: To Games 2"
 	job
 	repeat
 	name "Spectators to <planet>"
-	description "These <bunks> passengers will pay <payment> for transportation to <planet> in time for the Coalition Games (by <date>)."
+	description "这些<bunks>名乘客愿支付<payment>，以在联盟运动会（截止日期：<date>）前抵达<planet>。"
 	deadline 0 2
 	passengers 4 4 .1
 	to offer
@@ -1331,7 +1331,7 @@ overwrite
 mission "Coalition: From Games 1"
 	job
 	repeat
-	name "Passengers to <planet>"
+	name "前往<planet>的乘客"
 	description "将原在<origin>参加联盟运动会的<bunks>名乘客送返其母星<destination>。报酬为<payment>。"
 	passengers 4 4 .2
 	to offer
@@ -1356,7 +1356,7 @@ mission "Coalition: From Games 2"
 	job
 	repeat
 	name "Passengers to <planet>"
-	description "Transport <bunks> passengers, who were on <origin> for the Coalition Games, back to their home world of <destination>. Payment is <payment>."
+	description "将原在<origin>参加辛迪加运动会的<bunks>名乘客送返其母星<destination>。报酬为<payment>。"
 	passengers 4 4 .1
 	to offer
 		has "known to the heliarchs"
@@ -1451,7 +1451,7 @@ mission "Heliarchs Buy Jump Drive Job 2"
 	repeat
 	name "Sell Jump Drive"
 	"apparent payment" 5000000
-	description "Sell a jump drive to the Heliarchs for <payment>."
+	description "将一台跳跃引擎以<payment>的价格卖给赫利阿克人。"
 	source
 		government "Heliarch"
 	to offer
@@ -1499,7 +1499,7 @@ mission "Heliarch Contain Fail"
 	job
 	repeat
 	name `Contain Criminals`
-	description `Fly to <destination> by <date> so that you and <bunks> other Heliarch agents can combat criminals on site. Payment is <payment>.`
+	description `请于<date>前飞抵<destination>，与<bunks>名其他赫利阿克特特工一同在当地打击罪犯。报酬为<payment>。`
 	deadline
 	passengers 16 58
 	"apparent payment" 70000
@@ -1598,7 +1598,7 @@ overwrite
 mission "Evacuate Lunarium True"
 	job
 	repeat
-	name "Rescue Lunarium Members"
+	name "营救露纳瑞姆成员"
 	description "在 <stopovers> 接载 <bunks> 名卢纳里乌姆成员，并于 <date> 前将他们运送至 <destination>。"
 	deadline
 	to offer
@@ -1657,7 +1657,7 @@ mission "Evacuate Lunarium Fail"
 
 
 overwrite
-mission "Lunarium: Armageddon Core Delivery"
+mission "Lunarium: 末日核心运送"
 	job
 	repeat
 	name "Armageddon Core Delivery"
@@ -1685,7 +1685,7 @@ mission "Lunarium: Armageddon Core Delivery"
 		dialog `按指示在<planet>一处偏僻区域着陆后，部分卢纳里乌姆成员卸下了‘末日核心’。他们将<payment>交予你，随后悄然运走了反应堆。`
 
 overwrite
-mission "Lunarium: Fusion Reactor Delivery"
+mission "Lunarium: 聚变反应堆运输任务"
 	job
 	repeat
 	name "Fusion Reactor Delivery"
@@ -1713,7 +1713,7 @@ mission "Lunarium: Fusion Reactor Delivery"
 		dialog `一些卢纳里乌姆成员按指示在<planet>的偏僻区域着陆后卸下了聚变反应堆。他们将<payment>交给你，随后悄然运走了反应堆。`
 
 overwrite
-mission "Lunarium: Breeder Reactor Delivery"
+mission "Lunarium: 繁殖反应堆运送任务"
 	job
 	repeat
 	name "Breeder Reactor Delivery"
@@ -1798,7 +1798,7 @@ overwrite
 mission "Lunarium: Plasma Delivery"
 	job
 	repeat
-	name "Plasma Turret Delivery"
+	name "等离子炮塔运送任务"
 	description "卢纳里乌姆组织愿支付<payment>，委托你将一座等离子炮塔运送至<destination>。"
 	to offer
 		random < 6
@@ -1820,7 +1820,7 @@ mission "Lunarium: Plasma Delivery"
 		dialog `若干卢纳里乌姆成员按指示在<planet>的偏僻区域着陆后，卸下了等离子炮塔。他们将<payment>交给你，随后悄然运走了炮塔。`
 
 overwrite
-mission "Lunarium: Flamethrower Delivery"
+mission "Lunarium: 火焰喷射器投送任务"
 	job
 	repeat
 	name "Flamethrower Delivery"
@@ -1870,7 +1870,7 @@ mission "Lunarium: Grenade Delivery"
 		dialog `一些卢纳里乌姆成员按指示在<planet>的偏僻区域着陆后卸下了破片手雷。他们将<payment>交给你，随后悄然运走了手雷。`
 
 overwrite
-mission "Lunarium: Anti-Missile Delivery"
+mission "Lunarium: 反导弹系统运送"
 	job
 	repeat
 	name "Anti-Missile Delivery"

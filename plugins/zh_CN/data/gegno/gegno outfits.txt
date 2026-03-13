@@ -983,7 +983,7 @@ outfit "Ion Torch"
 		"heat damage" 90
 		"minable damage" 6
 	description `离子火炬基于RG系列火炬引擎开发，是一种独特的实用型采矿武器：它将原本呈爆炸式喷射的尾焰聚焦为更纤细、更强劲的灼热光束。这种受控火焰形似高温刀刃，便于更精准操作。与粗暴粉碎小行星的挖掘者不同，离子火炬能更精确、更安全地从小行星表面剥离材料。此外，该光束还可调低功率，临时充当反向推进器使用。`
-	description `	This mining outfit requires a drill spar port, in addition to a gun port, in order to be mounted.`
+	description `	此采矿装备安装时除需枪口插槽外，还需钻杆插槽。`
 
 
 outfit "Savagery Bludgeon"

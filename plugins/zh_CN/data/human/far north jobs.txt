@@ -39,7 +39,7 @@ mission "Betelgeuse Shipment [0]"
 overwrite
 mission "Betelgeuse Shipment [1]"
 	name "Shipment to <planet>"
-	description "Deliver <cargo> to <planet>, the home of Betelgeuse Shipyards, a well-respected ship manufacturer in the region. Payment is <payment>."
+	description "将 <cargo> 交付至 <planet>，这里是参宿四船坞的所在地——该船坞是本地区备受尊敬的飞船制造商。报酬为 <payment>。"
 	cargo "Ship Alloys" 5 2 .1
 	job
 	repeat
@@ -88,7 +88,7 @@ mission "Betelgeuse Shipment [2]"
 
 overwrite
 mission "Navy resupply [0]"
-	name "Resupply Navy base on <planet>"
+	name "为<planet>上的海军基地补给"
 	description "位于<destination>的海军基地设备严重短缺，但海军补给舰目前因故滞留他处，无法提供支援。请于<date>前将<cargo>运送至<planet>，酬金为<payment>。"
 	cargo Military 5 2 .1
 	job

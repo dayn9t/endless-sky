@@ -479,16 +479,16 @@ news "ringworld quarg"
 overwrite
 phrase "ringworld quarg phrases"
 	word
-		`You see a shorter, younger Quarg, likely a child in Quarg years, being shown around the ringworld by an adult. It seems like the parent is teaching the child about the ring.`
-		`A Quarg is standing uncomfortably close to the walls, tapping it slowly with both palms. You observe it for a few minutes, until it stops abruptly and goes about its business like the others.`
-		`Usual activity in the ringworld is stopped by a few dozen Quarg in heavily armored suits moving at a quick pace and escorting a large, tube-like container which floats to accompany them. Other Quarg are quick to make way for the group, allowing themselves a great distance from the armored Quarg.`
-		`Some Quarg scientists are dragging along a whole train of linked lab carts, packed fully with utensils, chemicals, components, and reagents. It takes nearly half an hour before you see the last of the carts pass by.`
-		`Hundreds of Quarg are blocking one of the largest, widest corridors in the ring. They're all sitting down on the floor, staring down blankly in complete silence, with a scarce few seldom glancing up to the ceiling only to move their gaze downwards once again. You notice that Quarg who witness the scene stop all conversation and move elsewhere.`
-		`One Quarg walks up to you, and stares down into your eyes. It stays there in silence, just looking at you, before finally blinking once and moving along, disappearing into the ring's hallways.`
-		`A Quarg is overseeing the unloading of dozens of ship-sized cargo containers that have arrived in the ring. It seems to mentally count the cargo as it's moved out in perfectly identical sets. After what must've been thousands of cargo tons, it clicks off one of dozens of small dots on a data pad and begins counting again.`
-		`Two Quarg ships land at the same time a few hangar bays away from one another. They open their hatches, and what must be the ships' entire crews come out. Without a hitch the crew of each ship boards the other's ship and depart.`
-		`The Quarg seem to have set up some form of festival in the ring: endless stands stretch out as far as you can see, all displaying variations of the same orange-like fruit, ranging from impossibly smooth to unbelievably wrinkled, and also from sizes as small as a pea to as large as a watermelon. You can't figure what quality they like best.`
-		`You see one Quarg turn a sharp corner in what's a haste by their standards. When you look into the corridor it went to, you see it's a dead end, with the Quarg having inexplicably vanished.`
+		`你看到一名体型更矮小、更年轻的夸格，按夸格的年龄标准很可能是名孩童，正由一名成年夸格带领参观环形世界。这位家长似乎正在向孩子讲解环形世界的构造。`
+		`一名夸格正 uncomfortably close（异常贴近）地站在墙壁旁，双掌缓慢轻叩墙面。你观察它数分钟，直至它突然停住，随后若无其事地像其他夸格一样继续自己的事务。`
+		`环形世界日常活动突然中止——数十名身着重型装甲的夸格正快速行进，并护送一个大型管状容器；该容器悬浮于空中，伴随其前行。其余夸格迅速为这支队伍让出通道，并主动与其保持极大距离。`
+		`几名夸格科学家正拖着一整列连在一起的实验车，车内塞满了器皿、化学试剂、零部件和反应剂。你花了将近半小时才看到最后一节实验车驶过。`
+		`数百名夸格正堵住环形结构中最大、最宽阔的走廊之一。他们全都静坐于地面，目光空洞地直视前方，一片死寂；仅有寥寥数人偶尔抬头望向天花板，随即又迅速将视线垂落下去。你注意到，路过的夸格一旦目睹此景，便会立即停止交谈，并匆匆离开。`
+		`一名夸格走近你，俯视着你的眼睛。它沉默地伫立原地，只是凝视着你，良久之后才眨了一次眼，随即转身离去，消失在环形空间站的走廊深处。`
+		`一名夸格正在监督数十个舰船尺寸货柜的卸载作业，这些货柜已抵达轨道环。它似乎正以意念清点货物，货物被以完全相同的批次运出。在搬运了数千吨货物后，它用数据板轻点其中一个微小圆点将其关闭，随即重新开始计数。`
+		`两艘夸格飞船同时降落在相距几个机库舱位的地点。它们打开舱门，从中走出的似乎是各自飞船的全体船员。双方船员毫无差错地互相登上了对方的飞船并随即离开。`
+		`夸格似乎在环带上举办某种节日：无数摊位绵延至视野尽头，全都陈列着同一种类似橙子的水果，其表皮从不可思议的光滑到难以置信的褶皱不等，大小也从豌豆般微小到西瓜般巨大。你完全无法判断他们最青睐哪种品质。`
+		`你看到一名夸格以他们标准而言极为迅疾的速度急转过一个拐角。当你望向它转入的走廊时，却发现那是一条死路，而那名夸格竟莫名其妙地消失了。`
 
 overwrite
 phrase "quarg poems on species"

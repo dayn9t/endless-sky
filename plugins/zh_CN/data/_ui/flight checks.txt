@@ -19,7 +19,7 @@ conversation "flight check: no energy!"
 	
 conversation "flight check: no thruster!"
 	scene "scene/engine2"
-	`You've heard enough horror stories about the sort of accidents that happen when starship systems malfunction to be completely convinced of the necessity of a pre-flight safety check. As you listen to the complex symphony of hums, rattles, and clicks of the <ship> warming up, you run through a mental checklist. Computers: check. Life support: check.`
+	`你已听过太多关于星舰系统故障所引发事故的恐怖故事，因此完全确信起飞前安全检查的必要性。当你聆听<ship>启动时那复杂而富有韵律的嗡鸣、咔嗒与震动声时，你在脑海中逐项核对检查清单：计算机系统——正常；生命维持系统——正常。`
 	`	一切进展顺利，直到该启动推进器进行测试运行时……你尴尬地发现，飞船根本没装推进器。是时候返回装备店解决这个问题了！`
 
 conversation "flight check: no steering!"

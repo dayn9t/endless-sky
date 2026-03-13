@@ -1092,7 +1092,7 @@ ship "Modified Tachytia"
 		"Radiative Lamina"
 		"Optical Laser Rifle" 900
 		
-		`A-3600 "Beam" Amat Drive`
+		`A-3600 "光束" 氨驱动引擎`
 		"Inductive Extractor" 6
 		"Hyperdrive"
 

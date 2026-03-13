@@ -14,21 +14,21 @@
 overwrite
 phrase "generic arrived-without-npc dialog"
 	word
-		`You have reached <planet>, but you left the <npc> behind! Better depart and wait for them to arrive in this star system.`
+		`你已抵达<planet>，但你把<npc>落在后面了！最好立即离开，并等待他们抵达该星系。`
 overwrite
 phrase "generic safe escort completion dialog"
 	word
-		`The captain of the <npc> thanks you for escorting them safely, and pays you <payment>.`
+		`《npc》号飞船的船长感谢你护送他们安全抵达，并支付你<payment>。`
 
 overwrite
 phrase "generic pirate attack payment dialog"
 	word
-		`The government of <planet>`
+		`＜planet＞的政府`
 	word
 		` `
 		` gratefully `
 	word
-		`pays you <payment> for helping to`
+		`支付你<payment>，以感谢你协助`
 	word
 		` drive off `
 		` defeat `
@@ -42,157 +42,157 @@ phrase "generic pirate attack payment dialog"
 overwrite
 phrase "generic cargo delivery payment"
 	word
-		`You drop off your cargo of <commodity> and collect your payment of <payment>.`
+		`你卸下了<commodity>货物，并领取了<payment>的报酬。`
 overwrite
 phrase "generic cargo on visit"
 	word
-		`You have reached <planet>, but not all of the cargo is in the system! Better depart and wait for your escorts to arrive in this star system.`
+		`你已抵达<planet>，但并非所有货物都已进入该星系！最好立即离开，等待护航飞船抵达此星系。`
 
 overwrite
 phrase "generic passenger dropoff payment"
 	word
-		`You wish your <passengers> the best of luck on <planet>, and collect your payment of <payment>.`
-		`You say farewell to your <passengers> on <planet>, and collect your payment of <payment>.`
+		`你向<passengers>祝愿他们在<planet>一切顺利，并领取<payment>积分报酬。`
+		`你在<planet>与<passengers>告别，并收取了<payment>的酬金。`
 overwrite
 phrase "generic passenger on visit"
 	word
-		`You have reached <planet>, but not all of the passengers are in the system! Better depart and wait for your escorts to arrive in this star system.`
+		`你已抵达<planet>，但并非所有乘客都已进入该星系！最好立即离开，等待护航飞船抵达此星系。`
 
 overwrite
 phrase "generic cargo and passenger on visit"
 	word
-		`You have reached <planet>, but not all of the cargo and passengers are in the system! Better depart and wait for your escorts to arrive in this star system.`
+		`你已抵达<planet>，但并非所有货物与乘客都已进入该星系！最好立即离港，等待护航舰只抵达此恒星系。`
 
 overwrite
 phrase "generic mineral delivery payment"
 	word
-		`You drop off the <amount> tons of <mineral> and collect your payment of <payment>.`
+		`你卸下了<amount>吨<mineral>，并领取了<payment>的酬金。`
 
 overwrite
 phrase "generic mineral on visit"
 	word
-		`You've returned to <origin>, but you are not carrying <amount> tons of <mineral> in your cargo hold.`
+		`你已返回<origin>，但货舱中并未装载<amount>吨<mineral>。`
 
 overwrite
 phrase "generic missing stopover or cargo and passengers"
 	word
-		`You have reached <planet>, but you're missing something! Either you haven't visited <stopovers>, or not all the cargo and passengers are in the system.`
+		`你已抵达<planet>，但你遗漏了某些东西！要么你尚未访问<stopovers>，要么并非所有货物和乘客都已进入该星系。`
 overwrite
 phrase "generic missing stopover or passengers"
 	word
-		`You have reached <planet>, but you're missing something! Either you haven't visited <stopovers>, or not all the passengers are in the system.`
+		`你已抵达<planet>，但还缺少某些东西！要么你尚未访问<stopovers>，要么并非所有乘客都已进入该星系。`
 overwrite
 phrase "generic missing stopover or cargo"
 	word
-		`You have reached <planet>, but you're missing something! Either you haven't visited <stopovers>, or not all the cargo is in the system.`
+		`你已抵达<planet>，但还缺少某些东西！要么你尚未访问<stopovers>，要么并非所有货物都已进入该星系。`
 overwrite
 phrase "generic missing stopover or escort"
 	word
-		`You have reached <planet>, but you're missing something! Either you haven't visited <stopovers>, or you left the <npc> behind.`
+		`你已抵达<planet>，但还缺少某些东西！要么你尚未访问<stopovers>，要么你把<npc>落在了后面。`
 overwrite
 phrase "generic missing waypoint or cargo and passengers"
 	word
-		`You have reached <planet>, but you're missing something! Either you haven't passed through <waypoints>, or not all the cargo and passengers are in the system.`
+		`你已抵达<planet>，但你遗漏了某些东西！要么你尚未经过<waypoints>，要么并非所有货物和乘客都已进入该星系。`
 overwrite
 phrase "generic missing waypoint or passengers"
 	word
-		`You have reached <planet>, but you're missing something! Either you haven't passed through <waypoints>, or not all the passengers are in the system.`
+		`你已抵达<planet>，但你遗漏了某些东西！要么你尚未经过<waypoints>，要么并非所有乘客都已进入该星系。`
 overwrite
 phrase "generic missing waypoint or cargo"
 	word
-		`You have reached <planet>, but you're missing something! Either you haven't passed through <waypoints>, or not all the cargo is in the system.`
+		`你已抵达<planet>，但你遗漏了某些东西！要么你尚未经过<waypoints>，要么并非所有货物都已进入该星系。`
 
 overwrite
 phrase "generic stopover on visit"
 	word
-		`You have reached <planet>, but you haven't visited all the planets yet! Better depart and make sure you visit <stopovers>.`
+		`你已抵达<planet>，但尚未访问全部行星！最好立即离开，并确保访问<stopovers>。`
 overwrite
 phrase "generic waypoint on visit"
 	word
-		`You have reached <planet>, but you haven't visited all the systems yet! Better depart and make sure you visit <waypoints>.`
+		`你已抵达<planet>，但尚未访问全部星系！最好立即离开，并确保访问<waypoints>。`
 
 
 overwrite
 phrase "generic hunted bounty eliminated and payment dialog"
 	word
-		`The <npc> has been eliminated. Shortly afterwards, the government of <planet> sends you <payment> along with a message of gratitude.`
+		`该<npc>已被消灭。不久之后，<planet>的政府向你支付<payment>，并附上一封感谢信。`
 
 overwrite
 phrase "generic hunted bounty eliminated dialog"
 	word
-		`The <npc> has been eliminated. You can claim the bounty payment by returning to <destination>.`
+		`该<npc>已被消灭。你可以返回<destination>领取赏金。`
 overwrite
 phrase "generic bounty hunting payment dialog"
 	word
-		`The government of <planet> gratefully pays you <payment> for eliminating the <npc>.`
+		`《<planet>》政府为消灭< npc>向你致以诚挚谢意，并支付你< payment>。`
 overwrite
 phrase "generic bounty hunting on visit"
 	word
-		`You've landed on <planet>, but the <npc> has not been eliminated yet. Hunt it down and destroy it before returning.`
+		`你已登陆<planet>，但<npc>尚未被消灭。在返回前，务必将其追击并摧毁。`
 overwrite
 phrase "generic bounty hunting boarding on visit"
 	word
-		`You've landed on <planet>, but you have not boarded the <npc> yet. Hunt it down and board it before returning.`
+		`你已降落在<planet>，但尚未登上<npc>。请追击并登船，再返回。`
 
 overwrite
 phrase "generic hunted bounty fleet eliminated and payment dialog"
 	word
-		`The <npc> and their fleet have been eliminated. Shortly afterwards, the government of <planet> sends you <payment> along with a message of gratitude.`
+		`《npc》及其舰队已被消灭。不久之后，<planet>的政府向您支付<payment>，并附上一封感谢信。`
 
 overwrite
 phrase "generic hunted bounty fleet eliminated dialog"
 	word
-		`The <npc> and their fleet have been eliminated. You can claim the bounty payment by returning to <destination>.`
+		`《npc》及其舰队已被消灭。您可返回<destination>领取赏金。`
 overwrite
 phrase "generic fleet bounty hunting payment dialog"
 	word
-		`The government of <planet> gratefully pays you <payment> for eliminating the <npc> and their fleet.`
+		`＜planet＞的政府衷心感谢你消灭了＜npc＞及其舰队，并向你支付＜payment＞。`
 overwrite
 phrase "generic fleet bounty hunting on visit"
 	word
-		`You've landed on <planet>, but the <npc> and its fleet has not been eliminated yet. Hunt it down and destroy it before returning.`
+		`你已登陆<planet>，但<npc>及其舰队尚未被消灭。在返回前，务必将其追击并摧毁。`
 
 overwrite
 phrase "generic pirate fleet battle on visit"
 	word
-		`You've landed on <planet>, but there are still pirates circling overhead. You should take off and help finish them off.`
+		`你已降落在<planet>，但仍有海盗飞船在上空盘旋。你应该立即起飞，协助将其全部击毁。`
 
 overwrite
 phrase "generic completed pirate cargo mission"
 	word
-		`You find the contact at the edge of the spaceport. Your cargo of <commodity> is removed from your ship, and you collect your payment of <payment>.`
+		`你在太空港边缘找到了接头人。你的货物<commodity>被从飞船上卸下，你收到了<payment>的报酬。`
 
 overwrite
 phrase "generic completed highly illegal pirate cargo mission"
 	word
-		`You find the contact outside of the main city. Your cargo of <commodity> is removed from your ship, and you collect your payment of <payment>.`
+		`你在主城外找到了接头人。你的货物<commodity>被从飞船上卸下，你收到了<payment>的报酬。`
 
 overwrite
 phrase "generic aborted pirate passenger mission"
 	word
-		`Your passenger never arrived at <destination>. This doesn't help to establish your reputation as a reliable, no-questions-asked transporter.`
+		`你的乘客从未抵达<destination>。这无助于树立你作为可靠、不问缘由的运输船长的声誉。`
 
 overwrite
 phrase "generic aborted pirate cargo mission"
 	word
-		`Your cargo of <commodity> never arrived at its destination. The pirates won't be happy to hear about this.`
+		`你运送的 <commodity> 货物从未抵达目的地。海盗们听到这个消息恐怕不会高兴。`
 
 overwrite
 phrase "generic completed pirate slave mission"
 	word
-		`After landing on <planet>, the pirates move the <bunks> slaves from your ship and pay you <payment>.`
+		`在<planet>着陆后，海盗将你飞船上的<bunks>名奴隶转移走，并支付你<payment>。`
 
 overwrite
 phrase "generic aborted pirate slave mission"
 	word
-		`Your slaves never arrived at <destination>. This doesn't help to establish your reputation as a reliable, no-questions-asked transporter.`
+		`你的奴隶从未抵达<destination>。这无助于树立你作为可靠、不问缘由的运输者的声誉。`
 
 overwrite
 phrase "free worlds failed"
 	word
-		`You have failed or aborted an essential Free Worlds mission. If you want to continue the story line, revert to the autosave or another earlier snapshot of your pilot.`
+		`你已失败或中止了一项关键的自由世界任务。若想继续剧情线，请恢复至自动存档或你飞行员的另一个更早存档。`
 
 overwrite
 phrase "free worlds declined"
 	word
-		`You have declined an essential Free Worlds mission. If you want to continue the story line, revert to the autosave or another earlier snapshot of your pilot.`
+		`你已拒绝了一项关键的自由世界任务。若想继续剧情线，请恢复至自动存档或你飞行员的另一个更早存档。`

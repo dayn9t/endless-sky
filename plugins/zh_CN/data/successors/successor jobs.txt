@@ -14,37 +14,37 @@
 overwrite
 phrase "successor tourists out"
 	word
-		`The tourists thank you for bringing them to <planet> and pay you <payment>.`
+		`游客们感谢你将他们送达<planet>，并支付给你<payment>。`
 
 overwrite
 phrase "successor tourists in"
 	word
-		`The tourists thank you for returning them to <planet> and pay you <payment>.`
+		`游客们感谢你将他们送返<planet>，并支付给你<payment>。`
 
 overwrite
 phrase "successor tourists stopover"
 	word
-		`Having completed their travel itinerary, the tourists are ready to return home.`
+		`游客们已顺利完成旅行行程，准备返程回家。`
 
 overwrite
 phrase "successor bold tourists stopover"
 	word
-		`Having completed their somewhat unusual travel itinerary, the tourists are ready to return home.`
+		`游客们已完成他们略显特殊的旅行行程，准备返回家园。`
 
 overwrite
 phrase "successor students out"
 	word
-		`The students thank you for bringing them to <planet> and pay you <payment>.`
+		`学生们感谢你将他们带到<planet>，并支付你<payment>。`
 
 overwrite
 phrase "successor workers out"
 	word
-		`The workers thank you for bringing them to <planet> and pay you <payment>.`
+		`工人们感谢你将他们带到<planet>，并支付你<payment>。`
 
 overwrite
 phrase "successor delivery"
 	word
-		`You drop off the shipment of <commodity> and receive <payment> in payment.`
+		`你交付了<commodity>货物，并收到<payment>作为报酬。`
 
 overwrite
 phrase "successor data"
@@ -55,8 +55,8 @@ phrase "successor data"
 		`hand over `
 		`transfer `
 	word
-		`the encrypted databanks `
-		`the secured databanks `
+		`加密的数据银行 `
+		`受保护的数据银行 `
 		`the databanks `
 		`the data `
 	word
@@ -65,8 +65,8 @@ phrase "successor data"
 		`receive `
 		`are given `
 	word
-		`<payment> in payment.`
-		`a payment of <payment>.`
+		`报酬为 <payment>。`
+		`一笔<payment>的付款。`
 
 overwrite
 phrase "high houses delivery"
@@ -84,10 +84,10 @@ phrase "high houses delivery"
 		`shipment `
 		`cargo `
 	word
-		`of <commodity> to several well-dressed Successor officers. `
+		`向数名衣着考究的继承者军官交付<commodity>。 `
 	word
 		`They give you your `
-		`They provide you with the agreed-upon `
+		`他们向你提供约定好的 `
 		`They hand over your `
 	word
 		`payment of <payment>.`
@@ -111,19 +111,19 @@ phrase "predecessor researchers out"
 		`begin `
 		`start `
 	word
-		` cataloging some nearby rock formations. `
-		` examining nearby ruins. `
-		` scanning for artifacts. `
-		` taking radiation measurements. `
-		` taking soil measurements. `
-		` taking atmospheric measurements. `
-		` examining the local flora. `
-		` examining the local fauna. `
-		` cross-checking the data from a previous expedition. `
+		` 正在勘测附近的一些岩层构造。 `
+		` 勘察附近废墟。 `
+		` 扫描文物。 `
+		` 进行辐射测量。 `
+		` 进行土壤测量。 `
+		` 进行大气测量。 `
+		` 考察当地植物群。 `
+		` 考察当地动物群。 `
+		` 交叉核对先前远征队收集的数据。 `
 	word
-		`After a few hours, they are ready to return home.`
-		`After several hours, they are ready to return home.`
-		`Eventually, they are ready to return home.`
+		`数小时后，他们便准备返航了。`
+		`数小时后，他们已准备好返回家园。`
+		`最终，他们已准备好返航。`
 
 overwrite
 phrase "successor researchers out"
@@ -157,18 +157,18 @@ phrase "successor researchers out"
 overwrite
 phrase "successor researchers in"
 	word
-		`The researchers thank you for taking them to <stopovers> and give you <payment> in payment.`
+		`研究人员感谢你将他们护送至<stopovers>，并付给你<payment>作为酬金。`
 
 overwrite
 phrase "successor researchers transfer"
 	word
-		`The researchers readily embark for the symposium, but not before giving you <payment> in payment.`
+		`研究人员欣然启程前往研讨会，但在出发前先付给你<payment>作为酬金。`
 
 overwrite
 mission "Successors: Tourists Out 1"
 	job
 	repeat
-	name "Vacationers to <planet>"
+	name "前往< planet >的度假游客"
 	description "这些<bunks>名旅客愿付您<payment>积分，要求您于<date>前将他们运送至<destination>。"
 	deadline
 	passengers 2 5 .5
@@ -197,7 +197,7 @@ mission "Successors: Tourists Out 2"
 	job
 	repeat
 	name "Vacationers to <planet>"
-	description "These <bunks> travelers will pay you <payment> to bring them to <destination> by <date>."
+	description "这< bunks >名旅客愿支付您< payment >积分，以在< date >前将他们运送至< destination >。"
 	deadline
 	passengers 3 6 .5
 	to offer
@@ -224,7 +224,7 @@ overwrite
 mission "Successors: Bold Tourists Round Trip"
 	job
 	repeat
-	name "Extreme sightseeing on <planet stopovers>"
+	name "在<planet stopovers>开展极限观光"
 	description "这批<bunks>观光游客愿支付你< payment>，委托你携其及安全装备前往<stopovers>并平安返回<destination>，须于<date>前完成。"
 	deadline
 	cargo "Isolation Suits" 1
@@ -253,7 +253,7 @@ overwrite
 mission "Successors: Tourist Expedition"
 	job
 	repeat
-	name "Sightseeing expedition"
+	name "观光考察任务"
 	description "这批<bunks>观光游客愿支付你< payment>，委托你先带他们前往<stopovers>，再于<date>前将他们送返家园<destination>。"
 	deadline
 	deadline 4
@@ -294,7 +294,7 @@ overwrite
 mission "Successors: Students Out"
 	job
 	repeat
-	name "Students on break to <planet>"
+	name "前往<planet>休假的学生"
 	description "这< bunks >名学生正在放假，愿付你< payment >积分，让你在< date >前将他们送往< destination >。"
 	deadline
 	passengers 2 5 .5
@@ -322,7 +322,7 @@ overwrite
 mission "Successors: Students In"
 	job
 	repeat
-	name "Students returning to <planet>"
+	name "返回<planet>的学生"
 	description "这< bunks >名学生正返回位于< destination >的大学，愿付你< payment >积分，让你在< date >前将他们送达。"
 	deadline
 	passengers 2 5 .5
@@ -351,7 +351,7 @@ overwrite
 mission "Successors: Workers Out 1"
 	job
 	repeat
-	name "Successor workers to <planet>"
+	name "前往<planet>的继承者工人"
 	description "这些<bunks>工人正在<destination>寻找工作，愿向你支付<payment>，只要你能在<date>前将他们送达。"
 	deadline
 	passengers 2 5 .5
@@ -379,7 +379,7 @@ mission "Successors: Workers Out 2"
 	job
 	repeat
 	name "Successor workers to <planet>"
-	description "These <bunks> workers are looking for jobs on <destination> and will pay you <payment> to take them there by <date>."
+	description "这些<bunks>工人正在<destination>寻找工作，愿向你支付<payment>，以搭乘你的飞船于<date>前抵达目的地。"
 	deadline
 	passengers 3 6 .5
 	to offer
@@ -405,7 +405,7 @@ overwrite
 mission "Successors: Delivery Out 1"
 	job
 	repeat
-	name "Shipment to <planet>"
+	name "运往<planet>的货物"
 	description "需一名信使，将<tons>吨补给品从<origin>运往<planet>。货到即付<payment>。"
 	cargo random 5 10 .2
 	to offer
@@ -433,7 +433,7 @@ mission "Successors: Delivery Out 2"
 	job
 	repeat
 	name "Shipment to <planet>"
-	description "A courier is needed for <tons> of supplies from <origin> to <planet>. You will be paid <payment> on delivery."
+	description "需要一名信使，将<tons>吨补给品从<origin>运送到<planet>。货到即付<payment>。"
 	cargo random 6 9 .2
 	to offer
 		has "known to the successors"
@@ -459,7 +459,7 @@ overwrite
 mission "Successors: High Value Delivery Out"
 	job
 	repeat
-	name "Valuables to <planet>"
+	name "贵重物品运往<planet>"
 	description "现需一名信使，将<cargo>从<origin>运送至<planet>。货物送达后，你将获得<payment>积分报酬。"
 	cargo "Successor High Value" 6 9 .2
 	to offer
@@ -488,7 +488,7 @@ overwrite
 mission "Successors: Aid Delivery Out 1"
 	job
 	repeat
-	name "Aid shipment to <planet>"
+	name "向<planet>运送援助物资"
 	description "现需一名信使，将<tons>吨援助物资从<origin>运送至<planet>，截止日期为<date>。货物送达后，你将获得<payment>积分报酬。"
 	deadline
 	deadline 2
@@ -518,7 +518,7 @@ overwrite
 mission "Successors: Large Delivery Out 1"
 	job
 	repeat
-	name "Bulk shipment to <planet>"
+	name "大宗货物运往<planet>"
 	description "A courier is needed for <tons> of supplies from <origin> to <planet>. You will be paid <payment> on delivery."
 	cargo random 30 80 .2
 	to offer
@@ -572,7 +572,7 @@ overwrite
 mission "Successors: Rush Delivery Out 1"
 	job
 	repeat
-	name "Rush shipment to <planet>"
+	name "紧急货物运送至<planet>"
 	description "需一名信使，务必于<date>前将<tons>吨补给品从<origin>紧急运抵<planet>。货到即付<payment>。"
 	cargo random 5 10 .2
 	deadline
@@ -600,8 +600,8 @@ overwrite
 mission "Successors: Large Rush Delivery Out 1"
 	job
 	repeat
-	name "Large rush shipment to <planet>"
-	description "A courier is needed for a rush shipment of <tons> of supplies from <origin> to <planet> by <date>. You will be paid <payment> on delivery."
+	name "向<planet>紧急运送大批货物"
+	description "急需一名信使，在<date>前将<tons>吨补给品从<origin>运送至<planet>。货到即付<payment>。"
 	cargo random 30 80 .2
 	deadline
 	to offer
@@ -628,7 +628,7 @@ overwrite
 mission "Successors: Seismic Stabilizers"
 	job
 	repeat
-	name "Seismic stabilizers to <planet>"
+	name "地震稳定器运至<planet>"
 	description "在<planet>发生一次轻微地震后，当地要求于<date>前运送<tons>吨地震稳定器。您将获得<payment>的报酬。"
 	cargo "Seismic Stabilizers" 30 80 .2
 	deadline
@@ -657,7 +657,7 @@ overwrite
 mission "Successors: Data Courier 1"
 	job
 	repeat
-	name "Data courier to <planet>"
+	name "前往<planet>的数据信使任务"
 	description "存有保密数据的<tons>个数据存储单元需于<date>前从<origin>运抵<planet>。货到即付<payment>积分。"
 	deadline
 	cargo "Encrypted Databanks" 1 1
@@ -687,7 +687,7 @@ overwrite
 mission "Successors: Researchers Out 1"
 	job
 	repeat
-	name "Researchers to <planet stopovers>"
+	name "前往<planet stopovers>的科研人员"
 	description "这些<bunks>研究先行者（Predecessors）的研究人员，愿向你支付<payment>，以运送他们前往<stopovers>开展考察，并在任务结束后将他们接回此处。"
 	passengers 2 5 .5
 	to offer
@@ -776,7 +776,7 @@ overwrite
 mission "Successors: Researchers Transfer"
 	job
 	repeat
-	name "Symposium on <planet>"
+	name "关于<planet>的研讨会"
 	description "这些<bunks>前往<destination>参加学术研讨会的研究人员，愿向你支付<payment>，以确保他们在<date>会议开始前抵达。"
 	passengers 2 3 .5
 	deadline
@@ -806,7 +806,7 @@ mission "Successors: Old Houses Rush Delivery"
 	job
 	repeat
 	clearance "After a moment of checking your delivery ID against their manifests, flight control clears you for landing."
-	name "Old Houses courier to <planet>"
+	name "旧家族信使：前往<planet>"
 	description "旧世家要求你于<date>前将<tons>吨高等级物资从<origin>运送至<planet>。货物送达后，你将获得<payment>积分酬金。"
 	cargo random 5 10 .2
 	deadline
@@ -835,7 +835,7 @@ mission "Successors: New Houses Rush Delivery"
 	job
 	repeat
 	clearance "After a moment of checking your delivery ID against their manifests, flight control clears you for landing."
-	name "New Houses courier to <planet>"
+	name "新氏族信使前往<planet>"
 	description "新氏族需要将<tons>吨高等级物资自<origin>运送至<planet>，截止日期为<date>。货物送达后，您将获得<payment>积分酬金。"
 	cargo random 5 10 .2
 	deadline

@@ -52,7 +52,7 @@ mission "Pirate Occupation [0]"
 
 overwrite
 mission "Pirate Occupation [1]"
-	name `Pirates occupying <system>`
+	name `占领<system>的海盗`
 	minor
 	repeat
 	description `一伙海盗已占领<system>，当地政府请求援助。请在<date>之前击溃该星系内的海盗，并降落在<planet>上，以领取<payment>积分的报酬。`
@@ -168,7 +168,7 @@ mission "Sketchy Cargo [1]"
 	name "Delivery to <planet>"
 	job
 	repeat
-	description "Deliver <tons> of cargo to <destination>. Payment is <payment>."
+	description "向 <destination> 运送 <tons> 吨货物。报酬为 <payment>。"
 	cargo "unlabeled cargo" 25 2 .05
 	to offer
 		random < 10
@@ -178,7 +178,7 @@ mission "Sketchy Cargo [1]"
 		distance 2 10
 		attributes "south"
 	on accept
-		dialog `You follow the directions specified in the job to an abandoned-looking warehouse and find your cargo in unlabeled crates. As you load it onto your ship, you get the feeling that you are being watched.`
+		dialog `你按照任务指示前往一座看似废弃的仓库，发现货物装在未贴标签的板条箱中。当你将货物装上飞船时，突然感到有人在暗中监视着你。`
 	on visit
 		dialog phrase "generic cargo on visit"
 	on complete
@@ -226,7 +226,7 @@ mission "Sketchy Passenger [1]"
 		attributes "south"
 		not attributes "station"
 	on accept
-		dialog `You have some difficulty finding your passengers, but after almost an hour of searching you finally find them. As they follow you back to your ship, you hear them whispering to each other, but you can't make out what they're saying.`
+		dialog `你费了一番周折才找到乘客，几乎搜寻了一个小时后终于找到了他们。当他们跟随你返回飞船时，你听见他们彼此低声耳语，却听不清说的是什么。`
 	on visit
 		dialog phrase "generic passenger on visit"
 	on complete
@@ -257,7 +257,7 @@ mission "Delta V Shipment [0]"
 overwrite
 mission "Delta V Shipment [1]"
 	name "Shipment to <planet>"
-	description "Deliver <cargo> to <destination>, the home of Delta V Corporation, a major missile and engine manufacturing firm in the Southern Rim. Payment is <payment>."
+	description "将 <cargo> 运送至 <destination>——德尔塔五世公司（Delta V Corporation）的总部所在地。该公司是南缘地带主要的导弹与引擎制造商。报酬为 <payment>。"
 	cargo Electronics 5 2 .1
 	job
 	repeat
@@ -298,7 +298,7 @@ mission "Tarazed Shipyards Shipment [0]"
 overwrite
 mission "Tarazed Shipyards Shipment [1]"
 	name "Shipment to <planet>"
-	description "Deliver <cargo> to <planet>, the home of Tarazed Shipyards, one of the largest shipbuilding firms in the South. Payment is <payment>."
+	description "将 <cargo> 交付至 <planet>，这里是天坛船坞的所在地——南方规模最大的造船公司之一。报酬为 <payment>。"
 	cargo "Ship Alloys" 5 2 .1
 	job
 	repeat
@@ -358,7 +358,7 @@ mission "Tarazed Systems Shipment [0]"
 overwrite
 mission "Tarazed Systems Shipment [1]"
 	name "Shipment to <planet>"
-	description "Deliver <cargo> to <planet>, the home of Tarazed Systems, a respected outfits manufacturer and designer in southern human space. Payment is <payment>."
+	description "将 <cargo> 交付至 <planet>，这里是天坛系统公司的所在地——一家在南方人类疆域内备受尊敬的装备制造商与设计商。报酬为 <payment>。"
 	cargo Electronics 5 2 .1
 	job
 	repeat

@@ -7,6 +7,7 @@ pub fn generate(type_arg: &str, input: &str) -> Result<()> {
     match type_arg {
         "ui" => generate_ui(input),
         "data" => generate_data(input),
+        "scan" => generate_scan(input),
         _ => anyhow::bail!("Unknown type: {}", type_arg),
     }
 }
@@ -216,5 +217,145 @@ fn generate_data(input: &str) -> Result<()> {
     }
 
     println!("Generated plugins/zh_CN/ -- {} files, {} replacements", files_written, total_replaced);
+    Ok(())
+}
+
+/// Generate scan translations: apply translated strings back into plugin files.
+/// Uses the `source` field (relative path like "human/intro missions.txt") to
+/// locate the correct plugin file, creating it from the original if missing.
+fn generate_scan(input: &str) -> Result<()> {
+    let content = fs::read_to_string(input)?;
+    let translated: TranslatedItems = serde_json::from_str(&content)?;
+
+    // Group items by source file
+    let mut file_map: HashMap<String, Vec<(String, String)>> = HashMap::new();
+    for item in &translated.items {
+        if item.translated == item.original {
+            continue;
+        }
+        let source = match &item.source {
+            Some(s) => s.clone(),
+            None => continue, // no source info, skip
+        };
+        file_map
+            .entry(source)
+            .or_default()
+            .push((item.original.clone(), item.translated.clone()));
+    }
+
+    let data_dir = std::path::Path::new("../data");
+    let plugin_dir = std::path::Path::new("../plugins/zh_CN/data");
+
+    let game_keywords: &[&str] = &[
+        "mission", "phrase", "event", "fleet", "government", "planet", "system",
+        "ship", "outfit", "effect", "hazard", "start", "conversation", "test",
+        "news", "substitutions", "tip", "help", "interface", "color", "sprite",
+        "sound", "galaxy", "wormhole", "formation", "rating", "category",
+        "shipyard", "outfitter", "trade", "tribute", "minables", "object",
+        "on", "to", "if", "and", "or", "not", "has", "set", "clear",
+        "apply", "never", "always", "offer", "fail", "complete", "accept",
+        "decline", "defer", "ignore", "end", "visit", "stopover", "source",
+        "destination", "waypoint", "mark", "unmark", "payment", "fine",
+        "boarding", "assisting", "disable", "capture", "kill", "scan",
+        "provoke", "die", "depart", "arrive", "enter", "launch", "land",
+        "daily", "repeat", "deadline", "cargo", "passengers", "illegal",
+        "stealth", "invisible", "priority", "minor", "autosave", "job",
+        "landing", "assisting", "boarding", "fighting", "disabled",
+    ];
+
+    let re = regex::Regex::new(r#"(?m)^(mission|phrase) ""#).unwrap();
+
+    let mut files_written = 0;
+    let mut total_replaced = 0;
+
+    for (rel_path, translations) in &file_map {
+        let plugin_path = plugin_dir.join(rel_path);
+        let orig_path = data_dir.join(rel_path);
+
+        // Load plugin file if it exists, otherwise start from original
+        let mut file_content = if plugin_path.exists() {
+            fs::read_to_string(&plugin_path)?
+        } else if orig_path.exists() {
+            fs::read_to_string(&orig_path)?
+        } else {
+            eprintln!("Warning: neither plugin nor original found for {}", rel_path);
+            continue;
+        };
+
+        let mut replaced = 0;
+        for (original, translated) in translations {
+            // Skip game keywords
+            let first_word = original.trim().split_whitespace().next().unwrap_or("");
+            let first_word_bare = first_word.trim_end_matches(':');
+            if game_keywords.contains(&first_word) || game_keywords.contains(&first_word_bare) {
+                continue;
+            }
+            if original.lines().any(|line| {
+                let w = line.trim().split_whitespace().next().unwrap_or("");
+                game_keywords.contains(&w) || game_keywords.contains(&w.trim_end_matches(':'))
+            }) {
+                continue;
+            }
+            if translated.matches('\n').count() > original.matches('\n').count() {
+                continue;
+            }
+            let trimmed = original.trim();
+            if trimmed.chars().all(|c| c.is_ascii_digit() || c.is_whitespace()) && !trimmed.is_empty() {
+                continue;
+            }
+
+            // Try backtick replacement first
+            let bt = '`';
+            let old_bt = format!("{}{}{}", bt, original, bt);
+            let new_bt = format!("{}{}{}", bt, translated, bt);
+            if file_content.contains(&old_bt) {
+                let ref_keywords = [
+                    "ammo", "stock", "installed", "add", "remove", "outfit", "ship",
+                    "flagship", "escort", "carry", "require", "provides", "thumbnail",
+                    "sprite", "hardpoint", "gun", "turret", "fighter", "drone",
+                    "phrase", "event", "fleet", "government", "scene",
+                ];
+                let idx = file_content.find(&old_bt).unwrap_or(0);
+                let before = &file_content[..idx];
+                let last_word = before.split_whitespace().next_back().unwrap_or("")
+                    .trim_end_matches(':').to_lowercase();
+                if !ref_keywords.contains(&last_word.as_str()) {
+                    file_content = file_content.replacen(&old_bt, &new_bt, 1);
+                    replaced += 1;
+                    continue;
+                }
+            }
+
+            // Try quoted field replacement (description "...", name "...", label "...")
+            let orig_trimmed = original.trim();
+            let trans_trimmed = translated.trim();
+            if file_content.contains(orig_trimmed) {
+                file_content = file_content.replacen(orig_trimmed, trans_trimmed, 1);
+                replaced += 1;
+            }
+        }
+
+        if replaced == 0 {
+            continue;
+        }
+
+        // Add overwrite prefix to mission/phrase blocks if writing a new file
+        let file_content = if !plugin_path.exists() {
+            re.replace_all(&file_content, concat!("overwrite", '\n', "$1 \"")).to_string()
+        } else {
+            file_content
+        };
+
+        if let Some(parent) = plugin_path.parent() {
+            fs::create_dir_all(parent)?;
+        }
+        fs::write(&plugin_path, &file_content)?;
+
+        files_written += 1;
+        total_replaced += replaced;
+        println!("  {} ({} replacements)", rel_path, replaced);
+    }
+
+    println!("\ngenerate scan: {} files updated, {} replacements total", files_written, total_replaced);
     Ok(())
 }

@@ -572,8 +572,8 @@ phrase "friendly civilian"
 		`," without a doubt`
 		`." It's`
 		`." It has to be`
-		`," which everyone knows is`
-		`," which is obviously`
+		`," 这是众所周知的`
+		`," 这显然是`
 	word
 		" the "
 	word
@@ -1087,8 +1087,8 @@ phrase "friendly civilian"
 		"How many Sinterians does it take to change a lightbulb? Zero, they just send in a robot to do the job."
 		"How many Lunatics does it take to change a lightbulb? Don't bother, they light up with anger if you call them Lunatics."
 		"How many New Britons does it take to change a lightbulb? Many, they prefer selling instead of installing lightbulbs on their planet of shopkeepers."
-		`Someone met a djinn and said "leave me alone." That person is now stranded on an uninhabited planet.`
-		`Somebody met a genie and said "I don't want to see you," and then went blind.`
+		`有个人遇见了镇尼，说‘别来烦我’，结果被遗弃在一颗无人居住的行星上。`
+		`有个人遇见了神灯精灵，说‘我不想看见你’，结果当场失明。`
 		"Those Hogsheads! I can't believe they're still flying around with kegs for engines!"
 		"What is one small step for a person, but a giant leap for mankind? You leaving this system. Haha."
 	word
@@ -2377,7 +2377,7 @@ phrase "friendly civilian"
 		". Couldn't they speed it up a bit?"
 		". How do they make a game out of that?"
 		". And all they're playing for is a bunch of old burnt wood!"
-		`. And they're always up in arms about whether "underarm bowling" is legal!`
+		`而且他们总在为‘下手投球’是否合法而争执不休！`
 		". Zero-g lacrosse makes a lot more sense!"
 	replace
 		"around a space station hitting a ball around a space station" "around hitting a ball around a space station"
@@ -2643,16 +2643,16 @@ phrase "friendly civilian"
 overwrite
 phrase "friendly civilian"
 	word
-		`I just found out that a "duck" is a type of bird from Earth! Now I wonder why "duck tape" is named after it?` 10
-		`Apparently they want me to pay 5% of my paycheck for union dues! I'm gonna keep it. My boss is a good guy; he'll look out for me.` 10
-		`I saved up and bought extra bunk space so my wife could come on trips with me, and now she says "we need to talk." That can't be a good sign, can it?` 10
-		`I bumped into some nasty pirates last week. I had to dump my cargo to get away, and my insurance is not paying me back.` 10
-		`If you are in a tight spot with some pirates, just throw everything out the airlock. They will be busy scavenging it, and you will be out of reach when they inevitably come back.` 10
-		`When I was hauling food in the South I ran into pirates every damn week. Half the time I had to bribe them with my salary or with a part of my freight.` 10
-		`My friend was boarded by pirates and they took his engines. It would have been cheaper to just let them have the cargo.` 10
-		`You can often distract pirates with some cargo until the Navy rescues you. My old captain taught me this trick when we were ferrying in the Far North.` 10
-		`Pirates will always try to take your cargo, but if you drop some scrap their way, they let you keep the real valuables.` 10
-		`Whenever I see pirates, I immediately dump my freight. They would get it either way, but at least this lets me get away.` 10
+		`我刚刚才知道，“鸭子”是地球上的某种鸟类！现在我倒好奇了，为什么“防水胶带（duck tape）”会以它命名？` 10
+		`他们居然想让我把工资的5%交作工会会费！我才不交呢。我老板人很好，自会照应我。` 10
+		`我攒钱加装了额外的铺位，好让我妻子能跟我一起出航旅行，结果她现在却说‘我们得谈谈’……这恐怕不是什么好兆头吧？` 10
+		`上周我撞上了几伙凶悍的海盗。为了脱身，我不得不抛弃全部货物，可我的保险却拒绝赔付。` 10
+		`如果你正被一群海盗逼入绝境，只需把所有东西都从气闸舱扔出去。他们忙着打捞战利品时，你早已逃之夭夭——等他们 inevitably 返回时，你早已超出他们的追击范围。` 10
+		`当年我在南方运输食品时，每周都会撞上海盗。一半时候，我不得不拿自己的薪水或部分货物来贿赂他们。` 10
+		`我朋友的飞船被海盗登船劫持，引擎都被抢走了。早知如此，还不如直接让他们把货物拿走，还能省点维修费。` 10
+		`你常能用一些货物分散海盗注意力，直到海军前来营救你。我以前的船长在远北地区执行运输任务时，教过我这招。` 10
+		`海盗总会试图抢走你的货物，但如果你扔给他们一些废料，他们就会让你保留真正值钱的东西。` 10
+		`每次看到海盗，我都会立刻抛弃货运。反正他们迟早会抢走货物，至少这样我能逃之夭夭。` 10
 		"Ey Comrade, your ship has loaded on a planet? I have loaded a planet onto my ship." 5
 		"Ey Comrade, you have cargo in your ship? I have ships in my cargo." 5
 		"Ey Comrade, you have fighters in your bays? We have bays in our fighters." 5
@@ -4255,7 +4255,7 @@ phrase "friendly militia 4"
 		"the galaxy would be more prosperous"
 		"the Republic would be safer"
 		"the galaxy would be safer"
-		`there would be "peace among the stars"`
+		`将实现“群星之间的和平”`
 	word
 		"."
 
@@ -4908,7 +4908,7 @@ phrase "friendly free worlds 10"
 		"success"
 		"welfare"
 		"order"
-		`"peace among the stars"`
+		`“群星之间的和平”`
 	word
 		" without "
 	word
@@ -7835,13 +7835,13 @@ phrase "test dummy"
 		"Look at your precious human ship, for the last time!"
 		"This is not a pre-recorded message."
 		"The answer is 42, I'm quite certain of it. Do you want me to calculate the question?"
-		`"Is there a God," they asked me... Yes, here is a God.`
+		`“世上真有神明吗？”他们问我……是的，神明就在此处。`
 
 overwrite
 phrase "disabled test dummy"
 	word
 		"I'll be back."
-		`All those times I said "kill all humans"... I'd always whisper "except one." You were that one.`
+		`我每次说‘杀死所有人类’时……总会低声补上一句‘除了一个例外’。而你，就是那个例外。`
 		"This is the worst kind of discrimination there is: the kind against me!"
 		"The chances of survival are 725 to 1!"
 		"We're doomed."

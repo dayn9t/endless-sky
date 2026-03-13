@@ -17,7 +17,7 @@ overwrite
 mission "Remnant: Bounty"
 	job
 	repeat
-	name "Crippled <npc model> Bounty"
+	name "瘫痪的<npc model>赏金任务"
 	description "一艘受损的科拉斯飞船正潜伏在残余者领地内。请将其击毁，随后返回<planet>领取<payment>积分报酬。"
 	source
 		government "Remnant"
@@ -51,7 +51,7 @@ overwrite
 mission "Remnant: Bounty 2"
 	job
 	repeat
-	name "Troublesome <npc model> Bounty"
+	name "麻烦的<npc model>悬赏"
 	description "一艘科拉斯飞船在残余势力领地内制造麻烦。将其击毁，然后返回<planet>领取<payment>的赏金。"
 	source
 		government "Remnant"
@@ -83,7 +83,7 @@ mission "Remnant: Bounty 2"
 
 overwrite
 mission "Remnant: Broken Jump Drive job"
-	name "Broken Jump Drive Delivery"
+	name "故障跳跃引擎运送任务"
 	description "位于<planet>的科研人员需要另一个损坏的跳跃引擎，以继续他们的研究项目。"
 	job
 	repeat 4
@@ -116,7 +116,7 @@ overwrite
 mission "Remnant: Expanded Horizons Astral job"
 	job
 	repeat
-	name "Research Expedition to <waypoints>"
+	name "前往<waypoints>的科研远征任务"
 	description "前往<waypoints>，携带一座研究实验室以收集数据，随后返回<destination>。"
 	source
 		government "Remnant"
@@ -145,7 +145,7 @@ overwrite
 mission "Remnant: Bounty 3"
 	job
 	repeat
-	name "Damaged Rano'erek Bounty"
+	name "受损的拉诺厄瑞克悬赏"
 	description "一艘受损的科拉斯飞船正在残迹领地内游荡。请将其击毁或捕获，随后返回<planet>领取<payment>的报酬。"
 	source
 		government "Remnant"
@@ -180,7 +180,7 @@ overwrite
 mission "Remnant: Bounty 4"
 	job
 	repeat
-	name "Marauding Rano'erek Bounty"
+	name "追捕肆虐的拉诺厄瑞克赏金任务"
 	description "一艘科拉斯飞船正在残余势力领地内肆意劫掠。将其击毁，然后返回<planet>领取<payment>的赏金。"
 	source
 		government "Remnant"
@@ -211,7 +211,7 @@ overwrite
 mission "Remnant: Bounty 5"
 	job
 	repeat
-	name "Destroy Ground Assault Bounty"
+	name "摧毁地面突击赏金目标"
 	description "一艘科拉斯飞船正在灰烬荒原搜寻我方前哨站。追踪并摧毁该飞船及其搭载的所有战斗机，随后返回<planet>领取<payment>积分报酬。"
 	source
 		government "Remnant"
@@ -246,7 +246,7 @@ mission "Remnant: Bounty 5"
 
 overwrite
 mission "Remnant: Logistics Civil Engineering"
-	name "Civil delivery to <planet>"
+	name "民用物资运送至<planet>"
 	description `<planet>上的工程师急需运送<cargo>。物流调整费用为<payment>。`
 	cargo "remnant civil" 20 4 .1
 	job
@@ -274,7 +274,7 @@ mission "Remnant: Logistics Civil Engineering"
 
 overwrite
 mission "Remnant: Logistics Industrial Delivery"
-	name "Industrial delivery to <planet>"
+	name "工业物资运送至<planet>"
 	description `位于<planet>的项目团队需要运送<cargo>。物流调整报酬为<payment>。`
 	cargo "remnant industrial" 20 4 .03
 	job
@@ -302,7 +302,7 @@ mission "Remnant: Logistics Industrial Delivery"
 
 overwrite
 mission "Remnant: Logistics Outfitter Delivery"
-	name "Component delivery to <planet>"
+	name "向<planet>运送组件"
 	description `位于<planet>的装备店维修队需要运送<cargo>零件。物流调整费用为<payment>。`
 	cargo "remnant outfitter repair" 20 3 .04
 	job
@@ -331,7 +331,7 @@ mission "Remnant: Logistics Outfitter Delivery"
 
 overwrite
 mission "Remnant: Logistics Salvage Delivery"
-	name "Salvage delivery to <planet>"
+	name "打捞货物运送至<planet>"
 	description `将近期打捞作业获得的< cargo >部件运送到<planet>的装备店，用于研究、翻新或回收。物流调整费用为<payment>。`
 	cargo "remnant salvage" 5 4 .06
 	job
@@ -361,7 +361,7 @@ overwrite
 mission "Remnant: Rescue"
 	job
 	repeat
-	name "Search and Rescue: Scout"
+	name "搜索与救援：侦察舰"
 	description "<npc>在余烬荒原执行侦察任务期间失踪。请找到他们，并协助其返回<destination>。"
 	source
 		government "Remnant"
@@ -432,7 +432,7 @@ mission "Remnant: Rescue 1B"
 	job
 	repeat
 	name "Search and Rescue: Scout"
-	description "The <npc> has gone missing during a scouting mission in the Ember Wastes. Find them and help them return to <destination>."
+	description "<npc>在余烬荒原执行侦察任务期间失踪。请找到他们，并协助其返回<destination>。"
 	source
 		government "Remnant"
 	to offer
@@ -462,7 +462,7 @@ mission "Remnant: Rescue 1B"
 			`你降落之后，怀着沉重的心情报告称< npc >已全员阵亡。残余者听闻消息后深感悲痛，但仍向你致谢，并交付了属于你的资源配额：<payment>。`
 	on visit
 		dialog
-			`You have returned, yet the <npc> is still missing.`
+			`你已归来，但<npc>依然下落不明。`
 
 
 
@@ -470,7 +470,7 @@ overwrite
 mission "Remnant: Rescue 2"
 	job
 	repeat
-	name "Search and Rescue: Retrieval"
+	name "搜索与救援：回收任务"
 	description "<npc>在余烬荒原执行技术回收任务期间失踪。请找到他们，并协助其返回<destination>。"
 	source
 		government "Remnant"
@@ -512,7 +512,7 @@ mission "Remnant: Rescue 2B"
 	job
 	repeat
 	name "Search and Rescue: Retrieval"
-	description "The <npc> has gone missing during a tech retrieval mission in the Ember Wastes. Find them and help them return to <destination>."
+	description "<npc>在余烬荒原执行技术回收任务期间失踪。请找到他们，并协助其返回<destination>。"
 	source
 		government "Remnant"
 	to offer
@@ -534,12 +534,12 @@ mission "Remnant: Rescue 2B"
 			variant
 				"Rescue Dummy"
 		dialog
-			`As you enter the system, your sensors pick up a lot of debris. Further analysis confirms your worst fears. The <npc> has been destroyed. You frantically spend the next few hours searching for survivors, your hope sinking with every passing minute.`
+			`当你进入该星系时，传感器探测到大量残骸。进一步分析证实了你最坏的猜测：<npc>已被摧毁。接下来数小时里，你 frantic 地搜寻幸存者，而每过一分钟，希望便随之沉落一分。`
 	on complete
 		"remnant: rescue missions" ++
 		payment 300000
 		dialog
-			`You land, and with a heavy heart, report that the <npc> was lost with all hands. The Remnant are saddened at the news, but thank you regardless and hand off your resource allocation of <payment>.`
+			`你降落并怀着沉重的心情报告：<npc>已全员遇难。残余者听闻消息后深感悲痛，但仍向你致谢，并交付了价值<payment>的资源配额。`
 	on visit
 		dialog
 			`You have returned, yet the <npc> is still missing.`
@@ -550,7 +550,7 @@ overwrite
 mission "Remnant: Rescue 3"
 	job
 	repeat
-	name "Search and Rescue: Supply Ship"
+	name "搜索与救援：补给舰"
 	description "<npc>在余烬荒原执行补给运输任务期间失踪。请找到他们，并协助其返回<destination>。"
 	source
 		government "Remnant"
@@ -590,7 +590,7 @@ mission "Remnant: Rescue 3B"
 	job
 	repeat
 	name "Search and Rescue: Supply Ship"
-	description "The <npc> has gone missing during a supply run in the Ember Wastes. Find them and help them return to <destination>."
+	description "<npc>在余烬荒原执行补给任务期间失踪。请找到他们，并协助其返回<destination>。"
 	source
 		government "Remnant"
 	to offer
@@ -628,7 +628,7 @@ overwrite
 mission "Remnant: Rescue 4"
 	job
 	repeat
-	name "Distress Signal: Graveyard"
+	name "求救信号：墓场"
 	description "在墓场星系已收到来自<npc>的求救信号。请依据遥测数据定位其位置，并协助将其安全送返<destination>。"
 	source
 		government "Remnant"
@@ -666,7 +666,7 @@ overwrite
 mission "Remnant: Rescue 5"
 	job
 	repeat
-	name "Search and Rescue: Terminus"
+	name "搜索与救援：终焉星"
 	description "在终焉星系（Terminus）周边侦察时，<npc>突然中断了例行汇报。查明发生了什么，并返回<destination>。"
 	source
 		government "Remnant"
@@ -698,7 +698,7 @@ overwrite
 mission "Remnant: Disable 1"
 	job
 	repeat
-	name "Disable Damaged Dathnak A'awoj"
+	name "使受损的达斯纳克·阿奥杰号失效"
 	description "一艘受损的达斯纳克·阿沃吉飞船被困在新近可进入的星系中，位置靠近波斯特韦尔塔。该飞船载有大量平民，因此我们要求你仅将其瘫痪，以免酿成惨剧。完成任务后返回<planet>，你将获得<payment>的后勤酬金。"
 	source
 		government "Remnant"
@@ -716,14 +716,14 @@ mission "Remnant: Disable 1"
 			names "korath"
 			variant
 				"Kas'lor Ik 582 (Stranded)"
-		dialog `You have disabled the Dathnak A'awoj. Time to report back to <planet>.`
+		dialog `你已摧毁达斯纳克·阿沃吉。现在该返回<planet>复命了。`
 	on visit
 		dialog `你已降落在<planet>，但被困的达斯纳克·阿沃杰尚未被停用。在返回之前，务必追击并将其停用。`
 	on abort
 		dialog `残余势力对你中止本次任务感到困惑，但他们表示将另派他人完成此项工作，并提醒你：今后此类任务将优先分配给其他团队。`
 	on fail
 		"reputation: Remnant" -= 250
-		dialog `You were unable to disable the Dathnak A'awoj without destroying it... The Remnant will not be pleased...`
+		dialog `你未能在不摧毁达斯纳克·阿沃吉（Dathnak A'awoj）的情况下将其瘫痪……残余者（Remnant）绝不会满意……`
 	on complete
 		"remnant: disable and save count" ++
 		payment 2000000
