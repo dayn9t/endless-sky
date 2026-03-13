@@ -4486,7 +4486,7 @@ mission "Mineral Shortages (Uranium)"
 	job
 	repeat
 	deadline 14
-	description "Factories on <planet> are suffering from a mineral shortage. Harvest <amount> tons of <mineral> and return to <destination> by <date>. Payment is <payment>."
+	description "<planet>上的工厂正面临矿物短缺。请采集<amount>吨<mineral>，并于<date>前返回<destination>。报酬为<payment>。"
 	substitutions
 		"<mineral>" "Uranium"
 		"<amount>" "60"

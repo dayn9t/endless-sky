@@ -508,7 +508,7 @@ mission "Avgi: Rush Cargo 3 (Avgi Nuclear)"
 	repeat
 	deadline
 	name "Rush delivery to <planet>"
-	description "<destination> urgently needs a shipment of <cargo> by <date>. Payment is <payment>."
+	description "<destination>急需在<date>前运送一批< cargo>。报酬为< payment>。"
 	source
 		attributes "avgi diaspora"
 	destination

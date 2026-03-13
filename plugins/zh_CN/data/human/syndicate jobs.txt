@@ -319,7 +319,7 @@ mission "辛迪加靶场训练 [2]"
 
 overwrite
 mission "辛迪加靶场训练 [3]"
-	name "Syndicate target practice"
+	name "辛迪加靶场训练"
 	job
 	repeat
 	description "在<system>中瘫痪机器人靶船，通过扫描其货物为辛迪加工程师收集测试数据，并降落在<planet>。警告：该靶船已编程启用自卫行为，以确保模拟的真实性。报酬为<payment>。"

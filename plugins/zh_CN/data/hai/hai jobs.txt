@@ -1290,7 +1290,7 @@ mission "Hai Large Bulk Delivery [0]"
 	name "向<planet>运送大批货物"
 	job
 	repeat
-	description "Deliver <cargo> to <destination>. Payment is <payment>."
+	description "将 <cargo> 交付至 <destination>。报酬为 <payment>。"
 	cargo random 50 3 .02
 	to offer
 		random < 60
@@ -2022,7 +2022,7 @@ mission "Superstitious Hai [7]"
 
 overwrite
 mission "Superstitious Hai [8]"
-	name "Superstitious Hai to <planet>"
+	name "迷信的海伊人致<planet>"
 	job
 	repeat
 	description "这户拥有<bunks>张铺位的海伊牧民家庭愿支付<payment>，雇用一艘配备基石装置的飞船，于<date>前将其运送至<destination>。"
