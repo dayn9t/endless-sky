@@ -370,7 +370,7 @@ ship "Flea" "Flea (Pulse)"
 		"Pulse Cannon"
 		"Sand Cell"
 		"Supercapacitor" 2
-		`"Baellie" Atomic Engines`
+		`“贝尔”原子引擎`
 
 ship "Geocoris"
 	plural "Geocoris"

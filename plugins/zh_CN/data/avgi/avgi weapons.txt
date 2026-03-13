@@ -697,7 +697,7 @@ outfit "Medium VLS"
 		"missile strength" 9
 		"submunition" "Nettle Active"
 	description "这款中型垂直发射系统包含36个并列布置的独立发射单元。多种小型至中型的阿维吉导弹均可适配这些发射单元，且单元本身可轻松更换。该系统专为快速垂直冷发射而设计，需配备与炮塔安装位相当的开放空间才能正常运作。"
-	description "	Vertical launch systems enable rapid and versatile missile deployment, but as dual launchers and magazines, no separate missile storage is available."
+	description "	垂直发射系统可实现导弹的快速、灵活部署，但由于采用双发射器与弹匣一体化设计，无法提供独立的导弹储存空间。"
 	description "	Ammunition for this weapon can be restocked at any outfitter."
 		to display
 			has "gamerule: universal ammo restocking"

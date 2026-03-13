@@ -355,7 +355,7 @@ mission "Escort (Medium, Northern, Dangerous Origin)"
 overwrite
 mission "Escort (Large, Northern, Dangerous Destination)"
 	name "Escort to <planet>"
-	description "The captain of the <npc> will pay you <payment> to escort them safely into a dangerous region of space to reach <destination> by <date>."
+	description "《<npc>》的船长将支付你<payment>，以护送他们安全进入一片危险空域，于<date>前抵达<destination>。"
 	repeat
 	job
 	deadline 10
@@ -401,7 +401,7 @@ mission "Escort (Large, Northern, Dangerous Destination)"
 overwrite
 mission "Escort (Large, Northern, Dangerous Origin)"
 	name "Escort to <planet>"
-	description "The captain of the <npc> will pay you <payment> to escort them safely out of this dangerous region of space to reach <destination> by <date>."
+	description "《<npc>》的船长将支付你<payment>，以护送他们安全离开这片危险空域，于<date>前抵达<destination>。"
 	repeat
 	job
 	deadline 10
@@ -1232,7 +1232,7 @@ mission "Escort (Medium, Southern, Dangerous Origin or Destination)"
 overwrite
 mission "Escort (Large, Southern, Dangerous Origin or Destination)"
 	name "Escort to <planet>"
-	description "The captain of the <npc> will pay you <payment> to escort them safely through this dangerous region of space to reach <destination> by <date>."
+	description "《<npc>》的船长将支付你<payment>，以护送他们安全穿越这片危险空域，于<date>前抵达<destination>。"
 	repeat
 	job
 	deadline 10
@@ -1353,7 +1353,7 @@ mission "Southern Pirate Attack"
 overwrite
 mission "Northern Pirate Attack"
 	name "Defend <planet>"
-	description "Defeat a pirate raid on <destination>."
+	description "击退对<destination>的海盗袭击。"
 	minor
 	repeat
 	to offer
@@ -1411,7 +1411,7 @@ mission "Core Pirate Attack"
 		fleet "Small Syndicate" 2
 	on offer
 		conversation
-			`Suddenly you hear raised voices and shouting outside: "We are under attack! <planet> is under attack by pirates! We need every combat-worthy ship to join the defenses!" The authorities will probably pay you quite well if you assist them, but this could also be an easy way to get yourself killed.`
+			`突然，你听到外面传来高声喧哗和呼喊：“我们正在遭受攻击！<planet>正遭到海盗袭击！我们需要所有具备作战能力的飞船立即加入防御！”当局很可能会为你提供丰厚报酬，但这也可能让你轻易送命。`
 			choice
 				`	(Stay here until the fight is over.)`
 					decline
@@ -2159,7 +2159,7 @@ mission "Wealthy tourist group out [0]"
 
 overwrite
 mission "Wealthy tourist group out [1]"
-	name "Wealthy tourist group to <planet>"
+	name "富裕游客团前往<planet>"
 	job
 	repeat
 	description "一群由<bunks>名成员组成的富有的游客想去参观<destination>，希望乘坐豪华飞船完成这段航程。他们愿意向你支付<payment>。"
@@ -2252,7 +2252,7 @@ mission "Wealthy tourists back"
 
 overwrite
 mission "Wealthy tourist group back [0]"
-	name "Wealthy tourists home to <planet>"
+	name "富裕游客返航至<planet>"
 	job
 	repeat
 	description "一群由< bunks >名成员组成的富裕游客，正启程返回< destination >，希望搭乘一艘豪华飞船完成此次旅程。他们愿向你支付< payment >。"
@@ -2413,7 +2413,7 @@ mission "Strike Breakers [mining]"
 
 overwrite
 mission "Strike Breakers [large mining]"
-	name "Strike breakers to <planet>"
+	name "前往行星 <planet> 的罢工破坏者"
 	job
 	repeat
 	description "将<bunks>名罢工破坏者运送至<destination>，顶替正在罢工的矿工。该公司将支付你<payment>。"
@@ -2548,7 +2548,7 @@ mission "Colonists [0]"
 
 overwrite
 mission "Colonists [1]"
-	name "Colonists to <planet>"
+	name "向<planet>运送殖民者"
 	job
 	repeat
 	description "这<bunks>名乘客希望前往<destination>建立殖民地。他们将支付您<payment>，以搭乘您的飞船抵达目的地。"
@@ -2574,7 +2574,7 @@ mission "Colonists [2]"
 	name "Colonists to <planet>"
 	job
 	repeat
-	description "These <bunks> people are hoping to join a colony on <destination>. They will pay you <payment> to take them there."
+	description "这< bunks >人希望加入< destination >的殖民地。他们将向你支付< payment >作为运送费用。"
 	passengers 10 4 .1
 	to offer
 		random < ( "passenger space" - 20 ) / 2
@@ -2666,7 +2666,7 @@ mission "Prisoners [0]"
 
 overwrite
 mission "Prisoners [1]"
-	name "Prisoner transport to <planet>"
+	name "向<planet>运送囚犯"
 	job
 	repeat
 	description "将<bunks>名轻微罪犯运送至<destination>，他们将在当地以工厂劳工身份服刑。运输过程中须将其关押于专为罪犯转运设计的合适设施内。报酬为<payment>。"
@@ -2788,7 +2788,7 @@ mission "Released Prisoners [0]"
 
 overwrite
 mission "Released Prisoners [1]"
-	name "Parolee transport to <planet>"
+	name "假释人员运送至<planet>"
 	job
 	repeat
 	description "将<bunks>名囚犯运送回乡，他们已以家政服务形式服完刑期。报酬为<payment>。"
@@ -3182,7 +3182,7 @@ mission "FW Cold Aid [1]"
 
 overwrite
 mission "FW Cold Aid [2]"
-	name "Cold relief to <planet>"
+	name "向<planet>运送感冒缓解药品"
 	description `位于<destination>的一场重大<problem>已爆发，该行星上的多个定居点均受到影响。请于<date>前将<cargo>运送至<planet>，以支援灾后重建工作。报酬为<payment>。`
 	job
 	repeat
@@ -3816,7 +3816,7 @@ mission "Bounty Hunting (Solo Marauder II)"
 
 overwrite
 mission "Bounty Hunting (Solo Marauder III)"
-	name "Marauder near <system>"
+	name "发现掠夺者，地点：附近星系 <system>"
 	description "一艘名为<npc>的掠夺者飞船正在<system>星系附近袭击商船。请于<day>前将其摧毁，以领取赏金（<payment>）。"
 	repeat
 	job
@@ -3935,8 +3935,8 @@ mission "Bounty Hunting (Marauder II)"
 
 overwrite
 mission "Bounty Hunting (Marauder III)"
-	name "Small Marauders near <system>"
-	description "A fleet of small Marauder ships, led by a vessel named the <npc>, has been attacking merchants near the <system> system. Destroy the whole fleet by <day> for payment (<payment>)."
+	name "Small 星系 <system> 附近有掠夺者"
+	description "一支由名为<npc>的小型掠夺者飞船率领的舰队，正在<system>星系附近袭击商船。请于<day>前摧毁整支舰队，以获得报酬（<payment>）。"
 	repeat
 	job
 	deadline 16
@@ -4030,7 +4030,7 @@ mission "Bounty Hunting (Marauder V)"
 overwrite
 mission "Bounty Hunting (Marauder VI)"
 	name "Marauders near <system>"
-	description "A fleet of Marauder ships, led by a vessel named the <npc>, has been attacking merchants near the <system> system. Destroy the whole fleet by <day> for payment (<payment>)."
+	description "一支由名为<npc>的飞船率领的掠夺者舰队，正在<system>星系附近袭击商船。请于<day>前摧毁整支舰队，以获得报酬（<payment>）。"
 	repeat
 	job
 	deadline 18
@@ -4087,7 +4087,7 @@ mission "Bounty Hunting (Marauder VII)"
 
 overwrite
 mission "Bounty Hunting (Marauder VIII)"
-	name "Large Marauders near <system>"
+	name "大型掠夺者靠近<system>"
 	description "一支由名为<npc>的大型掠夺者舰船率领的舰队，正在<system>星系附近袭击商船。请于<day>前摧毁整支舰队，以获取报酬（<payment>）。"
 	repeat
 	job
@@ -4115,7 +4115,7 @@ mission "Bounty Hunting (Marauder VIII)"
 overwrite
 mission "Bounty Hunting (Marauder IX)"
 	name "Large Marauders near <system>"
-	description "A fleet of large Marauder ships, led by a vessel named the <npc>, has been attacking merchants near the <system> system. Destroy the whole fleet by <day> for payment (<payment>)."
+	description "一支由名为<npc>的大型掠夺者飞船率领的舰队，正在<system>星系附近袭击商船。请于<day>前摧毁整支舰队，以获得报酬（<payment>）。"
 	repeat
 	job
 	deadline 18
@@ -4247,7 +4247,7 @@ mission "Republic Navy Advisory System [wildfire cargo]"
 	to offer
 		random < 1
 	on offer
-		dialog `A voice booms from the spaceport loudspeakers. "This is the Republic Navy Advisory System. <planet> is experiencing a severe <problem>. Volunteers are requested to supply <cargo> to <planet> by <date>. A stipend of <payment> is provided to cover fuel, crew, and any incidental expenses."`
+		dialog `太空港扬声器中传出洪亮的声音：“这里是共和国海军预警系统。<planet>正遭遇严重<problem>。现招募志愿者，于<date>前向<planet>运送<cargo>。将提供<payment>津贴，用于支付燃料、船员及其它杂项开支。”`
 	on complete
 		payment 8500 80
 		dialog `满身灰尘、如释重负的援助人员欢迎你的货物抵达。你驻足观望，心中充满满足感——<cargo>很快便会送到最需要它的人手中。回到飞船上后，你收到通知：此次服务已获酬金 <payment>。`
@@ -4336,7 +4336,7 @@ mission "Mineral Shortages (Iron)"
 	job
 	repeat
 	deadline 7
-	description "Factories on <planet> are suffering from a mineral shortage. Harvest <amount> tons of <mineral> and return to <destination> by <date>. Payment is <payment>."
+	description "位于<planet>的工厂正面临矿物短缺。请采集<amount>吨<mineral>，并于<date>前返回<destination>。报酬为<payment>。"
 	substitutions
 		"<mineral>" "Iron"
 		"<amount>" "120"
@@ -4630,7 +4630,7 @@ overwrite
 mission "Student field research (farming)"
 	job
 	repeat
-	name "Transport student to <planet>"
+	name "运送学生前往<planet>"
 	description "这名学生需前往<destination>，在<planet>开展关于<student research>的实地科研工作。酬金为<payment>。"
 	to offer
 		random < 5
@@ -4695,7 +4695,7 @@ mission "Student field research (forest)"
 	job
 	repeat
 	name "Transport student to <planet>"
-	description "This student needs transport to <destination>, where they will perform field research on the <student research> <planet>. They will pay you <payment>."
+	description "这名学生需要前往<destination>，在那里对<student research><planet>开展实地研究。他们将向你支付<payment>。"
 	to offer
 		random < 5
 	source

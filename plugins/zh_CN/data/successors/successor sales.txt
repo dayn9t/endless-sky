@@ -69,12 +69,12 @@ outfitter "Successor Weapons Heavy"
 	"Pulse Laser Turret"
 
 outfitter "Successor Civilian"
-	`"Aqra" Inductive Reverser`
-	`"Aqra" Inductive Steering`
-	`"Aqra" Inductive Thruster`
-	`1-"Uurau" Betavoltaic Cell`
+	`“阿克拉”感应式反向器`
+	`“阿克拉”感应式转向系统`
+	`"阿克拉"感应推进器`
+	`1-"乌劳"贝塔伏特电池`
 	"Auxiliary Power Reserve"
-	`"Byiaa" Shield Cortex`
+	`"拜亚"护盾皮层`
 	"Shield Cortex Interface"
 	"Hyperdrive"
 	"Local Map"
@@ -103,7 +103,7 @@ outfitter "Successor Heavy"
 
 outfitter "Successor High Tech"
 	`OC-“玛芙拉”贝塔伏特电池`
-	`"Tuur" Scanning Suite`
+	`“图尔”扫描套件`
 	`“尼伊斯”感应引擎`
 
 outfitter "High Houses Light"
@@ -135,4 +135,4 @@ outfitter "High Houses Heavy"
 outfitter "People's Houses"
 	"Overcharged Pulse Laser"
 	"Overcharged Laser Turret"
-	`OC-"Mavra" Betavoltaic Cell`
+	`OC-“玛芙拉”贝塔伏特电池`

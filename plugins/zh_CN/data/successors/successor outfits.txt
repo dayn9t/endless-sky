@@ -534,7 +534,7 @@ outfit `"Veusa" Inductive Reverser`
 		"frame rate" 20
 	"reverse flare sound" "ion large"
 	description "尽管无脊椎的继承者族对此影响甚微，人类飞行员在使用如此巨大的反推引擎时，仍须格外谨慎，以免身体承受危险的过载重力。"
-	description "	Because a reverse thruster must be facing forwards, it must be installed in the weapon section of your ship instead of the engine section."
+	description "	由于反向推进器必须朝前安装，因此它必须装在飞船的武器区而非引擎区。"
 
 
 outfit "Multimodal Armor: Light"
@@ -574,7 +574,7 @@ outfit "Multimodal Armor: Regen"
 	"hull repair multiplier" .75
 	"multimodal armor" -1
 	"unplunderable" 1
-	description "The metamaterial armor of Successor warships can be altered in an appropriately equipped spaceport to change its attributes."
+	description "继承者战舰所用的超材料装甲可在配备适当设施的太空港中调整，以改变其属性。"
 	description "	该配置提升了装甲的延展性，大幅增强战斗中维修作业的效果。"
 
 outfit "Multimodal Armor: Keystone"

@@ -106,7 +106,7 @@ mission "To Remembrance Day celebration [1]"
 
 overwrite
 mission "To Remembrance Day celebration [2]"
-	name `Remembrance Day celebration`
+	name `纪念日庆典`
 	job
 	repeat
 	description `在2月19日纪念日庆典前，于<date>之前将<cargo>运送至<destination>。报酬为<payment>。`
@@ -243,10 +243,10 @@ mission "From Remembrance Day celebration [1]"
 
 overwrite
 mission "From Remembrance Day celebration [2]"
-	name `Return from Remembrance Day`
+	name `纪念日返航`
 	job
 	repeat
-	description `Bring <fare> home to <destination> after the Remembrance Day celebration. Payment is <payment>.`
+	description `纪念日庆典结束后，将<fare>送回<destination>。报酬为<payment>。`
 	passengers 20 4 .15
 	to offer
 		random < ( "passenger space" - 30 ) * 2
@@ -380,7 +380,7 @@ mission "Food Convoy [1]"
 
 overwrite
 mission "Food Convoy [2]"
-	name `Food convoy to <planet>`
+	name `运粮船队前往<planet>`
 	job
 	repeat
 	deadline

@@ -1949,7 +1949,7 @@ interface "boarding"
 	string "defense odds"
 		from 330 8
 		align right
-	label "expected casualties:"
+	label "预计伤亡人数："
 		from 50 28
 		align left
 	string "defense casualties"
@@ -2169,7 +2169,7 @@ interface "hiring (small screen)"
 		center 50 200
 		align right
 	
-	label "(Extra crew for your flagship increases your odds of capturing ships,"
+	label "(旗舰配备额外船员可提升你俘获飞船的几率，"
 		center -60 290
 	label "and once you capture a ship you need crew members to serve on it.)"
 		center -60 310
@@ -2481,7 +2481,7 @@ interface "map: mission view: key"
 		from 18 -87
 		color bright
 	visible if "!available"
-	label "Available job; can accept"
+	label "可接任务；可接受"
 		align bottom left
 		from 18 -87
 		color dim
@@ -2491,7 +2491,7 @@ interface "map: mission view: key"
 		from 18 -67
 		color bright
 	visible if "!unavailable"
-	label "Too little space to accept"
+	label "空间不足，无法接收"
 		align bottom left
 		from 18 -67
 		color dim
@@ -2501,7 +2501,7 @@ interface "map: mission view: key"
 		from 18 -47
 		color bright
 	visible if "!active"
-	label "Active job; go here to complete"
+	label "进行中的任务；前往此处完成"
 		align bottom left
 		from 18 -47
 		color dim
@@ -2511,7 +2511,7 @@ interface "map: mission view: key"
 		from 18 -27
 		color bright
 	visible if "!blocked"
-	label "Has unfinished requirements"
+	label "存在未完成的要求"
 		align bottom left
 		from 18 -27
 		color dim
@@ -2521,7 +2521,7 @@ interface "map: mission view: key"
 		from 18 -7
 		color bright
 	visible if "!waypoint"
-	label "System of importance"
+	label "重要星系"
 		align bottom left
 		from 18 -7
 		color dim

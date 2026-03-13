@@ -64,7 +64,7 @@ mission "Betelgeuse Shipment [1]"
 overwrite
 mission "Betelgeuse Shipment [2]"
 	name "Shipment to <planet>"
-	description "Deliver <cargo> to <planet>, the home of Betelgeuse Shipyards, a well-respected ship manufacturer in the region. Payment is <payment>."
+	description "将 <cargo> 交付至 <planet>，这里是参宿四船坞的所在地——该船坞是本地区备受尊敬的飞船制造商。报酬为 <payment>。"
 	cargo "minerals" 5 2 .1
 	job
 	repeat

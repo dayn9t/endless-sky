@@ -63,7 +63,7 @@ mission "企业度假地：途经<planet stopovers>"
 
 overwrite
 mission "Large Corporate retreat"
-	name "Corporate retreat to <planet stopovers>"
+	name "企业度假地：途经<planet stopovers>"
 	job
 	repeat
 	deadline
@@ -208,7 +208,7 @@ mission "Rush equipment Delivery"
 
 overwrite
 mission "辛迪加靶场训练 [0]"
-	name "Syndicate target practice"
+	name "辛迪加靶场训练"
 	job
 	repeat
 	description "在<system>中瘫痪目标机器人训练假船，通过扫描其货物为辛迪加工程师收集测试数据，随后在<planet>着陆。警告：该目标飞船已预设自卫程序，以确保模拟环境的真实性。报酬为<payment>。"
@@ -285,7 +285,7 @@ mission "Syndicate target practice [2]"
 	name "Syndicate target practice"
 	job
 	repeat
-	description "Disable the robotic target dummy ship in <system>, collect test data for Syndicate engineers by scanning its cargo, and land on <planet>. Warning: the target ship is programmed to engage in self-defense behaviors to ensure a realistic simulation. Payment is <payment>."
+	description "在<system>中瘫痪机器人靶船，通过扫描其货物为辛迪加工程师收集测试数据，并降落在<planet>上。警告：该靶船已编程启用自卫行为，以确保模拟的真实性。报酬为<payment>。"
 	source
 		government Syndicate
 	destination
@@ -630,7 +630,7 @@ mission "Syndicated Shipyards Shipment [1]"
 overwrite
 mission "Syndicated Shipyards Shipment [2]"
 	name "Shipment to <planet>"
-	description "Syndicated Shipyards, one of the largest shipyards in human space, requests an independent captain to deliver <cargo> to <destination> to ensure sufficient stocks. Payment is <payment>."
+	description "辛迪加船坞——人类疆域内规模最大的船坞之一——诚邀独立船长将<cargo>运送至<destination>，以确保库存充足。报酬为<payment>。"
 	cargo "Ship Systems" 5 2 .1
 	job
 	repeat
@@ -780,7 +780,7 @@ mission "Megaparsec Shipment [1]"
 overwrite
 mission "Megaparsec Shipment [2]"
 	name "Shipment to <planet>"
-	description "Deliver <cargo> to <destination>, the home of Megaparsec Inc., a shipyard known for their lightweight designs. Payment is <payment>."
+	description "将 <cargo> 交付至 <destination>——兆秒差距公司（Megaparsec Inc.）总部所在地。该公司船坞以轻量化飞船设计著称。报酬为 <payment>。"
 	cargo "Ship Systems" 5 2 .1
 	job
 	repeat

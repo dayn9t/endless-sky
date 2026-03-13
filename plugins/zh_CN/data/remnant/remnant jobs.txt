@@ -431,7 +431,7 @@ overwrite
 mission "Remnant: Rescue 1B"
 	job
 	repeat
-	name "Search and Rescue: Scout"
+	name "搜索与救援：侦察"
 	description "<npc>在余烬荒原执行侦察任务期间失踪。请找到他们，并协助其返回<destination>。"
 	source
 		government "Remnant"
@@ -503,7 +503,7 @@ mission "Remnant: Rescue 2"
 			`你的通讯器提示你已收到一笔资源分配，数额为<payment>，并附有一封简短的致谢便条。`
 	on visit
 		dialog
-			`You have returned, yet the <npc> is still missing.`
+			`你已返回，但<npc>依然下落不明。`
 
 
 
@@ -511,7 +511,7 @@ overwrite
 mission "Remnant: Rescue 2B"
 	job
 	repeat
-	name "Search and Rescue: Retrieval"
+	name "搜索与救援：回收"
 	description "<npc>在余烬荒原执行技术回收任务期间失踪。请找到他们，并协助其返回<destination>。"
 	source
 		government "Remnant"
@@ -589,7 +589,7 @@ overwrite
 mission "Remnant: Rescue 3B"
 	job
 	repeat
-	name "Search and Rescue: Supply Ship"
+	name "搜索与救援：补给船"
 	description "<npc>在余烬荒原执行补给任务期间失踪。请找到他们，并协助其返回<destination>。"
 	source
 		government "Remnant"
@@ -612,12 +612,12 @@ mission "Remnant: Rescue 3B"
 			variant
 				"Rescue Dummy"
 		dialog
-			`As you enter the system, your sensors pick up a lot of debris. Further analysis confirms your worst fears. The <npc> has been destroyed. You frantically spend the next few hours searching for survivors, your hope sinking with every passing minute.`
+			`当你进入该星系时，传感器探测到大量残骸。进一步分析证实了你最糟糕的预感：<npc>已被摧毁。你在接下来的数小时内疯狂搜寻幸存者，而每过一分钟，你的希望便随之沉落一分。`
 	on complete
 		"remnant: rescue missions" ++
 		payment 300000
 		dialog
-			`You land, and with a heavy heart, report that the <npc> was lost with all hands. The Remnant are saddened at the news, but thank you regardless and hand off your resource allocation of <payment>.`
+			`你降落之后，怀着沉重的心情报告称< npc >已全员遇难。残余者听闻此讯深感悲痛，但仍向你致谢，并交付了< payment >的资源配额。`
 	on visit
 		dialog
 			`You have returned, yet the <npc> is still missing.`

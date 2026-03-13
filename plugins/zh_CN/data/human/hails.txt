@@ -6124,7 +6124,7 @@ phrase "hostile navy"
 		"integrity"
 		"democracy"
 		"the rule of law"
-		"peace among the stars"
+		“群星之间的和平”
 		"the integrity of our Republic"
 		"the Republic"
 	word

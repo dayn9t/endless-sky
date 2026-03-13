@@ -599,7 +599,7 @@ person "Power of the People"
 			"Only the enemy will tell you where you are weak."
 			"Shoot a nuke down a bug hole, you got a lot of dead bugs."
 			"Your enemy cannot push a button... if you disable his hand."
-			"This isn't a combat probe."
+			“这不是一枚战斗探测器。”
 			"Never tell me the odds."
 			"I dare you."
 			"Be sure to test your commits."

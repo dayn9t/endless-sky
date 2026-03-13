@@ -288,9 +288,9 @@ news "saryd civilian"
 			"Local Saryd"
 	message
 		word
-			`"Arrested close to where my cousins work, the terrorists on the news were. Notice anything wrong with them, they never did."`
-			`"Always rising, the sun in these broadcasts is, but a night shift I work, so see it for myself, I never can..."`
-			`"To Ring of Wisdom, a researcher friend of mine has gone. Always there, our wisest mingle, but remain here, few do. Difficult for us, sometimes it is."`
+			`"新闻里那些恐怖分子，就在我的表亲们工作地点附近被捕。可他们身上有什么不对劲，却从来没人注意到。"`
+			`“这些广播里太阳总在升起，可我上的是夜班，所以从来都看不到它……”`
+			`“前往智慧之环，我一位研究者朋友已前往那里。我们最睿智者常聚于此，但留在此处的却寥寥无几。对我们而言，有时这的确颇为艰难。”`
 			`“令人心烦的是，基梅克人与阿拉奇游客竟带着孩子前来——他们到处攀爬，无所顾忌。”`
 			`“过去我常四处旅行，但我们的行星并非无穷无尽，如今所有星球我都已踏足。”`
 

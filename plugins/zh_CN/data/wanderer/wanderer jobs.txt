@@ -39,7 +39,7 @@ mission "Wanderer Workers [0]"
 
 overwrite
 mission "Wanderer Workers [1]"
-	name "Wanderer workers to <planet>"
+	name "漫游者工人前往<planet>"
 	job
 	repeat
 	description `这<bunks>名流浪者工人需要前往<destination>的运输服务。他们将向你支付<payment>作为酬劳。`
@@ -90,7 +90,7 @@ mission "Wanderer Farmers [0]"
 
 overwrite
 mission "Wanderer Farmers [1]"
-	name "Wanderer farmers to <planet>"
+	name "漫游者农民前往<planet>"
 	job
 	repeat
 	description `这<bunks>名流浪者农民需要前往<destination>的运输服务。他们将向你支付<payment>作为酬劳。`
@@ -141,7 +141,7 @@ mission "Wanderer Younglings [0]"
 
 overwrite
 mission "Wanderer Younglings [1]"
-	name "Wanderer younglings to <planet>"
+	name "漫游者幼年体前往<planet>"
 	job
 	repeat
 	description `这<bunks>名流浪者幼年体正寻找前往<destination>的交通工具，以便更深入地了解流浪者的行星改造过程。随行的成年流浪者将向你支付<payment>。`
@@ -193,7 +193,7 @@ mission "Wanderer Scientists (Pollution) [0]"
 
 overwrite
 mission "Wanderer Scientists (Pollution) [1]"
-	name "Spike in pollution on <planet>"
+	name "<planet>上的污染激增"
 	job
 	repeat
 	description `这<bunks>名流浪者科学家希望在<date>前携其<cargo>抵达<destination>，以调查大气污染物异常激增的现象。酬劳为<payment>。`
@@ -246,7 +246,7 @@ mission "Wanderer Scientists (Phenomenon) [0]"
 
 overwrite
 mission "Wanderer Scientists (Phenomenon) [1]"
-	name "Natural phenomenon on <planet>"
+	name "<planet>上的自然现象"
 	job
 	repeat
 	description `这<bunks>名流浪者科学家希望在<date>前携其<cargo>抵达<destination>，以观测一种罕见的自然现象。酬劳为<payment>。`
@@ -298,7 +298,7 @@ mission "Wanderer Biologists [0]"
 
 overwrite
 mission "Wanderer Biologists [1]"
-	name "New animal found on <planet>"
+	name "在<planet>发现新动物"
 	job
 	repeat
 	description `这< bunks >名游荡者生物学家希望携其< cargo >前往< destination >，以研究一种新近发现的动物物种。酬劳为< payment >。`
@@ -349,7 +349,7 @@ mission "Wanderer Botanists [0]"
 
 overwrite
 mission "Wanderer Botanists [1]"
-	name "New plant found on <planet>"
+	name "在<planet>发现新植物"
 	job
 	repeat
 	description `这< bunks >名游荡者植物学家希望携其< cargo >前往< destination >，以研究一种新近发现的植物物种。酬劳为< payment >。`
@@ -400,7 +400,7 @@ mission "Wanderer Harvest [0]"
 
 overwrite
 mission "Wanderer Harvest [1]"
-	name "Food harvest on <planet>"
+	name "在<planet>采集食物"
 	job
 	repeat
 	description `将这<bunks>名漫游者送往<destination>，协助粮食收获。报酬为<payment>。`
@@ -454,7 +454,7 @@ mission "Wanderer Invasive Species [0]"
 
 overwrite
 mission "Wanderer Invasive Species [1]"
-	name "Quarantine an invasive species"
+	name "隔离入侵物种"
 	job
 	repeat
 	description `这批<bunks>流浪者需将<cargo>运抵<stopovers>，以遏制一种入侵性植物物种的扩散。请于<date>前将这些流浪者及植物送回<origin>，报酬为<payment>。`
@@ -886,7 +886,7 @@ mission "Wanderer Kor Efreti: Cargo [1]"
 	name "Delivery to <planet>"
 	job
 	repeat
-	description "Deliver <cargo> to the Kor Efreti on <destination>. Payment is <payment>."
+	description "将 <cargo> 交付给 <destination> 的科拉斯·埃弗雷蒂。报酬为 <payment>。"
 	cargo random 5 4 .10
 	to offer
 		has "wanderers sestor done"

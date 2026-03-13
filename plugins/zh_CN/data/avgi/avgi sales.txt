@@ -132,7 +132,7 @@ outfitter "Avgi Propulsion"
 	"Remass Injector"
 
 outfitter "Avgi Torches"
-	`Z-333 "Spark" Fusion Torch`
+	`Z-333 "火花" 聚变火炬`
 	`Z-666 “电击” 聚变火炬`
 	"R-360 RCS Thrusters"
 	"R-720 RCS Thrusters"
@@ -189,6 +189,6 @@ outfitter "Avgi Dissonance Smuggling"
 	"Concealment Lamina"
 	"Diffuse Deflector"
 	`Z-333 "Spark" Fusion Torch`
-	`Z-666 "Zap" Fusion Torch`
+	`Z-666 "电击" 聚变火炬`
 	"Inductive Extractor"
 	"Remass Injector"

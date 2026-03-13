@@ -189,7 +189,7 @@ mission "Kor Efreti: Passengers [0]"
 
 overwrite
 mission "Kor Efreti: Passengers [1]"
-	name "Korath passengers to <planet>"
+	name "运送科拉斯乘客至<planet>"
 	job
 	repeat
 	description "将这<bunks>名科拉斯·埃弗雷蒂成员送往<destination>。报酬为<payment>。"

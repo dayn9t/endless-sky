@@ -92,7 +92,7 @@ mission "Pirate Occupation [1]"
 
 overwrite
 mission "Pirate Occupation [2]"
-	name `Pirates occupying <system>`
+	name `占领<system>的海盗`
 	minor
 	repeat
 	description `一支庞大的海盗团伙已占领<system>星系，当地政府请求援助。请在<date>之前击溃该星系内的海盗，并降落在<planet>行星上，以领取<payment>积分报酬。`
@@ -318,7 +318,7 @@ mission "Tarazed Shipyards Shipment [1]"
 overwrite
 mission "Tarazed Shipyards Shipment [2]"
 	name "Shipment to <planet>"
-	description "Deliver <cargo> to <planet>, the home of Tarazed Shipyards, one of the largest shipbuilding firms in the South. Payment is <payment>."
+	description "将 <cargo> 交付至 <planet>，这里是天棓四船坞的所在地——南方最大造船公司之一。报酬为 <payment>。"
 	cargo "Ship Systems" 5 2 .1
 	job
 	repeat

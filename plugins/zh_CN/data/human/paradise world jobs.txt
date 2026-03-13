@@ -187,7 +187,7 @@ mission "Transport partiers [1]"
 
 overwrite
 mission "Transport partiers [2]"
-	name "Party-goers to <planet>"
+	name "派对参与者前往<planet>"
 	job
 	repeat
 	description "这批共<bunks>人的大学生愿支付<payment>，搭乘豪华飞船前往<destination>参加一场盛大的派对，并随行携带<tons>吨零食与学习用品。"
@@ -546,7 +546,7 @@ mission "Paradise Job: Retirees"
 
 overwrite
 mission "Paradise Job: Pirate Retirees (Illegal)"
-	name "Wealthy retirees to <planet>"
+	name "富裕的退休人员前往<planet>"
 	job
 	repeat
 	description `这群<bunks>位富有的“退休人士”愿支付<payment>积分，以时尚、无需盘问的方式运送至<destination>，同时携带<tons>吨他们最珍视的财物。`
@@ -807,7 +807,7 @@ mission "Martini Evacuation (Resident)"
 
 overwrite
 mission "Martini Evacuation (Family, Luxury)"
-	name "Evacuate Martini residents to <planet>"
+	name "将马蒂尼居民撤离至<planet>"
 	description "这户来自马提尼的<bunks>家庭，其<martini house>在核轰炸中被摧毁，迫切希望搭乘一艘豪华飞船立即离开。请将他们及其<cargo>运送至<planet>——他们在当地已有落脚之处。作为酬劳，他们将支付你<payment>。"
 	job
 	repeat
@@ -839,7 +839,7 @@ mission "Martini Evacuation (Family, Luxury)"
 
 overwrite
 mission "Martini Evacuation (Singular, Luxury)"
-	name "Evacuate Martini resident to <planet>"
+	name "将马蒂尼居民撤离至<planet>"
 	description "这位来自马提尼的居民，其<martini house>在核轰炸中被摧毁，迫切希望立即搭乘豪华飞船撤离。请将其本人及<cargo>运送至<planet>，他们在当地已有住所。作为报酬，他们将支付你<payment>。"
 	job
 	repeat
@@ -1299,7 +1299,7 @@ mission "Martini Relief (Medical) [0]"
 
 overwrite
 mission "Martini Relief (Medical) [1]"
-	name "Disaster relief to Martini"
+	name "前往马提尼星执行灾难救援任务"
 	description "由于近日核打击事件，请将< cargo>运抵<planet>，以协助救治伤员。您需呼叫太空港管制员以获取行星着陆许可。报酬为<payment>。"
 	job
 	repeat
@@ -1388,7 +1388,7 @@ mission "Martini Relief (Water Tablets)"
 overwrite
 mission "Martini Relief (Fire Retardant)"
 	name "阻燃剂运往马丁尼"
-	description "Due to the recent nuclear bombings, bring <cargo> to <planet> to help keep up supply. You will need to hail the spaceport controller to gain clearance to the planet. Payment is <payment>."
+	description "由于近日核轰炸事件，请将< cargo>运抵<planet>，以维持物资供应。您需呼叫太空港管制员以获取行星着陆许可。报酬为<payment>。"
 	job
 	repeat
 	cargo "fire retardant" 1 2 .2
@@ -1438,7 +1438,7 @@ mission "Martini Relief (People) [0]"
 
 overwrite
 mission "Martini Relief (People) [1]"
-	name "Relief workers to Martini"
+	name "前往马提尼的救援人员"
 	description "由于马蒂尼星近期遭受核打击，请将<bunks> <martini relief occupations>运抵<planet>，以支援马蒂尼的灾后救援工作。你需呼叫太空港管制员以获取行星着陆许可。报酬为<payment>。"
 	job
 	repeat

@@ -51,7 +51,7 @@ mission "Unfettered Tribute 1"
 
 overwrite
 mission "Unfettered Tribute 2"
-	name "Hai Tribute from <planet stopovers>"
+	name "海伊贡品来自<planet stopovers>"
 	job
 	repeat
 	clearance "After speaking with the Unfettered and explaining your presence, they give you permission to land with the tribute from the other Hai."
@@ -80,7 +80,7 @@ mission "Unfettered Tribute 3"
 	job
 	repeat
 	clearance "After speaking with the Unfettered and explaining your presence, they give you permission to land with the tribute from the other Hai."
-	description "Collect a tribute payment of <tons> of food from <stopovers>, and bring it to the Unfettered on <destination>. Your share of the tribute will be <payment>."
+	description "从<stopovers>征收<tons>吨食物作为贡品，并将其运送到<destination>交给无羁者。你应得的贡品份额为<payment>。"
 	to offer
 		has "Unfettered Jump Drive 2: offered"
 		random < 40
@@ -226,7 +226,7 @@ mission "Unfettered Silicon Asteroid Mining 2"
 	job
 	repeat
 	clearance "After speaking with the Unfettered and explaining your presence, they give you permission to land and deliver the minerals."
-	name "Gather Silicon from asteroids"
+	name "从小行星采集硅"
 	description "开采并收集100吨硅矿，然后将矿物运至<destination>，获取<payment>报酬。硅矿可在瓦尤特小行星带中获取。"
 	source "Darkcloak"
 	to offer
@@ -261,7 +261,7 @@ mission "Unfettered Silver Asteroid Mining 2"
 	job
 	repeat
 	clearance "After speaking with the Unfettered and explaining your presence, they give you permission to land and deliver the minerals."
-	name "Gather Silver from asteroids"
+	name "从小行星采集银"
 	description "开采并收集30吨银矿，然后将矿物运至<destination>，获取<payment>报酬。银矿可在埃玛提小行星带中获取。"
 	source
 		attributes "unfettered"
@@ -300,7 +300,7 @@ mission "Unfettered Lead Asteroid Mining 2"
 	job
 	repeat
 	clearance "After speaking with the Unfettered and explaining your presence, they give you permission to land and deliver the minerals."
-	name "Gather Lead from asteroids"
+	name "从小行星采集铅"
 	description "开采并收集70吨铅，然后将矿物运至<destination>，获取<payment>报酬。铅可在瓦尤特（Wah Yoot）的小行星带中获取。"
 	source
 		attributes "unfettered"

@@ -42,7 +42,7 @@ overwrite
 mission "Coalition: Ringworld Workers 2"
 	job
 	repeat
-	name "Workers to the <planet>"
+	name "前往<planet>的工人"
 	description "将这支< bunks >人的工人队伍运送至赫利阿克< planet >，他们将在环形世界的维护与扩建工作中提供协助。报酬为< payment >。"
 	passengers 5 5 .1
 	to offer
@@ -65,7 +65,7 @@ mission "Coalition: Ringworld Workers 3"
 	job
 	repeat
 	name "Workers to the <planet>"
-	description "Transport this crew of <bunks> workers to the Heliarch <planet>, where they will help in the efforts to maintain and expand the ringworld. Payment will be <payment>."
+	description "将这支由<bunks>名工人组成的队伍运送至赫利阿克<planet>，他们将在环形世界的维护与扩建工作中提供协助。报酬为<payment>。"
 	passengers 5 3 .04
 	to offer
 		has "known to the heliarchs"
@@ -114,7 +114,7 @@ overwrite
 mission "Coalition: Ringworld Volunteers 2"
 	job
 	repeat
-	name "Volunteers to the <planet>"
+	name "前往<planet>的志愿者"
 	description "政府将向你支付< payment>，以运送这批< bunks>名志愿工人前往< planet>，他们将在那里参与建设工作，以换取食宿。"
 	passengers 5 10 .5
 	to offer
@@ -137,7 +137,7 @@ mission "Coalition: Ringworld Volunteers 3"
 	job
 	repeat
 	name "Volunteers to the <planet>"
-	description "The government will pay you <payment> to bring these <bunks> volunteer workers to the <planet>, where they will assist in the construction effort in return for room and board."
+	description "政府将支付您<payment>，以将这些<bunks>名志愿者工人运送至<planet>。他们将在当地协助建设工作，以此换取食宿。"
 	passengers 5 4 .2
 	to offer
 		has "known to the heliarchs"
@@ -187,7 +187,7 @@ overwrite
 mission "Coalition: Ringworld Materials 2"
 	job
 	repeat
-	name "Materials to the <planet>"
+	name "运往<planet>的物资"
 	description "于<date>前将这些<tons>吨建筑材料运送至赫利阿克<planet>。报酬为<payment>。"
 	deadline
 	cargo "Construction" 10 4 .02
@@ -211,7 +211,7 @@ mission "Coalition: Ringworld Materials 3"
 	job
 	repeat
 	name "Materials to the <planet>"
-	description "Deliver these <tons> of construction materials to the Heliarch <planet> by <date>. Payment will be <payment>."
+	description "于<date>前将这些<tons>吨建筑材料运送至赫利阿克<planet>。报酬为<payment>。"
 	deadline
 	cargo "Construction" 10 5 .02
 	to offer
@@ -261,7 +261,7 @@ overwrite
 mission "Coalition: Ringworld Supplies 2"
 	job
 	repeat
-	name "Supplies to the <planet>"
+	name "运往<planet>的补给"
 	description "此批货物共<tons>吨补给，系<origin>政府向赫利阿克<planet>提供的援助捐赠。交付完成后，你将获得<payment>报酬。"
 	cargo random 5 10 .15
 	to offer
@@ -284,7 +284,7 @@ mission "Coalition: Ringworld Supplies 3"
 	job
 	repeat
 	name "Supplies to the <planet>"
-	description "This shipment of <tons> of supplies is a donation from the government of <origin> to help support the Heliarch <planet>. You will be paid <payment> on delivery."
+	description "这批共计<tons>吨的物资，是由<origin>政府捐赠，用于支援赫利阿克<planet>。货物送达后，您将获得<payment>报酬。"
 	cargo random 5 10 .1
 	to offer
 		has "known to the heliarchs"
@@ -357,7 +357,7 @@ overwrite
 mission "Coalition: Interpreters 2"
 	job
 	repeat
-	name "Interpreters to <planet>"
+	name "前往<planet>担任翻译人员"
 	description "将这<bunks>名赫利阿克特特工（受过翻译与调解训练）送往<destination>。报酬为<payment>。"
 	passengers 2 5 .5
 	to offer
@@ -380,7 +380,7 @@ mission "Coalition: Interpreters 3"
 	job
 	repeat
 	name "Interpreters to <planet>"
-	description "Bring these <bunks> Heliarch agents, trained as interpreters and mediators, to <destination>. Payment is <payment>."
+	description "将这<bunks>名赫利阿克特特工（受过翻译与调解训练）送往<destination>。报酬为<payment>。"
 	passengers 2 10 .5
 	to offer
 		has "known to the heliarchs"
@@ -429,7 +429,7 @@ overwrite
 mission "Coalition: Peacekeepers 2"
 	job
 	repeat
-	name "Peacekeepers to <planet>"
+	name "维和人员前往<planet>"
 	description "将这支< bunks >人的维和部队运送到< destination >，调查有关卢纳瑞姆活动的报告。报酬为< payment >。"
 	passengers 10 5 .1
 	to offer
@@ -502,7 +502,7 @@ mission "Coalition: Kimek Interspecies 1"
 	job
 	repeat
 	name "Kimek to <planet>"
-	description "As part of the Interspecies Exchange Program, these <bunks> volunteer settlers need transportation to <destination>. The government will pay their transport fee of <payment>."
+	description "作为跨物种交流计划的一部分，这些<bunks>志愿定居者需要被运送至<destination>。政府将支付其运输费用<payment>。"
 	passengers 4 2 .1
 	to offer
 		has "known to the heliarchs"
@@ -619,7 +619,7 @@ overwrite
 mission "Coalition: Transfer 2"
 	job
 	repeat
-	name "Transfer to <planet>"
+	name "运送到<planet>"
 	description "作为充分就业计划的一部分，这些<bunks>工人需被运送至<destination>。政府将支付其运输费用<payment>。"
 	passengers 2 10 .2
 	to offer
@@ -644,7 +644,7 @@ mission "Coalition: Transfer 3"
 	job
 	repeat
 	name "Transfer to <planet>"
-	description "As a part of the Full Employment Program, these <bunks> workers need transportation to <destination>. The government will pay their transport fee of <payment>."
+	description "作为充分就业计划的一部分，这些<bunks>工人需被运送至<destination>。政府将支付其运输费用<payment>。"
 	passengers 2 10 .1
 	to offer
 		has "known to the heliarchs"
@@ -726,7 +726,7 @@ mission "Coalition: Tourists Out 3"
 	job
 	repeat
 	name "Vacationers to <planet>"
-	description "These <bunks> tourists will pay you <payment> to bring them to <destination> and desire to travel in a very comfortable ship. Payment is void if they do not arrive by <date>."
+	description "这< bunks >名游客愿向你支付< payment >，以搭乘你的飞船前往< destination >，且要求乘坐极为舒适的飞船。若未能在< date >前抵达，报酬将作废。"
 	deadline
 	passengers 2 5 .3
 	to offer
@@ -810,7 +810,7 @@ mission "Coalition: Tourists Home 3"
 	job
 	repeat
 	name "Vacationers to <planet>"
-	description "These <bunks> tourists will pay you <payment> to bring them home to <destination> and desire to travel in a very comfortable ship. Payment is void if they do not arrive by <date>."
+	description "这< bunks >名游客愿向你支付< payment >，以搭乘你的飞船返回< destination >，且要求乘坐极为舒适的飞船。若未能在< date >前抵达，报酬将作废。"
 	deadline
 	passengers 2 5 .3
 	to offer
@@ -865,7 +865,7 @@ overwrite
 mission "Coalition: Fast Courier 2"
 	job
 	repeat
-	name "Fast courier to <planet>"
+	name "快速信使任务：前往<planet>"
 	description "于<date>之前将<cargo>运送至<destination>。报酬为<payment>。"
 	deadline 5 1
 	cargo random 2 30 .6
@@ -890,7 +890,7 @@ mission "Coalition: Fast Courier 3"
 	job
 	repeat
 	name "Fast courier to <planet>"
-	description "Deliver <cargo> to <destination> by <date>. The payment is <payment>."
+	description "于<date>前将<cargo>运送至<destination>。报酬为<payment>。"
 	deadline 5 1
 	cargo random 2 40 .6
 	to offer
@@ -1129,7 +1129,7 @@ overwrite
 mission "Coalition: Rush 2"
 	job
 	repeat
-	name "Rush Delivery to <planet>"
+	name "紧急运送至< planet >"
 	description "<destination> 需要在 <date> 前收到一批 <cargo> 货物。报酬为 <payment>。"
 	deadline
 	cargo random 10 12 .2
@@ -1154,7 +1154,7 @@ mission "Coalition: Rush 3"
 	job
 	repeat
 	name "Rush Delivery to <planet>"
-	description "<destination> needs a shipment of <cargo> by <date>. Payment will be <payment>."
+	description "<destination>需要在<date>前运送一批< cargo>。报酬为< payment>。"
 	deadline
 	cargo random 10 18 .2
 	to offer
@@ -1282,7 +1282,7 @@ overwrite
 mission "Coalition: To Games 2"
 	job
 	repeat
-	name "Spectators to <planet>"
+	name "前往<planet>的观众"
 	description "这些<bunks>名乘客愿支付<payment>，以在联盟运动会（截止日期：<date>）前抵达<planet>。"
 	deadline 0 2
 	passengers 4 4 .1
@@ -1307,7 +1307,7 @@ mission "Coalition: To Games 3"
 	job
 	repeat
 	name "Spectators to <planet>"
-	description "These <bunks> passengers will pay <payment> for transportation to <planet> in time for the Coalition Games (by <date>)."
+	description "这< bunks >名乘客愿支付< payment >，以在联盟运动会（截止日期为< date >）前抵达< planet >。"
 	deadline 0 2
 	passengers 4 4 .05
 	to offer
@@ -1355,7 +1355,7 @@ overwrite
 mission "Coalition: From Games 2"
 	job
 	repeat
-	name "Passengers to <planet>"
+	name "乘客前往<planet>"
 	description "将原在<origin>参加辛迪加运动会的<bunks>名乘客送返其母星<destination>。报酬为<payment>。"
 	passengers 4 4 .1
 	to offer
@@ -1380,7 +1380,7 @@ mission "Coalition: From Games 3"
 	job
 	repeat
 	name "Passengers to <planet>"
-	description "Transport <bunks> passengers, who were on <origin> for the Coalition Games, back to their home world of <destination>. Payment is <payment>."
+	description "将原在<origin>参加联盟运动会的<bunks>名乘客送回其母星<destination>。报酬为<payment>。"
 	passengers 4 4 .05
 	to offer
 		has "known to the heliarchs"
@@ -1631,7 +1631,7 @@ overwrite
 mission "Evacuate Lunarium Fail"
 	job
 	repeat
-	name "Rescue Lunarium Members"
+	name "营救卢纳里乌姆成员"
 	description "在<stopovers>接载<bunks>名卢纳里乌姆成员，然后于<date>前将他们送往<destination>。"
 	deadline
 	to offer
@@ -1660,7 +1660,7 @@ overwrite
 mission "Lunarium: 末日核心运送"
 	job
 	repeat
-	name "Armageddon Core Delivery"
+	name "末日核心运送"
 	description "卢纳里乌姆组织愿支付<payment>，委托你将一枚末日核心运抵<destination>。"
 	to offer
 		random < 4
@@ -1688,7 +1688,7 @@ overwrite
 mission "Lunarium: 聚变反应堆运输任务"
 	job
 	repeat
-	name "Fusion Reactor Delivery"
+	name "聚变反应堆运送"
 	description "卢纳里乌姆组织愿支付<payment>，委托你将一台聚变反应堆运送至<destination>。"
 	to offer
 		random < 7
@@ -1716,7 +1716,7 @@ overwrite
 mission "Lunarium: 繁殖反应堆运送任务"
 	job
 	repeat
-	name "Breeder Reactor Delivery"
+	name "育种反应堆运送任务"
 	description "卢纳里乌姆组织愿支付<payment>，委托你将一台育种反应堆运送至<destination>。"
 	to offer
 		random < 10
@@ -1823,7 +1823,7 @@ overwrite
 mission "Lunarium: 火焰喷射器投送任务"
 	job
 	repeat
-	name "Flamethrower Delivery"
+	name "火焰喷射器投送任务"
 	description "卢纳里乌姆组织愿支付<payment>，委托你将两台火焰喷射器运抵<destination>。"
 	to offer
 		random < 8
@@ -1873,7 +1873,7 @@ overwrite
 mission "Lunarium: 反导弹系统运送"
 	job
 	repeat
-	name "Anti-Missile Delivery"
+	name "反导导弹运送任务"
 	description "卢纳里乌姆组织愿支付<payment>，委托你将一座重型反导炮塔运送至<destination>。"
 	to offer
 		random < 10

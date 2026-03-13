@@ -144,15 +144,15 @@ phrase "successor researchers out"
 		`begin `
 		`start `
 	word
-		` cataloging some nearby rock formations. `
-		` taking radiation measurements. `
-		` taking soil measurements. `
-		` taking atmospheric measurements. `
-		` cross-checking the data from a previous expedition. `
+		` 测绘附近一些岩石构造。 `
+		` 进行辐射测量。 `
+		` 进行土壤测量。 `
+		` 进行大气测量。 `
+		` 交叉核对先前远征队收集的数据。 `
 	word
-		`After a few hours, they are ready to return home.`
-		`After several hours, they are ready to return home.`
-		`Eventually, they are ready to return home.`
+		`数小时后，他们便准备返航了。`
+		`数小时后，他们已准备好返家。`
+		`最终，他们已准备好返航回家。`
 
 overwrite
 phrase "successor researchers in"
@@ -196,7 +196,7 @@ overwrite
 mission "Successors: Tourists Out 2"
 	job
 	repeat
-	name "Vacationers to <planet>"
+	name "前往<planet>的度假者"
 	description "这< bunks >名旅客愿支付您< payment >积分，以在< date >前将他们运送至< destination >。"
 	deadline
 	passengers 3 6 .5
@@ -378,7 +378,7 @@ overwrite
 mission "Successors: Workers Out 2"
 	job
 	repeat
-	name "Successor workers to <planet>"
+	name "前往<planet>的继承者工人"
 	description "这些<bunks>工人正在<destination>寻找工作，愿向你支付<payment>，以搭乘你的飞船于<date>前抵达目的地。"
 	deadline
 	passengers 3 6 .5
@@ -432,7 +432,7 @@ overwrite
 mission "Successors: Delivery Out 2"
 	job
 	repeat
-	name "Shipment to <planet>"
+	name "运货至<planet>"
 	description "需要一名信使，将<tons>吨补给品从<origin>运送到<planet>。货到即付<payment>。"
 	cargo random 6 9 .2
 	to offer
@@ -519,7 +519,7 @@ mission "Successors: Large Delivery Out 1"
 	job
 	repeat
 	name "大宗货物运往<planet>"
-	description "A courier is needed for <tons> of supplies from <origin> to <planet>. You will be paid <payment> on delivery."
+	description "需要一名信使，将<tons>吨补给品从<origin>运送到<planet>。货到即付<payment>。"
 	cargo random 30 80 .2
 	to offer
 		has "known to the successors"
@@ -545,7 +545,7 @@ overwrite
 mission "Successors: Large Delivery Out 2"
 	job
 	repeat
-	name "Bulk shipment to <planet>"
+	name "大宗货物运往<planet>"
 	description "A courier is needed for <tons> of supplies from <origin> to <planet>. You will be paid <payment> on delivery."
 	cargo random 50 70 .2
 	to offer
@@ -717,7 +717,7 @@ overwrite
 mission "Successors: Large Researchers Out 1"
 	job
 	repeat
-	name "Researchers to <planet stopovers>"
+	name "前往<planet stopovers>的科研人员"
 	description "这支由<bunks>名成员组成、专注于研究‘先驱者’的大型科研团队，愿向你支付<payment>积分，以换取你将他们运送至<stopovers>并安全送返此处。"
 	passengers 10 30 .5
 	to offer

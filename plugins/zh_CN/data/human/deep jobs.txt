@@ -73,11 +73,11 @@ phrase "deep mystery cube dropoff station payment"
 		`将立方体投入洗衣滑道。`
 	word
 		``
-		` "This has to be legal, or they couldn't post it to the job board," you remind yourself.`
+		` “这一定合法，否则他们不可能把它贴到招聘公告板上。”你这样提醒自己。`
 	word
 		` `
 	word
-		`Your bank account immediately notifies you that the agreed-upon payment of <payment> has been deposited. You wonder how they knew.`
+		`你的银行账户立即通知你，约定的 <payment> 积分已到账。 You wonder how they knew.`
 
 overwrite
 mission "Mystery Cube Delivery Job Safe [0]"
@@ -108,7 +108,7 @@ overwrite
 mission "Mystery Cube Delivery Job Safe [1]"
 	job
 	repeat
-	name "Mystery delivery to <planet>"
+	name "神秘货物运送至<planet>"
 	description "将一份包裹运送至<destination>。报酬为<payment>。"
 	source
 		attributes "deep"
@@ -133,7 +133,7 @@ mission "Mystery Cube Delivery Job [0]"
 	job
 	repeat
 	name "Mystery delivery to <planet>"
-	description "Deliver a package to <destination>. Payment is <payment>."
+	description "将一份包裹运送至<destination>。报酬为<payment>。"
 	source
 		attributes "deep"
 	destination
@@ -526,7 +526,7 @@ overwrite
 mission "Secure Transport Job (Secret) [1]"
 	job
 	repeat
-	name "Secure delivery to <planet>"
+	name "向<planet>安全运送货物"
 	description "将一份安全物资包裹运送至<destination>。报酬为<payment>。"
 	source
 		attributes "deep"
@@ -561,7 +561,7 @@ mission "Secure Transport Job (Secret) [2]"
 	job
 	repeat
 	name "Secure delivery to <planet>"
-	description "Deliver a secure package of supplies to <destination>. Payment is <payment>."
+	description "将一份安全物资包裹运送至<destination>。报酬为<payment>。"
 	source
 		attributes "deep"
 		not attributes "station"
@@ -835,7 +835,7 @@ overwrite
 mission "Secure Transport Job (Deep Security) [1]"
 	job
 	repeat
-	name "Deep Security delivery to <planet>"
+	name "深空安全部队运货至<planet>"
 	description "将一份深空安全部（Deep Security）包裹运送至<destination>。报酬为<payment>。"
 	source
 		attributes "deep"
@@ -899,7 +899,7 @@ mission "Deep Consultants"
 				`	"Who are you?"`
 			`	朱莉伸出手来致意：“抱歉，让我们正式介绍一下。我叫朱莉·吉拉尔。我的助理和我因公务耽搁，错过了原定的交通工具。我们急需前往瓦尔哈拉参加几场重要的商务会议，但遗憾的是，未来五天内的所有船票均已售罄——而我的雇主绝不能接受这种状况。”`
 			choice
-				`	"Sure, I'd be glad to help."`
+				`	“当然，我很乐意帮忙。”`
 					goto sure
 				`	“您的雇主是哪位？”`
 			`	朱莉偷偷瞄了一眼附近的其他人。“嗯，我其实有几位雇主，但目前——间接地——是为深空安全部工作。”`
@@ -998,7 +998,7 @@ overwrite
 mission "Transport Consultants (Deep Security) [1]"
 	job
 	repeat
-	name "Transport Deep Security consultants"
+	name "运送深空安全部（Deep Security）顾问"
 	description "将因深空安全部（Deep Security）导致行程严重延误的<fare>运送至<destination>。报酬为<payment>。"
 	source
 		attributes "deep"
@@ -1101,7 +1101,7 @@ overwrite
 mission "Urgent Deep Sec Consultants [1]"
 	repeat
 	minor
-	name "Rush Deep Security Consultants"
+	name "紧急护送深空安全顾问"
 	description "在<date>前将<bunks>名深空安全部顾问运送至<destination>。报酬为<payment>。"
 	source
 		near "Epsilon Leonis" 3 4
@@ -1173,7 +1173,7 @@ mission "Lionheart Shipment [1]"
 overwrite
 mission "Lionheart Shipment [2]"
 	name "Shipment to <planet>"
-	description "Deliver <cargo> to <destination>, the home of Lionheart Industries, known for its advanced and experimental designs. Payment is <payment>."
+	description "将 <cargo> 交付至 <destination>——狮心工业公司（Lionheart Industries）的所在地。该公司以先进且富有实验性的设计而闻名。报酬为 <payment>。"
 	cargo "Ship Systems" 5 2 .1
 	job
 	repeat

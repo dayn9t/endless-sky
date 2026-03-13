@@ -93,7 +93,7 @@ outfit "Medium Graviton Steering"
 	"force protection" 0.15
 	"inertia reduction" 0.15
 	description "据传言，部分夸格飞船将转向引擎内置，无需外部推进器。它们的工作原理类似陀螺仪，似乎能从任意位置调整飞船朝向；但与陀螺仪不同的是，它们既不会出现饱和，也永远不会锁死。"
-	description "	They also have strange capabilities which seem to violate the laws of physics as humanity understands them. Ships with these engines accelerate faster under their own power than one would expect, while also taking less impact from external forces."
+	description "	它们还具备一些奇特能力，似乎违背了人类所理解的物理定律：搭载此类引擎的飞船在自身动力下加速更快，同时受外部作用力影响更小。"
 
 
 outfit "Large Graviton Thruster"

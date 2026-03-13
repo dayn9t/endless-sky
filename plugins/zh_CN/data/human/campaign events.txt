@@ -1071,7 +1071,7 @@ event "recapture of Kornephoros"
 		description `在此工作的矿工们关系十分紧密，因为他们中的大多数都曾是最初殖民队的成员。他们对外来者并不特别开放，且此处设施极为简陋，甚至不为来访飞船储备燃料。`
 		security .5
 	planet "Deep"
-		spaceport `The spaceport is built on a large island, a now-extinct volcano with an elevation of several kilometers at its center. Most of the large-scale fishing here is done by a single company, Poseidon Industries, which also built and maintains the spaceport. Steep winding roads and sturdy concrete homes and warehouses line the mountain slopes, and below you in the harbor several massive trawling vessels are moored. On the outskirts of the spaceport are the ramshackle houses and open-air marketplace used by the smaller, independent fishing families.`
+		spaceport `太空港建在一座大型岛屿上——这是一座现已熄灭的火山，其中心海拔达数公里。此处大部分大规模捕捞作业由一家名为波塞冬工业（Poseidon Industries）的公司承担，该公司同时也建造并维护着这座太空港。陡峭盘旋的公路以及坚固的混凝土住宅与仓库沿山坡而建；而在你下方的港口中，几艘巨型拖网渔船正停泊着。太空港外围则是小型独立渔民家庭所居住的简陋房屋与露天集市。`
 		security .5
 
 	fleet "Small Republic"
@@ -1771,7 +1771,7 @@ event "fw prison on Clink"
 
 event "fw prison on Clink closes"
 	planet "Clink"
-		description `About a decade ago, a mining corporation from Zug planted a colony on Clink for harvesting some rare earth minerals that are present in this moon's crust due to its unusually high rate of asteroid impacts. The atmosphere here is too thin to breathe without a respirator, and because of the low gravity, the dust raised by the mining operations hangs perpetually in the air.`
+		description `大约十年前，来自祖格的一家矿业公司于克林克星建立了殖民地，旨在开采月球地壳中富含的稀土矿物——这些矿物因该卫星异常频繁的陨石撞击而大量富集。此处大气过于稀薄，不借助呼吸器便无法呼吸；加之重力较低，采矿作业扬起的尘埃会长期悬浮于空中。`
 
 overwrite
 mission "FW Clink Prison Closes"
@@ -1892,7 +1892,7 @@ event "bloodsea independent"
 		fleet "Small Free Worlds" 800
 		fleet "Large Free Worlds" 1500
 	planet "Bloodsea"
-		description `Bloodsea is nearly uninhabited, except for a few small outposts. Its name comes from the planet's oceans, which are blood-red due to rhodophyte algae. Although the climate is temperate and there are many white sand beaches, no one comes here hoping to go swimming.`
+		description `血海星几乎无人居住，仅有几座小型前哨站。其名称源于星球上的海洋——因红藻（rhodophyte algae）而呈现血红色。尽管气候温和，且遍布洁白沙滩，却无人来此期盼游泳。`
 		description `	直到最近，这还是一颗海盗行星，但如今它已正式宣布“独立”，并在自由世界民兵的控制下，公开宣誓摒弃对海盗行为及其他犯罪活动的支持。然而，你感觉当地大多数居民其实并不怎么喜欢自由世界。`
 
 

@@ -99,9 +99,9 @@ outfitter "Hai Intermediate"
 	"Bunk Room"
 	"Fuel Pod"
 	"Hai Corundum Regenerator"
-	`"Basrem" Reverse Thruster`
-	`"Basrem" Atomic Thruster`
-	`"Basrem" Atomic Steering`
+	`“巴塞姆”反向推进器`
+	`“巴塞姆”原子推进器`
+	`“巴塞姆”原子转向推进器`
 	`"本加"反向推进器`
 	`"本加"原子推进器`
 	`"本加"原子转向引擎`
@@ -146,12 +146,12 @@ outfitter "Hai Advanced"
 	`"Basrem" Reverse Thruster`
 	`"Basrem" Atomic Thruster`
 	`"Basrem" Atomic Steering`
-	`"Benga" Reverse Thruster`
-	`"Benga" Atomic Thruster`
-	`"Benga" Atomic Steering`
-	`"Biroo" Reverse Thruster`
-	`"Biroo" Atomic Thruster`
-	`"Biroo" Atomic Steering`
+	`"本加"反向推进器`
+	`"本加"原子推进器`
+	`"本加"原子转向引擎`
+	`"比鲁"反向推进器`
+	`"比鲁"原子推进器`
+	`"比鲁"原子转向引擎`
 	`"邦迪尔"原子推进器`
 	`"邦迪尔"原子转向系统`
 	`“布法尔”原子推进器`
