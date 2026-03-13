@@ -237,7 +237,7 @@ mission "Drug Running [2]"
 	infiltrating
 	description "将< cargo >运送到<destination>，途中不得被行星执法机构扫描或截获。报酬为<payment>。"
 	cargo "Illegal Substances" 5 2 .1
-	illegal 110000 `In addition to the fine, your illegal cargo is confiscated. The pirates won't be happy to hear about this.`
+	illegal 110000 `除罚款外，你的非法货物也将被没收。海盗们听到这个消息后可不会高兴。`
 	stealth
 	to offer
 		random < 60
@@ -377,7 +377,7 @@ mission "Bulk Cargo Smuggling [2]"
 	job
 	repeat
 	infiltrating
-	description "Smuggle <cargo> to <destination> without being scanned or caught by planetary law enforcement. Payment is <payment>."
+	description "将<cargo>走私至<destination>，不得被扫描或被行星执法部门抓获。报酬为<payment>。"
 	cargo "Illegal Cargo" 25 2 .1
 	illegal 172000 `In addition to the fine, your illegal cargo is confiscated. The pirates won't be happy to hear about this.`
 	stealth
@@ -876,7 +876,7 @@ mission "Stealth Cargo Smuggling (South) [0]"
 
 overwrite
 mission "Stealth Cargo Smuggling (South) [1]"
-	name "Highly illegal cargo to <planet>"
+	name "运往<planet>的高危违禁货物"
 	color selected "illegal job: selected"
 	color unselected "illegal job: unselected"
 	color unavailable "illegal job: unavailable"
@@ -1037,7 +1037,7 @@ mission "Stealth Drug Running (North) [1]"
 	job
 	repeat
 	infiltrating
-	description "Run <cargo> to <destination>. If you are scanned or caught by planetary law enforcement, the consequences may be severe. Payment is <payment>."
+	description "将 <cargo> 运送至 <destination>。若你被行星执法部门扫描或抓获，后果可能十分严重。报酬为 <payment>。"
 	cargo "Highly Illegal Substances" 5 2 .1
 	illegal 500000 `In addition to the fine, your illegal cargo is confiscated. The pirates won't be happy to hear about this.`
 	stealth
@@ -1329,7 +1329,7 @@ mission "Stealth Drug Running (South) [0]"
 
 overwrite
 mission "Stealth Drug Running (South) [1]"
-	name "Highly illegal drugs to <planet>"
+	name "运往<planet>的高危违禁药品"
 	color selected "illegal job: selected"
 	color unselected "illegal job: unselected"
 	color unavailable "illegal job: unavailable"
@@ -2842,7 +2842,7 @@ mission "Eliminating Competition (South, Small)"
 
 overwrite
 mission "Eliminating Competition (South, Large)"
-	name "Competition near <system>"
+	name "靠近<system>的势力竞争"
 	description "一个强大的敌对帮派正迅速崛起。其首领目前正位于<system>星系附近。击毙该首领及其护卫，然后于<day>前返回<planet>，即可获得<payment>的报酬。"
 	repeat
 	job
@@ -3710,7 +3710,7 @@ mission "Republic Assassination [1]"
 		
 overwrite
 mission "Republic Assassination [2]"
-	name "Assassinate a political target"
+	name "刺杀一名政治目标"
 	color selected "illegal job: selected"
 	color unselected "illegal job: unselected"
 	color unavailable "illegal job: unavailable"

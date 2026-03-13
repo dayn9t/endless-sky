@@ -247,7 +247,7 @@ outfit "X2200 Ion Steering"
 		"frame rate" 1.1
 	"steering flare sound" "ion small"
 	description "X2200转向系统专为战斗机及其他小型航天器设计，也适用于对机动性要求不高的大型飞船。"
-	description "	Ion engines consume less energy than plasma engines and produce less heat, but they also take up more space for the same amount of thrust."
+	description "	离子引擎比等离子引擎能耗更低、发热量更小，但相同推力下所占空间更大。"
 
 outfit "X3200 Ion Steering"
 	category "Engines"
@@ -449,7 +449,7 @@ outfit "Greyhound Plasma Steering"
 		"frame rate" 6
 	"steering flare sound" "plasma small"
 	description "灰狗级等离子推进系统是德尔塔V公司最受欢迎的产品，适用于各类小型星际飞船。"
-	description "	Plasma engines are a bit more powerful than ion engines of the same size, but they are less energy efficient and produce more heat."
+	description "	等离子引擎比同尺寸的离子引擎略强，但能源效率更低，且产热更多。"
 
 outfit "Impala Plasma Steering"
 	category "Engines"

@@ -143,7 +143,7 @@ mission "To 地球日庆典 [2]"
 
 
 overwrite
-mission "From Earth Day celebration [0]"
+mission "From 地球日庆典 [0]"
 	name `地球日返程任务`
 	job
 	repeat

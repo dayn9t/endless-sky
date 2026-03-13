@@ -531,7 +531,7 @@ ship "Aberrant Junior"
 	explode "large explosion" 18
 	"final explode" "nuke explosion"
 	"final explode" "nuke residue fast" 50
-	description "This appears to be some kind of organo-metallic entity, made from a strange mosaic of organic tissue, conventional material, and an exotic matter that defies conventional analysis."
+	description "这似乎是一种有机金属生命体，由奇异的有机组织、常规材料与一种无法用常规手段分析的奇异物质拼合而成。"
 	description "该变体尤其显得紧凑小巧，体型小于平均水平，且仍处于生长过程中。"
 
 

@@ -105,7 +105,7 @@ mission "To 纪念日庆典 [1]"
 		dialog `太空港工作人员早已身着节日盛装庆祝纪念日，他们从你的飞船上卸下<commodity>货物，并将<payment>报酬交予你。`
 
 overwrite
-mission "To Remembrance Day celebration [2]"
+mission "To 纪念日庆典 [2]"
 	name `纪念日庆典`
 	job
 	repeat
